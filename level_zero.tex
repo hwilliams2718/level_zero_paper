@@ -8,9 +8,19 @@
             linkcolor=black!50!red,
             citecolor=blue,
             pdfpagemode=None]{hyperref}
+\usepackage{cleveref}
 
 \begin{document}
 \title{Regular Representations of Affine Quivers and Level Zero Representations of Affine Lie Groups}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{remark}[theorem]{Remark}
 
 \author{Harold Williams}
 \address{Harold Williams\newline
@@ -35,11 +45,11 @@ USA}
 
 \section{Introduction}
 
-\begin{theorem}
+\begin{theorem}\label{thm:maintheorem}
 Let $G$ be an affine Lie group of type $A_n^{(1)}$, $c$ a Coxeter element of the affine Weyl group, and $Q_c$ the associated affine quiver.  The coordinate ring of $G^{c,c^{-1}}$ is an upper cluster algebras of type $Q_c$ and all unfrozen cluster variables are restrictions of principal minors of representations of $G$ with finite-dimensional weight spaces.  Those that are cluster characters of preprojective, regular, or preinjective representations of $Q_c$ are minors of positive level, level zero, and negative level $G$-representations, respectively.
 \end{theorem}
 
-\begin{conjecture}
+\begin{conjecture}\label{conj:mainconjecture}
 The above theorem holds for arbitrary affine types.
 \end{conjecture}
 
@@ -47,8 +57,70 @@ The above theorem holds for arbitrary affine types.
 \section{Cluster Variables of Affine Quivers}
 
 \section{Highest and Lowest Weight Minors}
+
+\begin{proposition}
+Let $G$ be a Kac-Moody group, $c$ a Coxeter element of its Weyl group, and $B_c$ the associated exchange matrix.  The coordinate ring of the double Bruhat cell $G^{c,c^{-1}}$ is an upper cluster algebra of type $B_c$ with coefficients.  The coordinate ring of the reduced double Bruhat cell $L^{c,c^{-1}}$ is an upper cluster algebra of type $B_c$ with principal coefficients.
+\end{proposition}
+\begin{proof}
+\begin{enumerate}
+\item Cite other papers.
+\item Generalities on reducing double Bruhat cells and forgetting cefficients.
+\item Redo Yang-Zelevinsky change of coefficients.
+\end{enumerate}
+\end{proof}
+
+\begin{proposition}
+Let $G$ be a Kac-Moody group, $c$ a Coxeter element of its Weyl group, and $B_c$ the associated exchange matrix.  All initial and preprojective cluster variables in the coordinate ring of $G^{c,c^{-1}}$ are restrictions of principal minors of highest weight representations.  Their $g$-vectors are of the form $\dotsc$, and the cluster variable with $g$-vector $g = (g_1,\dotsc,g_n)$ is the restriction of the principal minor of weight $\sum g_i \omega_i$.
+\end{proposition}
+\begin{proof}
+\begin{enumerate}
+\item Redo Yang-Zelevinsky computation of the exchange relations among preprojective minors.
+\end{enumerate}
+\end{proof}
+
+\begin{proposition}
+Let $G$ be a Kac-Moody group, $c$ a Coxeter element of its Weyl group, and $B_c$ the associated exchange matrix.  All preinjective cluster variables in the coordinate ring of $G^{c,c^{-1}}$ are restrictions of principal minors of lowest weight representations.  Their $g$-vectors are of the form $\dotsc$, and the cluster variable with $g$-vector $g = (g_1,\dotsc,g_n)$ is the restriction of the principal minor of weight $\sum g_i \omega_i$.
+\end{proposition}
+\begin{proof}
+\begin{enumerate}
+\item Compute change of coordinates between oppositely shuffled parametrizations.
+\item Use this to show antifundamental minors are mutations of fundamental ones.
+\item Think about coefficients in oppositely shuffled parametrization.
+\item Show negative version of generalized minor identities reduce to exchange relations among preinjective minors.
+\end{enumerate}
+\end{proof}
+
 \section{Level Zero Representations}
+
+\begin{lemma}
+Let $c$ be a Coxeter element of the affine Weyl group of type $A_n^{(1)}$ and $Q_c$ the associated quiver.  For $[p,q]$ a cyclic interval in $[0,n]$, the $Q_c$-representation $M_{[p,q]}$ is regular if and only if the total number of sinks and sources in $[p,q]$ is even.
+\end{lemma}
+\begin{proof}
+\begin{enumerate}
+\item Show that the parity condition is preserved under mutation.
+\end{enumerate}
+\end{proof}
+
+\begin{proposition}
+Let $G = \widehat{LSL_{n+1}}$ be the affine Kac-Moody group of type $A_n^{(1)}$, $c$ a Coxeter element of the affine Weyl group, and $Q_c$ the associated affine quiver.  All regular cluster variables in the coordinate ring of $G^{c,c^{-1}}$ are principal minors of level zero representations.  
+\end{proposition}
+\begin{proof}
+\begin{enumerate}
+\item Given a regular representation $M_{[p,q]}$ compute the strand configuration whose minor has the same $F$-polynomial.
+\item Show that the injective copresentation matches the weight of the minor.
+\end{enumerate}
+\end{proof}
+
 \section{Examples in Other Types}
+
+\begin{proposition}
+\Cref{conj:mainconjecture} holds when $G$ is of type $D_4^{(1)}$, $B_2^{(1)},\dotsc$ and $c$ is $\dotsc$. 
+\end{proposition}
+\begin{proof}
+\begin{enumerate}
+\item Write out the computation.
+\end{enumerate}
+\end{proof}
 
 \section{Appendix: Double Bruhat Cells}
 \section{Appendix: Cluster Algebras}
