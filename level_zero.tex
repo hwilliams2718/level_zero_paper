@@ -3,7 +3,7 @@
 \usepackage{xcolor}
 \usepackage{graphicx}
 \usepackage{microtype}
-\usepackage[centering,margin=1.2in]{geometry}
+%\usepackage[centering,margin=1.2in]{geometry}
 \usepackage[colorlinks,
             linkcolor=black!50!red,
             citecolor=blue,
@@ -92,26 +92,6 @@ holds on $G^{c,c^{-1}}$.
 
 \end{proof}
 
-Let $A$ be any irreducible Cartan matrix not of finite type and let $c=s_1\dots s_n$ be a Coxeter element in the Weyl group of $A$. 
-Because of the assumption, any prefix of the infinite word $c^\infty$ is reduced. 
-The letters of $c^\infty$ (and thus its prefixes) are naturally labeled by pair of integers $(k,m)$ with $1\leq k\leq n$ and $m\geq 0$ so that the element $c^ms_1\dots s_k$ corresponds to the indices $(k,m)$. 
-\saySS{We should be able to do this also in finite type replacing prefixes with reduced words.}
-Let $\cAb(B_c)$ be the cluster algebra with principal coefficients associated to $c$.
-\saySS{We may want to settle the notation that relates $B_c$ to $A$ and $c$ onve and for all in some notation section.}
-
-\begin{definition}
-  The \emph{preprojective} cluster variables of $\cAb(B_c)$ are the cluster variables obtained mutating along the word $c^\infty$.
-  Namely $x_{k,m}$ is the cluster variable obtained from the initial cluster by mutating in the directions $(1,0)$ through $(k,m)$.
-  \saySS{This phrasing sucks but I am fighting the blank page at the moment.}
-\end{definition}
-
-\begin{lemma}
-  The preprojective cluster variables of $\cAb(B_c)$ satisfy the exchange relations
-  \begin{equation}
-    x_{k,m-1}x_{k,m} = \prod_{i<k}x_{i,m}^{-a_{i,k}} \prod_{i>k}x_{i,m-1}^{-a_{i,k}} + \prod_{j\in I}y_j^{[c^{m-1}\beta_k^+:\alpha_j]}
-  \end{equation}
-\end{lemma}
-
 \begin{proposition}
 Let $G$ be a Kac-Moody group, $c$ a Coxeter element of its Weyl group, and $B_c$ the associated exchange matrix.  The coordinate ring of the double Bruhat cell $G^{c,c^{-1}}$ is an upper cluster algebra of type $B_c$ with coefficients.  The coordinate ring of the reduced double Bruhat cell $L^{c,c^{-1}}$ is an upper cluster algebra of type $B_c$ with principal coefficients.
 \end{proposition}
@@ -146,15 +126,6 @@ Let $G$ be a Kac-Moody group, $c$ a Coxeter element of its Weyl group, and $B_c$
 
 \section{Level Zero Representations}
 
-\begin{lemma}
-Let $c$ be a Coxeter element of the affine Weyl group of type $A_n^{(1)}$ and $Q_c$ the associated quiver.  For $[p,q]$ a cyclic interval in $[0,n]$, the $Q_c$-representation $M_{[p,q]}$ is regular if and only if the total number of sinks and sources in $[p,q]$ is even.
-\end{lemma}
-\begin{proof}
-\begin{enumerate}
-\item Show that the parity condition is preserved under mutation.
-\end{enumerate}
-\end{proof}
-
 \begin{proposition}
 Let $G = \widehat{LSL_{n+1}}$ be the affine Kac-Moody group of type $A_n^{(1)}$, $c$ a Coxeter element of the affine Weyl group, and $Q_c$ the associated affine quiver.  All regular cluster variables in the coordinate ring of $G^{c,c^{-1}}$ are principal minors of level zero representations.  
 \end{proposition}
@@ -180,6 +151,25 @@ Let $G = \widehat{LSL_{n+1}}$ be the affine Kac-Moody group of type $A_n^{(1)}$,
 
 
 \section{Appendix: Cluster Algebras}
+Let $A$ be any irreducible Cartan matrix of infinite type and let $c=s_1\dots s_n$ be a Coxeter element in the Weyl group of $A$. 
+Because of the assumption, any prefix of the infinite word $c^\infty$ is reduced. 
+The letters of $c^\infty$ (and thus its prefixes) are naturally labeled by pair of integers $(k,m)$ with $1\leq k\leq n$ and $m\geq 0$ where the element $c^ms_1\dots s_k$ corresponds to the indices $(k,m)$. 
+\saySS{We should be able to do this also in finite type replacing prefixes with reduced words.}
+Let $\cAb(B_c)$ be the cluster algebra with principal coefficients associated to $c$.
+\saySS{We may want to settle the notation that relates $B_c$ to $A$ and $c$ onve and for all in some notation section.}
+
+\begin{definition}
+  The \emph{preprojective} cluster variables of $\cAb(B_c)$ are the cluster variables obtained by mutating along the word $c^\infty$.
+  Namely $x_{k,m}$ is the cluster variable obtained from the initial cluster by mutating in the directions $(1,0)$ through $(k,m)$.
+  \saySS{This phrasing sucks but I am fighting the blank page at the moment.}
+\end{definition}
+
+\begin{lemma}
+  The preprojective cluster variables of $\cAb(B_c)$ satisfy the exchange relations
+  \begin{equation}
+    x_{k,m-1}x_{k,m} = \prod_{i<k}x_{i,m}^{-a_{i,k}} \prod_{i>k}x_{i,m-1}^{-a_{i,k}} + \prod_{j\in I}y_j^{[c^{m-1}\beta_k^+:\alpha_j]}
+  \end{equation}
+\end{lemma}
 
 
 \section{Appendix: Quiver Representations}
@@ -202,6 +192,10 @@ Let $G = \widehat{LSL_{n+1}}$ be the affine Kac-Moody group of type $A_n^{(1)}$,
       \item Cite Ringel's ``Tame Algebras and Integral Quadratic Forms''?
     \end{enumerate}
   \end{proof}
+
+  \begin{corollary}
+    A representation $M$ of $Q$ is regular if and only if $\sum\limits_{\ell=1}^k\dim M_{i_k}$ is even.
+  \end{corollary}
 
 \section{Conventions}
 
