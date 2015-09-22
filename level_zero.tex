@@ -200,8 +200,49 @@ Let $\cAb(B_c)$ be the cluster algebra with principal coefficients associated to
 \section{Conventions}
 
 \begin{itemize}
-\item The minor $\Delta_\omega^\delta$ is our notation for YZ's $\Delta_{\delta, \omega}$.
-\item The Cartan matrix is $a$ and it's $n \times n$.
+
+  \item 
+    The Cartan matrix is $A=a_{i,j}$ and it's $n \times n$.
+
+  \item 
+    $I=[1,n]$ is the set of indices of the nodes of the Dynkin diagram. The labels are such that $c=s_1\dots s_n$.
+
+  \item 
+    $B_c$ is the matrix given by
+    \[
+      b_{ij} = \begin{cases}
+        -a_{ij} & i<j\\
+        a_{ij}  & i>j\\
+        0       & i=j
+      \end{cases}
+    \]
+    (negative below the diagonal)
+
+  \item
+    The Euler matrix $E_c$ is given by
+    \[
+      e_{ij} = \begin{cases}
+        0       & i<j\\
+        a_{ij}  & i>j\\
+        1       & i=j
+      \end{cases}
+    \]
+    (negative below the diagonal 0 above)
+
+  \item
+    The initial $B$-matrix for $G^{c,c^{-1}}$ with double reduced word $\bar 1,\dots,\bar n,n\dots 1$ is
+    \[
+      \left[
+        \begin{array}{c}
+          B_c\\
+          E_{c^{-1}}\\
+          E_{c^{-1}}
+        \end{array}
+      \right]
+    \]
+  
+  \item 
+    The minor $\Delta_\omega^\delta$ is our notation for YZ's $\Delta_{\delta, \omega}$.
 \end{itemize}
 
 \end{document}
