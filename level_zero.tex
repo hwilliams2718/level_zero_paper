@@ -3,7 +3,7 @@
 \usepackage{xcolor}
 \usepackage{graphicx}
 \usepackage{microtype}
-\usepackage[centering,margin=1.2in]{geometry}
+%\usepackage[centering,margin=1.2in]{geometry}
 \usepackage[colorlinks,
             linkcolor=black!50!red,
             citecolor=blue,
@@ -12,12 +12,14 @@
 
 \usepackage[draft]{say}
 \newcommand{\sayHW}[1]{\say[HW]{\color{violet}{\bf HW:}\;#1}}
-\newcommand{\saySS}[1]{\say[SS]{\color{blue}{\bf VS:}\;#1}}
-\newcommand{\sayDR}[1]{\say[DR]{\color{red}{\bf EZ:}\;#1}}
+\newcommand{\saySS}[1]{\say[SS]{\color{blue}{\bf SS:}\;#1}}
+\newcommand{\sayDR}[1]{\say[DR]{\color{red}{\bf DR:}\;#1}}
 
 % shorthands 
 \newcommand{\cA}{\mathcal{A}}
 \newcommand{\bC}{\mathbb{C}}
+\newcommand{\cAb}{\mathcal{A}_\bullet}
+\newcommand{\rep}{\operatorname{rep}}
 
 % ambients
 \newtheorem{theorem}{Theorem}[section]
@@ -33,15 +35,19 @@
 \title{Regular Representations of Affine Quivers and Level Zero Representations of Affine Lie Groups}
 
 \author{Harold Williams}
-\address{Harold Williams\newline
+\address[Harold Williams]{
 University of Texas at Austin\newline
 Department of Mathematics\newline
-Austin TX 78712\newline
+Austin, TX 78712\newline
 USA}
 \email{hwilliams@math.utexas.edu}
 
 \author[Rupel]{Dylan Rupel}
-\address[Dylan Rupel]{University of Notre Dame}
+\address[Dylan Rupel]{
+University of Notre Dame\newline
+Department of Mathematics\newline
+Notre Dame, IN 46556\newline
+USA}
 \email{drupel@nd.edu}
 
 \author[Stella]{Salvatore Stella}
@@ -56,7 +62,7 @@ USA}
 \section{Introduction}
 
 \begin{theorem}\label{thm:maintheorem}
-Let $G$ be an affine Lie group of type $A_n^{(1)}$, $c$ a Coxeter element of the affine Weyl group, and $Q_c$ the associated affine quiver.  The coordinate ring of $G^{c,c^{-1}}$ is an upper cluster algebras of type $Q_c$ and all unfrozen cluster variables are restrictions of principal minors of representations of $G$ with finite-dimensional weight spaces.  Those that are cluster characters of preprojective, regular, or preinjective representations of $Q_c$ are minors of positive level, level zero, and negative level $G$-representations, respectively.
+Let $G$ be an affine Lie group of type $A_n^{(1)}$, $c$ a Coxeter element of the affine Weyl group, and $Q_c$ the associated affine quiver.  The coordinate ring of $G^{c,c^{-1}}$ is an upper cluster algebras of type $Q_c$ and all mutable cluster variables are restrictions of principal minors of representations of $G$ with finite-dimensional weight spaces.  Those that are cluster characters of preprojective, regular, or postinjective representations of $Q_c$ are minors of positive level, level zero, and negative level $G$-representations, respectively.
 \end{theorem}
 
 \begin{conjecture}\label{conj:mainconjecture}
@@ -64,7 +70,6 @@ The above theorem holds for arbitrary affine types.
 \end{conjecture}
 
 \section{Cluster Structures on Coxeter Double Bruhat Cells}
-\section{Cluster Variables of Affine Quivers}
 
 \section{Highest and Lowest Weight Minors}
 
@@ -147,7 +152,7 @@ Let $G$ be a Kac-Moody group, $c$ a Coxeter element of its Weyl group, and $B_c$
 \end{proof}
 
 \begin{proposition}
-Let $G$ be a Kac-Moody group, $c$ a Coxeter element of its Weyl group, and $B_c$ the associated exchange matrix.  All preinjective cluster variables in the coordinate ring of $G^{c,c^{-1}}$ are restrictions of principal minors of lowest weight representations.  Their $g$-vectors are of the form $\dotsc$, and the cluster variable with $g$-vector $g = (g_1,\dotsc,g_n)$ is the restriction of the principal minor of weight $\sum g_i \omega_i$.
+Let $G$ be a Kac-Moody group, $c$ a Coxeter element of its Weyl group, and $B_c$ the associated exchange matrix.  All postinjective cluster variables in the coordinate ring of $G^{c,c^{-1}}$ are restrictions of principal minors of lowest weight representations.  Their $g$-vectors are of the form $\dotsc$, and the cluster variable with $g$-vector $g = (g_1,\dotsc,g_n)$ is the restriction of the principal minor of weight $\sum g_i \omega_i$.
 \end{proposition}
 \begin{proof}
 \begin{enumerate}
@@ -159,15 +164,6 @@ Let $G$ be a Kac-Moody group, $c$ a Coxeter element of its Weyl group, and $B_c$
 \end{proof}
 
 \section{Level Zero Representations}
-
-\begin{lemma}
-Let $c$ be a Coxeter element of the affine Weyl group of type $A_n^{(1)}$ and $Q_c$ the associated quiver.  For $[p,q]$ a cyclic interval in $[0,n]$, the $Q_c$-representation $M_{[p,q]}$ is regular if and only if the total number of sinks and sources in $[p,q]$ is even.
-\end{lemma}
-\begin{proof}
-\begin{enumerate}
-\item Show that the parity condition is preserved under mutation.
-\end{enumerate}
-\end{proof}
 
 \begin{proposition}
 Let $G = \widehat{LSL_{n+1}}$ be the affine Kac-Moody group of type $A_n^{(1)}$, $c$ a Coxeter element of the affine Weyl group, and $Q_c$ the associated affine quiver.  All regular cluster variables in the coordinate ring of $G^{c,c^{-1}}$ are principal minors of level zero representations.  
@@ -182,7 +178,7 @@ Let $G = \widehat{LSL_{n+1}}$ be the affine Kac-Moody group of type $A_n^{(1)}$,
 \section{Examples in Other Types}
 
 \begin{proposition}
-\Cref{conj:mainconjecture} holds when $G$ is of type $D_4^{(1)}$, $B_2^{(1)},\dotsc$ and $c$ is $\dotsc$. 
+\Cref{conj:mainconjecture} holds when $G$ is of type $B_2^{(1)}$, $B_3^{(1)}$, $C_2^{(1)}$, $D_4^{(1)}$, $G_2^{(1)}$ and $c$ is $\dotsc$. 
 \end{proposition}
 \begin{proof}
 \begin{enumerate}
@@ -191,8 +187,54 @@ Let $G = \widehat{LSL_{n+1}}$ be the affine Kac-Moody group of type $A_n^{(1)}$,
 \end{proof}
 
 \section{Appendix: Double Bruhat Cells}
+
+
 \section{Appendix: Cluster Algebras}
+Let $A$ be any irreducible Cartan matrix of infinite type and let $c=s_1\dots s_n$ be a Coxeter element in the Weyl group of $A$. 
+Because of the assumption, any prefix of the infinite word $c^\infty$ is reduced. 
+The letters of $c^\infty$ (and thus its prefixes) are naturally labeled by pair of integers $(k,m)$ with $1\leq k\leq n$ and $m\geq 0$ where the element $c^ms_1\dots s_k$ corresponds to the indices $(k,m)$. 
+\saySS{We should be able to do this also in finite type replacing prefixes with reduced words.}
+Let $\cAb(B_c)$ be the cluster algebra with principal coefficients associated to $c$.
+\saySS{We may want to settle the notation that relates $B_c$ to $A$ and $c$ onve and for all in some notation section.}
+
+\begin{definition}
+  The \emph{preprojective} cluster variables of $\cAb(B_c)$ are the cluster variables obtained by mutating along the word $c^\infty$.
+  Namely $x_{k,m}$ is the cluster variable obtained from the initial cluster by mutating in the directions $(1,0)$ through $(k,m)$.
+  \saySS{This phrasing sucks but I am fighting the blank page at the moment.}
+\end{definition}
+
+\begin{lemma}
+  The preprojective cluster variables of $\cAb(B_c)$ satisfy the exchange relations
+  \begin{equation}
+    x_{k,m-1}x_{k,m} = \prod_{i<k}x_{i,m}^{-a_{i,k}} \prod_{i>k}x_{i,m-1}^{-a_{i,k}} + \prod_{j\in I}y_j^{[c^{m-1}\beta_k^+:\alpha_j]}
+  \end{equation}
+\end{lemma}
+
+
 \section{Appendix: Quiver Representations}
+\subsection{Affine Tubes}
+  Let $Q$ be an acyclic affine quiver of type $A$ with vertices labeled $\{1,\ldots,n\}$ counter-clockwise around $Q$.  Suppose $Q$ has $p$ clockwise pointing arrows and $q$ counter-clockwise pointing arrows.  Write $i_1,\ldots,i_k$ for the sinks and sources of $Q$ read counter-clockwise around the quiver and note that $k$ must be even.  For notational conevenience we denote $i_k$ by $i_0$ and assume that $i_1$ is a sink in $Q$.  Define full, extension-closed subcategories $\overrightarrow{\rep}Q$ and $\overleftarrow{\rep}Q$ of $\rep Q$ as follows:
+  \begin{itemize}
+    \item $\overrightarrow{\rep}Q$ is generated by the representations $M_{[i_{2t-1},i_{2t}]}$ for $1\le t\le k/2$ together with the representations $S_{j+i_{2t}}$ for $1\le t\le k/2$ and $1\le j\le i_{2t+1}-i_{2t}-1$;
+    \item $\overleftarrow{\rep}Q$ is generated by the representations $M_{[i_{2t-2},i_{2t-1}]}$ for $1\le t\le k/2$ together with the representations $S_{j+i_{2t-1}}$ for $1\le t\le k/2$ and $1\le j\le i_{2t}-i_{2t-1}-1$.
+  \end{itemize}
+  Notice that $\overrightarrow{\rep}Q$ is generated by exactly $q$ indecomposable representations while $\overleftarrow{\rep}Q$ is generated by exactly $p$ indecomposable representations.
+  \begin{proposition}\mbox{}
+    \begin{enumerate}
+      \item The modules listed above provide a complete set of simple objects in the categories $\overrightarrow{\rep}Q$ and $\overleftarrow{\rep}Q$.  Moreover, every object of $\overrightarrow{\rep}Q$ and $\overleftarrow{\rep}Q$ admits a unique Jordan-H\"older series with the corresponding simples as composition factors.
+      \item Every regular representation of $Q$ is contained in one of $\overrightarrow{\rep}Q$ or $\overleftarrow{\rep}Q$.
+      \item The regular exceptional representations of $Q$ are exactly the representations of $\overrightarrow{\rep}Q$ and $\overleftarrow{\rep}Q$ of length at most $q-1$ and $p-1$ respectively, where length refers to the Jordan-H\"older length in the respective categories.
+    \end{enumerate}
+  \end{proposition}
+  \begin{proof}
+    \begin{enumerate}
+      \item Cite Ringel's ``Tame Algebras and Integral Quadratic Forms''?
+    \end{enumerate}
+  \end{proof}
+
+  \begin{corollary}
+    A representation $M$ of $Q$ is regular if and only if $\sum\limits_{\ell=1}^k\dim M_{i_k}$ is even.
+  \end{corollary}
 
 \section{Conventions}
 
