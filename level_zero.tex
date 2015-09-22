@@ -10,6 +10,11 @@
             pdfpagemode=None]{hyperref}
 \usepackage{cleveref}
 
+\usepackage[draft]{say}
+\newcommand{\sayHW}[1]{\say[HW]{\color{violet}{\bf HW:}\;#1}}
+\newcommand{\saySS}[1]{\say[SS]{\color{blue}{\bf VS:}\;#1}}
+\newcommand{\sayDR}[1]{\say[DR]{\color{red}{\bf EZ:}\;#1}}
+
 \begin{document}
 \title{Regular Representations of Affine Quivers and Level Zero Representations of Affine Lie Groups}
 
@@ -58,6 +63,16 @@ The above theorem holds for arbitrary affine types.
 
 \section{Highest and Lowest Weight Minors}
 
+\begin{proposition}
+\label{prop:fundid}
+Suppose $u, v \in W$, $k \in [1,n]$ satisfy $u s_k \omega_k < u \omega_k$ and $v s_k \omega_k < v \omega_k$.  Then \sayHW
+\[
+\Delta_{v \omega_k}^{u \omega_k}\Delta_{v s_k \omega_k}^{u s_k \omega_k} = 
+\Delta_{v \omega_k}^{u s_k \omega_k}\Delta_{v s_k \omega_k}^{u \omega_k} + 
+\prod_{i \neq k}
+\]
+\end{proposition}
+
 \begin{lemma}
 For $k \in [1,n]$, $m \geq 1$, the identity
 \begin{equation}
@@ -65,6 +80,9 @@ For $k \in [1,n]$, $m \geq 1$, the identity
 \end{equation}
 holds on $G^{c,c^{-1}}$.
 \end{lemma}
+\begin{proof}
+
+\end{proof}
 
 \begin{proposition}
 Let $G$ be a Kac-Moody group, $c$ a Coxeter element of its Weyl group, and $B_c$ the associated exchange matrix.  The coordinate ring of the double Bruhat cell $G^{c,c^{-1}}$ is an upper cluster algebra of type $B_c$ with coefficients.  The coordinate ring of the reduced double Bruhat cell $L^{c,c^{-1}}$ is an upper cluster algebra of type $B_c$ with principal coefficients.
