@@ -15,8 +15,6 @@
 \newcommand{\saySS}[1]{\say[SS]{\color{blue}{\bf VS:}\;#1}}
 \newcommand{\sayDR}[1]{\say[DR]{\color{red}{\bf EZ:}\;#1}}
 
-\begin{document}
-\title{Regular Representations of Affine Quivers and Level Zero Representations of Affine Lie Groups}
 % shorthands 
 \newcommand{\cA}{\mathcal{A}}
 
@@ -69,9 +67,8 @@ The above theorem holds for arbitrary affine types.
 
 \section{Highest and Lowest Weight Minors}
 
-\begin{proposition}
-\label{prop:fundid}
-Suppose $u, v \in W$, $k \in [1,n]$ satisfy $u s_k \omega_k < u \omega_k$ and $v s_k \omega_k < v \omega_k$.  Then 
+\begin{proposition}\label{prop:fundid}
+Suppose $u, v \in W$, $k \in [1,n]$ satisfy $u s_k \omega_k < u \omega_k$ and $v s_k \omega_k < v \omega_k$.  Then \sayHW{May make sense to work on the derived subgroup, so we can ignore ``extended'' fundamental weights.}
 \[
 \Delta_{v \omega_k}^{u \omega_k}\Delta_{v s_k \omega_k}^{u s_k \omega_k} = 
 \Delta_{v \omega_k}^{u s_k \omega_k}\Delta_{v s_k \omega_k}^{u \omega_k} + 
