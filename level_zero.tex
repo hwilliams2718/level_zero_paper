@@ -10,9 +10,10 @@
             pdfpagemode=None]{hyperref}
 \usepackage{cleveref}
 
-\begin{document}
-\title{Regular Representations of Affine Quivers and Level Zero Representations of Affine Lie Groups}
+% shorthands 
+\newcommand{\cA}{\mathcal{A}}
 
+% ambients
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{conjecture}[theorem]{Conjecture}
 \newtheorem{corollary}[theorem]{Corollary}
@@ -21,6 +22,9 @@
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{example}[theorem]{Example}
 \newtheorem{remark}[theorem]{Remark}
+
+\begin{document}
+\title{Regular Representations of Affine Quivers and Level Zero Representations of Affine Lie Groups}
 
 \author{Harold Williams}
 \address[Harold Williams]{
@@ -61,6 +65,14 @@ The above theorem holds for arbitrary affine types.
 \section{Cluster Variables of Affine Quivers}
 
 \section{Highest and Lowest Weight Minors}
+
+\begin{lemma}
+For $k \in [1,n]$, $m \geq 1$, the identity
+\begin{equation}
+\Delta_{c^{m-1}\omega_k}^{c^{m-1}\omega_k}\Delta_{c^{m}\omega_k}^{c^{m}\omega_k} = \Delta_{c^{m}\omega_k}^{c^{m-1}\omega_k}\Delta_{c^{m-1}\omega_k}^{c^{m}\omega_k} + \left(\prod_{i < k}(\Delta_{c^{m}\omega_i}^{c^{m}\omega_i})^{-a_{ik}}\right)\left(\prod_{i>k}(\Delta_{c^{m-1}\omega_i}^{c^{m-1}\omega_i})^{-a_{ik}}\right)
+\end{equation}
+holds on $G^{c,c^{-1}}$.
+\end{lemma}
 
 \begin{proposition}
 Let $G$ be a Kac-Moody group, $c$ a Coxeter element of its Weyl group, and $B_c$ the associated exchange matrix.  The coordinate ring of the double Bruhat cell $G^{c,c^{-1}}$ is an upper cluster algebra of type $B_c$ with coefficients.  The coordinate ring of the reduced double Bruhat cell $L^{c,c^{-1}}$ is an upper cluster algebra of type $B_c$ with principal coefficients.
@@ -129,5 +141,12 @@ Let $G = \widehat{LSL_{n+1}}$ be the affine Kac-Moody group of type $A_n^{(1)}$,
 \section{Appendix: Double Bruhat Cells}
 \section{Appendix: Cluster Algebras}
 \section{Appendix: Quiver Representations}
+
+\section{Conventions}
+
+\begin{itemize}
+\item The minor $\Delta_\omega^\delta$ is our notation for YZ's $\Delta_{\delta, \omega}$.
+\item The Cartan matrix is $a$ and it's $n \times n$.
+\end{itemize}
 
 \end{document}
