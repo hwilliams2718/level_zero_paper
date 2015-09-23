@@ -83,53 +83,59 @@ Suppose $u, v \in W$, $k \in [1,n]$ satisfy $u s_k \omega_k < u \omega_k$ and $v
 holds on $G$.
 \end{proposition}
 
-For any root $\alpha$ we define $[\alpha:\alpha_i]$ by $\alpha = \sum_{i=1}^n [\alpha:\alpha_i]$, defining $[\alpha:\beta_k^+]$ analogously.
+For any root $\alpha$ we define $[\alpha:\alpha_i]$ by $\alpha = \sum_{i=1}^n [\alpha:\alpha_i]\alpha_i$, defining $[\alpha:\beta_k^+]$ analogously.
 
-\begin{lemma}\label{lem:minorsondbc}
-Restricted to $G^{c,c^{-1}}$ we have the generalized minor identity
-\begin{equation}
-\Delta_{c^{m-1}\omega_k}^{c^{m-1}\omega_k}\Delta_{c^{m}\omega_k}^{c^{m}\omega_k} = 
-\prod_{j=1}^n \left( \Delta^{c \omega_j}_{\omega_j}\Delta^{\omega_j}_{ c\omega_j} \prod_{i < j}(\Delta^{c \omega_i}_{\omega_i} \Delta^{\omega_i}_{c \omega_i})^{a_{ij}}\right)^{[c^{m-1} \beta_k^+:\alpha_j]} + 
-\left(\prod_{i < k}(\Delta_{c^{m}\omega_i}^{c^{m}\omega_i})^{-a_{ik}}\right)\left(\prod_{i>k}(\Delta_{c^{m-1}\omega_i}^{c^{m-1}\omega_i})^{-a_{ik}}\right)
-\end{equation}
-for any $k \in [1,n]$, $m \geq 1$.  
-\end{lemma}
-\begin{proof}
-The proof consists in comparing the given expression with the $u = v = c^{m-1}s_1 \cdots s_{k-1}$ case of \Cref{prop:fundid}.  We first claim that restricted to $G^{c,c^{-1}}$ we have
-\begin{equation}\label{eq:coeffreduction}
-\Delta_{c^m \omega_k}^{c^{m-1} \omega_k} = 
-\prod_{i=1}^n (\Delta_{c \omega_i}^{\omega_i})^{[c^{m-1}\beta_k^+:\beta_i]}.
-\end{equation}
- It suffices to evaluate both sides on a generic $g \in G^{c,c^{-1}}$ of the form
-\[
-g = hx_{-1}(t_{-1}) \cdots x_{-n}(t_{-n}) x_{n}(t_{n}) \cdots x_{1}(t_{1})
-\]
-for $h \in H$ and $t_i \in \bC^*$.  Since $(s_1 \cdots s_n)^m$ is a reduced word for $c^m$ for any $m \geq 1$\sayHW{citation needed?}, a straightforward calculation with root strings in the highest weight representation $L_{\omega_i}$ yields
-\begin{equation}\label{eq:coeffeval}
-\Delta_{c^m \omega_i}^{c^{m-1}\omega_i}(g) = h^{c^{m-1}\omega_i} \prod_{j=1}^n t_j^{[c^{m-1}\beta_i^+:\alpha_j]}
-\end{equation}
-We can rewrite this using the fact that
-\[
-c^{m-1} \omega_i = \sum_{j=1}^n [c^{m-1}\beta_i^+:\beta_j^+]\omega_j.
-\]
-To see this first recall that the $\beta_i^+$ are linearly independent, as they differ from the $\alpha_i$ by a unitriangular transformation.  Thus $1-c$ is an isomorphism from the subspace spanned by the $\omega_i$ to that spanned by the $\beta_i^+$, and the identity follows since $1-c$ commutes with $c^{m-1}$.  Using this and the immediate identity
-\[
-[\alpha:\alpha_j] = \sum_{i=1}^n [\alpha:\beta_i^+][\beta_i^+:\alpha_j],
-\]
-we can rewrite the $i = k$, arbitrary $m$ case of \cref{eq:coeffeval} in terms of the $m = 1$, arbitrary $i$ case and obtain \cref{eq:coeffreduction}.
+  \begin{lemma}\label{lem:minorsondbc}
+    Restricted to $G^{c,c^{-1}}$, the product $\Delta_{c^{m-1}\omega_k}^{c^{m-1}\omega_k}\Delta_{c^{m}\omega_k}^{c^{m}\omega_k}$ is equal to
+    \begin{equation} 
+      \prod_{j=1}^n \left( \Delta^{c \omega_j}_{\omega_j}\Delta^{\omega_j}_{ c\omega_j} \prod_{i < j}\big(\Delta^{c \omega_i}_{\omega_i} \Delta^{\omega_i}_{c \omega_i}\big)^{a_{ij}}\right)^{[c^{m-1} \beta_k^+:\alpha_j]} + 
+      \left(\prod_{i < k}\big(\Delta_{c^{m}\omega_i}^{c^{m}\omega_i}\big)^{-a_{ik}}\right)\left(\prod_{i>k}\big(\Delta_{c^{m-1}\omega_i}^{c^{m-1}\omega_i}\big)^{-a_{ik}}\right)
+    \end{equation}
+    for any $k \in [1,n]$, $m \geq 1$.  
+  \end{lemma}
 
-Since $\beta_j^+ + \sum_{i=1}^{j-1} a_{ij} \beta_i^+ = \alpha_j$, we can further rewrite \cref{eq:coeffreduction} as
-\begin{equation}\label{eq:coeffident}
-\Delta_{c^m \omega_k}^{c^{m-1} \omega_k} = 
-\prod_{j=1}^n \left( \Delta_{c \omega_j}^{\omega_j} \prod_{i < j}(\Delta_{c \omega_i}^{\omega_i})^{a_{ij}}\right)^{[c^{m-1} \beta_k^+:\alpha_j]}. 
-\end{equation}
-On the other hand, consider the antiautomorphism of $G$ which fixes $H$ and exchanges $x_i(t)$ and $x_{-i}(t)$.  This pulls back $\Delta_{\omega}^{\lambda}$ to $\Delta^{\omega}_{\lambda}$ and takes $G^{c,c^{-1}}$ to itself.  Applying it to \cref{eq:coeffident} we obtain
-\[
-\Delta^{c^m \omega_i}_{c^{m-1} \omega_i} = 
-\prod_{j=1}^n \left( \Delta^{c \omega_j}_{\omega_j} \prod_{i < j}(\Delta^{c \omega_i}_{\omega_i})^{a_{ij}}\right)^{[c^{m-1} \beta_k^+:\alpha_j]}.
-\]
-Plugging these identities into the  $u = v = c^{m-1}s_1 \cdots s_{k-1}$ case of \Cref{prop:fundid} then yields the desired claim.
-\end{proof}
+  \begin{proof}
+    We apply \Cref{prop:fundid} with $u = v = c^{m-1}s_1 \cdots s_{k-1}$ and compare with the given expression.  Notice that the final monomials in these expressions are exactly identified.  It remains to understand the monomial $\Delta_{c^m \omega_k}^{c^{m-1} \omega_k}\Delta_{c^{m-1} \omega_k}^{c^m \omega_k}$.
+
+    We first claim that upon restriction to $G^{c,c^{-1}}$ we have
+    \begin{equation}\label{eq:coeffreduction}
+      \Delta_{c^m \omega_k}^{c^{m-1} \omega_k} = 
+      \prod_{i=1}^n (\Delta_{c \omega_i}^{\omega_i})^{[c^{m-1}\beta_k^+:\beta_i^+]}.
+    \end{equation}
+    To see this, it suffices to evaluate both sides on a generic $g \in G^{c,c^{-1}}$ of the form
+    \[
+      g = hx_{-1}(t_{-1}) \cdots x_{-n}(t_{-n}) x_{n}(t_{n}) \cdots x_{1}(t_{1})
+    \]
+    for $h \in H$ and $t_i \in \bC^*$.  Since $(s_1 \cdots s_n)^m$ is a reduced expression of $c^m$ for any $m \geq 1$\sayHW{citation needed?}, a straightforward calculation with root strings in the highest weight representation $L_{\omega_k}$ yields
+    \begin{equation}\label{eq:coeffeval}
+      \Delta_{c^m \omega_k}^{c^{m-1}\omega_k}(g) = h^{c^{m-1}\omega_k} \prod_{j=1}^n t_j^{[c^{m-1}\beta_k^+:\alpha_j]}.
+    \end{equation}
+    
+    The case $m=1$ of eq. \eqref{eq:coeffreduction} is immediate.  To reduce the general case to this one we will need to rewrite eq. \eqref{eq:coeffeval} using the fact that
+    \[
+      c^{m-1} \omega_k = \sum_{i=1}^n [c^{m-1}\beta_k^+:\beta_i^+]\omega_i.
+    \]
+    To see this first recall that the $\beta_i^+$ are linearly independent, as they differ from the $\alpha_i$ by a unitriangular transformation.  Thus $1-c$ is an isomorphism from the subspace spanned by the $\omega_i$ to that spanned by the $\beta_i^+$, and the identity follows since $1-c$ commutes with $c^{m-1}$.  
+
+    Now applying the identity
+    \[
+      [\alpha:\alpha_j] = \sum_{i=1}^n [\alpha:\beta_i^+][\beta_i^+:\alpha_j]
+    \]
+    with $\alpha=c^{m-1}\beta_k^+$ in the final exponent of eq. \eqref{eq:coeffeval},
+    we may rewrite eq. \cref{eq:coeffeval} with $i = k$ and arbitrary $m$ in terms of the $m = 1$, arbitrary $i$ case and obtain \cref{eq:coeffreduction}.
+
+    Since $\beta_j^+ + \sum_{i=1}^{j-1} a_{ij} \beta_i^+ = \alpha_j$, we can further rewrite \cref{eq:coeffreduction} as
+    \begin{equation}\label{eq:coeffident}
+      \Delta_{c^m \omega_k}^{c^{m-1} \omega_k} = 
+      \prod_{j=1}^n \left( \Delta_{c \omega_j}^{\omega_j} \prod_{i < j}(\Delta_{c \omega_i}^{\omega_i})^{a_{ij}}\right)^{[c^{m-1} \beta_k^+:\alpha_j]}. 
+    \end{equation}
+    On the other hand, consider the anti-automorphism of $G$ which fixes $H$ and exchanges $x_i(t)$ with $x_{-i}(t)$.  This takes $G^{c,c^{-1}}$ to itself and pulls back $\Delta_{\omega}^{\lambda}$ to $\Delta^{\omega}_{\lambda}$.  Applying the anti-automorphism to \cref{eq:coeffident} we obtain
+    \[
+      \Delta^{c^m \omega_k}_{c^{m-1} \omega_k} = 
+      \prod_{j=1}^n \left( \Delta^{c \omega_j}_{\omega_j} \prod_{i < j}(\Delta^{c \omega_i}_{\omega_i})^{a_{ij}}\right)^{[c^{m-1} \beta_k^+:\alpha_j]}.
+    \]
+    This completes the proof.
+  \end{proof}
 
 \begin{proposition}
 Let $G$ be a Kac-Moody group, $c$ a Coxeter element of its Weyl group, and $B_c$ the associated exchange matrix.  The coordinate ring of the double Bruhat cell $G^{c,c^{-1}}$ is an upper cluster algebra of type $B_c$ with coefficients.  The coordinate ring of the reduced double Bruhat cell $L^{c,c^{-1}}$ is an upper cluster algebra of type $B_c$ with principal coefficients.
