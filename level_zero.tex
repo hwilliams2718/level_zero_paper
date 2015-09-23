@@ -21,7 +21,7 @@
 \newcommand{\cAb}{\mathcal{A}_\bullet}
 \newcommand{\rep}{\operatorname{rep}}
 
-% ambients
+% ambients and numbering
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{conjecture}[theorem]{Conjecture}
 \newtheorem{corollary}[theorem]{Corollary}
@@ -30,6 +30,7 @@
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{example}[theorem]{Example}
 \newtheorem{remark}[theorem]{Remark}
+\numberwithin{equation}{section}
 
 \begin{document}
 \title{Regular Representations of Affine Quivers and Level Zero Representations of Affine Lie Groups}
@@ -203,12 +204,17 @@ Let $\cAb(B_c)$ be the cluster algebra with principal coefficients associated to
   \saySS{This phrasing sucks but I am fighting the blank page at the moment.}
 \end{definition}
 
-\begin{lemma}
+\begin{proposition}
   The preprojective cluster variables of $\cAb(B_c)$ satisfy the exchange relations
   \begin{equation}
     x_{k,m-1}x_{k,m} = \prod_{i<k}x_{i,m}^{-a_{i,k}} \prod_{i>k}x_{i,m-1}^{-a_{i,k}} + \prod_{j\in I}y_j^{[c^{m-1}\beta_k^+:\alpha_j]}
   \end{equation}
+\end{proposition}
+This follows immediately from the following Lemma.
+\begin{lemma}
+
 \end{lemma}
+
 
 
 \section{Appendix: Quiver Representations}
