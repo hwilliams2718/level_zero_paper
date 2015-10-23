@@ -9,6 +9,8 @@
             citecolor=blue,
             pdfpagemode=None]{hyperref}
 \usepackage{cleveref}
+\usepackage{stmaryrd}
+
 
 \usepackage[draft]{say}
 \newcommand{\sayHW}[1]{\say[HW]{\color{violet}{\bf HW:}\;#1}}
@@ -21,6 +23,9 @@
 \newcommand{\cAb}{\mathcal{A}_\bullet}
 \newcommand{\rep}{\operatorname{rep}}
 \newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\bfg}{\mathbf{g}}
+\newcommand{\bfc}{\mathbf{c}}
+\newcommand{\dashname}[1]{\stackrel{#1}{\begin{picture}(22,3)\put(0,2.5){\line(1,0){22}}\end{picture}}}
 
 % ambients and numbering
 \newtheorem{theorem}{Theorem}[section]
@@ -273,6 +278,61 @@ Let $G = \widehat{LSL_{n+1}}$ be the affine Kac-Moody group of type $A_n^{(1)}$,
 
 \section{Appendix: Double Bruhat Cells}
 
+\section{The acyclic belt in non finite types}
+In this section we present straightforward gerenalizations of some of the results in \cite[sections 8-10]{FZ07} to the acyclic case.
+
+Let $A$ be any irreducible Cartan matrix not of finite type and let $c=s_1\cdots s_n$ be a Coxeter element in the Weyl group of $A$.
+\saySS{The case $A$ of finite type is secretly covered by \cite{YZ08}. We can cover it if we use $w_0$ in place of $c^\infty$. It is not clear to me that it is worth doing even though it will make life more uniform. Maybe we should add a comment here.}
+In view of these assumptions any prefix of the word $c^\infty$ is reduced (cf. \cite{Spe09}).
+Let $B_c$ be the skew-symmetrizable matrix associated to the pair $(A,c)$. 
+\saySS{We should define $B_c$ somewhere in the introduction}
+We will concern ourself with a specific sequence of seeds in the principal coefficients cluster algebra $\cAb(B_c)$.
+
+More specifically let $t_0$ be the node of the exchange graph containing the initial seed and $t_m$ the nodes given by the sequence
+\begin{equation}
+  \cdots
+  \dashname{n}
+  t_{-n}
+  \dashname{1}
+  \cdots
+  \dashname{n-1}
+  t_{-1}
+  \dashname{n}
+  t_0
+  \dashname{1}
+  t_1
+  \dashname{2}
+  \cdots
+  \dashname{n}
+  t_n
+  \dashname{1}
+  \cdots
+\end{equation}
+Following \cite{FZ02}, we denote by $\langle m \rangle$ the element of $[1,n]$ congruent to $m$ modulo $n$.
+The edge immediately left of $t_m$ is then labeled by $\langle m \rangle$.
+
+We will interpret $\bfc$-vectors as coordinate vectors in the basis of simple roots for the root system of $A$ so that the $i$-th initial $\bfc$-vector is $\alpha_i$.
+\begin{proposition}
+  Let $\gamma_{m,i}$ be the $i$-th $\bfc$-vector of the seed at $t_m$. 
+  Then
+  \begin{equation}
+    \gamma_{m,i}
+    =
+    \begin{cases}
+      c^{m\sslash n}s_1\cdots s_{\langle m \rangle} \alpha_i & \text{if $m>0$}\\
+      -c^{2+(m+1)\sslash n}s_n\cdots s_{\langle m+1 \rangle} \alpha_i & \text{if $m <-n$}\\
+      \alpha_i & \text{if $-n\leq m \leq 0$ and  $i\leq n+m$} \\
+      -\alpha_i & \text{if $-n\leq m \leq 0$ and $i>n+m$} \\
+    \end{cases}
+  \end{equation}
+Where $m\sslash n$ is a shorthand for $(m-\langle m \rangle)/n$.
+\end{proposition}
+
+\begin{remark}
+  If $m>0$ then $c^{m\sslash n}s_1\cdots s_{\langle m \rangle}$ is the prefix of $c^\infty$ of length $m$.
+  Similarly, if $m<-n$, $c^{2+(m+1)\sslash n}s_n\cdots s_{\langle m+1 \rangle}$ is the prefix of $c^{-\infty}$ of length $-m-n$.
+\end{remark}
+
 
 \section{Appendix: Cluster Algebras}
 Let $A$ be any irreducible Cartan matrix of infinite type and let $c=s_1\dots s_n$ be a Coxeter element in the Weyl group of $A$. 
@@ -420,5 +480,9 @@ Let $B$ and $B'$ be $(n+m)\times n$ exchange matrices and $M$ and invertible $m 
   \item 
     The identity $\beta_j^+ + \sum_{i=1}^{j-1} a_{ij} \beta_i^+ = \alpha_j$ is used in the proof of \Cref{lem:minorsondbc} without comment.
 \end{itemize}
+
+% bibliography
+\bibliographystyle{amsalpha}
+\bibliography{bibliography}
 
 \end{document}
