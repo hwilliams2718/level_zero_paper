@@ -284,7 +284,7 @@ In this section we present straightforward gerenalizations of some of the result
 Let $A$ be any irreducible Cartan matrix not of finite type and let $c=s_1\cdots s_n$ be a Coxeter element in the Weyl group of $A$.
 \saySS{The case $A$ of finite type is secretly covered by \cite{YZ08}. We can cover it if we use $w_0$ in place of $c^\infty$. It is not clear to me that it is worth doing even though it will make life more uniform. Maybe we should add a comment here.}
 In view of these assumptions any prefix of the word $c^\infty$ is reduced (cf. \cite{Spe09}).
-Let $B_c$ be the skew-symmetrizable matrix associated to the pair $(A,c)$. 
+Let $B_c$ be the skew-symmetrizable matrix associated to the pair $A,c$. 
 \saySS{We should define $B_c$ somewhere in the introduction}
 We will concern ourself with a specific sequence of seeds in the principal coefficients cluster algebra $\cAb(B_c)$.
 
@@ -308,21 +308,23 @@ More specifically let $t_0$ be the node of the exchange graph containing the ini
   \dashname{1}
   \cdots
 \end{equation}
+\saySS{We should probably comment on the fact that all these nodes of the exchange graph are distict. It follows from the propositions we are about to prove but one might wonder whether the argument is circular here.}
 Following \cite{FZ02}, we denote by $\langle m \rangle$ the element of $[1,n]$ congruent to $m$ modulo $n$.
-The edge immediately left of $t_m$ is then labeled by $\langle m \rangle$.
+The edge immediately to the left of $t_m$ is then labeled by $\langle m \rangle$.
 
 We will interpret $\bfc$-vectors as coordinate vectors in the basis of simple roots for the root system of $A$ so that the $i$-th initial $\bfc$-vector is $\alpha_i$.
 \begin{proposition}
-  Let $\gamma_{m,i}$ be the $i$-th $\bfc$-vector of the seed at $t_m$. 
+  \label{prop:c-vectors}
+  Let $\gamma_{m,i}$ be the $i$-th $\bfc$-vector of $\cAb(B_c)$ in the seed at $t_m$. 
   Then
   \begin{equation}
     \gamma_{m,i}
     =
     \begin{cases}
       c^{m\sslash n}s_1\cdots s_{\langle m \rangle} \alpha_i & \text{if $m>0$}\\
-      -c^{2+(m+1)\sslash n}s_n\cdots s_{\langle m+1 \rangle} \alpha_i & \text{if $m <-n$}\\
       \alpha_i & \text{if $-n\leq m \leq 0$ and  $i\leq n+m$} \\
       -\alpha_i & \text{if $-n\leq m \leq 0$ and $i>n+m$} \\
+      -c^{2+(m+1)\sslash n}s_n\cdots s_{\langle m+1 \rangle} \alpha_i & \text{if $m <-n$}\\
     \end{cases}
   \end{equation}
 Where $m\sslash n$ is a shorthand for $(m-\langle m \rangle)/n$.
@@ -333,6 +335,49 @@ Where $m\sslash n$ is a shorthand for $(m-\langle m \rangle)/n$.
   Similarly, if $m<-n$, $c^{2+(m+1)\sslash n}s_n\cdots s_{\langle m+1 \rangle}$ is the prefix of $c^{-\infty}$ of length $-m-n$.
 \end{remark}
 
+\begin{proof}
+  We begin by observing that the nodes we are considering lie along a \emph{sink/source adapted sequence}. 
+  In particular the entries of the $B$-matrix $B_m$ at $t_m$ equal, in absolute value, the entries of $B_0$. 
+  Moreover the $\langle m \rangle$-th row of $B_m$ contains only non-positive entries and the $\langle m+1 \rangle$-th row only non-negative entries.
+\end{proof}
+
+In analogy to what we did for $\bfc$-vectors, we will interpret $\bfg$-vectors as coordinate vectors in the basis of fundamental weights for the root system of $A$ so that the $i$-th initial $\bfg$-vector is $\omega_i$.
+\begin{proposition}
+  Let $\lambda_{m,i}$ be the $\bfg$-vector of the $i$-th cluster variable of $\cAb(B_c)$ in the seed at $t_m$. 
+  Then
+  \begin{equation}
+    \lambda_{m,i}
+    =
+    \begin{cases}
+      c^{m\sslash n}s_1\cdots s_{\langle m \rangle} \omega_i & \text{if $m>0$}\\
+      \omega_i & \text{if $-n\leq m \leq 0$ and  $i\leq n+m$} \\
+      -\omega_i & \text{if $-n\leq m \leq 0$ and $i>n+m$} \\
+      -c^{2+(m+1)\sslash n}s_n\cdots s_{\langle m+1 \rangle} \omega_i & \text{if $m <-n$}\\
+    \end{cases}
+  \end{equation}
+\end{proposition}
+
+\begin{proof}
+  In view of \cref{prop:c-vectors} the $\bfc$-vectors of $\cAb(-B_c^T)$ at the seed $t_m$ are the coroots $\gamma_{m,i}^\vee$.
+  The result follows then immediately from \cite[Theorem 1.2]{NZ12}: fundamental weights are the dual basis of the coroot basis and the pairing is invariant under the action of the Weyl group.
+\end{proof}
+
+In view of how simple reflections act on fundamental weights the expressions of the $\bfg$-vectors $\lambda_{m,i}$ can be further simplified as follows:
+\begin{equation}
+  \lambda_{m,i}
+  =
+  \begin{cases}
+    c^{m\sslash n} \omega_i & \text{if $m>0$ and $i > \langle m \rangle$}\\
+    c^{1+ m\sslash n} \omega_i & \text{if $m>0$ and $i \leq \langle m \rangle$}\\
+    \omega_i & \text{if $-n\leq m \leq 0$ and  $i\leq n+m$} \\
+    -\omega_i & \text{if $-n\leq m \leq 0$ and $i>n+m$} \\
+    -c^{2+(m+1)\sslash n} \omega_i & \text{if $m <-n$ and $i < \langle m+1 \rangle$}\\
+    -c^{1+(m+1)\sslash n} \omega_i & \text{if $m <-n$ and $i \geq \langle m+1 \rangle$}\\
+  \end{cases}
+\end{equation}
+In particular, in the acyclic belt of $\cAb(B_c)$, there is one cluster variable $x_{c^k\omega_i}$ with  $\bfg$-vector $c^k\omega_i$ $(k\geq 0)$ and one cluster variable $x_{-c^{-k}\omega_i}$ with $\bfg$-vector $-c^{-k}\omega_i$ $(k\geq 0)$.
+Taking inspiration from quiver representation theory we will refer to the former as \emph{preprojective} cluster variables and to the latter as \emph{postinjective} cluster variables.
+\saySS{I am not entirely happy with this definition: if I am not mistaken modules corresponding to initial cluster variables are neither preprojective not postinjective. Here we force them in the preprojective field to make it easier to state exchange relations later on. Would it make sense to drop the notation entirely?}
 
 \section{Appendix: Cluster Algebras}
 Let $A$ be any irreducible Cartan matrix of infinite type and let $c=s_1\dots s_n$ be a Coxeter element in the Weyl group of $A$. 
