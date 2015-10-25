@@ -26,6 +26,7 @@
 \newcommand{\bfg}{\mathbf{g}}
 \newcommand{\bfc}{\mathbf{c}}
 \newcommand{\dashname}[1]{\stackrel{#1}{\begin{picture}(22,3)\put(0,2.5){\line(1,0){22}}\end{picture}}}
+\renewcommand{\mod}[1]{\langle {#1} \rangle}
 
 % ambients and numbering
 \newtheorem{theorem}{Theorem}[section]
@@ -286,7 +287,7 @@ Let $A$ be any irreducible Cartan matrix not of finite type and let $c=s_1\cdots
 In view of these assumptions any prefix of the word $c^\infty$ is reduced (cf. \cite{Spe09}).
 Let $B_c$ be the skew-symmetrizable matrix associated to the pair $A,c$. 
 \saySS{We should define $B_c$ somewhere in the introduction}
-We will concern ourself with a specific sequence of seeds in the principal coefficients cluster algebra $\cAb(B_c)$.
+We will concern ourself with a specific sequence of seeds (the \emph{acyclic belt}) in the principal coefficients cluster algebra $\cAb(B_c)$.
 
 More specifically let $t_0$ be the node of the exchange graph containing the initial seed and $t_m$ the nodes given by the sequence
 \begin{equation}
@@ -309,8 +310,11 @@ More specifically let $t_0$ be the node of the exchange graph containing the ini
   \cdots
 \end{equation}
 \saySS{We should probably comment on the fact that all these nodes of the exchange graph are distict. It follows from the propositions we are about to prove but one might wonder whether the argument is circular here.}
-Following \cite{FZ02}, we denote by $\langle m \rangle$ the element of $[1,n]$ congruent to $m$ modulo $n$.
-The edge immediately to the left of $t_m$ is then labeled by $\langle m \rangle$.
+Following \cite{FZ02}, we denote by $\mod{m}$ the element of $[1,n]$ congruent to $m$ modulo $n$.
+The edge immediately to the left of $t_m$ is then labeled by $\mod{m}$.
+Observe that the nodes we are considering lie along a \emph{sink/source adapted sequence}. 
+In particular the entries of the $B$-matrix $B_m$ at $t_m$ equal, in absolute value, the entries of $B_0$. 
+Moreover the $\mod{m}$-th row of $B_m$ contains only non-positive entries and the $\mod{m+1}$-th row only non-negative entries.
 
 We will interpret $\bfc$-vectors as coordinate vectors in the basis of simple roots for the root system of $A$ so that the $i$-th initial $\bfc$-vector is $\alpha_i$.
 \begin{proposition}
@@ -321,48 +325,88 @@ We will interpret $\bfc$-vectors as coordinate vectors in the basis of simple ro
     \gamma_{m,i}
     =
     \begin{cases}
-      c^{m\sslash n}s_1\cdots s_{\langle m \rangle} \alpha_i & \text{if $m>0$}\\
+      c^{m\sslash n}s_1\cdots s_{\mod{m}} \alpha_i & \text{if $m>0$}\\
       \alpha_i & \text{if $-n\leq m \leq 0$ and  $i\leq n+m$} \\
       -\alpha_i & \text{if $-n\leq m \leq 0$ and $i>n+m$} \\
-      -c^{2+(m+1)\sslash n}s_n\cdots s_{\langle m+1 \rangle} \alpha_i & \text{if $m <-n$}\\
+      -c^{2+(m+1)\sslash n}s_n\cdots s_{\mod{m+1}} \alpha_i & \text{if $m <-n$}\\
     \end{cases}
   \end{equation}
-Where $m\sslash n$ is a shorthand for $(m-\langle m \rangle)/n$.
-Moreover, whenever $m > 0 $ or $m < -n$, the vector $\gamma_{m,\langle m\rangle}$ is negative and the vector $\gamma_{m,\langle m+1\rangle}$ is positive.
+Where $m\sslash n$ is a shorthand for $(m-\mod{m})/n$.
+Moreover, whenever $m > 0 $ or $m < -n$, the vector $\gamma_{m,\mod{m}}$ is negative and the vector $\gamma_{m,\mod{m+1}}$ is positive.
 \end{proposition}
 
 \begin{remark}
-  If $m>0$ then $c^{m\sslash n}s_1\cdots s_{\langle m \rangle}$ is the prefix of $c^\infty$ of length $m$.
-  Similarly, if $m<-n$, $c^{2+(m+1)\sslash n}s_n\cdots s_{\langle m+1 \rangle}$ is the prefix of $c^{-\infty}$ of length $-m-n$.
+  If $m>0$ then $c^{m\sslash n}s_1\cdots s_{\mod{m}}$ is the prefix of $c^\infty$ of length $m$.
+  Similarly, if $m<-n$, $c^{2+(m+1)\sslash n}s_n\cdots s_{\mod{m+1}}$ is the prefix of $c^{-\infty}$ of length $-m-n$.
 \end{remark}
 
 \begin{proof}
   Let's begin by settling the claim about signs. 
-  When $m>0$ the root $c^{m\sslash n}s_1\cdots s_{\langle m \rangle} \alpha_{\langle m+1\rangle}$ is positive because $c^{m\sslash n}s_1\cdots s_{\langle m \rangle}  s_{\langle m+1 \rangle}$ is reduced (it is a prefix of $c^\infty$, cf. \cite{Spe09}) while the root $c^{m\sslash n}s_1\cdots s_{\langle m \rangle} \alpha_{\langle m\rangle}$ is negative because $c^{m\sslash n}s_1\cdots s_{\langle m \rangle}  s_{\langle m \rangle}$ is not reduced.
-  Similarly, when $m<-n$ the root $-c^{2+(m+1)\sslash n}s_n\cdots s_{\langle m+1 \rangle} \alpha_{\langle m+1\rangle}$ is positive and the root $-c^{2+(m+1)\sslash n}s_n\cdots s_{\langle m+1 \rangle} \alpha_{\langle m\rangle}$ is negative.
+  When $m>0$ the root $c^{m\sslash n}s_1\cdots s_{\mod{m}} \alpha_{\mod{m+1}}$ is positive: being a prefix of $c^\infty$, the word  $c^{m\sslash n}s_1\cdots s_{\mod{m}} s_{\mod{m+1}}$ is reduced (cf. \cite{Spe09}) and we can apply \cite[VI \S 1.6 Corollary 2 to Proposition 17]{Bou02}.
+  By the same principle the root $c^{m\sslash n}s_1\cdots s_{\mod{m}} \alpha_{\mod{m}} = -c^{m\sslash n}s_1\cdots s_{\mod{m-1}} \alpha_{\mod{m}}$ is negative because the word $c^{m\sslash n}s_1\cdots s_{\mod{m}}$ is reduced.
+  Similarly, when $m<-n$ the root $-c^{2+(m+1)\sslash n}s_n\cdots s_{\mod{m+1}} \alpha_{\mod{m+1}}$ is positive and the root $-c^{2+(m+1)\sslash n}s_n\cdots s_{\mod{m+1}} \alpha_{\mod{m}}$ is negative.
+  
+  Now to the main claim; there are three cases to be consider.
 
-  We begin by observing that the nodes we are considering lie along a \emph{sink/source adapted sequence}. 
-  In particular the entries of the $B$-matrix $B_m$ at $t_m$ equal, in absolute value, the entries of $B_0$. 
-  Moreover the $\langle m \rangle$-th row of $B_m$ contains only non-positive entries and the $\langle m+1 \rangle$-th row only non-negative entries.
+  \noindent{\bf Case $m\geq 0$.}
+  We proceed by induction on $m$.
+  For $m=0$ there is nothing to check.
+  Since the sign of $\gamma_{m,\mod{m+1}}$ and the sign of the $\mod{m+1}$-th row of $B_m$ are both positive, in view of \cite[Proposition 1.3]{NZ12}, the $\bfc$-vectors at $t_{m+1}$ are given by
+  \begin{align*}
+    \gamma_{m+1,i} 
+    &= 
+    \gamma_{m,i} - a_{\mod{m+1},i} \gamma_{m,\mod{m+1}}\\
+    &=
+    \gamma_{m,i} - \frac{2(\alpha_{\mod{m+1}},\alpha_i)}{(\alpha_{\mod{m+1}},\alpha_{\mod{m+1}})} \gamma_{m,\mod{m+1}}\\
+    &=
+    \gamma_{m,i} - \frac{2(\gamma_{m,\mod{m+1}},\gamma_{m,i})}{(\gamma_{m,\mod{m+1}},\gamma_{m,\mod{m+1}})} \gamma_{m,\mod{m+1}}\\
+    &=
+    s_{\gamma_{m,\mod{m+1}}}\big(\gamma_{m,i}\big)
+  \end{align*}
+  where the previous to last equality holds because the pairing $(\bullet,\bullet)$ is invariant under the action of the Weyl group.  
+  Using the inductive hypotesys we can then conclude
+  \begin{align*}
+    \gamma_{m+1,i} 
+    &=
+    s_{\gamma_{m,\mod{m+1}}}\big(\gamma_{m,i}\big)\\
+    &=
+    c^{m\sslash n}s_1\cdots s_{\mod{m}}s_{\mod{m+1}} s_{\mod{m}} \cdots s_1 c^{-m\sslash n}\big(c^{m\sslash n}s_1\cdots s_{\mod{m}}\alpha_i\big)\\
+    &= 
+    c^{m\sslash n}s_1\cdots s_{\mod{m}}s_{\mod{m+1}} \alpha_i.
+  \end{align*}
 
-  Suppose $m>0$; we proceed by induction
+  \noindent{\bf Case $-n \leq m < 0$.}
+  We again argue by induction on $m$ the base case being still $m=0$. 
+  This time thought, while the sign of $\gamma_{m,\mod{m}}$ is positive, the sign of the $\mod{m}$-th row of $B_m$ is negative. 
+  The $\bfc$-vectors at $t_{m-1}$ are therefore given by:
+  \begin{equation*}
+    \gamma_{m-1,i}
+    =
+    \begin{cases}
+      \gamma_{m,i} & \text{if $i\neq \mod{m}$}\\
+      -\gamma_{m,\mod{m}} & \text{if $i = \mod{m}$}
+    \end{cases}
+  \end{equation*}
+  as desired.
 
-  In view of \cite[Proposition 1.3]{NZ12}
-  We need to consider three cases the easiest of which is $-n \leq m \leq 0$. 
+  \noindent{\bf Case $m < -n$.}
+  The argument is the same as the one used in the case $m\geq 0$ using $m=-n$ as base for the induction. 
+  The only minor change is that this time we leverage the fact that both the sign of $\gamma_{m,\mod{m}}$ and the sign of the $\mod{m}$-th row of $B_m$ are negative.
 \end{proof}
 
 In analogy to what we did for $\bfc$-vectors, we will interpret $\bfg$-vectors as coordinate vectors in the basis of fundamental weights for the root system of $A$ so that the $i$-th initial $\bfg$-vector is $\omega_i$.
 \begin{proposition}
+  \label{prop:g-vectors}
   Let $\lambda_{m,i}$ be the $\bfg$-vector of the $i$-th cluster variable of $\cAb(B_c)$ in the seed at $t_m$. 
   Then
   \begin{equation}
     \lambda_{m,i}
     =
     \begin{cases}
-      c^{m\sslash n}s_1\cdots s_{\langle m \rangle} \omega_i & \text{if $m>0$}\\
+      c^{m\sslash n}s_1\cdots s_{\mod{m}} \omega_i & \text{if $m>0$}\\
       \omega_i & \text{if $-n\leq m \leq 0$ and  $i\leq n+m$} \\
       -\omega_i & \text{if $-n\leq m \leq 0$ and $i>n+m$} \\
-      -c^{2+(m+1)\sslash n}s_n\cdots s_{\langle m+1 \rangle} \omega_i & \text{if $m <-n$}\\
+      -c^{2+(m+1)\sslash n}s_n\cdots s_{\mod{m+1}} \omega_i & \text{if $m <-n$}\\
     \end{cases}
   \end{equation}
 \end{proposition}
@@ -377,12 +421,12 @@ In view of how simple reflections act on fundamental weights the expressions of 
   \lambda_{m,i}
   =
   \begin{cases}
-    c^{m\sslash n} \omega_i & \text{if $m>0$ and $i > \langle m \rangle$}\\
-    c^{1+ m\sslash n} \omega_i & \text{if $m>0$ and $i \leq \langle m \rangle$}\\
+    c^{m\sslash n} \omega_i & \text{if $m>0$ and $i > \mod{m}$}\\
+    c^{1+ m\sslash n} \omega_i & \text{if $m>0$ and $i \leq \mod{m}$}\\
     \omega_i & \text{if $-n\leq m \leq 0$ and  $i\leq n+m$} \\
     -\omega_i & \text{if $-n\leq m \leq 0$ and $i>n+m$} \\
-    -c^{2+(m+1)\sslash n} \omega_i & \text{if $m <-n$ and $i < \langle m+1 \rangle$}\\
-    -c^{1+(m+1)\sslash n} \omega_i & \text{if $m <-n$ and $i \geq \langle m+1 \rangle$}\\
+    -c^{2+(m+1)\sslash n} \omega_i & \text{if $m <-n$ and $i < \mod{m+1}$}\\
+    -c^{1+(m+1)\sslash n} \omega_i & \text{if $m <-n$ and $i \geq \mod{m+1}$}\\
   \end{cases}
 \end{equation}
 In particular, in the acyclic belt of $\cAb(B_c)$, there is one cluster variable $x_{c^k\omega_i}$ with  $\bfg$-vector $c^k\omega_i$ for any $k\geq 0$, and one cluster variable $x_{-c^{-k}\omega_i}$ with $\bfg$-vector $-c^{-k}\omega_i$ again for any $k\geq 0$.
@@ -416,11 +460,7 @@ Taking inspiration from quiver representation theory we will refer to the former
   \end{eqnarray}
 \end{corollary}
 \begin{proof}
-  The relations are obvious once we recall that mutations happen along a source/sink adapted sequence so that, at $t_m$, the $\langle m \rangle$-th colum of $B_m$ contains only non-negative entries and the $\langle m+1 \rangle$-th column only non-positive entries. 
-  At the same time, for $m>0$ or $m < -n$, the $\bfc$-vector $\gamma_{m,\langle m+1\rangle}$ is positive and  the $\bfc$-vector $\gamma_{m,\langle m\rangle}$ is negative because prefixes of $c^{\pm\infty}$ are reduced.
-  \saySS{Maybe more words here?}
-  These considerations are enough to establish the first two sets of relations. 
-  The third follows by direct inspection of the seeds $t_{-n},\dots, t_0$.
+  The relations are an obvious consequence of \cref{prop:c-vectors,prop:g-vectors} once we recall that mutations happen along a source/sink adapted sequence so that, at $t_m$, the $\mod{m}$-th colum of $B_m$ contains only non-negative entries and the $\mod{m+1}$-th column only non-positive entries. 
 \end{proof}
 
 
