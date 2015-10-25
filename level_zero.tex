@@ -280,10 +280,11 @@ Let $G = \widehat{LSL_{n+1}}$ be the affine Kac-Moody group of type $A_n^{(1)}$,
 \section{Appendix: Double Bruhat Cells}
 
 \section{The acyclic belt in non finite types}
-In this section we present straightforward gerenalizations of some of the results in \cite[sections 8-10]{FZ07} to the acyclic case.
+In this section we present straightforward generalizations of some results from \cite[Sections 8-10]{FZ07} to the acyclic case.
 
 Let $A$ be any irreducible Cartan matrix not of finite type and let $c=s_1\cdots s_n$ be a Coxeter element in the Weyl group of $A$.
-\saySS{The case $A$ of finite type is secretly covered by \cite{YZ08}. We can cover it if we use $w_0$ in place of $c^\infty$. It is not clear to me that it is worth doing even though it will make life more uniform. Maybe we should add a comment here.}
+The case when $A$ is of finite type is already covered in \cite{YZ08} and we will omit it here in order to simplify our notation.
+\saySS{We can cover it if we use $w_0$ in place of $c^\infty$ to cover finite type. It is not clear to me that it is worth doing even though it will make life more uniform. Maybe we should add a comment here.}
 In view of these assumptions any prefix of the word $c^\infty$ is reduced (cf. \cite{Spe09}).
 Let $B_c$ be the skew-symmetrizable matrix associated to the pair $A,c$. 
 \saySS{We should define $B_c$ somewhere in the introduction}
@@ -309,7 +310,7 @@ More specifically let $t_0$ be the node of the exchange graph containing the ini
   \dashname{1}
   \cdots
 \end{equation}
-\saySS{We should probably comment on the fact that all these nodes of the exchange graph are distict. It follows from the propositions we are about to prove but one might wonder whether the argument is circular here.}
+\saySS{We should probably comment on the fact that all these nodes of the exchange graph are distinct. It follows from the propositions we are about to prove but one might wonder whether the argument is circular here.}
 Following \cite{FZ02}, we denote by $\mod{m}$ the element of $[1,n]$ congruent to $m$ modulo $n$.
 The edge immediately to the left of $t_m$ is then labeled by $\mod{m}$.
 Observe that the nodes we are considering lie along a \emph{sink/source adapted sequence}. 
@@ -364,7 +365,7 @@ Moreover, whenever $m > 0 $ or $m < -n$, the vector $\gamma_{m,\mod{m}}$ is nega
     s_{\gamma_{m,\mod{m+1}}}\big(\gamma_{m,i}\big)
   \end{align*}
   where the previous to last equality holds because the pairing $(\bullet,\bullet)$ is invariant under the action of the Weyl group.  
-  Using the inductive hypotesys we can then conclude
+  Using the inductive hypotheses we can then conclude
   \begin{align*}
     \gamma_{m+1,i} 
     &=
@@ -390,7 +391,7 @@ Moreover, whenever $m > 0 $ or $m < -n$, the vector $\gamma_{m,\mod{m}}$ is nega
   as desired.
 
   \noindent{\bf Case $m < -n$.}
-  The argument is the same as the one used in the case $m\geq 0$ using $m=-n$ as base for the induction. 
+  The argument is the same as the one used in the case $m\geq 0$ with $m=-n$ as base for the induction. 
   The only minor change is that this time we leverage the fact that both the sign of $\gamma_{m,\mod{m}}$ and the sign of the $\mod{m}$-th row of $B_m$ are negative.
 \end{proof}
 
@@ -416,7 +417,7 @@ In analogy to what we did for $\bfc$-vectors, we will interpret $\bfg$-vectors a
   The result follows then immediately from \cite[Theorem 1.2]{NZ12}: fundamental weights are the dual basis of the coroot basis and the pairing is invariant under the action of the Weyl group.
 \end{proof}
 
-In view of how simple reflections act on fundamental weights the expressions of the $\bfg$-vectors $\lambda_{m,i}$ can be further explicitated as follows:
+In view of how simple reflections act on fundamental weights the expressions of the $\bfg$-vectors $\lambda_{m,i}$ can be made more explicit as follows:
 \begin{equation}
   \lambda_{m,i}
   =
@@ -431,7 +432,7 @@ In view of how simple reflections act on fundamental weights the expressions of 
 \end{equation}
 In particular, in the acyclic belt of $\cAb(B_c)$, there is one cluster variable $x_{c^k\omega_i}$ with  $\bfg$-vector $c^k\omega_i$ for any $k\geq 0$, and one cluster variable $x_{-c^{-k}\omega_i}$ with $\bfg$-vector $-c^{-k}\omega_i$ again for any $k\geq 0$.
 Taking inspiration from quiver representation theory we will refer to the former as \emph{preprojective} cluster variables and to the latter as \emph{postinjective} cluster variables.
-\saySS{I am not entirely happy with this definition: if I am not mistaken modules corresponding to initial cluster variables are neither preprojective not postinjective. Here we force them in the preprojective field to make it easier to state exchange relations later on. Would it make sense to drop the notation entirely?}
+\saySS{I am not entirely happy with this definition: if I am not mistaken modules corresponding to initial cluster variables are neither preprojective not postinjective. Here we force them in the preprojective field to make it easier to state exchange relations later on. Would it make sense to drop the notation entirely? Do we need it anywhere?}
 
 \begin{corollary}
   The cluster variables in the acyclic belt of $\cAb(B_c)$ satisfy the following exchange relations $(k\geq 0)$:
@@ -464,13 +465,13 @@ Taking inspiration from quiver representation theory we will refer to the former
 \end{proof}
 
 
-\section{Appendix: Cluster Algebras}
+\section{Appendix: Cluster Algebras --- OLD STUFF TO BE REMOVED}
 Let $A$ be any irreducible Cartan matrix of infinite type and let $c=s_1\dots s_n$ be a Coxeter element in the Weyl group of $A$. 
 Because of the assumption, any prefix of the infinite word $c^\infty$ is reduced. 
 The letters of $c^\infty$ (and thus its prefixes) are naturally labeled by pair of integers $(k,m)$ with $1\leq k\leq n$ and $m\geq 0$ where the element $c^ms_1\dots s_k$ corresponds to the indices $(k,m)$. 
 \saySS{We should be able to do this also in finite type replacing prefixes with reduced words.}
 Let $\cAb(B_c)$ be the cluster algebra with principal coefficients associated to $c$.
-\saySS{We may want to settle the notation that relates $B_c$ to $A$ and $c$ onve and for all in some notation section.}
+\saySS{We may want to settle the notation that relates $B_c$ to $A$ and $c$ once and for all in some notation section.}
 
 \begin{definition}
   The \emph{preprojective} cluster variables of $\cAb(B_c)$ are the cluster variables obtained by mutating along the word $c^\infty$.
