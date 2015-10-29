@@ -234,13 +234,17 @@ This follows immediately from the following Lemma.
   Let $\tilde B=\left[\begin{array}{c} B\\ M\end{array}\right]$ denote an $m\times n$ ($m\ge n)$ exchange matrix with $b_{ik}\le0$ for $1\le i\le n$ and $m_{ik}\ge0$ for $n+1\le i\le m$.  Writing $\mu_k\tilde B=\left[\begin{array}{c} B'\\ M'\end{array}\right]$ we have $M'=MF_k$ where $F_k=(f_{ij})$ with $f_{ij}=\begin{cases}1 & \text{if $i=j\ne k$;}\\ -1 & \text{if $i=j=k$;}\\ b_{kj} & \text{if $i=k$;}\\ 0 & \text{otherwise.}\end{cases}$
 \end{lemma}
 Define the $2n\times n$ matrix $\tilde B_{k,m}=\mu_k\mu_{k-1}\cdots\mu_1(\mu_n\cdots\mu_1)^m\left[\begin{array}{c} B_c\\ I_n\end{array}\right]$ for $0\le k\le n-1$ and $m\in\ZZ$.  Write $\gamma^{(k,m)}_j\in\ZZ^n$ for the last $n$ rows of the $j^th$ column of $\tilde B_{k,m}$, where we identify $\ZZ^n$ with the root lattice.  These are the $c$-vectors of $\tilde B_{k,m}$.
-\begin{lemma}
-  The $c$-vectors of $\tilde B_{k,m}$ are given by 
-  \[\gamma^{(k,m)}_j=\begin{cases}c^m s_1\cdots s_k\alpha_j & \text{if $m\ge0$;}\\\alpha_j & \text{if $m=-1$ and $j\le k$;}\\-\alpha_j & \text{if $m=-1$ and $j>k$;}\\-c^{m+1} s_1\cdots s_k\alpha_j & \text{if $m<-1$.}\end{cases}\]
-  Moreover, the principal part of column $k$ in $\tilde B_{k,m}$ is weakly positive while the principal part of column $k+1$ is weakly negative (where column $0$ refers to the last column of $\tilde B_{k,m}$).
+\begin{lemma}\mbox{}
+  \begin{enumerate}
+    \item The principal part of column $k$ in $\tilde B_{k,m}$ is weakly positive while the principal part of column $k+1$ is weakly negative (with the convention that column $0$ refers to the last column of $\tilde B_{k,m}$).
+    \item The $c$-vectors of $\tilde B_{k,m}$ are given by 
+    \[\gamma^{(k,m)}_j=\begin{cases}c^m s_1\cdots s_k\alpha_j & \text{if $m\ge0$;}\\\alpha_j & \text{if $m=-1$ and $j\le k$;}\\-\alpha_j & \text{if $m=-1$ and $j>k$;}\\-c^{m+1} s_1\cdots s_k\alpha_j & \text{if $m<-1$.}\end{cases}\]
+  \end{enumerate}
 \end{lemma}
 \begin{proof}
-  We work by induction on the length of the mutation sequence.  For $k=m=0$ we have $\gamma^{(0,0)}_j=\alpha_j$ is exactly the $j^{th}$ column of the identity matrix.  For the general case we claim that
+  The first claim is essentially the statement that the sequence $1,\ldots,n$ (resp. $n,\ldots,1$) is sink (resp. source) adapted for $Q$.
+
+  For the final claim we work by induction on the length of the mutation sequence.  For $k=m=0$ we have $\gamma^{(0,0)}_j=\alpha_j$ is exactly the $j^{th}$ column of the identity matrix.  For the general case we claim that
   \[\gamma^{(k,m)}_j=s_{\gamma^{(k-1,m)}_k}\big(\gamma^{(k-1,m)}_j\big).\]
 
   To see this, recall that the pairing $(\cdot,\cdot)$ is $W$-invariant, in particular we have $(\gamma^{(k-1,m)}_j,\gamma^{(k-1,m)}_k)=(\alpha_j,\alpha_k)$.  Using this we may compute
@@ -256,8 +260,6 @@ Define the $2n\times n$ matrix $\tilde B_{k,m}=\mu_k\mu_{k-1}\cdots\mu_1(\mu_n\c
   \[s_{\gamma^{(k-1,m)}_k}=c^m s_1\cdots s_{k-1} s_k s_{k-1}\cdots s_1 c^{-m}\]
   and thus applying the induction hypothesis
   \[\gamma^{(k,m)}_j=s_{\gamma^{(k-1,m)}_k}\big(\gamma^{(k-1,m)}_j\big)=c^m s_1\cdots s_k\alpha_j.\]
-
-  The final claim of the Proposition follows from the fact that we perform mutations along a sink adapted sequence for $Q$.
 \end{proof}
 
 \begin{proposition}\label{prop:changeofcoeffs}
