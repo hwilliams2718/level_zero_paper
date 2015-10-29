@@ -3,12 +3,14 @@
 \usepackage{xcolor}
 \usepackage{graphicx}
 \usepackage{microtype}
-%\usepackage[centering,margin=1.2in]{geometry}
+\usepackage[centering,margin=1.2in]{geometry}
 \usepackage[colorlinks,
             linkcolor=black!50!red,
             citecolor=blue,
             pdfpagemode=None]{hyperref}
 \usepackage{cleveref}
+\usepackage{stmaryrd}
+
 
 \usepackage[draft]{say}
 \newcommand{\sayHW}[1]{\say[HW]{\color{violet}{\bf HW:}\;#1}}
@@ -21,6 +23,10 @@
 \newcommand{\cAb}{\mathcal{A}_\bullet}
 \newcommand{\rep}{\operatorname{rep}}
 \newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\bfg}{\mathbf{g}}
+\newcommand{\bfc}{\mathbf{c}}
+\newcommand{\dashname}[1]{\stackrel{#1}{\begin{picture}(22,3)\put(0,2.5){\line(1,0){22}}\end{picture}}}
+\renewcommand{\mod}[1]{\langle {#1} \rangle}
 
 % ambients and numbering
 \newtheorem{theorem}{Theorem}[section]
@@ -77,6 +83,15 @@ The above theorem holds for arbitrary affine types.
 
 Throughout this section we fix a symmetrizable Kac-Moody group $G$ of infinite type and a Coxeter element $c$.  
 
+\saySS{This should cover all the minors we care about; please correct me if I am mistaken}
+Given $u,v\in W$ and $\lambda$ a weight we denote by $\Delta_{u\lambda}^{v\lambda}$ the matrix coefficient 
+\begin{equation}
+  \Delta_{u\lambda}^{v\lambda}(g) 
+  := 
+  \left(\left[ \overline{u}^{-1}g\overline{v} \right]_0\right)^\lambda
+\end{equation}
+Whenever $u=v$ we will set $\Delta_{u\lambda} = \Delta_{u\lambda}^{u\lambda}$.
+
 \begin{proposition}
 The coordinate ring of $G^{c,c^{-1}}$ is an upper cluster algebra of type $B_c$ with doubled principal coefficients, that is, whose $3n \times n$ exchange matrix has principal part $B_c$ and frozen part two copies of the identity matrix.  The initial cluster variables are the principal minors $\Delta_{\omega_i}^{\omega_i}$.  The frozen variables are
 \[
@@ -87,7 +102,8 @@ y_j = \Delta^{\omega_j}_{ c\omega_j} \prod_{i < j}(\Delta^{\omega_i}_{c \omega_i
 Let $B'$ be the $3n \times n$ exchange matrix with principal part is $B_c$ and with $B'_{i+n,j} = B'_{i+2n,j} = [i = j] + a_{ij}[i < j]$ for $i,j \in [1,n]$.  Then the coordinate ring of $G^{c,c^{-1}}$ is the upper cluster algebra with exchange matrix $B'$, initial cluster variables $\Delta_{\omega_i}^{\omega_i}$, and frozen variables $\Delta^{\omega_i}_{c \omega_i}$, $\Delta^{c \omega_i}_{\omega_i}$ \cite{me}.  The proposition then follows from \Cref{prop:changeofcoeffs}
 \end{proof}
 
-\begin{proposition}\label{prop:fundid}
+\begin{proposition}
+  %\label{prop:fundid}
 Suppose $u, v \in W$, $k \in [1,n]$ satisfy $u s_k \omega_k < u \omega_k$ and $v s_k \omega_k < v \omega_k$.  Then the identity \sayHW{May make sense to just state on the derived subgroup, so we can ignore ``extended'' fundamental weights.}
 \[
 \Delta_{v \omega_k}^{u \omega_k}\Delta_{v s_k \omega_k}^{u s_k \omega_k} = 
@@ -96,6 +112,61 @@ Suppose $u, v \in W$, $k \in [1,n]$ satisfy $u s_k \omega_k < u \omega_k$ and $v
 \]
 holds on $G$.
 \end{proposition}
+
+\begin{proposition}[{\cite[Proposition 2.16]{Williams}}]
+  \label{prop:fundid}
+  \saySS{I am restating the previous proposition using the non derived version of $G$. Once we decide which theorem we are going to prove we should fix which $G$ do we care about.}
+  Suppose $u,v \in W$ and $k\in[1,n]$ are such that $\ell(u)<\ell(us_k)$ and $\ell(v)<\ell(vs_k)$. 
+  Then 
+  \begin{equation}
+    \label{eq:fundid}
+    \Delta_{u\omega_k}^{v\omega_k} \Delta_{us_k\omega_k}^{vs_k\omega_k} 
+    =
+    \Delta_{us_k\omega_k}^{v\omega_k} \Delta_{u\omega_k}^{vs_k\omega_k}
+    +
+    \prod_{\stackrel{1\leq i \leq \tilde{n}}{i\neq k}}\left(\Delta_{u\omega_i}^{v\omega_i}\right)^{-a_{ik}}
+    .
+  \end{equation}
+\end{proposition}
+
+From \cref{prop:fundid} we deduce two identities valid on $G$.
+Set $u=v=c^ms_1\cdots s_{k-1}$. 
+Then
+\begin{equation}
+  \Delta_{c^m\omega_k} \Delta_{c^{m+1}\omega_k} 
+  =
+  \Delta_{c^{m+1}\omega_k}^{c^m\omega_k} \Delta_{c^m\omega_k}^{c^{m+1}\omega_k}
+  +
+  \prod_{1\leq i<k}\left(\Delta_{c^{m+1}\omega_i}\right)^{-a_{ik}}
+  \prod_{k<i\leq n}\left(\Delta_{c^m\omega_i}\right)^{-a_{ik}}
+  \prod_{n<i\leq\tilde{n}}\left(\Delta_{\omega_i}\right)^{-a_{ik}}
+  .
+\end{equation}
+Recall that (cf. \cite[(3.6)]{YZ}) $G$ is equipped with an antiinvolutive automorphism $\iota$ defined by
+\begin{equation}
+  a^\iota = a^{-1} \quad (a\in H)
+  \quad\quad
+  x_i(t)^\iota=x_i(t)
+  \quad\quad
+  x_{\overline{i}}(t)^\iota=x_{\overline{i}}(t)
+  .
+\end{equation}
+such that 
+\begin{equation}
+  \Delta_{u\lambda}^{v\lambda}(x) 
+  =
+  \Delta_{-v\lambda}^{-u\lambda}(x^\iota)
+\end{equation}
+Substituting $u=v=c^{-m}s_n\cdots s_{k+1}$ in \cref{eq:fundid} and evaluating at $x^\iota$ we get
+\begin{equation}
+  \Delta_{-c^{-m}\omega_k} \Delta_{-c^{-m-1}\omega_k}
+  =
+  \Delta_{-c^{-m}\omega_k}^{-c^{-m-1}\omega_k} \Delta_{-c^{-m-1}\omega_k}^{-c^{-m}\omega_k}
+  +
+  \prod_{1\leq i<k}\left(\Delta_{-c^{-m}\omega_i}\right)^{-a_{ik}}
+  \prod_{k<i\leq n}\left(\Delta_{-c^{-m-1}\omega_i}\right)^{-a_{ik}}
+  \prod_{n<i\leq\tilde{n}}\left(\Delta_{-\omega_i}\right)^{-a_{ik}}
+\end{equation}
 
 For any root $\alpha$ we define $[\alpha:\alpha_i]$ by $\alpha = \sum_{i=1}^n [\alpha:\alpha_i]\alpha_i$, defining $[\alpha:\beta_k^+]$ analogously.
 
@@ -208,14 +279,200 @@ Let $G = \widehat{LSL_{n+1}}$ be the affine Kac-Moody group of type $A_n^{(1)}$,
 
 \section{Appendix: Double Bruhat Cells}
 
+\section{The acyclic belt in non finite types}
+In this section we present straightforward generalizations of some results from \cite[Sections 8-10]{FZ07} to the acyclic case.
 
-\section{Appendix: Cluster Algebras}
+Let $A$ be any irreducible Cartan matrix not of finite type and let $c=s_1\cdots s_n$ be a Coxeter element in the Weyl group of $A$.
+The case when $A$ is of finite type is already covered in \cite{YZ08} and we will omit it here in order to simplify our notation.
+\saySS{We can cover it if we use $w_0$ in place of $c^\infty$ to cover finite type. It is not clear to me that it is worth doing even though it will make life more uniform. Maybe we should add a comment here.}
+In view of these assumptions any prefix of the word $c^\infty$ is reduced (cf. \cite{Spe09}).
+Let $B_c$ be the skew-symmetrizable matrix associated to the pair $A,c$. 
+\saySS{We should define $B_c$ somewhere in the introduction}
+We will concern ourself with a specific sequence of seeds (the \emph{acyclic belt}) in the principal coefficients cluster algebra $\cAb(B_c)$.
+
+More specifically let $t_0$ be the node of the exchange graph containing the initial seed and $t_m$ the nodes given by the sequence
+\begin{equation}
+  \cdots
+  \dashname{n}
+  t_{-n}
+  \dashname{1}
+  \cdots
+  \dashname{n-1}
+  t_{-1}
+  \dashname{n}
+  t_0
+  \dashname{1}
+  t_1
+  \dashname{2}
+  \cdots
+  \dashname{n}
+  t_n
+  \dashname{1}
+  \cdots
+\end{equation}
+\saySS{We should probably comment on the fact that all these nodes of the exchange graph are distinct. It follows from the propositions we are about to prove but one might wonder whether the argument is circular here.}
+Following \cite{FZ02}, we denote by $\mod{m}$ the element of $[1,n]$ congruent to $m$ modulo $n$.
+The edge immediately to the left of $t_m$ is then labeled by $\mod{m}$.
+Observe that the nodes we are considering lie along a \emph{sink/source adapted sequence}. 
+In particular the entries of the $B$-matrix $B_m$ at $t_m$ equal, in absolute value, the entries of $B_0$. 
+Moreover the $\mod{m}$-th row of $B_m$ contains only non-positive entries and the $\mod{m+1}$-th row only non-negative entries.
+
+We will interpret $\bfc$-vectors as coordinate vectors in the basis of simple roots for the root system of $A$ so that the $i$-th initial $\bfc$-vector is $\alpha_i$.
+\begin{proposition}
+  \label{prop:c-vectors}
+  Let $\gamma_{m,i}$ be the $i$-th $\bfc$-vector of $\cAb(B_c)$ in the seed at $t_m$. 
+  Then
+  \begin{equation}
+    \gamma_{m,i}
+    =
+    \begin{cases}
+      c^{m\sslash n}s_1\cdots s_{\mod{m}} \alpha_i & \text{if $m>0$}\\
+      \alpha_i & \text{if $-n\leq m \leq 0$ and  $i\leq n+m$} \\
+      -\alpha_i & \text{if $-n\leq m \leq 0$ and $i>n+m$} \\
+      -c^{2+(m+1)\sslash n}s_n\cdots s_{\mod{m+1}} \alpha_i & \text{if $m <-n$}\\
+    \end{cases}
+  \end{equation}
+Where $m\sslash n$ is a shorthand for $(m-\mod{m})/n$.
+Moreover, whenever $m > 0 $ or $m < -n$, the vector $\gamma_{m,\mod{m}}$ is negative and the vector $\gamma_{m,\mod{m+1}}$ is positive.
+\end{proposition}
+
+\begin{remark}
+  If $m>0$ then $c^{m\sslash n}s_1\cdots s_{\mod{m}}$ is the prefix of $c^\infty$ of length $m$.
+  Similarly, if $m<-n$, $c^{2+(m+1)\sslash n}s_n\cdots s_{\mod{m+1}}$ is the prefix of $c^{-\infty}$ of length $-m-n$.
+\end{remark}
+
+\begin{proof}
+  \saySS{I should remember to thank Anna and Pavel for hints on reflection groups}
+  Let's begin by settling the claim about signs. 
+  When $m>0$ the root $c^{m\sslash n}s_1\cdots s_{\mod{m}} \alpha_{\mod{m+1}}$ is positive: being a prefix of $c^\infty$, the word  $c^{m\sslash n}s_1\cdots s_{\mod{m}} s_{\mod{m+1}}$ is reduced (cf. \cite{Spe09}) and we can apply \cite[VI \S 1.6 Corollary 2 to Proposition 17]{Bou02}.
+  By the same principle the root $c^{m\sslash n}s_1\cdots s_{\mod{m}} \alpha_{\mod{m}} = -c^{m\sslash n}s_1\cdots s_{\mod{m-1}} \alpha_{\mod{m}}$ is negative because the word $c^{m\sslash n}s_1\cdots s_{\mod{m}}$ is reduced.
+  Similarly, when $m<-n$ the root $-c^{2+(m+1)\sslash n}s_n\cdots s_{\mod{m+1}} \alpha_{\mod{m+1}}$ is positive and the root $-c^{2+(m+1)\sslash n}s_n\cdots s_{\mod{m+1}} \alpha_{\mod{m}}$ is negative.
+  
+  Now to the main claim; there are three cases to be consider.
+
+  \noindent{\bf Case $m\geq 0$.}
+  We proceed by induction on $m$.
+  For $m=0$ there is nothing to check.
+  Since the sign of $\gamma_{m,\mod{m+1}}$ and the sign of the $\mod{m+1}$-th row of $B_m$ are both positive, in view of \cite[Proposition 1.3]{NZ12}, the $\bfc$-vectors at $t_{m+1}$ are given by
+  \begin{align*}
+    \gamma_{m+1,i} 
+    &= 
+    \gamma_{m,i} - a_{\mod{m+1},i} \gamma_{m,\mod{m+1}}\\
+    &=
+    \gamma_{m,i} - \frac{2(\alpha_{\mod{m+1}},\alpha_i)}{(\alpha_{\mod{m+1}},\alpha_{\mod{m+1}})} \gamma_{m,\mod{m+1}}\\
+    &=
+    \gamma_{m,i} - \frac{2(\gamma_{m,\mod{m+1}},\gamma_{m,i})}{(\gamma_{m,\mod{m+1}},\gamma_{m,\mod{m+1}})} \gamma_{m,\mod{m+1}}\\
+    &=
+    s_{\gamma_{m,\mod{m+1}}}\big(\gamma_{m,i}\big)
+  \end{align*}
+  where the previous to last equality holds because the pairing $(\bullet,\bullet)$ is invariant under the action of the Weyl group.  
+  Using the inductive hypotheses we can then conclude
+  \begin{align*}
+    \gamma_{m+1,i} 
+    &=
+    s_{\gamma_{m,\mod{m+1}}}\big(\gamma_{m,i}\big)\\
+    &=
+    c^{m\sslash n}s_1\cdots s_{\mod{m}}s_{\mod{m+1}} s_{\mod{m}} \cdots s_1 c^{-m\sslash n}\big(c^{m\sslash n}s_1\cdots s_{\mod{m}}\alpha_i\big)\\
+    &= 
+    c^{m\sslash n}s_1\cdots s_{\mod{m}}s_{\mod{m+1}} \alpha_i.
+  \end{align*}
+
+  \noindent{\bf Case $-n \leq m < 0$.}
+  We again argue by induction on $m$ the base case being still $m=0$. 
+  This time thought, while the sign of $\gamma_{m,\mod{m}}$ is positive, the sign of the $\mod{m}$-th row of $B_m$ is negative. 
+  The $\bfc$-vectors at $t_{m-1}$ are therefore given by:
+  \begin{equation*}
+    \gamma_{m-1,i}
+    =
+    \begin{cases}
+      \gamma_{m,i} & \text{if $i\neq \mod{m}$}\\
+      -\gamma_{m,\mod{m}} & \text{if $i = \mod{m}$}
+    \end{cases}
+  \end{equation*}
+  as desired.
+
+  \noindent{\bf Case $m < -n$.}
+  The argument is the same as the one used in the case $m\geq 0$ with $m=-n$ as base for the induction. 
+  The only minor change is that this time we leverage the fact that both the sign of $\gamma_{m,\mod{m}}$ and the sign of the $\mod{m}$-th row of $B_m$ are negative.
+\end{proof}
+
+In analogy to what we did for $\bfc$-vectors, we will interpret $\bfg$-vectors as coordinate vectors in the basis of fundamental weights for the root system of $A$ so that the $i$-th initial $\bfg$-vector is $\omega_i$.
+\begin{proposition}
+  \label{prop:g-vectors}
+  Let $\lambda_{m,i}$ be the $\bfg$-vector of the $i$-th cluster variable of $\cAb(B_c)$ in the seed at $t_m$. 
+  Then
+  \begin{equation}
+    \lambda_{m,i}
+    =
+    \begin{cases}
+      c^{m\sslash n}s_1\cdots s_{\mod{m}} \omega_i & \text{if $m>0$}\\
+      \omega_i & \text{if $-n\leq m \leq 0$ and  $i\leq n+m$} \\
+      -\omega_i & \text{if $-n\leq m \leq 0$ and $i>n+m$} \\
+      -c^{2+(m+1)\sslash n}s_n\cdots s_{\mod{m+1}} \omega_i & \text{if $m <-n$}\\
+    \end{cases}
+  \end{equation}
+\end{proposition}
+
+\begin{proof}
+  In view of \cref{prop:c-vectors} the $\bfc$-vectors of $\cAb(-B_c^T)$ at the seed $t_m$ are the coroots $\gamma_{m,i}^\vee$.
+  The result follows then immediately from \cite[Theorem 1.2]{NZ12}: fundamental weights are the dual basis of the coroot basis and the pairing is invariant under the action of the Weyl group.
+\end{proof}
+
+In view of how simple reflections act on fundamental weights the expressions of the $\bfg$-vectors $\lambda_{m,i}$ can be made more explicit as follows:
+\begin{equation}
+  \lambda_{m,i}
+  =
+  \begin{cases}
+    c^{m\sslash n} \omega_i & \text{if $m>0$ and $i > \mod{m}$}\\
+    c^{1+ m\sslash n} \omega_i & \text{if $m>0$ and $i \leq \mod{m}$}\\
+    \omega_i & \text{if $-n\leq m \leq 0$ and  $i\leq n+m$} \\
+    -\omega_i & \text{if $-n\leq m \leq 0$ and $i>n+m$} \\
+    -c^{2+(m+1)\sslash n} \omega_i & \text{if $m <-n$ and $i < \mod{m+1}$}\\
+    -c^{1+(m+1)\sslash n} \omega_i & \text{if $m <-n$ and $i \geq \mod{m+1}$}\\
+  \end{cases}
+\end{equation}
+In particular, in the acyclic belt of $\cAb(B_c)$, there is one cluster variable $x_{c^k\omega_i}$ with  $\bfg$-vector $c^k\omega_i$ for any $k\geq 0$, and one cluster variable $x_{-c^{-k}\omega_i}$ with $\bfg$-vector $-c^{-k}\omega_i$ again for any $k\geq 0$.
+Taking inspiration from quiver representation theory we will refer to the former as \emph{preprojective} cluster variables and to the latter as \emph{postinjective} cluster variables.
+\saySS{I am not entirely happy with this definition: if I am not mistaken modules corresponding to initial cluster variables are neither preprojective not postinjective. Here we force them in the preprojective field to make it easier to state exchange relations later on. Would it make sense to drop the notation entirely? Do we need it anywhere?}
+
+\begin{corollary}
+  The cluster variables in the acyclic belt of $\cAb(B_c)$ satisfy the following exchange relations $(k\geq 0)$:
+  \begin{eqnarray}
+    x_{c^k\omega_i}x_{c^{k+1}\omega_i} 
+    &=& 
+    \prod_{j<i} x_{c^{k+1}\omega_j}^{-a_{ji}}
+    \prod_{j>i} x_{c^k\omega_j}^{-a_{ji}}
+    +
+    \prod_{j\in[1,n]} y_j^{[c^ks_1\cdots s_{k-1}\alpha_k:\alpha_j]}
+    \\
+    x_{-c^{-k}\omega_i}x_{-c^{-k-1}\omega_i} 
+    &=& 
+    \prod_{j<i} x_{-c^{-k}\omega_j}^{-a_{ji}}
+    \prod_{j>i} x_{-c^{-k-1}\omega_j}^{-a_{ji}}
+    +
+    \prod_{j\in[1,n]} y_j^{[c^{-k}s_n\cdots s_{k+1}\alpha_k:\alpha_j]}
+    \\
+    x_{\omega_i}x_{-\omega_i}
+    &=&
+    y_i
+    \prod_{j<i} x_{\omega_j}^{-a_{ji}}
+    \prod_{j>i} x_{-\omega_j}^{-a_{ji}}
+    +
+    1
+  \end{eqnarray}
+\end{corollary}
+\begin{proof}
+  The relations are an obvious consequence of \cref{prop:c-vectors,prop:g-vectors} once we recall that mutations happen along a source/sink adapted sequence so that, at $t_m$, the $\mod{m}$-th colum of $B_m$ contains only non-negative entries and the $\mod{m+1}$-th column only non-positive entries. 
+\end{proof}
+
+
+\section{Appendix: Cluster Algebras --- OLD STUFF TO BE REMOVED}
 Let $A$ be any irreducible Cartan matrix of infinite type and let $c=s_1\dots s_n$ be a Coxeter element in the Weyl group of $A$. 
 Because of the assumption, any prefix of the infinite word $c^\infty$ is reduced. 
 The letters of $c^\infty$ (and thus its prefixes) are naturally labeled by pair of integers $(k,m)$ with $1\leq k\leq n$ and $m\geq 0$ where the element $c^ms_1\dots s_k$ corresponds to the indices $(k,m)$. 
 \saySS{We should be able to do this also in finite type replacing prefixes with reduced words.}
 Let $\cAb(B_c)$ be the cluster algebra with principal coefficients associated to $c$.
-\saySS{We may want to settle the notation that relates $B_c$ to $A$ and $c$ onve and for all in some notation section.}
+\saySS{We may want to settle the notation that relates $B_c$ to $A$ and $c$ once and for all in some notation section.}
 
 \begin{definition}
   The \emph{preprojective} cluster variables of $\cAb(B_c)$ are the cluster variables obtained by mutating along the word $c^\infty$.
@@ -357,5 +614,9 @@ Let $B$ and $B'$ be $(n+m)\times n$ exchange matrices and $M$ and invertible $m 
   \item 
     The identity $\beta_j^+ + \sum_{i=1}^{j-1} a_{ij} \beta_i^+ = \alpha_j$ is used in the proof of \Cref{lem:minorsondbc} without comment.
 \end{itemize}
+
+% bibliography
+\bibliographystyle{amsalpha}
+\bibliography{bibliography}
 
 \end{document}
