@@ -11,3 +11,7 @@
 *.blg
 ._*
 .*.swp
+*.fdb_latexmk
+*.fls
+
+

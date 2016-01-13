@@ -443,14 +443,14 @@ Taking inspiration from quiver representation theory we will refer to the former
     \prod_{j<i} x_{c^{k+1}\omega_j}^{-a_{ji}}
     \prod_{j>i} x_{c^k\omega_j}^{-a_{ji}}
     +
-    \prod_{j\in[1,n]} y_j^{[c^ks_1\cdots s_{k-1}\alpha_k:\alpha_j]}
+    \prod_{j\in[1,n]} y_j^{[c^ks_1\cdots s_{i-1}\alpha_i:\alpha_j]}
     \\
     x_{-c^{-k}\omega_i}x_{-c^{-k-1}\omega_i} 
     &=& 
     \prod_{j<i} x_{-c^{-k}\omega_j}^{-a_{ji}}
     \prod_{j>i} x_{-c^{-k-1}\omega_j}^{-a_{ji}}
     +
-    \prod_{j\in[1,n]} y_j^{[c^{-k}s_n\cdots s_{k+1}\alpha_k:\alpha_j]}
+    \prod_{j\in[1,n]} y_j^{[c^{-k}s_n\cdots s_{i+1}\alpha_i:\alpha_j]}
     \\
     x_{\omega_i}x_{-\omega_i}
     &=&
@@ -461,6 +461,7 @@ Taking inspiration from quiver representation theory we will refer to the former
     1
   \end{eqnarray}
 \end{corollary}
+\saySS{We may want to substitute $s_1\dots s_{i-1}\alpha_i = \beta_i^+$ and $s_n\dots s_{i+1}\alpha_i = \beta_i^-$ to make things slightly clearer in the formulas (I am worried people might have issues in decoding the cases $i=1$ in the first and $i=n$ in the second.}
 \begin{proof}
   The relations are an obvious consequence of \cref{prop:c-vectors,prop:g-vectors} once we recall that mutations happen along a source/sink adapted sequence so that, at $t_m$, the $\mod{m}$-th colum of $B_m$ contains only non-negative entries and the $\mod{m+1}$-th column only non-positive entries. 
 \end{proof}
