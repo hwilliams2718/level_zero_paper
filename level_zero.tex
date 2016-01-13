@@ -3,7 +3,7 @@
 \usepackage{xcolor}
 \usepackage{graphicx}
 \usepackage{microtype}
-\usepackage[centering,margin=1.2in]{geometry}
+\usepackage[centering,margin=1.5in]{geometry}
 \usepackage[colorlinks,
             linkcolor=black!50!red,
             citecolor=blue,
@@ -43,19 +43,11 @@
 \title{Regular Representations of Affine Quivers and Level Zero Representations of Affine Lie Groups}
 
 \author{Harold Williams}
-\address[Harold Williams]{
-University of Texas at Austin\newline
-Department of Mathematics\newline
-Austin, TX 78712\newline
-USA}
+\address[Harold Williams]{University of Texas at Austin}
 \email{hwilliams@math.utexas.edu}
 
 \author[Rupel]{Dylan Rupel}
-\address[Dylan Rupel]{
-University of Notre Dame\newline
-Department of Mathematics\newline
-Notre Dame, IN 46556\newline
-USA}
+\address[Dylan Rupel]{University of Notre Dame}
 \email{drupel@nd.edu}
 
 \author[Stella]{Salvatore Stella}
@@ -70,7 +62,7 @@ USA}
 \section{Introduction}
 
 \begin{theorem}\label{thm:maintheorem}
-Let $G$ be an affine Lie group of type $A_n^{(1)}$, $c$ a Coxeter element of the affine Weyl group, and $Q_c$ the associated affine quiver.  The coordinate ring of $G^{c,c^{-1}}$ is an upper cluster algebras of type $Q_c$ and all mutable cluster variables are restrictions of principal minors of representations of $G$ with finite-dimensional weight spaces.  Those that are cluster characters of preprojective, regular, or postinjective representations of $Q_c$ are minors of positive level, level zero, and negative level $G$-representations, respectively.
+Let $G$ be an affine Lie group of type $A_n^{(1)}$, let $c$ be a Coxeter element of the affine Weyl group, and $Q_c$ the associated affine quiver.  The coordinate ring of $G^{c,c^{-1}}$ is an upper cluster algebras of type $Q_c$ and all mutable cluster variables are restrictions of principal minors for representations of $G$ with finite-dimensional weight spaces.  Those that are cluster characters of preprojective, regular, or postinjective representations of $Q_c$ are minors of positive level, level zero, and negative level $G$-representations, respectively.
 \end{theorem}
 
 \begin{conjecture}\label{conj:mainconjecture}
@@ -84,22 +76,22 @@ The above theorem holds for arbitrary affine types.
 Throughout this section we fix a symmetrizable Kac-Moody group $G$ of infinite type and a Coxeter element $c$.  
 
 \saySS{This should cover all the minors we care about; please correct me if I am mistaken}
-Given $u,v\in W$ and $\lambda$ a weight we denote by $\Delta_{u\lambda}^{v\lambda}$ the matrix coefficient 
+Given $u,v\in W$ and $\lambda$ a weight, we denote by $\Delta_{u\lambda}^{v\lambda}$ the matrix coefficient 
 \begin{equation}
   \Delta_{u\lambda}^{v\lambda}(g) 
   := 
   \left(\left[ \overline{u}^{-1}g\overline{v} \right]_0\right)^\lambda
 \end{equation}
-Whenever $u=v$ we will set $\Delta_{u\lambda} = \Delta_{u\lambda}^{u\lambda}$.
+When $u=v$ above, we will write $\Delta_{u\lambda}$ instead of $\Delta_{u\lambda}^{u\lambda}$.
 
 \begin{proposition}
-The coordinate ring of $G^{c,c^{-1}}$ is an upper cluster algebra of type $B_c$ with doubled principal coefficients, that is, whose $3n \times n$ exchange matrix has principal part $B_c$ and frozen part two copies of the identity matrix.  The initial cluster variables are the principal minors $\Delta_{\omega_i}^{\omega_i}$.  The frozen variables are
+The coordinate ring of $G^{c,c^{-1}}$ is an upper cluster algebra of type $B_c$ with doubled principal coefficients, that is, whose $3n \times n$ exchange matrix has principal part $B_c$ and frozen part two copies of the identity matrix.  The initial cluster variables are the principal minors $\Delta_{\omega_i}$.  The frozen variables are
 \[
 y_j = \Delta^{\omega_j}_{ c\omega_j} \prod_{i < j}(\Delta^{\omega_i}_{c \omega_i})^{a_{ij}}, \quad z_j = \Delta^{c \omega_j}_{\omega_j} \prod_{i < j}(\Delta^{c \omega_i}_{\omega_i})^{a_{ij}}
 \]
 \end{proposition}
 \begin{proof}
-Let $B'$ be the $3n \times n$ exchange matrix with principal part is $B_c$ and with $B'_{i+n,j} = B'_{i+2n,j} = [i = j] + a_{ij}[i < j]$ for $i,j \in [1,n]$.  Then the coordinate ring of $G^{c,c^{-1}}$ is the upper cluster algebra with exchange matrix $B'$, initial cluster variables $\Delta_{\omega_i}^{\omega_i}$, and frozen variables $\Delta^{\omega_i}_{c \omega_i}$, $\Delta^{c \omega_i}_{\omega_i}$ \cite{me}.  The proposition then follows from \Cref{prop:changeofcoeffs}
+Let $B'$ be the $3n \times n$ exchange matrix with principal part $B_c$ and with $B'_{i+n,j} = B'_{i+2n,j} = [i = j] + a_{ij}[i < j]$ for $i,j \in [1,n]$.  Then the coordinate ring of $G^{c,c^{-1}}$ is the upper cluster algebra with exchange matrix $B'$, initial cluster variables $\Delta_{\omega_i}^{\omega_i}$, and frozen variables $\Delta^{\omega_i}_{c \omega_i}$, $\Delta^{c \omega_i}_{\omega_i}$ \cite{me}.  The proposition then follows from \Cref{prop:changeofcoeffs}
 \end{proof}
 
 \begin{proposition}
@@ -132,17 +124,15 @@ holds on $G$.
 From \cref{prop:fundid} we deduce two identities valid on $G$.
 Set $u=v=c^ms_1\cdots s_{k-1}$. 
 Then
-\begin{equation}
+\begin{align}
   \Delta_{c^m\omega_k} \Delta_{c^{m+1}\omega_k} 
-  =
-  \Delta_{c^{m+1}\omega_k}^{c^m\omega_k} \Delta_{c^m\omega_k}^{c^{m+1}\omega_k}
-  +
-  \prod_{1\leq i<k}\left(\Delta_{c^{m+1}\omega_i}\right)^{-a_{ik}}
+  &=\Delta_{c^{m+1}\omega_k}^{c^m\omega_k} \Delta_{c^m\omega_k}^{c^{m+1}\omega_k}\\
+  \nonumber &\quad+\prod_{1\leq i<k}\left(\Delta_{c^{m+1}\omega_i}\right)^{-a_{ik}}
   \prod_{k<i\leq n}\left(\Delta_{c^m\omega_i}\right)^{-a_{ik}}
   \prod_{n<i\leq\tilde{n}}\left(\Delta_{\omega_i}\right)^{-a_{ik}}
   .
-\end{equation}
-Recall that (cf. \cite[(3.6)]{YZ}) $G$ is equipped with an antiinvolutive automorphism $\iota$ defined by
+\end{align}
+Recall that (cf. \cite[(3.6)]{YZ}) $G$ is equipped with an anti-involutive automorphism $\iota$ defined by
 \begin{equation}
   a^\iota = a^{-1} \quad (a\in H)
   \quad\quad
@@ -151,36 +141,34 @@ Recall that (cf. \cite[(3.6)]{YZ}) $G$ is equipped with an antiinvolutive automo
   x_{\overline{i}}(t)^\iota=x_{\overline{i}}(t)
   .
 \end{equation}
-such that 
+Note that 
 \begin{equation}
   \Delta_{u\lambda}^{v\lambda}(x) 
   =
   \Delta_{-v\lambda}^{-u\lambda}(x^\iota)
 \end{equation}
 Substituting $u=v=c^{-m}s_n\cdots s_{k+1}$ in \cref{eq:fundid} and evaluating at $x^\iota$ we get
-\begin{equation}
+\begin{align}
   \Delta_{-c^{-m}\omega_k} \Delta_{-c^{-m-1}\omega_k}
-  =
-  \Delta_{-c^{-m}\omega_k}^{-c^{-m-1}\omega_k} \Delta_{-c^{-m-1}\omega_k}^{-c^{-m}\omega_k}
-  +
-  \prod_{1\leq i<k}\left(\Delta_{-c^{-m}\omega_i}\right)^{-a_{ik}}
+  &=\Delta_{-c^{-m}\omega_k}^{-c^{-m-1}\omega_k} \Delta_{-c^{-m-1}\omega_k}^{-c^{-m}\omega_k}\\
+  \nonumber &\quad+\prod_{1\leq i<k}\left(\Delta_{-c^{-m}\omega_i}\right)^{-a_{ik}}
   \prod_{k<i\leq n}\left(\Delta_{-c^{-m-1}\omega_i}\right)^{-a_{ik}}
-  \prod_{n<i\leq\tilde{n}}\left(\Delta_{-\omega_i}\right)^{-a_{ik}}
-\end{equation}
+  \prod_{n<i\leq\tilde{n}}\left(\Delta_{-\omega_i}\right)^{-a_{ik}}.
+\end{align}
 
 For any root $\alpha$ we define $[\alpha:\alpha_i]$ by $\alpha = \sum_{i=1}^n [\alpha:\alpha_i]\alpha_i$, defining $[\alpha:\beta_k^+]$ analogously.
 
   \begin{lemma}\label{lem:minorsondbc}
-    Restricted to $G^{c,c^{-1}}$, the product $\Delta_{c^{m-1}\omega_k}^{c^{m-1}\omega_k}\Delta_{c^{m}\omega_k}^{c^{m}\omega_k}$ is equal to
+    Restricted to $G^{c,c^{-1}}$, the product $\Delta_{c^{m-1}\omega_k}\Delta_{c^{m}\omega_k}$ is equal to
     \begin{equation} 
       \prod_{j=1}^n \left( \Delta^{c \omega_j}_{\omega_j}\Delta^{\omega_j}_{ c\omega_j} \prod_{i < j}\big(\Delta^{c \omega_i}_{\omega_i} \Delta^{\omega_i}_{c \omega_i}\big)^{a_{ij}}\right)^{[c^{m-1} \beta_k^+:\alpha_j]} + 
-      \left(\prod_{i < k}\big(\Delta_{c^{m}\omega_i}^{c^{m}\omega_i}\big)^{-a_{ik}}\right)\left(\prod_{i>k}\big(\Delta_{c^{m-1}\omega_i}^{c^{m-1}\omega_i}\big)^{-a_{ik}}\right)
+      \left(\prod_{i < k}\big(\Delta_{c^{m}\omega_i}\big)^{-a_{ik}}\right)\left(\prod_{i>k}\big(\Delta_{c^{m-1}\omega_i}\big)^{-a_{ik}}\right)
     \end{equation}
     for any $k \in [1,n]$, $m \geq 1$.  
   \end{lemma}
 
   \begin{proof}
-    We apply \Cref{prop:fundid} with $u = v = c^{m-1}s_1 \cdots s_{k-1}$ and compare with the given expression.  Notice that the final monomials in these expressions are exactly identified.  It remains to understand the monomial $\Delta_{c^m \omega_k}^{c^{m-1} \omega_k}\Delta_{c^{m-1} \omega_k}^{c^m \omega_k}$.
+    We apply \Cref{prop:fundid} with $u = v = c^{m-1}s_1 \cdots s_{k-1}$ and compare with the given expression.  Notice that the final monomials in these expressions are exactly identified.  It only remains to understand the monomial $\Delta_{c^m \omega_k}^{c^{m-1} \omega_k}\Delta_{c^{m-1} \omega_k}^{c^m \omega_k}$ from \Cref{prop:fundid}.
 
     We first claim that upon restriction to $G^{c,c^{-1}}$ we have
     \begin{equation}\label{eq:coeffreduction}
@@ -191,30 +179,30 @@ For any root $\alpha$ we define $[\alpha:\alpha_i]$ by $\alpha = \sum_{i=1}^n [\
     \[
       g = hx_{-1}(t_{-1}) \cdots x_{-n}(t_{-n}) x_{n}(t_{n}) \cdots x_{1}(t_{1})
     \]
-    for $h \in H$ and $t_i \in \bC^*$.  Since $(s_1 \cdots s_n)^m$ is a reduced expression of $c^m$ for any $m \geq 1$\sayHW{citation needed?}, a straightforward calculation with root strings in the highest weight representation $L_{\omega_k}$ yields
+    for $h \in H$ and $t_i \in \bC^*$.  Since $(s_1 \cdots s_n)^m$ is a reduced expression of $c^m$ for any $m \geq 1$ (cf. \cite{Spe09}), a straightforward calculation with root strings in the highest weight representation $L_{\omega_k}$ yields
     \begin{equation}\label{eq:coeffeval}
       \Delta_{c^m \omega_k}^{c^{m-1}\omega_k}(g) = h^{c^{m-1}\omega_k} \prod_{j=1}^n t_j^{[c^{m-1}\beta_k^+:\alpha_j]}.
     \end{equation}
     
-    The case $m=1$ of eq. \eqref{eq:coeffreduction} is immediate.  To reduce the general case to this one we will need to rewrite eq. \eqref{eq:coeffeval} using the fact that
+    The case $m=1$ of eq. \eqref{eq:coeffreduction} is immediate.  To reduce the general case to this one we will need to rewrite eq. \eqref{eq:coeffeval} using the equality
     \[
       c^{m-1} \omega_k = \sum_{i=1}^n [c^{m-1}\beta_k^+:\beta_i^+]\omega_i.
     \]
-    To see this first recall that the $\beta_i^+$ are linearly independent, as they differ from the $\alpha_i$ by a unitriangular transformation.  Thus $1-c$ is an isomorphism from the subspace spanned by the $\omega_i$ to that spanned by the $\beta_i^+$, and the identity follows since $1-c$ commutes with $c^{m-1}$.  
+    To see this, first notice that the $\beta_i^+$ are linearly independent since they are obtained from the $\alpha_i$ by a unitriangular transformation.  Thus $1-c$ is an isomorphism from the subspace spanned by the $\omega_i$ to that spanned by the $\beta_i^+$, and the identity follows since $1-c$ commutes with $c^{m-1}$.  
 
     Now applying the identity
     \[
       [\alpha:\alpha_j] = \sum_{i=1}^n [\alpha:\beta_i^+][\beta_i^+:\alpha_j]
     \]
     with $\alpha=c^{m-1}\beta_k^+$ in the final exponent of eq. \eqref{eq:coeffeval},
-    we may rewrite eq. \cref{eq:coeffeval} with $i = k$ and arbitrary $m$ in terms of the $m = 1$, arbitrary $i$ case and obtain \cref{eq:coeffreduction}.
+    we may rewrite \cref{eq:coeffeval} with $i = k$ and arbitrary $m$ in terms of the $m = 1$, arbitrary $i$ case and obtain \cref{eq:coeffreduction}.
 
     Since $\beta_j^+ + \sum_{i=1}^{j-1} a_{ij} \beta_i^+ = \alpha_j$, we can further rewrite \cref{eq:coeffreduction} as
     \begin{equation}\label{eq:coeffident}
       \Delta_{c^m \omega_k}^{c^{m-1} \omega_k} = 
       \prod_{j=1}^n \left( \Delta_{c \omega_j}^{\omega_j} \prod_{i < j}(\Delta_{c \omega_i}^{\omega_i})^{a_{ij}}\right)^{[c^{m-1} \beta_k^+:\alpha_j]}. 
     \end{equation}
-    On the other hand, consider the anti-automorphism of $G$ which fixes $H$ and exchanges $x_i(t)$ with $x_{-i}(t)$.  This takes $G^{c,c^{-1}}$ to itself and pulls back $\Delta_{\omega}^{\lambda}$ to $\Delta^{\omega}_{\lambda}$.  Applying the anti-automorphism to \cref{eq:coeffident} we obtain
+    On the other hand, consider the anti-automorphism of $G$ which fixes $H$ and exchanges $x_i(t)$ with $x_{-i}(t)$.  This takes $G^{c,c^{-1}}$ to itself and pulls back $\Delta_{\omega}^{\lambda}$ to $\Delta^{\omega}_{\lambda}$.  Applying this anti-automorphism to \cref{eq:coeffident} we obtain
     \[
       \Delta^{c^m \omega_k}_{c^{m-1} \omega_k} = 
       \prod_{j=1}^n \left( \Delta^{c \omega_j}_{\omega_j} \prod_{i < j}(\Delta^{c \omega_i}_{\omega_i})^{a_{ij}}\right)^{[c^{m-1} \beta_k^+:\alpha_j]}.
@@ -223,18 +211,18 @@ For any root $\alpha$ we define $[\alpha:\alpha_i]$ by $\alpha = \sum_{i=1}^n [\
   \end{proof}
 
 \begin{proposition}
-Let $G$ be a Kac-Moody group, $c$ a Coxeter element of its Weyl group, and $B_c$ the associated exchange matrix.  The coordinate ring of the double Bruhat cell $G^{c,c^{-1}}$ is an upper cluster algebra of type $B_c$ with coefficients.  The coordinate ring of the reduced double Bruhat cell $L^{c,c^{-1}}$ is an upper cluster algebra of type $B_c$ with principal coefficients.
+Let $G$ be a Kac-Moody group, let $c$ be a Coxeter element of its Weyl group, and $B_c$ the associated exchange matrix.  The coordinate ring of the double Bruhat cell $G^{c,c^{-1}}$ is an upper cluster algebra of type $B_c$ with coefficients.  The coordinate ring of the reduced double Bruhat cell $L^{c,c^{-1}}$ is an upper cluster algebra of type $B_c$ with principal coefficients.
 \end{proposition}
 \begin{proof}
 \begin{enumerate}
 \item Cite other papers.
-\item Generalities on reducing double Bruhat cells and forgetting cefficients.
+\item Generalities on reducing double Bruhat cells and forgetting coefficients.
 \item Redo Yang-Zelevinsky change of coefficients.
 \end{enumerate}
 \end{proof}
 
 \begin{proposition}
-Let $G$ be a Kac-Moody group, $c$ a Coxeter element of its Weyl group, and $B_c$ the associated exchange matrix.  All initial and preprojective cluster variables in the coordinate ring of $G^{c,c^{-1}}$ are restrictions of principal minors of highest weight representations.  Their $g$-vectors are of the form $\dotsc$, and the cluster variable with $g$-vector $g = (g_1,\dotsc,g_n)$ is the restriction of the principal minor of weight $\sum g_i \omega_i$.
+Let $G$ be a Kac-Moody group, let $c$ be a Coxeter element of its Weyl group, and $B_c$ the associated exchange matrix.  All initial and preprojective cluster variables in the coordinate ring of $G^{c,c^{-1}}$ are restrictions of principal minors of highest weight representations.  Their $g$-vectors are of the form $\dotsc$, and the cluster variable with $g$-vector $g = (g_1,\dotsc,g_n)$ is the restriction of the principal minor of weight $\sum g_i \omega_i$.
 \end{proposition}
 \begin{proof}
 \begin{enumerate}
@@ -243,21 +231,21 @@ Let $G$ be a Kac-Moody group, $c$ a Coxeter element of its Weyl group, and $B_c$
 \end{proof}
 
 \begin{proposition}
-Let $G$ be a Kac-Moody group, $c$ a Coxeter element of its Weyl group, and $B_c$ the associated exchange matrix.  All postinjective cluster variables in the coordinate ring of $G^{c,c^{-1}}$ are restrictions of principal minors of lowest weight representations.  Their $g$-vectors are of the form $\dotsc$, and the cluster variable with $g$-vector $g = (g_1,\dotsc,g_n)$ is the restriction of the principal minor of weight $\sum g_i \omega_i$.
+Let $G$ be a Kac-Moody group, let $c$ be a Coxeter element of its Weyl group, and $B_c$ the associated exchange matrix.  All postinjective cluster variables in the coordinate ring of $G^{c,c^{-1}}$ are restrictions of principal minors of lowest weight representations.  Their $g$-vectors are of the form $\dotsc$, and the cluster variable with $g$-vector $g = (g_1,\dotsc,g_n)$ is the restriction of the principal minor of weight $\sum g_i \omega_i$.
 \end{proposition}
 \begin{proof}
 \begin{enumerate}
 \item Compute change of coordinates between oppositely shuffled parametrizations.
 \item Use this to show antifundamental minors are mutations of fundamental ones.
 \item Think about coefficients in oppositely shuffled parametrization.
-\item Show negative version of generalized minor identities reduce to exchange relations among preinjective minors.
+\item Show negative version of generalized minor identities reduce to exchange relations among postinjective minors.
 \end{enumerate}
 \end{proof}
 
 \section{Level Zero Representations}
 
 \begin{proposition}
-Let $G = \widehat{LSL_{n+1}}$ be the affine Kac-Moody group of type $A_n^{(1)}$, $c$ a Coxeter element of the affine Weyl group, and $Q_c$ the associated affine quiver.  All regular cluster variables in the coordinate ring of $G^{c,c^{-1}}$ are principal minors of level zero representations.  
+Let $G = \widehat{LSL_{n+1}}$ be the affine Kac-Moody group of type $A_n^{(1)}$, let $c$ be a Coxeter element of the affine Weyl group, and $Q_c$ the associated affine quiver.  All regular cluster variables in the coordinate ring of $G^{c,c^{-1}}$ are principal minors of level zero representations.  
 \end{proposition}
 \begin{proof}
 \begin{enumerate}
@@ -290,7 +278,7 @@ Let $B_c$ be the skew-symmetrizable matrix associated to the pair $A,c$.
 \saySS{We should define $B_c$ somewhere in the introduction}
 We will concern ourself with a specific sequence of seeds (the \emph{acyclic belt}) in the principal coefficients cluster algebra $\cAb(B_c)$.
 
-More specifically let $t_0$ be the node of the exchange graph containing the initial seed and $t_m$ the nodes given by the sequence
+More specifically, let $t_0$ be the node of the exchange graph containing the initial seed and $t_m$ the nodes given by the sequence
 \begin{equation}
   \cdots
   \dashname{n}
@@ -311,11 +299,12 @@ More specifically let $t_0$ be the node of the exchange graph containing the ini
   \cdots
 \end{equation}
 \saySS{We should probably comment on the fact that all these nodes of the exchange graph are distinct. It follows from the propositions we are about to prove but one might wonder whether the argument is circular here.}
+\sayDR{I think the proposition below establishes this fact, I did not see any point where you assumed they were distinct in the proof.}
 Following \cite{FZ02}, we denote by $\mod{m}$ the element of $[1,n]$ congruent to $m$ modulo $n$.
 The edge immediately to the left of $t_m$ is then labeled by $\mod{m}$.
 Observe that the nodes we are considering lie along a \emph{sink/source adapted sequence}. 
-In particular the entries of the $B$-matrix $B_m$ at $t_m$ equal, in absolute value, the entries of $B_0$. 
-Moreover the $\mod{m}$-th row of $B_m$ contains only non-positive entries and the $\mod{m+1}$-th row only non-negative entries.
+In particular, the entries of the exchange matrix $B_m$ at $t_m$ equal, in absolute value, the entries of $B_0$. 
+Moreover the $\mod{m}$-th row of $B_m$ contains only non-positive entries and the $\mod{m+1}$-st row only non-negative entries.
 
 We will interpret $\bfc$-vectors as coordinate vectors in the basis of simple roots for the root system of $A$ so that the $i$-th initial $\bfc$-vector is $\alpha_i$.
 \begin{proposition}
@@ -348,12 +337,12 @@ Moreover, whenever $m > 0 $ or $m < -n$, the vector $\gamma_{m,\mod{m}}$ is nega
   By the same principle the root $c^{m\sslash n}s_1\cdots s_{\mod{m}} \alpha_{\mod{m}} = -c^{m\sslash n}s_1\cdots s_{\mod{m-1}} \alpha_{\mod{m}}$ is negative because the word $c^{m\sslash n}s_1\cdots s_{\mod{m}}$ is reduced.
   Similarly, when $m<-n$ the root $-c^{2+(m+1)\sslash n}s_n\cdots s_{\mod{m+1}} \alpha_{\mod{m+1}}$ is positive and the root $-c^{2+(m+1)\sslash n}s_n\cdots s_{\mod{m+1}} \alpha_{\mod{m}}$ is negative.
   
-  Now to the main claim; there are three cases to be consider.
+  For the main claim there are three cases to consider.
 
   \noindent{\bf Case $m\geq 0$.}
   We proceed by induction on $m$.
   For $m=0$ there is nothing to check.
-  Since the sign of $\gamma_{m,\mod{m+1}}$ and the sign of the $\mod{m+1}$-th row of $B_m$ are both positive, in view of \cite[Proposition 1.3]{NZ12}, the $\bfc$-vectors at $t_{m+1}$ are given by
+  Since the sign of $\gamma_{m,\mod{m+1}}$ and the sign of the $\mod{m+1}$-st row of $B_m$ are both positive, in view of \cite[Proposition 1.3]{NZ12}, the $\bfc$-vectors at $t_{m+1}$ are given by
   \begin{align*}
     \gamma_{m+1,i} 
     &= 
@@ -365,21 +354,21 @@ Moreover, whenever $m > 0 $ or $m < -n$, the vector $\gamma_{m,\mod{m}}$ is nega
     &=
     s_{\gamma_{m,\mod{m+1}}}\big(\gamma_{m,i}\big)
   \end{align*}
-  where the previous to last equality holds because the pairing $(\bullet,\bullet)$ is invariant under the action of the Weyl group.  
+  where the second to last equality holds because the pairing $(\cdot,\cdot)$ is invariant under the action of the Weyl group.  
   Using the inductive hypotheses we can then conclude
   \begin{align*}
     \gamma_{m+1,i} 
     &=
     s_{\gamma_{m,\mod{m+1}}}\big(\gamma_{m,i}\big)\\
     &=
-    c^{m\sslash n}s_1\cdots s_{\mod{m}}s_{\mod{m+1}} s_{\mod{m}} \cdots s_1 c^{-m\sslash n}\big(c^{m\sslash n}s_1\cdots s_{\mod{m}}\alpha_i\big)\\
+    \big(c^{m\sslash n}s_1\cdots s_{\mod{m}}\big)s_{\mod{m+1}}\big(s_{\mod{m}}\cdots s_1 c^{-m\sslash n}\big)\big(c^{m\sslash n}s_1\cdots s_{\mod{m}}\alpha_i\big)\\
     &= 
     c^{m\sslash n}s_1\cdots s_{\mod{m}}s_{\mod{m+1}} \alpha_i.
   \end{align*}
 
   \noindent{\bf Case $-n \leq m < 0$.}
-  We again argue by induction on $m$ the base case being still $m=0$. 
-  This time thought, while the sign of $\gamma_{m,\mod{m}}$ is positive, the sign of the $\mod{m}$-th row of $B_m$ is negative. 
+  We again argue by induction on $m$ the base case still being $m=0$. 
+  This time though, while the sign of $\gamma_{m,\mod{m}}$ is positive, the sign of the $\mod{m}$-th row of $B_m$ is negative. 
   The $\bfc$-vectors at $t_{m-1}$ are therefore given by:
   \begin{equation*}
     \gamma_{m-1,i}
@@ -434,6 +423,7 @@ In view of how simple reflections act on fundamental weights the expressions of 
 In particular, in the acyclic belt of $\cAb(B_c)$, there is one cluster variable $x_{c^k\omega_i}$ with  $\bfg$-vector $c^k\omega_i$ for any $k\geq 0$, and one cluster variable $x_{-c^{-k}\omega_i}$ with $\bfg$-vector $-c^{-k}\omega_i$ again for any $k\geq 0$.
 Taking inspiration from quiver representation theory we will refer to the former as \emph{preprojective} cluster variables and to the latter as \emph{postinjective} cluster variables.
 \saySS{I am not entirely happy with this definition: if I am not mistaken modules corresponding to initial cluster variables are neither preprojective not postinjective. Here we force them in the preprojective field to make it easier to state exchange relations later on. Would it make sense to drop the notation entirely? Do we need it anywhere?}
+\sayDR{It is really only necessary if we wish to emphasize the similarity of trichotomies: (preprojective, regular, postinjecive) and (positive level, level zero, negative level).  As you correctly pointed out the initial cluster is a bit of an anomaly from the ``classical'' representation theory perspective, but the initial cluster variables do correspond to shifted projectives in the cluster category so the terminology might still be considered acceptable.}
 
 \begin{corollary}
   The cluster variables in the acyclic belt of $\cAb(B_c)$ satisfy the following exchange relations $(k\geq 0)$:
@@ -527,7 +517,7 @@ Let $B$ and $B'$ be $(n+m)\times n$ exchange matrices and $M$ and invertible $m 
 
 \section{Appendix: Quiver Representations}
 \subsection{Affine Tubes}
-  Let $Q$ be an acyclic affine quiver of type $A$ with vertices labeled $\{1,\ldots,n\}$ counter-clockwise around $Q$.  Suppose $Q$ has $p$ clockwise pointing arrows and $q$ counter-clockwise pointing arrows.  Write $i_1,\ldots,i_k$ for the sinks and sources of $Q$ read counter-clockwise around the quiver and note that $k$ must be even.  For notational conevenience we denote $i_k$ by $i_0$ and assume that $i_1$ is a sink in $Q$.  Define full, extension-closed subcategories $\overrightarrow{\rep}Q$ and $\overleftarrow{\rep}Q$ of $\rep Q$ as follows:
+  Let $Q$ be an acyclic affine quiver of type $A$ with vertices labeled $\{1,\ldots,n\}$ counter-clockwise around $Q$.  Suppose $Q$ has $p$ clockwise pointing arrows and $q$ counter-clockwise pointing arrows.  Write $i_1,\ldots,i_k$ for the sinks and sources of $Q$ read counter-clockwise around the quiver and note that $k$ must be even.  For notational convenience we denote $i_k$ by $i_0$ and assume that $i_1$ is a sink in $Q$.  Define full, extension-closed subcategories $\overrightarrow{\rep}Q$ and $\overleftarrow{\rep}Q$ of $\rep Q$ as follows:
   \begin{itemize}
     \item $\overrightarrow{\rep}Q$ is generated by the representations $M_{[i_{2t-1},i_{2t}]}$ for $1\le t\le k/2$ together with the representations $S_{j+i_{2t}}$ for $1\le t\le k/2$ and $1\le j\le i_{2t+1}-i_{2t}-1$;
     \item $\overleftarrow{\rep}Q$ is generated by the representations $M_{[i_{2t-2},i_{2t-1}]}$ for $1\le t\le k/2$ together with the representations $S_{j+i_{2t-1}}$ for $1\le t\le k/2$ and $1\le j\le i_{2t}-i_{2t-1}-1$.
@@ -555,7 +545,7 @@ Let $B$ and $B'$ be $(n+m)\times n$ exchange matrices and $M$ and invertible $m 
 \begin{itemize}
 
   \item 
-    The Cartan matrix is $A=a_{i,j}$ and it's $n \times n$.
+    The Cartan matrix is $A=(a_{ij})$ and it's $n \times n$.
 
   \item 
     $I=[1,n]$ is the set of indices of the nodes of the Dynkin diagram. The labels are such that $c=s_1\dots s_n$.
@@ -580,7 +570,7 @@ Let $B$ and $B'$ be $(n+m)\times n$ exchange matrices and $M$ and invertible $m 
         1       & i=j
       \end{cases}
     \]
-    (negative below the diagonal 0 above)
+    (negative below the diagonal, 0 above)
 
   \item
     The initial $B$-matrix for $G^{c,c^{-1}}$ with double reduced word $\bar 1,\dots,\bar n,n\dots 1$ is
