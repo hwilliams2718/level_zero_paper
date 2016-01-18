@@ -26,6 +26,8 @@
 \newcommand{\bfg}{\mathbf{g}}
 \newcommand{\bfc}{\mathbf{c}}
 \newcommand{\dashname}[1]{\stackrel{#1}{\begin{picture}(22,3)\put(0,2.5){\line(1,0){22}}\end{picture}}}
+\newcommand{\cev}[1]{\reflectbox{\!\ensuremath{\vec{\,\reflectbox{\ensuremath{#1}}}}}}
+\newcommand{\scev}[1]{\reflectbox{\scriptsize\!\ensuremath{\vec{\,\reflectbox{\ensuremath{#1}}}}}}
 \renewcommand{\mod}[1]{\langle {#1} \rangle}
 
 % ambients and numbering
@@ -517,7 +519,7 @@ Let $B$ and $B'$ be $(n+m)\times n$ exchange matrices and $M$ and invertible $m 
 
 \section{Appendix: Quiver Representations}a
 \subsection{Affine Tubes}
-  Let $Q$ be an acyclic affine quiver of type $A$ with vertices labeled $\{0,1,\ldots,n\}$ counter-clockwise around $Q$.  It may become useful to allow arbitrary integer labeling over the vertices taken modulo $n+1$.  Suppose $Q$ has $p$ clockwise pointing arrows and $q$ counter-clockwise pointing arrows.  Write $i_1,\ldots,i_r$ for the sinks and sources of $Q$ read counter-clockwise around the quiver and note that $r$ must be even.  We will extend this notation to include $i_t$ for $t\in\ZZ$ where $i_t=i_{t'}$ when $t\equiv t'$ modulo $r$.  Without loss of generality we assume $i_1$ is a sink in $Q$.  
+  Let $Q$ be an acyclic affine quiver of type $A$ with vertices labeled $\{0,1,\ldots,n\}$ counter-clockwise around $Q$.  It may become useful to allow arbitrary integer labeling over the vertices taken modulo $n+1$.  Suppose $Q$ has $p$ clockwise pointing arrows $\{\vec{a}_1,\ldots,\vec{a}_p\}$ and $q$ counter-clockwise pointing arrows $\{\cev{a}_1,\ldots,\cev{a}_q\}$.  Write $i_1,\ldots,i_r$ for the sinks and sources of $Q$ read counter-clockwise around the quiver and note that $r$ must be even.  We will extend this notation to include $i_t$ for $t\in\ZZ$ where $i_t=i_{t'}$ when $t\equiv t'$ modulo $r$.  Without loss of generality we assume $i_1$ is a sink in $Q$.  
 
   For each pair of vertices $i,j\in Q$ we let $M_{[i,j]}$ denote the indecomposable representation of $Q$ which contains a one-dimensional vector space at each vertex $k$ contained weakly between $i$ and $j$ when tracing counterclockwise around $Q$ from $i$ to $j$.  We take $M_{[i,i]}$ to be the simple representation $S_i$ at vertex $i$.  Define full, extension-closed subcategories $\overrightarrow{\rep}Q$ and $\overleftarrow{\rep}Q$ of $\rep Q$ (called \emph{internally clockwise} and \emph{internally counterclockwise subcategories} respectively) as follows:
   \begin{itemize}
@@ -529,7 +531,7 @@ Let $B$ and $B'$ be $(n+m)\times n$ exchange matrices and $M$ and invertible $m 
     \begin{enumerate}
       \item The modules listed above provide a complete set of simple objects in the categories $\overrightarrow{\rep}Q$ and $\overleftarrow{\rep}Q$.  Moreover, every object of $\overrightarrow{\rep}Q$ and $\overleftarrow{\rep}Q$ admits a unique Jordan-H\"older series with the corresponding simples as composition factors.
       \item Every regular representation of $Q$ is contained in one of $\overrightarrow{\rep}Q$ or $\overleftarrow{\rep}Q$.
-      \item The regular exceptional representations of $Q$ are exactly the representations of $\overrightarrow{\rep}Q$ and $\overleftarrow{\rep}Q$ of length at most $q-1$ and $p-1$ respectively, where length refers to the Jordan-H\"older length in the respective categories.
+      \item The exceptional regular representations of $Q$ are exactly the representations from $\overrightarrow{\rep}Q$ and $\overleftarrow{\rep}Q$ of length at most $q-1$ and $p-1$ respectively, where length refers to the Jordan-H\"older length in the respective categories.  
     \end{enumerate}
   \end{proposition}
   \begin{proof}
@@ -541,11 +543,44 @@ Let $B$ and $B'$ be $(n+m)\times n$ exchange matrices and $M$ and invertible $m 
     Note that none of the rigid regular representations is sincere and all of them take the form $M_{[i,j]}$ for some $i$ and $j$ with $i\ne j+1$.
   \end{remark}
 
+  The dimension vectors of the generators for $\overrightarrow{\rep}Q$ and $\overleftarrow{\rep}Q$ can be described respectively as follows:
+  \begin{align}
+    \cev{\beta}_{1,\ell}&=\begin{cases}\alpha_{t(\scev{a}_\ell)} & \text{if $t(\cev{a}_\ell)$ is not a sink in $Q$;}\\\alpha_{i_s}+\cdots+\alpha_{i_{s+1}} & \text{if $t(\cev{a}_\ell)=i_s$ is a sink in $Q$;}\end{cases}\\
+    \vec{\beta}_{1,\ell}&=\begin{cases}\alpha_{s(\vec{a}_\ell)} & \text{if $s(\cev{a}_\ell)$ is not a source in $Q$;}\\\alpha_{i_t}+\cdots+\alpha_{i_{t+1}} & \text{if $s(\cev{a}_\ell)=i_t$ is a source in $Q$.}\end{cases}
+  \end{align}
+  It then follows from the Proposition that the dimension vectors of the exceptional regular representations are given by
+  \begin{equation}
+    \cev\beta_{k,\ell}=\sum\limits_{m=1}^k\cev\beta_{1,\ell+m-k}\quad\text{and}\quad\vec\beta_{k,\ell}=\sum\limits_{m=1}^k\vec\beta_{1,\ell+m-1}.
+  \end{equation}
+
+
   \begin{corollary}
     A representation $M$ of $Q$ is regular if and only if $\sum\limits_{\ell=1}^r\dim M_{i_\ell}$ is even.
   \end{corollary}
 
   The next goal is to enumerate the subrepresentations of each rigid $M_{[i,j]}$.  To that end, following \Cref{rem:rigid regulars}, we consider $i,j\in Q_0$ with $i\ne j+1$.  Now write $Q_{[i,j]}$ for the full subquiver of $Q$ with vertices $\{i,i+1,\ldots, j\}$ and note that this is a quiver of type $A$.  Let $i=j_1,j_2,\ldots,j_s=j$ denote the sinks and sources in $Q_{[i,j]}$.  Then the subrepresentations $N$ of $M_{[i,j]}$ are enumerated by the following data.  Choose a subset $J$ of the sinks of $Q_{[i,j]}$ to enumerate the socle of $N$.  Denote by $\bar{J}$ the subset of the sources of $Q_{[i,j]}$ consisting of all $j_t$ such that $j_{t-1},j_{t+1}\in J$.  We also take $j_1\in\bar{J}$ (resp. $j_s\in\bar{J}$) if $j_1$ (resp. $j_s$) is a source in $Q_{[i,j]}$ and $j_2\in J$ (resp. $j_{s-1}\in J$).  Choose a subset $I\subset \bar{J}$.  Write $J_L(I)=\{j_t\in J:j_{t-1}\notin I\}$ and $J_R(I)=\{j_t\in J:j_{t+1}\notin I\}$.  For each $j_t\in J_L(I)$ choose $k_{t-1}:j_{t-1}<k_{t-1}\le j_t$ and for each $j_t\in J_R(I)$ choose $k_t:j_t\le k_t<j_{t+1}$, when the inequalities are strict or both are equalities these $k_t$ enumerate, together with $I$, the top of $N$.
+
+  The minimal injective copresentation of $M_{[i,j]}$ can be understood in terms of the quiver $Q_{[i,j]}$ as well.  This requires a couple of cases:
+  \begin{itemize}
+    \item $i$ and $j$ are sinks in $Q_{[i,j]}$ then a minimal injective copresentation of $M_{[i,j]}$ is given by
+    \[0\longrightarrow M_{[i,j]}\longrightarrow\bigoplus_{t=1}^{\frac{s+1}{2}} I_{j_{2t-1}}\longrightarrow\bigoplus_{t=1}^{\frac{s-1}{2}} I_{j_{2t}}\]
+    \item $i$ is a sink in $Q_{[i,j]}$ and $j$ is a source in $Q_{[i,j]}$ but not a source in $Q$ then a minimal injective copresentation of $M_{[i,j]}$ is given by
+    \[0\longrightarrow M_{[i,j]}\longrightarrow\bigoplus_{t=1}^{\frac{s}{2}} I_{j_{2t-1}}\longrightarrow I_{j+1}\oplus\bigoplus_{t=1}^{\frac{s-2}{2}} I_{j_{2t}}\]
+    \item $i$ is a sink in $Q_{[i,j]}$ and $j$ is a source in $Q$ then a minimal injective copresentation of $M_{[i,j]}$ is given by
+    \[0\longrightarrow M_{[i,j]}\longrightarrow\bigoplus_{t=1}^{\frac{s}{2}} I_{j_{2t-1}}\longrightarrow \bigoplus_{t=1}^{\frac{s-2}{2}} I_{j_{2t}}\]
+    \item $i$ is a source in $Q_{[i,j]}$ but not a source in $Q$ and $j$ is a sink in $Q_{[i,j]}$ then a minimal injective copresentation of $M_{[i,j]}$ is given by
+    \[0\longrightarrow M_{[i,j]}\longrightarrow\bigoplus_{t=1}^{\frac{s}{2}} I_{j_{2t}}\longrightarrow I_{i-1}\oplus\bigoplus_{t=1}^{\frac{s-2}{2}} I_{j_{2t+1}}\]
+    \item $i$ is a source in $Q$ and $j$ is a sink in $Q$ then a minimal injective copresentation of $M_{[i,j]}$ is given by
+    \[0\longrightarrow M_{[i,j]}\longrightarrow\bigoplus_{t=1}^{\frac{s}{2}} I_{j_{2t}}\longrightarrow\oplus\bigoplus_{t=1}^{\frac{s-2}{2}} I_{j_{2t+1}}\]
+    \item $i$ is a source in $Q_{[i,j]}$ but not a source in $Q$ and $j$ is a source in $Q_{[i,j]}$ but not a source in $Q$ then a minimal injective copresentation of $M_{[i,j]}$ is given by
+    \[0\longrightarrow M_{[i,j]}\longrightarrow\bigoplus_{t=1}^{\frac{s-1}{2}} I_{j_{2t}}\longrightarrow I_{i-1}\oplus I_{j+1}\oplus\bigoplus_{t=1}^{\frac{s-3}{2}} I_{j_{2t+1}}\]
+    \item $i$ is a source in $Q$ and $j$ is a source in $Q_{[i,j]}$ but not a source in $Q$ then a minimal injective copresentation of $M_{[i,j]}$ is given by
+    \[0\longrightarrow M_{[i,j]}\longrightarrow\bigoplus_{t=1}^{\frac{s-1}{2}} I_{j_{2t}}\longrightarrow I_{j+1}\oplus\bigoplus_{t=1}^{\frac{s-3}{2}} I_{j_{2t+1}}\]
+    \item $i$ is a source in $Q_{[i,j]}$ but not a source in $Q$ and $j$ is a source in $Q$ then a minimal injective copresentation of $M_{[i,j]}$ is given by
+    \[0\longrightarrow M_{[i,j]}\longrightarrow\bigoplus_{t=1}^{\frac{s-1}{2}} I_{j_{2t}}\longrightarrow I_{i-1}\oplus\bigoplus_{t=1}^{\frac{s-3}{2}} I_{j_{2t+1}}\]
+    \item $i$ and $j$ are sources in $Q$ then a minimal injective copresentation of $M_{[i,j]}$ is given by
+    \[0\longrightarrow M_{[i,j]}\longrightarrow\bigoplus_{t=1}^{\frac{s-1}{2}} I_{j_{2t}}\longrightarrow\bigoplus_{t=1}^{\frac{s-3}{2}} I_{j_{2t+1}}\]
+  \end{itemize}
 
 
 \section{Conventions}
