@@ -519,28 +519,70 @@ Let $B$ and $B'$ be $(n+m)\times n$ exchange matrices and $M$ and invertible $m 
 
 \section{Appendix: Quiver Representations}
 \subsection{Affine Tubes}
-  Let $Q$ be an acyclic affine quiver of type $A$ with vertices labeled $\{0,1,\ldots,n\}$ counter-clockwise around $Q$.  It may become useful to allow arbitrary integer labeling of the vertices taken modulo $n+1$.  Suppose $Q$ has $p$ clockwise pointing arrows $\{\vec{a}_1,\ldots,\vec{a}_p\}$ labeled counterclockwise around $Q$ and $q$ counterclockwise pointing arrows $\{\cev{a}_1,\ldots,\cev{a}_q\}$ labeled clockwise around $Q$. \sayDR{This seemingly strange choice of labeling will make extensions go in the right directions later and thus keep the arrows in the AR quiver pointing from left to right.  The phrase ``against the flow'' might be appropriate to include somewhere.}  Write $i_1,\ldots,i_r$ for the sinks and sources of $Q$ read counterclockwise around the quiver and note that $r$ must be even.  We will extend this notation to include $i_t$ for $t\in\ZZ$ where $i_t=i_{t'}$ when $t\equiv t'$ modulo $r$.  After possibly relabeling, we assume $i_1=0$ is a source in $Q$ with $s(\cev{a}_q)=s(\vec{a}_p)=i_1$.  
+  Let $Q$ be an acyclic affine quiver of type $A$ with vertices labeled $\{0,1,\ldots,n\}$ counter-clockwise around $Q$.  It may become useful to allow arbitrary integer labeling of the vertices taken modulo $n+1$.  Suppose $Q$ has $p$ clockwise pointing arrows $\{\vec{a}_1,\ldots,\vec{a}_p\}$ labeled counterclockwise around $Q$ and $q$ counterclockwise pointing arrows $\{\cev{a}_1,\ldots,\cev{a}_q\}$ labeled clockwise around $Q$. \sayDR{This seemingly strange choice of labeling will make extensions go in the right directions later and thus keep the arrows in the AR quiver pointing from left to right.  The phrase ``against the flow'' might be appropriate to include somewhere.}  Write $i_1,\ldots,i_r$ for the sinks and sources of $Q$ read counterclockwise around the quiver and note that $r$ must be even.  We will extend this notation to include $i_t$ for $t\in\ZZ$ where $i_t=i_{t'}$ when $t\equiv t'$ modulo $r$.  After possibly relabeling, we assume $i_1=0$ is a source in $Q$ with $s(\cev{a}_q)=s(\vec{a}_p)=i_1$.  Thus $Q$ takes the following form:
+  \begin{center}
+    \begin{tikzpicture}
+      \node at (-1,1) {$Q=$};
+      \draw[fill=black] (0,0) circle (1.5pt);
+      \node[below left] at (0,0) {$\scriptstyle i_1=0$};
+      \draw[->] (0.1,-0.1) -- (0.65,-0.65);
+      \node[below right] at (0.25,0) {$\scriptstyle \scev{a}_q$};
+      \draw[fill=black] (0.75,-0.75) circle (1.5pt);
+      \node[below left] at (0.75,-0.75) {$\scriptstyle  1$};
+      \draw[fill=black] (0.9375,-0.75) circle (0.75pt);
+      \draw[fill=black] (1.125,-0.75) circle (0.75pt);
+      \draw[fill=black] (1.3125,-0.75) circle (0.75pt);
+      \draw[fill=black] (1.5,-0.75) circle (1.5pt);
+      \draw[->] (1.65,-0.75) -- (2.1,-0.75);
+      \draw[fill=black] (2.25,-0.75) circle (1.5pt);
+      \node[below] at (2.25,-0.75) {$\scriptstyle  i_2$};
+      \draw[<-] (2.4,-0.75) -- (2.85,-0.75);
+      \node at (2.675,-0.575) {$\scriptstyle \vec{a}_1$};
+      \draw[fill=black] (3,-0.75) circle (1.5pt);
+      \draw[fill=black] (3.1875,-0.5625) circle (0.75pt);
+      \draw[fill=black] (3.375,-0.375) circle (0.75pt);
+      \draw[fill=black] (3.5625,-0.1875) circle (0.75pt);
+      \draw[fill=black] (3.75,0) circle (1.5pt);
+      \draw[fill=black] (3.5625,0.1875) circle (0.75pt);
+      \draw[fill=black] (3.375,0.375) circle (0.75pt);
+      \draw[fill=black] (3.1875,0.5625) circle (0.75pt);
+      \draw[fill=black] (3,0.75) circle (1.5pt);
+      \draw[<-] (2.4,0.75) -- (2.85,0.75);
+      \node at (2.675,0.575) {$\scriptstyle \scev{a}_1$};
+      \draw[fill=black] (2.25,0.75) circle (1.5pt);
+      \node[above] at (2.25,0.75) {$\scriptstyle  i_r$};
+      \draw[->] (1.65,0.75) -- (2.1,0.75);
+      \draw[fill=black] (1.5,0.75) circle (1.5pt);
+      \draw[fill=black] (1.3125,0.75) circle (0.75pt);
+      \draw[fill=black] (1.125,0.75) circle (0.75pt);
+      \draw[fill=black] (0.9375,0.75) circle (0.75pt);
+      \draw[fill=black] (0.75,0.75) circle (1.5pt);
+      \node[above left] at (0.75,0.75) {$\scriptstyle  n$};
+      \draw[->] (0.1,0.1) -- (0.65,0.65);
+      \node[above right] at (0.25,0) {$\scriptstyle \vec{a}_p$};
+    \end{tikzpicture}
+  \end{center}
 
-  For each pair of vertices $i,j\in Q$ we let $M_{[i,j]}$ denote the indecomposable representation of $Q$ which contains a one-dimensional vector space at each vertex $k$ contained weakly between $i$ and $j$ when tracing counterclockwise around $Q$ from $i$ to $j$.  We take $M_{[i,i]}$ to be the simple representation $S_i$ at vertex $i$.  Define full, extension-closed additive subcategories $\overrightarrow{\rep}Q$ and $\overleftarrow{\rep}Q$ of $\rep Q$ (called \emph{clockwise} and \emph{counterclockwise subcategories} respectively) as follows:
+  For each pair of vertices $i,j\in Q$, let $M_{[i,j]}$ denote the indecomposable representation of $Q$ which contains a one-dimensional vector space at each vertex $k$ contained weakly between $i$ and $j$ when tracing counterclockwise around $Q$ from $i$ to $j$.  We take $M_{[i,i]}$ to be the simple representation $S_i$ at vertex $i$.  Define full, extension-closed additive subcategories $\overrightarrow{\rep}Q$ and $\overleftarrow{\rep}Q$ of $\rep Q$ (called \emph{clockwise} and \emph{counterclockwise subcategories} respectively) as follows:
   \begin{itemize}
     \item $\overrightarrow{\rep}Q$ is generated by the representations $M_{[i_{2t-1},i_{2t}]}$ for $1\le t\le r/2$ together with the representations $S_{j+i_{2t}}$ for $1\le t\le r/2$ and $1\le j\le i_{2t+1}-i_{2t}-1$;
     \item $\overleftarrow{\rep}Q$ is generated by the representations $M_{[i_{2t},i_{2t+1}]}$ for $1\le t\le r/2$ together with the representations $S_{j+i_{2t-1}}$ for $1\le t\le r/2$ and $1\le j\le i_{2t}-i_{2t-1}-1$.
   \end{itemize}
   Notice that $\overrightarrow{\rep}Q$ is generated by exactly $p$ indecomposable representations while $\overleftarrow{\rep}Q$ is generated by exactly $q$ indecomposable representations.  Indeed, the generators of $\overrightarrow{\rep}Q$ and $\overleftarrow{\rep}Q$ can conveniently be labeled by the clockwise and counterclockwise arrows respectively.  More precisely, we will label their dimension vectors as follows:
   \begin{equation}
-    \vec{\beta}_{1,\ell}&=\begin{cases}\alpha_i & \text{if $s(\vec{a}_\ell)=i$ is not a source in $Q$}\\\alpha_{i_t}+\cdots+\alpha_{i_{t+1}} & \text{if $s(\vec{a}_\ell)=i_t$ is a source in $Q$}\end{cases}\!\!\Bigg\}\quad\text{for $1\le\ell\le p$}
+    \vec{\beta}_{1,\ell}=\begin{cases}\alpha_i & \text{if $s(\vec{a}_\ell)=i$ is not a source in $Q$}\\\alpha_{i_t}+\cdots+\alpha_{i_{t+1}} & \text{if $s(\vec{a}_\ell)=i_t$ is a source in $Q$}\end{cases}\!\!\Bigg\}\quad\text{for $1\le\ell\le p$}
   \end{equation}
   and
   \begin{equation}
-    \cev{\beta}_{1,\ell}&=\begin{cases}\alpha_i & \text{if $t(\cev{a}_\ell)=i$ is not a sink in $Q$}\\\alpha_{i_s}+\cdots+\alpha_{i_{s+1}} & \text{if $t(\cev{a}_\ell)=i_s$ is a sink in $Q$}\end{cases}\!\!\Bigg\}\quad\text{for $1\le\ell\le q$.}
+    \cev{\beta}_{1,\ell}=\begin{cases}\alpha_i & \text{if $t(\cev{a}_\ell)=i$ is not a sink in $Q$}\\\alpha_{i_s}+\cdots+\alpha_{i_{s+1}} & \text{if $t(\cev{a}_\ell)=i_s$ is a sink in $Q$}\end{cases}\!\!\Bigg\}\quad\text{for $1\le\ell\le q$.}
   \end{equation}
-  This also gives a labeling of the generators of $\overrightarrow{\rep}Q$ and $\overleftarrow{\rep}Q$ respectively as $\vec{M}_{1,\ell}$ for $1\le\ell\le p$ and $\cev{M}_{1,\ell}$ for $1\le\ell\le q$.  The indices of these representations can be described as follows:
+  This also gives a labeling of the generators of $\overrightarrow{\rep}Q$ and $\overleftarrow{\rep}Q$ respectively as $\vec{M}_{1,\ell}$ for $1\le\ell\le p$ and $\cev{M}_{1,\ell}$ for $1\le\ell\le q$.  The coindices of these representations can be described as follows:
   \begin{equation}
-    \vec{\lambda}_{1,\ell}&=\begin{cases}\omega_i-\omega_{i+1} & \text{if $s(\vec{a}_\ell)=i$ is not a source in $Q$}\\\omega_{i_{t+1}}-\omega_{i_{t+1}+1} & \text{if $s(\vec{a}_\ell)=i_t$ is a source in $Q$}\end{cases}\!\!\Bigg\}\quad\text{for $1\le\ell\le p$}
+    \vec{\lambda}_{1,\ell}=\begin{cases}\omega_i-\omega_{i+1} & \text{if $s(\vec{a}_\ell)=i$ is not a source in $Q$}\\\omega_{i_{t+1}}-\omega_{i_{t+1}+1} & \text{if $s(\vec{a}_\ell)=i_t$ is a source in $Q$}\end{cases}\!\!\Bigg\}\quad\text{for $1\le\ell\le p$}
   \end{equation}
   and
   \begin{equation}
-    \cev{\lambda}_{1,\ell}&=\begin{cases}\omega_i-\omega_{i-1} & \text{if $t(\cev{a}_\ell)=i$ is not a sink in $Q$}\\\omega_{i_s}-\omega_{i_s-1} & \text{if $t(\cev{a}_\ell)=i_s$ is a sink in $Q$}\end{cases}\!\!\Bigg\}\quad\text{for $1\le\ell\le q$.}
+    \cev{\lambda}_{1,\ell}=\begin{cases}\omega_i-\omega_{i-1} & \text{if $t(\cev{a}_\ell)=i$ is not a sink in $Q$}\\\omega_{i_s}-\omega_{i_s-1} & \text{if $t(\cev{a}_\ell)=i_s$ is a sink in $Q$}\end{cases}\!\!\Bigg\}\quad\text{for $1\le\ell\le q$.}
   \end{equation}
 
   It will be convenient to allow $\ell\in\ZZ$ with identifications $\vec{M}_{1,\ell}=\vec{M}_{1,\ell+p}$ and $\cev{M}_{1,\ell}=\cev{M}_{1,\ell+q}$.  Then we define representations $\vec{M}_{k,\ell}$ (resp. $\cev{M}_{k,\ell}$) for $k\ge0$ and $\ell\in\ZZ$ inductively via the short exact sequence
@@ -563,12 +605,24 @@ Let $B$ and $B'$ be $(n+m)\times n$ exchange matrices and $M$ and invertible $m 
 
   It follows from the Proposition that the dimension vectors of the exceptional regular representations are given by
   \begin{equation}
-    \vec\beta_{k,\ell}&=\sum\limits_{m=1}^k\vec\beta_{1,\ell+m-1}\quad\text{for $1\le k\le p-1$ and $1\le\ell\le p$}
+    \vec\beta_{k,\ell}=\sum\limits_{m=1}^k\vec\beta_{1,\ell+m-1}\quad\text{for $1\le k\le p-1$ and $1\le\ell\le p$}
   \end{equation}
   and
   \begin{equation}
-    \cev\beta_{k,\ell}&=\sum\limits_{m=1}^k\cev\beta_{1,\ell+m-1}\quad\text{for $1\le k\le q-1$ and $1\le\ell\le q$.}
+    \cev\beta_{k,\ell}=\sum\limits_{m=1}^k\cev\beta_{1,\ell+m-1}\quad\text{for $1\le k\le q-1$ and $1\le\ell\le q$.}
   \end{equation}
+  Similarly the coindices of these representations can be computed as
+  \begin{align}
+    \vec\lambda_{k,\ell}
+    &=\sum\limits_{m=1}^k\vec\lambda_{1,\ell+m-1}\quad\text{for $1\le k\le p-1$ and $1\le\ell\le p$}\\
+    &=\begin{cases}\omega_i-\omega_{i+1} & \text{if $s(\vec{a}_\ell)=i$ is not a source in $Q$}\\\omega_{i_{t+1}}-\omega_{i_{t+1}+1} & \text{if $s(\vec{a}_\ell)=i_t$ is a source in $Q$}\end{cases}\!\!\Bigg\}
+  \end{align}
+  and
+  \begin{align}
+    \cev\lambda_{k,\ell}
+    &=\sum\limits_{m=1}^k\cev\lambda_{1,\ell+m-1}\quad\text{for $1\le k\le q-1$ and $1\le\ell\le q$}\\
+    &=\begin{cases}\omega_i-\omega_{i-1} & \text{if $t(\cev{a}_\ell)=i$ is not a sink in $Q$}\\\omega_{i_s}-\omega_{i_s-1} & \text{if $t(\cev{a}_\ell)=i_s$ is a sink in $Q$}\end{cases}\!\!\Bigg\}
+  \end{align}
 
 
   \begin{corollary}
