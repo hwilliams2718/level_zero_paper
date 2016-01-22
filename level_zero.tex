@@ -44,10 +44,6 @@
 \begin{document}
 \title{Regular Representations of Affine Quivers and Level Zero Representations of Affine Lie Groups}
 
-\author[Williams]{Harold Williams}
-\address[Harold Williams]{University of Texas at Austin}
-\email{hwilliams@math.utexas.edu}
-
 \author[Rupel]{Dylan Rupel}
 \address[Dylan Rupel]{University of Notre Dame}
 \email{drupel@nd.edu}
@@ -55,6 +51,10 @@
 \author[Stella]{Salvatore Stella}
 \address[Salvatore Stella]{Universit\`a degli studi di Roma ``La Sapienza''}
 \email{stella@mat.uniroma1.it}
+
+\author[Williams]{Harold Williams}
+\address[Harold Williams]{University of Texas at Austin}
+\email{hwilliams@math.utexas.edu}
 
 \begin{abstract}
 \end{abstract}
@@ -562,6 +562,7 @@ Let $B$ and $B'$ be $(n+m)\times n$ exchange matrices and $M$ and invertible $m 
       \node[above right] at (0.25,0) {$\scriptstyle \vec{a}_p$};
     \end{tikzpicture}
   \end{center}
+  For a vertex $i$ in $Q$, write $i^+$ for the next source or sink of $Q$ counterclockwise from $i$.  Define $i^-$ similarly by looking clockwise from $i$.  Note that when $i$ is a source (resp. a sink) both $i^-$ and $i^+$ will be sinks (resp. sources).
 
   For each pair of vertices $i,j\in Q$, let $M_{[i,j]}$ denote the indecomposable representation of $Q$ which contains a one-dimensional vector space at each vertex $k$ contained weakly between $i$ and $j$ when tracing counterclockwise around $Q$ from $i$ to $j$.  We take $M_{[i,i]}$ to be the simple representation $S_i$ at vertex $i$.  Define full, extension-closed additive subcategories $\overrightarrow{\rep}Q$ and $\overleftarrow{\rep}Q$ of $\rep Q$ (called \emph{clockwise} and \emph{counterclockwise subcategories} respectively) as follows:
   \begin{itemize}
@@ -630,7 +631,7 @@ Let $B$ and $B'$ be $(n+m)\times n$ exchange matrices and $M$ and invertible $m 
     A representation $M$ of $Q$ is regular if and only if $\sum\limits_{\ell=1}^r\dim M_{i_\ell}$ is even.
   \end{corollary}
 
-  The next goal is to enumerate the subrepresentations of each rigid $M_{[i,j]}$.  To that end, following \Cref{rem:rigid regulars}, we consider $i,j\in Q_0$ with $i\ne j+1$.  Now write $Q_{[i,j]}$ for the full subquiver of $Q$ with vertices $\{i,i+1,\ldots, j\}$ and note that this is a quiver of type $A$.  Let $i=j_1,j_2,\ldots,j_s=j$ denote the sinks and sources in $Q_{[i,j]}$.  Then the subrepresentations $N$ of $M_{[i,j]}$ are enumerated by the following data.  Choose a subset $J$ of the sinks of $Q_{[i,j]}$ to enumerate the socle of $N$.  Denote by $\bar{J}$ the subset of the sources of $Q_{[i,j]}$ consisting of all $j_t$ such that $j_{t-1},j_{t+1}\in J$.  We also take $j_1\in\bar{J}$ (resp. $j_s\in\bar{J}$) if $j_1$ (resp. $j_s$) is a source in $Q_{[i,j]}$ and $j_2\in J$ (resp. $j_{s-1}\in J$).  Choose a subset $I\subset \bar{J}$.  Write $J_L(I)=\{j_t\in J:j_{t-1}\notin I\}$ and $J_R(I)=\{j_t\in J:j_{t+1}\notin I\}$.  For each $j_t\in J_L(I)$ choose $k_{t-1}:j_{t-1}<k_{t-1}\le j_t$ and for each $j_t\in J_R(I)$ choose $k_t:j_t\le k_t<j_{t+1}$, when the inequalities are strict or both are equalities these $k_t$ enumerate, together with $I$, the top of $N$.
+  The next goal is to enumerate the subrepresentations of each rigid $M_{[i,j]}$.  To that end, following \Cref{rem:rigid regulars}, we consider $i,j\in Q_0$ with $i\ne j+1$.  Now write $Q_{[i,j]}$ for the full subquiver of $Q$ with vertices $\{i,i+1,\ldots, j\}$ and note that this is a quiver of type $A$.  Let $i=j_1,j_2,\ldots,j_s=j$ denote the sinks and sources in $Q_{[i,j]}$.  Then the subrepresentations $N$ of $M_{[i,j]}$ are enumerated by the following data.  Choose a subset $I$ of the sinks of $Q_{[i,j]}$ to enumerate the socle of $N$.  Denote by $\bar{I}$ the subset of the sources of $Q_{[i,j]}$ consisting of all $j_t$ such that $j_{t-1},j_{t+1}\in I$.  We also take $j_1\in\bar{I}$ (resp. $j_s\in\bar{I}$) if $j_1$ (resp. $j_s$) is a source in $Q_{[i,j]}$ and $j_2\in I$ (resp. $j_{s-1}\in I$).  Choose a subset $O\subset\bar{I}$.  Write $I_L(O)=\{j_t\in I:j_{t-1}\notin O\}$ and $I_R(O)=\{j_t\in I:j_{t+1}\notin O\}$.  For each $j_t\in I_L(O)$ choose $k_{t-1}:j_{t-1}<k_{t-1}\le j_t$ and for each $j_t\in I_R(O)$ choose $k_t:j_t\le k_t<j_{t+1}$, when the inequalities are strict or both are equalities these $k_t$ enumerate, together with $O$, the top of $N$.
 
   The minimal injective copresentation of $M_{[i,j]}$ can be understood in terms of the quiver $Q_{[i,j]}$ as well.  This requires a couple of cases:
   \begin{itemize}
@@ -653,6 +654,50 @@ Let $B$ and $B'$ be $(n+m)\times n$ exchange matrices and $M$ and invertible $m 
     \item $i$ and $j$ are sources in $Q$ then a minimal injective copresentation of $M_{[i,j]}$ is given by
     \[0\longrightarrow M_{[i,j]}\longrightarrow\bigoplus_{t=1}^{\frac{s-1}{2}} I_{j_{2t}}\longrightarrow\bigoplus_{t=1}^{\frac{s-3}{2}} I_{j_{2t+1}}\longrightarrow0\]
   \end{itemize}
+
+  \begin{lemma}\mbox{}
+    \begin{enumerate}
+      \item For $1\le k\le p-1$ and $1\le\ell\le p$ we have
+      \[\vec{\lambda}_{k,\ell}=\sum_{i\in I}\omega_i-\sum_{i\in\bar{I}}\omega_i\]
+      where $I$ denotes the sinks in the support quiver $Q_{k,\ell}$ of $\vec{M}_{k,\ell}$ and $\bar{I}$ denotes the set of internal sources of $\vec{Q}_{k,\ell}$ together with $s(\vec{a}_{k+\ell-1})$.
+      \item For $1\le k\le q-1$ and $1\le\ell\le q$ we have
+      \[\cev{\lambda}_{k,\ell}=\sum_{i\in I}\omega_i-\sum_{i\in\bar{I}}\omega_i\]
+      where $I$ denotes the sinks in the support quiver $Q_{k,\ell}$ of $\cev{M}_{k,\ell}$ and $\bar{I}$ denotes the set of internal sources of $\cev{Q}_{k,\ell}$ together with $s(\cev{a}_{k+\ell-1})$.
+    \end{enumerate}
+  \end{lemma}
+
+  Let $\sigma\in\Sigma_{n+1}$ denote a permutation of the vertices of $Q$ such that $\sigma_0$ is a sink in $Q$ and $\sigma_i$ is a sink in $\mu_{i-1}\cdots\mu_0 Q$ for $1\le i\le n$.  Let $c=s_{\sigma_0}\cdots s_{\sigma_n}$ denote the Coxeter element adapted to $Q$.
+  \begin{theorem}
+    Let $g=x_{\overline{\sigma_0\!}\,}(u_{\sigma_0})\cdots x_{\overline{\sigma_n\!}\,}(u_{\sigma_n}) x_{\sigma_n}(t_{\sigma_n}) \cdots x_{\sigma_0}(t_{\sigma_0})$ denote a generic element of $L^{c,c^{-1}}$.
+    \begin{enumerate}
+      \item For $1\le k\le p-1$ and $1\le\ell\le p$ we have
+      \begin{align}
+        &\Delta_{\vec{\lambda}_{k,\ell}}(g)=\sum_{J\subset I}\left(\prod_{i\in J} t_i\prod_{i\in I\setminus J} u_i^{-1}\left(\prod_{i:t(\vec{a}_\ell)^-\le i<t(\vec{a}_\ell)}t_i+\sum_{m:t(\vec{a}_\ell)^-<m\le t(\vec{a}_\ell)}u_{m-1}^{-1}\prod_{i=m}^{t(\vec{a}_\ell)-1} t_i\right)^\delta\times\right.\\
+        \nonumber&\times\left.\sum_{O\subset\bar{J}}\prod_{\substack{i:j^-<i<j^+\\j\in O}}t_i\prod_{i\in\bar{I}\setminus O}u_i\left(\prod_{j\in I^-(O)}\sum_{m:j^-<m\le j}u_{m-1}^{-1}\prod_{i=m}^{j-1} t_i\right)\left(\prod_{j\in I^+(O)}\sum_{m:j\le m<j^+}u_{m+1}^{-1}\prod_{i=j+1}^{m} t_i\right)\right)
+      \end{align}
+      where:
+      \begin{itemize}
+        \item $I$ denotes the sinks in the support quiver $\vec{Q}_{k,\ell}$ of $\vec{M}_{k,\ell}$ read counterclockwise around $Q$,
+        \item $\bar{I}$ denotes the set of internal sources of $\vec{Q}_{k,\ell}$ together with $s(\vec{a}_{k+\ell-1})$,
+        \item for $J\subset I$, $\bar{J}$ denotes the set of sources $j$ in the support quiver $\vec{Q}_{k,\ell}$ for which $j^-,j^+\in J$,
+        \item for $O\subset\bar{J}$, $I^\pm(O)=\{j\in J:j^\pm\in\bar{I}\setminus O\}$,
+        \item $\delta=\begin{cases}1 & \text{if $t(\vec{a}_\ell)$ is a sink in $Q$ and $t(\vec{a}_\ell)\in J$;}\\0 & \text{otherwise.}\end{cases}$
+      \end{itemize}
+      \item For $1\le k\le q-1$ and $1\le\ell\le q$  we have
+      \begin{align}
+        &\Delta_{\scev{\lambda}_{k,\ell}}(g)=\sum_{J\subset I}\left(\prod_{i\in J} t_i\prod_{i\in I\setminus J} u_i^{-1}\left(\prod_{i:t(\scev{a}_\ell)<i\le t(\scev{a}_\ell)^+}t_i+\sum_{m:t(\scev{a}_\ell)\le m<t(\scev{a}_\ell)^+}u_{m+1}^{-1}\prod_{i=t(\scev{a}_\ell)+1}^m t_i\right)^\delta\times\right.\\
+        \nonumber&\times\left.\sum_{O\subset\bar{J}}\prod_{\substack{i:j^-<i<j^+\\j\in O}}t_i\prod_{i\in\bar{I}\setminus O}u_i\left(\prod_{j\in I^-(O)}\sum_{m:j^-<m\le j}u_{m-1}^{-1}\prod_{i=m}^{j-1} t_i\right)\left(\prod_{j\in I^+(O)}\sum_{m:j\le m<j^+}u_{m+1}^{-1}\prod_{i=j+1}^{m} t_i\right)\right)
+      \end{align}
+      where:
+      \begin{itemize}
+        \item $I$ denotes the sinks in the support quiver $\cev{Q}_{k,\ell}$ of $\cev{M}_{k,\ell}$ read clockwise around $Q$,
+        \item $\bar{I}$ denotes the set of internal sources of $\cev{Q}_{k,\ell}$ together with $s(\cev{a}_{k+\ell-1})$,
+        \item for $J\subset I$, $\bar{J}$ denotes the set of sources $j$ in the support quiver $\cev{Q}_{k,\ell}$ for which $j^-,j^+\in J$,
+        \item for $O\subset\bar{J}$, $I^\pm(O)=\{j\in J:j^-\in\bar{I}\setminus O\}$,
+        \item $\delta=\begin{cases}1 & \text{if $t(\cev{a}_\ell)$ is a sink in $Q$ and $t(\cev{a}_\ell)\in J$;}\\0 & \text{otherwise.}\end{cases}$
+      \end{itemize}
+    \end{enumerate}
+  \end{theorem}
 
 
 \section{Conventions}
