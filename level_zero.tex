@@ -698,6 +698,13 @@ Let $B$ and $B'$ be $(n+m)\times n$ exchange matrices and $M$ and invertible $m 
       \end{itemize}
     \end{enumerate}
   \end{theorem}
+  \begin{proof}
+    The calculation breaks into several independent type $A$ weight space computations coming from consecutive strings of clockwise or consecutive counterclockwise arrows in $Q$.  In each case such a string of equi-oriented arrows is only considered if a step down in weight was performed at the sink $i\in I$ of that path, i.e. if the action of $x_i(t_i)$ replaced the current weight $\omega$ by $\omega-\alpha_i$ in which case the $x_{\bar{i}}(u_i)$ will contribute nothing later.  This accounts for the sum over all subsets $J$ as well as the first product of $t_i$'s and the first product of the $u_i^{-1}$'s (steps not taken when acting by $x_i(t_i)$ and thus no change in weight by $x_{\bar{i}}(u_i)$).
+
+    Next, one has to consider each of these strings separately (mostly).  The set $\bar{I}$ records the negative components of the weight $\vec{\lambda}_{k,\ell}$ and thus if no change in weight is made by the action of $x_{\bar{i}}(u_i)$ for $i\in\bar{I}$ there will be a factor of $u_i$.  The set $O$ records those sources $j$ where every $x_i(t_i)$ along \emph{both} equi-oriented paths beginning at $j$ replaced the current weight $\omega$ by $\omega-\alpha_i$ in which case each of the $x_{\bar{i}}(u_i)$ along these paths will contribute nothing later.  This accounts for the products over elements of $O$ and $\bar{I}\setminus O$.  
+
+    Finally, along each equi-oriented path one can choose to act by some of the $x_i(t_i)$ in a contiguous string beginning at the sink, this accounts for the two products of sums, one for clockwise paths and one for counterclockwise paths.
+  \end{proof}
 
 
 \section{Conventions}
