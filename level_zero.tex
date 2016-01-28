@@ -30,6 +30,8 @@
 \newcommand{\scev}[1]{\reflectbox{\scriptsize\!\ensuremath{\vec{\,\reflectbox{\ensuremath{#1}}}}}}
 \renewcommand{\mod}[1]{\langle {#1} \rangle}
 
+\newcommand{\erase}[1]{{}}
+
 % ambients and numbering
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{conjecture}[theorem]{Conjecture}
@@ -560,6 +562,46 @@ Let $B$ and $B'$ be $(n+m)\times n$ exchange matrices and $M$ and invertible $m 
       \node[above left] at (0.75,0.75) {$\scriptstyle  n$};
       \draw[->] (0.1,0.1) -- (0.65,0.65);
       \node[above right] at (0.25,0) {$\scriptstyle \vec{a}_p$};
+    \end{tikzpicture}\\
+    \begin{tikzpicture}
+      \node at (-1,1) {$Q=$};
+      \draw[fill=black] (0,0) circle (1.5pt);
+      \node[above] at (0,0) {$\scriptstyle i_1=0$};
+      \draw[->] (-0.1,-0.1) -- (-0.65,-0.65);
+      \node[below left] at (0.1,-0.25) {$\scriptstyle \scev{a}_q$};
+      \draw[fill=black] (-0.75,-0.75) circle (1.5pt);
+      \node[above left] at (-0.75,-0.75) {$\scriptstyle  1$};
+      \draw[fill=black] (-0.75,-0.9375) circle (0.75pt);
+      \draw[fill=black] (-0.75,-1.125) circle (0.75pt);
+      \draw[fill=black] (-0.75,-1.3125) circle (0.75pt);
+      \draw[fill=black] (-0.75,-1.5) circle (1.5pt);
+      \draw[->] (-0.75,-1.65) -- (-0.75,-2.1);
+      \draw[fill=black] (-0.75,-2.25) circle (1.5pt);
+      \node[left] at (-0.75,-2.25) {$\scriptstyle  i_2$};
+      \draw[<-] (-0.75,-2.4) -- (-0.75,-2.85);
+      \node at (-0.575,-2.675) {$\scriptstyle \vec{a}_1$};
+      \draw[fill=black] (-0.75,-3) circle (1.5pt);
+      \draw[fill=black] (-0.5625,-3.1875) circle (0.75pt);
+      \draw[fill=black] (-0.375,-3.375) circle (0.75pt);
+      \draw[fill=black] (-0.1875,-3.5625) circle (0.75pt);
+      \draw[fill=black] (0,-3.75) circle (1.5pt);
+      \draw[fill=black] (0.1875,-3.5625) circle (0.75pt);
+      \draw[fill=black] (0.375,-3.375) circle (0.75pt);
+      \draw[fill=black] (0.5625,-3.1875) circle (0.75pt);
+      \draw[fill=black] (0.75,-3) circle (1.5pt);
+      \draw[<-] (0.75,-2.4) -- (0.75,-2.85);
+      \node at (0.575,-2.675) {$\scriptstyle \scev{a}_1$};
+      \draw[fill=black] (0.75,-2.25) circle (1.5pt);
+      \node[right] at (0.75,-2.25) {$\scriptstyle  i_r$};
+      \draw[->] (0.75,-1.65) -- (0.75,-2.1);
+      \draw[fill=black] (0.75,-1.5) circle (1.5pt);
+      \draw[fill=black] (0.75,-1.3125) circle (0.75pt);
+      \draw[fill=black] (0.75,-1.125) circle (0.75pt);
+      \draw[fill=black] (0.75,-0.9375) circle (0.75pt);
+      \draw[fill=black] (0.75,-0.75) circle (1.5pt);
+      \node[above right] at (0.75,-0.75) {$\scriptstyle  n$};
+      \draw[->] (0.1,-0.1) -- (0.65,-0.65);
+      \node[below right] at (0,-0.25) {$\scriptstyle \vec{a}_p$};
     \end{tikzpicture}
   \end{center}
   For a vertex $i$ in $Q$, write $i^+$ for the next source or sink of $Q$ counterclockwise from $i$.  Define $i^-$ similarly by looking clockwise from $i$.  Note that when $i$ is a source (resp. a sink) both $i^-$ and $i^+$ will be sinks (resp. sources).
@@ -655,18 +697,58 @@ Let $B$ and $B'$ be $(n+m)\times n$ exchange matrices and $M$ and invertible $m 
     \[0\longrightarrow M_{[i,j]}\longrightarrow\bigoplus_{t=1}^{\frac{s-1}{2}} I_{j_{2t}}\longrightarrow\bigoplus_{t=1}^{\frac{s-3}{2}} I_{j_{2t+1}}\longrightarrow0\]
   \end{itemize}
 
+  Call a vertex $i$ of a connected subquiver $Q'$ of $Q$ an \emph{internal source of $Q'$} if $i$ is a source of $Q$ and $Q'$ contains a sink both clockwise and counterclockwise from $i$.
   \begin{lemma}\mbox{}
     \begin{enumerate}
       \item For $1\le k\le p-1$ and $1\le\ell\le p$ we have
-      \[\vec{\lambda}_{k,\ell}=\sum_{i\in I}\omega_i-\sum_{i\in\bar{I}}\omega_i\]
-      where $I$ denotes the sinks in the support quiver $Q_{k,\ell}$ of $\vec{M}_{k,\ell}$ and $\bar{I}$ denotes the set of internal sources of $\vec{Q}_{k,\ell}$ together with $s(\vec{a}_{k+\ell-1})$.
+      \[\vec{\lambda}_{k,\ell}=\sum_{i\in I}\omega_i-\sum_{i\in O}\omega_i\]
+      where $I$ denotes the sinks in the support quiver $Q_{k,\ell}$ of $\vec{M}_{k,\ell}$ and $O$ denotes the set of internal sources of $\vec{Q}_{k,\ell}$ together with $s(\vec{a}_{k+\ell-1})$.
       \item For $1\le k\le q-1$ and $1\le\ell\le q$ we have
-      \[\cev{\lambda}_{k,\ell}=\sum_{i\in I}\omega_i-\sum_{i\in\bar{I}}\omega_i\]
-      where $I$ denotes the sinks in the support quiver $Q_{k,\ell}$ of $\cev{M}_{k,\ell}$ and $\bar{I}$ denotes the set of internal sources of $\cev{Q}_{k,\ell}$ together with $s(\cev{a}_{k+\ell-1})$.
+      \[\cev{\lambda}_{k,\ell}=\sum_{i\in I}\omega_i-\sum_{i\in O}\omega_i\]
+      where $I$ denotes the sinks in the support quiver $Q_{k,\ell}$ of $\cev{M}_{k,\ell}$ and $O$ denotes the set of internal sources of $\cev{Q}_{k,\ell}$ together with $s(\cev{a}_{k+\ell-1})$.
     \end{enumerate}
   \end{lemma}
 
   Let $\sigma\in\Sigma_{n+1}$ denote a permutation of the vertices of $Q$ such that $\sigma_0$ is a sink in $Q$ and $\sigma_i$ is a sink in $\mu_{i-1}\cdots\mu_0 Q$ for $1\le i\le n$.  Let $c=s_{\sigma_0}\cdots s_{\sigma_n}$ denote the Coxeter element adapted to $Q$.
+  \begin{theorem}
+    Let $g=x_{\overline{\sigma_0\!}\,}(u_{\sigma_0})\cdots x_{\overline{\sigma_n\!}\,}(u_{\sigma_n}) x_{\sigma_n}(t_{\sigma_n}) \cdots x_{\sigma_0}(t_{\sigma_0})$ denote a generic element of $L^{c,c^{-1}}$.
+    \begin{enumerate}
+      \item For $1\le k\le p-1$ and $1\le\ell\le p$ we have
+      \begin{align}
+        &\Delta_{\vec{\lambda}_{k,\ell}}(g)=\sum_{P\subset O}\left(\prod_{i\in P} t_i\prod_{i\in O\setminus P} u_i\left(\prod_{i:t(\vec{a}_\ell)<i<t(\vec{a}_\ell)^+}t_i+\sum_{m:t(\vec{a}_\ell)<m<t(\vec{a}_\ell)^+}u_m\prod_{i=m+1}^{t(\vec{a}_\ell)^+-1} t_i\right)^\delta\times\right.\\
+        \nonumber&\times\left.\sum_{J\subset\bar{P}}\prod_{\substack{i:j^-<i<j^+\\j\in J}}t_i\prod_{i\in I\setminus J}u_i^{-1}\left(\prod_{j\in O^-(J)}\sum_{m:j^-<m\le j}u_{m-1}\prod_{i=m}^{j-1} t_i\right)\left(\prod_{j\in O^+(J)}\sum_{m:j\le m<j^+}u_{m+1}\prod_{i=j+1}^{m} t_i\right)\right)
+      \end{align}
+      where:
+      \begin{itemize}
+        \item $O$ denotes the set of internal sources in the support quiver $\vec{Q}_{k,\ell}$ of $\vec{M}_{k,\ell}$ together with $s(\vec{a}_{k+\ell-1})$ read counterclockwise around $Q$;
+        \item for $P\subset O$, $\bar{P}$ denotes the set of sinks $j$ in $\vec{Q}_{k,\ell}$ for which $j^-,j^+\in P$;
+        \item $I$ denotes the sinks in $\vec{Q}_{k,\ell}$ read counterclockwise around $Q$;
+        \item for $J\subset\bar{P}$, $O^\pm(J)=\{j\in O:j^\pm\in I\setminus J\}$;
+        \item $\delta=\begin{cases}1 & \text{if $t(\vec{a}_\ell)$ is a not a sink in $Q$ and $t(\vec{a}_\ell)^+\in P$;}\\0 & \text{otherwise.}\end{cases}$
+      \end{itemize}
+      \item For $1\le k\le q-1$ and $1\le\ell\le q$  we have
+      \begin{align}
+        &\Delta_{\scev{\lambda}_{k,\ell}}(g)=\sum_{P\subset O}\left(\prod_{i\in P} t_i\prod_{i\in O\setminus P} u_i\left(\prod_{i:t(\vec{a}_\ell)^-<i<t(\vec{a}_\ell)}t_i+\sum_{m:t(\vec{a}_\ell)^-<m<t(\vec{a}_\ell)}u_m\prod_{i=t(\vec{a}_\ell)^-+1}^{m-1} t_i\right)^\delta\times\right.\\
+        \nonumber&\times\left.\sum_{J\subset\bar{P}}\prod_{\substack{i:j^-<i<j^+\\j\in J}}t_i\prod_{i\in I\setminus J}u_i^{-1}\left(\prod_{j\in O^-(J)}\sum_{m:j^-<m\le j}u_{m-1}\prod_{i=m}^{j-1} t_i\right)\left(\prod_{j\in O^+(J)}\sum_{m:j\le m<j^+}u_{m+1}\prod_{i=j+1}^{m} t_i\right)\right)
+      \end{align}
+      where:
+      \begin{itemize}
+        \item $O$ denotes the set of internal sources in the support quiver $\cev{Q}_{k,\ell}$ of $\cev{M}_{k,\ell}$ together with $s(\cev{a}_{k+\ell-1})$ read counterclockwise around $Q$;
+        \item for $P\subset O$, $\bar{P}$ denotes the set of sinks $j$ in $\cev{Q}_{k,\ell}$ for which $j^-,j^+\in P$;
+        \item $I$ denotes the sinks in $\cev{Q}_{k,\ell}$ read counterclockwise around $Q$;
+        \item for $J\subset\bar{P}$, $O^\pm(J)=\{j\in O:j^\pm\in I\setminus J\}$;
+        \item $\delta=\begin{cases}1 & \text{if $t(\cev{a}_\ell)$ is a not a sink in $Q$ and $t(\cev{a}_\ell)^+\in P$;}\\0 & \text{otherwise.}\end{cases}$
+      \end{itemize}
+    \end{enumerate}
+  \end{theorem}
+  \begin{proof}
+    The calculation breaks into several independent type $A$ weight space computations coming from consecutive strings of clockwise or consecutive counterclockwise arrows in $Q$.  The set $I$ records the positive components of the weight $\vec{\lambda}_{k,\ell}$ which all correspond to sinks in $Q_{k,\ell}$ while the set $O$ records the negative components of the weight $\vec{\lambda}_{k,\ell}$ which all correspond to sources in $Q_{k,\ell}$.  In each case, such a string of equi-oriented arrows is only considered if a step up in weight was performed at the source $i\in I$ of that path, i.e. if the action of $x_i(t_i)$ replaced the current weight $\omega$ by $\omega+\alpha_i=\omega-2\omega_i+\omega_{i-1}+\omega_{i+1}$ in which case the $x_{\bar{i}}(u_i)$ will contribute nothing later.  This accounts for the sum over all subsets $P\subset O$ as well as the first product of $t_i$'s and the first product of the $u_i$'s (steps not taken when acting by $x_i(t_i)$ and thus no change in weight by $x_{\bar{i}}(u_i)$).
+
+    Next, one has to consider each of these strings separately (mostly).  If no change in weight is made by the action of $x_{\bar{i}}(u_i)$ for $i\in I$ there will be a factor of $u_i^{-1}$.  The set $J\subset\bar{P}$ records those sinks $j$ where every $x_i(t_i)$ along \emph{both} equi-oriented paths ending at $j$ replaced the current weight $\omega$ by $\omega-\alpha_i$ in which case each of the $x_{\bar{i}}(u_i)$ along these paths will contribute nothing later.  This accounts for the products over elements of $J$ and $I\setminus J$.
+
+    Finally, along each equi-oriented path one can choose to act by some of the $x_i(t_i)$ in a contiguous string beginning at the source, this accounts for the two products of sums, one for clockwise paths and one for counterclockwise paths.  The $\delta$ is a slight annoyance present in the weight $\vec{\lambda}_{k,\ell}$, there is one equi-oriented string whose sink $t(\vec{a}_{k,\ell})$ appears in $\vec{\lambda}_{k,\ell}$ with positive coefficient but which is not an internal sink so it was hard to find uniform notation to capture that string with the others.
+  \end{proof}
+  \erase{%begin erase
   \begin{theorem}
     Let $g=x_{\overline{\sigma_0\!}\,}(u_{\sigma_0})\cdots x_{\overline{\sigma_n\!}\,}(u_{\sigma_n}) x_{\sigma_n}(t_{\sigma_n}) \cdots x_{\sigma_0}(t_{\sigma_0})$ denote a generic element of $L^{c,c^{-1}}$.
     \begin{enumerate}
@@ -704,7 +786,7 @@ Let $B$ and $B'$ be $(n+m)\times n$ exchange matrices and $M$ and invertible $m 
     Next, one has to consider each of these strings separately (mostly).  The set $\bar{I}$ records the negative components of the weight $\vec{\lambda}_{k,\ell}$ and thus if no change in weight is made by the action of $x_{\bar{i}}(u_i)$ for $i\in\bar{I}$ there will be a factor of $u_i$.  The set $O$ records those sources $j$ where every $x_i(t_i)$ along \emph{both} equi-oriented paths beginning at $j$ replaced the current weight $\omega$ by $\omega-\alpha_i$ in which case each of the $x_{\bar{i}}(u_i)$ along these paths will contribute nothing later.  This accounts for the products over elements of $O$ and $\bar{I}\setminus O$.  
 
     Finally, along each equi-oriented path one can choose to act by some of the $x_i(t_i)$ in a contiguous string beginning at the sink, this accounts for the two products of sums, one for clockwise paths and one for counterclockwise paths.  The $\delta$ is a slight annoyance present in the weight $\vec{\lambda}_{k,\ell}$, there is one equi-oriented string whose sink appears in $\vec{\lambda}_{k,\ell}$ with positive coefficient but whose source does not appear so it was hard to find uniform notation to capture that string with the others.
-  \end{proof}
+  \end{proof}}%end erase
 
 
 \section{Conventions}
