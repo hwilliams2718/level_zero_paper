@@ -715,7 +715,7 @@ Let $B$ and $B'$ be $(n+m)\times n$ exchange matrices and $M$ and invertible $m 
     \end{enumerate}
   \end{lemma}
 
-  Let $\sigma\in\Sigma_{n+1}$ denote a permutation of the vertices of $Q$ such that $\sigma_0$ is a sink in $Q$ and $\sigma_i$ is a sink in $\mu_{i-1}\cdots\mu_0 Q$ for $1\le i\le n$.  Let $c=s_{\sigma_n}\cdots s_{\sigma_0}$ denote the Coxeter element adapted to $Q$.
+  Let $\sigma\in\Sigma_{n+1}$ denote a permutation of the vertices of $Q$ such that $\sigma_n$ is a sink in $Q$ and $\sigma_i$ is a sink in $\mu_{\sigma_{i+1}}\cdots\mu_{\sigma_n} Q$ for $1\le i\le n$.  Let $c=s_{\sigma_0}\cdots s_{\sigma_n}$ denote the Coxeter element adapted to $Q$.
   \erase{%begin erase
   \begin{theorem}
     Let $g=x_{\overline{\sigma_0\!}\,}(u_{\sigma_0})\cdots x_{\overline{\sigma_n\!}\,}(u_{\sigma_n}) x_{\sigma_n}(t_{\sigma_n}) \cdots x_{\sigma_0}(t_{\sigma_0})$ denote a generic element of $L^{c,c^{-1}}$.
@@ -805,7 +805,7 @@ Let $B$ and $B'$ be $(n+m)\times n$ exchange matrices and $M$ and invertible $m 
       \item For $1\le k\le p-1$ and $1\le\ell\le p$ we have
       \begin{align}
         &x_{\vec{M}_{k,\ell}}=x^{\sum_{i\in O}\omega_i-\sum_{i\in I}\omega_i}\sum_{J\subset I}\prod_{i\in J}x_{i-1}^{-1}y_ix_{i+1}^{-1}\left(\sum_{m=t(\vec{a}_\ell)^-}^{t(\vec{a}_\ell)-1}x_m^{-1}x_{t(\vec{a}_\ell)}\prod_{i=m}^{t(\vec{a}_\ell)-1}y_i\right)^\delta\times\\
-        \nonumber&\times\sum_{P\subset\bar{J}}\prod_{j\in P}\left(x_{j^-}x_j^{-2}x_{j^+}\prod_{i=j^-+1}^{j^+-1}y_i\right)\left(\prod_{j\in I^-(P)}\sum_{m=j^-+1}^{j-1}x_{m-1}^{-1}x_j\prod_{i=m}^{j-1}y_i\right)\left(\prod_{j\in I^+(P)}\sum_{m=j-1}^{j^+-1}x_jx_{m+1}^{-1}\prod_{i=j+1}^{m}y_i\right)
+        \nonumber&\times\sum_{P\subset\bar{J}}\prod_{j\in P}\left(x_{j^-}x_j^{-2}x_{j^+}\prod_{i=j^-+1}^{j^+-1}y_i\right)\left(\prod_{j\in I^-(P)}\sum_{m=j^-+1}^{j-1}x_{m-1}^{-1}x_j\prod_{i=m}^{j-1}y_i\right)\left(\prod_{j\in I^+(P)}\sum_{m=j+1}^{j^+-1}x_jx_{m+1}^{-1}\prod_{i=j+1}^{m}y_i\right)
       \end{align}
       where:
       \begin{itemize}
@@ -815,10 +815,19 @@ Let $B$ and $B'$ be $(n+m)\times n$ exchange matrices and $M$ and invertible $m 
         \item for $P\subset\bar{J}$, $I^\pm(P)=\{j\in J:j^\pm\in O\setminus P\}$,
         \item $\delta=\begin{cases}1 & \text{if $t(\vec{a}_\ell)$ is a sink in $Q$ and $t(\vec{a}_\ell)\in J$;}\\0 & \text{otherwise.}\end{cases}$
       \end{itemize}
-      \item For $1\le k\le p-1$ and $1\le\ell\le p$ we have
-      \begin{equation}
-        x_{\scev{M}_{k,\ell}}=
-      \end{equation}
+      \item For $1\le k\le q-1$ and $1\le\ell\le q$ we have
+      \begin{align}
+        &x_{\scev{M}_{k,\ell}}=x^{\sum_{i\in O}\omega_i-\sum_{i\in I}\omega_i}\sum_{J\subset I}\prod_{i\in J}x_{i-1}^{-1}y_ix_{i+1}^{-1}\left(\sum_{m=t(\scev{a}_\ell)+1}^{t(\scev{a}_\ell)^+}x_m^{-1}x_{t(\scev{a}_\ell)}\prod_{i=m}^{t(\scev{a}_\ell)-1}y_i\right)^\delta\times\\
+        \nonumber&\times\sum_{P\subset\bar{J}}\prod_{j\in P}\left(x_{j^-}x_j^{-2}x_{j^+}\prod_{i=j^-+1}^{j^+-1}y_i\right)\left(\prod_{j\in I^-(P)}\sum_{m=j^-+1}^{j-1}x_{m-1}^{-1}x_j\prod_{i=m}^{j-1}y_i\right)\left(\prod_{j\in I^+(P)}\sum_{m=j+1}^{j^+-1}x_jx_{m+1}^{-1}\prod_{i=j+1}^{m}y_i\right)
+      \end{align}
+      where:
+      \begin{itemize}
+        \item $I$ denotes the sinks in the support quiver $\cev{Q}_{k,\ell}$ of $\cev{M}_{k,\ell}$ read clockwise around $Q$,
+        \item $O$ denotes the set of internal sources of $\cev{Q}_{k,\ell}$ together with $s(\cev{a}_{k+\ell-1})$,
+        \item for $J\subset I$, $\bar{J}$ denotes the set of sources $j$ in the support quiver $\cev{Q}_{k,\ell}$ for which $j^-,j^+\in J$,
+        \item for $P\subset\bar{J}$, $I^\pm(P)=\{j\in J:j^-\in\bar{I}\setminus P\}$,
+        \item $\delta=\begin{cases}1 & \text{if $t(\cev{a}_\ell)$ is a sink in $Q$ and $t(\cev{a}_\ell)\in J$;}\\0 & \text{otherwise.}\end{cases}$
+      \end{itemize}
     \end{enumerate}
   \end{theorem}
 
