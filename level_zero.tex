@@ -19,12 +19,18 @@
 
 % shorthands 
 \newcommand{\cA}{\mathcal{A}}
-\newcommand{\bC}{\mathbb{C}}
 \newcommand{\cAb}{\mathcal{A}_\bullet}
-\newcommand{\rep}{\operatorname{rep}}
+\newcommand{\cT}{\mathcal{T}}
+
+\newcommand{\CC}{\mathbb{C}}
 \newcommand{\ZZ}{\mathbb{Z}}
-\newcommand{\bfg}{\mathbf{g}}
+
+\newcommand{\bfb}{\mathbf{b}}
 \newcommand{\bfc}{\mathbf{c}}
+\newcommand{\bfe}{\mathbf{e}}
+\newcommand{\bfg}{\mathbf{g}}
+
+\newcommand{\rep}{\operatorname{rep}}
 \newcommand{\dashname}[1]{\stackrel{#1}{\begin{picture}(22,3)\put(0,2.5){\line(1,0){22}}\end{picture}}}
 \newcommand{\cev}[1]{\reflectbox{\!\ensuremath{\vec{\,\reflectbox{\ensuremath{#1}}}}}}
 \newcommand{\scev}[1]{\reflectbox{\scriptsize\!\ensuremath{\vec{\,\reflectbox{\ensuremath{#1}}}}}}
@@ -183,7 +189,7 @@ For any root $\alpha$ we define $[\alpha:\alpha_i]$ by $\alpha = \sum_{i=1}^n [\
     \[
       g = hx_{-1}(t_{-1}) \cdots x_{-n}(t_{-n}) x_{n}(t_{n}) \cdots x_{1}(t_{1})
     \]
-    for $h \in H$ and $t_i \in \bC^*$.  Since $(s_1 \cdots s_n)^m$ is a reduced expression of $c^m$ for any $m \geq 1$ (cf. \cite{Spe09}), a straightforward calculation with root strings in the highest weight representation $L_{\omega_k}$ yields
+    for $h \in H$ and $t_i \in \CC^*$.  Since $(s_1 \cdots s_n)^m$ is a reduced expression of $c^m$ for any $m \geq 1$ (cf. \cite{Spe09}), a straightforward calculation with root strings in the highest weight representation $L_{\omega_k}$ yields
     \begin{equation}\label{eq:coeffeval}
       \Delta_{c^m \omega_k}^{c^{m-1}\omega_k}(g) = h^{c^{m-1}\omega_k} \prod_{j=1}^n t_j^{[c^{m-1}\beta_k^+:\alpha_j]}.
     \end{equation}
@@ -709,7 +715,7 @@ Let $B$ and $B'$ be $(n+m)\times n$ exchange matrices and $M$ and invertible $m 
     \end{enumerate}
   \end{lemma}
 
-  Let $\sigma\in\Sigma_{n+1}$ denote a permutation of the vertices of $Q$ such that $\sigma_0$ is a sink in $Q$ and $\sigma_i$ is a sink in $\mu_{i-1}\cdots\mu_0 Q$ for $1\le i\le n$.  Let $c=s_{\sigma_0}\cdots s_{\sigma_n}$ denote the Coxeter element adapted to $Q$.
+  Let $\sigma\in\Sigma_{n+1}$ denote a permutation of the vertices of $Q$ such that $\sigma_0$ is a sink in $Q$ and $\sigma_i$ is a sink in $\mu_{i-1}\cdots\mu_0 Q$ for $1\le i\le n$.  Let $c=s_{\sigma_n}\cdots s_{\sigma_0}$ denote the Coxeter element adapted to $Q$.
   \erase{%begin erase
   \begin{theorem}
     Let $g=x_{\overline{\sigma_0\!}\,}(u_{\sigma_0})\cdots x_{\overline{\sigma_n\!}\,}(u_{\sigma_n}) x_{\sigma_n}(t_{\sigma_n}) \cdots x_{\sigma_0}(t_{\sigma_0})$ denote a generic element of $L^{c,c^{-1}}$.
@@ -755,8 +761,8 @@ Let $B$ and $B'$ be $(n+m)\times n$ exchange matrices and $M$ and invertible $m 
     \begin{enumerate}
       \item For $1\le k\le p-1$ and $1\le\ell\le p$ we have
       \begin{align}
-        &\Delta_{-\vec{\lambda}_{k,\ell}}(g)=\sum_{J\subset I}\left(\prod_{i\in J} t_i\prod_{i\in I\setminus J} u_i\left(\prod_{i:t(\vec{a}_\ell)^-\le i<t(\vec{a}_\ell)}t_i+\sum_{m:t(\vec{a}_\ell)^-<m\le t(\vec{a}_\ell)}u_{m-1}\prod_{i=m}^{t(\vec{a}_\ell)-1} t_i\right)^\delta\times\right.\\
-        \nonumber&\times\left.\sum_{P\subset\bar{J}}\prod_{\substack{i:j^-<i<j^+\\j\in P}}t_i\prod_{i\in O\setminus P}u_i^{-1}\left(\prod_{j\in I^-(P)}\sum_{m:j^-<m\le j}u_{m-1}\prod_{i=m}^{j-1} t_i\right)\left(\prod_{j\in I^+(P)}\sum_{m:j\le m<j^+}u_{m+1}\prod_{i=j+1}^{m} t_i\right)\right)
+        &\Delta_{-\vec{\lambda}_{k,\ell}}(g)=\sum_{J\subset I}\left(\prod_{i\in J} t_i\prod_{i\in I\setminus J} u_i\left(\prod_{i=t(\vec{a}_\ell)^-}^{t(\vec{a}_\ell)-1}t_i+\sum_{m=t(\vec{a}_\ell)^-+1}^{t(\vec{a}_\ell)}u_{m-1}\prod_{i=m}^{t(\vec{a}_\ell)-1} t_i\right)^\delta\times\right.\\
+        \nonumber&\times\left.\sum_{P\subset\bar{J}}\prod_{\substack{i:j^-<i<j^+\\j\in P}}t_i\prod_{i\in O\setminus P}u_i^{-1}\left(\prod_{j\in I^-(P)}\sum_{m=j^-+1}^ju_{m-1}\prod_{i=m}^{j-1} t_i\right)\left(\prod_{j\in I^+(P)}\sum_{m=j}^{j^+-1}u_{m+1}\prod_{i=j+1}^{m} t_i\right)\right)
       \end{align}
       where:
       \begin{itemize}
@@ -768,8 +774,8 @@ Let $B$ and $B'$ be $(n+m)\times n$ exchange matrices and $M$ and invertible $m 
       \end{itemize}
       \item For $1\le k\le q-1$ and $1\le\ell\le q$  we have
       \begin{align}
-        &\Delta_{-\scev{\lambda}_{k,\ell}}(g)=\sum_{J\subset I}\left(\prod_{i\in J} t_i\prod_{i\in I\setminus J} u_i\left(\prod_{i:t(\scev{a}_\ell)<i\le t(\scev{a}_\ell)^+}t_i+\sum_{m:t(\scev{a}_\ell)\le m<t(\scev{a}_\ell)^+}u_{m+1}\prod_{i=t(\scev{a}_\ell)+1}^m t_i\right)^\delta\times\right.\\
-        \nonumber&\times\left.\sum_{P\subset\bar{J}}\prod_{\substack{i:j^-<i<j^+\\j\in P}}t_i\prod_{i\in O\setminus P}u_i^{-1}\left(\prod_{j\in I^-(P)}\sum_{m:j^-<m\le j}u_{m-1}\prod_{i=m}^{j-1} t_i\right)\left(\prod_{j\in I^+(P)}\sum_{m:j\le m<j^+}u_{m+1}\prod_{i=j+1}^{m} t_i\right)\right)
+        &\Delta_{-\scev{\lambda}_{k,\ell}}(g)=\sum_{J\subset I}\left(\prod_{i\in J} t_i\prod_{i\in I\setminus J} u_i\left(\prod_{i=t(\scev{a}_\ell)+1}^{t(\scev{a}_\ell)^+}t_i+\sum_{m=t(\scev{a}_\ell)}^{t(\scev{a}_\ell)^+-1}u_{m+1}\prod_{i=t(\scev{a}_\ell)+1}^m t_i\right)^\delta\times\right.\\
+        \nonumber&\times\left.\sum_{P\subset\bar{J}}\prod_{\substack{i:j^-<i<j^+\\j\in P}}t_i\prod_{i\in O\setminus P}u_i^{-1}\left(\prod_{j\in I^-(P)}\sum_{m=j^-+1}^ju_{m-1}\prod_{i=m}^{j-1} t_i\right)\left(\prod_{j\in I^+(P)}\sum_{m=j}^{j^+-1}u_{m+1}\prod_{i=j+1}^{m} t_i\right)\right)
       \end{align}
       where:
       \begin{itemize}
@@ -782,7 +788,6 @@ Let $B$ and $B'$ be $(n+m)\times n$ exchange matrices and $M$ and invertible $m 
     \end{enumerate}
   \end{theorem}
   \begin{proof}
-
     The calculation breaks into several independent type $A$ weight space computations coming from consecutive strings of clockwise or consecutive counterclockwise arrows in $Q$.  The set $I$ records the negative components of the weight $-\vec{\lambda}_{k,\ell}$ which all correspond to sinks in $Q_{k,\ell}$ while the set $O$ records the positive components of the weight $\vec{\lambda}_{k,\ell}$ which all correspond to sources in $Q_{k,\ell}$.  In each case, such a string of equi-oriented arrows is only considered if a step up in weight was performed at the sink $i\in I$ of that path, i.e. if the action of $x_i(t_i)$ replaced the current weight $\omega$ by $\omega+\alpha_i=\omega-2\omega_i+\omega_{i-1}+\omega_{i+1}$ in which case the $x_{\bar{i}}(u_i)$ will contribute nothing later.  This accounts for the sum over all subsets $J\subset I$ as well as the first product of $t_i$'s and the first product of the $u_i$'s (steps not taken when acting by $x_i(t_i)$ and thus no change in weight by $x_{\bar{i}}(u_i)$).
 
     Next, one has to consider each of these strings separately (mostly).  If no change in weight is made by the action of $x_{\bar{i}}(u_i)$ for $i\in O$ there will be a factor of $u_i^{-1}$.  The set $P\subset\bar{J}$ records those sources $j$ where every $x_i(t_i)$ along \emph{both} equi-oriented paths beginning at $j$ replaced the current weight $\omega$ by $\omega+\alpha_i$ in which case each of the $x_{\bar{i}}(u_i)$ along these paths will contribute nothing later.  This accounts for the products over elements of $P$ and $O\setminus P$.
@@ -790,20 +795,41 @@ Let $B$ and $B'$ be $(n+m)\times n$ exchange matrices and $M$ and invertible $m 
     Finally, along each equi-oriented path one can choose to act by some of the $x_i(t_i)$ in a contiguous string beginning at the sink, this accounts for the two products of sums, one for clockwise paths and one for counterclockwise paths.  The $\delta$ is a slight annoyance present in the weight $-\vec{\lambda}_{k,\ell}$, there is one equi-oriented string whose sink $t(\vec{a}_\ell)$ (resp. $t(\cev{a}_\ell)$) may appear in $-\vec{\lambda}_{k,\ell}$ with negative coefficient but where $s(\vec{a}_{\ell+1})$ (resp. $s(\cev{a}_{\ell-1}$) does not appear so it was hard to find uniform notation to capture that string with the others.
   \end{proof}}%end erase
 
-  \begin{lemma}\mbox{}
-    \begin{enumerate}
-      \item 
-    \end{enumerate}
-  \end{lemma}
-
+  For a representation $M$ of $Q$ define the \emph{cluster character} $x_M\in\cT$ by
+  \begin{equation}
+    x_M=\sum_{\bfe\in\ZZ^{Q_0}_{\ge0}}\chi(Gr_\bfe(M))x^{B\bfe-{}^*M}
+  \end{equation}
+  where ${}^*M=\sum\limits_{i\in Q_0}\langle S_i,M\rangle\omega_i$, $Gr_\bfe(M)$ denotes the Grassmannian of subrepresentations of $M$ with dimension vector $\bfe$, and for a vector $(\bfb_1,\bfb_2)\in\big(\ZZ^{Q_0}\big)^2$ we write $x^\bfb=\prod_{i\in Q_0} x_i^{b_{1i}}y_i^{b_{2i}}$.
   \begin{theorem}\mbox{}
     \begin{enumerate}
       \item For $1\le k\le p-1$ and $1\le\ell\le p$ we have
+      \begin{align}
+        &x_{\vec{M}_{k,\ell}}=x^{\sum_{i\in O}\omega_i-\sum_{i\in I}\omega_i}\sum_{J\subset I}\prod_{i\in J}x_{i-1}^{-1}y_ix_{i+1}^{-1}\left(\sum_{m=t(\vec{a}_\ell)^-}^{t(\vec{a}_\ell)-1}x_m^{-1}x_{t(\vec{a}_\ell)}\prod_{i=m}^{t(\vec{a}_\ell)-1}y_i\right)^\delta\times\\
+        \nonumber&\times\sum_{P\subset\bar{J}}\prod_{j\in P}\left(x_{j^-}x_j^{-2}x_{j^+}\prod_{i=j^-+1}^{j^+-1}y_i\right)\left(\prod_{j\in I^-(P)}\sum_{m=j^-+1}^{j-1}x_{m-1}^{-1}x_j\prod_{i=m}^{j-1}y_i\right)\left(\prod_{j\in I^+(P)}\sum_{m=j-1}^{j^+-1}x_jx_{m+1}^{-1}\prod_{i=j+1}^{m}y_i\right)
+      \end{align}
+      where:
+      \begin{itemize}
+        \item $I$ denotes the sinks in the support quiver $\vec{Q}_{k,\ell}$ of $\vec{M}_{k,\ell}$ read counterclockwise around $Q$,
+        \item $O$ denotes the set of internal sources of $\vec{Q}_{k,\ell}$ together with $s(\vec{a}_{k+\ell-1})$,
+        \item for $J\subset I$, $\bar{J}$ denotes the set of sources $j$ in the support quiver $\vec{Q}_{k,\ell}$ for which $j^-,j^+\in J$,
+        \item for $P\subset\bar{J}$, $I^\pm(P)=\{j\in J:j^\pm\in O\setminus P\}$,
+        \item $\delta=\begin{cases}1 & \text{if $t(\vec{a}_\ell)$ is a sink in $Q$ and $t(\vec{a}_\ell)\in J$;}\\0 & \text{otherwise.}\end{cases}$
+      \end{itemize}
+      \item For $1\le k\le p-1$ and $1\le\ell\le p$ we have
       \begin{equation}
-        X_{\vec{M}_{k,\ell}}=
+        x_{\scev{M}_{k,\ell}}=
       \end{equation}
     \end{enumerate}
   \end{theorem}
+
+  \begin{lemma}\mbox{}
+    Let $g$ be a generic element of $L^{c,c^{-1}}$.
+    \begin{enumerate}
+      \item $\Delta_{\omega_i}(g)=u_i^{-1}$
+      \item $\Delta_{c\omega_i}^{\omega_i}(g)=\begin{cases}u_i^{-1}\prod_{j=i^-}^{i^+}t_j & \text{if $i$ is a sink in $Q$;}\\u_i^{-1}t_i & \text{if $i$ is a source in $Q$;}\\u_i^{-1}\prod_{j=i}^{i^+}t_j & \text{if $i$ is neither a source nor a sink in $Q$ but $i^+$ is a source;}\\u_i^{-1}\prod_{j=i^-}^it_j & \text{if $i$ is neither a source nor a sink in $Q$ but $i^-$ is a source.}\end{cases}$
+      \item For $y_i=$
+    \end{enumerate}
+  \end{lemma}
 
 
 \section{Conventions}
