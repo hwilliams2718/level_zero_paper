@@ -31,6 +31,9 @@
 \newcommand{\bfg}{\mathbf{g}}
 
 \newcommand{\rep}{\operatorname{rep}}
+\newcommand{\soc}{\operatorname{soc}}
+\newcommand{\supp}{\operatorname{supp}}
+\renewcommand{\top}{\operatorname{top}}
 \newcommand{\dashname}[1]{\stackrel{#1}{\begin{picture}(22,3)\put(0,2.5){\line(1,0){22}}\end{picture}}}
 \newcommand{\cev}[1]{\reflectbox{\!\ensuremath{\vec{\,\reflectbox{\ensuremath{#1}}}}}}
 \newcommand{\scev}[1]{\reflectbox{\scriptsize\!\ensuremath{\vec{\,\reflectbox{\ensuremath{#1}}}}}}
@@ -527,23 +530,22 @@ Let $B$ and $B'$ be $(n+m)\times n$ exchange matrices and $M$ and invertible $m 
 
 \section{Appendix: Quiver Representations}
 \subsection{Affine Tubes}
-  Let $Q$ be an acyclic affine quiver of type $A$ with vertices labeled $\{0,1,\ldots,n\}$ counter-clockwise around $Q$.  It may become useful to allow arbitrary integer labeling of the vertices taken modulo $n+1$.  Suppose $Q$ has $p$ clockwise pointing arrows $\{\vec{a}_1,\ldots,\vec{a}_p\}$ labeled counterclockwise around $Q$ and $q$ counterclockwise pointing arrows $\{\cev{a}_1,\ldots,\cev{a}_q\}$ labeled clockwise around $Q$. \sayDR{This seemingly strange choice of labeling will make extensions go in the right directions later and thus keep the arrows in the AR quiver pointing from left to right.  The phrase ``against the flow'' might be appropriate to include somewhere.}  Write $i_1,\ldots,i_r$ for the sinks and sources of $Q$ read counterclockwise around the quiver and note that $r$ must be even.  We will extend this notation to include $i_t$ for $t\in\ZZ$ where $i_t=i_{t'}$ when $t\equiv t'$ modulo $r$.  After possibly relabeling, we assume $i_1=0$ is a source in $Q$ with $s(\cev{a}_q)=s(\vec{a}_p)=i_1$.  Thus $Q$ takes the following form:
+  Let $Q$ be an acyclic affine quiver of type $A$, in particular $Q$ contains at least one source.  Suppose $Q$ has $p$ clockwise pointing arrows $\{\vec{a}_1,\ldots,\vec{a}_p\}$ labeled counterclockwise around $Q$ and $q$ counterclockwise pointing arrows $\{\cev{a}_1,\ldots,\cev{a}_q\}$ labeled clockwise around $Q$. \sayDR{This seemingly strange choice of labeling will make extensions go in the right directions later and thus keep the arrows in the AR quiver pointing from left to right.  The phrase ``against the flow'' might be appropriate to include somewhere.}  It will be convenient to allow arbitrary integer labeling of the arrows taken modulo $p$ and $q$ respectively.  Thus $Q$ takes the following form:  
   \begin{center}
+    \erase{%begin erase
     \begin{tikzpicture}
       \node at (-1,1) {$Q=$};
       \draw[fill=black] (0,0) circle (1.5pt);
-      \node[below left] at (0,0) {$\scriptstyle i_1=0$};
+      \node[below left] at (0,0) {$\scriptstyle 0$};
       \draw[->] (0.1,-0.1) -- (0.65,-0.65);
       \node[below right] at (0.25,0) {$\scriptstyle \scev{a}_q$};
       \draw[fill=black] (0.75,-0.75) circle (1.5pt);
-      \node[below left] at (0.75,-0.75) {$\scriptstyle  1$};
       \draw[fill=black] (0.9375,-0.75) circle (0.75pt);
       \draw[fill=black] (1.125,-0.75) circle (0.75pt);
       \draw[fill=black] (1.3125,-0.75) circle (0.75pt);
       \draw[fill=black] (1.5,-0.75) circle (1.5pt);
       \draw[->] (1.65,-0.75) -- (2.1,-0.75);
       \draw[fill=black] (2.25,-0.75) circle (1.5pt);
-      \node[below] at (2.25,-0.75) {$\scriptstyle  i_2$};
       \draw[<-] (2.4,-0.75) -- (2.85,-0.75);
       \node at (2.675,-0.575) {$\scriptstyle \vec{a}_1$};
       \draw[fill=black] (3,-0.75) circle (1.5pt);
@@ -558,35 +560,35 @@ Let $B$ and $B'$ be $(n+m)\times n$ exchange matrices and $M$ and invertible $m 
       \draw[<-] (2.4,0.75) -- (2.85,0.75);
       \node at (2.675,0.575) {$\scriptstyle \scev{a}_1$};
       \draw[fill=black] (2.25,0.75) circle (1.5pt);
-      \node[above] at (2.25,0.75) {$\scriptstyle  i_r$};
       \draw[->] (1.65,0.75) -- (2.1,0.75);
       \draw[fill=black] (1.5,0.75) circle (1.5pt);
       \draw[fill=black] (1.3125,0.75) circle (0.75pt);
       \draw[fill=black] (1.125,0.75) circle (0.75pt);
       \draw[fill=black] (0.9375,0.75) circle (0.75pt);
       \draw[fill=black] (0.75,0.75) circle (1.5pt);
-      \node[above left] at (0.75,0.75) {$\scriptstyle  n$};
       \draw[->] (0.1,0.1) -- (0.65,0.65);
       \node[above right] at (0.25,0) {$\scriptstyle \vec{a}_p$};
-    \end{tikzpicture}\\
+    \end{tikzpicture}\\}%end erase
     \begin{tikzpicture}
-      \node at (-1,1) {$Q=$};
+      \node at (-2,0) {$Q=$};
       \draw[fill=black] (0,0) circle (1.5pt);
-      \node[above] at (0,0) {$\scriptstyle i_1=0$};
+      \node[right] at (0,0) {$\scriptstyle t(\scev{a}_1)^+$};
+      \node[left] at (0,0) {$\scriptstyle t(\vec{a}_1)^-$};
       \draw[->] (-0.1,-0.1) -- (-0.65,-0.65);
       \node[below left] at (0.1,-0.25) {$\scriptstyle \scev{a}_q$};
       \draw[fill=black] (-0.75,-0.75) circle (1.5pt);
-      \node[above left] at (-0.75,-0.75) {$\scriptstyle  1$};
       \draw[fill=black] (-0.75,-0.9375) circle (0.75pt);
       \draw[fill=black] (-0.75,-1.125) circle (0.75pt);
       \draw[fill=black] (-0.75,-1.3125) circle (0.75pt);
       \draw[fill=black] (-0.75,-1.5) circle (1.5pt);
+      \node[left] at (-0.75,-1.5) {$\scriptstyle t(\vec{a}_1)_-$};
       \draw[->] (-0.75,-1.65) -- (-0.75,-2.1);
       \draw[fill=black] (-0.75,-2.25) circle (1.5pt);
-      \node[left] at (-0.75,-2.25) {$\scriptstyle  i_2$};
+      \node[left] at (-0.75,-2.25) {$\scriptstyle t(\vec{a}_1)$};
       \draw[<-] (-0.75,-2.4) -- (-0.75,-2.85);
       \node at (-0.575,-2.675) {$\scriptstyle \vec{a}_1$};
       \draw[fill=black] (-0.75,-3) circle (1.5pt);
+      \node[left] at (-0.75,-3) {$\scriptstyle t(\vec{a}_1)_+$};
       \draw[fill=black] (-0.5625,-3.1875) circle (0.75pt);
       \draw[fill=black] (-0.375,-3.375) circle (0.75pt);
       \draw[fill=black] (-0.1875,-3.5625) circle (0.75pt);
@@ -595,68 +597,68 @@ Let $B$ and $B'$ be $(n+m)\times n$ exchange matrices and $M$ and invertible $m 
       \draw[fill=black] (0.375,-3.375) circle (0.75pt);
       \draw[fill=black] (0.5625,-3.1875) circle (0.75pt);
       \draw[fill=black] (0.75,-3) circle (1.5pt);
+      \node[right] at (0.75,-3) {$\scriptstyle t(\scev{a}_1)_-$};
       \draw[<-] (0.75,-2.4) -- (0.75,-2.85);
       \node at (0.575,-2.675) {$\scriptstyle \scev{a}_1$};
       \draw[fill=black] (0.75,-2.25) circle (1.5pt);
-      \node[right] at (0.75,-2.25) {$\scriptstyle  i_r$};
+      \node[right] at (0.75,-2.25) {$\scriptstyle t(\scev{a}_1)$};
       \draw[->] (0.75,-1.65) -- (0.75,-2.1);
       \draw[fill=black] (0.75,-1.5) circle (1.5pt);
+      \node[right] at (0.75,-1.5) {$\scriptstyle t(\scev{a}_1)_+$};
       \draw[fill=black] (0.75,-1.3125) circle (0.75pt);
       \draw[fill=black] (0.75,-1.125) circle (0.75pt);
       \draw[fill=black] (0.75,-0.9375) circle (0.75pt);
       \draw[fill=black] (0.75,-0.75) circle (1.5pt);
-      \node[above right] at (0.75,-0.75) {$\scriptstyle  n$};
       \draw[->] (0.1,-0.1) -- (0.65,-0.65);
       \node[below right] at (0,-0.25) {$\scriptstyle \vec{a}_p$};
     \end{tikzpicture}
   \end{center}
-  For a vertex $i$ in $Q$, write $i^+$ for the next source or sink of $Q$ counterclockwise from $i$.  Define $i^-$ similarly by looking clockwise from $i$.  Note that when $i$ is a source (resp. a sink) both $i^-$ and $i^+$ will be sinks (resp. sources).
+  
+  For a vertex $i$ in $Q$, write $i_+$ for the next vertex of $Q$ counterclockwise from $i$ and write $i^+$ for the next source or sink of $Q$ counterclockwise from $i$.  Define $i_-$ and $i^-$ similarly by looking clockwise from $i$.  Note that $t(\vec{a}_\ell)_+=s(\vec{a}_\ell)$ and $t(\cev{a}_\ell)_-=s(\cev{a}_\ell)$.  Also note that when $i$ is a source (resp. a sink) in $Q$, both $i^-$ and $i^+$ will be sinks (resp. sources) in $Q$.  
 
-  For each pair of vertices $i,j\in Q$, let $M_{[i,j]}$ denote the indecomposable representation of $Q$ which contains a one-dimensional vector space at each vertex $k$ contained weakly between $i$ and $j$ when tracing counterclockwise around $Q$ from $i$ to $j$.  In particular, we take $M_{[i,i]}$ to be the simple representation $S_i$ at vertex $i$.  
+  For vertices $i$ and $j$ in $Q$, write $[i,j]\subset Q_0$ for the subset of vertices contained weakly between $i$ and $j$ when tracing counterclockwise around $Q$ from $i$ to $j$.  Define $(i,j)$, $(i,j]$, and $[i,j)$ similarly.  Let $M_{[i,j]}$ denote the indecomposable representation of $Q$ which contains a one-dimensional vector space at each vertex $k\in[i,j]$ and a nonzero map at each arrow traversed from $i$ to $j$.  In particular, $\{i,j\}\subset\supp\soc\big(M_{[i,j]}\big)\cup\supp\top\big(M_{[i,j]}\big)$ and we take $M_{[i,i]}$ to be the simple representation $S_i$ at vertex $i$.  When enumerating over the elements of $[i,j]$ we will usually write $\sum\limits_{k=i}^j$ instead of the more proper $\sum\limits_{k\in[i,j]}$.
 
-  For $1\le\ell\le p$ define indecomposable representations $\vec{M}_{1,\ell}:=M_{[s(\vec{a}_{\ell-1}),t(\vec{a}_\ell)]}$.  Similarly for $1\le\ell\le q$ define $\cev{M}_{1,\ell}:=M_{[t(\scev{a}_\ell),s(\scev{a}_{\ell+1})]}$.  Note that when $t(\vec{a}_\ell)$ (resp. $t(\cev{a}_\ell)$) is not a sink in $Q$ the representation $\vec{M}_{1,\ell}$ (resp. $\cev{M}_{1,\ell}$) will be simple and otherwise $\vec{M}_{1,\ell}$ (resp. $\cev{M}_{1,\ell}$) will be a string module with socle $S_{t(\vec{a}_\ell)}$ (resp. $S_{t(\scev{a}_\ell)}$) and top $S_{s(\vec{a}_{\ell-1})}$ (resp. $S_{s(\scev{a}_{\ell+1})}$).  From this we see that the collections $\{\vec{M}_{1,\ell}:1\le\ell\le p\}$ and $\{\cev{M}_{1,\ell}:1\le\ell\le q\}$ give families of pairwise orthogonal bricks.
+  For $\ell\in\ZZ$ define indecomposable representations $\vec{M}_{1,\ell}:=M_{[s(\vec{a}_{\ell-1}),t(\vec{a}_\ell)]}$ and $\cev{M}_{1,\ell}:=M_{[t(\scev{a}_\ell),s(\scev{a}_{\ell-1})]}$.  Note that when $t(\vec{a}_\ell)$ (resp. $t(\cev{a}_\ell)$) is not a sink in $Q$ the representation $\vec{M}_{1,\ell}$ (resp. $\cev{M}_{1,\ell}$) will be simple and otherwise $\vec{M}_{1,\ell}$ (resp. $\cev{M}_{1,\ell}$) will be a string module with socle $S_{t(\vec{a}_\ell)}$ (resp. $S_{t(\scev{a}_\ell)}$) and top $S_{s(\vec{a}_{\ell-1})}$ (resp. $S_{s(\scev{a}_{\ell-1})}$).  From this we see that the collections $\{\vec{M}_{1,\ell}:1\le\ell\le p\}$ and $\{\cev{M}_{1,\ell}:1\le\ell\le q\}$ give families of pairwise orthogonal bricks, i.e. there are no nonzero morphisms between non-isomorphic representations and each of these representations has trivial endomorphism ring.
 
-  Denote by $\overrightarrow{\rep}Q$ (resp. $\overleftarrow{\rep}Q$) full, extension-closed, additive subcategory of $\rep Q$ called the \emph{clockwise} (resp. \emph{counterclockwise}) \emph{tubular subcategory} (tube) generated by $\{\vec{M}_{1,\ell}:1\le\ell\le p\}$ (resp. $\{\cev{M}_{1,\ell}:1\le\ell\le q\}$).  Following \cite[Section 3.1]{Rin84} the clockwise and counterclockwise tubes are serial, abelian categories with simple objects given by $\{\vec{M}_{1,\ell}:1\le\ell\le p\}$ and $\{\cev{M}_{1,\ell}:1\le\ell\le q\}$ respectively.  Label the dimension vectors of the simple objects $\{\vec{M}_{1,\ell}:1\le\ell\le p\}$ as
+  Denote by $\overrightarrow{\rep}Q$ (resp. $\overleftarrow{\rep}Q$) the full, extension-closed, additive subcategory of $\rep Q$ called the \emph{clockwise} (resp. \emph{counterclockwise}) \emph{tubular subcategory} (tube) generated by $\{\vec{M}_{1,\ell}:1\le\ell\le p\}$ (resp. $\{\cev{M}_{1,\ell}:1\le\ell\le q\}$).  Following \cite[Section 3.1]{Rin84} the clockwise and counterclockwise tubes are serial, abelian categories with simple objects given by $\{\vec{M}_{1,\ell}:1\le\ell\le p\}$ and $\{\cev{M}_{1,\ell}:1\le\ell\le q\}$ respectively.  In each case these ``simple'' objects form the mouth of the corresponding tubular categories.
+
+  For $\ell\in\ZZ$, label the dimension vector of the ``simple'' object $\vec{M}_{1,\ell}$ as
   \begin{equation}
     \vec{\beta}_{1,\ell}=\sum_{i=s(\vec{a}_{\ell-1})}^{t(\vec{a}_\ell)}\alpha_i
   \end{equation}
-  and the dimension vectors of the simple objects $\{\cev{M}_{1,\ell}:1\le\ell\le q\}$ as
+  and the dimension vector of the ``simple'' object $\cev{M}_{1,\ell}$ as
   \begin{equation}
-    \cev{\beta}_{1,\ell}=\sum_{i=t(\scev{a}_\ell)}^{s(\scev{a}_{\ell+1})}\alpha_i.
+    \cev{\beta}_{1,\ell}=\sum_{i=t(\scev{a}_\ell)}^{s(\scev{a}_{\ell-1})}\alpha_i.
   \end{equation}
-  The coindices of these generating representations can be described for $1\le\ell\le p$ as follows:
-  \begin{equation}
-    \vec{\lambda}_{1,\ell}=\omega_i-\omega_{i+1}
-  \end{equation}
-  if $t(\vec{a}_\ell)=i$ and for $1\le\ell\le q$ as follows:
-  \begin{equation}
-    \cev{\lambda}_{1,\ell}=\omega_i-\omega_{i-1}
-  \end{equation}
-  if $t(\cev{a}_\ell)=i$.
+  The coindices of these representations can be described as follows:
+  \begin{align}
+    \vec{\lambda}_{1,\ell}&=\omega_{t(\vec{a}_\ell)}-\omega_{s(\vec{a}_\ell)}\\
+    \cev{\lambda}_{1,\ell}&=\omega_{t(\scev{a}_\ell)}-\omega_{s(\scev{a}_\ell)}.
+  \end{align}
 
-  It will be convenient to allow $\ell\in\ZZ$ with identifications $\vec{M}_{1,\ell}=\vec{M}_{1,\ell+p}$ and $\cev{M}_{1,\ell}=\cev{M}_{1,\ell+q}$ with similar identifications for $\vec{\beta}_{1,\ell}$ and $\cev{\beta}_{1,\ell}$.  Then we define indecomposable representations $\vec{M}_{k,\ell}$ and $\cev{M}_{k,\ell}$ for $k\ge0$ and $\ell\in\ZZ$ inductively via the short exact sequences
+  Define indecomposable representations $\vec{M}_{k,\ell}$ and $\cev{M}_{k,\ell}$ for $k\ge0$ and $\ell\in\ZZ$ inductively via the short exact sequences
   \[0\longrightarrow\vec{M}_{k-1,\ell}\longrightarrow\vec{M}_{k,\ell}\longrightarrow\vec{M}_{1,k+\ell-1}\longrightarrow0\]
   and
   \[0\longrightarrow\cev{M}_{k-1,\ell}\longrightarrow\cev{M}_{k,\ell}\longrightarrow\cev{M}_{1,k+\ell-1}\longrightarrow0.\]
-  It follows that the dimension vectors of these representations are given by
+  It follows that the dimension vectors of these representations are given for $1\le k\le p-1$ by
   \begin{align}
     \vec\beta_{k,\ell}=\sum_{m=1}^k\vec\beta_{1,\ell+m-1}=\sum_{i=s(\vec{a}_{\ell-1})}^{t(\vec{a}_{k+\ell-1})}\alpha_i
   \end{align}
-  and
+  and for $1\le k\le q-1$ by
   \begin{align}
-    \cev\beta_{k,\ell}=\sum\limits_{m=1}^k\cev\beta_{1,\ell+m-1}=\sum_{i=t(\scev{a}_{k+\ell-1})}^{s(\scev{a}_{\ell+1})}\alpha_i
+    \cev\beta_{k,\ell}=\sum\limits_{m=1}^k\cev\beta_{1,\ell+m-1}=\sum_{i=t(\scev{a}_{k+\ell-1})}^{s(\scev{a}_{\ell-1})}\alpha_i.
   \end{align}
-  Similarly the coindices of these representations can be computed for $1\le k\le p-1$ and $1\le\ell\le p$ as
+  Similarly the coindices of these representations can be computed for $1\le k\le p-1$ as
   \begin{align}
     \vec\lambda_{k,\ell}
     &=\sum\limits_{m=1}^k\vec\lambda_{1,\ell+m-1}\\
     &=\sum\limits_{m=1}^k\omega_{t(\vec{a}_{\ell+m-1})}-\omega_{s(\vec{a}_{\ell+m-1})}
   \end{align}
-  and for $1\le k\le q-1$ and $1\le\ell\le q$ as
+  and for $1\le k\le q-1$ as
   \begin{align}
     \cev\lambda_{k,\ell}
     &=\sum\limits_{m=1}^k\cev\lambda_{1,\ell+m-1}\quad\text{}\\
-    &=\sum\limits_{m=1}^k\omega_{t(\scev{a}_{\ell+m-1})}-\omega_{s(\scev{a}_{\ell+m-1})}
+    &=\sum\limits_{m=1}^k\omega_{t(\scev{a}_{\ell+m-1})}-\omega_{s(\scev{a}_{\ell+m-1})}.
   \end{align}
 
   \begin{proposition}\mbox{}
@@ -672,14 +674,14 @@ Let $B$ and $B'$ be $(n+m)\times n$ exchange matrices and $M$ and invertible $m 
     \end{enumerate}
   \end{proof}
   \begin{remark}\label{rem:rigid regulars}
-    Note that none of the rigid regular representations is sincere and all of them take the form $M_{[i,j]}$ for some $i$ and $j$ with $i\ne j+1$.
+    Note that none of the rigid regular representations is sincere and all of them take the form $M_{[i,j]}$ for some $i$ and $j$ with $i\ne j_+$.
   \end{remark}
 
   \begin{corollary}
     A representation $M$ of $Q$ is regular if and only if $\sum\limits_{\ell=1}^r\dim M_{i_\ell}$ is even.
   \end{corollary}
 
-  The next goal is to enumerate the subrepresentations of each rigid $M_{[i,j]}$.  To that end, following \Cref{rem:rigid regulars}, we consider $i,j\in Q_0$ with $i\ne j+1$.  Now write $Q_{[i,j]}$ for the full subquiver of $Q$ with vertices $\{i,i+1,\ldots, j\}$ and note that this is a quiver of type $A$.  Let $i=j_1,j_2,\ldots,j_s=j$ denote the sinks and sources in $Q_{[i,j]}$.  Then the subrepresentations $N$ of $M_{[i,j]}$ are enumerated by the following data.  Choose a subset $I$ of the sinks of $Q_{[i,j]}$ to enumerate the socle of $N$.  Denote by $\bar{I}$ the subset of the sources of $Q_{[i,j]}$ consisting of all $j_t$ such that $j_{t-1},j_{t+1}\in I$.  We also take $j_1\in\bar{I}$ (resp. $j_s\in\bar{I}$) if $j_1$ (resp. $j_s$) is a source in $Q_{[i,j]}$ and $j_2\in I$ (resp. $j_{s-1}\in I$).  Choose a subset $O\subset\bar{I}$.  Write $I_L(O)=\{j_t\in I:j_{t-1}\notin O\}$ and $I_R(O)=\{j_t\in I:j_{t+1}\notin O\}$.  For each $j_t\in I_L(O)$ choose $k_{t-1}:j_{t-1}<k_{t-1}\le j_t$ and for each $j_t\in I_R(O)$ choose $k_t:j_t\le k_t<j_{t+1}$, when the inequalities are strict or both are equalities these $k_t$ enumerate, together with $O$, the top of $N$.
+  The next goal is to enumerate the subrepresentations of each rigid $M_{[i,j]}$.  To that end, following \Cref{rem:rigid regulars}, we consider $i,j\in Q_0$ with $i\ne j_+$.  Now write $Q_{[i,j]}$ for the full subquiver of $Q$ with vertices $[i,j]$ and note that this is a quiver of type $A$.  Let $i=j_1,j_2,\ldots,j_s=j$ denote the sinks and sources in $Q_{[i,j]}$.  Then the subrepresentations $N$ of $M_{[i,j]}$ are enumerated by the following data.  Choose a subset $I$ of the sinks of $Q_{[i,j]}$ to enumerate the socle of $N$.  Denote by $\bar{I}$ the subset of the sources of $Q_{[i,j]}$ consisting of all $j_t$ such that $j_{t-1},j_{t+1}\in I$.  We also take $j_1\in\bar{I}$ (resp. $j_s\in\bar{I}$) if $j_1$ (resp. $j_s$) is a source in $Q_{[i,j]}$ and $j_2\in I$ (resp. $j_{s-1}\in I$).  Choose a subset $O\subset\bar{I}$.  Write $I_L(O)=\{j_t\in I:j_{t-1}\notin O\}$ and $I_R(O)=\{j_t\in I:j_{t+1}\notin O\}$.  For each $j_t\in I_L(O)$ choose $k_{t-1}:j_{t-1}<k_{t-1}\le j_t$ and for each $j_t\in I_R(O)$ choose $k_t:j_t\le k_t<j_{t+1}$, when the inequalities are strict or both are equalities these $k_t$ enumerate, together with $O$, the top of $N$.
 
   The minimal injective copresentation of $M_{[i,j]}$ can be understood in terms of the quiver $Q_{[i,j]}$ as well.  This requires a couple of cases:
   \begin{itemize}
@@ -706,10 +708,10 @@ Let $B$ and $B'$ be $(n+m)\times n$ exchange matrices and $M$ and invertible $m 
   Call a vertex $i$ of a connected subquiver $Q'$ of $Q$ an \emph{internal source of $Q'$} if $i$ is a source of $Q$ and $Q'$ contains a sink both clockwise and counterclockwise from $i$.
   \begin{lemma}\mbox{}
     \begin{enumerate}
-      \item For $1\le k\le p-1$ and $1\le\ell\le p$ we have
+      \item For $1\le k\le p-1$ we have
       \[\vec{\lambda}_{k,\ell}=\sum_{i\in I}\omega_i-\sum_{i\in O}\omega_i\]
       where $I$ denotes the sinks in the support quiver $Q_{k,\ell}$ of $\vec{M}_{k,\ell}$ and $O$ denotes the set of internal sources of $\vec{Q}_{k,\ell}$ together with $s(\vec{a}_{k+\ell-1})$.
-      \item For $1\le k\le q-1$ and $1\le\ell\le q$ we have
+      \item For $1\le k\le q-1$ we have
       \[\cev{\lambda}_{k,\ell}=\sum_{i\in I}\omega_i-\sum_{i\in O}\omega_i\]
       where $I$ denotes the sinks in the support quiver $Q_{k,\ell}$ of $\cev{M}_{k,\ell}$ and $O$ denotes the set of internal sources of $\cev{Q}_{k,\ell}$ together with $s(\cev{a}_{k+\ell-1})$.
     \end{enumerate}
@@ -759,10 +761,10 @@ Let $B$ and $B'$ be $(n+m)\times n$ exchange matrices and $M$ and invertible $m 
   \begin{theorem}
     Let $g=x_{\overline{\sigma_0\!}\,}(u_{\sigma_0})\cdots x_{\overline{\sigma_n\!}\,}(u_{\sigma_n}) x_{\sigma_n}(t_{\sigma_n}) \cdots x_{\sigma_0}(t_{\sigma_0})$ denote a generic element of $L^{c,c^{-1}}$.
     \begin{enumerate}
-      \item For $1\le k\le p-1$ and $1\le\ell\le p$ we have
+      \item For $1\le k\le p-1$ we have
       \begin{align}
-        &\Delta_{-\vec{\lambda}_{k,\ell}}(g)=\sum_{J\subset I}\left(\prod_{i\in J} t_i\prod_{i\in I\setminus J} u_i\left(\prod_{i=t(\vec{a}_\ell)^-}^{t(\vec{a}_\ell)-1}t_i+\sum_{m=t(\vec{a}_\ell)^-+1}^{t(\vec{a}_\ell)}u_{m-1}\prod_{i=m}^{t(\vec{a}_\ell)-1} t_i\right)^\delta\times\right.\\
-        \nonumber&\times\left.\sum_{P\subset\bar{J}}\prod_{\substack{i:j^-<i<j^+\\j\in P}}t_i\prod_{i\in O\setminus P}u_i^{-1}\left(\prod_{j\in I^-(P)}\sum_{m=j^-+1}^ju_{m-1}\prod_{i=m}^{j-1} t_i\right)\left(\prod_{j\in I^+(P)}\sum_{m=j}^{j^+-1}u_{m+1}\prod_{i=j+1}^{m} t_i\right)\right)
+        &\Delta_{-\vec{\lambda}_{k,\ell}}(g)=\sum_{J\subset I}\left(\prod_{i\in J} t_i\prod_{i\in I\setminus J} u_i\left(\prod_{i=t(\vec{a}_\ell)^-}^{t(\vec{a}_\ell)_-}t_i+\sum_{m=\left(t(\vec{a}_\ell)^-\right)_+}^{t(\vec{a}_\ell)_-}u_{m_-}\prod_{i=m}^{t(\vec{a}_\ell)_-} t_i+u_{t(\vec{a}_\ell)_-}\right)^\delta\times\right.\\
+        \nonumber&\times\left.\sum_{P\subset\bar{J}}\prod_{\substack{j\in P\\i\in(j^-,j^+)}}t_i\prod_{i\in O\setminus P}u_i^{-1}\left(\prod_{j\in I^-(P)}\left(u_{j_-}+\sum_{m\in(j^-,j)}u_{m_-}\prod_{i=m}^{j_-} t_i\right)\right)\left(\prod_{j\in I^+(P)}\left(u_{j_+}+\sum_{m\in(j,j^+)}u_{m_+}\prod_{i=j_+}^m t_i\right)\right)\right)
       \end{align}
       where:
       \begin{itemize}
@@ -772,10 +774,10 @@ Let $B$ and $B'$ be $(n+m)\times n$ exchange matrices and $M$ and invertible $m 
         \item for $P\subset\bar{J}$, $I^\pm(P)=\{j\in J:j^\pm\in O\setminus P\}$,
         \item $\delta=\begin{cases}1 & \text{if $t(\vec{a}_\ell)$ is a sink in $Q$ and $t(\vec{a}_\ell)\in J$;}\\0 & \text{otherwise.}\end{cases}$
       \end{itemize}
-      \item For $1\le k\le q-1$ and $1\le\ell\le q$  we have
+      \item For $1\le k\le q-1$ we have
       \begin{align}
-        &\Delta_{-\scev{\lambda}_{k,\ell}}(g)=\sum_{J\subset I}\left(\prod_{i\in J} t_i\prod_{i\in I\setminus J} u_i\left(\prod_{i=t(\scev{a}_\ell)+1}^{t(\scev{a}_\ell)^+}t_i+\sum_{m=t(\scev{a}_\ell)}^{t(\scev{a}_\ell)^+-1}u_{m+1}\prod_{i=t(\scev{a}_\ell)+1}^m t_i\right)^\delta\times\right.\\
-        \nonumber&\times\left.\sum_{P\subset\bar{J}}\prod_{\substack{i:j^-<i<j^+\\j\in P}}t_i\prod_{i\in O\setminus P}u_i^{-1}\left(\prod_{j\in I^-(P)}\sum_{m=j^-+1}^ju_{m-1}\prod_{i=m}^{j-1} t_i\right)\left(\prod_{j\in I^+(P)}\sum_{m=j}^{j^+-1}u_{m+1}\prod_{i=j+1}^{m} t_i\right)\right)
+        &\Delta_{-\scev{\lambda}_{k,\ell}}(g)=\sum_{J\subset I}\left(\prod_{i\in J} t_i\prod_{i\in I\setminus J} u_i\left(\prod_{i=t(\scev{a}_\ell)_+}^{t(\scev{a}_\ell)^+}t_i+\sum_{m=t(\scev{a}_\ell)_+}^{\left(t(\scev{a}_\ell)^+\right)_-}u_{m_+}\prod_{i=t(\scev{a}_\ell)_+}^m t_i+u_{t(\scev{a}_\ell)_+}\right)^\delta\times\right.\\
+        \nonumber&\times\left.\sum_{P\subset\bar{J}}\prod_{\substack{j\in P\\i\in(j^-,j^+)}}t_i\prod_{i\in O\setminus P}u_i^{-1}\left(\prod_{j\in I^-(P)}\left(u_{j_-}+\sum_{m\in(j^-,j)}u_{m_-}\prod_{i=m}^{j_-}t_i\right)\right)\left(\prod_{j\in I^+(P)}\left(u_{j^+}+\sum_{m\in(j,j^+)}u_{m_+}\prod_{i=j_+}^m t_i\right)\right)\right)
       \end{align}
       where:
       \begin{itemize}
@@ -802,10 +804,10 @@ Let $B$ and $B'$ be $(n+m)\times n$ exchange matrices and $M$ and invertible $m 
   where ${}^*M=\sum\limits_{i\in Q_0}\langle S_i,M\rangle\omega_i$, $Gr_\bfe(M)$ denotes the Grassmannian of subrepresentations of $M$ with dimension vector $\bfe$, and for a vector $(\bfb_1,\bfb_2)\in\big(\ZZ^{Q_0}\big)^2$ we write $x^\bfb=\prod_{i\in Q_0} x_i^{b_{1i}}y_i^{b_{2i}}$.
   \begin{theorem}\mbox{}
     \begin{enumerate}
-      \item For $1\le k\le p-1$ and $1\le\ell\le p$ we have
+      \item For $1\le k\le p-1$ we have
       \begin{align}
-        &x_{\vec{M}_{k,\ell}}=x^{\sum_{i\in O}\omega_i-\sum_{i\in I}\omega_i}\sum_{J\subset I}\prod_{i\in J}x_{i-1}^{-1}y_ix_{i+1}^{-1}\left(\sum_{m=t(\vec{a}_\ell)^-}^{t(\vec{a}_\ell)-1}x_m^{-1}x_{t(\vec{a}_\ell)}\prod_{i=m}^{t(\vec{a}_\ell)-1}y_i\right)^\delta\times\\
-        \nonumber&\times\sum_{P\subset\bar{J}}\prod_{j\in P}\left(x_{j^-}x_j^{-2}x_{j^+}\prod_{i=j^-+1}^{j^+-1}y_i\right)\left(\prod_{j\in I^-(P)}\sum_{m=j^-+1}^{j-1}x_{m-1}^{-1}x_j\prod_{i=m}^{j-1}y_i\right)\left(\prod_{j\in I^+(P)}\sum_{m=j+1}^{j^+-1}x_jx_{m+1}^{-1}\prod_{i=j+1}^{m}y_i\right)
+        &x_{\vec{M}_{k,\ell}}=x^{\sum_{i\in O}\omega_i-\sum_{i\in I}\omega_i}\sum_{J\subset I}\prod_{i\in J}x_{i_-}^{-1}y_ix_{i_+}^{-1}\left(\sum_{m=t(\vec{a}_\ell)^-}^{t(\vec{a}_\ell)_-}x_m^{-1}x_{t(\vec{a}_\ell)}\prod_{i=m}^{t(\vec{a}_\ell)_-}y_i\right)^\delta\times\\
+        \nonumber&\times\sum_{P\subset\bar{J}}\prod_{j\in P}\left(x_{j^-}x_j^{-2}x_{j^+}\prod_{i\in(j^-,j^+)}y_i\right)\left(\prod_{j\in I^-(P)}\sum_{m\in(j^-,j)}x_{m_-}^{-1}x_j\prod_{i=m}^{j_-}y_i\right)\left(\prod_{j\in I^+(P)}\sum_{m\in(j,j^+)}x_jx_{m_+}^{-1}\prod_{i=j_+}^m y_i\right)
       \end{align}
       where:
       \begin{itemize}
@@ -815,10 +817,10 @@ Let $B$ and $B'$ be $(n+m)\times n$ exchange matrices and $M$ and invertible $m 
         \item for $P\subset\bar{J}$, $I^\pm(P)=\{j\in J:j^\pm\in O\setminus P\}$,
         \item $\delta=\begin{cases}1 & \text{if $t(\vec{a}_\ell)$ is a sink in $Q$ and $t(\vec{a}_\ell)\in J$;}\\0 & \text{otherwise.}\end{cases}$
       \end{itemize}
-      \item For $1\le k\le q-1$ and $1\le\ell\le q$ we have
+      \item For $1\le k\le q-1$ we have
       \begin{align}
-        &x_{\scev{M}_{k,\ell}}=x^{\sum_{i\in O}\omega_i-\sum_{i\in I}\omega_i}\sum_{J\subset I}\prod_{i\in J}x_{i-1}^{-1}y_ix_{i+1}^{-1}\left(\sum_{m=t(\scev{a}_\ell)+1}^{t(\scev{a}_\ell)^+}x_m^{-1}x_{t(\scev{a}_\ell)}\prod_{i=m}^{t(\scev{a}_\ell)-1}y_i\right)^\delta\times\\
-        \nonumber&\times\sum_{P\subset\bar{J}}\prod_{j\in P}\left(x_{j^-}x_j^{-2}x_{j^+}\prod_{i=j^-+1}^{j^+-1}y_i\right)\left(\prod_{j\in I^-(P)}\sum_{m=j^-+1}^{j-1}x_{m-1}^{-1}x_j\prod_{i=m}^{j-1}y_i\right)\left(\prod_{j\in I^+(P)}\sum_{m=j+1}^{j^+-1}x_jx_{m+1}^{-1}\prod_{i=j+1}^{m}y_i\right)
+        &x_{\scev{M}_{k,\ell}}=x^{\sum_{i\in O}\omega_i-\sum_{i\in I}\omega_i}\sum_{J\subset I}\prod_{i\in J}x_{i_-}^{-1}y_ix_{i_+}^{-1}\left(\sum_{m=t(\scev{a}_\ell)_+}^{t(\scev{a}_\ell)^+}x_m^{-1}x_{t(\scev{a}_\ell)}\prod_{i=m}^{t(\scev{a}_\ell)_-}y_i\right)^\delta\times\\
+        \nonumber&\times\sum_{P\subset\bar{J}}\prod_{j\in P}\left(x_{j^-}x_j^{-2}x_{j^+}\prod_{i\in(j^-,j^+)}y_i\right)\left(\prod_{j\in I^-(P)}\sum_{m\in(j^-,j)}x_{m_-}^{-1}x_j\prod_{i=m}^{j_-}y_i\right)\left(\prod_{j\in I^+(P)}\sum_{m\in(j,j^+)}x_jx_{m_+}^{-1}\prod_{i=j_+}^m y_i\right)
       \end{align}
       where:
       \begin{itemize}
