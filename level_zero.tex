@@ -717,7 +717,7 @@ Let $B$ and $B'$ be $(n+m)\times n$ exchange matrices and $M$ and invertible $m 
     \end{enumerate}
   \end{lemma}
 
-  Let $\sigma\in\Sigma_{n+1}$ denote a permutation of the vertices of $Q$ such that $\sigma_n$ is a sink in $Q$ and $\sigma_i$ is a sink in $\mu_{\sigma_{i+1}}\cdots\mu_{\sigma_n} Q$ for $1\le i\le n$.  Let $c=s_{\sigma_0}\cdots s_{\sigma_n}$ denote the Coxeter element adapted to $Q$.
+  Let $\sigma\in\Sigma_{n+1}$ denote a permutation of the vertices of $Q$ such that $\sigma_0$ is a sink in $Q$ and $\sigma_i$ is a sink in $\mu_{\sigma_{i-1}}\cdots\mu_{\sigma_0} Q$ for $1\le i\le n$.  Let $c=s_{\sigma_0}\cdots s_{\sigma_n}$ denote the Coxeter element adapted to $Q$.
   \erase{%begin erase
   \begin{theorem}
     Let $g=x_{\overline{\sigma_0\!}\,}(u_{\sigma_0})\cdots x_{\overline{\sigma_n\!}\,}(u_{\sigma_n}) x_{\sigma_n}(t_{\sigma_n}) \cdots x_{\sigma_0}(t_{\sigma_0})$ denote a generic element of $L^{c,c^{-1}}$.
@@ -763,7 +763,7 @@ Let $B$ and $B'$ be $(n+m)\times n$ exchange matrices and $M$ and invertible $m 
     \begin{enumerate}
       \item For $1\le k\le p-1$ we have
       \begin{align}
-        &\Delta_{-\vec{\lambda}_{k,\ell}}(g)=\sum_{J\subset I}\left(\prod_{i\in J} t_i\prod_{i\in I\setminus J} u_i\left(\prod_{i=t(\vec{a}_\ell)^-}^{t(\vec{a}_\ell)_-}t_i+\sum_{m=\left(t(\vec{a}_\ell)^-\right)_+}^{t(\vec{a}_\ell)_-}u_{m_-}\prod_{i=m}^{t(\vec{a}_\ell)_-} t_i+u_{t(\vec{a}_\ell)_-}\right)^\delta\times\right.\\
+        &\Delta_{-\vec{\lambda}_{k,\ell}}(g)=\sum_{J\subset I}\left(\prod_{i\in J} t_i\prod_{i\in I\setminus J} u_i\left(u_{t(\vec{a}_\ell)_-}+\sum_{m=\left(t(\vec{a}_\ell)^-\right)_+}^{t(\vec{a}_\ell)_-}u_{m_-}\prod_{i=m}^{t(\vec{a}_\ell)_-} t_i+\prod_{i=t(\vec{a}_\ell)^-}^{t(\vec{a}_\ell)_-}t_i\right)^\delta\times\right.\\
         \nonumber&\times\left.\sum_{P\subset\bar{J}}\prod_{\substack{j\in P\\i\in(j^-,j^+)}}t_i\prod_{i\in O\setminus P}u_i^{-1}\left(\prod_{j\in I^-(P)}\left(u_{j_-}+\sum_{m\in(j^-,j)}u_{m_-}\prod_{i=m}^{j_-} t_i\right)\right)\left(\prod_{j\in I^+(P)}\left(u_{j_+}+\sum_{m\in(j,j^+)}u_{m_+}\prod_{i=j_+}^m t_i\right)\right)\right)
       \end{align}
       where:
@@ -776,7 +776,7 @@ Let $B$ and $B'$ be $(n+m)\times n$ exchange matrices and $M$ and invertible $m 
       \end{itemize}
       \item For $1\le k\le q-1$ we have
       \begin{align}
-        &\Delta_{-\scev{\lambda}_{k,\ell}}(g)=\sum_{J\subset I}\left(\prod_{i\in J} t_i\prod_{i\in I\setminus J} u_i\left(\prod_{i=t(\scev{a}_\ell)_+}^{t(\scev{a}_\ell)^+}t_i+\sum_{m=t(\scev{a}_\ell)_+}^{\left(t(\scev{a}_\ell)^+\right)_-}u_{m_+}\prod_{i=t(\scev{a}_\ell)_+}^m t_i+u_{t(\scev{a}_\ell)_+}\right)^\delta\times\right.\\
+        &\Delta_{-\scev{\lambda}_{k,\ell}}(g)=\sum_{J\subset I}\left(\prod_{i\in J} t_i\prod_{i\in I\setminus J} u_i\left(u_{t(\scev{a}_\ell)_+}+\sum_{m=t(\scev{a}_\ell)_+}^{\left(t(\scev{a}_\ell)^+\right)_-}u_{m_+}\prod_{i=t(\scev{a}_\ell)_+}^m t_i+\prod_{i=t(\scev{a}_\ell)_+}^{t(\scev{a}_\ell)^+}t_i\right)^\delta\times\right.\\
         \nonumber&\times\left.\sum_{P\subset\bar{J}}\prod_{\substack{j\in P\\i\in(j^-,j^+)}}t_i\prod_{i\in O\setminus P}u_i^{-1}\left(\prod_{j\in I^-(P)}\left(u_{j_-}+\sum_{m\in(j^-,j)}u_{m_-}\prod_{i=m}^{j_-}t_i\right)\right)\left(\prod_{j\in I^+(P)}\left(u_{j^+}+\sum_{m\in(j,j^+)}u_{m_+}\prod_{i=j_+}^m t_i\right)\right)\right)
       \end{align}
       where:
@@ -784,7 +784,7 @@ Let $B$ and $B'$ be $(n+m)\times n$ exchange matrices and $M$ and invertible $m 
         \item $I$ denotes the sinks in the support quiver $\cev{Q}_{k,\ell}$ of $\cev{M}_{k,\ell}$ read clockwise around $Q$,
         \item $O$ denotes the set of internal sources of $\cev{Q}_{k,\ell}$ together with $s(\cev{a}_{k+\ell-1})$,
         \item for $J\subset I$, $\bar{J}$ denotes the set of sources $j$ in the support quiver $\cev{Q}_{k,\ell}$ for which $j^-,j^+\in J$,
-        \item for $P\subset\bar{J}$, $I^\pm(P)=\{j\in J:j^-\in\bar{I}\setminus P\}$,
+        \item for $P\subset\bar{J}$, $I^\pm(P)=\{j\in J:j^\pm\in O\setminus P\}$,
         \item $\delta=\begin{cases}1 & \text{if $t(\cev{a}_\ell)$ is a sink in $Q$ and $t(\cev{a}_\ell)\in J$;}\\0 & \text{otherwise.}\end{cases}$
       \end{itemize}
     \end{enumerate}
@@ -806,8 +806,10 @@ Let $B$ and $B'$ be $(n+m)\times n$ exchange matrices and $M$ and invertible $m 
     \begin{enumerate}
       \item For $1\le k\le p-1$ we have
       \begin{align}
-        &x_{\vec{M}_{k,\ell}}=x^{\sum_{i\in O}\omega_i-\sum_{i\in I}\omega_i}\sum_{J\subset I}\prod_{i\in J}x_{i_-}^{-1}y_ix_{i_+}^{-1}\left(\sum_{m=t(\vec{a}_\ell)^-}^{t(\vec{a}_\ell)_-}x_m^{-1}x_{t(\vec{a}_\ell)}\prod_{i=m}^{t(\vec{a}_\ell)_-}y_i\right)^\delta\times\\
-        \nonumber&\times\sum_{P\subset\bar{J}}\prod_{j\in P}\left(x_{j^-}x_j^{-2}x_{j^+}\prod_{i\in(j^-,j^+)}y_i\right)\left(\prod_{j\in I^-(P)}\sum_{m\in(j^-,j)}x_{m_-}^{-1}x_j\prod_{i=m}^{j_-}y_i\right)\left(\prod_{j\in I^+(P)}\sum_{m\in(j,j^+)}x_jx_{m_+}^{-1}\prod_{i=j_+}^m y_i\right)
+        &x_{\vec{M}_{k,\ell}}=x^{\sum_{i\in O}\omega_i-\sum_{i\in I}\omega_i}\sum_{J\subset I}\prod_{i\in J}x_{i_-}^{-1}y_ix_{i_+}^{-1}\times\\
+        \nonumber&\times\left(1+\sum_{m=\left(t(\vec{a}_\ell)^-\right)_+}^{t(\vec{a}_\ell)_-}x_{m_-}^{-1}x_m^{-1}x_{t(\vec{a}_\ell)_-}x_{t(\vec{a}_\ell)}\prod_{i=m}^{t(\vec{a}_\ell)_-}y_i+x_{\left(t(\vec{a}_\ell)^-\right)_-}x_{t(\vec{a}_\ell)^-}^{-1}x_{t(\vec{a}_\ell)_-}x_{t(\vec{a}_\ell)}\prod_{i=t(\vec{a}_\ell)^-}^{t(\vec{a}_\ell)_-}y_i\right)^\delta\times\\
+        \nonumber&\times\sum_{P\subset\bar{J}}\prod_{j\in P}\left(x_{j^-}x_{(j^-)_+}x_j^{-2}x_{(j^+)_-}x_{j^+}\prod_{i\in(j^-,j^+)}y_i\right)\prod_{j\in I^-(P)}\left(1+\sum_{m\in(j^-,j)}x_{m_-}^{-1}x_m^{-1}x_{j_-}x_j\prod_{i=m}^{j_-}y_i\right)\times\\
+        \nonumber&\hspace{0.5in}\times\prod_{j\in I^+(P)}\left(1+\sum_{m\in(j,j^+)}x_jx_{j_+}x_m^{-1}x_{m_+}^{-1}\prod_{i=j_+}^m y_i\right)
       \end{align}
       where:
       \begin{itemize}
@@ -819,8 +821,10 @@ Let $B$ and $B'$ be $(n+m)\times n$ exchange matrices and $M$ and invertible $m 
       \end{itemize}
       \item For $1\le k\le q-1$ we have
       \begin{align}
-        &x_{\scev{M}_{k,\ell}}=x^{\sum_{i\in O}\omega_i-\sum_{i\in I}\omega_i}\sum_{J\subset I}\prod_{i\in J}x_{i_-}^{-1}y_ix_{i_+}^{-1}\left(\sum_{m=t(\scev{a}_\ell)_+}^{t(\scev{a}_\ell)^+}x_m^{-1}x_{t(\scev{a}_\ell)}\prod_{i=m}^{t(\scev{a}_\ell)_-}y_i\right)^\delta\times\\
-        \nonumber&\times\sum_{P\subset\bar{J}}\prod_{j\in P}\left(x_{j^-}x_j^{-2}x_{j^+}\prod_{i\in(j^-,j^+)}y_i\right)\left(\prod_{j\in I^-(P)}\sum_{m\in(j^-,j)}x_{m_-}^{-1}x_j\prod_{i=m}^{j_-}y_i\right)\left(\prod_{j\in I^+(P)}\sum_{m\in(j,j^+)}x_jx_{m_+}^{-1}\prod_{i=j_+}^m y_i\right)
+        &x_{\scev{M}_{k,\ell}}=x^{\sum_{i\in O}\omega_i-\sum_{i\in I}\omega_i}\sum_{J\subset I}\prod_{i\in J}x_{i_-}^{-1}y_ix_{i_+}^{-1}\times\\
+        \nonumber&\times\left(1+\sum_{m=t(\scev{a}_\ell)_+}^{\left(t(\scev{a}_\ell)^+\right)_-}x_{t(\scev{a}_\ell)}x_{t(\scev{a}_\ell)_+}x_m^{-1}x_{m_+}^{-1}\prod_{i=t(\scev{a}_\ell)_+}^m y_i+x_{t(\scev{a}_\ell)}x_{t(\scev{a}_\ell)_+}x_{t(\scev{a}_\ell)^+}^{-1}x_{\left(t(\scev{a}_\ell)^+\right)_+}\prod_{i=t(\scev{a}_\ell)_+}^{t(\scev{a}_\ell)^+}y_i\right)^\delta\times\\
+        \nonumber&\times\sum_{P\subset\bar{J}}\prod_{j\in P}\left(x_{j^-}x_{(j^-)_+}x_j^{-2}x_{(j^+)_-}x_{j^+}\prod_{i\in(j^-,j^+)}y_i\right)\prod_{j\in I^-(P)}\left(1+\sum_{m\in(j^-,j)}x_{m_-}^{-1}x_m^{-1}x_{j_-}x_j\prod_{i=m}^{j_-}y_i\right)\times\\
+        \nonumber&\hspace{0.5in}\times\prod_{j\in I^+(P)}\left(1+\sum_{m\in(j,j^+)}x_jx_{j_+}x_m^{-1}x_{m_+}^{-1}\prod_{i=j_+}^m y_i\right)
       \end{align}
       where:
       \begin{itemize}
@@ -832,15 +836,54 @@ Let $B$ and $B'$ be $(n+m)\times n$ exchange matrices and $M$ and invertible $m 
       \end{itemize}
     \end{enumerate}
   \end{theorem}
+  \begin{proof}
+    The following are read off from the $i^{th}$ column of the exchange matrix:
+    \begin{itemize}
+      \item If a sink $i$ is in the support of a submodule, it contributes $x_{i_-}^{-1}y_ix_{i_+}^{-1}$.
+      \item If a source $i$ is in the support of a submodule, it contributes $x_{i_-}y_ix_{i_+}$.
+      \item If $i$ is a non-source and non-sink in the support with $i^+$ a sink, it contributes $x_{i_-}^{-1}y_ix_{i_+}$.
+      \item If $i$ is a non-source and non-sink in the support with $i^-$ a sink, it contributes $x_{i_-}y_ix_{i_+}^{-1}$.
+    \end{itemize}
+    Then enumerate submodules to get the formulas above.
+  \end{proof}
 
   \begin{lemma}\mbox{}
     Let $g$ be a generic element of $L^{c,c^{-1}}$.
     \begin{enumerate}
       \item $\Delta_{\omega_i}(g)=u_i^{-1}$
-      \item $\Delta_{c\omega_i}^{\omega_i}(g)=\begin{cases}u_i^{-1}\prod_{j=i^-}^{i^+}t_j & \text{if $i$ is a sink in $Q$;}\\u_i^{-1}t_i & \text{if $i$ is a source in $Q$;}\\u_i^{-1}\prod_{j=i}^{i^+}t_j & \text{if $i$ is neither a source nor a sink in $Q$ but $i^+$ is a source;}\\u_i^{-1}\prod_{j=i^-}^it_j & \text{if $i$ is neither a source nor a sink in $Q$ but $i^-$ is a source.}\end{cases}$
-      \item For $y_i=$
+      \item $\Delta_{c\omega_i}^{\omega_i}(g)=\begin{cases}u_i^{-1}\prod\limits_{j=i^-}^{i^+}t_j & \text{if $i$ is a sink in $Q$;}\\u_i^{-1}t_i & \text{if $i$ is a source in $Q$;}\\u_i^{-1}\prod\limits_{j=i}^{i^+}t_j & \text{if $i$ is neither a source nor a sink in $Q$ but $i^+$ is a source;}\\u_i^{-1}\prod\limits_{j=i^-}^it_j & \text{if $i$ is neither a source nor a sink in $Q$ but $i^-$ is a source.}\end{cases}$
+      \item For 
+      \begin{equation}
+        y_i=\begin{cases}\Delta_{c\omega_i}^{\omega_i} & \text{if $i$ is a sink in $Q$;}\\\Delta_{c\omega_i}^{\omega_i}\left(\Delta_{c\omega_{i_-}}^{\omega_{i_-}}\Delta_{c\omega_{i_+}}^{\omega_{i_+}}\right)^{-1} & \text{if $i$ is a source in $Q$;}\\\Delta_{c\omega_i}^{\omega_i}\left(\Delta_{c\omega_{i_+}}^{\omega_{i_+}}\right)^{-1} & \text{if $i$ is neither a source nor a sink in $Q$ but $i^+$ is a sink;}\\\Delta_{c\omega_i}^{\omega_i}\left(\Delta_{c\omega_{i_-}}^{\omega_{i_-}}\right)^{-1} & \text{if $i$ is neither a source nor a sink in $Q$ but $i^-$ is a sink.}\end{cases}
+      \end{equation}
+      we have
+      \begin{align}
+        y_i(g)&=\begin{cases}u_i^{-1}t_i & \text{if $i$ is a sink in $Q$;}\\u_{i_-}u_i^{-1}u_{i_+}t_i & \text{if $i$ is a source in $Q$;}\\u_i^{-1}u_{i_+}t_i & \text{if $i$ is neither a source nor a sink in $Q$ but $i^+$ is a sink;}\\u_{i_-}u_i^{-1}t_i & \text{if $i$ is neither a source nor a sink in $Q$ but $i^-$ is a sink.}\end{cases}
+      \end{align}
     \end{enumerate}
   \end{lemma}
+
+  \begin{theorem}
+    For $x_i=\Delta_{\omega_i}$ and $y_i$ as above, we have $x_{\vec{M}_{k,\ell}}=\Delta_{-\vec{\lambda}_{k,\ell}}$ and $x_{\scev{M}_{k,\ell}}=\Delta_{-\scev{\lambda}_{k,\ell}}$ on $L^{c,c^{-1}}$.
+  \end{theorem}
+  \begin{proof}\mbox{}
+    \begin{itemize}
+      \item $x^{\sum_{i\in O}\omega_i-\sum_{i\in I}\omega_i}=\prod\limits_{i\in O}u_i^{-1}\prod\limits_{i\in I}u_i$
+      \item For a sink $i\in J$ we have
+      \[\left(x_{i_-}^{-1}y_ix_{i_+}^{-1}\right)(g)=u_{i_-}u_i^{-1}u_{i_+}t_i.\]
+      \item For $j\in I^-(P)$ and $m\in(j^-,j)$ we have
+      \[\left(x_{m_-}^{-1}x_m^{-1}x_{j_-}x_j\prod\limits_{i\in[m,j_-]}y_i\right)(g)=u_{m_-}u_{j_-}^{-1}\prod\limits_{i\in[m,j_-]}t_i.\]
+      \item For $j\in I^+(P)$ and $m\in(j,j^+)$ we have
+      \[\left(x_jx_{j_+}x_m^{-1}x_{m_+}^{-1}\prod\limits_{i\in[j_+,m]}y_i\right)(g)=u_{j_+}^{-1}u_{m_+}\prod\limits_{i\in[j_+,m]}t_i.\]
+      \item For a source $j\in P$ we have
+      \[\left(x_{j^-}x_{(j^-)_+}x_j^{-2}x_{(j^+)_-}x_{j^+}\prod\limits_{i\in(j^-,j^+)}y_i\right)(g)=u_{(j^-)_+}^{-1}u_ju_{(j^+)_-}^{-1}\prod\limits_{i\in(j^-,j^+)}t_i.\]
+      \item 
+      \[\left(x_{\left(t(\vec{a}_\ell)^-\right)_-}x_{t(\vec{a}_\ell)^-}^{-1}x_{t(\vec{a}_\ell)_-}x_{t(\vec{a}_\ell)}\prod_{i=t(\vec{a}_\ell)^-}^{t(\vec{a}_\ell)_-}y_i\right)(g)=u_{t(\vec{a}_\ell)_-}^{-1}\prod_{i=t(\vec{a}_\ell)^-}^{t(\vec{a}_\ell)_-}t_i\]
+      \item
+      \[\left(x_{t(\scev{a}_\ell)}x_{t(\scev{a}_\ell)_+}x_{t(\scev{a}_\ell)^+}^{-1}x_{\left(t(\scev{a}_\ell)^+\right)_+}\prod_{i=t(\scev{a}_\ell)_+}^{t(\scev{a}_\ell)^+}y_i\right)(g)=u_{t(\scev{a}_\ell)_+}^{-1}\prod_{i=t(\scev{a}_\ell)_+}^{t(\scev{a}_\ell)^+}t_i\]
+    \end{itemize}
+    Comparing formulas using the above substitutions completes the proof.
+  \end{proof}
 
 
 \section{Conventions}
