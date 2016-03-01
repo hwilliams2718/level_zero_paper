@@ -332,27 +332,27 @@ We will interpret $\bfc$-vectors as coordinate vectors in the basis of simple ro
     \gamma_{m,i}
     =
     \begin{cases}
-      c^{m\sslash n}s_1\cdots s_{\mod{m}} \alpha_i & \text{if $m>0$}\\
+      c^{\left\lfloor\frac{m}{n}\right\rfloor}s_1\cdots s_{\mod{m}} \alpha_i & \text{if $m>0$}\\
       \alpha_i & \text{if $-n\leq m \leq 0$ and  $i\leq n+m$} \\
       -\alpha_i & \text{if $-n\leq m \leq 0$ and $i>n+m$} \\
-      -c^{2+(m+1)\sslash n}s_n\cdots s_{\mod{m+1}} \alpha_i & \text{if $m <-n$}\\
+      -c^{2+\left\lfloor\frac{m+1}{n}\right\rfloor}s_n\cdots s_{\mod{m+1}} \alpha_i & \text{if $m <-n$}\\
     \end{cases}
   \end{equation}
-Where $m\sslash n$ is a shorthand for $(m-\mod{m})/n$.
-Moreover, whenever $m > 0 $ or $m < -n$, the vector $\gamma_{m,\mod{m}}$ is negative and the vector $\gamma_{m,\mod{m+1}}$ is positive.
+  Where $\left\lfloor \frac{m}{n} \right\rfloor$ is the integer part of $\frac{m}{n}$.
+  Moreover, whenever $m > 0 $ or $m < -n$, the vector $\gamma_{m,\mod{m}}$ is negative and the vector $\gamma_{m,\mod{m+1}}$ is positive.
 \end{proposition}
 
 \begin{remark}
-  If $m>0$ then $c^{m\sslash n}s_1\cdots s_{\mod{m}}$ is the prefix of $c^\infty$ of length $m$.
-  Similarly, if $m<-n$, $c^{2+(m+1)\sslash n}s_n\cdots s_{\mod{m+1}}$ is the prefix of $c^{-\infty}$ of length $-m-n$.
+  If $m>0$ then $c^{\left\lfloor\frac{m}{n}\right\rfloor}s_1\cdots s_{\mod{m}}$ is the prefix of $c^\infty$ of length $m$.
+  Similarly, if $m<-n$, $c^{2+\left\lfloor\frac{m+1}{n}\right\rfloor}s_n\cdots s_{\mod{m+1}}$ is the prefix of $c^{-\infty}$ of length $-m-n$.
 \end{remark}
 
 \begin{proof}
   \saySS{I should remember to thank Anna and Pavel for hints on reflection groups}
   Let's begin by settling the claim about signs. 
-  When $m>0$ the root $c^{m\sslash n}s_1\cdots s_{\mod{m}} \alpha_{\mod{m+1}}$ is positive: being a prefix of $c^\infty$, the word  $c^{m\sslash n}s_1\cdots s_{\mod{m}} s_{\mod{m+1}}$ is reduced (cf. \cite{Spe09}) and we can apply \cite[VI \S 1.6 Corollary 2 to Proposition 17]{Bou02}.
-  By the same principle the root $c^{m\sslash n}s_1\cdots s_{\mod{m}} \alpha_{\mod{m}} = -c^{m\sslash n}s_1\cdots s_{\mod{m-1}} \alpha_{\mod{m}}$ is negative because the word $c^{m\sslash n}s_1\cdots s_{\mod{m}}$ is reduced.
-  Similarly, when $m<-n$ the root $-c^{2+(m+1)\sslash n}s_n\cdots s_{\mod{m+1}} \alpha_{\mod{m+1}}$ is positive and the root $-c^{2+(m+1)\sslash n}s_n\cdots s_{\mod{m+1}} \alpha_{\mod{m}}$ is negative.
+  When $m>0$ the root $c^{\left\lfloor\frac{m}{n}\right\rfloor}s_1\cdots s_{\mod{m}} \alpha_{\mod{m+1}}$ is positive: being a prefix of $c^\infty$, the word  $c^{\left\lfloor\frac{m}{n}\right\rfloor}s_1\cdots s_{\mod{m}} s_{\mod{m+1}}$ is reduced (cf. \cite{Spe09}) and we can apply \cite[VI \S 1.6 Corollary 2 to Proposition 17]{Bou02}.
+  By the same principle the root $c^{\left\lfloor\frac{m}{n}\right\rfloor}s_1\cdots s_{\mod{m}} \alpha_{\mod{m}} = -c^{\left\lfloor\frac{m}{n}\right\rfloor}s_1\cdots s_{\mod{m-1}} \alpha_{\mod{m}}$ is negative because the word $c^{\left\lfloor\frac{m}{n}\right\rfloor}s_1\cdots s_{\mod{m}}$ is reduced.
+  Similarly, when $m<-n$ the root $-c^{2+\left\lfloor\frac{m+1}{n}\right\rfloor}s_n\cdots s_{\mod{m+1}} \alpha_{\mod{m+1}}$ is positive and the root $-c^{2+\left\lfloor\frac{m+1}{n}\right\rfloor}s_n\cdots s_{\mod{m+1}} \alpha_{\mod{m}}$ is negative.
   
   For the main claim there are three cases to consider.
 
@@ -378,9 +378,9 @@ Moreover, whenever $m > 0 $ or $m < -n$, the vector $\gamma_{m,\mod{m}}$ is nega
     &=
     s_{\gamma_{m,\mod{m+1}}}\big(\gamma_{m,i}\big)\\
     &=
-    \big(c^{m\sslash n}s_1\cdots s_{\mod{m}}\big)s_{\mod{m+1}}\big(s_{\mod{m}}\cdots s_1 c^{-m\sslash n}\big)\big(c^{m\sslash n}s_1\cdots s_{\mod{m}}\alpha_i\big)\\
+    \big(c^{\left\lfloor\frac{m}{n}\right\rfloor}s_1\cdots s_{\mod{m}}\big)s_{\mod{m+1}}\big(s_{\mod{m}}\cdots s_1 c^{-\left\lfloor\frac{m}{n}\right\rfloor}\big)\big(c^{\left\lfloor\frac{m}{n}\right\rfloor}s_1\cdots s_{\mod{m}}\alpha_i\big)\\
     &= 
-    c^{m\sslash n}s_1\cdots s_{\mod{m}}s_{\mod{m+1}} \alpha_i.
+    c^{\left\lfloor\frac{m}{n}\right\rfloor}s_1\cdots s_{\mod{m}}s_{\mod{m+1}} \alpha_i.
   \end{align*}
 
   \noindent{\bf Case $-n \leq m < 0$.}
@@ -411,10 +411,10 @@ In analogy to what we did for $\bfc$-vectors, we will interpret $\bfg$-vectors a
     \lambda_{m,i}
     =
     \begin{cases}
-      c^{m\sslash n}s_1\cdots s_{\mod{m}} \omega_i & \text{if $m>0$}\\
+      c^{\left\lfloor\frac{m}{n}\right\rfloor}s_1\cdots s_{\mod{m}} \omega_i & \text{if $m>0$}\\
       \omega_i & \text{if $-n\leq m \leq 0$ and  $i\leq n+m$} \\
       -\omega_i & \text{if $-n\leq m \leq 0$ and $i>n+m$} \\
-      -c^{2+(m+1)\sslash n}s_n\cdots s_{\mod{m+1}} \omega_i & \text{if $m <-n$}\\
+      -c^{2+\left\lfloor\frac{m+1}{n}\right\rfloor}s_n\cdots s_{\mod{m+1}} \omega_i & \text{if $m <-n$}\\
     \end{cases}
   \end{equation}
 \end{proposition}
@@ -429,12 +429,12 @@ In view of how simple reflections act on fundamental weights the expressions of 
   \lambda_{m,i}
   =
   \begin{cases}
-    c^{m\sslash n} \omega_i & \text{if $m>0$ and $i > \mod{m}$}\\
-    c^{1+ m\sslash n} \omega_i & \text{if $m>0$ and $i \leq \mod{m}$}\\
+    c^{\left\lfloor\frac{m}{n}\right\rfloor} \omega_i & \text{if $m>0$ and $i > \mod{m}$}\\
+    c^{1+ \left\lfloor\frac{m}{n}\right\rfloor} \omega_i & \text{if $m>0$ and $i \leq \mod{m}$}\\
     \omega_i & \text{if $-n\leq m \leq 0$ and  $i\leq n+m$} \\
     -\omega_i & \text{if $-n\leq m \leq 0$ and $i>n+m$} \\
-    -c^{2+(m+1)\sslash n} \omega_i & \text{if $m <-n$ and $i < \mod{m+1}$}\\
-    -c^{1+(m+1)\sslash n} \omega_i & \text{if $m <-n$ and $i \geq \mod{m+1}$}\\
+    -c^{2+\left\lfloor\frac{m+1}{n}\right\rfloor} \omega_i & \text{if $m <-n$ and $i < \mod{m+1}$}\\
+    -c^{1+\left\lfloor\frac{m+1}{n}\right\rfloor} \omega_i & \text{if $m <-n$ and $i \geq \mod{m+1}$}\\
   \end{cases}
 \end{equation}
 In particular, in the acyclic belt of $\cAb(B_c)$, there is one cluster variable $x_{c^k\omega_i}$ with  $\bfg$-vector $c^k\omega_i$ for any $k\geq 0$, and one cluster variable $x_{-c^{-k}\omega_i}$ with $\bfg$-vector $-c^{-k}\omega_i$ again for any $k\geq 0$.
