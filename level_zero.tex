@@ -331,7 +331,7 @@ We will interpret $\bfc$-vectors as coordinate vectors in the basis of simple ro
       c^{\left\lfloor\frac{m}{n}\right\rfloor}s_1\cdots s_{\mod{m}} \alpha_i & \text{if $m>0$}\\
       \alpha_i & \text{if $-n\leq m \leq 0$ and  $i\leq n+m$} \\
       -\alpha_i & \text{if $-n\leq m \leq 0$ and $i>n+m$} \\
-      -c^{2+\left\lfloor\frac{m+1}{n}\right\rfloor}s_n\cdots s_{\mod{m+1}} \alpha_i & \text{if $m <-n$}\\
+      -c^{1+\left\lfloor\frac{m+1}{n}\right\rfloor}s_n\cdots s_{\mod{m+1}} \alpha_i & \text{if $m <-n$}\\
     \end{cases}
   \end{equation}
   Where $\left\lfloor \frac{m}{n} \right\rfloor$ is the integer part of $\frac{m}{n}$.
@@ -340,7 +340,7 @@ We will interpret $\bfc$-vectors as coordinate vectors in the basis of simple ro
 
 \begin{remark}
   If $m>0$ then $c^{\left\lfloor\frac{m}{n}\right\rfloor}s_1\cdots s_{\mod{m}}$ is the prefix of $c^\infty$ of length $m$.
-  Similarly, if $m<-n$, $c^{2+\left\lfloor\frac{m+1}{n}\right\rfloor}s_n\cdots s_{\mod{m+1}}$ is the prefix of $c^{-\infty}$ of length $-m-n$.
+  Similarly, if $m<-n$, $c^{1+\left\lfloor\frac{m+1}{n}\right\rfloor}s_n\cdots s_{\mod{m+1}}$ is the prefix of $c^{-\infty}$ of length $-m-n$.
 \end{remark}
 
 \begin{proof}
@@ -348,7 +348,7 @@ We will interpret $\bfc$-vectors as coordinate vectors in the basis of simple ro
   Let's begin by settling the claim about signs. 
   When $m>0$ the root $c^{\left\lfloor\frac{m}{n}\right\rfloor}s_1\cdots s_{\mod{m}} \alpha_{\mod{m+1}}$ is positive: being a prefix of $c^\infty$, the word  $c^{\left\lfloor\frac{m}{n}\right\rfloor}s_1\cdots s_{\mod{m}} s_{\mod{m+1}}$ is reduced (cf. \cite{Spe09}) and we can apply \cite[VI \S 1.6 Corollary 2 to Proposition 17]{Bou02}.
   By the same principle the root $c^{\left\lfloor\frac{m}{n}\right\rfloor}s_1\cdots s_{\mod{m}} \alpha_{\mod{m}} = -c^{\left\lfloor\frac{m}{n}\right\rfloor}s_1\cdots s_{\mod{m-1}} \alpha_{\mod{m}}$ is negative because the word $c^{\left\lfloor\frac{m}{n}\right\rfloor}s_1\cdots s_{\mod{m}}$ is reduced.
-  Similarly, when $m<-n$ the root $-c^{2+\left\lfloor\frac{m+1}{n}\right\rfloor}s_n\cdots s_{\mod{m+1}} \alpha_{\mod{m+1}}$ is positive and the root $-c^{2+\left\lfloor\frac{m+1}{n}\right\rfloor}s_n\cdots s_{\mod{m+1}} \alpha_{\mod{m}}$ is negative.
+  Similarly, when $m<-n$ the root $-c^{1+\left\lfloor\frac{m+1}{n}\right\rfloor}s_n\cdots s_{\mod{m+1}} \alpha_{\mod{m+1}}$ is positive and the root $-c^{1+\left\lfloor\frac{m+1}{n}\right\rfloor}s_n\cdots s_{\mod{m+1}} \alpha_{\mod{m}}$ is negative.
   
   For the main claim there are three cases to consider.
 
@@ -410,7 +410,7 @@ In analogy to what we did for $\bfc$-vectors, we will interpret $\bfg$-vectors a
       c^{\left\lfloor\frac{m}{n}\right\rfloor}s_1\cdots s_{\mod{m}} \omega_i & \text{if $m>0$}\\
       \omega_i & \text{if $-n\leq m \leq 0$ and  $i\leq n+m$} \\
       -\omega_i & \text{if $-n\leq m \leq 0$ and $i>n+m$} \\
-      -c^{2+\left\lfloor\frac{m+1}{n}\right\rfloor}s_n\cdots s_{\mod{m+1}} \omega_i & \text{if $m <-n$}\\
+      -c^{1+\left\lfloor\frac{m+1}{n}\right\rfloor}s_n\cdots s_{\mod{m+1}} \omega_i & \text{if $m <-n$}\\
     \end{cases}
   \end{equation}
 \end{proposition}
@@ -429,10 +429,11 @@ In view of how simple reflections act on fundamental weights the expressions of 
     c^{1+ \left\lfloor\frac{m}{n}\right\rfloor} \omega_i & \text{if $m>0$ and $i \leq \mod{m}$}\\
     \omega_i & \text{if $-n\leq m \leq 0$ and  $i\leq n+m$} \\
     -\omega_i & \text{if $-n\leq m \leq 0$ and $i>n+m$} \\
-    -c^{2+\left\lfloor\frac{m+1}{n}\right\rfloor} \omega_i & \text{if $m <-n$ and $i < \mod{m+1}$}\\
-    -c^{1+\left\lfloor\frac{m+1}{n}\right\rfloor} \omega_i & \text{if $m <-n$ and $i \geq \mod{m+1}$}\\
+    -c^{1+\left\lfloor\frac{m+1}{n}\right\rfloor} \omega_i & \text{if $m <-n$ and $i < \mod{m+1}$}\\
+    -c^{\left\lfloor\frac{m+1}{n}\right\rfloor} \omega_i & \text{if $m <-n$ and $i \geq \mod{m+1}$}\\
   \end{cases}
 \end{equation}
+  \saySS{Note to self, check that the formulas are correct before publishing}
 In particular, in the acyclic belt of $\cAb(B_c)$, there is one cluster variable $x_{c^k\omega_i}$ with  $\bfg$-vector $c^k\omega_i$ for any $k\geq 0$, and one cluster variable $x_{-c^{-k}\omega_i}$ with $\bfg$-vector $-c^{-k}\omega_i$ again for any $k\geq 0$.
 Taking inspiration from quiver representation theory we will refer to the former as \emph{preprojective} cluster variables and to the latter as \emph{postinjective} cluster variables.
 \saySS{I am not entirely happy with this definition: if I am not mistaken modules corresponding to initial cluster variables are neither preprojective not postinjective. Here we force them in the preprojective field to make it easier to state exchange relations later on. Would it make sense to drop the notation entirely? Do we need it anywhere?}
