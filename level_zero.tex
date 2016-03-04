@@ -10,7 +10,7 @@
             pdfpagemode=None]{hyperref}
 \usepackage{cleveref}
 \usepackage{stmaryrd}
-
+\usepackage{accents}
 
 \usepackage[draft]{say}
 \newcommand{\sayHW}[1]{\say[HW]{\color{violet}{\bf HW:}\;#1}}
@@ -35,8 +35,8 @@
 \newcommand{\supp}{\operatorname{supp}}
 \renewcommand{\top}{\operatorname{top}}
 \newcommand{\dashname}[1]{\stackrel{#1}{\begin{picture}(22,3)\put(0,2.5){\line(1,0){22}}\end{picture}}}
-\newcommand{\cev}[1]{\reflectbox{\!\ensuremath{\vec{\,\reflectbox{\ensuremath{#1}}}}}}
-\newcommand{\scev}[1]{\reflectbox{\scriptsize\!\ensuremath{\vec{\,\reflectbox{\ensuremath{#1}}}}}}
+\renewcommand{\vec}[1]{\accentset{\shortrightarrow}{#1}}
+\newcommand{\cev}[1]{\accentset{\shortleftarrow}{#1}}
 \renewcommand{\mod}[1]{\langle {#1} \rangle}
 
 \newcommand{\erase}[1]{{}}
@@ -541,7 +541,7 @@ Let $B$ and $B'$ be $(n+m)\times n$ exchange matrices and $M$ and invertible $m 
       \draw[fill=black] (0,0) circle (1.5pt);
       \node[below left] at (0,0) {$\scriptstyle 0$};
       \draw[->] (0.1,-0.1) -- (0.65,-0.65);
-      \node[below right] at (0.25,0) {$\scriptstyle \scev{a}_q$};
+      \node[below right] at (0.25,0) {$\scriptstyle \cev{a}_q$};
       \draw[fill=black] (0.75,-0.75) circle (1.5pt);
       \draw[fill=black] (0.9375,-0.75) circle (0.75pt);
       \draw[fill=black] (1.125,-0.75) circle (0.75pt);
@@ -561,7 +561,7 @@ Let $B$ and $B'$ be $(n+m)\times n$ exchange matrices and $M$ and invertible $m 
       \draw[fill=black] (3.1875,0.5625) circle (0.75pt);
       \draw[fill=black] (3,0.75) circle (1.5pt);
       \draw[<-] (2.4,0.75) -- (2.85,0.75);
-      \node at (2.675,0.575) {$\scriptstyle \scev{a}_1$};
+      \node at (2.675,0.575) {$\scriptstyle \cev{a}_1$};
       \draw[fill=black] (2.25,0.75) circle (1.5pt);
       \draw[->] (1.65,0.75) -- (2.1,0.75);
       \draw[fill=black] (1.5,0.75) circle (1.5pt);
@@ -575,10 +575,10 @@ Let $B$ and $B'$ be $(n+m)\times n$ exchange matrices and $M$ and invertible $m 
     \begin{tikzpicture}
       \node at (-2,0) {$Q=$};
       \draw[fill=black] (0,0) circle (1.5pt);
-      \node[right] at (0,0) {$\scriptstyle t(\scev{a}_1)^+$};
+      \node[right] at (0,0) {$\scriptstyle t(\cev{a}_1)^+$};
       \node[left] at (0,0) {$\scriptstyle t(\vec{a}_1)^-$};
       \draw[->] (-0.1,-0.1) -- (-0.65,-0.65);
-      \node[below left] at (0.1,-0.25) {$\scriptstyle \scev{a}_q$};
+      \node[below left] at (0.1,-0.25) {$\scriptstyle \cev{a}_q$};
       \draw[fill=black] (-0.75,-0.75) circle (1.5pt);
       \draw[fill=black] (-0.75,-0.9375) circle (0.75pt);
       \draw[fill=black] (-0.75,-1.125) circle (0.75pt);
@@ -600,14 +600,14 @@ Let $B$ and $B'$ be $(n+m)\times n$ exchange matrices and $M$ and invertible $m 
       \draw[fill=black] (0.375,-3.375) circle (0.75pt);
       \draw[fill=black] (0.5625,-3.1875) circle (0.75pt);
       \draw[fill=black] (0.75,-3) circle (1.5pt);
-      \node[right] at (0.75,-3) {$\scriptstyle t(\scev{a}_1)_-$};
+      \node[right] at (0.75,-3) {$\scriptstyle t(\cev{a}_1)_-$};
       \draw[<-] (0.75,-2.4) -- (0.75,-2.85);
-      \node at (0.575,-2.675) {$\scriptstyle \scev{a}_1$};
+      \node at (0.575,-2.675) {$\scriptstyle \cev{a}_1$};
       \draw[fill=black] (0.75,-2.25) circle (1.5pt);
-      \node[right] at (0.75,-2.25) {$\scriptstyle t(\scev{a}_1)$};
+      \node[right] at (0.75,-2.25) {$\scriptstyle t(\cev{a}_1)$};
       \draw[->] (0.75,-1.65) -- (0.75,-2.1);
       \draw[fill=black] (0.75,-1.5) circle (1.5pt);
-      \node[right] at (0.75,-1.5) {$\scriptstyle t(\scev{a}_1)_+$};
+      \node[right] at (0.75,-1.5) {$\scriptstyle t(\cev{a}_1)_+$};
       \draw[fill=black] (0.75,-1.3125) circle (0.75pt);
       \draw[fill=black] (0.75,-1.125) circle (0.75pt);
       \draw[fill=black] (0.75,-0.9375) circle (0.75pt);
@@ -621,7 +621,7 @@ Let $B$ and $B'$ be $(n+m)\times n$ exchange matrices and $M$ and invertible $m 
 
   For vertices $i$ and $j$ in $Q$, write $[i,j]\subset Q_0$ for the subset of vertices contained weakly between $i$ and $j$ when tracing counterclockwise around $Q$ from $i$ to $j$.  Define $(i,j)$, $(i,j]$, and $[i,j)$ similarly.  Let $M_{[i,j]}$ denote the indecomposable representation of $Q$ which contains a one-dimensional vector space at each vertex $k\in[i,j]$ and a nonzero map at each arrow traversed from $i$ to $j$.  In particular, $\{i,j\}\subset\supp\soc\big(M_{[i,j]}\big)\cup\supp\top\big(M_{[i,j]}\big)$ and we take $M_{[i,i]}$ to be the simple representation $S_i$ at vertex $i$.  When enumerating over the elements of $[i,j]$ we will usually write $\sum\limits_{k=i}^j$ instead of the more proper $\sum\limits_{k\in[i,j]}$.
 
-  For $\ell\in\ZZ$ define indecomposable representations $\vec{M}_{1,\ell}:=M_{[s(\vec{a}_{\ell-1}),t(\vec{a}_\ell)]}$ and $\cev{M}_{1,\ell}:=M_{[t(\scev{a}_\ell),s(\scev{a}_{\ell-1})]}$.  Note that when $t(\vec{a}_\ell)$ (resp. $t(\cev{a}_\ell)$) is not a sink in $Q$ the representation $\vec{M}_{1,\ell}$ (resp. $\cev{M}_{1,\ell}$) will be simple and otherwise $\vec{M}_{1,\ell}$ (resp. $\cev{M}_{1,\ell}$) will be a string module with socle $S_{t(\vec{a}_\ell)}$ (resp. $S_{t(\scev{a}_\ell)}$) and top $S_{s(\vec{a}_{\ell-1})}$ (resp. $S_{s(\scev{a}_{\ell-1})}$).  From this we see that the collections $\{\vec{M}_{1,\ell}:1\le\ell\le p\}$ and $\{\cev{M}_{1,\ell}:1\le\ell\le q\}$ give families of pairwise orthogonal bricks, i.e. there are no nonzero morphisms between non-isomorphic representations and each of these representations has trivial endomorphism ring.
+  For $\ell\in\ZZ$ define indecomposable representations $\vec{M}_{1,\ell}:=M_{[s(\vec{a}_{\ell-1}),t(\vec{a}_\ell)]}$ and $\cev{M}_{1,\ell}:=M_{[t(\cev{a}_\ell),s(\cev{a}_{\ell-1})]}$.  Note that when $t(\vec{a}_\ell)$ (resp. $t(\cev{a}_\ell)$) is not a sink in $Q$ the representation $\vec{M}_{1,\ell}$ (resp. $\cev{M}_{1,\ell}$) will be simple and otherwise $\vec{M}_{1,\ell}$ (resp. $\cev{M}_{1,\ell}$) will be a string module with socle $S_{t(\vec{a}_\ell)}$ (resp. $S_{t(\cev{a}_\ell)}$) and top $S_{s(\vec{a}_{\ell-1})}$ (resp. $S_{s(\cev{a}_{\ell-1})}$).  From this we see that the collections $\{\vec{M}_{1,\ell}:1\le\ell\le p\}$ and $\{\cev{M}_{1,\ell}:1\le\ell\le q\}$ give families of pairwise orthogonal bricks, i.e. there are no nonzero morphisms between non-isomorphic representations and each of these representations has trivial endomorphism ring.
 
   Denote by $\overrightarrow{\rep}Q$ (resp. $\overleftarrow{\rep}Q$) the full, extension-closed, additive subcategory of $\rep Q$ called the \emph{clockwise} (resp. \emph{counterclockwise}) \emph{tubular subcategory} (tube) generated by $\{\vec{M}_{1,\ell}:1\le\ell\le p\}$ (resp. $\{\cev{M}_{1,\ell}:1\le\ell\le q\}$).  Following \cite[Section 3.1]{Rin84} the clockwise and counterclockwise tubes are serial, abelian categories with simple objects given by $\{\vec{M}_{1,\ell}:1\le\ell\le p\}$ and $\{\cev{M}_{1,\ell}:1\le\ell\le q\}$ respectively.  In each case these ``simple'' objects form the mouth of the corresponding tubular categories.
 
@@ -631,12 +631,12 @@ Let $B$ and $B'$ be $(n+m)\times n$ exchange matrices and $M$ and invertible $m 
   \end{equation}
   and the dimension vector of the ``simple'' object $\cev{M}_{1,\ell}$ as
   \begin{equation}
-    \cev{\beta}_{1,\ell}=\sum_{i=t(\scev{a}_\ell)}^{s(\scev{a}_{\ell-1})}\alpha_i.
+    \cev{\beta}_{1,\ell}=\sum_{i=t(\cev{a}_\ell)}^{s(\cev{a}_{\ell-1})}\alpha_i.
   \end{equation}
   The coindices of these representations can be described as follows:
   \begin{align}
     \vec{\lambda}_{1,\ell}&=\omega_{t(\vec{a}_\ell)}-\omega_{s(\vec{a}_\ell)}\\
-    \cev{\lambda}_{1,\ell}&=\omega_{t(\scev{a}_\ell)}-\omega_{s(\scev{a}_\ell)}.
+    \cev{\lambda}_{1,\ell}&=\omega_{t(\cev{a}_\ell)}-\omega_{s(\cev{a}_\ell)}.
   \end{align}
 
   Define indecomposable representations $\vec{M}_{k,\ell}$ and $\cev{M}_{k,\ell}$ for $k\ge0$ and $\ell\in\ZZ$ inductively via the short exact sequences
@@ -649,7 +649,7 @@ Let $B$ and $B'$ be $(n+m)\times n$ exchange matrices and $M$ and invertible $m 
   \end{align}
   and for $1\le k\le q-1$ by
   \begin{align}
-    \cev\beta_{k,\ell}=\sum\limits_{m=1}^k\cev\beta_{1,\ell+m-1}=\sum_{i=t(\scev{a}_{k+\ell-1})}^{s(\scev{a}_{\ell-1})}\alpha_i.
+    \cev\beta_{k,\ell}=\sum\limits_{m=1}^k\cev\beta_{1,\ell+m-1}=\sum_{i=t(\cev{a}_{k+\ell-1})}^{s(\cev{a}_{\ell-1})}\alpha_i.
   \end{align}
   Similarly the coindices of these representations can be computed for $1\le k\le p-1$ as
   \begin{align}
@@ -661,7 +661,7 @@ Let $B$ and $B'$ be $(n+m)\times n$ exchange matrices and $M$ and invertible $m 
   \begin{align}
     \cev\lambda_{k,\ell}
     &=\sum\limits_{m=1}^k\cev\lambda_{1,\ell+m-1}\quad\text{}\\
-    &=\sum\limits_{m=1}^k\omega_{t(\scev{a}_{\ell+m-1})}-\omega_{s(\scev{a}_{\ell+m-1})}.
+    &=\sum\limits_{m=1}^k\omega_{t(\cev{a}_{\ell+m-1})}-\omega_{s(\cev{a}_{\ell+m-1})}.
   \end{align}
 
   \begin{proposition}\mbox{}
@@ -740,7 +740,7 @@ Let $B$ and $B'$ be $(n+m)\times n$ exchange matrices and $M$ and invertible $m 
       \end{itemize}
       \item For $1\le k\le q-1$ and $1\le\ell\le q$  we have
       \begin{align}
-        &\Delta_{\scev{\lambda}_{k,\ell}}(g)=\sum_{P\subset O}\left(\prod_{i\in P} t_i\prod_{i\in O\setminus P} u_i\left(\prod_{i:t(\vec{a}_\ell)^-<i<t(\vec{a}_\ell)}t_i+\sum_{m:t(\vec{a}_\ell)^-<m<t(\vec{a}_\ell)}u_m\prod_{i=t(\vec{a}_\ell)^-+1}^{m-1} t_i\right)^\delta\times\right.\\
+        &\Delta_{\cev{\lambda}_{k,\ell}}(g)=\sum_{P\subset O}\left(\prod_{i\in P} t_i\prod_{i\in O\setminus P} u_i\left(\prod_{i:t(\vec{a}_\ell)^-<i<t(\vec{a}_\ell)}t_i+\sum_{m:t(\vec{a}_\ell)^-<m<t(\vec{a}_\ell)}u_m\prod_{i=t(\vec{a}_\ell)^-+1}^{m-1} t_i\right)^\delta\times\right.\\
         \nonumber&\times\left.\sum_{J\subset\bar{P}}\prod_{\substack{i:j^-<i<j^+\\j\in J}}t_i\prod_{i\in I\setminus J}u_i^{-1}\left(\prod_{j\in O^-(J)}\sum_{m:j^-<m\le j}u_{m-1}\prod_{i=m}^{j-1} t_i\right)\left(\prod_{j\in O^+(J)}\sum_{m:j\le m<j^+}u_{m+1}\prod_{i=j+1}^{m} t_i\right)\right)
       \end{align}
       where:
@@ -779,7 +779,7 @@ Let $B$ and $B'$ be $(n+m)\times n$ exchange matrices and $M$ and invertible $m 
       \end{itemize}
       \item For $1\le k\le q-1$ we have
       \begin{align}
-        &\Delta_{-\scev{\lambda}_{k,\ell}}(g)=\sum_{J\subset I}\left(\prod_{i\in J} t_i\prod_{i\in I\setminus J} u_i\left(u_{t(\scev{a}_\ell)_+}+\sum_{m=t(\scev{a}_\ell)_+}^{\left(t(\scev{a}_\ell)^+\right)_-}u_{m_+}\prod_{i=t(\scev{a}_\ell)_+}^m t_i+\prod_{i=t(\scev{a}_\ell)_+}^{t(\scev{a}_\ell)^+}t_i\right)^\delta\times\right.\\
+        &\Delta_{-\cev{\lambda}_{k,\ell}}(g)=\sum_{J\subset I}\left(\prod_{i\in J} t_i\prod_{i\in I\setminus J} u_i\left(u_{t(\cev{a}_\ell)_+}+\sum_{m=t(\cev{a}_\ell)_+}^{\left(t(\cev{a}_\ell)^+\right)_-}u_{m_+}\prod_{i=t(\cev{a}_\ell)_+}^m t_i+\prod_{i=t(\cev{a}_\ell)_+}^{t(\cev{a}_\ell)^+}t_i\right)^\delta\times\right.\\
         \nonumber&\times\left.\sum_{P\subset\bar{J}}\prod_{\substack{j\in P\\i\in(j^-,j^+)}}t_i\prod_{i\in O\setminus P}u_i^{-1}\left(\prod_{j\in I^-(P)}\left(u_{j_-}+\sum_{m\in(j^-,j)}u_{m_-}\prod_{i=m}^{j_-}t_i\right)\right)\left(\prod_{j\in I^+(P)}\left(u_{j^+}+\sum_{m\in(j,j^+)}u_{m_+}\prod_{i=j_+}^m t_i\right)\right)\right)
       \end{align}
       where:
@@ -824,8 +824,8 @@ Let $B$ and $B'$ be $(n+m)\times n$ exchange matrices and $M$ and invertible $m 
       \end{itemize}
       \item For $1\le k\le q-1$ we have
       \begin{align}
-        &x_{\scev{M}_{k,\ell}}=x^{\sum_{i\in O}\omega_i-\sum_{i\in I}\omega_i}\sum_{J\subset I}\prod_{i\in J}x_{i_-}^{-1}y_ix_{i_+}^{-1}\times\\
-        \nonumber&\times\left(1+\sum_{m=t(\scev{a}_\ell)_+}^{\left(t(\scev{a}_\ell)^+\right)_-}x_{t(\scev{a}_\ell)}x_{t(\scev{a}_\ell)_+}x_m^{-1}x_{m_+}^{-1}\prod_{i=t(\scev{a}_\ell)_+}^m y_i+x_{t(\scev{a}_\ell)}x_{t(\scev{a}_\ell)_+}x_{t(\scev{a}_\ell)^+}^{-1}x_{\left(t(\scev{a}_\ell)^+\right)_+}\prod_{i=t(\scev{a}_\ell)_+}^{t(\scev{a}_\ell)^+}y_i\right)^\delta\times\\
+        &x_{\cev{M}_{k,\ell}}=x^{\sum_{i\in O}\omega_i-\sum_{i\in I}\omega_i}\sum_{J\subset I}\prod_{i\in J}x_{i_-}^{-1}y_ix_{i_+}^{-1}\times\\
+        \nonumber&\times\left(1+\sum_{m=t(\cev{a}_\ell)_+}^{\left(t(\cev{a}_\ell)^+\right)_-}x_{t(\cev{a}_\ell)}x_{t(\cev{a}_\ell)_+}x_m^{-1}x_{m_+}^{-1}\prod_{i=t(\cev{a}_\ell)_+}^m y_i+x_{t(\cev{a}_\ell)}x_{t(\cev{a}_\ell)_+}x_{t(\cev{a}_\ell)^+}^{-1}x_{\left(t(\cev{a}_\ell)^+\right)_+}\prod_{i=t(\cev{a}_\ell)_+}^{t(\cev{a}_\ell)^+}y_i\right)^\delta\times\\
         \nonumber&\times\sum_{P\subset\bar{J}}\prod_{j\in P}\left(x_{j^-}x_{(j^-)_+}x_j^{-2}x_{(j^+)_-}x_{j^+}\prod_{i\in(j^-,j^+)}y_i\right)\prod_{j\in I^-(P)}\left(1+\sum_{m\in(j^-,j)}x_{m_-}^{-1}x_m^{-1}x_{j_-}x_j\prod_{i=m}^{j_-}y_i\right)\times\\
         \nonumber&\hspace{0.5in}\times\prod_{j\in I^+(P)}\left(1+\sum_{m\in(j,j^+)}x_jx_{j_+}x_m^{-1}x_{m_+}^{-1}\prod_{i=j_+}^m y_i\right)
       \end{align}
@@ -867,7 +867,7 @@ Let $B$ and $B'$ be $(n+m)\times n$ exchange matrices and $M$ and invertible $m 
   \end{lemma}
 
   \begin{theorem}
-    For $x_i=\Delta_{\omega_i}$ and $y_i$ as above, we have $x_{\vec{M}_{k,\ell}}=\Delta_{-\vec{\lambda}_{k,\ell}}$ and $x_{\scev{M}_{k,\ell}}=\Delta_{-\scev{\lambda}_{k,\ell}}$ on $L^{c,c^{-1}}$.
+    For $x_i=\Delta_{\omega_i}$ and $y_i$ as above, we have $x_{\vec{M}_{k,\ell}}=\Delta_{-\vec{\lambda}_{k,\ell}}$ and $x_{\cev{M}_{k,\ell}}=\Delta_{-\cev{\lambda}_{k,\ell}}$ on $L^{c,c^{-1}}$.
   \end{theorem}
   \begin{proof}\mbox{}
     \begin{itemize}
@@ -883,7 +883,7 @@ Let $B$ and $B'$ be $(n+m)\times n$ exchange matrices and $M$ and invertible $m 
       \item 
       \[\left(x_{\left(t(\vec{a}_\ell)^-\right)_-}x_{t(\vec{a}_\ell)^-}^{-1}x_{t(\vec{a}_\ell)_-}x_{t(\vec{a}_\ell)}\prod_{i=t(\vec{a}_\ell)^-}^{t(\vec{a}_\ell)_-}y_i\right)(g)=u_{t(\vec{a}_\ell)_-}^{-1}\prod_{i=t(\vec{a}_\ell)^-}^{t(\vec{a}_\ell)_-}t_i\]
       \item
-      \[\left(x_{t(\scev{a}_\ell)}x_{t(\scev{a}_\ell)_+}x_{t(\scev{a}_\ell)^+}^{-1}x_{\left(t(\scev{a}_\ell)^+\right)_+}\prod_{i=t(\scev{a}_\ell)_+}^{t(\scev{a}_\ell)^+}y_i\right)(g)=u_{t(\scev{a}_\ell)_+}^{-1}\prod_{i=t(\scev{a}_\ell)_+}^{t(\scev{a}_\ell)^+}t_i\]
+      \[\left(x_{t(\cev{a}_\ell)}x_{t(\cev{a}_\ell)_+}x_{t(\cev{a}_\ell)^+}^{-1}x_{\left(t(\cev{a}_\ell)^+\right)_+}\prod_{i=t(\cev{a}_\ell)_+}^{t(\cev{a}_\ell)^+}y_i\right)(g)=u_{t(\cev{a}_\ell)_+}^{-1}\prod_{i=t(\cev{a}_\ell)_+}^{t(\cev{a}_\ell)^+}t_i\]
     \end{itemize}
     Comparing formulas using the above substitutions completes the proof.
   \end{proof}
