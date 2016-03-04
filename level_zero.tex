@@ -119,7 +119,7 @@ holds on $G$.
 \end{proposition}
 
 \begin{proposition}[{\cite[Proposition 2.16]{Williams}}]
-  \label{prop:fundid}
+  %\label{prop:fundid}
   \saySS{I am restating the previous proposition using the non derived version of $G$. Once we decide which theorem we are going to prove we should fix which $G$ do we care about.}
   Suppose $u,v \in W$ and $k\in[1,n]$ are such that $\ell(u)<\ell(us_k)$ and $\ell(v)<\ell(vs_k)$. 
   Then 
@@ -255,6 +255,90 @@ Let $G$ be a Kac-Moody group, let $c$ be a Coxeter element of its Weyl group, an
 \end{enumerate}
 \end{proof}
 
+\saySS{From this point to the end of the section is some refactoring that will replace the above part. I am mostly tying to uniformize notation across the board}
+\saySS{Add a sentence stating that we work in the derived version of $G$}
+
+\begin{proposition}[{\cite[Proposition 2.16]{Williams}}]
+  \label{prop:fundid}
+  Suppose $u,v \in W$ and $i\in[1,n]$ are such that $\ell(u)<\ell(us_i)$ and $\ell(v)<\ell(vs_i)$. 
+  Then 
+  \begin{equation}
+    \label{eq:fundid}
+    \Delta_{u\omega_i}^{v\omega_i} \Delta_{us_i\omega_i}^{vs_i\omega_i} 
+    =
+    \prod_{\stackrel{1\leq j \leq n}{j\neq i}}\left(\Delta_{u\omega_j}^{v\omega_j}\right)^{-a_{ji}}
+    +
+    \Delta_{us_i\omega_i}^{v\omega_i} \Delta_{u\omega_i}^{vs_i\omega_i}
+    .
+  \end{equation}
+\end{proposition}
+
+
+\begin{proposition}
+  Restricted to $G^{c,c^{-1}}$, for any $k\geq 0$ and $i\in[1,n]$, the product $\Delta_{c^k\omega_i}\Delta_{c^{k+1}\omega_i}$ is equal to
+  \begin{equation} 
+    \prod_{j<i}\Delta_{c^{k+1}\omega_j}^{-a_{ji}}
+    \prod_{j>i}\Delta_{c^k\omega_j}^{-a_{ji}}
+    +
+    \prod_{j=1}^n\left( 
+      \Delta^{c \omega_j}_{\omega_j}
+      \Delta^{\omega_j}_{ c\omega_j} 
+      \prod_{\ell<j}\big(
+        \Delta^{c \omega_\ell}_{\omega_\ell} 
+        \Delta^{\omega_\ell}_{c \omega_\ell}
+      \big)^{a_{\ell j}}
+    \right)^{[c^k\beta_i^+:\alpha_j]}
+  \end{equation}
+  where all the running indices in the products are in $[1,n]$.
+\end{proposition}
+
+\begin{proposition}
+  Restricted to $G^{c,c^{-1}}$, for any $k\geq 0$ and $i\in[1,n]$, the product $\Delta_{-c^{-k}\omega_i}\Delta_{-c^{-k-1}\omega_i}$ is equal to
+  \begin{equation} 
+    \prod_{j<i}\Delta_{-c^{-k}\omega_j}^{-a_{ji}}
+    \prod_{j>i}\Delta_{-c^{-k-1}\omega_j}^{-a_{ji}}
+    +
+    \prod_{j=1}^n\left( 
+      \Delta^{c \omega_j}_{\omega_j}
+      \Delta^{\omega_j}_{ c\omega_j} 
+      \prod_{\ell<j}\big(
+        \Delta^{c \omega_\ell}_{\omega_\ell} 
+        \Delta^{\omega_\ell}_{c \omega_\ell}
+      \big)^{a_{\ell j}}
+    \right)^{[c^{-k}\beta_i^-:\alpha_j]}
+  \end{equation}
+  where all the running indices in the products are in $[1,n]$.
+\end{proposition}
+\begin{proof}
+  Picking $u=v=c^{-k}s_n\dots s_{i+1}$ and evaluating \cref{eq:fundid} at $g^\iota$ we get
+  \[
+    \Delta_{-c^{-k}\omega_i}\Delta_{-c^{-k-1}\omega_i}
+    =
+    \prod_{j<i}\Delta_{-c^{-k}\omega_j}^{-a_{ji}}
+    \prod_{j>i}\Delta_{-c^{-k-1}\omega_j}^{-a_{ji}}
+    +
+    \Delta_{-c^{-k}\omega_i}^{-c^{-k-1}\omega_i}
+    \Delta_{-c^{-k-1}\omega_i}^{-c^{-k}\omega_i}
+  \]
+  on the whole $G$.
+\end{proof}
+
+\begin{proposition}
+  Restricted to $G^{c,c^{-1}}$, for any $i\in[1,n]$, the product $\Delta_{\omega_i}\Delta_{-\omega_i}$ is equal to
+  \begin{equation} 
+    \Delta^{c \omega_i}_{\omega_i}
+    \Delta^{\omega_i}_{ c\omega_i} 
+    \prod_{j<i}\big(
+      \Delta^{c \omega_j}_{\omega_j} 
+      \Delta^{\omega_j}_{c \omega_j}
+    \big)^{a_{j i}}
+    \prod_{j<i}\Delta_{\omega_j}^{-a_{ji}}
+    \prod_{j>i}\Delta_{-\omega_j}^{-a_{ji}}
+    +1
+  \end{equation}
+  where all the running indices in the products are in $[1,n]$.
+\end{proposition}
+
 \section{Level Zero Representations}
 
 \begin{proposition}
@@ -354,9 +438,23 @@ We will interpret $\bfc$-vectors as coordinate vectors in the basis of simple ro
   
   For the main claim there are three cases to consider.
 
-  \noindent{\bf Case $m\geq 0$.}
+  \noindent{\bf Case $-n \leq m \leq 0$.}
   We proceed by induction on $m$.
   For $m=0$ there is nothing to check.
+  By construction, while the sign of $\gamma_{m,\mod{m}}$ is positive, the sign of the $\mod{m}$-th row of $B_m$ is negative. 
+  The $\bfc$-vectors at $t_{m-1}$ are therefore given by:
+  \begin{equation*}
+    \gamma_{m-1,i}
+    =
+    \begin{cases}
+      \gamma_{m,i} & \text{if $i\neq \mod{m}$}\\
+      -\gamma_{m,\mod{m}} & \text{if $i = \mod{m}$}
+    \end{cases}
+  \end{equation*}
+  as desired.
+
+  \noindent{\bf Case $m > 0$.}
+  We again argue by induction on $m$ the base case still being $m=0$. 
   Since the sign of $\gamma_{m,\mod{m+1}}$ and the sign of the $\mod{m+1}$-st row of $B_m$ are both positive, in view of \cite[Proposition 1.3]{NZ12}, the $\bfc$-vectors at $t_{m+1}$ are given by
   \begin{align*}
     \gamma_{m+1,i} 
@@ -381,22 +479,8 @@ We will interpret $\bfc$-vectors as coordinate vectors in the basis of simple ro
     c^{\left\lfloor\frac{m-1}{n}\right\rfloor}s_1\cdots s_{\mod{m}}s_{\mod{m+1}} \alpha_i.
   \end{align*}
 
-  \noindent{\bf Case $-n \leq m < 0$.}
-  We again argue by induction on $m$ the base case still being $m=0$. 
-  This time though, while the sign of $\gamma_{m,\mod{m}}$ is positive, the sign of the $\mod{m}$-th row of $B_m$ is negative. 
-  The $\bfc$-vectors at $t_{m-1}$ are therefore given by:
-  \begin{equation*}
-    \gamma_{m-1,i}
-    =
-    \begin{cases}
-      \gamma_{m,i} & \text{if $i\neq \mod{m}$}\\
-      -\gamma_{m,\mod{m}} & \text{if $i = \mod{m}$}
-    \end{cases}
-  \end{equation*}
-  as desired.
-
   \noindent{\bf Case $m < -n$.}
-  The argument is the same as the one used in the case $m\geq 0$ with $m=-n$ as base for the induction. 
+  The argument is the same as the one used in the case $m>0$ with $m=-n$ as base for the induction. 
   The only minor change is that this time we leverage the fact that both the sign of $\gamma_{m,\mod{m}}$ and the sign of the $\mod{m}$-th row of $B_m$ are negative.
 \end{proof}
 
@@ -449,14 +533,14 @@ Taking inspiration from quiver representation theory we will refer to the former
     \prod_{j<i} x_{c^{k+1}\omega_j}^{-a_{ji}}
     \prod_{j>i} x_{c^k\omega_j}^{-a_{ji}}
     +
-    \prod_{j\in[1,n]} y_j^{[c^ks_1\cdots s_{i-1}\alpha_i:\alpha_j]}
+    \prod_{j=1}^n y_j^{[c^k\beta_i^+:\alpha_j]}
     \\
     x_{-c^{-k}\omega_i}x_{-c^{-k-1}\omega_i} 
     &=& 
     \prod_{j<i} x_{-c^{-k}\omega_j}^{-a_{ji}}
     \prod_{j>i} x_{-c^{-k-1}\omega_j}^{-a_{ji}}
     +
-    \prod_{j\in[1,n]} y_j^{[c^{-k}s_n\cdots s_{i+1}\alpha_i:\alpha_j]}
+    \prod_{j=1}^n y_j^{[c^{-k}\beta_i^-:\alpha_j]}
     \\
     x_{\omega_i}x_{-\omega_i}
     &=&
@@ -469,6 +553,7 @@ Taking inspiration from quiver representation theory we will refer to the former
 \end{corollary}
 \saySS{We may want to substitute $s_1\dots s_{i-1}\alpha_i = \beta_i^+$ and $s_n\dots s_{i+1}\alpha_i = \beta_i^-$ to make things slightly clearer in the formulas (I am worried people might have issues in decoding the cases $i=1$ in the first and $i=n$ in the second.}
 \begin{proof}
+  Recall that $\beta_i^+=s_1\cdots s_{i-1}\alpha_i$ and $\beta_i^-=s_n\cdots s_{i+1}\alpha_i$. 
   The relations are an obvious consequence of \cref{prop:c-vectors,prop:g-vectors} once we recall that mutations happen along a source/sink adapted sequence so that, at $t_m$, the $\mod{m}$-th colum of $B_m$ contains only non-negative entries and the $\mod{m+1}$-th column only non-positive entries. 
 \end{proof}
 
