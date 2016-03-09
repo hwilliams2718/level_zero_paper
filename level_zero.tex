@@ -258,6 +258,21 @@ Let $G$ be a Kac-Moody group, let $c$ be a Coxeter element of its Weyl group, an
 \saySS{From this point to the end of the section is some refactoring that will replace the above part. I am mostly tying to uniformize notation across the board}
 \saySS{Add a sentence stating that we work in the derived version of $G$}
 
+For $i\in[1,n]$ and $t\in\CC$ we write 
+\begin{equation}
+  x_{-i}(t):=\exp(tf_i)
+  \quad
+  \quad
+  \quad
+  \quad
+  x_i(t):=\exp(te_i)
+\end{equation}
+so that the generic element of $G^{c,c^{-1}}$ is
+\[
+  g=x_{-1}(t_{-1}) \cdots x_{-n}(t_{-n}) h x_n(t_n) \cdots x_1(t_1)
+\]
+with $h\in H$ (Cf. \cite[Proposition 3.2]{Wil13}
+
 \begin{proposition}[{\cite[Proposition 2.16]{Williams}}]
   \label{prop:fundid}
   Suppose $u,v \in W$ and $i\in[1,n]$ are such that $\ell(u)<\ell(us_i)$ and $\ell(v)<\ell(vs_i)$. 
@@ -311,11 +326,8 @@ Let $G$ be a Kac-Moody group, let $c$ be a Coxeter element of its Weyl group, an
   where all the running indices in the products are in $[1,n]$.
 \end{proposition}
 \begin{proof}
-  In the ``opposite'' double Bruhat cell $G^{c^{-1},c}$ \cref{prop:projective_minors_identity} says that 
+  In the ``opposite'' double Bruhat cell $G^{c^{-1},c}$ \cref{prop:projective_minors_identity} says that $\Delta_{c^{-k}\omega_i} \Delta_{c^{-k-1}\omega_i}$ equals
   \[
-    \Delta_{c^{-k}\omega_i}
-    \Delta_{c^{-k-1}\omega_i}
-    =
     \prod_{j<i}\Delta_{c^{-k}\omega_j}^{-a_{ji}}
     \prod_{j>i}\Delta_{c^{-k-1}\omega_j}^{-a_{ji}}
     +
@@ -328,11 +340,8 @@ Let $G$ be a Kac-Moody group, let $c$ be a Coxeter element of its Weyl group, an
       \big)^{a_{\ell j}}
     \right)^{[c^{-k}\beta_i^-:\alpha_j]}
   \]
-  and recalling that $\Delta_\lambda^\mu(x)\Delta_{-\mu}^{-\lambda}(x^\iota)$ we get
+  Recalling that $\Delta_\lambda^\mu(x)\Delta_{-\mu}^{-\lambda}(x^\iota)$ and that $\iota$ maps $G^{c^{-1},c}$ to $G^{c,c^{-1}}$, we get that $\Delta_{-c^{-k}\omega_i} \Delta_{-c^{-k-1}\omega_i}$ equals
   \[
-    \Delta_{-c^{-k}\omega_i}
-    \Delta_{-c^{-k-1}\omega_i}
-    =
     \prod_{j<i}\Delta_{-c^{-k}\omega_j}^{-a_{ji}}
     \prod_{j>i}\Delta_{-c^{-k-1}\omega_j}^{-a_{ji}}
     +
@@ -345,24 +354,25 @@ Let $G$ be a Kac-Moody group, let $c$ be a Coxeter element of its Weyl group, an
       \big)^{a_{\ell j}}
     \right)^{[c^{-k}\beta_i^-:\alpha_j]}
   \]
-  and the results follows from \cref{lemma:coefficients_identities}.
+  in $G^{c,c^{-1}}$ and the results follows from \cref{lemma:coefficients_identities}.
 \end{proof}
 
 \begin{lemma}
+  Restricted to $G^{c,c^{-1}}$ the following two identities holds:
   \label{lemma:coefficients_identities}
   \[
     \Delta_{\omega_j}^{c\omega_j}
-    \prod_{i<j}\big(\Delta_{\omega_i}^{c\omega_i}\big)^{a_{ij}}
+    \prod_{\ell<j}\big(\Delta_{\omega_\ell}^{c\omega_\ell}\big)^{a_{\ell j}}
     =
     \Delta_{-c^{-1}\omega_j}^{-\omega_j}
-    \prod_{i>j}\big(\Delta_{-c^{-1}\omega_i}^{-\omega_i}\big)^{a_{ij}}
+    \prod_{\ell>j}\big(\Delta_{-c^{-1}\omega_\ell}^{-\omega_\ell}\big)^{a_{\ell j}}
   \]
   \[
     \Delta_{c\omega_j}^{\omega_j}
-    \prod_{i<j}\big(\Delta_{c\omega_i}^{\omega_i}\big)^{a_{ij}}
+    \prod_{\ell<j}\big(\Delta_{c\omega_\ell}^{\omega_\ell}\big)^{a_{\ell j}}
     =
     \Delta_{-\omega_j}^{-c^{-1}\omega_j}
-    \prod_{i>j}\big(\Delta_{-\omega_i}^{-c^{-1}\omega_i}\big)^{a_{ij}}
+    \prod_{\ell>j}\big(\Delta_{-\omega_\ell}^{-c^{-1}\omega_\ell}\big)^{a_{\ell j}}
   \]
 \end{lemma}
 
