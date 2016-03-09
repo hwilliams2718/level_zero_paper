@@ -271,8 +271,34 @@ so that the generic element of $G^{c,c^{-1}}$ is
 \[
   g=x_{-1}(t_{-1}) \cdots x_{-n}(t_{-n}) h x_n(t_n) \cdots x_1(t_1)
 \]
-with $h\in H$ and $t_{\pm i} \in \CC$ (Cf. \cite[Proposition 3.2]{Wil13} were we prefer to place the tours part in center position using the commutation relations 
+with $h\in H$ and $t_{\pm i} \in \CC$ (Cf. \cite[Proposition 3.2]{Wil13} were we prefer to place the torus part in central position using the classical commutation relations \cite[(2.5)]{FZ99}).
 
+Let $\iota$ be the anti-automorphism of $G$ defined by
+\begin{equation}
+  h^\iota := h^{-1}\,\, (h\in H),
+  \quad
+  \quad
+  x_i(t)^\iota := x_i(t),
+  \quad
+  \quad
+  x_{-i}(t)^\iota := x_{-i}(t).
+\end{equation}
+\begin{lemma}
+  \label{lemma:iota_iso}
+  $\iota$ restrict to an isomorphism of $G^{c,c^{-1}}$ with $G^{c^{-1},c}$.
+\end{lemma}
+\begin{proof}
+  It suffices to verify this on the generic element $g$ of $G^{c,c^{-1}}$.
+  We have 
+  \begin{eqnarray*}
+    g^\iota &=& \big(x_{-1}(t_{-1}) \cdots x_{-n}(t_{-n}) h x_n(t_n) \cdots x_1(t_1)\big)^\iota\\
+    &=& x_1(t_1)^\iota \cdots x_n(t_n)^\iota h^\iota x_{-n}(t_{-n})^\iota \cdots x_{-1}(t_{-1})^\iota\\
+    &=& x_1(t_1) \cdots x_n(t_n) h^{-1} x_{-n}(t_{-n}) \cdots x_{-1}(t_{-1})
+  \end{eqnarray*}
+  which is the generic element of $G^{c^{-1},c}$ by \cite[Proposition 3.2]{Wil13}.
+\end{proof}
+
+We will deduce the desired identities from the following fundamental identity.
 \begin{proposition}[{\cite[Proposition 2.16]{Wil13}}]
   \label{prop:fundid}
   Suppose $u,v \in W$ and $i\in[1,n]$ are such that $\ell(u)<\ell(us_i)$ and $\ell(v)<\ell(vs_i)$. 
@@ -326,7 +352,7 @@ with $h\in H$ and $t_{\pm i} \in \CC$ (Cf. \cite[Proposition 3.2]{Wil13} were we
   where all the running indices in the products are in $[1,n]$.
 \end{proposition}
 \begin{proof}
-  In the ``opposite'' double Bruhat cell $G^{c^{-1},c}$ \cref{prop:projective_minors_identity} says that $\Delta_{c^{-k}\omega_i} \Delta_{c^{-k-1}\omega_i}$ equals
+  In the ``inverse'' double Bruhat cell $G^{c^{-1},c}$ \cref{prop:projective_minors_identity} says that $\Delta_{c^{-k}\omega_i} \Delta_{c^{-k-1}\omega_i}$ equals
   \[
     \prod_{j<i}\Delta_{c^{-k}\omega_j}^{-a_{ji}}
     \prod_{j>i}\Delta_{c^{-k-1}\omega_j}^{-a_{ji}}
@@ -340,7 +366,7 @@ with $h\in H$ and $t_{\pm i} \in \CC$ (Cf. \cite[Proposition 3.2]{Wil13} were we
       \big)^{a_{\ell j}}
     \right)^{[c^{-k}\beta_i^-:\alpha_j]}
   \]
-  Recalling that $\Delta_\lambda^\mu(x)\Delta_{-\mu}^{-\lambda}(x^\iota)$ and that $\iota$ maps $G^{c^{-1},c}$ to $G^{c,c^{-1}}$, we get that $\Delta_{-c^{-k}\omega_i} \Delta_{-c^{-k-1}\omega_i}$ equals
+  Recalling that $\Delta_\lambda^\mu(g)=\Delta_{-\mu}^{-\lambda}(g^\iota)$ (\cite[(2.25)]{FZ99}) and that $\iota$ maps $G^{c^{-1},c}$ to $G^{c,c^{-1}}$ (\cref{lemma:iota_iso}), we get that $\Delta_{-c^{-k}\omega_i} \Delta_{-c^{-k-1}\omega_i}$ equals
   \[
     \prod_{j<i}\Delta_{-c^{-k}\omega_j}^{-a_{ji}}
     \prod_{j>i}\Delta_{-c^{-k-1}\omega_j}^{-a_{ji}}
