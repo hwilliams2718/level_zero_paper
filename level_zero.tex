@@ -22,6 +22,7 @@
 \newcommand{\cAb}{\mathcal{A}_\bullet}
 \newcommand{\cT}{\mathcal{T}}
 
+\newcommand{\RR}{\mathbb{R}}
 \newcommand{\CC}{\mathbb{C}}
 \newcommand{\ZZ}{\mathbb{Z}}
 
@@ -29,6 +30,8 @@
 \newcommand{\bfc}{\mathbf{c}}
 \newcommand{\bfe}{\mathbf{e}}
 \newcommand{\bfg}{\mathbf{g}}
+
+\newcommand{\net}{\mathcal{N}} % symbol for network
 
 \newcommand{\rep}{\operatorname{rep}}
 \newcommand{\soc}{\operatorname{soc}}
@@ -1121,6 +1124,41 @@ Let $B$ and $B'$ be $(n+m)\times n$ exchange matrices and $M$ and invertible $m 
     Comparing formulas using the above substitutions completes the proof.
   \end{proof}
 
+\subsection{Networks}
+
+We will study generalized minors by modeling them with weighted graphs on the cylinder. A graph is weighted if all of its edges are assigned elements of a fixed ring; below this will be the polynomial ring $\CC[t_0,\dotsc,t_n,u_0,\dotsc,u_n]$.
+
+\begin{definition}
+Given $c = s_{\sigma_0} \dotsc s_{\sigma_n}$, let $\net_c$ be the following directed, weighted graph on the cylinder. We describe it as the concatenation of subgraphs on cyclinders associated to the factors in the decomposition $$g=x_{\overline{\sigma_0\!}\,}(u_{\sigma_0})\cdots x_{\overline{\sigma_n\!}\,}(u_{\sigma_n}) x_{\sigma_n}(t_{\sigma_n}) \cdots x_{\sigma_0}(t_{\sigma_0}).$$\sayHW{This definition will require a picture}
+
+Each subcylinder has $n+1$ noncrossing edges running from one boundary component to the other, and labeled by $\ZZ/(n+1)\ZZ$ compatibly with their cyclic ordering. We refer to these as horizontal edges, and each subcylinder has one addition edge we refer to as a vertical edge.
+
+In the subcylinder associated to $x_{\sigma_n}(t_{\sigma_n})$ the vertical edge runs from the $\sigma_i$th horizontal edge to the $(\sigma_i - 1)$th horizontal edge. It is weighted $t_{\sigma_n}$, and all horizontal edges have weight $1$.
+
+ The vertical edge in the subcylinder associated to $x_{\overline{\sigma_i\!}\,}(u_{\sigma_i})$ runs from the $(\sigma_i - 1)$th horizontal edge to the $\sigma_i$th horizontal edge. It and all horizontal edges other than the two it connects have weight $1$. The part of the $\sigma_i$th edge before it meets the vertical edge has weight $u_{\sigma_i}$, the part after has weight $1$.  The part of the $(\sigma_i-1)$th edge before it meets the vertical edge has weight $1$, the part after has weight $u_{\sigma_i}^{-1}$.\sayHW{This is correct if we are using $L^{c,c^{-1}}$, would need change for $G^{c,c^{-1}}$}
+\end{definition}
+
+We say the weight of a path in a weighted graph is the product of the weights of the edges it follows.
+
+\begin{proposition}
+Given $S \subset \ZZ/(n+1)\ZZ$, let
+\[ \omega_S = \sum_{i \in S} \omega_{i+1} - \omega_i.\] Then 
+\[ \Delta_{\omega_S}(g) = \sum_{P: S \to S} wt(P), \]
+where the sum is over $|S|$-tuples of nonintersecting paths in $\net_c$ with input and output sets equal to $S$.
+\end{proposition}
+
+\begin{proof}
+By construction, the directed graph $\net_c$ encodes the action of $g$ in the standard basis $\{ e_{i_1} \wedge \cdots \wedge e_{i_k} z^\ell\}$ of $\bigwedge^k \CC^n[z^{\pm 1}]$. This basis is labeled by pairs of a $k$-element subset of $\ZZ/(n+1)\ZZ$ and an integer $\ell$.
+\end{proof}
+
+\begin{definition}
+Given an interval $[p,q] \subset \ZZ/(n+1)\ZZ$, we write $S_{[p,q]}$ for the subset...
+\end{definition}
+
+\begin{theorem}
+If $M_{[p,q]}$ is regular, then 
+\[ x_{M_{[p,q]}} = \Delta_{S_{[p,q]}}(g).\]  
+\end{theorem}
 
 \section{Conventions}
 
