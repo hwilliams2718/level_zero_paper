@@ -1151,14 +1151,43 @@ where the sum is over $|S|$-tuples of nonintersecting paths in $\net_c$ with inp
 By construction, the directed graph $\net_c$ encodes the action of $g$ in the standard basis $\{ e_{i_1} \wedge \cdots \wedge e_{i_k} z^\ell\}$ of $\bigwedge^k \CC^n[z^{\pm 1}]$. This basis is labeled by pairs of a $k$-element subset of $\ZZ/(n+1)\ZZ$ and an integer $\ell$.
 \end{proof}
 
-\begin{definition}
-Given an interval $[p,q] \subset \ZZ/(n+1)\ZZ$, we write $S_{[p,q]}$ for the subset...
+\begin{definition}\label{def:Spq}
+Let $[p,q] \subset \ZZ/(n+1)\ZZ$ be an interval containing an even number of sinks and sources; that is, such that $M_{[p,q]}$ is regular. Write $k_1 < \cdots < k_m$ (resp. $c_1 < \cdots < c_m$) for the indices of the sinks (resp. sources) in $[p,q]$. Let $S_{[p,q]}$ denote the following subset of $\ZZ/(n+1)\ZZ$:
+\begin{itemize}
+\item If the first sink in $[p,q]$ comes before the first source (i.e. $k_1 < c_1$ in $[p,q]$), then 
+\[
+S_{[p,q]} = [q,p-2] \cup [k_1, c_1 -1] \cup \cdots \cup [k_m, c_m - 1].
+\]
+\item If the first source in $[p,q]$ comes before the first sink (i.e. $c_1 < k_1$ in $[p,q]$),
+\[
+S_{[p,q]} = [p,c_1-1] \cup [k_1,c_2-1] \cup \cdots \cup [k_m,q].
+\]
+\end{itemize}
 \end{definition}
 
+The above definition is determined by the following property:
+\begin{proposition}
+Let 
+\[
+M_{[p,q]} \to \bigoplus I_j^{a_j} \to \bigoplus I_j^{b_j}
+\]
+be the minimal injective resolution of $M_{[p,q]}$. Then
+\[
+\sum_j (b_j - a_j)\omega_j = \sum_{i \in S_{[p,q]}} \omega_{i+1} - \omega_i.
+\]
+\end{proposition}
+\begin{proof}
+As in Definition \ref{def:Spq}, we let $k_1 < \cdots < k_m$, $c_1 < \cdots < c_m$ be the labels of the sinks and sources in $[p,q]$. If $k_1 < c_1$ in $[p,q]$, then the minimal injective resolution of $M_{[p,q]}$ is
+\[
+M_{[p,q]} \to I_q \oplus I_{k_1} \oplus \cdots \oplus I_{k_m} \to I_{p-1} \oplus I_{c_1} \oplus \cdots \oplus I_{c_m}.
+\]
+\end{proof}
+
 \begin{theorem}
-If $M_{[p,q]}$ is regular, then 
-\[ x_{M_{[p,q]}} = \Delta_{S_{[p,q]}}(g).\]  
+If $M_{[p,q]}$ is regular, then under the isomorphism $\CC[L^{c,c^{-1}}] \cong A_Q$ we have
+\[ x_{M_{[p,q]}} = \Delta_{S_{[p,q]}}\]  
 \end{theorem}
+
 
 \section{Conventions}
 
