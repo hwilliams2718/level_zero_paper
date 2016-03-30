@@ -11,6 +11,12 @@
 \usepackage{cleveref}
 \usepackage{stmaryrd}
 \usepackage{accents}
+\usepackage{tikz}
+\usetikzlibrary{decorations.markings}
+\tikzset{
+  singlearrow/.style={draw=none,postaction={decorate,decoration={markings,mark=at position 0.5 with {\arrow{stealth}}}}},
+  doublearrow/.style={draw=none,postaction={decorate,decoration={markings,mark=at position 0.25 with {\arrow{stealth}},mark=at position 0.85 with {\arrow{stealth}}}}}
+}
 
 \usepackage[draft]{say}
 \newcommand{\sayHW}[1]{\say[HW]{\color{violet}{\bf HW:}\;#1}}
@@ -278,7 +284,7 @@ so that the generic element of $G^{c,c^{-1}}$ is
   \label{eq:generic_element}
   g=x_{-1}(t_{-1}) \cdots x_{-n}(t_{-n}) h x_n(t_n) \cdots x_1(t_1)
 \end{equation}
-with $h\in H$ and $t_{\pm i} \in \CC$ (Cf. \cite[Proposition 3.2]{Wil13} were we prefer to place the torus part in central position using the classical commutation relations \cite[(2.5)]{FZ99}).
+with $h\in H$ and $t_{\pm i} \in \CC$ (cf. \cite[Proposition 3.2]{Wil13} were we prefer to place the torus part in central position using the classical commutation relations \cite[(2.5)]{FZ99}).
 
 Let $\iota$ be the anti-automorphism of $G$ defined by
 \begin{equation}
@@ -1128,33 +1134,161 @@ Let $B$ and $B'$ be $(n+m)\times n$ exchange matrices and $M$ and invertible $m 
 
 \subsection{Networks}
 
-We will study generalized minors by modeling them with weighted graphs on the cylinder. A graph is weighted if all of its edges are assigned elements of a fixed ring; below this will be the polynomial ring $\CC[t_0,\dotsc,t_n,u_0,\dotsc,u_n]$.
+We will study generalized minors by modeling them with weighted networks on a cylinder. A graph is weighted if all of its edges are assigned elements of a fixed ring; below this will be the Laurent polynomial ring $\CC[t_{\pm0}^{\pm1},\dotsc,t_{\pm n}^{\pm1},h_0^{\pm1},\dotsc,h_n^{\pm1}]$ with $3n$ polynomial generators.
 
 \begin{definition}
-Given $c = s_{\sigma_0} \dotsc s_{\sigma_n}$, let $\net_c$ be the following directed, weighted graph on the cylinder. We describe it as the concatenation of subgraphs on cyclinders associated to the factors in the decomposition $$g=x_{\overline{\sigma_0\!}\,}(u_{\sigma_0})\cdots x_{\overline{\sigma_n\!}\,}(u_{\sigma_n}) x_{\sigma_n}(t_{\sigma_n}) \cdots x_{\sigma_0}(t_{\sigma_0}).$$\sayHW{This definition will require a picture}
+Given $c = s_{\sigma_0} \dotsc s_{\sigma_n}$, define the \emph{network} $\net_c$ to be the following directed, weighted graph on the cylinder. We describe it as the concatenation of subgraphs on cyclinders associated to the factors in the decomposition 
+\[g=x_{-\sigma_0}(t_{-\sigma_0})\cdots x_{-\sigma_n}(t_{-\sigma_n}) hx_{\sigma_n}(t_{\sigma_n}) \cdots x_{\sigma_0}(t_{\sigma_0}),\]
+where $h$ factors as $\prod\limits_{i=0}^n h_i$ with $h_i^{\omega_i}=h^{\omega_i}$ and $h_i^{\omega_j}=0$ for $i\ne j$.  We will abuse notation slightly and write $h_i$ also for the value $h_i^{\omega_i}$.
 
-Each subcylinder has $n+1$ noncrossing edges running from one boundary component to the other, and labeled by $\ZZ/(n+1)\ZZ$ compatibly with their cyclic ordering. We refer to these as horizontal edges, and each subcylinder has one addition edge we refer to as a vertical edge.
+Each subcylinder has $n+1$ non-crossing \emph{horizontal} edges running from one boundary component to the other which are oriented from right to left and labeled by $\ZZ_{n+1}$ compatibly with their cyclic ordering.  The subcylinder associated to $x_{\pm i}(t_{\pm i})$ contains a (\emph{vertical}) \emph{bridge} with weight $t_{\pm i}$ joining the $(i-1)^{st}$ horizontal edge and the $i^{th}$ horizontal edge, this bridge is oriented upward for $i$ and downward for $-i$.  In the subcylinder associated to $h_i$ the $i^{th}$ edge has weight $h_i^{-1}$ and the $(i-1)^{st}$ edge has weight $h_i$.  All other edges in a subcylinder are taken to have weight 1. 
 
-In the subcylinder associated to $x_{\sigma_n}(t_{\sigma_n})$ the vertical edge runs from the $\sigma_i$th horizontal edge to the $(\sigma_i - 1)$th horizontal edge. It is weighted $t_{\sigma_n}$, and all horizontal edges have weight $1$.
-
- The vertical edge in the subcylinder associated to $x_{\overline{\sigma_i\!}\,}(u_{\sigma_i})$ runs from the $(\sigma_i - 1)$th horizontal edge to the $\sigma_i$th horizontal edge. It and all horizontal edges other than the two it connects have weight $1$. The part of the $\sigma_i$th edge before it meets the vertical edge has weight $u_{\sigma_i}$, the part after has weight $1$.  The part of the $(\sigma_i-1)$th edge before it meets the vertical edge has weight $1$, the part after has weight $u_{\sigma_i}^{-1}$.\sayHW{This is correct if we are using $L^{c,c^{-1}}$, would need change for $G^{c,c^{-1}}$}
+ \erase{The vertical edge in the subcylinder associated to $x_{\overline{i}\,}(u_i)$ runs from the $(i - 1)^{st}$ horizontal edge to the $i^{th}$ horizontal edge. It and all horizontal edges other than the two it connects have weight $1$. The part of the $i^{th}$ edge before it meets the vertical edge has weight $u_i$, the part after has weight $1$.  The part of the $(\sigma_i-1)$st edge before it meets the vertical edge has weight $1$, the part after has weight $u_{\sigma_i}^{-1}$.\sayHW{This is correct if we are using $L^{c,c^{-1}}$, would need change for $G^{c,c^{-1}}$}}
+\begin{center}
+\begin{tikzpicture}
+  \node[below] at (0,-2) {$x_{-i}(t_{-i})$};
+  \draw (0.75,0) ellipse (0.5 and 2);
+  %\draw (-1,0) ellipse (0.5 and 1);
+  \draw (-0.75,2) arc (90:270:0.5 and 2);
+  \draw[dashed] (-0.75,2) arc (90:-90:0.5 and 2);
+  \draw[-] (0.75,2) -- (-0.75,2);
+  \draw[-] (0.75,-2) -- (-0.75,-2);
+  \draw[-] (1.25,0) -- (0.25,0);
+  \draw[dashed] (-0.25,0) -- (0.21,0);
+  \draw[singlearrow] (1.25,0) -- (-0.25,0);
+  \node[right] at (1.25,0) {$\scriptstyle 0$};
+  \draw[-] (1.2,-0.85) -- (0.3,-0.85);
+  \draw[dashed] (-0.3,-0.85) -- (0.3,-0.85);
+  \draw[singlearrow] (1.2,-0.85) -- (-0.3,-0.85);
+  \node[right] at (1.2,-0.85) {$\scriptstyle n$};
+  \draw[-] (1.015,-1.7) -- (0.49,-1.7);
+  \draw[dashed] (-0.49,-1.7) -- (0.45,-1.7);
+  \draw[singlearrow] (1.015,-1.7) -- (-0.49,-1.7);
+  \node[right] at (1.015,-1.7) {$\scriptstyle n-1$};
+  \draw[-] (-1.225,-0.65) -- (0.275,-0.65);
+  \draw[doublearrow,draw] (0.275,-0.65) -- (-1.225,-0.65);
+  \node[right] at (0.275,-0.65) {$\scriptstyle i$};
+  %\draw[postaction=decorate] (-0.475,-0.65) arc (199:174.2:0.5 and 2);
+  %\node at (-0.075,0.325) {$\scriptstyle u_i$};
+  %\node at (-0.85,-0.875) {$\scriptstyle u_i^{-1}$};
+  \draw[-] (-1.245,0.2) -- (0.255,0.2);
+  \draw[doublearrow,draw] (0.255,0.2) -- (-1.245,0.2);
+  \node[right] at (0.255,0.2) {$\scriptstyle i-1$};
+  \draw[singlearrow,draw] (-0.495,0.2) arc (174.2:199:0.5 and 2);
+  \node at (-0.8,-0.225) {$\scriptstyle t_{-i}$};
+  %\draw[-] (-1.18,1.05) -- (0.32,1.05);
+  %\node[right] at (0.32,1.05) {$\scriptstyle i-1$};
+  \draw[-] (1.015,1.7) -- (0.49,1.7);
+  \draw[dashed] (-0.49,1.7) -- (0.45,1.7);
+  \draw[singlearrow] (1.015,1.7) -- (-0.49,1.7);
+  \node[right] at (1.015,1.7) {$\scriptstyle 2$};
+  \draw[-] (1.2,0.85) -- (0.3,0.85);
+  \draw[dashed] (-0.3,0.85) -- (0.3,0.85);
+  \draw[singlearrow] (1.2,0.85) -- (-0.3,0.85);
+  \node[right] at (1.2,0.85) {$\scriptstyle 1$};
+\end{tikzpicture}
+\quad\quad
+\begin{tikzpicture}
+  \node[below] at (0,-2) {$h_i$};
+  \draw (0.75,0) ellipse (0.5 and 2);
+  %\draw (-1,0) ellipse (0.5 and 1);
+  \draw (-0.75,2) arc (90:270:0.5 and 2);
+  \draw[dashed] (-0.75,2) arc (90:-90:0.5 and 2);
+  \draw[-] (0.75,2) -- (-0.75,2);
+  \draw[-] (0.75,-2) -- (-0.75,-2);
+  \draw[-] (1.25,0) -- (0.25,0);
+  \draw[dashed] (-0.25,0) -- (0.21,0);
+  \draw[singlearrow] (1.25,0) -- (-0.25,0);
+  \node[right] at (1.25,0) {$\scriptstyle 0$};
+  \draw[-] (1.2,-0.85) -- (0.3,-0.85);
+  \draw[dashed] (-0.3,-0.85) -- (0.3,-0.85);
+  \draw[singlearrow] (1.2,-0.85) -- (-0.3,-0.85);
+  \node[right] at (1.2,-0.85) {$\scriptstyle n$};
+  \draw[-] (1.015,-1.7) -- (0.49,-1.7);
+  \draw[dashed] (-0.49,-1.7) -- (0.45,-1.7);
+  \draw[singlearrow] (1.015,-1.7) -- (-0.49,-1.7);
+  \node[right] at (1.015,-1.7) {$\scriptstyle n-1$};
+  \draw[-] (-1.225,-0.65) -- (0.275,-0.65);
+  \draw[doublearrow] (0.275,-0.65) -- (-1.225,-0.65);
+  \node[right] at (0.275,-0.65) {$\scriptstyle i$};
+  \node at (-0.5,-0.435) {$\scriptstyle h_i^{-1}$};
+  %\draw[postaction=decorate] (-0.475,-0.65) arc (199:174.2:0.5 and 2);
+  \draw[-] (-1.245,0.2) -- (0.255,0.2);
+  \draw[doublearrow] (0.255,0.2) -- (-1.245,0.2);
+  \node[right] at (0.255,0.2) {$\scriptstyle i-1$};
+  \node at (-0.5,0.355) {$\scriptstyle h_i$};
+  %\draw[postaction=decorate] (-0.495,0.2) arc (174.2:199:0.5 and 2);
+  %\node at (-0.8,-0.225) {$\scriptstyle t_{-i}$};
+  %\draw[-] (-1.18,1.05) -- (0.32,1.05);
+  %\node[right] at (0.32,1.05) {$\scriptstyle i-1$};
+  \draw[-] (1.015,1.7) -- (0.49,1.7);
+  \draw[dashed] (-0.49,1.7) -- (0.45,1.7);
+  \draw[singlearrow] (1.015,1.7) -- (-0.49,1.7);
+  \node[right] at (1.015,1.7) {$\scriptstyle 2$};
+  \draw[-] (1.2,0.85) -- (0.3,0.85);
+  \draw[dashed] (-0.3,0.85) -- (0.3,0.85);
+  \draw[singlearrow] (1.2,0.85) -- (-0.3,0.85);
+  \node[right] at (1.2,0.85) {$\scriptstyle 1$};
+\end{tikzpicture}
+\quad\quad
+\begin{tikzpicture}
+  \node[below] at (0,-2) {$x_i(t_i)$};
+  \draw (0.75,0) ellipse (0.5 and 2);
+  %\draw (-1,0) ellipse (0.5 and 1);
+  \draw (-0.75,2) arc (90:270:0.5 and 2);
+  \draw[dashed] (-0.75,2) arc (90:-90:0.5 and 2);
+  \draw[-] (0.75,2) -- (-0.75,2);
+  \draw[-] (0.75,-2) -- (-0.75,-2);
+  \draw[-] (1.25,0) -- (0.25,0);
+  \draw[dashed] (-0.25,0) -- (0.21,0);
+  \draw[singlearrow] (1.25,0) -- (-0.25,0);
+  \node[right] at (1.25,0) {$\scriptstyle 0$};
+  \draw[-] (1.2,-0.85) -- (0.3,-0.85);
+  \draw[dashed] (-0.3,-0.85) -- (0.3,-0.85);
+  \draw[singlearrow] (1.2,-0.85) -- (-0.3,-0.85);
+  \node[right] at (1.2,-0.85) {$\scriptstyle n$};
+  \draw[-] (1.015,-1.7) -- (0.49,-1.7);
+  \draw[dashed] (-0.49,-1.7) -- (0.45,-1.7);
+  \draw[singlearrow] (1.015,-1.7) -- (-0.49,-1.7);
+  \node[right] at (1.015,-1.7) {$\scriptstyle n-1$};
+  \draw[-] (-1.225,-0.65) -- (0.275,-0.65);
+  \draw[doublearrow,draw] (0.275,-0.65) -- (-1.225,-0.65);
+  \node[right] at (0.275,-0.65) {$\scriptstyle i$};
+  \draw[singlearrow,draw] (-0.475,-0.65) arc (199:174.2:0.5 and 2);
+  \node at (-0.7,-0.225) {$\scriptstyle t_i$};
+  \draw[-] (-1.245,0.2) -- (0.255,0.2);
+  \draw[doublearrow,draw] (0.255,0.2) -- (-1.245,0.2);
+  \node[right] at (0.255,0.2) {$\scriptstyle i-1$};
+  %\draw[postaction=decorate] (-0.495,0.2) arc (174.2:199:0.5 and 2);
+  %\draw[-] (-1.18,1.05) -- (0.32,1.05);
+  %\node[right] at (0.32,1.05) {$\scriptstyle i-1$};
+  \draw[-] (1.015,1.7) -- (0.49,1.7);
+  \draw[dashed] (-0.49,1.7) -- (0.45,1.7);
+  \draw[singlearrow] (1.015,1.7) -- (-0.49,1.7);
+  \node[right] at (1.015,1.7) {$\scriptstyle 2$};
+  \draw[-] (1.2,0.85) -- (0.3,0.85);
+  \draw[dashed] (-0.3,0.85) -- (0.3,0.85);
+  \draw[singlearrow] (1.2,0.85) -- (-0.3,0.85);
+  \node[right] at (1.2,0.85) {$\scriptstyle 1$};
+\end{tikzpicture}
+\end{center}
 \end{definition}
 
 We say the weight of a path in a weighted graph is the product of the weights of the edges it follows.
 
 \begin{proposition}\label{prop:minorsfrompaths}
-Given $S \subset \ZZ/(n+1)\ZZ$, let
+Given $S \subset \ZZ_{n+1}$, let
 \[ \omega_S = \sum_{i \in S} \omega_{i+1} - \omega_i.\] Then 
 \[ \Delta_{\omega_S}(g) = \sum_{P: S \to S} wt(P), \]
-where the sum is over $|S|$-tuples of nonintersecting paths in $\net_c$ with input and output sets equal to $S$.
+where the sum is over $|S|$-tuples of non-intersecting paths in $\net_c$ with input and output sets equal to $S$.
 \end{proposition}
 
 \begin{proof}
-By construction, the directed graph $\net_c$ encodes the action of $g$ in the standard basis $\{ e_{i_1} \wedge \cdots \wedge e_{i_k} z^\ell\}$ of $\bigwedge^k \CC^n[z^{\pm 1}]$. This basis is labeled by pairs of a $k$-element subset of $\ZZ/(n+1)\ZZ$ and an integer $\ell$.
+By construction, the directed graph $\net_c$ encodes the action of $g$ in the standard basis $\{ e_{i_1} \wedge \cdots \wedge e_{i_k} z^\ell\}$ of $\bigwedge^k \CC^n[z^{\pm 1}]$. This basis is labeled by pairs of a $k$-element subset of $\ZZ_{n+1}$ and an integer $\ell$.
 \end{proof}
 
 \begin{definition}\label{def:Spq}
-Let $[p,q] \subset \ZZ/(n+1)\ZZ$ be an interval containing an even number of sinks and sources; that is, such that $M_{[p,q]}$ is regular. Write $k_1 < \cdots < k_m$ (resp. $c_1 < \cdots < c_m$) for the indices of the sinks (resp. sources) in $[p,q]$. Let $S_{[p,q]}$ denote the following subset of $\ZZ/(n+1)\ZZ$:
+Let $[p,q] \subset \ZZ_{n+1}$ be an interval containing an even number of sinks and sources; that is, such that $M_{[p,q]}$ is regular. Write $k_1 < \cdots < k_m$ (resp. $c_1 < \cdots < c_m$) for the indices of the sinks (resp. sources) in $[p,q]$. Let $S_{[p,q]}$ denote the following subset of $\ZZ_{n+1}$:
 \begin{itemize}
 \item If the first sink in $[p,q]$ comes before the first source (i.e. $k_1 < c_1$ in $[p,q]$), then 
 \[
@@ -1190,24 +1324,24 @@ If $M_{[p,q]}$ is regular, then under the isomorphism $\CC[L^{c,c^{-1}}] \cong A
 \[ x_{M_{[p,q]}} = \Delta_{\omega_{S_{[p,q]}}}\]  
 \end{theorem}
 \begin{proof}
-Let $\cP = \{P: S_{[p,q]} \to S_{[p,q]}\}$ denote the set of tuples of noncrossing paths in $\net_c$ whose sets of start and end vertices are $S_{[p,q]}$. 
-By Proposition \ref{prop:minorsfrompaths}, for a generic element $g = $ the evaluation $\Delta_{\omega_{S_{[p,q]}}}(g)$ is the weighted sum 
+Let $\cP = \{P: S_{[p,q]} \to S_{[p,q]}\}$ denote the set of tuples of non-crossing paths in $\net_c$ whose sets of start and end vertices are $S_{[p,q]}$. 
+By Proposition \ref{prop:minorsfrompaths}, for a generic element $g = x_{-\sigma_0}(t_{-\sigma_0})\cdots x_{-\sigma_n}(t_{-\sigma_n}) hx_{\sigma_n}(t_{\sigma_n}) \cdots x_{\sigma_0}(t_{\sigma_0})$ the evaluation $\Delta_{\omega_{S_{[p,q]}}}(g)$ is the weighted sum 
 \[
-\Delta_{S_{[p,q]}}(g) = \sum_{P \in \mathcal{P}} wt(P).
+\Delta_{\omega_{S_{[p,q]}}}(g) = \sum_{P \in \mathcal{P}} wt(P).
 \]
 Let $\cE = \{ E \subset [p,q]\}$ denote the subsets of $E \subset [p,q]$ that are target-closed: if there is an arrow $i \to j$ in $Q$ and $i, j$ are in $[p,q]$, then $E$ must contain $j$ if it contains $i$. 
 % $i \in E$, $j \in [p,q]$, and there is an arrow from $i$ to $j$ in $Q$, then $j \in E$. 
 Then we have 
 \[
 x_{M_{[p,q]}} = x^g \sum_{E \in \cE} \prod_{i \in E} \hat{y}_i.
-\]
+\]\sayDR{Using $g$ here for the $g$-vector is an abuse of notation.}
 We will prove the theorem by constructing a bijection $\cP \cong \cE$, then show it is compatible with the monomials appearing in each expression.
 
 %Recall that $\net_c$ consists of parallel strands labeled by $\Z_{n+1}$ connecting the two boundary components of the cylinder, and two sets of $n+1$ vertical strands connecting them. One of those sets has edges weighted $t_j$, and with 
 
 %Recall that for $P \in \cP$ and any $j \in \Z_{n+1}$, $wt(P)$ either does not depend on $t_j$ or is linear in $t_j$. 
 
-Let $\phi(P) \subset \ZZ_{n+1}$ denote the set of indices $j$ such that $wt(P)$ depends nontrivially on $t_j$. Recall that $t_j$ appears as the weight of a unique edge in $\net_c$, so equivalently $\phi(P)$ records which of these edges are traversed by a path in $P$. We claim that $\phi(P)$ is in fact a subset of $[p,q]$, is target-closed in $[p,q]$, and that the assignment $P \mapsto \phi(P)$ defines a bijection $\cP \cong \cE$.
+Let $\phi(P) \subset \ZZ_{n+1}$ denote the set of indices $j$ such that $wt(P)$ depends non-trivially on $t_j$. Recall that $t_j$ appears as the weight of a unique edge in $\net_c$, so equivalently $\phi(P)$ records which of these edges are traversed by a path in $P$. We claim that $\phi(P)$ is in fact a subset of $[p,q]$, is target-closed in $[p,q]$, and that the assignment $P \mapsto \phi(P)$ defines a bijection $\cP \cong \cE$.
 
 
 As in Definition \ref{def:Spq}, we let $k_1 < \cdots < k_m$, $c_1 < \cdots < c_m$ denote the labels of the sinks and sources in $[p,q]$. We first consider the case where the first sink in $[p,q]$ comes before the first source (i.e. $k_1 < c_1$ in $[p,q]$). Recall that  
