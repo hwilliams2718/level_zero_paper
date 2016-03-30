@@ -1210,7 +1210,17 @@ We will prove the theorem by constructing a bijection $\cP \cong \cE$, then show
 Let $\phi(P) \subset \ZZ_{n+1}$ denote the set of indices $j$ such that $wt(P)$ depends nontrivially on $t_j$. Recall that $t_j$ appears as the weight of a unique edge in $\net_c$, so equivalently $\phi(P)$ records which of these edges are traversed by a path in $P$. We claim that $\phi(P)$ is in fact a subset of $[p,q]$, is target-closed in $[p,q]$, and that the assignment $P \mapsto \phi(P)$ defines a bijection $\cP \cong \cE$.
 
 
-As in Definition \ref{def:Spq}, we let $k_1 < \cdots < k_m$, $c_1 < \cdots < c_m$ denote the labels of the sinks and sources in $[p,q]$. We first consider the case where the first sink in $[p,q]$ comes before the first source (i.e. $k_1 < c_1$ in $[p,q]$). 
+As in Definition \ref{def:Spq}, we let $k_1 < \cdots < k_m$, $c_1 < \cdots < c_m$ denote the labels of the sinks and sources in $[p,q]$. We first consider the case where the first sink in $[p,q]$ comes before the first source (i.e. $k_1 < c_1$ in $[p,q]$). Recall that  
+\[
+S_{[p,q]} = [q,p-2] \cup [k_1, c_1 -1] \cup \cdots \cup [k_m, c_m - 1].
+\]
+
+
+
+
+
+
+ Since the total number of sinks and sources in $[p,q]$ is even, it follows that $Q$ has an arrow $q \to q+1$. 
 \end{proof}
 
 \section{Conventions}
