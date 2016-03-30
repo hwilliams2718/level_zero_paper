@@ -1140,7 +1140,7 @@ In the subcylinder associated to $x_{\sigma_n}(t_{\sigma_n})$ the vertical edge 
 
 We say the weight of a path in a weighted graph is the product of the weights of the edges it follows.
 
-\begin{proposition}
+\begin{proposition}\label{prop:minorsfrompaths}
 Given $S \subset \ZZ/(n+1)\ZZ$, let
 \[ \omega_S = \sum_{i \in S} \omega_{i+1} - \omega_i.\] Then 
 \[ \Delta_{\omega_S}(g) = \sum_{P: S \to S} wt(P), \]
@@ -1187,7 +1187,14 @@ M_{[p,q]} \to I_q \oplus I_{k_1} \oplus \cdots \oplus I_{k_m} \to I_{p-1} \oplus
 If $M_{[p,q]}$ is regular, then under the isomorphism $\CC[L^{c,c^{-1}}] \cong A_Q$ we have
 \[ x_{M_{[p,q]}} = \Delta_{S_{[p,q]}}\]  
 \end{theorem}
+\begin{proof}
+By Proposition \ref{prop:minorsfrompaths}, for a generic element $g = $ the evaluation $\Delta_{S_{[p,q]}}(g)$ is a weighted sum of tuples of nonintersection paths whose set of starting and ending points are $S_{[p,q]}$.
 
+On the other hand, submodules of $M_{[p,q]}$ are in bijection with target-closed subsets $D \subset [p,q]$. That is, if $i, j \in [p,q]$, $i \in D$, and there is an arrow from $i$ to $j$, then we also have $j \in D$. We have
+\[
+x_{M_{[p,q]}} = x^g \sum_D \hat{y}
+\]
+\end{proof}
 
 \section{Conventions}
 
