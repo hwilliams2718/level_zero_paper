@@ -32,6 +32,8 @@
 \newcommand{\bfg}{\mathbf{g}}
 
 \newcommand{\net}{\mathcal{N}} % symbol for network
+\newcommand{\cP}{\mathcal{P}}
+\newcommand{\cE}{\mathcal{E}}
 
 \newcommand{\rep}{\operatorname{rep}}
 \newcommand{\soc}{\operatorname{soc}}
@@ -1185,15 +1187,30 @@ M_{[p,q]} \to I_q \oplus I_{k_1} \oplus \cdots \oplus I_{k_m} \to I_{p-1} \oplus
 
 \begin{theorem}
 If $M_{[p,q]}$ is regular, then under the isomorphism $\CC[L^{c,c^{-1}}] \cong A_Q$ we have
-\[ x_{M_{[p,q]}} = \Delta_{S_{[p,q]}}\]  
+\[ x_{M_{[p,q]}} = \Delta_{\omega_{S_{[p,q]}}}\]  
 \end{theorem}
 \begin{proof}
-By Proposition \ref{prop:minorsfrompaths}, for a generic element $g = $ the evaluation $\Delta_{S_{[p,q]}}(g)$ is a weighted sum of tuples of nonintersection paths whose set of starting and ending points are $S_{[p,q]}$.
-
-On the other hand, submodules of $M_{[p,q]}$ are in bijection with target-closed subsets $D \subset [p,q]$. That is, if $i, j \in [p,q]$, $i \in D$, and there is an arrow from $i$ to $j$, then we also have $j \in D$. We have
+Let $\cP = \{P: S_{[p,q]} \to S_{[p,q]}\}$ denote the set of tuples of noncrossing paths in $\net_c$ whose sets of start and end vertices are $S_{[p,q]}$. 
+By Proposition \ref{prop:minorsfrompaths}, for a generic element $g = $ the evaluation $\Delta_{\omega_{S_{[p,q]}}}(g)$ is the weighted sum 
 \[
-x_{M_{[p,q]}} = x^g \sum_D \hat{y}
+\Delta_{S_{[p,q]}}(g) = \sum_{P \in \mathcal{P}} wt(P).
 \]
+Let $\cE = \{ E \subset [p,q]\}$ denote the subsets of $E \subset [p,q]$ that are target-closed: if there is an arrow $i \to j$ in $Q$ and $i, j$ are in $[p,q]$, then $E$ must contain $j$ if it contains $i$. 
+% $i \in E$, $j \in [p,q]$, and there is an arrow from $i$ to $j$ in $Q$, then $j \in E$. 
+Then we have 
+\[
+x_{M_{[p,q]}} = x^g \sum_{E \in \cE} \prod_{i \in E} \hat{y}_i.
+\]
+We will prove the theorem by constructing a bijection $\cP \cong \cE$, then show it is compatible with the monomials appearing in each expression.
+
+%Recall that $\net_c$ consists of parallel strands labeled by $\Z_{n+1}$ connecting the two boundary components of the cylinder, and two sets of $n+1$ vertical strands connecting them. One of those sets has edges weighted $t_j$, and with 
+
+%Recall that for $P \in \cP$ and any $j \in \Z_{n+1}$, $wt(P)$ either does not depend on $t_j$ or is linear in $t_j$. 
+
+Let $\phi(P) \subset \ZZ_{n+1}$ denote the set of indices $j$ such that $wt(P)$ depends nontrivially on $t_j$. Recall that $t_j$ appears as the weight of a unique edge in $\net_c$, so equivalently $\phi(P)$ records which of these edges are traversed by a path in $P$. We claim that $\phi(P)$ is in fact a subset of $[p,q]$, is target-closed in $[p,q]$, and that the assignment $P \mapsto \phi(P)$ defines a bijection $\cP \cong \cE$.
+
+
+As in Definition \ref{def:Spq}, we let $k_1 < \cdots < k_m$, $c_1 < \cdots < c_m$ denote the labels of the sinks and sources in $[p,q]$. We first consider the case where the first sink in $[p,q]$ comes before the first source (i.e. $k_1 < c_1$ in $[p,q]$). 
 \end{proof}
 
 \section{Conventions}
