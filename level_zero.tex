@@ -1137,10 +1137,11 @@ Let $B$ and $B'$ be $(n+m)\times n$ exchange matrices and $M$ and invertible $m 
 We will study generalized minors by modeling them with weighted networks on a cylinder. A graph is weighted if all of its edges are assigned elements of a fixed ring; below this will be the Laurent polynomial ring $\CC[t_{\pm0}^{\pm1},\dotsc,t_{\pm n}^{\pm1},h_0^{\pm1},\dotsc,h_n^{\pm1}]$ with $3n$ polynomial generators.
 
 \begin{definition}
-Given $c = s_{\sigma_0} \dotsc s_{\sigma_n}$, define the \emph{network} $\net_c$ to be the following directed, weighted graph on the cylinder. We describe it as the concatenation of subgraphs on cyclinders associated to the factors in the decomposition $$g=x_{-\sigma_0}(t_{-\sigma_0})\cdots x_{-\sigma_n}(t_{-\sigma_n}) hx_{\sigma_n}(t_{\sigma_n}) \cdots x_{\sigma_0}(t_{\sigma_0}),$$
+Given $c = s_{\sigma_0} \dotsc s_{\sigma_n}$, define the \emph{network} $\net_c$ to be the following directed, weighted graph on the cylinder. We describe it as the concatenation of subgraphs on cyclinders associated to the factors in the decomposition 
+\[g=x_{-\sigma_0}(t_{-\sigma_0})\cdots x_{-\sigma_n}(t_{-\sigma_n}) hx_{\sigma_n}(t_{\sigma_n}) \cdots x_{\sigma_0}(t_{\sigma_0}),\]
 where $h$ factors as $\prod\limits_{i=0}^n h_i$ with $h_i^{\omega_i}=h^{\omega_i}$ and $h_i^{\omega_j}=0$ for $i\ne j$.  We will abuse notation slightly and write $h_i$ also for the value $h_i^{\omega_i}$.
 
-Each subcylinder has $n+1$ noncrossing \emph{horizontal} edges running from one boundary component to the other which are oriented from right to left and labeled by $\ZZ_{n+1}$ compatibly with their cyclic ordering.  The subcylinder associated to $x_{\pm i}(t_{\pm i})$ contains a (\emph{vertical}) \emph{bridge} with weight $t_{\pm i}$ joining the $(i-1)^{st}$ horizontal edge and the $i^{th}$ horizontal edge, this bridge is oriented upward for $i$ and downward for $-i$.  In the subcylinder associated to $h_i$ the $i^{th}$ edge has weight $h_i^{-1}$ and the $(i-1)^{st}$ edge has weight $h_i$.  All other edges in a subcylinder are taken to have weight 1. 
+Each subcylinder has $n+1$ non-crossing \emph{horizontal} edges running from one boundary component to the other which are oriented from right to left and labeled by $\ZZ_{n+1}$ compatibly with their cyclic ordering.  The subcylinder associated to $x_{\pm i}(t_{\pm i})$ contains a (\emph{vertical}) \emph{bridge} with weight $t_{\pm i}$ joining the $(i-1)^{st}$ horizontal edge and the $i^{th}$ horizontal edge, this bridge is oriented upward for $i$ and downward for $-i$.  In the subcylinder associated to $h_i$ the $i^{th}$ edge has weight $h_i^{-1}$ and the $(i-1)^{st}$ edge has weight $h_i$.  All other edges in a subcylinder are taken to have weight 1. 
 
  \erase{The vertical edge in the subcylinder associated to $x_{\overline{i}\,}(u_i)$ runs from the $(i - 1)^{st}$ horizontal edge to the $i^{th}$ horizontal edge. It and all horizontal edges other than the two it connects have weight $1$. The part of the $i^{th}$ edge before it meets the vertical edge has weight $u_i$, the part after has weight $1$.  The part of the $(\sigma_i-1)$st edge before it meets the vertical edge has weight $1$, the part after has weight $u_{\sigma_i}^{-1}$.\sayHW{This is correct if we are using $L^{c,c^{-1}}$, would need change for $G^{c,c^{-1}}$}}
 \begin{center}
@@ -1276,18 +1277,18 @@ Each subcylinder has $n+1$ noncrossing \emph{horizontal} edges running from one 
 We say the weight of a path in a weighted graph is the product of the weights of the edges it follows.
 
 \begin{proposition}\label{prop:minorsfrompaths}
-Given $S \subset \ZZ/(n+1)\ZZ$, let
+Given $S \subset \ZZ_{n+1}$, let
 \[ \omega_S = \sum_{i \in S} \omega_{i+1} - \omega_i.\] Then 
 \[ \Delta_{\omega_S}(g) = \sum_{P: S \to S} wt(P), \]
-where the sum is over $|S|$-tuples of nonintersecting paths in $\net_c$ with input and output sets equal to $S$.
+where the sum is over $|S|$-tuples of non-intersecting paths in $\net_c$ with input and output sets equal to $S$.
 \end{proposition}
 
 \begin{proof}
-By construction, the directed graph $\net_c$ encodes the action of $g$ in the standard basis $\{ e_{i_1} \wedge \cdots \wedge e_{i_k} z^\ell\}$ of $\bigwedge^k \CC^n[z^{\pm 1}]$. This basis is labeled by pairs of a $k$-element subset of $\ZZ/(n+1)\ZZ$ and an integer $\ell$.
+By construction, the directed graph $\net_c$ encodes the action of $g$ in the standard basis $\{ e_{i_1} \wedge \cdots \wedge e_{i_k} z^\ell\}$ of $\bigwedge^k \CC^n[z^{\pm 1}]$. This basis is labeled by pairs of a $k$-element subset of $\ZZ_{n+1}$ and an integer $\ell$.
 \end{proof}
 
 \begin{definition}\label{def:Spq}
-Let $[p,q] \subset \ZZ/(n+1)\ZZ$ be an interval containing an even number of sinks and sources; that is, such that $M_{[p,q]}$ is regular. Write $k_1 < \cdots < k_m$ (resp. $c_1 < \cdots < c_m$) for the indices of the sinks (resp. sources) in $[p,q]$. Let $S_{[p,q]}$ denote the following subset of $\ZZ/(n+1)\ZZ$:
+Let $[p,q] \subset \ZZ_{n+1}$ be an interval containing an even number of sinks and sources; that is, such that $M_{[p,q]}$ is regular. Write $k_1 < \cdots < k_m$ (resp. $c_1 < \cdots < c_m$) for the indices of the sinks (resp. sources) in $[p,q]$. Let $S_{[p,q]}$ denote the following subset of $\ZZ_{n+1}$:
 \begin{itemize}
 \item If the first sink in $[p,q]$ comes before the first source (i.e. $k_1 < c_1$ in $[p,q]$), then 
 \[
@@ -1323,24 +1324,24 @@ If $M_{[p,q]}$ is regular, then under the isomorphism $\CC[L^{c,c^{-1}}] \cong A
 \[ x_{M_{[p,q]}} = \Delta_{\omega_{S_{[p,q]}}}\]  
 \end{theorem}
 \begin{proof}
-Let $\cP = \{P: S_{[p,q]} \to S_{[p,q]}\}$ denote the set of tuples of noncrossing paths in $\net_c$ whose sets of start and end vertices are $S_{[p,q]}$. 
-By Proposition \ref{prop:minorsfrompaths}, for a generic element $g = $ the evaluation $\Delta_{\omega_{S_{[p,q]}}}(g)$ is the weighted sum 
+Let $\cP = \{P: S_{[p,q]} \to S_{[p,q]}\}$ denote the set of tuples of non-crossing paths in $\net_c$ whose sets of start and end vertices are $S_{[p,q]}$. 
+By Proposition \ref{prop:minorsfrompaths}, for a generic element $g = x_{-\sigma_0}(t_{-\sigma_0})\cdots x_{-\sigma_n}(t_{-\sigma_n}) hx_{\sigma_n}(t_{\sigma_n}) \cdots x_{\sigma_0}(t_{\sigma_0})$ the evaluation $\Delta_{\omega_{S_{[p,q]}}}(g)$ is the weighted sum 
 \[
-\Delta_{S_{[p,q]}}(g) = \sum_{P \in \mathcal{P}} wt(P).
+\Delta_{\omega_{S_{[p,q]}}}(g) = \sum_{P \in \mathcal{P}} wt(P).
 \]
 Let $\cE = \{ E \subset [p,q]\}$ denote the subsets of $E \subset [p,q]$ that are target-closed: if there is an arrow $i \to j$ in $Q$ and $i, j$ are in $[p,q]$, then $E$ must contain $j$ if it contains $i$. 
 % $i \in E$, $j \in [p,q]$, and there is an arrow from $i$ to $j$ in $Q$, then $j \in E$. 
 Then we have 
 \[
 x_{M_{[p,q]}} = x^g \sum_{E \in \cE} \prod_{i \in E} \hat{y}_i.
-\]
+\]\sayDR{Using $g$ here for the $g$-vector is an abuse of notation.}
 We will prove the theorem by constructing a bijection $\cP \cong \cE$, then show it is compatible with the monomials appearing in each expression.
 
 %Recall that $\net_c$ consists of parallel strands labeled by $\Z_{n+1}$ connecting the two boundary components of the cylinder, and two sets of $n+1$ vertical strands connecting them. One of those sets has edges weighted $t_j$, and with 
 
 %Recall that for $P \in \cP$ and any $j \in \Z_{n+1}$, $wt(P)$ either does not depend on $t_j$ or is linear in $t_j$. 
 
-Let $\phi(P) \subset \ZZ_{n+1}$ denote the set of indices $j$ such that $wt(P)$ depends nontrivially on $t_j$. Recall that $t_j$ appears as the weight of a unique edge in $\net_c$, so equivalently $\phi(P)$ records which of these edges are traversed by a path in $P$. We claim that $\phi(P)$ is in fact a subset of $[p,q]$, is target-closed in $[p,q]$, and that the assignment $P \mapsto \phi(P)$ defines a bijection $\cP \cong \cE$.
+Let $\phi(P) \subset \ZZ_{n+1}$ denote the set of indices $j$ such that $wt(P)$ depends non-trivially on $t_j$. Recall that $t_j$ appears as the weight of a unique edge in $\net_c$, so equivalently $\phi(P)$ records which of these edges are traversed by a path in $P$. We claim that $\phi(P)$ is in fact a subset of $[p,q]$, is target-closed in $[p,q]$, and that the assignment $P \mapsto \phi(P)$ defines a bijection $\cP \cong \cE$.
 
 
 As in Definition \ref{def:Spq}, we let $k_1 < \cdots < k_m$, $c_1 < \cdots < c_m$ denote the labels of the sinks and sources in $[p,q]$. We first consider the case where the first sink in $[p,q]$ comes before the first source (i.e. $k_1 < c_1$ in $[p,q]$). 
