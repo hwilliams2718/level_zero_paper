@@ -1274,18 +1274,36 @@ Each subcylinder has $n+1$ non-crossing \emph{horizontal} edges running from one
 \end{center}
 \end{definition}
 
-We say the weight of a path in a weighted graph is the product of the weights of the edges it follows.
+By a path in $\net_c$ we will mean a path which is directed compatibly with the edges of $\net_c$, and which begins at a source on one end of the cyclinder and ends at a sink on the other end. If $P = \{P_i\}$ is a collection of paths, we write $\partial_{in}P \subset \ZZ_{n+1}$ for the set of boundary sources at which paths in $P$ begin; similarly $\partial_{out}P \subset \ZZ_{n+1}$ denotes the set of boundary sinks. We say the weight of a path is the product of the weights of edges traversed by it, and the weight $wt(P)$ of a collection of paths is the product of the weights of its constituent paths.
 
 \begin{proposition}\label{prop:minorsfrompaths}
 Given $S \subset \ZZ_{n+1}$, let
 \[ \omega_S = \sum_{i \in S} \omega_{i+1} - \omega_i.\] Then 
 \[ \Delta_{\omega_S}(g) = \sum_{P: S \to S} wt(P), \]
-where the sum is over $|S|$-tuples of non-intersecting paths in $\net_c$ with input and output sets equal to $S$.
+where the sum is over collections of pairwise disjoint paths with $\partial_{in}P = \partial_{out}P = S$.
+%$|S|$-tuples of non-intersecting paths in $\net_c$ with input and output sets equal to $S$.
 \end{proposition}
 
 \begin{proof}
 By construction, the directed graph $\net_c$ encodes the action of $g$ in the standard basis $\{ e_{i_1} \wedge \cdots \wedge e_{i_k} z^\ell\}$ of $\bigwedge^k \CC^n[z^{\pm 1}]$. This basis is labeled by pairs of a $k$-element subset of $\ZZ_{n+1}$ and an integer $\ell$.
 \end{proof}
+
+To use the above Proposition effectively, we collect some elementary combinatorial observations about noncrossing paths in $\net_c$. We define $\phi(P) \subset \ZZ_{n+1}$ by letting $j \in \phi(P)$ if and only if a path in $P$ traverses the unique edge of weight $t_j$.
+
+\begin{lemma}\label{lem:phi}
+Let $P$ be a collection of pairwise disjoint paths in $\net_c$, and define $\phi(P) \subset \ZZ_{n+1}$ by letting $j \in \phi(P)$ if and only if a path in $P$ traverses the unique edge of weight $t_j$. Then we have:
+\begin{enumerate}
+\item If $i \to i+1$ in $Q$, $i \in \phi(P)$, and $i \notin \partial_{in}(P)$, then $i + 1 \in \phi(P)$.
+\item If $i \leftarrow i+1$ in $Q$, $i \in \partial_{in}P$, and $i+1 \in \phi(P)$, then $i \in \phi(P)$.
+\item If $i \to i+1$  and $i \in \partial_{in}P$, then $i +1 \notin \phi(P)$.
+\item If $i \notin \phi(P)$ and $i \in \partial_{in}P$, then $i +1 \notin \phi(P)$.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+\sayHW{Probably an explanation of one together with a picture is sufficient.}
+\end{proof}
+
+Recall that the regular cluster variables are labeled by intervals $[p,q] \subset \ZZ_{n+1}$ containing as many sources as sinks -- to such an interval we associate a boundary condition on paths in $\net_c$:
 
 \begin{definition}\label{def:Spq}
 Let $[p,q] \subset \ZZ_{n+1}$ be an interval containing an even number of sinks and sources; that is, such that $M_{[p,q]}$ is regular. Write $k_1 < \cdots < k_m$ (resp. $c_1 < \cdots < c_m$) for the indices of the sinks (resp. sources) in $[p,q]$. Let $S_{[p,q]}$ denote the following subset of $\ZZ_{n+1}$:
@@ -1319,12 +1337,14 @@ M_{[p,q]} \to I_q \oplus I_{k_1} \oplus \cdots \oplus I_{k_m} \to I_{p-1} \oplus
 \]
 \end{proof}
 
+We now turn to the main result of the section:
+
 \begin{theorem}
 If $M_{[p,q]}$ is regular, then under the isomorphism $\CC[L^{c,c^{-1}}] \cong A_Q$ we have
 \[ x_{M_{[p,q]}} = \Delta_{\omega_{S_{[p,q]}}}\]  
 \end{theorem}
 \begin{proof}
-Let $\cP = \{P: S_{[p,q]} \to S_{[p,q]}\}$ denote the set of tuples of non-crossing paths in $\net_c$ whose sets of start and end vertices are $S_{[p,q]}$. 
+Let $\cP = \{P: S_{[p,q]} \to S_{[p,q]}\}$ denote the set of pairwise disjoint paths in $\net_c$ with $\partial_{in}P = \partial_{out}P = S_{[p,q]}$. 
 By Proposition \ref{prop:minorsfrompaths}, for a generic element $g = x_{-\sigma_0}(t_{-\sigma_0})\cdots x_{-\sigma_n}(t_{-\sigma_n}) hx_{\sigma_n}(t_{\sigma_n}) \cdots x_{\sigma_0}(t_{\sigma_0})$ the evaluation $\Delta_{\omega_{S_{[p,q]}}}(g)$ is the weighted sum 
 \[
 \Delta_{\omega_{S_{[p,q]}}}(g) = \sum_{P \in \mathcal{P}} wt(P).
@@ -1335,26 +1355,37 @@ Then we have
 \[
 x_{M_{[p,q]}} = x^g \sum_{E \in \cE} \prod_{i \in E} \hat{y}_i.
 \]\sayDR{Using $g$ here for the $g$-vector is an abuse of notation.}
-We will prove the theorem by constructing a bijection $\cP \cong \cE$, then show it is compatible with the monomials appearing in each expression.
+
+As in Lemma \ref{lem:phi}, we define $\phi(P) \subset \ZZ_{n+1}$ by letting $j \in \phi(P)$ if and only if a path in $P$ traverses the unique edge of weight $t_j$. We claim that for $P \in \cP$, $\phi(P)$ is in fact a subset of $[p,q]$, is target-closed in $[p,q]$, and that the assignment $P \mapsto \phi(P)$ defines a bijection $\cP \cong \cE$.
 
 %Recall that $\net_c$ consists of parallel strands labeled by $\Z_{n+1}$ connecting the two boundary components of the cylinder, and two sets of $n+1$ vertical strands connecting them. One of those sets has edges weighted $t_j$, and with 
 
 %Recall that for $P \in \cP$ and any $j \in \Z_{n+1}$, $wt(P)$ either does not depend on $t_j$ or is linear in $t_j$. 
 
-Let $\phi(P) \subset \ZZ_{n+1}$ denote the set of indices $j$ such that $wt(P)$ depends non-trivially on $t_j$. Recall that $t_j$ appears as the weight of a unique edge in $\net_c$, so equivalently $\phi(P)$ records which of these edges are traversed by a path in $P$. We claim that $\phi(P)$ is in fact a subset of $[p,q]$, is target-closed in $[p,q]$, and that the assignment $P \mapsto \phi(P)$ defines a bijection $\cP \cong \cE$.
+%Let $\phi(P) \subset \ZZ_{n+1}$ denote the set of indices $j$ such that $wt(P)$ depends non-trivially on $t_j$. Recall that $t_j$ appears as the weight of a unique edge in $\net_c$, so equivalently $\phi(P)$ records which of these edges are traversed by a path in $P$. We claim that $\phi(P)$ is in fact a subset of $[p,q]$, is target-closed in $[p,q]$, and that the assignment $P \mapsto \phi(P)$ defines a bijection $\cP \cong \cE$.
 
-
-As in Definition \ref{def:Spq}, we let $k_1 < \cdots < k_m$, $c_1 < \cdots < c_m$ denote the labels of the sinks and sources in $[p,q]$. We first consider the case where the first sink in $[p,q]$ comes before the first source (i.e. $k_1 < c_1$ in $[p,q]$). Recall that  
+As in Definition \ref{def:Spq}, we let $k_1 < \cdots < k_m$, $c_1 < \cdots < c_m$ denote the labels of the sinks and sources in $[p,q]$. We first consider the case where the first sink in $[p,q]$ comes before the first source (i.e. $k_1 < c_1$ in $[p,q]$). Recall that in this case
 \[
 S_{[p,q]} = [q,p-2] \cup [k_1, c_1 -1] \cup \cdots \cup [k_m, c_m - 1].
 \]
 
+Let $P \in \cP$. By assumption we have $q \to q+1$ in $Q$; $q \in \partial_{in}P$ then implies $q+1 \notin \phi(P)$ by item (3) in Lemma \ref{lem:phi}. Then since $[q+1,p-2] \subset \partial_{in}P$, it follows inductively from item (4) in Lemma \ref{lem:phi} that $[q+2,p-1] \not\subset \phi(P)$, hence $\phi(P) \subset [p,q]$.
+
+If $i, i+1 \in [p,q]$ and $i \to i+1 \in Q$, then by inspection $i \notin \partial_{in}P$; item (1) in Lemma \ref{lem:phi} then implies that if $i \in \phi(P)$, we also have $i+1 \in \phi(P)$. If instead $i \leftarrow i+1$, then by inspection $i \in \partial_{in}P$; item (2) in Lemma \ref{lem:phi} then implies that if $i +1 \in \phi(P)$, we also have $i \in \phi(P)$. Putting these facts together we see that $\phi(P)$ is target-closed in $[p,q]$.
+
+Suppose now that $E \in \cE$ is a target-closed subset of $[p,q]$. We define a collection $P \in \cP$ with $\phi(P) = E$ by specifying the path $P_i \in P$ which begins at boundary source $i \in S_{[p,q]}$ as follows:
+\begin{enumerate}
+\item If $i \in [q+1,p-2]$ then $P_i$ stays on level $i$.
+\item If $i \in \{q,k_1,\dotsc,k_m\}$ and $i \notin E$, then $P_i$ stays on level $i$.
+\item If $i \in \{q,k_1,\dotsc,k_m\}$ and $i \notin E$, let $j \in E$ be the index such that $[j,i] \subset E$ is the largest interval in $E$ with $k \to k+1$ in $Q$ for all $k \in [j,i-1]$. Then $P_i$ begins on level $i$, follows vertical edges up to level $j-1$, then returns to end on level $i$.
+\item If $i$ is not of the above form, then  $P_i$ stays on level $i$ if $i \notin E$ and moves from level $i$ to level $i-1$ and back if $i \in E$.
+\end{enumerate}
 
 
 
+\sayHW{Things not addressed yet: why is $P \mapsto \phi(E)$ injective on $\cP$, why is the above prescription for $P$ actually in $\cP$, what about the other tube?}
 
-
- Since the total number of sinks and sources in $[p,q]$ is even, it follows that $Q$ has an arrow $q \to q+1$. 
+% Since the total number of sinks and sources in $[p,q]$ is even, it follows that $Q$ has an arrow $q \to q+1$. 
 \end{proof}
 
 \section{Conventions}
