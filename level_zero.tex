@@ -137,7 +137,7 @@ holds on $G$.
   \end{equation}
 \end{proposition}
 
-From \cref{prop:fundid} we deduce two identities valid on $G$.
+From \Cref{prop:fundid} we deduce two identities valid on $G$.
 Set $u=v=c^ms_1\cdots s_{k-1}$. 
 Then
 \begin{align}
@@ -163,7 +163,7 @@ Note that
   =
   \Delta_{-v\lambda}^{-u\lambda}(x^\iota)
 \end{equation}
-Substituting $u=v=c^{-m}s_n\cdots s_{k+1}$ in \cref{eq:fundid} and evaluating at $x^\iota$ we get
+Substituting $u=v=c^{-m}s_n\cdots s_{k+1}$ in \Cref{eq:fundid} and evaluating at $x^\iota$ we get
 \begin{align}
   \Delta_{-c^{-m}\omega_k} \Delta_{-c^{-m-1}\omega_k}
   &=\Delta_{-c^{-m}\omega_k}^{-c^{-m-1}\omega_k} \Delta_{-c^{-m-1}\omega_k}^{-c^{-m}\omega_k}\\
@@ -211,14 +211,14 @@ For any root $\alpha$ we define $[\alpha:\alpha_i]$ by $\alpha = \sum_{i=1}^n [\
       [\alpha:\alpha_j] = \sum_{i=1}^n [\alpha:\beta_i^+][\beta_i^+:\alpha_j]
     \]
     with $\alpha=c^{m-1}\beta_k^+$ in the final exponent of eq. \eqref{eq:coeffeval},
-    we may rewrite \cref{eq:coeffeval} with $i = k$ and arbitrary $m$ in terms of the $m = 1$, arbitrary $i$ case and obtain \cref{eq:coeffreduction}.
+    we may rewrite \Cref{eq:coeffeval} with $i = k$ and arbitrary $m$ in terms of the $m = 1$, arbitrary $i$ case and obtain \Cref{eq:coeffreduction}.
 
-    Since $\beta_j^+ + \sum_{i=1}^{j-1} a_{ij} \beta_i^+ = \alpha_j$, we can further rewrite \cref{eq:coeffreduction} as
+    Since $\beta_j^+ + \sum_{i=1}^{j-1} a_{ij} \beta_i^+ = \alpha_j$, we can further rewrite \Cref{eq:coeffreduction} as
     \begin{equation}\label{eq:coeffident}
       \Delta_{c^m \omega_k}^{c^{m-1} \omega_k} = 
       \prod_{j=1}^n \left( \Delta_{c \omega_j}^{\omega_j} \prod_{i < j}(\Delta_{c \omega_i}^{\omega_i})^{a_{ij}}\right)^{[c^{m-1} \beta_k^+:\alpha_j]}. 
     \end{equation}
-    On the other hand, consider the anti-automorphism of $G$ which fixes $H$ and exchanges $x_i(t)$ with $x_{-i}(t)$.  This takes $G^{c,c^{-1}}$ to itself and pulls back $\Delta_{\omega}^{\lambda}$ to $\Delta^{\omega}_{\lambda}$.  Applying this anti-automorphism to \cref{eq:coeffident} we obtain
+    On the other hand, consider the anti-automorphism of $G$ which fixes $H$ and exchanges $x_i(t)$ with $x_{-i}(t)$.  This takes $G^{c,c^{-1}}$ to itself and pulls back $\Delta_{\omega}^{\lambda}$ to $\Delta^{\omega}_{\lambda}$.  Applying this anti-automorphism to \Cref{eq:coeffident} we obtain
     \[
       \Delta^{c^m \omega_k}_{c^{m-1} \omega_k} = 
       \prod_{j=1}^n \left( \Delta^{c \omega_j}_{\omega_j} \prod_{i < j}(\Delta^{c \omega_i}_{\omega_i})^{a_{ij}}\right)^{[c^{m-1} \beta_k^+:\alpha_j]}.
@@ -262,14 +262,19 @@ Let $G$ be a Kac-Moody group, let $c$ be a Coxeter element of its Weyl group, an
 \saySS{Add a sentence stating that we work in the derived version of $G$}
 \saySS{Add a sentence to say that we borrow/adapt most of the proofs from \cite{YZ08}}
 
-For $i\in[1,n]$ and $t\in\CC$ we write 
+We begin by recalling some known identities and giving explicit expressions for the value of certain minors on the generic point of $G^{c,c^{-1}}$ that will be used in the subsequent proofs.
+
+For $i\in[1,n]$ let $\varphi_i:SL_2\rightarrow G$ denote the canonical embedding corresponding to the simple root $\alpha_i$. 
+For $t\in\CC$ write 
 \begin{equation}
-  x_{-i}(t):=\exp(tf_i)
+  x_{-i}(t):=\varphi_i\left(\begin{array}{cc}1 & 0 \\ t & 1\end{array}\right)
   \quad
   \quad
-  \quad
-  \quad
-  x_i(t):=\exp(te_i)
+  x_i(t):=\varphi_i\left(\begin{array}{cc}1 & t \\ 0 & 1\end{array}\right)
+\end{equation}
+and for $t \in \CC^\times$
+\begin{equation}
+  t^{\alpha_i^\vee}:=\varphi_i\left(\begin{array}{cc}t & 0 \\ 0 & t^{-1}\end{array}\right)
 \end{equation}
 so that the generic element of $G^{c,c^{-1}}$ is
 \begin{equation}
@@ -290,10 +295,12 @@ Let $\iota$ be the anti-automorphism of $G$ defined by
 \end{equation}
 \begin{lemma}
   \label{lemma:iota_iso}
+  \saySS{This lemma is true-ish as in this is not an isomorphism; what is the right wording here?}
   $\iota$ restrict to an isomorphism of $G^{c,c^{-1}}$ with $G^{c^{-1},c}$.
 \end{lemma}
 \begin{proof}
-  It suffices to verify this on the generic element $g$ of $G^{c,c^{-1}}$ written as in \cref{eq:generic_element}.
+  \saySS{This is kind of obvious so we might consider getting rid of the proof}
+  It suffices to verify this on the generic element $g$ of $G^{c,c^{-1}}$ written as in \Cref{eq:generic_element}.
   We have 
   \begin{eqnarray*}
     g^\iota &=& \big(x_{-1}(t_{-1}) \cdots x_{-n}(t_{-n}) h x_n(t_n) \cdots x_1(t_1)\big)^\iota\\
@@ -303,7 +310,7 @@ Let $\iota$ be the anti-automorphism of $G$ defined by
   which is the generic element of $G^{c^{-1},c}$ by \cite[Proposition 3.2]{Wil13}.
 \end{proof}
 
-We will deduce some of the desired identities from the following fundamental identity.
+We will deduce some of the desired identities from the following fundamental one.
 \begin{proposition}[{\cite[Proposition 2.16]{Wil13}}]
   \label{prop:fundid}
   Suppose $u,v \in W$ and $i\in[1,n]$ are such that $\ell(u)<\ell(us_i)$ and $\ell(v)<\ell(vs_i)$. 
@@ -319,78 +326,9 @@ We will deduce some of the desired identities from the following fundamental ide
   \end{equation}
 \end{proposition}
 
-
-\begin{proposition}
-  \label{prop:projective_minors_identity}
-  Restricted to $G^{c,c^{-1}}$, for any $k\geq 0$ and $i\in[1,n]$, the product $\Delta_{c^k\omega_i}\Delta_{c^{k+1}\omega_i}$ is equal to
-  \begin{equation} 
-    \prod_{j<i}\Delta_{c^{k+1}\omega_j}^{-a_{ji}}
-    \prod_{j>i}\Delta_{c^k\omega_j}^{-a_{ji}}
-    +
-    \prod_{j=1}^n\left( 
-      \Delta^{c \omega_j}_{\omega_j}
-      \Delta^{\omega_j}_{ c\omega_j} 
-      \prod_{\ell<j}\big(
-        \Delta^{c \omega_\ell}_{\omega_\ell} 
-        \Delta^{\omega_\ell}_{c \omega_\ell}
-      \big)^{a_{\ell j}}
-    \right)^{[c^k\beta_i^+:\alpha_j]}
-  \end{equation}
-  where all the running indices in the products are in $[1,n]$.
-\end{proposition}
-
-\begin{proposition}
-  Restricted to $G^{c,c^{-1}}$, for any $k\geq 0$ and $i\in[1,n]$, the product $\Delta_{-c^{-k}\omega_i}\Delta_{-c^{-k-1}\omega_i}$ is equal to
-  \begin{equation} 
-    \prod_{j<i}\Delta_{-c^{-k}\omega_j}^{-a_{ji}}
-    \prod_{j>i}\Delta_{-c^{-k-1}\omega_j}^{-a_{ji}}
-    +
-    \prod_{j=1}^n\left( 
-      \Delta^{c \omega_j}_{\omega_j}
-      \Delta^{\omega_j}_{ c\omega_j} 
-      \prod_{\ell<j}\big(
-        \Delta^{c \omega_\ell}_{\omega_\ell} 
-        \Delta^{\omega_\ell}_{c \omega_\ell}
-      \big)^{a_{\ell j}}
-    \right)^{[c^{-k}\beta_i^-:\alpha_j]}
-  \end{equation}
-  where all the running indices in the products are in $[1,n]$.
-\end{proposition}
-\begin{proof}
-  In the ``inverse'' double Bruhat cell $G^{c^{-1},c}$ \cref{prop:projective_minors_identity} says that $\Delta_{c^{-k}\omega_i} \Delta_{c^{-k-1}\omega_i}$ equals
-  \[
-    \prod_{j<i}\Delta_{c^{-k}\omega_j}^{-a_{ji}}
-    \prod_{j>i}\Delta_{c^{-k-1}\omega_j}^{-a_{ji}}
-    +
-    \prod_{j=1}^n\left( 
-      \Delta^{c^{-1} \omega_j}_{\omega_j}
-      \Delta^{\omega_j}_{ c^{-1}\omega_j} 
-      \prod_{\ell>j}\big(
-        \Delta^{c^{-1} \omega_\ell}_{\omega_\ell} 
-        \Delta^{\omega_\ell}_{c^{-1} \omega_\ell}
-      \big)^{a_{\ell j}}
-    \right)^{[c^{-k}\beta_i^-:\alpha_j]}
-  \]
-  Recalling that $\Delta_\lambda^\mu(g)=\Delta_{-\mu}^{-\lambda}(g^\iota)$ (\cite[(2.25)]{FZ99}) and that $\iota$ maps $G^{c^{-1},c}$ to $G^{c,c^{-1}}$ (\cref{lemma:iota_iso}), we get that $\Delta_{-c^{-k}\omega_i} \Delta_{-c^{-k-1}\omega_i}$ equals
-  \[
-    \prod_{j<i}\Delta_{-c^{-k}\omega_j}^{-a_{ji}}
-    \prod_{j>i}\Delta_{-c^{-k-1}\omega_j}^{-a_{ji}}
-    +
-    \prod_{j=1}^n\left( 
-      \Delta^{-\omega_j}_{-c^{-1}\omega_j} 
-      \Delta^{-c^{-1} \omega_j}_{-\omega_j}
-      \prod_{\ell>j}\big(
-        \Delta^{-\omega_\ell}_{-c^{-1}\omega_\ell}
-        \Delta^{-c^{-1} \omega_\ell}_{-\omega_\ell} 
-      \big)^{a_{\ell j}}
-    \right)^{[c^{-k}\beta_i^-:\alpha_j]}
-  \]
-  in $G^{c,c^{-1}}$ and the results follows from \cref{lemma:coefficients_identities}.
-\end{proof}
-
 \begin{lemma}
   \label{lemma:coefficient_computations}
-  On the generic element $g$ of $G^{c,c^{-1}}$ expressed as in \cref{eq:generic_element} the following can be computed explicitly:
+  On the generic element $g$ of $G^{c,c^{-1}}$ expressed as in \Cref{eq:generic_element} the following can be computed explicitly:
   \saySS{We may have to make these more general allowing other powers of $c$ as in the proof of the preprojective identity; if we do add a comment in the proof saying that $c^m$ is reduced.}
   \begin{eqnarray}
     \Delta^{c\omega_j}_{\omega_j}(g) &=& h^{\omega_j}\prod_{i=1}^n t_{-i}^{[\beta_j^+:\alpha_i]}\\
@@ -422,7 +360,7 @@ We will deduce some of the desired identities from the following fundamental ide
 \end{lemma}
 \begin{proof}
   We will show only the first one the other being obtained in a similar fashon.
-  Evaluating both sides at the generic element $g$ of $G^{c,c^{-1}}$ expressed as in \cref{eq:generic_element}, and using \cref{lemma:coefficient_computations} the identity to prove becomes
+  Evaluating both sides at the generic element $g$ of $G^{c,c^{-1}}$ expressed as in \Cref{eq:generic_element}, and using \Cref{lemma:coefficient_computations} the identity to prove becomes
   \[
     \left(h^{\omega_j}\prod_{i=1}^n t_{i}^{[\beta_j^+:\alpha_i]}\right)
     \prod_{\ell<j}\left(h^{\omega_\ell}\prod_{i=1}^n t_{i}^{[\beta_\ell^+:\alpha_i]}\right)^{a_{\ell j}}
@@ -464,7 +402,7 @@ We will deduce some of the desired identities from the following fundamental ide
   \end{equation}
   which is the definition of $s_j\omega_j$.
 
-  We turn now to \cref{eq:identity_betas}.
+  We turn now to \Cref{eq:identity_betas}.
   Summing over $i$ we can restate it as
   \begin{equation}
     \beta_j^++\sum_{\ell<j}a_{\ell j}\beta_\ell^+
@@ -472,6 +410,97 @@ We will deduce some of the desired identities from the following fundamental ide
     \beta_j^-+\sum_{\ell>j}a_{\ell j}\beta_\ell^-
   \end{equation}
   and both sides are equal to $\alpha_j$ by telescoping.
+\end{proof}
+
+From the proof \Cref{lemma:coefficients_identities} we get immediately the following:
+\begin{corollary}
+  \label{corollary:coefficients_values}
+  \saySS{Scholium?}
+  On the generic element \Cref{eq:generic_element} of $G^{c,c^{-1}}$ we can explicitly compute
+  \begin{eqnarray}
+    y_i=
+    \Delta_{c\omega_i}^{\omega_i}
+    \prod_{ j <i}\big(\Delta_{c\omega_ j }^{\omega_ j }\big)^{a_{ j  i}}
+    &=&
+    t_i
+    h^{\omega_i}\prod_{ j <i}h^{a_{ j  i}\omega_ j }\\
+    z_i=
+    \Delta_{\omega_i}^{c\omega_i}
+    \prod_{ j <i}\big(\Delta_{\omega_ j }^{c\omega_ j }\big)^{a_{ j  i}}
+    &=&
+    t_{-i}
+    h^{\omega_i}\prod_{ j <i}h^{a_{ j  i}\omega_ j }
+  \end{eqnarray}
+\end{corollary}
+
+We are finally ready to prove the three identities we are after.
+
+\begin{proposition}
+  \label{prop:projective_minors_identity}
+  Restricted to $G^{c,c^{-1}}$, for any $k\geq 0$ and $i\in[1,n]$, the product $\Delta_{c^k\omega_i}\Delta_{c^{k+1}\omega_i}$ is equal to
+  \begin{equation} 
+    \prod_{j<i}\Delta_{c^{k+1}\omega_j}^{-a_{ji}}
+    \prod_{j>i}\Delta_{c^k\omega_j}^{-a_{ji}}
+    +
+    \prod_{j=1}^n\left( 
+      \Delta^{c \omega_j}_{\omega_j}
+      \Delta^{\omega_j}_{ c\omega_j} 
+      \prod_{\ell<j}\big(
+        \Delta^{c \omega_\ell}_{\omega_\ell} 
+        \Delta^{\omega_\ell}_{c \omega_\ell}
+      \big)^{a_{\ell j}}
+    \right)^{[c^k\beta_i^+:\alpha_j]}
+  \end{equation}
+  where all the running indices in the products are in $[1,n]$.
+\end{proposition}
+
+\begin{proposition}
+  Restricted to $G^{c,c^{-1}}$, for any $k\geq 0$ and $i\in[1,n]$, the product $\Delta_{-c^{-k}\omega_i}\Delta_{-c^{-k-1}\omega_i}$ is equal to
+  \begin{equation} 
+    \prod_{j<i}\Delta_{-c^{-k}\omega_j}^{-a_{ji}}
+    \prod_{j>i}\Delta_{-c^{-k-1}\omega_j}^{-a_{ji}}
+    +
+    \prod_{j=1}^n\left( 
+      \Delta^{c \omega_j}_{\omega_j}
+      \Delta^{\omega_j}_{ c\omega_j} 
+      \prod_{\ell<j}\big(
+        \Delta^{c \omega_\ell}_{\omega_\ell} 
+        \Delta^{\omega_\ell}_{c \omega_\ell}
+      \big)^{a_{\ell j}}
+    \right)^{[c^{-k}\beta_i^-:\alpha_j]}
+  \end{equation}
+  where all the running indices in the products are in $[1,n]$.
+\end{proposition}
+\begin{proof}
+  Restricted to the ``inverse'' double Bruhat cell $G^{c^{-1},c}$ \Cref{prop:projective_minors_identity} says that $\Delta_{c^{-k}\omega_i} \Delta_{c^{-k-1}\omega_i}$ equals
+  \[
+    \prod_{j<i}\Delta_{c^{-k}\omega_j}^{-a_{ji}}
+    \prod_{j>i}\Delta_{c^{-k-1}\omega_j}^{-a_{ji}}
+    +
+    \prod_{j=1}^n\left( 
+      \Delta^{c^{-1} \omega_j}_{\omega_j}
+      \Delta^{\omega_j}_{ c^{-1}\omega_j} 
+      \prod_{\ell>j}\big(
+        \Delta^{c^{-1} \omega_\ell}_{\omega_\ell} 
+        \Delta^{\omega_\ell}_{c^{-1} \omega_\ell}
+      \big)^{a_{\ell j}}
+    \right)^{[c^{-k}\beta_i^-:\alpha_j]}
+  \]
+  Recalling that $\Delta_\lambda^\mu(g)=\Delta_{-\mu}^{-\lambda}(g^\iota)$ (\cite[(2.25)]{FZ99}) and that $\iota$ maps $G^{c^{-1},c}$ to $G^{c,c^{-1}}$ (\Cref{lemma:iota_iso}), we get that $\Delta_{-c^{-k}\omega_i} \Delta_{-c^{-k-1}\omega_i}$ equals
+  \[
+    \prod_{j<i}\Delta_{-c^{-k}\omega_j}^{-a_{ji}}
+    \prod_{j>i}\Delta_{-c^{-k-1}\omega_j}^{-a_{ji}}
+    +
+    \prod_{j=1}^n\left( 
+      \Delta^{-\omega_j}_{-c^{-1}\omega_j} 
+      \Delta^{-c^{-1} \omega_j}_{-\omega_j}
+      \prod_{\ell>j}\big(
+        \Delta^{-\omega_\ell}_{-c^{-1}\omega_\ell}
+        \Delta^{-c^{-1} \omega_\ell}_{-\omega_\ell} 
+      \big)^{a_{\ell j}}
+    \right)^{[c^{-k}\beta_i^-:\alpha_j]}
+  \]
+  in $G^{c,c^{-1}}$ and the results follows from \Cref{lemma:coefficients_identities}.
 \end{proof}
 
 \begin{proposition}
@@ -489,6 +518,89 @@ We will deduce some of the desired identities from the following fundamental ide
   \end{equation}
   where all the running indices in the products are in $[1,n]$.
 \end{proposition}
+\begin{proof}
+  In view of \Cref{corollary:coefficients_values} and remebering that on the generic element \Cref{eq:generic_element} of $G^{c,c^{-1}}$ 
+  \[
+    \Delta_{\omega_i}(g) = h^{\omega_i}
+  \]
+  the identity to prove becomes
+  \[
+    h^{\omega_i}\Delta_{-\omega_i}(g)
+    =
+    t_i
+    t_{-i}
+    h^{2\omega_i}
+    \prod_{j<i}h^{a_{j i}\omega_j}
+    \prod_{j>i}\Delta_{-\omega_j}^{-a_{ji}}(g)
+    +
+    1.
+  \]
+  Equivalently, applying $\iota$, we need to show that 
+  \begin{eqnarray*}
+    h^{\omega_i}\Delta_{\omega_i}(g^\iota)
+    & = &
+    t_i
+    t_{-i}
+    h^{2\omega_i}
+    \prod_{j<i}h^{a_{ji}\omega_j}
+    \prod_{j>i}\Delta_{\omega_j}^{-a_{ji}}(g^\iota)
+    +
+    1\\
+    & = &
+    t_i
+    t_{-i}
+    h^{\alpha_i}
+    \prod_{j>i}\Big(h^{\omega_j}\Delta_{\omega_j}(g^\iota)\Big)^{-a_{ji}}
+    +
+    1
+  \end{eqnarray*}
+
+  To compute $\Delta_{\omega_i}(g^\iota)$ we need to straighten up the expression of $g^\iota$ using the commutations relations (Cf. \cite[Proposition 7.2]{BZ01})
+  \begin{equation}
+    x_i(t_i)x_{-j}(t_{-j}) 
+    =
+    x_{-j}(t_{-j})x_i(t_i) 
+    \qquad
+    \qquad
+    (\text{if $i\neq j$})
+  \end{equation}
+  and
+  \begin{equation}
+    x_i(t_i) h x_{-i}(t_{-i})
+    =
+    x_{-i}(t'_{-i})
+    h
+    (1+t_it_{-i}h^{-\alpha_i})^{\alpha_i^\vee}
+    x_{i}(t'_i)
+  \end{equation}
+  where the precise values of the non-zero complex numbers $t'_i$ and $t'_{-i}$ is irrelevant to our computation.
+  Iterating these it is straightforward to see that
+  \[
+    g^\iota 
+    = 
+    x_{-n}(t'_{-n})
+    \cdots
+    x_{-1}(t'_{-1})
+    h^{-1}
+    v_1^{\alpha^\vee_1}
+    \dots
+    v_n^{\alpha^\vee_n}
+    x_1(t'_1)
+    \dots
+    x_n(t'_n)
+  \]
+  where the non-zero complex numbers $v_i$ satisfy the recurrence relation
+  \[
+    v_i 
+    = 
+    1 + t_i t_{-i} h^{\alpha_i}
+    \prod_{j > i} v_j^{-a_{j,i}}.
+  \]
+
+  To conclude our proof is then sufficient to observe that $h^{\omega_i}\Delta_{\omega_i}(g^\iota)$ is $v_i$.
+
+\end{proof}
+
 
 \section{Level Zero Representations}
 
@@ -653,7 +765,7 @@ In analogy to what we did for $\bfc$-vectors, we will interpret $\bfg$-vectors a
 \end{proposition}
 
 \begin{proof}
-  In view of \cref{prop:c-vectors} the $\bfc$-vectors of $\cAb(-B_c^T)$ at the seed $t_m$ are the coroots $\gamma_{m,i}^\vee$.
+  In view of \Cref{prop:c-vectors} the $\bfc$-vectors of $\cAb(-B_c^T)$ at the seed $t_m$ are the coroots $\gamma_{m,i}^\vee$.
   The result follows then immediately from \cite[Theorem 1.2]{NZ12}: fundamental weights are the dual basis of the coroot basis and the pairing is invariant under the action of the Weyl group.
 \end{proof}
 
@@ -705,7 +817,7 @@ Taking inspiration from quiver representation theory we will refer to the former
 \saySS{We may want to substitute $s_1\dots s_{i-1}\alpha_i = \beta_i^+$ and $s_n\dots s_{i+1}\alpha_i = \beta_i^-$ to make things slightly clearer in the formulas (I am worried people might have issues in decoding the cases $i=1$ in the first and $i=n$ in the second.}
 \begin{proof}
   Recall that $\beta_i^+=s_1\cdots s_{i-1}\alpha_i$ and $\beta_i^-=s_n\cdots s_{i+1}\alpha_i$. 
-  The relations are an obvious consequence of \cref{prop:c-vectors,prop:g-vectors} once we recall that mutations happen along a source/sink adapted sequence so that, at $t_m$, the $\mod{m}$-th colum of $B_m$ contains only non-negative entries and the $\mod{m+1}$-th column only non-positive entries. 
+  The relations are an obvious consequence of \Cref{prop:c-vectors,prop:g-vectors} once we recall that mutations happen along a source/sink adapted sequence so that, at $t_m$, the $\mod{m}$-th colum of $B_m$ contains only non-negative entries and the $\mod{m+1}$-th column only non-positive entries. 
 \end{proof}
 
 
