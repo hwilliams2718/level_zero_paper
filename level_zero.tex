@@ -60,6 +60,7 @@ urlcolor=blue]{hyperref}
 \newcommand{\Gr}{\mathrm{Gr}}
 
 \newcommand{\rep}{\operatorname{rep}}
+\newcommand{\sgn}{\operatorname{sgn}}
 \newcommand{\soc}{\operatorname{soc}}
 \newcommand{\supp}{\operatorname{supp}}
 \renewcommand{\top}{\operatorname{top}}
@@ -118,6 +119,7 @@ The cluster algebra of any acyclic quiver is the coordinate ring of a subvariety
 
 \maketitle
 
+%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
 
 Given a finite quiver $Q$ without oriented cycles, there is an associated group $G$: the Kac-Moody group whose Dynkin diagram is the underlying unoriented graph of $Q$. The representation theory of $Q$ is connected to $G$ and its Lie algebra in a range of ways; for example, one has the classical result of [BGP] that if $Q$ is of ADE type, its irreducible representations are classified by the positive roots of $G$. In this paper we explore a new relationship, suggested by the results of \cite{YZ08} in finite type. Broadly speaking, we will be interested in the interplay between the following two trichotomies in the representation theories of $Q$ and $G$.
@@ -158,17 +160,17 @@ Let $Q$ be a finite quiver without oriented cycles and $G^{c,c^{-1}} \subset G$ 
 \end{enumerate}
 \end{theorem}
 
-Though above we have taken $G$ to be symmetric for simplicity, part (1) also holds in the symmetrizable case upon replacing quiver-theoretic notion with their species-theoretic counterparts. 
+Though above we have taken $G$ to be symmetric for simplicity, part (1) also holds in the symmetrizable case upon replacing quiver-theoretic notions with their species-theoretic counterparts. 
 We emphasize that although the coordinate ring of any double Bruhat cell $G^{u,v}$ is an (upper) cluster algebra, its defining quiver is generally not an orientation of the Dynkin diagram of $G$, and one expects that most cluster variables are not restrictions of minors.
 
-While the proof of (1) is a straighforward generalization of the finite-type case (though of course, the distinction between preprojective and preinjective disappears there), the proof of (2) requires different methods. 
+While the proof of (1) is mostly a straighforward generalization of the finite-type case (though of course, the distinction between preprojective and preinjective disappears there), the proof of (2) requires different methods. 
 %The most interesting part of the Theorem is (2), in the sense that the proof of (1) is an immediate generalization of the finite-type case (though of course, the distinction between preprojective and preinjective disappears there). 
 The reason (1) is true is that the preprojective and preinjective cluster variables are determined by an explicit list of relations, and these are implied by certain generalized determinental identities that hold globally on $G$. 
 However, these identities depend crucially on the fact that all minors involved are semi-invariants of the standard Borel subgroups and their conjugates. 
 The minors arising from level zero representations do not have this property, so the relations that determine them cannot be deduced from these identities.
 
 
-Instead, we study level zero minors in type $A_n^{(1)}$ by direct combinatorial means. The $LSL_n$ representations that appear are of the form $(\bigwedge^k\CC^n)[z^{\pm 1}]$\sayDR{Is it correct to say that we are studying certain subrepresentations of this one?}\sayHW{Ahh, before the order of operations was unclear, which I think was the basis of your questions -- is it ok with the parentheses now?}, which inherits a natural basis from the standard basis of $\CC^n$. The restrictions to $G^{c,c^{-1}}$ of the level zero minors appearing in (2) can be computed as a weighted sum over collections of paths through a directed network on the cylinder, as in [FM,GSV]. When $Q$ is an acyclic orientation of an $n$-cycle, its regular representations likewise have a simple combinatorial description, and one can construct by hand a bijection between their subrepresentations and collections of paths in the network.
+Instead, we study level zero minors in type $A_n^{(1)}$ by direct combinatorial means. The $LSL_n$ representations that appear are of the form $(\bigwedge^k\CC^n)[z^{\pm 1}]$\sayDR{Is it correct to say that we are studying certain subrepresentations of this one?}\sayHW{Ahh, before the order of operations was unclear, which I think was the basis of your questions -- is it ok with the parentheses now?}\sayDR{My confusion was actually different (but recognizing the difference between the two choices for parentheses is constructive), I forgot we can use the action of the entire group so any choice of $k$ strands generates the representation, wait is that true for this choice of parentheses?}, which inherits a natural basis from the standard basis of $\CC^n$. The restrictions to $G^{c,c^{-1}}$ of the level zero minors appearing in (2) can be computed as a weighted sum over collections of paths through a directed network on the cylinder, as in [FM,GSV]. When $Q$ is an acyclic orientation of an $n$-cycle, its regular representations likewise have a simple combinatorial description, and one can construct by hand a bijection between their subrepresentations and collections of paths in the network.
 
 %\begin{theorem}\label{thm:maintheorem}
 %Let $G$ be an affine Lie group of type $A_n^{(1)}$, let $c$ be a Coxeter element of the affine Weyl group, and $Q_c$ the associated affine quiver.  The coordinate ring of $G^{c,c^{-1}}$ is an upper cluster algebras of type $Q_c$ and all mutable cluster variables are restrictions of principal minors for representations of $G$ with finite-dimensional weight spaces.  Those that are cluster characters of preprojective, regular, or postinjective representations of $Q_c$ are minors of positive level, level zero, and negative level $G$-representations, respectively.
@@ -190,9 +192,9 @@ Finally, in type $A_n^{(1)}$ the following suggestive extension of Theorem \ref{
 
 \subsection{Cluster Algebras}
 
-Given $m \geq n$, we say the principal part of an $m \times n$ matrix $B$ is the $n \times n$ submatrix formed by its first $n$ rows. We say an $m \times n$ matrix $B$ is skew-symmetrizable if there is a diagonal matrix $D$ such that the principal part of $DB$ is skew-symmetric. \sayHW{$DB$ or $BD$?} 
+Given $m \geq n$, we say the principal part of an $m \times n$ matrix $B$ is the $n \times n$ submatrix formed by its first $n$ rows. We say an $m \times n$ matrix $B$ is skew-symmetrizable if there is a diagonal matrix $D$ such that the principal part of $DB$ is skew-symmetric. \sayHW{$DB$ or $BD$?}\sayDR{It should be $BD$ if you want to multiply the entire exchange matrix}
 %We say an $m \times n$ integer matrix with $m > n$, and $D$ an $m \times m$ diagonal integer matrix such that $DB$ is skew-symmetric. 
-We say two skew-symmetrizable $m \times n$ matrices $B$ and $B'$ are related by mutation at $k \in \{1,\dotsc,n\}$ if their entries are related by \sayHW{Make sure $[a]_+$ notation is properly introduced somewhere} 
+We say two skew-symmetrizable $m \times n$ matrices $B$ and $B'$ are related by mutation at $k \in \{1,\dotsc,n\}$ if their entries are related by \sayHW{Make sure $[a]_+$ notation is properly introduced somewhere}\sayDR{We need either $\sgn(B_{ik})[B_{ik}B_{kj}]_+$ or $[B_{ik}]_+B_{kj}+B_{ik}[-B_{kj}]_+$, which is preferred?}
 \[
 B'_{ij} = \begin{cases}
 -B_{ij} & i = k \text{ or } j = k\\
@@ -202,24 +204,24 @@ B_{ij} + [B_{ik}B_{kj}]_+ & \text{otherwise.}
 
 We recall the definition of the cluster algebra $\cA_B$ associated to a skew-symmetrizable matrix $B$. 
 Let $T$ be an infinite $n$-ary tree with edges labeled by $\{1,\dotsc,n\}$ so that the edges incident to any given vertex have distinct labels. 
-Fix a root $t_0 \in T_0$, and assign a matrix $B_t$ to each $t \in T_0$ so that $B_{t_0} = B$, and if $t, t' \in T_0$ are joined by an edge labeled $k$, then $B_t$ and $B_{t'}$ are related by mutation at $k$.
+Fix a root $t_0 \in T_0$, and assign a matrix $B^t$ to each $t \in T_0$ so that $B^{t_0} = B$, and if $t, t' \in T_0$ are joined by an edge labeled $k$, then $B^t$ and $B^{t'}$ are related by mutation at $k$.
 
 Let $\cF$ denote the field of rational functions in formal variables $x_{1;t_0}\,\dotsc,x_{m;t_0}$ with coefficients in $\kk$. \sayHW{Fix earlier an alg. closed field $\kk$?} The cluster variables $\{ x_{i;t}; i \in \{1,\dotsc,m\}, t \in T_0\}$ are defined recursively from the initial cluster variables as follows. If $t,t' \in T_0$ are joined by an edge labeled $k$, then $x_{i;t} = x_{i;t'}$ for $i \neq k$, and $x_{k;t}$, $x_{k;t'}$ are related by the exchange relation 
 \[
-x_{k;t}x_{k;t'} = \prod_{(B_t)_{ik}>0}x_{i;t}^{(B_t)_{ik}} + \prod_{(B_t)_{ik}<0}x_{i;t}^{-(B_t)_{ik}}.
+x_{k;t}x_{k;t'} = \prod_{B^t_{ik}>0}x_{i;t}^{B^t_{ik}} + \prod_{B^t_{ik}<0}x_{i;t}^{-B^t_{ik}}.
 \]
 
 \begin{definition}
 The cluster algebra $\cA_B$ is the $\kk$-subalgebra of $\cF$ generated by the set of all cluster variables.
 \end{definition}
 
-The variables $x_{n+1;t},\dotsc, x_{m;t}$ do not depend on $t$ and are referred to as forzen variables. 
+The variables $x_{n+1;t},\dotsc, x_{m;t}$ do not depend on $t$ and are referred to as frozen variables. 
 
-We associate a quiver $Q := Q_B$ to $B$ as follows: its vertices are indexed by $\{1,\dotsc,n\}$, and there are $[(DB)_{ij}]_+$ arrows from vertex $i$ to vertex $j$.  We say $B$ is acyclic if $Q_B$ has no oriented cycles (this property does not depend on $D$). Conversely, given a finite quiver without oriented cycles, we have a skew-symmetric matrix $B$. 
+We associate a quiver $Q := Q_B$ to $B$ as follows: its vertices are indexed by $\{1,\dotsc,n\}$, and there are $[-(BD)_{ij}]_+$\sayDR{When $D$ is not the identity, it is usually $\gcd(B_{ij},B_{ji})$ arrows when $B_{ji}<0$} arrows from vertex $i$ to vertex $j$.  We say $B$ is acyclic if $Q_B$ has no oriented cycles (this property does not depend on $D$). Conversely, given a finite quiver without oriented cycles, we have a skew-symmetric matrix $B$. 
 
-When $B$ is acyclic, $\cA_B$ is finitely generated as a $\kk$-algebra and \sayHW{Check reference} coincides with the upper cluster algebra associated to $B$ [BFZ] (as such, we will not need to recall the latter notion explicitly).  
+When $B$ is acyclic, $\cA_B$ is finitely generated as a $\kk$-algebra and \sayHW{Check reference}\sayDR{It's correct.} coincides with the upper cluster algebra associated to $B$ [BFZ] (as such, we will not need to recall the latter notion explicitly).  
 
-Each cluster variable $x_{i;t}$ is labeled by a distinct $g$-vector $g_{i;t}$ in $\ZZ^n$. There are determined by the following relations...
+Each cluster variable $x_{i;t}$ is labeled by a distinct $g$-vector $g_{i;t}$ in $\ZZ^n$. These are determined by the following relations...
 
 
 If $Q$ is a finite quiver without oriented cycles, the non-initial cluster variables in $\cA_Q$ are in bijection with the rigid indecomposable representations of $Q$ [CC, CK]. The bijection is given by associating to a representation $M$ a generating function encoding its submodule structure, referred to as its cluster character or Caldero-Chapoton function.
@@ -231,7 +233,7 @@ We write $\mathrm{coind}(M)$ for
 x_M = x^{\mathrm{coind}(M)} \sum_{e \in \NN^n}\chi(\Gr_eM) \hat{y}^e
 \]
 
-This interpretation generalizes to the case of skew-symmetrizable matrices by replacing quiver representations with species representations. We refer to [] for details, though we will not make direct use of this here.
+This interpretation generalizes to the case of skew-symmetrizable matrices by replacing quiver representations with species representations. We refer to \cite{R15} for details, though we will not make direct use of this here.
 
 The data of an acyclic skew-symmetrizable matrix $B$ is equivalent to the data of a root system together with a Coxeter element of its Weyl group. 
 
@@ -245,6 +247,200 @@ y_j = \Delta^{\omega_j}_{ c\omega_j} \prod_{i < j}(\Delta^{\omega_i}_{c \omega_i
 \end{proposition}
 \begin{proof}
 Let $B'$ be the $3n \times n$ exchange matrix with principal part $B_c$ and with $B'_{i+n,j} = B'_{i+2n,j} = [i = j] + a_{ij}[i < j]$ for $i,j \in [1,n]$.  Then the coordinate ring of $G^{c,c^{-1}}$ is the upper cluster algebra with exchange matrix $B'$, initial cluster variables $\Delta_{\omega_i}^{\omega_i}$, and frozen variables $\Delta^{\omega_i}_{c \omega_i}$, $\Delta^{c \omega_i}_{\omega_i}$ \cite{me}.  The proposition then follows from \Cref{prop:changeofcoeffs}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{The acyclic belt in non-finite types}
+In this section we present straightforward generalizations of some results from \cite[Sections 8-10]{FZ07} to the acyclic case.
+
+Let $A$ be any irreducible Cartan matrix not of finite type and let $c=s_1\cdots s_n$ be a Coxeter element in the Weyl group of $A$.
+The case when $A$ is of finite type is already covered in \cite{YZ08} and we will omit it here in order to simplify our notation.
+\saySS{We can cover it if we use $w_0$ in place of $c^\infty$ to cover finite type. It is not clear to me that it is worth doing even though it will make life more uniform. Maybe we should add a comment here.}
+In view of these assumptions any prefix of the word $c^\infty$ is reduced (cf. \cite{Spe09}).
+Let $B_c$ be the skew-symmetrizable matrix associated to the pair $A,c$. 
+\saySS{We should define $B_c$ somewhere in the introduction}
+We will concern ourself with a specific sequence of seeds (the \emph{acyclic belt}) in the principal coefficients cluster algebra $\cAb(B_c)$.
+
+More specifically, let $t_0$ be the node of the exchange graph containing the initial seed and $t_m$ the nodes given by the sequence
+\begin{equation}
+  \cdots
+  \dashname{n}
+  t_{-n}
+  \dashname{1}
+  \cdots
+  \dashname{n-1}
+  t_{-1}
+  \dashname{n}
+  t_0
+  \dashname{1}
+  t_1
+  \dashname{2}
+  \cdots
+  \dashname{n}
+  t_n
+  \dashname{1}
+  \cdots
+\end{equation}
+\saySS{We should probably comment on the fact that all these nodes of the exchange graph are distinct. It follows from the propositions we are about to prove but one might wonder whether the argument is circular here.}
+\sayDR{I think the proposition below establishes this fact, I did not see any point where you assumed they were distinct in the proof.}
+Following \cite{FZ02}, we denote by $\mod{m}$ the element of $[1,n]$ congruent to $m$ modulo $n$.
+The edge immediately to the left of $t_m$ is then labeled by $\mod{m}$.
+Observe that the nodes we are considering lie along a \emph{sink/source adapted sequence}. 
+In particular, the entries of the exchange matrix $B_m$ at $t_m$ equal, in absolute value, the entries of $B_0$. 
+Moreover the $\mod{m}$-th row of $B_m$ contains only non-positive entries and the $\mod{m+1}$-st row only non-negative entries.
+
+We will interpret $\bfc$-vectors as coordinate vectors in the basis of simple roots for the root system of $A$ so that the $i$-th initial $\bfc$-vector is $\alpha_i$.
+\begin{proposition}
+  \label{prop:c-vectors}
+  Let $\gamma_{m,i}$ be the $i$-th $\bfc$-vector of $\cAb(B_c)$ in the seed at $t_m$. 
+  Then
+  \begin{equation}
+    \gamma_{m,i}
+    =
+    \begin{cases}
+      c^{\left\lfloor\frac{m-1}{n}\right\rfloor}s_1\cdots s_{\mod{m}} \alpha_i & \text{if $m>0$}\\
+      \alpha_i & \text{if $-n\leq m \leq 0$ and  $i\leq n+m$} \\
+      -\alpha_i & \text{if $-n\leq m \leq 0$ and $i>n+m$} \\
+      -c^{1+\left\lceil\frac{m+1}{n}\right\rceil}s_n\cdots s_{\mod{m+1}} \alpha_i & \text{if $m <-n$}\\
+    \end{cases}
+  \end{equation}
+  Where, as usual, $\left\lfloor x \right\rfloor$ is the biggest integer smaller or equal to $x$ while $\left\lceil x \right\rceil$ is the smallest integer greater or equal to $x$.
+  Moreover, whenever $m > 0 $ or $m < -n$, the vector $\gamma_{m,\mod{m}}$ is negative and the vector $\gamma_{m,\mod{m+1}}$ is positive.
+\end{proposition}
+
+\begin{remark}
+  If $m>0$ then $c^{\left\lfloor\frac{m-1}{n}\right\rfloor}s_1\cdots s_{\mod{m}}$ is the prefix of $c^\infty$ of length $m$.
+  \saySS{Reminder: for $m>0$ we write $m=\left\lfloor\frac{m-1}{n}\right\rfloor n + \mod{m}$.}
+  Similarly, if $m<-n$, $c^{1+\left\lceil\frac{m+1}{n}\right\rceil}s_n\cdots s_{\mod{m+1}}$ is the prefix of $c^{-\infty}$ of length $-m-n$.
+  \saySS{Reminder: for $m<-n$ we write $-m-n =-\left(\left\lceil\frac{m+1}{n}\right\rceil+1\right)n+\mod{n-\mod{m}}$}
+\end{remark}
+
+\begin{proof}
+  \saySS{I should remember to thank Anna and Pavel for hints on reflection groups}
+  Let's begin by settling the claim about signs. 
+  When $m>0$ the root $c^{\left\lfloor\frac{m-1}{n}\right\rfloor}s_1\cdots s_{\mod{m}} \alpha_{\mod{m+1}}$ is positive: being a prefix of $c^\infty$, the word  $c^{\left\lfloor\frac{m-1}{n}\right\rfloor}s_1\cdots s_{\mod{m}} s_{\mod{m+1}}$ is reduced (cf. \cite{Spe09}) and we can apply \cite[VI \S 1.6 Corollary 2 to Proposition 17]{Bou02}.
+  By the same principle the root $c^{\left\lfloor\frac{m-1}{n}\right\rfloor}s_1\cdots s_{\mod{m}} \alpha_{\mod{m}} = -c^{\left\lfloor\frac{m-1}{n}\right\rfloor}s_1\cdots s_{\mod{m-1}} \alpha_{\mod{m}}$ is negative because the word $c^{\left\lfloor\frac{m-1}{n}\right\rfloor}s_1\cdots s_{\mod{m}}$ is reduced.
+  Similarly, when $m<-n$ the root $-c^{1+\left\lceil\frac{m+1}{n}\right\rceil}s_n\cdots s_{\mod{m+1}} \alpha_{\mod{m+1}}$ is positive and the root $-c^{1+\left\lceil\frac{m+1}{n}\right\rceil}s_n\cdots s_{\mod{m+1}} \alpha_{\mod{m}}$ is negative.
+  
+  For the main claim there are three cases to consider.
+
+  \noindent{\bf Case $-n \leq m \leq 0$.}
+  We proceed by induction on $m$.
+  For $m=0$ there is nothing to check.
+  By construction, while the sign of $\gamma_{m,\mod{m}}$ is positive, the sign of the $\mod{m}$-th row of $B_m$ is negative. 
+  The $\bfc$-vectors at $t_{m-1}$ are therefore given by:
+  \begin{equation*}
+    \gamma_{m-1,i}
+    =
+    \begin{cases}
+      \gamma_{m,i} & \text{if $i\neq \mod{m}$}\\
+      -\gamma_{m,\mod{m}} & \text{if $i = \mod{m}$}
+    \end{cases}
+  \end{equation*}
+  as desired.
+
+  \noindent{\bf Case $m > 0$.}
+  We again argue by induction on $m$ the base case still being $m=0$. 
+  Since the sign of $\gamma_{m,\mod{m+1}}$ and the sign of the $\mod{m+1}$-st row of $B_m$ are both positive, in view of \cite[Proposition 1.3]{NZ12}, the $\bfc$-vectors at $t_{m+1}$ are given by
+  \begin{align*}
+    \gamma_{m+1,i} 
+    &= 
+    \gamma_{m,i} - a_{\mod{m+1},i} \gamma_{m,\mod{m+1}}\\
+    &=
+    \gamma_{m,i} - \frac{2(\alpha_{\mod{m+1}},\alpha_i)}{(\alpha_{\mod{m+1}},\alpha_{\mod{m+1}})} \gamma_{m,\mod{m+1}}\\
+    &=
+    \gamma_{m,i} - \frac{2(\gamma_{m,\mod{m+1}},\gamma_{m,i})}{(\gamma_{m,\mod{m+1}},\gamma_{m,\mod{m+1}})} \gamma_{m,\mod{m+1}}\\
+    &=
+    s_{\gamma_{m,\mod{m+1}}}\big(\gamma_{m,i}\big)
+  \end{align*}
+  where the second to last equality holds because the pairing $(\cdot,\cdot)$ is invariant under the action of the Weyl group.  
+  Using the inductive hypotheses we can then conclude
+  \begin{align*}
+    \gamma_{m+1,i} 
+    &=
+    s_{\gamma_{m,\mod{m+1}}}\big(\gamma_{m,i}\big)\\
+    &=
+    \big(c^{\left\lfloor\frac{m-1}{n}\right\rfloor}s_1\cdots s_{\mod{m}}\big)s_{\mod{m+1}}\big(s_{\mod{m}}\cdots s_1 c^{-\left\lfloor\frac{m-1}{n}\right\rfloor}\big)\big(c^{\left\lfloor\frac{m-1}{n}\right\rfloor}s_1\cdots s_{\mod{m}}\alpha_i\big)\\
+    &= 
+    c^{\left\lfloor\frac{m-1}{n}\right\rfloor}s_1\cdots s_{\mod{m}}s_{\mod{m+1}} \alpha_i.
+  \end{align*}
+
+  \noindent{\bf Case $m < -n$.}
+  The argument is the same as the one used in the case $m>0$ with $m=-n$ as base for the induction. 
+  The only minor change is that this time we leverage the fact that both the sign of $\gamma_{m,\mod{m}}$ and the sign of the $\mod{m}$-th row of $B_m$ are negative.
+\end{proof}
+
+In analogy to what we did for $\bfc$-vectors, we will interpret $\bfg$-vectors as coordinate vectors in the basis of fundamental weights for the root system of $A$ so that the $i$-th initial $\bfg$-vector is $\omega_i$.
+\begin{proposition}
+  \label{prop:g-vectors}
+  Let $\lambda_{m,i}$ be the $\bfg$-vector of the $i$-th cluster variable of $\cAb(B_c)$ in the seed at $t_m$. 
+  Then
+  \begin{equation}
+    \lambda_{m,i}
+    =
+    \begin{cases}
+      c^{\left\lfloor\frac{m-1}{n}\right\rfloor}s_1\cdots s_{\mod{m}} \omega_i & \text{if $m>0$}\\
+      \omega_i & \text{if $-n\leq m \leq 0$ and  $i\leq n+m$} \\
+      -\omega_i & \text{if $-n\leq m \leq 0$ and $i>n+m$} \\
+      -c^{1+\left\lceil\frac{m+1}{n}\right\rceil}s_n\cdots s_{\mod{m+1}} \omega_i & \text{if $m <-n$}\\
+    \end{cases}
+  \end{equation}
+\end{proposition}
+
+\begin{proof}
+  In view of \Cref{prop:c-vectors} the $\bfc$-vectors of $\cAb(-B_c^T)$ at the seed $t_m$ are the coroots $\gamma_{m,i}^\vee$.
+  The result follows then immediately from \cite[Theorem 1.2]{NZ12}: fundamental weights are the dual basis of the coroot basis and the pairing is invariant under the action of the Weyl group.
+\end{proof}
+
+In view of how simple reflections act on fundamental weights the expressions of the $\bfg$-vectors $\lambda_{m,i}$ can be expressed using only powers of $c$ as follows:
+\begin{equation}
+  \lambda_{m,i}
+  =
+  \begin{cases}
+    c^{\left\lfloor\frac{m-1}{n}\right\rfloor} \omega_i & \text{if $m>0$ and $i > \mod{m}$}\\
+    c^{1+ \left\lfloor\frac{m-1}{n}\right\rfloor} \omega_i & \text{if $m>0$ and $i \leq \mod{m}$}\\
+    \omega_i & \text{if $-n\leq m \leq 0$ and  $i\leq n+m$} \\
+    -\omega_i & \text{if $-n\leq m \leq 0$ and $i>n+m$} \\
+    -c^{1+\left\lceil\frac{m+1}{n}\right\rceil} \omega_i & \text{if $m <-n$ and $i < \mod{m+1}$}\\
+    -c^{\left\lceil\frac{m+1}{n}\right\rceil} \omega_i & \text{if $m <-n$ and $i \geq \mod{m+1}$}\\
+  \end{cases}
+\end{equation}
+  \saySS{Note to self, check that the formulas are correct before publishing}
+In particular, in the acyclic belt of $\cAb(B_c)$, there is one cluster variable $x_{c^k\omega_i}$ with  $\bfg$-vector $c^k\omega_i$ for any $k\geq 0$, and one cluster variable $x_{-c^{-k}\omega_i}$ with $\bfg$-vector $-c^{-k}\omega_i$ again for any $k\geq 0$.
+Taking inspiration from quiver representation theory we will refer to the former as \emph{preprojective} cluster variables and to the latter as \emph{postinjective} cluster variables.
+\saySS{I am not entirely happy with this definition: if I am not mistaken modules corresponding to initial cluster variables are neither preprojective not postinjective. Here we force them in the preprojective field to make it easier to state exchange relations later on. Would it make sense to drop the notation entirely? Do we need it anywhere?}
+\sayDR{It is really only necessary if we wish to emphasize the similarity of trichotomies: (preprojective, regular, postinjecive) and (positive level, level zero, negative level).  As you correctly pointed out the initial cluster is a bit of an anomaly from the ``classical'' representation theory perspective, but the initial cluster variables do correspond to shifted projectives in the cluster category so the terminology might still be considered acceptable.}
+
+\begin{corollary}
+  The cluster variables in the acyclic belt of $\cAb(B_c)$ satisfy the following exchange relations $(k\geq 0)$:
+  \begin{eqnarray}
+    x_{c^k\omega_i}x_{c^{k+1}\omega_i} 
+    &=& 
+    \prod_{j<i} x_{c^{k+1}\omega_j}^{-a_{ji}}
+    \prod_{j>i} x_{c^k\omega_j}^{-a_{ji}}
+    +
+    \prod_{j=1}^n y_j^{[c^k\beta_i^+:\alpha_j]}
+    \\
+    x_{-c^{-k}\omega_i}x_{-c^{-k-1}\omega_i} 
+    &=& 
+    \prod_{j<i} x_{-c^{-k}\omega_j}^{-a_{ji}}
+    \prod_{j>i} x_{-c^{-k-1}\omega_j}^{-a_{ji}}
+    +
+    \prod_{j=1}^n y_j^{[c^{-k}\beta_i^-:\alpha_j]}
+    \\
+    x_{\omega_i}x_{-\omega_i}
+    &=&
+    y_i
+    \prod_{j<i} x_{\omega_j}^{-a_{ji}}
+    \prod_{j>i} x_{-\omega_j}^{-a_{ji}}
+    +
+    1
+  \end{eqnarray}
+\end{corollary}
+\saySS{We may want to substitute $s_1\dots s_{i-1}\alpha_i = \beta_i^+$ and $s_n\dots s_{i+1}\alpha_i = \beta_i^-$ to make things slightly clearer in the formulas (I am worried people might have issues in decoding the cases $i=1$ in the first and $i=n$ in the second.}
+\begin{proof}
+  Recall that $\beta_i^+=s_1\cdots s_{i-1}\alpha_i$ and $\beta_i^-=s_n\cdots s_{i+1}\alpha_i$. 
+  The relations are an obvious consequence of \Cref{prop:c-vectors,prop:g-vectors} once we recall that mutations happen along a source/sink adapted sequence so that, at $t_m$, the $\mod{m}$-th colum of $B_m$ contains only non-negative entries and the $\mod{m+1}$-th column only non-positive entries. 
 \end{proof}
 
 \section{Highest and Lowest Weight Minors}
@@ -761,10 +957,10 @@ We are finally ready to prove the three identities we are after.
 
 \end{proof}
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Level Zero Representations}
 
-\begin{proposition}
+\begin{proposition}\label{prop:level zero}
 Let $G = \widehat{LSL_{n+1}}$ be the affine Kac-Moody group of type $A_n^{(1)}$, let $c$ be a Coxeter element of the affine Weyl group, and $Q_c$ the associated affine quiver.  All regular cluster variables in the coordinate ring of $G^{c,c^{-1}}$ are principal minors of level zero representations.  
 \end{proposition}
 \begin{proof}
@@ -774,273 +970,324 @@ Let $G = \widehat{LSL_{n+1}}$ be the affine Kac-Moody group of type $A_n^{(1)}$,
 \end{enumerate}
 \end{proof}
 
-\section{Examples in Other Types}\label{sec:othertypes}
+\subsection{Networks}
 
-\begin{proposition}
-\Cref{conj:mainconjecture} holds when $G$ is of type $B_2^{(1)}$, $B_3^{(1)}$, $C_2^{(1)}$, $D_4^{(1)}$, $G_2^{(1)}$ and $c$ is $\dotsc$. 
-\end{proposition}
-\begin{proof}
-\begin{enumerate}
-\item Write out the computation.
-\end{enumerate}
-\end{proof}
-
-\section{Appendix: Double Bruhat Cells}
-
-\section{The acyclic belt in non-finite types}\say[Group]{Recall cluster algebra notions and move this ahead of the section on highest/lowest weight minors.}
-In this section we present straightforward generalizations of some results from \cite[Sections 8-10]{FZ07} to the acyclic case.
-
-Let $A$ be any irreducible Cartan matrix not of finite type and let $c=s_1\cdots s_n$ be a Coxeter element in the Weyl group of $A$.
-The case when $A$ is of finite type is already covered in \cite{YZ08} and we will omit it here in order to simplify our notation.
-\saySS{We can cover it if we use $w_0$ in place of $c^\infty$ to cover finite type. It is not clear to me that it is worth doing even though it will make life more uniform. Maybe we should add a comment here.}
-In view of these assumptions any prefix of the word $c^\infty$ is reduced (cf. \cite{Spe09}).
-Let $B_c$ be the skew-symmetrizable matrix associated to the pair $A,c$. 
-\saySS{We should define $B_c$ somewhere in the introduction}
-We will concern ourself with a specific sequence of seeds (the \emph{acyclic belt}) in the principal coefficients cluster algebra $\cAb(B_c)$.
-
-More specifically, let $t_0$ be the node of the exchange graph containing the initial seed and $t_m$ the nodes given by the sequence
-\begin{equation}
-  \cdots
-  \dashname{n}
-  t_{-n}
-  \dashname{1}
-  \cdots
-  \dashname{n-1}
-  t_{-1}
-  \dashname{n}
-  t_0
-  \dashname{1}
-  t_1
-  \dashname{2}
-  \cdots
-  \dashname{n}
-  t_n
-  \dashname{1}
-  \cdots
-\end{equation}
-\saySS{We should probably comment on the fact that all these nodes of the exchange graph are distinct. It follows from the propositions we are about to prove but one might wonder whether the argument is circular here.}
-\sayDR{I think the proposition below establishes this fact, I did not see any point where you assumed they were distinct in the proof.}
-Following \cite{FZ02}, we denote by $\mod{m}$ the element of $[1,n]$ congruent to $m$ modulo $n$.
-The edge immediately to the left of $t_m$ is then labeled by $\mod{m}$.
-Observe that the nodes we are considering lie along a \emph{sink/source adapted sequence}. 
-In particular, the entries of the exchange matrix $B_m$ at $t_m$ equal, in absolute value, the entries of $B_0$. 
-Moreover the $\mod{m}$-th row of $B_m$ contains only non-positive entries and the $\mod{m+1}$-st row only non-negative entries.
-
-We will interpret $\bfc$-vectors as coordinate vectors in the basis of simple roots for the root system of $A$ so that the $i$-th initial $\bfc$-vector is $\alpha_i$.
-\begin{proposition}
-  \label{prop:c-vectors}
-  Let $\gamma_{m,i}$ be the $i$-th $\bfc$-vector of $\cAb(B_c)$ in the seed at $t_m$. 
-  Then
-  \begin{equation}
-    \gamma_{m,i}
-    =
-    \begin{cases}
-      c^{\left\lfloor\frac{m-1}{n}\right\rfloor}s_1\cdots s_{\mod{m}} \alpha_i & \text{if $m>0$}\\
-      \alpha_i & \text{if $-n\leq m \leq 0$ and  $i\leq n+m$} \\
-      -\alpha_i & \text{if $-n\leq m \leq 0$ and $i>n+m$} \\
-      -c^{1+\left\lceil\frac{m+1}{n}\right\rceil}s_n\cdots s_{\mod{m+1}} \alpha_i & \text{if $m <-n$}\\
-    \end{cases}
-  \end{equation}
-  Where, as usual, $\left\lfloor x \right\rfloor$ is the biggest integer smaller or equal to $x$ while $\left\lceil x \right\rceil$ is the smallest integer greater or equal to $x$.
-  Moreover, whenever $m > 0 $ or $m < -n$, the vector $\gamma_{m,\mod{m}}$ is negative and the vector $\gamma_{m,\mod{m+1}}$ is positive.
-\end{proposition}
-
-\begin{remark}
-  If $m>0$ then $c^{\left\lfloor\frac{m-1}{n}\right\rfloor}s_1\cdots s_{\mod{m}}$ is the prefix of $c^\infty$ of length $m$.
-  \saySS{Reminder: for $m>0$ we write $m=\left\lfloor\frac{m-1}{n}\right\rfloor n + \mod{m}$.}
-  Similarly, if $m<-n$, $c^{1+\left\lceil\frac{m+1}{n}\right\rceil}s_n\cdots s_{\mod{m+1}}$ is the prefix of $c^{-\infty}$ of length $-m-n$.
-  \saySS{Reminder: for $m<-n$ we write $-m-n =-\left(\left\lceil\frac{m+1}{n}\right\rceil+1\right)n+\mod{n-\mod{m}}$}
-\end{remark}
-
-\begin{proof}
-  \saySS{I should remember to thank Anna and Pavel for hints on reflection groups}
-  Let's begin by settling the claim about signs. 
-  When $m>0$ the root $c^{\left\lfloor\frac{m-1}{n}\right\rfloor}s_1\cdots s_{\mod{m}} \alpha_{\mod{m+1}}$ is positive: being a prefix of $c^\infty$, the word  $c^{\left\lfloor\frac{m-1}{n}\right\rfloor}s_1\cdots s_{\mod{m}} s_{\mod{m+1}}$ is reduced (cf. \cite{Spe09}) and we can apply \cite[VI \S 1.6 Corollary 2 to Proposition 17]{Bou02}.
-  By the same principle the root $c^{\left\lfloor\frac{m-1}{n}\right\rfloor}s_1\cdots s_{\mod{m}} \alpha_{\mod{m}} = -c^{\left\lfloor\frac{m-1}{n}\right\rfloor}s_1\cdots s_{\mod{m-1}} \alpha_{\mod{m}}$ is negative because the word $c^{\left\lfloor\frac{m-1}{n}\right\rfloor}s_1\cdots s_{\mod{m}}$ is reduced.
-  Similarly, when $m<-n$ the root $-c^{1+\left\lceil\frac{m+1}{n}\right\rceil}s_n\cdots s_{\mod{m+1}} \alpha_{\mod{m+1}}$ is positive and the root $-c^{1+\left\lceil\frac{m+1}{n}\right\rceil}s_n\cdots s_{\mod{m+1}} \alpha_{\mod{m}}$ is negative.
-  
-  For the main claim there are three cases to consider.
-
-  \noindent{\bf Case $-n \leq m \leq 0$.}
-  We proceed by induction on $m$.
-  For $m=0$ there is nothing to check.
-  By construction, while the sign of $\gamma_{m,\mod{m}}$ is positive, the sign of the $\mod{m}$-th row of $B_m$ is negative. 
-  The $\bfc$-vectors at $t_{m-1}$ are therefore given by:
-  \begin{equation*}
-    \gamma_{m-1,i}
-    =
-    \begin{cases}
-      \gamma_{m,i} & \text{if $i\neq \mod{m}$}\\
-      -\gamma_{m,\mod{m}} & \text{if $i = \mod{m}$}
-    \end{cases}
-  \end{equation*}
-  as desired.
-
-  \noindent{\bf Case $m > 0$.}
-  We again argue by induction on $m$ the base case still being $m=0$. 
-  Since the sign of $\gamma_{m,\mod{m+1}}$ and the sign of the $\mod{m+1}$-st row of $B_m$ are both positive, in view of \cite[Proposition 1.3]{NZ12}, the $\bfc$-vectors at $t_{m+1}$ are given by
-  \begin{align*}
-    \gamma_{m+1,i} 
-    &= 
-    \gamma_{m,i} - a_{\mod{m+1},i} \gamma_{m,\mod{m+1}}\\
-    &=
-    \gamma_{m,i} - \frac{2(\alpha_{\mod{m+1}},\alpha_i)}{(\alpha_{\mod{m+1}},\alpha_{\mod{m+1}})} \gamma_{m,\mod{m+1}}\\
-    &=
-    \gamma_{m,i} - \frac{2(\gamma_{m,\mod{m+1}},\gamma_{m,i})}{(\gamma_{m,\mod{m+1}},\gamma_{m,\mod{m+1}})} \gamma_{m,\mod{m+1}}\\
-    &=
-    s_{\gamma_{m,\mod{m+1}}}\big(\gamma_{m,i}\big)
-  \end{align*}
-  where the second to last equality holds because the pairing $(\cdot,\cdot)$ is invariant under the action of the Weyl group.  
-  Using the inductive hypotheses we can then conclude
-  \begin{align*}
-    \gamma_{m+1,i} 
-    &=
-    s_{\gamma_{m,\mod{m+1}}}\big(\gamma_{m,i}\big)\\
-    &=
-    \big(c^{\left\lfloor\frac{m-1}{n}\right\rfloor}s_1\cdots s_{\mod{m}}\big)s_{\mod{m+1}}\big(s_{\mod{m}}\cdots s_1 c^{-\left\lfloor\frac{m-1}{n}\right\rfloor}\big)\big(c^{\left\lfloor\frac{m-1}{n}\right\rfloor}s_1\cdots s_{\mod{m}}\alpha_i\big)\\
-    &= 
-    c^{\left\lfloor\frac{m-1}{n}\right\rfloor}s_1\cdots s_{\mod{m}}s_{\mod{m+1}} \alpha_i.
-  \end{align*}
-
-  \noindent{\bf Case $m < -n$.}
-  The argument is the same as the one used in the case $m>0$ with $m=-n$ as base for the induction. 
-  The only minor change is that this time we leverage the fact that both the sign of $\gamma_{m,\mod{m}}$ and the sign of the $\mod{m}$-th row of $B_m$ are negative.
-\end{proof}
-
-In analogy to what we did for $\bfc$-vectors, we will interpret $\bfg$-vectors as coordinate vectors in the basis of fundamental weights for the root system of $A$ so that the $i$-th initial $\bfg$-vector is $\omega_i$.
-\begin{proposition}
-  \label{prop:g-vectors}
-  Let $\lambda_{m,i}$ be the $\bfg$-vector of the $i$-th cluster variable of $\cAb(B_c)$ in the seed at $t_m$. 
-  Then
-  \begin{equation}
-    \lambda_{m,i}
-    =
-    \begin{cases}
-      c^{\left\lfloor\frac{m-1}{n}\right\rfloor}s_1\cdots s_{\mod{m}} \omega_i & \text{if $m>0$}\\
-      \omega_i & \text{if $-n\leq m \leq 0$ and  $i\leq n+m$} \\
-      -\omega_i & \text{if $-n\leq m \leq 0$ and $i>n+m$} \\
-      -c^{1+\left\lceil\frac{m+1}{n}\right\rceil}s_n\cdots s_{\mod{m+1}} \omega_i & \text{if $m <-n$}\\
-    \end{cases}
-  \end{equation}
-\end{proposition}
-
-\begin{proof}
-  In view of \Cref{prop:c-vectors} the $\bfc$-vectors of $\cAb(-B_c^T)$ at the seed $t_m$ are the coroots $\gamma_{m,i}^\vee$.
-  The result follows then immediately from \cite[Theorem 1.2]{NZ12}: fundamental weights are the dual basis of the coroot basis and the pairing is invariant under the action of the Weyl group.
-\end{proof}
-
-In view of how simple reflections act on fundamental weights the expressions of the $\bfg$-vectors $\lambda_{m,i}$ can be expressed using only powers of $c$ as follows:
-\begin{equation}
-  \lambda_{m,i}
-  =
-  \begin{cases}
-    c^{\left\lfloor\frac{m-1}{n}\right\rfloor} \omega_i & \text{if $m>0$ and $i > \mod{m}$}\\
-    c^{1+ \left\lfloor\frac{m-1}{n}\right\rfloor} \omega_i & \text{if $m>0$ and $i \leq \mod{m}$}\\
-    \omega_i & \text{if $-n\leq m \leq 0$ and  $i\leq n+m$} \\
-    -\omega_i & \text{if $-n\leq m \leq 0$ and $i>n+m$} \\
-    -c^{1+\left\lceil\frac{m+1}{n}\right\rceil} \omega_i & \text{if $m <-n$ and $i < \mod{m+1}$}\\
-    -c^{\left\lceil\frac{m+1}{n}\right\rceil} \omega_i & \text{if $m <-n$ and $i \geq \mod{m+1}$}\\
-  \end{cases}
-\end{equation}
-  \saySS{Note to self, check that the formulas are correct before publishing}
-In particular, in the acyclic belt of $\cAb(B_c)$, there is one cluster variable $x_{c^k\omega_i}$ with  $\bfg$-vector $c^k\omega_i$ for any $k\geq 0$, and one cluster variable $x_{-c^{-k}\omega_i}$ with $\bfg$-vector $-c^{-k}\omega_i$ again for any $k\geq 0$.
-Taking inspiration from quiver representation theory we will refer to the former as \emph{preprojective} cluster variables and to the latter as \emph{postinjective} cluster variables.
-\saySS{I am not entirely happy with this definition: if I am not mistaken modules corresponding to initial cluster variables are neither preprojective not postinjective. Here we force them in the preprojective field to make it easier to state exchange relations later on. Would it make sense to drop the notation entirely? Do we need it anywhere?}
-\sayDR{It is really only necessary if we wish to emphasize the similarity of trichotomies: (preprojective, regular, postinjecive) and (positive level, level zero, negative level).  As you correctly pointed out the initial cluster is a bit of an anomaly from the ``classical'' representation theory perspective, but the initial cluster variables do correspond to shifted projectives in the cluster category so the terminology might still be considered acceptable.}
-
-\begin{corollary}
-  The cluster variables in the acyclic belt of $\cAb(B_c)$ satisfy the following exchange relations $(k\geq 0)$:
-  \begin{eqnarray}
-    x_{c^k\omega_i}x_{c^{k+1}\omega_i} 
-    &=& 
-    \prod_{j<i} x_{c^{k+1}\omega_j}^{-a_{ji}}
-    \prod_{j>i} x_{c^k\omega_j}^{-a_{ji}}
-    +
-    \prod_{j=1}^n y_j^{[c^k\beta_i^+:\alpha_j]}
-    \\
-    x_{-c^{-k}\omega_i}x_{-c^{-k-1}\omega_i} 
-    &=& 
-    \prod_{j<i} x_{-c^{-k}\omega_j}^{-a_{ji}}
-    \prod_{j>i} x_{-c^{-k-1}\omega_j}^{-a_{ji}}
-    +
-    \prod_{j=1}^n y_j^{[c^{-k}\beta_i^-:\alpha_j]}
-    \\
-    x_{\omega_i}x_{-\omega_i}
-    &=&
-    y_i
-    \prod_{j<i} x_{\omega_j}^{-a_{ji}}
-    \prod_{j>i} x_{-\omega_j}^{-a_{ji}}
-    +
-    1
-  \end{eqnarray}
-\end{corollary}
-\saySS{We may want to substitute $s_1\dots s_{i-1}\alpha_i = \beta_i^+$ and $s_n\dots s_{i+1}\alpha_i = \beta_i^-$ to make things slightly clearer in the formulas (I am worried people might have issues in decoding the cases $i=1$ in the first and $i=n$ in the second.}
-\begin{proof}
-  Recall that $\beta_i^+=s_1\cdots s_{i-1}\alpha_i$ and $\beta_i^-=s_n\cdots s_{i+1}\alpha_i$. 
-  The relations are an obvious consequence of \Cref{prop:c-vectors,prop:g-vectors} once we recall that mutations happen along a source/sink adapted sequence so that, at $t_m$, the $\mod{m}$-th colum of $B_m$ contains only non-negative entries and the $\mod{m+1}$-th column only non-positive entries. 
-\end{proof}
-
-
-\section{Appendix: Cluster Algebras --- OLD STUFF TO BE REMOVED}
-Let $A$ be any irreducible Cartan matrix of infinite type and let $c=s_1\dots s_n$ be a Coxeter element in the Weyl group of $A$. 
-Because of the assumption, any prefix of the infinite word $c^\infty$ is reduced. 
-The letters of $c^\infty$ (and thus its prefixes) are naturally labeled by pair of integers $(k,m)$ with $1\leq k\leq n$ and $m\geq 0$ where the element $c^ms_1\dots s_k$ corresponds to the indices $(k,m)$. 
-\saySS{We should be able to do this also in finite type replacing prefixes with reduced words.}
-Let $\cAb(B_c)$ be the cluster algebra with principal coefficients associated to $c$.
-\saySS{We may want to settle the notation that relates $B_c$ to $A$ and $c$ once and for all in some notation section.}
+We will study generalized minors by modeling them with weighted networks on a cylinder. A graph is weighted if all of its edges are assigned elements of a fixed ring; below this will be the Laurent polynomial ring $\CC[t_{\pm0}^{\pm1},\dotsc,t_{\pm n}^{\pm1},h_0^{\pm1},\dotsc,h_n^{\pm1}]$ with $3n+3$ polynomial generators.
 
 \begin{definition}
-  The \emph{preprojective} cluster variables of $\cAb(B_c)$ are the cluster variables obtained by mutating along the word $c^\infty$.
-  Namely $x_{k,m}$ is the cluster variable obtained from the initial cluster by mutating the cluster variables $x_{1,0},x_{2,0},\ldots,x_{n,0},x_{1,1}$ through $x_{k,m}$.
-  \saySS{This phrasing sucks but I am fighting the blank page at the moment.}
+Given $c = s_{\sigma_0} \dotsc s_{\sigma_n}$, define the \emph{network} $\cN_c$ to be the following weighted directed graph on the cylinder. We describe it as the concatenation of subgraphs on cyclinders associated to the factors in the decomposition 
+\[g=x_{-\sigma_0}(t_{-\sigma_0})\cdots x_{-\sigma_n}(t_{-\sigma_n}) hx_{\sigma_n}(t_{\sigma_n}) \cdots x_{\sigma_0}(t_{\sigma_0}),\]
+where $h$ factors as $\prod\limits_{i=0}^n h_i$ with $h_i=\big(h^{\omega_i}\big)^{\alpha_i^\vee}$.  Note that $h_i^{\omega_i}=h^{\omega_i}$ and $h_i^{\omega_j}=1$ for $i\ne j$.  We will abuse notation slightly and write $h_i$ also for the value $h_i^{\omega_i}$.
+
+Each subcylinder has $n+1$ non-crossing \emph{horizontal} edges running from one boundary component to the other which are oriented from right to left and labeled by $\ZZ_{n+1}$ compatibly with their cyclic ordering.  The subcylinder associated to $x_{\pm i}(t_{\pm i})$ contains a (\emph{vertical}) \emph{bridge} with weight $t_{\pm i}$ joining the $(i-1)^{st}$ horizontal edge and the $i^{th}$ horizontal edge, this bridge is oriented upward for $i$ and downward for $-i$.  In the subcylinder associated to $h_i$, the $i^{th}$ edge has weight $h_i^{-1}$ and the $(i-1)^{st}$ edge has weight $h_i$.  All other edges in a subcylinder are taken to have weight 1.
+
+ \erase{The vertical edge in the subcylinder associated to $x_{\overline{i}\,}(u_i)$ runs from the $(i - 1)^{st}$ horizontal edge to the $i^{th}$ horizontal edge. It and all horizontal edges other than the two it connects have weight $1$. The part of the $i^{th}$ edge before it meets the vertical edge has weight $u_i$, the part after has weight $1$.  The part of the $(\sigma_i-1)$st edge before it meets the vertical edge has weight $1$, the part after has weight $u_{\sigma_i}^{-1}$.\sayHW{This is correct if we are using $L^{c,c^{-1}}$, would need change for $G^{c,c^{-1}}$}}
+\begin{center}
+\begin{tikzpicture}
+  \node[below] at (0,-2) {$x_{-i}(t_{-i})$};
+  \draw (0.75,0) ellipse (0.5 and 2);
+  %\draw (-1,0) ellipse (0.5 and 1);
+  \draw (-0.75,2) arc (90:270:0.5 and 2);
+  \draw[dashed] (-0.75,2) arc (90:-90:0.5 and 2);
+  \draw[-] (0.75,2) -- (-0.75,2);
+  \draw[-] (0.75,-2) -- (-0.75,-2);
+  \draw[-] (1.25,0) -- (0.25,0);
+  \draw[dashed] (-0.25,0) -- (0.21,0);
+  \draw[singlearrow] (1.25,0) -- (-0.25,0);
+  \node[right] at (1.25,0) {$\scriptstyle 0$};
+  \draw[-] (1.2,-0.85) -- (0.3,-0.85);
+  \draw[dashed] (-0.3,-0.85) -- (0.3,-0.85);
+  \draw[singlearrow] (1.2,-0.85) -- (-0.3,-0.85);
+  \node[right] at (1.2,-0.85) {$\scriptstyle n$};
+  \draw[-] (1.015,-1.7) -- (0.49,-1.7);
+  \draw[dashed] (-0.49,-1.7) -- (0.45,-1.7);
+  \draw[singlearrow] (1.015,-1.7) -- (-0.49,-1.7);
+  \node[right] at (1.015,-1.7) {$\scriptstyle n-1$};
+  \draw[-] (-1.225,-0.65) -- (0.275,-0.65);
+  \draw[doublearrow,draw] (0.275,-0.65) -- (-1.225,-0.65);
+  \node[right] at (0.275,-0.65) {$\scriptstyle i$};
+  %\draw[postaction=decorate] (-0.475,-0.65) arc (199:174.2:0.5 and 2);
+  %\node at (-0.075,0.325) {$\scriptstyle u_i$};
+  %\node at (-0.85,-0.875) {$\scriptstyle u_i^{-1}$};
+  \draw[-] (-1.245,0.2) -- (0.255,0.2);
+  \draw[doublearrow,draw] (0.255,0.2) -- (-1.245,0.2);
+  \node[right] at (0.255,0.2) {$\scriptstyle i-1$};
+  \draw[singlearrow,draw] (-0.495,0.2) arc (174.2:199:0.5 and 2);
+  \node at (-0.8,-0.225) {$\scriptstyle t_{-i}$};
+  %\draw[-] (-1.18,1.05) -- (0.32,1.05);
+  %\node[right] at (0.32,1.05) {$\scriptstyle i-1$};
+  \draw[-] (1.015,1.7) -- (0.49,1.7);
+  \draw[dashed] (-0.49,1.7) -- (0.45,1.7);
+  \draw[singlearrow] (1.015,1.7) -- (-0.49,1.7);
+  \node[right] at (1.015,1.7) {$\scriptstyle 2$};
+  \draw[-] (1.2,0.85) -- (0.3,0.85);
+  \draw[dashed] (-0.3,0.85) -- (0.3,0.85);
+  \draw[singlearrow] (1.2,0.85) -- (-0.3,0.85);
+  \node[right] at (1.2,0.85) {$\scriptstyle 1$};
+\end{tikzpicture}
+\quad\quad
+\begin{tikzpicture}
+  \node[below,color=white] at (0,-2) {$()$};
+  \node[below] at (0,-2) {$h_i$};
+  \draw (0.75,0) ellipse (0.5 and 2);
+  %\draw (-1,0) ellipse (0.5 and 1);
+  \draw (-0.75,2) arc (90:270:0.5 and 2);
+  \draw[dashed] (-0.75,2) arc (90:-90:0.5 and 2);
+  \draw[-] (0.75,2) -- (-0.75,2);
+  \draw[-] (0.75,-2) -- (-0.75,-2);
+  \draw[-] (1.25,0) -- (0.25,0);
+  \draw[dashed] (-0.25,0) -- (0.21,0);
+  \draw[singlearrow] (1.25,0) -- (-0.25,0);
+  \node[right] at (1.25,0) {$\scriptstyle 0$};
+  \draw[-] (1.2,-0.85) -- (0.3,-0.85);
+  \draw[dashed] (-0.3,-0.85) -- (0.3,-0.85);
+  \draw[singlearrow] (1.2,-0.85) -- (-0.3,-0.85);
+  \node[right] at (1.2,-0.85) {$\scriptstyle n$};
+  \draw[-] (1.015,-1.7) -- (0.49,-1.7);
+  \draw[dashed] (-0.49,-1.7) -- (0.45,-1.7);
+  \draw[singlearrow] (1.015,-1.7) -- (-0.49,-1.7);
+  \node[right] at (1.015,-1.7) {$\scriptstyle n-1$};
+  \draw[-] (-1.225,-0.65) -- (0.275,-0.65);
+  \draw[doublearrow] (0.275,-0.65) -- (-1.225,-0.65);
+  \node[right] at (0.275,-0.65) {$\scriptstyle i$};
+  \node at (-0.5,-0.435) {$\scriptstyle h_i^{-1}$};
+  %\draw[postaction=decorate] (-0.475,-0.65) arc (199:174.2:0.5 and 2);
+  \draw[-] (-1.245,0.2) -- (0.255,0.2);
+  \draw[doublearrow] (0.255,0.2) -- (-1.245,0.2);
+  \node[right] at (0.255,0.2) {$\scriptstyle i-1$};
+  \node at (-0.5,0.355) {$\scriptstyle h_i$};
+  %\draw[postaction=decorate] (-0.495,0.2) arc (174.2:199:0.5 and 2);
+  %\node at (-0.8,-0.225) {$\scriptstyle t_{-i}$};
+  %\draw[-] (-1.18,1.05) -- (0.32,1.05);
+  %\node[right] at (0.32,1.05) {$\scriptstyle i-1$};
+  \draw[-] (1.015,1.7) -- (0.49,1.7);
+  \draw[dashed] (-0.49,1.7) -- (0.45,1.7);
+  \draw[singlearrow] (1.015,1.7) -- (-0.49,1.7);
+  \node[right] at (1.015,1.7) {$\scriptstyle 2$};
+  \draw[-] (1.2,0.85) -- (0.3,0.85);
+  \draw[dashed] (-0.3,0.85) -- (0.3,0.85);
+  \draw[singlearrow] (1.2,0.85) -- (-0.3,0.85);
+  \node[right] at (1.2,0.85) {$\scriptstyle 1$};
+\end{tikzpicture}
+\quad\quad
+\begin{tikzpicture}
+  \node[below] at (0,-2) {$x_i(t_i)$};
+  \draw (0.75,0) ellipse (0.5 and 2);
+  %\draw (-1,0) ellipse (0.5 and 1);
+  \draw (-0.75,2) arc (90:270:0.5 and 2);
+  \draw[dashed] (-0.75,2) arc (90:-90:0.5 and 2);
+  \draw[-] (0.75,2) -- (-0.75,2);
+  \draw[-] (0.75,-2) -- (-0.75,-2);
+  \draw[-] (1.25,0) -- (0.25,0);
+  \draw[dashed] (-0.25,0) -- (0.21,0);
+  \draw[singlearrow] (1.25,0) -- (-0.25,0);
+  \node[right] at (1.25,0) {$\scriptstyle 0$};
+  \draw[-] (1.2,-0.85) -- (0.3,-0.85);
+  \draw[dashed] (-0.3,-0.85) -- (0.3,-0.85);
+  \draw[singlearrow] (1.2,-0.85) -- (-0.3,-0.85);
+  \node[right] at (1.2,-0.85) {$\scriptstyle n$};
+  \draw[-] (1.015,-1.7) -- (0.49,-1.7);
+  \draw[dashed] (-0.49,-1.7) -- (0.45,-1.7);
+  \draw[singlearrow] (1.015,-1.7) -- (-0.49,-1.7);
+  \node[right] at (1.015,-1.7) {$\scriptstyle n-1$};
+  \draw[-] (-1.225,-0.65) -- (0.275,-0.65);
+  \draw[doublearrow,draw] (0.275,-0.65) -- (-1.225,-0.65);
+  \node[right] at (0.275,-0.65) {$\scriptstyle i$};
+  \draw[singlearrow,draw] (-0.475,-0.65) arc (199:174.2:0.5 and 2);
+  \node at (-0.7,-0.225) {$\scriptstyle t_i$};
+  \draw[-] (-1.245,0.2) -- (0.255,0.2);
+  \draw[doublearrow,draw] (0.255,0.2) -- (-1.245,0.2);
+  \node[right] at (0.255,0.2) {$\scriptstyle i-1$};
+  %\draw[postaction=decorate] (-0.495,0.2) arc (174.2:199:0.5 and 2);
+  %\draw[-] (-1.18,1.05) -- (0.32,1.05);
+  %\node[right] at (0.32,1.05) {$\scriptstyle i-1$};
+  \draw[-] (1.015,1.7) -- (0.49,1.7);
+  \draw[dashed] (-0.49,1.7) -- (0.45,1.7);
+  \draw[singlearrow] (1.015,1.7) -- (-0.49,1.7);
+  \node[right] at (1.015,1.7) {$\scriptstyle 2$};
+  \draw[-] (1.2,0.85) -- (0.3,0.85);
+  \draw[dashed] (-0.3,0.85) -- (0.3,0.85);
+  \draw[singlearrow] (1.2,0.85) -- (-0.3,0.85);
+  \node[right] at (1.2,0.85) {$\scriptstyle 1$};
+\end{tikzpicture}
+\end{center}
 \end{definition}
 
-\begin{proposition}
-  The preprojective cluster variables of $\cAb(B_c)$ satisfy the exchange relations
-  \begin{equation}
-    x_{k,m-1}x_{k,m} = \prod_{i<k}x_{i,m}^{-a_{i,k}} \prod_{i>k}x_{i,m-1}^{-a_{i,k}} + \prod_{j\in I}y_j^{[c^{m-1}\beta_k^+:\alpha_j]}
-  \end{equation}
+By a path in $\cN_c$ we will mean a path which is directed compatibly with the edges of $\cN_c$, and which begins at a source on one end of the cyclinder and ends at a sink on the other end. 
+If $P = \{P_i\}$ is a collection of paths, we write $\partial_{in}P \subset \ZZ_{n+1}$ for the set of boundary sources at which paths in $P$ begin; similarly $\partial_{out}P \subset \ZZ_{n+1}$ denotes the set of boundary sinks. 
+We say the weight of a path is the product of the weights of edges it traverses, and the weight $wt(P)$ of a collection of paths is the product of the weights of its constituent paths.
+
+\begin{proposition}\label{prop:minorsfrompaths}
+Given $S \subset \ZZ_{n+1}$, let
+\[ \omega_S = \sum_{i \in S} \omega_{i+1} - \omega_i.\] 
+Then for generic $g\in G^{c,c^{-1}}$ we have \[ \Delta_{\omega_S}(g) = \sum_{P: S \to S} wt(P), \]
+where the sum is over collections $P$ of pairwise disjoint paths with $\partial_{in}P = \partial_{out}P = S$.
+%$|S|$-tuples of non-intersecting paths in $\cN_c$ with input and output sets equal to $S$.
 \end{proposition}
-This follows immediately from the following Lemma.
-\begin{lemma}\label{le:positive mutations}
-  Let $\tilde B=\left[\begin{array}{c} B\\ M\end{array}\right]$ denote an $m\times n$ ($m\ge n)$ exchange matrix with $b_{ik}\le0$ for $1\le i\le n$ and $m_{ik}\ge0$ for $n+1\le i\le m$.  Writing $\mu_k\tilde B=\left[\begin{array}{c} B'\\ M'\end{array}\right]$ we have $M'=MF_k$ where $F_k=(f_{ij})$ with $f_{ij}=\begin{cases}1 & \text{if $i=j\ne k$;}\\ -1 & \text{if $i=j=k$;}\\ b_{kj} & \text{if $i=k$;}\\ 0 & \text{otherwise.}\end{cases}$
-\end{lemma}
-Define the $2n\times n$ matrix $\tilde B_{k,m}=\mu_k\mu_{k-1}\cdots\mu_1(\mu_n\cdots\mu_1)^m\left[\begin{array}{c} B_c\\ I_n\end{array}\right]$ for $0\le k\le n-1$ and $m\in\ZZ$.  Write $\gamma^{(k,m)}_j\in\ZZ^n$ for the last $n$ rows of the $j^th$ column of $\tilde B_{k,m}$, where we identify $\ZZ^n$ with the root lattice.  These are the $c$-vectors of $\tilde B_{k,m}$.
-\begin{lemma}\mbox{}
+
+\begin{proof}
+By construction, the directed graph $\cN_c$ encodes the action of $g$ in the standard basis $\{ e_{i_1} \wedge \cdots \wedge e_{i_k} z^\ell\}$ of $\bigwedge^k \CC^n[z^{\pm 1}]$. 
+This basis is labeled by pairs of a $k$-element subset of $\ZZ_{n+1}$ and an integer $\ell$.
+\end{proof}
+
+To use the above proposition effectively, we collect some elementary combinatorial observations about non-crossing paths $P$ in $\cN_c$. 
+We define $\phi(P) \subset \ZZ_{n+1}$ by letting $j \in \phi(P)$ if and only if a path in $P$ traverses the unique bridge of weight $t_j$.
+
+\begin{lemma}\label{lem:phi}
+  Let $P$ be a collection of pairwise disjoint paths in $\cN_c$.  Then:
   \begin{enumerate}
-    \item The principal part of column $k$ in $\tilde B_{k,m}$ is weakly positive while the principal part of column $k+1$ is weakly negative (with the convention that column $0$ refers to the last column of $\tilde B_{k,m}$).
-    \item The $c$-vectors of $\tilde B_{k,m}$ are given by 
-    \[\gamma^{(k,m)}_j=\begin{cases}c^m s_1\cdots s_k\alpha_j & \text{if $m\ge0$;}\\\alpha_j & \text{if $m=-1$ and $j\le k$;}\\-\alpha_j & \text{if $m=-1$ and $j>k$;}\\-c^{m+1} s_1\cdots s_k\alpha_j & \text{if $m<-1$.}\end{cases}\]
+    \item For $i\in\partial_{in}P$:
+    \begin{enumerate}
+      \item if $i\to i+1$ in $Q$ or $i\notin\phi(P)$, then $i+1\notin\phi(P)$;
+      \item if $i\leftarrow i+1$ in $Q$ and $i+1\in\phi(P)$, then $i\in\phi(P)$;
+      \item[(b')] if  $i+1\in\phi(P)$, then $i\in\phi(P)$ and $i+1\to i$ in $Q$;
+    \end{enumerate}
+    \item For $i\notin\partial_{in}P$: if $i\to i+1$ in $Q$ and $i\in\phi(P)$, then $i+1\in\phi(P)$.\\
+  \end{enumerate}
+  \begin{enumerate}
+    \item If $i \to i+1$ in $Q$, $i \in \phi(P)$, and $i \notin \partial_{in}(P)$, then $i + 1 \in \phi(P)$.
+    \item If $i \to i+1$ in $Q$ and $i \in \partial_{in}P$, then $i +1 \notin \phi(P)$.
+    \item If $i+1 \to i$ in $Q$, $i \in \partial_{in}P$, and $i+1 \in \phi(P)$, then $i \in \phi(P)$.
+    \item If $i \notin \phi(P)$ and $i \in \partial_{in}P$, then $i +1 \notin \phi(P)$.
   \end{enumerate}
 \end{lemma}
 \begin{proof}
-  The first claim is essentially the statement that the sequence $1,\ldots,n$ (resp. $n,\ldots,1$) is sink (resp. source) adapted for $Q$.
-
-  For the final claim we work by induction on the length of the mutation sequence.  For $k=m=0$ we have $\gamma^{(0,0)}_j=\alpha_j$ is exactly the $j^{th}$ column of the identity matrix.  For the general case we claim that
-  \[\gamma^{(k,m)}_j=s_{\gamma^{(k-1,m)}_k}\big(\gamma^{(k-1,m)}_j\big).\]
-
-  To see this, recall that the pairing $(\cdot,\cdot)$ is $W$-invariant, in particular we have $(\gamma^{(k-1,m)}_j,\gamma^{(k-1,m)}_k)=(\alpha_j,\alpha_k)$.  Using this we may compute
-  \begin{align*}
-    s_{\gamma^{(k-1,m)}_k}\big(\gamma^{(k-1,m)}_j\big)
-    &=\gamma^{(k-1,m)}_j-\frac{(\gamma^{(k-1,m)}_k,\gamma^{(k-1,m)}_j)}{2(\gamma^{(k-1,m)}_k,\gamma^{(k-1,m)}_k)}\gamma^{(k-1,m)}_k\\
-    &=\gamma^{(k-1,m)}_j-\frac{(\alpha_k,\alpha_j)}{2(\alpha_k,\alpha_k)}\gamma^{(k-1,m)}_k\\
-    &=\gamma^{(k-1,m)}_j-a_{kj}\gamma^{(k-1,m)}_k\\
-    &=\gamma^{(k-1,m)}_j+b_{kj}\gamma^{(k-1,m)}_k.
-  \end{align*}
-  
-  Thus the claim follows from Lemma~\ref{le:positive mutations} \sayDR{Cite [Nakanishi-Zelevinsky, Prop. 1.3] instead}.  To conclude the proof we note that 
-  \[s_{\gamma^{(k-1,m)}_k}=c^m s_1\cdots s_{k-1} s_k s_{k-1}\cdots s_1 c^{-m}\]
-  and thus applying the induction hypothesis
-  \[\gamma^{(k,m)}_j=s_{\gamma^{(k-1,m)}_k}\big(\gamma^{(k-1,m)}_j\big)=c^m s_1\cdots s_k\alpha_j.\]
+  \sayHW{Probably an explanation of one together with a picture is sufficient.}
+  \begin{center}
+  \begin{tikzpicture}
+    \node[below] at (0,-2) {$i+1\to i$};
+    \draw[singlearrow,draw] (1.5,1) -- (0.5,1);
+    \draw[-] (0.5,1) -- (-0.5,1);
+    \draw[singlearrow,draw] (-0.5,1) -- (-1.5,1);
+    \node[right] at (1.5,1) {$\scriptstyle i-1$};
+    \draw[singlearrow,draw] (0.5,0) -- (0.5,1);
+    \node[left] at (0.5,0.5) {$\scriptstyle t_i\ $};
+    \draw[singlearrow,draw] (1.5,0) -- (0.5,0);
+    \draw[-] (0.5,0) -- (-0.5,0);
+    \draw[singlearrow,draw] (-0.5,0) -- (-1.5,0);
+    \node[right] at (1.5,0) {$\scriptstyle i$};
+    \draw[singlearrow,draw] (-0.5,-1) -- (-0.5,0);
+    \node[right] at (-0.5,-0.5) {$\ \scriptstyle t_{i+1}$};
+    \draw[singlearrow,draw] (1.5,-1) -- (0.5,-1);
+    \draw[-] (0.5,-1) -- (-0.5,-1);
+    \draw[singlearrow,draw] (-0.5,-1) -- (-1.5,-1);
+    \node[right] at (1.5,-1) {$\scriptstyle i+1$};
+    \draw (-0.5,-0.5) circle (5pt);
+    \draw (0.5,0.5) circle (5pt);
+    \draw[thick,->] (-0.38,-0.38) -- (0.38,0.38);
+  \end{tikzpicture}
+  \qquad\qquad
+  \begin{tikzpicture}
+    \node[below] at (0,-2) {$i\to i+1$};
+    \draw[singlearrow,draw] (1.5,1) -- (0.5,1);
+    \draw[-] (0.5,1) -- (-0.5,1);
+    \draw[singlearrow,draw] (-0.5,1) -- (-1.5,1);
+    \node[right] at (1.5,1) {$\scriptstyle i-1$};
+    \draw[singlearrow,draw] (-0.5,0) -- (-0.5,1);
+    \node[right] at (-0.5,0.5) {$\ \scriptstyle t_i$};
+    \draw[singlearrow,draw] (1.5,0) -- (0.5,0);
+    \draw[-] (0.5,0) -- (-0.5,0);
+    \draw[singlearrow,draw] (-0.5,0) -- (-1.5,0);
+    \node[right] at (1.5,0) {$\scriptstyle i$};
+    \draw[singlearrow,draw] (0.5,-1) -- (0.5,0);
+    \node[left] at (0.5,-0.5) {$\scriptstyle t_{i+1}\ $};
+    \draw[singlearrow,draw] (1.5,-1) -- (0.5,-1);
+    \draw[-] (0.5,-1) -- (-0.5,-1);
+    \draw[singlearrow,draw] (-0.5,-1) -- (-1.5,-1);
+    \node[right] at (1.5,-1) {$\scriptstyle i+1$};
+    \draw (-0.5,0.5) circle (5pt);
+    \draw (0.5,-0.5) circle (5pt);
+    \draw[thick,->] (-0.38,0.38) -- (0.38,-0.38);
+  \end{tikzpicture}
+  \end{center}
 \end{proof}
 
-\begin{proposition}\label{prop:changeofcoeffs}
-Let $B$ and $B'$ be $(n+m)\times n$ exchange matrices and $M$ and invertible $m \times m$ matrix such that the bottom $m \times n$ part of $B$ is equal to $M$ times the bottom $m \times n$ part of $B'$.  Let $x_1,\dotsc,x_n$ and $x'_1,\dotsc,x'_n$ be the mutable initial cluster variables of $\cA(B)$ and $\cA(B')$, respectively, and $y_1,\dotsc,y_m$, $y'_1,\dotsc, y'_m$ their frozen variables.  Then the map $x'_i \mapsto x_i$, $y'_j \mapsto \prod_{i=1}^m y_i^{M_{ij}}$ extends to an isomorphism of upper cluster algebras.
+Recall that the regular cluster variables are labeled by intervals $[p,q] \subset \ZZ_{n+1}$ containing as many sources as sinks -- to such an interval we associate a boundary condition on paths in $\cN_c$:
+
+\begin{definition}\label{def:Spq}
+Let $[p,q] \subset \ZZ_{n+1}$ be an interval containing an even number of sinks and sources; that is, such that $M_{[p,q]}$ is regular. Write $k_1 < \cdots < k_m$ (resp. $c_1 < \cdots < c_m$) for the indices of the sinks (resp. sources) in $[p,q]$. Let $S_{[p,q]}$ denote the following subset of $\ZZ_{n+1}$:
+\begin{itemize}
+\item If the first sink in $[p,q]$ comes before the first source (i.e. $k_1 < c_1$ in $[p,q]$), then 
+\[
+S_{[p,q]} = [q,p-2] \cup [k_1, c_1 -1] \cup \cdots \cup [k_m, c_m - 1].
+\]
+\item If the first source in $[p,q]$ comes before the first sink (i.e. $c_1 < k_1$ in $[p,q]$),
+\[
+S_{[p,q]} = [p,c_1-1] \cup [k_1,c_2-1] \cup \cdots \cup [k_m,q].
+\]
+\end{itemize}
+\end{definition}
+
+The above definition is determined by the following property:
+\begin{proposition}
+Let 
+\[
+M_{[p,q]} \to \bigoplus I_j^{a_j} \to \bigoplus I_j^{b_j}
+\]
+be the minimal injective resolution of $M_{[p,q]}$. Then
+\[
+\sum_j (b_j - a_j)\omega_j = \sum_{i \in S_{[p,q]}} \omega_{i+1} - \omega_i.
+\]
 \end{proposition}
+\begin{proof}
+As in Definition \ref{def:Spq}, we let $k_1 < \cdots < k_m$, $c_1 < \cdots < c_m$ be the labels of the sinks and sources in $[p,q]$. If $k_1 < c_1$ in $[p,q]$, then the minimal injective resolution of $M_{[p,q]}$ is
+\[
+M_{[p,q]} \to I_q \oplus I_{k_1} \oplus \cdots \oplus I_{k_m} \to I_{p-1} \oplus I_{c_1} \oplus \cdots \oplus I_{c_m}.
+\]
+\end{proof}
 
+We now turn to the main result of the section:
 
-\section{Appendix: Quiver Representations}
-\subsection{Affine Tubes}
+\begin{theorem}\sayDR{Merge this into Prop.~\ref{prop:level zero} and move the proof into the following section.}
+If $M_{[p,q]}$ is regular, then under the isomorphism $\CC[G^{c,c^{-1}}] \cong A_Q$ we have
+\[ x_{M_{[p,q]}} = \Delta_{\omega_{S_{[p,q]}}}\]  
+\end{theorem}
+\begin{proof}
+Let $\cP = \{P: S_{[p,q]} \to S_{[p,q]}\}$ denote the set of pairwise disjoint collections of paths in $\cN_c$ with $\partial_{in}P = \partial_{out}P = S_{[p,q]}$. 
+By Proposition \ref{prop:minorsfrompaths}, for a generic element 
+\[g = x_{-\sigma_0}(t_{-\sigma_0})\cdots x_{-\sigma_n}(t_{-\sigma_n}) hx_{\sigma_n}(t_{\sigma_n}) \cdots x_{\sigma_0}(t_{\sigma_0})\]
+the evaluation $\Delta_{\omega_{S_{[p,q]}}}(g)$ is the weighted sum 
+\[
+\Delta_{\omega_{S_{[p,q]}}}(g) = \sum_{P \in \mathcal{P}} wt(P).
+\]
+As in Theorem~\ref{???}, let $\cE = \{ E \subset [p,q]\}$ denote the subsets of $E \subset [p,q]$ that are target-closed: if there is an arrow $i \to j$ in $Q$ and $i, j$ are in $[p,q]$, then $E$ must contain $j$ if it contains $i$. 
+% $i \in E$, $j \in [p,q]$, and there is an arrow from $i$ to $j$ in $Q$, then $j \in E$. 
+Then we have 
+\[
+x_{M_{[p,q]}} = x^g \sum_{E \in \cE} \prod_{i \in E} \hat{y}_i.
+\]\sayDR{Using $g$ here for the $g$-vector is an abuse of notation.}
+
+As in Lemma \ref{lem:phi}, we define $\phi(P) \subset \ZZ_{n+1}$ by letting $j \in \phi(P)$ if and only if a path in $P$ traverses the unique edge of weight $t_j$. We claim that for $P \in \cP$, $\phi(P)$ is in fact a subset of $[p,q]$, is target-closed in $[p,q]$, and that the assignment $P \mapsto \phi(P)$ defines a bijection $\cP \cong \cE$.
+
+%Recall that $\cN_c$ consists of parallel strands labeled by $\Z_{n+1}$ connecting the two boundary components of the cylinder, and two sets of $n+1$ vertical strands connecting them. One of those sets has edges weighted $t_j$, and with 
+
+%Recall that for $P \in \cP$ and any $j \in \Z_{n+1}$, $wt(P)$ either does not depend on $t_j$ or is linear in $t_j$. 
+
+%Let $\phi(P) \subset \ZZ_{n+1}$ denote the set of indices $j$ such that $wt(P)$ depends non-trivially on $t_j$. Recall that $t_j$ appears as the weight of a unique edge in $\cN_c$, so equivalently $\phi(P)$ records which of these edges are traversed by a path in $P$. We claim that $\phi(P)$ is in fact a subset of $[p,q]$, is target-closed in $[p,q]$, and that the assignment $P \mapsto \phi(P)$ defines a bijection $\cP \cong \cE$.
+
+As in Definition \ref{def:Spq}, we let $k_1 < \cdots < k_m$, $c_1 < \cdots < c_m$ denote the labels of the sinks and sources in $[p,q]$. We first consider the case where the first sink in $[p,q]$ comes before the first source (i.e. $k_1 < c_1$ in $[p,q]$). Recall that in this case
+\[
+S_{[p,q]} = [q,p-2] \cup [k_1, c_1 -1] \cup \cdots \cup [k_m, c_m - 1].
+\]
+
+Let $P \in \cP$. By assumption we have $q \to q+1$ in $Q$; $q \in \partial_{in}P$ then implies $q+1 \notin \phi(P)$ by item (3) in Lemma \ref{lem:phi}. Then since $[q+1,p-2] \subset \partial_{in}P$, it follows inductively from item (4) in Lemma \ref{lem:phi} that $[q+2,p-1] \not\subset \phi(P)$, hence $\phi(P) \subset [p,q]$.
+
+If $i, i+1 \in [p,q]$ and $i \to i+1 \in Q$, then by inspection $i \notin \partial_{in}P$; item (1) in Lemma \ref{lem:phi} then implies that if $i \in \phi(P)$, we also have $i+1 \in \phi(P)$. If instead $i \leftarrow i+1$, then by inspection $i \in \partial_{in}P$; item (2) in Lemma \ref{lem:phi} then implies that if $i +1 \in \phi(P)$, we also have $i \in \phi(P)$. Putting these facts together we see that $\phi(P)$ is target-closed in $[p,q]$.
+
+Suppose now that $E \in \cE$ is a target-closed subset of $[p,q]$. We define a collection $P \in \cP$ with $\phi(P) = E$ by specifying the path $P_i \in P$ which begins at boundary source $i \in S_{[p,q]}$ as follows:
+\begin{enumerate}
+\item If $i \in [q+1,p-2]$ then $P_i$ stays on level $i$.
+\item If $i \in \{q,k_1,\dotsc,k_m\}$ and $i \notin E$, then $P_i$ stays on level $i$.
+\item If $i \in \{q,k_1,\dotsc,k_m\}$ and $i \notin E$, let $j \in E$ be the index such that $[j,i] \subset E$ is the largest interval in $E$ with $k \to k+1$ in $Q$ for all $k \in [j,i-1]$. Then $P_i$ begins on level $i$, follows bridges up to level $j-1$, then returns to end on level $i$.
+\item If $i$ is not of the above form, then  $P_i$ stays on level $i$ if $i \notin E$ and moves from level $i$ to level $i-1$ and back if $i \in E$.
+\end{enumerate}
+
+\sayHW{Things not addressed yet: why is $P \mapsto \phi(E)$ injective on $\cP$, why is the above prescription for $P$ actually in $\cP$, what about the other tube?}
+
+% Since the total number of sinks and sources in $[p,q]$ is even, it follows that $Q$ has an arrow $q \to q+1$. 
+\end{proof}
+
+\subsection{Affine Tubes}\sayDR{Clean up this section.}
   Let $Q$ be an acyclic affine quiver of type $A$, in particular $Q$ contains at least one source.  Suppose $Q$ has $p$ clockwise pointing arrows $\{\vec{a}_1,\ldots,\vec{a}_p\}$ labeled counterclockwise around $Q$ and $q$ counterclockwise pointing arrows $\{\cev{a}_1,\ldots,\cev{a}_q\}$ labeled clockwise around $Q$. \sayDR{This seemingly strange choice of labeling will make extensions go in the right directions later and thus keep the arrows in the AR quiver pointing from left to right.  The phrase ``against the flow'' might be appropriate to include somewhere.}  It will be convenient to allow arbitrary integer labeling of the arrows taken modulo $p$ and $q$ respectively.  Thus $Q$ takes the following form:  
   \begin{center}
     \erase{%begin erase
@@ -1395,324 +1642,84 @@ Let $B$ and $B'$ be $(n+m)\times n$ exchange matrices and $M$ and invertible $m 
     Comparing formulas using the above substitutions completes the proof.
   \end{proof}
 
-\subsection{Networks}
+\subsection{Proof of Proposition~\ref{prop:level zero}}
 
-We will study generalized minors by modeling them with weighted networks on a cylinder. A graph is weighted if all of its edges are assigned elements of a fixed ring; below this will be the Laurent polynomial ring $\CC[t_{\pm0}^{\pm1},\dotsc,t_{\pm n}^{\pm1},h_0^{\pm1},\dotsc,h_n^{\pm1}]$ with $3n+3$ polynomial generators.
 
-\begin{definition}
-Given $c = s_{\sigma_0} \dotsc s_{\sigma_n}$, define the \emph{network} $\cN_c$ to be the following weighted directed graph on the cylinder. We describe it as the concatenation of subgraphs on cyclinders associated to the factors in the decomposition 
-\[g=x_{-\sigma_0}(t_{-\sigma_0})\cdots x_{-\sigma_n}(t_{-\sigma_n}) hx_{\sigma_n}(t_{\sigma_n}) \cdots x_{\sigma_0}(t_{\sigma_0}),\]
-where $h$ factors as $\prod\limits_{i=0}^n h_i$ with $h_i=\big(h^{\omega_i}\big)^{\alpha_i^\vee}$.  Note that $h_i^{\omega_i}=h^{\omega_i}$ and $h_i^{\omega_j}=1$ for $i\ne j$.  We will abuse notation slightly and write $h_i$ also for the value $h_i^{\omega_i}$.
+\section{Examples in Other Types}\label{sec:othertypes}
 
-Each subcylinder has $n+1$ non-crossing \emph{horizontal} edges running from one boundary component to the other which are oriented from right to left and labeled by $\ZZ_{n+1}$ compatibly with their cyclic ordering.  The subcylinder associated to $x_{\pm i}(t_{\pm i})$ contains a (\emph{vertical}) \emph{bridge} with weight $t_{\pm i}$ joining the $(i-1)^{st}$ horizontal edge and the $i^{th}$ horizontal edge, this bridge is oriented upward for $i$ and downward for $-i$.  In the subcylinder associated to $h_i$, the $i^{th}$ edge has weight $h_i^{-1}$ and the $(i-1)^{st}$ edge has weight $h_i$.  All other edges in a subcylinder are taken to have weight 1.
-
- \erase{The vertical edge in the subcylinder associated to $x_{\overline{i}\,}(u_i)$ runs from the $(i - 1)^{st}$ horizontal edge to the $i^{th}$ horizontal edge. It and all horizontal edges other than the two it connects have weight $1$. The part of the $i^{th}$ edge before it meets the vertical edge has weight $u_i$, the part after has weight $1$.  The part of the $(\sigma_i-1)$st edge before it meets the vertical edge has weight $1$, the part after has weight $u_{\sigma_i}^{-1}$.\sayHW{This is correct if we are using $L^{c,c^{-1}}$, would need change for $G^{c,c^{-1}}$}}
-\begin{center}
-\begin{tikzpicture}
-  \node[below] at (0,-2) {$x_{-i}(t_{-i})$};
-  \draw (0.75,0) ellipse (0.5 and 2);
-  %\draw (-1,0) ellipse (0.5 and 1);
-  \draw (-0.75,2) arc (90:270:0.5 and 2);
-  \draw[dashed] (-0.75,2) arc (90:-90:0.5 and 2);
-  \draw[-] (0.75,2) -- (-0.75,2);
-  \draw[-] (0.75,-2) -- (-0.75,-2);
-  \draw[-] (1.25,0) -- (0.25,0);
-  \draw[dashed] (-0.25,0) -- (0.21,0);
-  \draw[singlearrow] (1.25,0) -- (-0.25,0);
-  \node[right] at (1.25,0) {$\scriptstyle 0$};
-  \draw[-] (1.2,-0.85) -- (0.3,-0.85);
-  \draw[dashed] (-0.3,-0.85) -- (0.3,-0.85);
-  \draw[singlearrow] (1.2,-0.85) -- (-0.3,-0.85);
-  \node[right] at (1.2,-0.85) {$\scriptstyle n$};
-  \draw[-] (1.015,-1.7) -- (0.49,-1.7);
-  \draw[dashed] (-0.49,-1.7) -- (0.45,-1.7);
-  \draw[singlearrow] (1.015,-1.7) -- (-0.49,-1.7);
-  \node[right] at (1.015,-1.7) {$\scriptstyle n-1$};
-  \draw[-] (-1.225,-0.65) -- (0.275,-0.65);
-  \draw[doublearrow,draw] (0.275,-0.65) -- (-1.225,-0.65);
-  \node[right] at (0.275,-0.65) {$\scriptstyle i$};
-  %\draw[postaction=decorate] (-0.475,-0.65) arc (199:174.2:0.5 and 2);
-  %\node at (-0.075,0.325) {$\scriptstyle u_i$};
-  %\node at (-0.85,-0.875) {$\scriptstyle u_i^{-1}$};
-  \draw[-] (-1.245,0.2) -- (0.255,0.2);
-  \draw[doublearrow,draw] (0.255,0.2) -- (-1.245,0.2);
-  \node[right] at (0.255,0.2) {$\scriptstyle i-1$};
-  \draw[singlearrow,draw] (-0.495,0.2) arc (174.2:199:0.5 and 2);
-  \node at (-0.8,-0.225) {$\scriptstyle t_{-i}$};
-  %\draw[-] (-1.18,1.05) -- (0.32,1.05);
-  %\node[right] at (0.32,1.05) {$\scriptstyle i-1$};
-  \draw[-] (1.015,1.7) -- (0.49,1.7);
-  \draw[dashed] (-0.49,1.7) -- (0.45,1.7);
-  \draw[singlearrow] (1.015,1.7) -- (-0.49,1.7);
-  \node[right] at (1.015,1.7) {$\scriptstyle 2$};
-  \draw[-] (1.2,0.85) -- (0.3,0.85);
-  \draw[dashed] (-0.3,0.85) -- (0.3,0.85);
-  \draw[singlearrow] (1.2,0.85) -- (-0.3,0.85);
-  \node[right] at (1.2,0.85) {$\scriptstyle 1$};
-\end{tikzpicture}
-\quad\quad
-\begin{tikzpicture}
-  \node[below,color=white] at (0,-2) {$()$};
-  \node[below] at (0,-2) {$h_i$};
-  \draw (0.75,0) ellipse (0.5 and 2);
-  %\draw (-1,0) ellipse (0.5 and 1);
-  \draw (-0.75,2) arc (90:270:0.5 and 2);
-  \draw[dashed] (-0.75,2) arc (90:-90:0.5 and 2);
-  \draw[-] (0.75,2) -- (-0.75,2);
-  \draw[-] (0.75,-2) -- (-0.75,-2);
-  \draw[-] (1.25,0) -- (0.25,0);
-  \draw[dashed] (-0.25,0) -- (0.21,0);
-  \draw[singlearrow] (1.25,0) -- (-0.25,0);
-  \node[right] at (1.25,0) {$\scriptstyle 0$};
-  \draw[-] (1.2,-0.85) -- (0.3,-0.85);
-  \draw[dashed] (-0.3,-0.85) -- (0.3,-0.85);
-  \draw[singlearrow] (1.2,-0.85) -- (-0.3,-0.85);
-  \node[right] at (1.2,-0.85) {$\scriptstyle n$};
-  \draw[-] (1.015,-1.7) -- (0.49,-1.7);
-  \draw[dashed] (-0.49,-1.7) -- (0.45,-1.7);
-  \draw[singlearrow] (1.015,-1.7) -- (-0.49,-1.7);
-  \node[right] at (1.015,-1.7) {$\scriptstyle n-1$};
-  \draw[-] (-1.225,-0.65) -- (0.275,-0.65);
-  \draw[doublearrow] (0.275,-0.65) -- (-1.225,-0.65);
-  \node[right] at (0.275,-0.65) {$\scriptstyle i$};
-  \node at (-0.5,-0.435) {$\scriptstyle h_i^{-1}$};
-  %\draw[postaction=decorate] (-0.475,-0.65) arc (199:174.2:0.5 and 2);
-  \draw[-] (-1.245,0.2) -- (0.255,0.2);
-  \draw[doublearrow] (0.255,0.2) -- (-1.245,0.2);
-  \node[right] at (0.255,0.2) {$\scriptstyle i-1$};
-  \node at (-0.5,0.355) {$\scriptstyle h_i$};
-  %\draw[postaction=decorate] (-0.495,0.2) arc (174.2:199:0.5 and 2);
-  %\node at (-0.8,-0.225) {$\scriptstyle t_{-i}$};
-  %\draw[-] (-1.18,1.05) -- (0.32,1.05);
-  %\node[right] at (0.32,1.05) {$\scriptstyle i-1$};
-  \draw[-] (1.015,1.7) -- (0.49,1.7);
-  \draw[dashed] (-0.49,1.7) -- (0.45,1.7);
-  \draw[singlearrow] (1.015,1.7) -- (-0.49,1.7);
-  \node[right] at (1.015,1.7) {$\scriptstyle 2$};
-  \draw[-] (1.2,0.85) -- (0.3,0.85);
-  \draw[dashed] (-0.3,0.85) -- (0.3,0.85);
-  \draw[singlearrow] (1.2,0.85) -- (-0.3,0.85);
-  \node[right] at (1.2,0.85) {$\scriptstyle 1$};
-\end{tikzpicture}
-\quad\quad
-\begin{tikzpicture}
-  \node[below] at (0,-2) {$x_i(t_i)$};
-  \draw (0.75,0) ellipse (0.5 and 2);
-  %\draw (-1,0) ellipse (0.5 and 1);
-  \draw (-0.75,2) arc (90:270:0.5 and 2);
-  \draw[dashed] (-0.75,2) arc (90:-90:0.5 and 2);
-  \draw[-] (0.75,2) -- (-0.75,2);
-  \draw[-] (0.75,-2) -- (-0.75,-2);
-  \draw[-] (1.25,0) -- (0.25,0);
-  \draw[dashed] (-0.25,0) -- (0.21,0);
-  \draw[singlearrow] (1.25,0) -- (-0.25,0);
-  \node[right] at (1.25,0) {$\scriptstyle 0$};
-  \draw[-] (1.2,-0.85) -- (0.3,-0.85);
-  \draw[dashed] (-0.3,-0.85) -- (0.3,-0.85);
-  \draw[singlearrow] (1.2,-0.85) -- (-0.3,-0.85);
-  \node[right] at (1.2,-0.85) {$\scriptstyle n$};
-  \draw[-] (1.015,-1.7) -- (0.49,-1.7);
-  \draw[dashed] (-0.49,-1.7) -- (0.45,-1.7);
-  \draw[singlearrow] (1.015,-1.7) -- (-0.49,-1.7);
-  \node[right] at (1.015,-1.7) {$\scriptstyle n-1$};
-  \draw[-] (-1.225,-0.65) -- (0.275,-0.65);
-  \draw[doublearrow,draw] (0.275,-0.65) -- (-1.225,-0.65);
-  \node[right] at (0.275,-0.65) {$\scriptstyle i$};
-  \draw[singlearrow,draw] (-0.475,-0.65) arc (199:174.2:0.5 and 2);
-  \node at (-0.7,-0.225) {$\scriptstyle t_i$};
-  \draw[-] (-1.245,0.2) -- (0.255,0.2);
-  \draw[doublearrow,draw] (0.255,0.2) -- (-1.245,0.2);
-  \node[right] at (0.255,0.2) {$\scriptstyle i-1$};
-  %\draw[postaction=decorate] (-0.495,0.2) arc (174.2:199:0.5 and 2);
-  %\draw[-] (-1.18,1.05) -- (0.32,1.05);
-  %\node[right] at (0.32,1.05) {$\scriptstyle i-1$};
-  \draw[-] (1.015,1.7) -- (0.49,1.7);
-  \draw[dashed] (-0.49,1.7) -- (0.45,1.7);
-  \draw[singlearrow] (1.015,1.7) -- (-0.49,1.7);
-  \node[right] at (1.015,1.7) {$\scriptstyle 2$};
-  \draw[-] (1.2,0.85) -- (0.3,0.85);
-  \draw[dashed] (-0.3,0.85) -- (0.3,0.85);
-  \draw[singlearrow] (1.2,0.85) -- (-0.3,0.85);
-  \node[right] at (1.2,0.85) {$\scriptstyle 1$};
-\end{tikzpicture}
-\end{center}
-\end{definition}
-
-By a path in $\cN_c$ we will mean a path which is directed compatibly with the edges of $\cN_c$, and which begins at a source on one end of the cyclinder and ends at a sink on the other end. 
-If $P = \{P_i\}$ is a collection of paths, we write $\partial_{in}P \subset \ZZ_{n+1}$ for the set of boundary sources at which paths in $P$ begin; similarly $\partial_{out}P \subset \ZZ_{n+1}$ denotes the set of boundary sinks. 
-We say the weight of a path is the product of the weights of edges it traverses, and the weight $wt(P)$ of a collection of paths is the product of the weights of its constituent paths.
-
-\begin{proposition}\label{prop:minorsfrompaths}
-Given $S \subset \ZZ_{n+1}$, let
-\[ \omega_S = \sum_{i \in S} \omega_{i+1} - \omega_i.\] 
-Then for generic $g\in G^{c,c^{-1}}$ we have \[ \Delta_{\omega_S}(g) = \sum_{P: S \to S} wt(P), \]
-where the sum is over collections $P$ of pairwise disjoint paths with $\partial_{in}P = \partial_{out}P = S$.
-%$|S|$-tuples of non-intersecting paths in $\cN_c$ with input and output sets equal to $S$.
+\begin{proposition}
+\Cref{conj:mainconjecture} holds when $G$ is of type $B_2^{(1)}$, $B_3^{(1)}$, $C_2^{(1)}$, $D_4^{(1)}$, $G_2^{(1)}$ and $c$ is $\dotsc$. 
 \end{proposition}
-
 \begin{proof}
-By construction, the directed graph $\cN_c$ encodes the action of $g$ in the standard basis $\{ e_{i_1} \wedge \cdots \wedge e_{i_k} z^\ell\}$ of $\bigwedge^k \CC^n[z^{\pm 1}]$. 
-This basis is labeled by pairs of a $k$-element subset of $\ZZ_{n+1}$ and an integer $\ell$.
+\begin{enumerate}
+\item Write out the computation.
+\end{enumerate}
 \end{proof}
 
-To use the above proposition effectively, we collect some elementary combinatorial observations about non-crossing paths $P$ in $\cN_c$. 
-We define $\phi(P) \subset \ZZ_{n+1}$ by letting $j \in \phi(P)$ if and only if a path in $P$ traverses the unique bridge of weight $t_j$.
+\section{Appendix: Double Bruhat Cells}
 
-\begin{lemma}\label{lem:phi}
-  Let $P$ be a collection of pairwise disjoint paths in $\cN_c$.  Then:
+
+\section{Appendix: Cluster Algebras --- OLD STUFF TO BE REMOVED}
+Let $A$ be any irreducible Cartan matrix of infinite type and let $c=s_1\dots s_n$ be a Coxeter element in the Weyl group of $A$. 
+Because of the assumption, any prefix of the infinite word $c^\infty$ is reduced. 
+The letters of $c^\infty$ (and thus its prefixes) are naturally labeled by pair of integers $(k,m)$ with $1\leq k\leq n$ and $m\geq 0$ where the element $c^ms_1\dots s_k$ corresponds to the indices $(k,m)$. 
+\saySS{We should be able to do this also in finite type replacing prefixes with reduced words.}
+Let $\cAb(B_c)$ be the cluster algebra with principal coefficients associated to $c$.
+\saySS{We may want to settle the notation that relates $B_c$ to $A$ and $c$ once and for all in some notation section.}
+
+\begin{definition}
+  The \emph{preprojective} cluster variables of $\cAb(B_c)$ are the cluster variables obtained by mutating along the word $c^\infty$.
+  Namely $x_{k,m}$ is the cluster variable obtained from the initial cluster by mutating the cluster variables $x_{1,0},x_{2,0},\ldots,x_{n,0},x_{1,1}$ through $x_{k,m}$.
+  \saySS{This phrasing sucks but I am fighting the blank page at the moment.}
+\end{definition}
+
+\begin{proposition}
+  The preprojective cluster variables of $\cAb(B_c)$ satisfy the exchange relations
+  \begin{equation}
+    x_{k,m-1}x_{k,m} = \prod_{i<k}x_{i,m}^{-a_{i,k}} \prod_{i>k}x_{i,m-1}^{-a_{i,k}} + \prod_{j\in I}y_j^{[c^{m-1}\beta_k^+:\alpha_j]}
+  \end{equation}
+\end{proposition}
+This follows immediately from the following Lemma.
+\begin{lemma}\label{le:positive mutations}
+  Let $\tilde B=\left[\begin{array}{c} B\\ M\end{array}\right]$ denote an $m\times n$ ($m\ge n)$ exchange matrix with $b_{ik}\le0$ for $1\le i\le n$ and $m_{ik}\ge0$ for $n+1\le i\le m$.  Writing $\mu_k\tilde B=\left[\begin{array}{c} B'\\ M'\end{array}\right]$ we have $M'=MF_k$ where $F_k=(f_{ij})$ with $f_{ij}=\begin{cases}1 & \text{if $i=j\ne k$;}\\ -1 & \text{if $i=j=k$;}\\ b_{kj} & \text{if $i=k$;}\\ 0 & \text{otherwise.}\end{cases}$
+\end{lemma}
+Define the $2n\times n$ matrix $\tilde B_{k,m}=\mu_k\mu_{k-1}\cdots\mu_1(\mu_n\cdots\mu_1)^m\left[\begin{array}{c} B_c\\ I_n\end{array}\right]$ for $0\le k\le n-1$ and $m\in\ZZ$.  Write $\gamma^{(k,m)}_j\in\ZZ^n$ for the last $n$ rows of the $j^th$ column of $\tilde B_{k,m}$, where we identify $\ZZ^n$ with the root lattice.  These are the $c$-vectors of $\tilde B_{k,m}$.
+\begin{lemma}\mbox{}
   \begin{enumerate}
-    \item For $i\in\partial_{in}P$:
-    \begin{enumerate}
-      \item if $i\to i+1$ in $Q$ or $i\notin\phi(P)$, then $i+1\notin\phi(P)$;
-      \item if $i\leftarrow i+1$ in $Q$ and $i+1\in\phi(P)$, then $i\in\phi(P)$;
-      \item[(b')] if  $i+1\in\phi(P)$, then $i\in\phi(P)$ and $i+1\to i$ in $Q$;
-    \end{enumerate}
-    \item For $i\notin\partial_{in}P$: if $i\to i+1$ in $Q$ and $i\in\phi(P)$, then $i+1\in\phi(P)$.\\
-  \end{enumerate}
-  \begin{enumerate}
-    \item If $i \to i+1$ in $Q$, $i \in \phi(P)$, and $i \notin \partial_{in}(P)$, then $i + 1 \in \phi(P)$.
-    \item If $i \to i+1$ in $Q$ and $i \in \partial_{in}P$, then $i +1 \notin \phi(P)$.
-    \item If $i+1 \to i$ in $Q$, $i \in \partial_{in}P$, and $i+1 \in \phi(P)$, then $i \in \phi(P)$.
-    \item If $i \notin \phi(P)$ and $i \in \partial_{in}P$, then $i +1 \notin \phi(P)$.
+    \item The principal part of column $k$ in $\tilde B_{k,m}$ is weakly positive while the principal part of column $k+1$ is weakly negative (with the convention that column $0$ refers to the last column of $\tilde B_{k,m}$).
+    \item The $c$-vectors of $\tilde B_{k,m}$ are given by 
+    \[\gamma^{(k,m)}_j=\begin{cases}c^m s_1\cdots s_k\alpha_j & \text{if $m\ge0$;}\\\alpha_j & \text{if $m=-1$ and $j\le k$;}\\-\alpha_j & \text{if $m=-1$ and $j>k$;}\\-c^{m+1} s_1\cdots s_k\alpha_j & \text{if $m<-1$.}\end{cases}\]
   \end{enumerate}
 \end{lemma}
 \begin{proof}
-  \sayHW{Probably an explanation of one together with a picture is sufficient.}
-  \begin{center}
-  \begin{tikzpicture}
-    \node[below] at (0,-2) {$i+1\to i$};
-    \draw[singlearrow,draw] (1.5,1) -- (0.5,1);
-    \draw[-] (0.5,1) -- (-0.5,1);
-    \draw[singlearrow,draw] (-0.5,1) -- (-1.5,1);
-    \node[right] at (1.5,1) {$\scriptstyle i-1$};
-    \draw[singlearrow,draw] (0.5,0) -- (0.5,1);
-    \node[left] at (0.5,0.5) {$\scriptstyle t_i\ $};
-    \draw[singlearrow,draw] (1.5,0) -- (0.5,0);
-    \draw[-] (0.5,0) -- (-0.5,0);
-    \draw[singlearrow,draw] (-0.5,0) -- (-1.5,0);
-    \node[right] at (1.5,0) {$\scriptstyle i$};
-    \draw[singlearrow,draw] (-0.5,-1) -- (-0.5,0);
-    \node[right] at (-0.5,-0.5) {$\ \scriptstyle t_{i+1}$};
-    \draw[singlearrow,draw] (1.5,-1) -- (0.5,-1);
-    \draw[-] (0.5,-1) -- (-0.5,-1);
-    \draw[singlearrow,draw] (-0.5,-1) -- (-1.5,-1);
-    \node[right] at (1.5,-1) {$\scriptstyle i+1$};
-    \draw (-0.5,-0.5) circle (5pt);
-    \draw (0.5,0.5) circle (5pt);
-    \draw[thick,->] (-0.38,-0.38) -- (0.38,0.38);
-  \end{tikzpicture}
-  \qquad\qquad
-  \begin{tikzpicture}
-    \node[below] at (0,-2) {$i\to i+1$};
-    \draw[singlearrow,draw] (1.5,1) -- (0.5,1);
-    \draw[-] (0.5,1) -- (-0.5,1);
-    \draw[singlearrow,draw] (-0.5,1) -- (-1.5,1);
-    \node[right] at (1.5,1) {$\scriptstyle i-1$};
-    \draw[singlearrow,draw] (-0.5,0) -- (-0.5,1);
-    \node[right] at (-0.5,0.5) {$\ \scriptstyle t_i$};
-    \draw[singlearrow,draw] (1.5,0) -- (0.5,0);
-    \draw[-] (0.5,0) -- (-0.5,0);
-    \draw[singlearrow,draw] (-0.5,0) -- (-1.5,0);
-    \node[right] at (1.5,0) {$\scriptstyle i$};
-    \draw[singlearrow,draw] (0.5,-1) -- (0.5,0);
-    \node[left] at (0.5,-0.5) {$\scriptstyle t_{i+1}\ $};
-    \draw[singlearrow,draw] (1.5,-1) -- (0.5,-1);
-    \draw[-] (0.5,-1) -- (-0.5,-1);
-    \draw[singlearrow,draw] (-0.5,-1) -- (-1.5,-1);
-    \node[right] at (1.5,-1) {$\scriptstyle i+1$};
-    \draw (-0.5,0.5) circle (5pt);
-    \draw (0.5,-0.5) circle (5pt);
-    \draw[thick,->] (-0.38,0.38) -- (0.38,-0.38);
-  \end{tikzpicture}
-  \end{center}
+  The first claim is essentially the statement that the sequence $1,\ldots,n$ (resp. $n,\ldots,1$) is sink (resp. source) adapted for $Q$.
+
+  For the final claim we work by induction on the length of the mutation sequence.  For $k=m=0$ we have $\gamma^{(0,0)}_j=\alpha_j$ is exactly the $j^{th}$ column of the identity matrix.  For the general case we claim that
+  \[\gamma^{(k,m)}_j=s_{\gamma^{(k-1,m)}_k}\big(\gamma^{(k-1,m)}_j\big).\]
+
+  To see this, recall that the pairing $(\cdot,\cdot)$ is $W$-invariant, in particular we have $(\gamma^{(k-1,m)}_j,\gamma^{(k-1,m)}_k)=(\alpha_j,\alpha_k)$.  Using this we may compute
+  \begin{align*}
+    s_{\gamma^{(k-1,m)}_k}\big(\gamma^{(k-1,m)}_j\big)
+    &=\gamma^{(k-1,m)}_j-\frac{(\gamma^{(k-1,m)}_k,\gamma^{(k-1,m)}_j)}{2(\gamma^{(k-1,m)}_k,\gamma^{(k-1,m)}_k)}\gamma^{(k-1,m)}_k\\
+    &=\gamma^{(k-1,m)}_j-\frac{(\alpha_k,\alpha_j)}{2(\alpha_k,\alpha_k)}\gamma^{(k-1,m)}_k\\
+    &=\gamma^{(k-1,m)}_j-a_{kj}\gamma^{(k-1,m)}_k\\
+    &=\gamma^{(k-1,m)}_j+b_{kj}\gamma^{(k-1,m)}_k.
+  \end{align*}
+  
+  Thus the claim follows from Lemma~\ref{le:positive mutations} \sayDR{Cite [Nakanishi-Zelevinsky, Prop. 1.3] instead}.  To conclude the proof we note that 
+  \[s_{\gamma^{(k-1,m)}_k}=c^m s_1\cdots s_{k-1} s_k s_{k-1}\cdots s_1 c^{-m}\]
+  and thus applying the induction hypothesis
+  \[\gamma^{(k,m)}_j=s_{\gamma^{(k-1,m)}_k}\big(\gamma^{(k-1,m)}_j\big)=c^m s_1\cdots s_k\alpha_j.\]
 \end{proof}
 
-Recall that the regular cluster variables are labeled by intervals $[p,q] \subset \ZZ_{n+1}$ containing as many sources as sinks -- to such an interval we associate a boundary condition on paths in $\cN_c$:
-
-\begin{definition}\label{def:Spq}
-Let $[p,q] \subset \ZZ_{n+1}$ be an interval containing an even number of sinks and sources; that is, such that $M_{[p,q]}$ is regular. Write $k_1 < \cdots < k_m$ (resp. $c_1 < \cdots < c_m$) for the indices of the sinks (resp. sources) in $[p,q]$. Let $S_{[p,q]}$ denote the following subset of $\ZZ_{n+1}$:
-\begin{itemize}
-\item If the first sink in $[p,q]$ comes before the first source (i.e. $k_1 < c_1$ in $[p,q]$), then 
-\[
-S_{[p,q]} = [q,p-2] \cup [k_1, c_1 -1] \cup \cdots \cup [k_m, c_m - 1].
-\]
-\item If the first source in $[p,q]$ comes before the first sink (i.e. $c_1 < k_1$ in $[p,q]$),
-\[
-S_{[p,q]} = [p,c_1-1] \cup [k_1,c_2-1] \cup \cdots \cup [k_m,q].
-\]
-\end{itemize}
-\end{definition}
-
-The above definition is determined by the following property:
-\begin{proposition}
-Let 
-\[
-M_{[p,q]} \to \bigoplus I_j^{a_j} \to \bigoplus I_j^{b_j}
-\]
-be the minimal injective resolution of $M_{[p,q]}$. Then
-\[
-\sum_j (b_j - a_j)\omega_j = \sum_{i \in S_{[p,q]}} \omega_{i+1} - \omega_i.
-\]
+\begin{proposition}\label{prop:changeofcoeffs}
+Let $B$ and $B'$ be $(n+m)\times n$ exchange matrices and $M$ and invertible $m \times m$ matrix such that the bottom $m \times n$ part of $B$ is equal to $M$ times the bottom $m \times n$ part of $B'$.  Let $x_1,\dotsc,x_n$ and $x'_1,\dotsc,x'_n$ be the mutable initial cluster variables of $\cA(B)$ and $\cA(B')$, respectively, and $y_1,\dotsc,y_m$, $y'_1,\dotsc, y'_m$ their frozen variables.  Then the map $x'_i \mapsto x_i$, $y'_j \mapsto \prod_{i=1}^m y_i^{M_{ij}}$ extends to an isomorphism of upper cluster algebras.
 \end{proposition}
-\begin{proof}
-As in Definition \ref{def:Spq}, we let $k_1 < \cdots < k_m$, $c_1 < \cdots < c_m$ be the labels of the sinks and sources in $[p,q]$. If $k_1 < c_1$ in $[p,q]$, then the minimal injective resolution of $M_{[p,q]}$ is
-\[
-M_{[p,q]} \to I_q \oplus I_{k_1} \oplus \cdots \oplus I_{k_m} \to I_{p-1} \oplus I_{c_1} \oplus \cdots \oplus I_{c_m}.
-\]
-\end{proof}
-
-We now turn to the main result of the section:
-
-\begin{theorem}
-If $M_{[p,q]}$ is regular, then under the isomorphism $\CC[G^{c,c^{-1}}] \cong A_Q$ we have
-\[ x_{M_{[p,q]}} = \Delta_{\omega_{S_{[p,q]}}}\]  
-\end{theorem}
-\begin{proof}
-Let $\cP = \{P: S_{[p,q]} \to S_{[p,q]}\}$ denote the set of pairwise disjoint collections of paths in $\cN_c$ with $\partial_{in}P = \partial_{out}P = S_{[p,q]}$. 
-By Proposition \ref{prop:minorsfrompaths}, for a generic element 
-\[g = x_{-\sigma_0}(t_{-\sigma_0})\cdots x_{-\sigma_n}(t_{-\sigma_n}) hx_{\sigma_n}(t_{\sigma_n}) \cdots x_{\sigma_0}(t_{\sigma_0})\]
-the evaluation $\Delta_{\omega_{S_{[p,q]}}}(g)$ is the weighted sum 
-\[
-\Delta_{\omega_{S_{[p,q]}}}(g) = \sum_{P \in \mathcal{P}} wt(P).
-\]
-As in Theorem~\ref{???}, let $\cE = \{ E \subset [p,q]\}$ denote the subsets of $E \subset [p,q]$ that are target-closed: if there is an arrow $i \to j$ in $Q$ and $i, j$ are in $[p,q]$, then $E$ must contain $j$ if it contains $i$. 
-% $i \in E$, $j \in [p,q]$, and there is an arrow from $i$ to $j$ in $Q$, then $j \in E$. 
-Then we have 
-\[
-x_{M_{[p,q]}} = x^g \sum_{E \in \cE} \prod_{i \in E} \hat{y}_i.
-\]\sayDR{Using $g$ here for the $g$-vector is an abuse of notation.}
-
-As in Lemma \ref{lem:phi}, we define $\phi(P) \subset \ZZ_{n+1}$ by letting $j \in \phi(P)$ if and only if a path in $P$ traverses the unique edge of weight $t_j$. We claim that for $P \in \cP$, $\phi(P)$ is in fact a subset of $[p,q]$, is target-closed in $[p,q]$, and that the assignment $P \mapsto \phi(P)$ defines a bijection $\cP \cong \cE$.
-
-%Recall that $\cN_c$ consists of parallel strands labeled by $\Z_{n+1}$ connecting the two boundary components of the cylinder, and two sets of $n+1$ vertical strands connecting them. One of those sets has edges weighted $t_j$, and with 
-
-%Recall that for $P \in \cP$ and any $j \in \Z_{n+1}$, $wt(P)$ either does not depend on $t_j$ or is linear in $t_j$. 
-
-%Let $\phi(P) \subset \ZZ_{n+1}$ denote the set of indices $j$ such that $wt(P)$ depends non-trivially on $t_j$. Recall that $t_j$ appears as the weight of a unique edge in $\cN_c$, so equivalently $\phi(P)$ records which of these edges are traversed by a path in $P$. We claim that $\phi(P)$ is in fact a subset of $[p,q]$, is target-closed in $[p,q]$, and that the assignment $P \mapsto \phi(P)$ defines a bijection $\cP \cong \cE$.
-
-As in Definition \ref{def:Spq}, we let $k_1 < \cdots < k_m$, $c_1 < \cdots < c_m$ denote the labels of the sinks and sources in $[p,q]$. We first consider the case where the first sink in $[p,q]$ comes before the first source (i.e. $k_1 < c_1$ in $[p,q]$). Recall that in this case
-\[
-S_{[p,q]} = [q,p-2] \cup [k_1, c_1 -1] \cup \cdots \cup [k_m, c_m - 1].
-\]
-
-Let $P \in \cP$. By assumption we have $q \to q+1$ in $Q$; $q \in \partial_{in}P$ then implies $q+1 \notin \phi(P)$ by item (3) in Lemma \ref{lem:phi}. Then since $[q+1,p-2] \subset \partial_{in}P$, it follows inductively from item (4) in Lemma \ref{lem:phi} that $[q+2,p-1] \not\subset \phi(P)$, hence $\phi(P) \subset [p,q]$.
-
-If $i, i+1 \in [p,q]$ and $i \to i+1 \in Q$, then by inspection $i \notin \partial_{in}P$; item (1) in Lemma \ref{lem:phi} then implies that if $i \in \phi(P)$, we also have $i+1 \in \phi(P)$. If instead $i \leftarrow i+1$, then by inspection $i \in \partial_{in}P$; item (2) in Lemma \ref{lem:phi} then implies that if $i +1 \in \phi(P)$, we also have $i \in \phi(P)$. Putting these facts together we see that $\phi(P)$ is target-closed in $[p,q]$.
-
-Suppose now that $E \in \cE$ is a target-closed subset of $[p,q]$. We define a collection $P \in \cP$ with $\phi(P) = E$ by specifying the path $P_i \in P$ which begins at boundary source $i \in S_{[p,q]}$ as follows:
-\begin{enumerate}
-\item If $i \in [q+1,p-2]$ then $P_i$ stays on level $i$.
-\item If $i \in \{q,k_1,\dotsc,k_m\}$ and $i \notin E$, then $P_i$ stays on level $i$.
-\item If $i \in \{q,k_1,\dotsc,k_m\}$ and $i \notin E$, let $j \in E$ be the index such that $[j,i] \subset E$ is the largest interval in $E$ with $k \to k+1$ in $Q$ for all $k \in [j,i-1]$. Then $P_i$ begins on level $i$, follows bridges up to level $j-1$, then returns to end on level $i$.
-\item If $i$ is not of the above form, then  $P_i$ stays on level $i$ if $i \notin E$ and moves from level $i$ to level $i-1$ and back if $i \in E$.
-\end{enumerate}
 
 
+\section{Appendix: Quiver Representations}
 
-\sayHW{Things not addressed yet: why is $P \mapsto \phi(E)$ injective on $\cP$, why is the above prescription for $P$ actually in $\cP$, what about the other tube?}
 
-% Since the total number of sinks and sources in $[p,q]$ is even, it follows that $Q$ has an arrow $q \to q+1$. 
-\end{proof}
 
 \section{Conventions}
 
