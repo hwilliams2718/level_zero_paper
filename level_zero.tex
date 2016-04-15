@@ -26,7 +26,7 @@ urlcolor=blue]{hyperref}
 \usepackage{tikz}
 \usetikzlibrary{decorations.markings}
 \tikzset{
-  singlearrow/.style={draw=none,postaction={decorate,decoration={markings,mark=at position 0.5 with {\arrow{stealth}}}}},
+  singlearrow/.style={draw=none,postaction={decorate,decoration={markings,mark=at position 0.5 with {\arrow[xshift=2pt]{stealth}}}}},
   doublearrow/.style={draw=none,postaction={decorate,decoration={markings,mark=at position 0.25 with {\arrow{stealth}},mark=at position 0.85 with {\arrow{stealth}}}}},
   triplearrow/.style={draw=none,postaction={decorate,decoration={markings,mark=at position 0.1 with {\arrow{stealth}},mark=at position 0.5 with {\arrow{stealth}},mark=at position 0.9 with {\arrow{stealth}}}}}
 }
@@ -52,7 +52,7 @@ urlcolor=blue]{hyperref}
 \newcommand{\bfe}{\mathbf{e}}
 \newcommand{\bfg}{\mathbf{g}}
 
-\newcommand{\net}{\mathcal{N}} % symbol for network
+\newcommand{\cN}{\mathcal{N}} % symbol for network
 \newcommand{\cP}{\mathcal{P}}
 \newcommand{\cE}{\mathcal{E}}
 \newcommand{\cF}{\mathcal{F}}
@@ -153,8 +153,8 @@ Our main result is that cluster variables in $\cA_Q$ are also realized as genera
 \begin{theorem}\label{thm:maintheorem}
 Let $Q$ be a finite quiver without oriented cycles and $G^{c,c^{-1}} \subset G$ the associated Coxeter double Bruhat cell.
 \begin{enumerate}
-\item The preprojective and initial cluster variables in $\cA_Q \cong \CC[G^{c,c^{-1}}]$ are restrictions of generalized minors of highest-weight representations of $G$. The preinjective cluster variables are restrictions of generalized minors of lowest-weight representations of $G$.
-\item Suppose $Q$ is an acyclic orientation of an $n$-cycle, so that $G$ is the universal central extension of the loop group $LSL_{n}$. Then the regular cluster variables are restrictions of generalized minors of level zero representations of $G$.
+\item The preprojective and initial cluster variables in $\cA_Q \cong \CC[G^{c,c^{-1}}]$ are restrictions of generalized minors of highest-weight representations of $G$. The preinjective\sayDR{I am in favor of writing postinjective because for me the AR-translation always goes from right to left, any objections?} cluster variables are restrictions of generalized minors of lowest-weight representations of $G$.
+\item Suppose $Q$ is an acyclic orientation of an $n$-cycle, so that $G$ is the central extension of the loop group $LSL_{n}$. Then the regular cluster variables are restrictions of generalized minors of level zero representations of $G$.
 \end{enumerate}
 \end{theorem}
 
@@ -167,7 +167,8 @@ The reason (1) is true is that the preprojective and preinjective cluster variab
 However, these identities depend crucially on the fact that all minors involved are semi-invariants of the standard Borel subgroups and their conjugates. 
 The minors arising from level zero representations do not have this property, so the relations that determine them cannot be deduced from these identities.
 
-Instead, we study level zero minors in type $A_n^{(1)}$ by direct combinatorial means. The $LSL_n$ representations that appear in (2) are of the form $\bigwedge^k\CC^n[z^{\pm 1}]$. The restrictions to $G^{c,c^{-1}}$ of minors of such represenations can be computed as weighted sums over collections of paths through a directed network on the cylinder, as in [FM,GSV]. When $Q$ is an acyclic orientation of an $n$-cycle, its regular representations likewise have a simple combinatorial description, and one can construct by hand a bijection between their submodules and collections of paths in the network.
+
+Instead, we study level zero minors in type $A_n^{(1)}$ by direct combinatorial means. The $LSL_n$ representations that appear are of the form $(\bigwedge^k\CC^n)[z^{\pm 1}]$\sayDR{Is it correct to say that we are studying certain subrepresentations of this one?}\sayHW{Ahh, before the order of operations was unclear, which I think was the basis of your questions -- is it ok with the parentheses now?}, which inherits a natural basis from the standard basis of $\CC^n$. The restrictions to $G^{c,c^{-1}}$ of the level zero minors appearing in (2) can be computed as a weighted sum over collections of paths through a directed network on the cylinder, as in [FM,GSV]. When $Q$ is an acyclic orientation of an $n$-cycle, its regular representations likewise have a simple combinatorial description, and one can construct by hand a bijection between their subrepresentations and collections of paths in the network.
 
 %\begin{theorem}\label{thm:maintheorem}
 %Let $G$ be an affine Lie group of type $A_n^{(1)}$, let $c$ be a Coxeter element of the affine Weyl group, and $Q_c$ the associated affine quiver.  The coordinate ring of $G^{c,c^{-1}}$ is an upper cluster algebras of type $Q_c$ and all mutable cluster variables are restrictions of principal minors for representations of $G$ with finite-dimensional weight spaces.  Those that are cluster characters of preprojective, regular, or postinjective representations of $Q_c$ are minors of positive level, level zero, and negative level $G$-representations, respectively.
@@ -180,8 +181,7 @@ Let $Q$ be a finite quiver without oriented cycles and $G^{c,c^{-1}} \subset G$ 
 
 In addition to verifying the conjecture for all Coxeter elements when $G = LSL_n$, we check a finite list of other affine types, see Section \ref{sec:othertypes}. In any affine type, the regular cluster variables can be explicitly enumerated and computed. One can calculate that if they are restrictions of minors, they must come from an explicitly identifiable level zero representation. The types checked in Section \ref{sec:othertypes} are essentially the ones where these minors can be evaluated on $G^{c,c^{-1}}$ knowing only the character of this representation. In non-affine types, general weight representations of $G$ are not well-understood, and the conjecture is much more speculative.
 
-Finally, in type $A_n^{(1)}$ the following suggestive extension of Theorem \ref{thm:maintheorem} also holds. There is a one-parameter family of quiver representations whose dimension vector is a primitive imaginary root. The cluster character of a generic element is not a cluster variable, but is an element of the generic bases, and presumably other standard bases. This element too is a level zero generalized minor; with this in mind it is natural to further ask which canonical basis elements other than cluster variables are generalized minors.
-
+Finally, in type $A_n^{(1)}$ the following suggestive extension of Theorem \ref{thm:maintheorem} also holds. There is a one-parameter family of quiver representations whose dimension vector is a primitive imaginary root. The cluster character of a generic element is not a cluster variable, but is an element of the generic bases, and presumably other standard bases. This element too is a level zero generalized minor; with this in mind it is natural to further ask which canonical basis elements other than cluster variables are generalized minors. \sayDR{In the $A_n^{(1)}$ case we should be able to compute the minors associated to multiples of $\delta$ (Salvatore and I played with this a little at MSRI) and get an apparently new basis for the cluster algebra, should we pursue this in the present paper?}\sayHW{Probably we should get out what we have, and leave the ``minor basis'' alone for now -- the paper is enough overdue that enlarging its scope requires extremely compelling justification, and even talking about the homogeneous element is pushing this}
 
 \textsc{Acknowledgments}  We would like to thank Misha Gekhtman and V. Chari for helpful discussions and comments. D.R. is supported by... S.S. is supported by... H.W. is supported by...
 
@@ -260,7 +260,7 @@ Given $u,v\in W$ and $\lambda$ a weight, we denote by $\Delta_{u\lambda}^{v\lamb
 \end{equation}
 When $u=v$ above, we will write $\Delta_{u\lambda}$ instead of $\Delta_{u\lambda}^{u\lambda}$.
 
-\begin{proposition}\say[Group]{We need to think carefully about the change of coefficents, keeping in mind [Yang,Zelevinsky: p. 21] at the end of Sec. 4 and [Berenstein,Rupel: Lemma 6.8].}
+\begin{proposition}\say[Group]{We need to think carefully about the change of coefficents, keeping in mind [Yang-Zelevinsky: p. 21] at the end of Sec. 4 and [Berenstein-Rupel: Lemma 6.8].}
 The coordinate ring of $G^{c,c^{-1}}$ is an upper cluster algebra of type $B_c$ with doubled principal coefficients, that is, whose $3n \times n$ exchange matrix has principal part $B_c$ and frozen part two copies of the identity matrix.  The initial cluster variables are the principal minors $\Delta_{\omega_i}$.  The frozen variables are
 \[
 y_j = \Delta^{\omega_j}_{ c\omega_j} \prod_{i < j}(\Delta^{\omega_i}_{c \omega_i})^{a_{ij}}, \quad z_j = \Delta^{c \omega_j}_{\omega_j} \prod_{i < j}(\Delta^{c \omega_i}_{\omega_i})^{a_{ij}}
@@ -1131,7 +1131,7 @@ Let $B$ and $B'$ be $(n+m)\times n$ exchange matrices and $M$ and invertible $m 
 
   For $\ell\in\ZZ$ define indecomposable representations $\vec{M}_{1,\ell}:=M_{[s(\vec{a}_{\ell-1}),t(\vec{a}_\ell)]}$ and $\cev{M}_{1,\ell}:=M_{[t(\cev{a}_\ell),s(\cev{a}_{\ell-1})]}$.  Note that when $t(\vec{a}_\ell)$ (resp. $t(\cev{a}_\ell)$) is not a sink in $Q$ the representation $\vec{M}_{1,\ell}$ (resp. $\cev{M}_{1,\ell}$) will be simple and otherwise $\vec{M}_{1,\ell}$ (resp. $\cev{M}_{1,\ell}$) will be a string module with socle $S_{t(\vec{a}_\ell)}$ (resp. $S_{t(\cev{a}_\ell)}$) and top $S_{s(\vec{a}_{\ell-1})}$ (resp. $S_{s(\cev{a}_{\ell-1})}$).  From this we see that the collections $\{\vec{M}_{1,\ell}:1\le\ell\le p\}$ and $\{\cev{M}_{1,\ell}:1\le\ell\le q\}$ give families of pairwise orthogonal bricks, i.e. there are no nonzero morphisms between non-isomorphic representations and each of these representations has trivial endomorphism ring.
 
-  Denote by $\overrightarrow{\rep}Q$ (resp. $\overleftarrow{\rep}Q$) the full, extension-closed, additive subcategory of $\rep Q$ called the \emph{clockwise} (resp. \emph{counterclockwise}) \emph{tubular subcategory} (tube) generated by $\{\vec{M}_{1,\ell}:1\le\ell\le p\}$ (resp. $\{\cev{M}_{1,\ell}:1\le\ell\le q\}$).  Following \cite[Section 3.1]{Rin84} the clockwise and counterclockwise tubes are serial, abelian categories with simple objects given by $\{\vec{M}_{1,\ell}:1\le\ell\le p\}$ and $\{\cev{M}_{1,\ell}:1\le\ell\le q\}$ respectively.  In each case these ``simple'' objects form the mouth of the corresponding tubular categories.
+  Denote by $\overrightarrow{\rep}Q$ (resp. $\overleftarrow{\rep}Q$) the full, extension-closed, additive subcategory of $\rep Q$, called the \emph{clockwise} (resp. \emph{counterclockwise}) \emph{tubular subcategory} (tube), generated by $\{\vec{M}_{1,\ell}:1\le\ell\le p\}$ (resp. $\{\cev{M}_{1,\ell}:1\le\ell\le q\}$).  Following \cite[Section 3.1]{Rin84} the clockwise and counterclockwise tubes are serial, abelian categories with simple objects given by $\{\vec{M}_{1,\ell}:1\le\ell\le p\}$ and $\{\cev{M}_{1,\ell}:1\le\ell\le q\}$ respectively.  In each case these ``simple'' objects form the mouth of the corresponding tubular categories.
 
   For $\ell\in\ZZ$, label the dimension vector of the ``simple'' object $\vec{M}_{1,\ell}$ as
   \begin{equation}
@@ -1174,9 +1174,8 @@ Let $B$ and $B'$ be $(n+m)\times n$ exchange matrices and $M$ and invertible $m 
 
   \begin{proposition}\mbox{}
     \begin{enumerate}
-      \item The modules listed above provide a complete set of simple objects in the categories $\overrightarrow{\rep}Q$ and $\overleftarrow{\rep}Q$.  Moreover, every object of $\overrightarrow{\rep}Q$ and $\overleftarrow{\rep}Q$ admits a unique Jordan-H\"older series with the corresponding simples as composition factors.
-      \item Every regular representation of $Q$ is contained in one of $\overrightarrow{\rep}Q$ or $\overleftarrow{\rep}Q$.
-      \item The exceptional regular representations of $Q$ are exactly the representations from $\overrightarrow{\rep}Q$ and $\overleftarrow{\rep}Q$ of length at most $q-1$ and $p-1$ respectively, where length refers to the Jordan-H\"older length in the respective categories.  
+      \item The modules listed above provide a complete set of simple objects in the categories $\overrightarrow{\rep}Q$ and $\overleftarrow{\rep}Q$.  Moreover, every object of $\overrightarrow{\rep}Q$ and $\overleftarrow{\rep}Q$ admits a unique Jordan-H\"older series with the corresponding ``simples'' as composition factors.
+      \item The indecomposable, rigid regular representations of $Q$ are exactly the representations from $\overrightarrow{\rep}Q$ and $\overleftarrow{\rep}Q$ of length at most $q-1$ and $p-1$ respectively, where length refers to the Jordan-H\"older length in the respective categories.  
     \end{enumerate}
   \end{proposition}
   \begin{proof}
@@ -1398,14 +1397,14 @@ Let $B$ and $B'$ be $(n+m)\times n$ exchange matrices and $M$ and invertible $m 
 
 \subsection{Networks}
 
-We will study generalized minors by modeling them with weighted networks on a cylinder. A graph is weighted if all of its edges are assigned elements of a fixed ring; below this will be the Laurent polynomial ring $\CC[t_{\pm0}^{\pm1},\dotsc,t_{\pm n}^{\pm1},h_0^{\pm1},\dotsc,h_n^{\pm1}]$ with $3n$ polynomial generators.
+We will study generalized minors by modeling them with weighted networks on a cylinder. A graph is weighted if all of its edges are assigned elements of a fixed ring; below this will be the Laurent polynomial ring $\CC[t_{\pm0}^{\pm1},\dotsc,t_{\pm n}^{\pm1},h_0^{\pm1},\dotsc,h_n^{\pm1}]$ with $3n+3$ polynomial generators.
 
 \begin{definition}
-Given $c = s_{\sigma_0} \dotsc s_{\sigma_n}$, define the \emph{network} $\net_c$ to be the following directed, weighted graph on the cylinder. We describe it as the concatenation of subgraphs on cyclinders associated to the factors in the decomposition 
+Given $c = s_{\sigma_0} \dotsc s_{\sigma_n}$, define the \emph{network} $\cN_c$ to be the following weighted directed graph on the cylinder. We describe it as the concatenation of subgraphs on cyclinders associated to the factors in the decomposition 
 \[g=x_{-\sigma_0}(t_{-\sigma_0})\cdots x_{-\sigma_n}(t_{-\sigma_n}) hx_{\sigma_n}(t_{\sigma_n}) \cdots x_{\sigma_0}(t_{\sigma_0}),\]
-where $h$ factors as $\prod\limits_{i=0}^n h_i$ with $h_i^{\omega_i}=h^{\omega_i}$ and $h_i^{\omega_j}=0$ for $i\ne j$.  We will abuse notation slightly and write $h_i$ also for the value $h_i^{\omega_i}$.
+where $h$ factors as $\prod\limits_{i=0}^n h_i$ with $h_i=\big(h^{\omega_i}\big)^{\alpha_i^\vee}$.  Note that $h_i^{\omega_i}=h^{\omega_i}$ and $h_i^{\omega_j}=1$ for $i\ne j$.  We will abuse notation slightly and write $h_i$ also for the value $h_i^{\omega_i}$.
 
-Each subcylinder has $n+1$ non-crossing \emph{horizontal} edges running from one boundary component to the other which are oriented from right to left and labeled by $\ZZ_{n+1}$ compatibly with their cyclic ordering.  The subcylinder associated to $x_{\pm i}(t_{\pm i})$ contains a (\emph{vertical}) \emph{bridge} with weight $t_{\pm i}$ joining the $(i-1)^{st}$ horizontal edge and the $i^{th}$ horizontal edge, this bridge is oriented upward for $i$ and downward for $-i$.  In the subcylinder associated to $h_i$ the $i^{th}$ edge has weight $h_i^{-1}$ and the $(i-1)^{st}$ edge has weight $h_i$.  All other edges in a subcylinder are taken to have weight 1.
+Each subcylinder has $n+1$ non-crossing \emph{horizontal} edges running from one boundary component to the other which are oriented from right to left and labeled by $\ZZ_{n+1}$ compatibly with their cyclic ordering.  The subcylinder associated to $x_{\pm i}(t_{\pm i})$ contains a (\emph{vertical}) \emph{bridge} with weight $t_{\pm i}$ joining the $(i-1)^{st}$ horizontal edge and the $i^{th}$ horizontal edge, this bridge is oriented upward for $i$ and downward for $-i$.  In the subcylinder associated to $h_i$, the $i^{th}$ edge has weight $h_i^{-1}$ and the $(i-1)^{st}$ edge has weight $h_i$.  All other edges in a subcylinder are taken to have weight 1.
 
  \erase{The vertical edge in the subcylinder associated to $x_{\overline{i}\,}(u_i)$ runs from the $(i - 1)^{st}$ horizontal edge to the $i^{th}$ horizontal edge. It and all horizontal edges other than the two it connects have weight $1$. The part of the $i^{th}$ edge before it meets the vertical edge has weight $u_i$, the part after has weight $1$.  The part of the $(\sigma_i-1)$st edge before it meets the vertical edge has weight $1$, the part after has weight $u_{\sigma_i}^{-1}$.\sayHW{This is correct if we are using $L^{c,c^{-1}}$, would need change for $G^{c,c^{-1}}$}}
 \begin{center}
@@ -1453,6 +1452,7 @@ Each subcylinder has $n+1$ non-crossing \emph{horizontal} edges running from one
 \end{tikzpicture}
 \quad\quad
 \begin{tikzpicture}
+  \node[below,color=white] at (0,-2) {$()$};
   \node[below] at (0,-2) {$h_i$};
   \draw (0.75,0) ellipse (0.5 and 2);
   %\draw (-1,0) ellipse (0.5 and 1);
@@ -1538,28 +1538,28 @@ Each subcylinder has $n+1$ non-crossing \emph{horizontal} edges running from one
 \end{center}
 \end{definition}
 
-By a path in $\net_c$ we will mean a path which is directed compatibly with the edges of $\net_c$, and which begins at a source on one end of the cyclinder and ends at a sink on the other end. 
+By a path in $\cN_c$ we will mean a path which is directed compatibly with the edges of $\cN_c$, and which begins at a source on one end of the cyclinder and ends at a sink on the other end. 
 If $P = \{P_i\}$ is a collection of paths, we write $\partial_{in}P \subset \ZZ_{n+1}$ for the set of boundary sources at which paths in $P$ begin; similarly $\partial_{out}P \subset \ZZ_{n+1}$ denotes the set of boundary sinks. 
-We say the weight of a path is the product of the weights of edges traversed by it, and the weight $wt(P)$ of a collection of paths is the product of the weights of its constituent paths.
+We say the weight of a path is the product of the weights of edges it traverses, and the weight $wt(P)$ of a collection of paths is the product of the weights of its constituent paths.
 
 \begin{proposition}\label{prop:minorsfrompaths}
 Given $S \subset \ZZ_{n+1}$, let
 \[ \omega_S = \sum_{i \in S} \omega_{i+1} - \omega_i.\] 
-Then \[ \Delta_{\omega_S}(g) = \sum_{P: S \to S} wt(P), \]
-where the sum is over collections of pairwise disjoint paths with $\partial_{in}P = \partial_{out}P = S$.
-%$|S|$-tuples of non-intersecting paths in $\net_c$ with input and output sets equal to $S$.
+Then for generic $g\in G^{c,c^{-1}}$ we have \[ \Delta_{\omega_S}(g) = \sum_{P: S \to S} wt(P), \]
+where the sum is over collections $P$ of pairwise disjoint paths with $\partial_{in}P = \partial_{out}P = S$.
+%$|S|$-tuples of non-intersecting paths in $\cN_c$ with input and output sets equal to $S$.
 \end{proposition}
 
 \begin{proof}
-By construction, the directed graph $\net_c$ encodes the action of $g$ in the standard basis $\{ e_{i_1} \wedge \cdots \wedge e_{i_k} z^\ell\}$ of $\bigwedge^k \CC^n[z^{\pm 1}]$. 
+By construction, the directed graph $\cN_c$ encodes the action of $g$ in the standard basis $\{ e_{i_1} \wedge \cdots \wedge e_{i_k} z^\ell\}$ of $\bigwedge^k \CC^n[z^{\pm 1}]$. 
 This basis is labeled by pairs of a $k$-element subset of $\ZZ_{n+1}$ and an integer $\ell$.
 \end{proof}
 
-To use the above proposition effectively, we collect some elementary combinatorial observations about non-crossing paths $P$ in $\net_c$. 
+To use the above proposition effectively, we collect some elementary combinatorial observations about non-crossing paths $P$ in $\cN_c$. 
 We define $\phi(P) \subset \ZZ_{n+1}$ by letting $j \in \phi(P)$ if and only if a path in $P$ traverses the unique bridge of weight $t_j$.
 
 \begin{lemma}\label{lem:phi}
-  Let $P$ be a collection of pairwise disjoint paths in $\net_c$.  Then:
+  Let $P$ be a collection of pairwise disjoint paths in $\cN_c$.  Then:
   \begin{enumerate}
     \item For $i\in\partial_{in}P$:
     \begin{enumerate}
@@ -1582,7 +1582,8 @@ We define $\phi(P) \subset \ZZ_{n+1}$ by letting $j \in \phi(P)$ if and only if 
   \begin{tikzpicture}
     \node[below] at (0,-2) {$i+1\to i$};
     \draw[singlearrow,draw] (1.5,1) -- (0.5,1);
-    \draw[singlearrow,draw] (0.5,1) -- (-1.5,1);
+    \draw[-] (0.5,1) -- (-0.5,1);
+    \draw[singlearrow,draw] (-0.5,1) -- (-1.5,1);
     \node[right] at (1.5,1) {$\scriptstyle i-1$};
     \draw[singlearrow,draw] (0.5,0) -- (0.5,1);
     \node[left] at (0.5,0.5) {$\scriptstyle t_i\ $};
@@ -1592,17 +1593,19 @@ We define $\phi(P) \subset \ZZ_{n+1}$ by letting $j \in \phi(P)$ if and only if 
     \node[right] at (1.5,0) {$\scriptstyle i$};
     \draw[singlearrow,draw] (-0.5,-1) -- (-0.5,0);
     \node[right] at (-0.5,-0.5) {$\ \scriptstyle t_{i+1}$};
-    \draw[singlearrow,draw] (1.5,-1) -- (-0.5,-1);
+    \draw[singlearrow,draw] (1.5,-1) -- (0.5,-1);
+    \draw[-] (0.5,-1) -- (-0.5,-1);
     \draw[singlearrow,draw] (-0.5,-1) -- (-1.5,-1);
     \node[right] at (1.5,-1) {$\scriptstyle i+1$};
-    \draw (-0.5,-0.555) circle (5pt);
-    \draw (0.5,0.445) circle (5pt);
-    \draw[thick,->] (-0.37,-0.44375) -- (0.38,0.30625);
+    \draw (-0.5,-0.5) circle (5pt);
+    \draw (0.5,0.5) circle (5pt);
+    \draw[thick,->] (-0.38,-0.38) -- (0.38,0.38);
   \end{tikzpicture}
   \qquad\qquad
   \begin{tikzpicture}
     \node[below] at (0,-2) {$i\to i+1$};
-    \draw[singlearrow,draw] (1.5,1) -- (-0.5,1);
+    \draw[singlearrow,draw] (1.5,1) -- (0.5,1);
+    \draw[-] (0.5,1) -- (-0.5,1);
     \draw[singlearrow,draw] (-0.5,1) -- (-1.5,1);
     \node[right] at (1.5,1) {$\scriptstyle i-1$};
     \draw[singlearrow,draw] (-0.5,0) -- (-0.5,1);
@@ -1614,16 +1617,17 @@ We define $\phi(P) \subset \ZZ_{n+1}$ by letting $j \in \phi(P)$ if and only if 
     \draw[singlearrow,draw] (0.5,-1) -- (0.5,0);
     \node[left] at (0.5,-0.5) {$\scriptstyle t_{i+1}\ $};
     \draw[singlearrow,draw] (1.5,-1) -- (0.5,-1);
-    \draw[singlearrow,draw] (0.5,-1) -- (-1.5,-1);
+    \draw[-] (0.5,-1) -- (-0.5,-1);
+    \draw[singlearrow,draw] (-0.5,-1) -- (-1.5,-1);
     \node[right] at (1.5,-1) {$\scriptstyle i+1$};
-    \draw (-0.5,0.445) circle (5pt);
-    \draw (0.5,-0.555) circle (5pt);
-    \draw[thick,->] (-0.37,0.33375) -- (0.38,-0.41625);
+    \draw (-0.5,0.5) circle (5pt);
+    \draw (0.5,-0.5) circle (5pt);
+    \draw[thick,->] (-0.38,0.38) -- (0.38,-0.38);
   \end{tikzpicture}
   \end{center}
 \end{proof}
 
-Recall that the regular cluster variables are labeled by intervals $[p,q] \subset \ZZ_{n+1}$ containing as many sources as sinks -- to such an interval we associate a boundary condition on paths in $\net_c$:
+Recall that the regular cluster variables are labeled by intervals $[p,q] \subset \ZZ_{n+1}$ containing as many sources as sinks -- to such an interval we associate a boundary condition on paths in $\cN_c$:
 
 \begin{definition}\label{def:Spq}
 Let $[p,q] \subset \ZZ_{n+1}$ be an interval containing an even number of sinks and sources; that is, such that $M_{[p,q]}$ is regular. Write $k_1 < \cdots < k_m$ (resp. $c_1 < \cdots < c_m$) for the indices of the sinks (resp. sources) in $[p,q]$. Let $S_{[p,q]}$ denote the following subset of $\ZZ_{n+1}$:
@@ -1664,12 +1668,14 @@ If $M_{[p,q]}$ is regular, then under the isomorphism $\CC[G^{c,c^{-1}}] \cong A
 \[ x_{M_{[p,q]}} = \Delta_{\omega_{S_{[p,q]}}}\]  
 \end{theorem}
 \begin{proof}
-Let $\cP = \{P: S_{[p,q]} \to S_{[p,q]}\}$ denote the set of pairwise disjoint paths in $\net_c$ with $\partial_{in}P = \partial_{out}P = S_{[p,q]}$. 
-By Proposition \ref{prop:minorsfrompaths}, for a generic element $g = x_{-\sigma_0}(t_{-\sigma_0})\cdots x_{-\sigma_n}(t_{-\sigma_n}) hx_{\sigma_n}(t_{\sigma_n}) \cdots x_{\sigma_0}(t_{\sigma_0})$ the evaluation $\Delta_{\omega_{S_{[p,q]}}}(g)$ is the weighted sum 
+Let $\cP = \{P: S_{[p,q]} \to S_{[p,q]}\}$ denote the set of pairwise disjoint collections of paths in $\cN_c$ with $\partial_{in}P = \partial_{out}P = S_{[p,q]}$. 
+By Proposition \ref{prop:minorsfrompaths}, for a generic element 
+\[g = x_{-\sigma_0}(t_{-\sigma_0})\cdots x_{-\sigma_n}(t_{-\sigma_n}) hx_{\sigma_n}(t_{\sigma_n}) \cdots x_{\sigma_0}(t_{\sigma_0})\]
+the evaluation $\Delta_{\omega_{S_{[p,q]}}}(g)$ is the weighted sum 
 \[
 \Delta_{\omega_{S_{[p,q]}}}(g) = \sum_{P \in \mathcal{P}} wt(P).
 \]
-Let $\cE = \{ E \subset [p,q]\}$ denote the subsets of $E \subset [p,q]$ that are target-closed: if there is an arrow $i \to j$ in $Q$ and $i, j$ are in $[p,q]$, then $E$ must contain $j$ if it contains $i$. 
+As in Theorem~\ref{???}, let $\cE = \{ E \subset [p,q]\}$ denote the subsets of $E \subset [p,q]$ that are target-closed: if there is an arrow $i \to j$ in $Q$ and $i, j$ are in $[p,q]$, then $E$ must contain $j$ if it contains $i$. 
 % $i \in E$, $j \in [p,q]$, and there is an arrow from $i$ to $j$ in $Q$, then $j \in E$. 
 Then we have 
 \[
@@ -1678,11 +1684,11 @@ x_{M_{[p,q]}} = x^g \sum_{E \in \cE} \prod_{i \in E} \hat{y}_i.
 
 As in Lemma \ref{lem:phi}, we define $\phi(P) \subset \ZZ_{n+1}$ by letting $j \in \phi(P)$ if and only if a path in $P$ traverses the unique edge of weight $t_j$. We claim that for $P \in \cP$, $\phi(P)$ is in fact a subset of $[p,q]$, is target-closed in $[p,q]$, and that the assignment $P \mapsto \phi(P)$ defines a bijection $\cP \cong \cE$.
 
-%Recall that $\net_c$ consists of parallel strands labeled by $\Z_{n+1}$ connecting the two boundary components of the cylinder, and two sets of $n+1$ vertical strands connecting them. One of those sets has edges weighted $t_j$, and with 
+%Recall that $\cN_c$ consists of parallel strands labeled by $\Z_{n+1}$ connecting the two boundary components of the cylinder, and two sets of $n+1$ vertical strands connecting them. One of those sets has edges weighted $t_j$, and with 
 
 %Recall that for $P \in \cP$ and any $j \in \Z_{n+1}$, $wt(P)$ either does not depend on $t_j$ or is linear in $t_j$. 
 
-%Let $\phi(P) \subset \ZZ_{n+1}$ denote the set of indices $j$ such that $wt(P)$ depends non-trivially on $t_j$. Recall that $t_j$ appears as the weight of a unique edge in $\net_c$, so equivalently $\phi(P)$ records which of these edges are traversed by a path in $P$. We claim that $\phi(P)$ is in fact a subset of $[p,q]$, is target-closed in $[p,q]$, and that the assignment $P \mapsto \phi(P)$ defines a bijection $\cP \cong \cE$.
+%Let $\phi(P) \subset \ZZ_{n+1}$ denote the set of indices $j$ such that $wt(P)$ depends non-trivially on $t_j$. Recall that $t_j$ appears as the weight of a unique edge in $\cN_c$, so equivalently $\phi(P)$ records which of these edges are traversed by a path in $P$. We claim that $\phi(P)$ is in fact a subset of $[p,q]$, is target-closed in $[p,q]$, and that the assignment $P \mapsto \phi(P)$ defines a bijection $\cP \cong \cE$.
 
 As in Definition \ref{def:Spq}, we let $k_1 < \cdots < k_m$, $c_1 < \cdots < c_m$ denote the labels of the sinks and sources in $[p,q]$. We first consider the case where the first sink in $[p,q]$ comes before the first source (i.e. $k_1 < c_1$ in $[p,q]$). Recall that in this case
 \[
@@ -1697,7 +1703,7 @@ Suppose now that $E \in \cE$ is a target-closed subset of $[p,q]$. We define a c
 \begin{enumerate}
 \item If $i \in [q+1,p-2]$ then $P_i$ stays on level $i$.
 \item If $i \in \{q,k_1,\dotsc,k_m\}$ and $i \notin E$, then $P_i$ stays on level $i$.
-\item If $i \in \{q,k_1,\dotsc,k_m\}$ and $i \notin E$, let $j \in E$ be the index such that $[j,i] \subset E$ is the largest interval in $E$ with $k \to k+1$ in $Q$ for all $k \in [j,i-1]$. Then $P_i$ begins on level $i$, follows vertical edges up to level $j-1$, then returns to end on level $i$.
+\item If $i \in \{q,k_1,\dotsc,k_m\}$ and $i \notin E$, let $j \in E$ be the index such that $[j,i] \subset E$ is the largest interval in $E$ with $k \to k+1$ in $Q$ for all $k \in [j,i-1]$. Then $P_i$ begins on level $i$, follows bridges up to level $j-1$, then returns to end on level $i$.
 \item If $i$ is not of the above form, then  $P_i$ stays on level $i$ if $i \notin E$ and moves from level $i$ to level $i-1$ and back if $i \in E$.
 \end{enumerate}
 
