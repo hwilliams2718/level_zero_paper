@@ -303,6 +303,15 @@ In this section we prove that when $B$ is any acyclic skew-symmetrizable matrix,
 
 \subsection{Exchange relations and $\bfg$-vectors}
 
+Fix a skew-symmetrizable matrix $B$, and let $A$ and $c$ be the associated Cartan matrix and Coxeter element.
+
+\begin{theorem}
+Identify the $\bfg$-vector lattice of $\cA_B$ with the weight lattice of $A$ by taking the initial $\bfg$-vector $g_i$ to the fundamental weight $\omega_i$. Under this identification the $\bfg$-vectors of the preprojective cluster variables are in correspondence with the weights $\{c^k\omega_i : k > 0, 1 \leq i \leq n\}$, and the $\bfg$-vectors of the preinjective cluster variables are in correspondence with the weights $\{-c^k\omega_i : k \leq 0, 1 \leq i \leq n\}$.
+\end{theorem}
+
+\begin{proof}
+************************** \sayHW{Everything between asterisks to be reformatted into unified proof of the theorem}
+
 In this section we present straightforward generalizations of some results from \cite[Sections 8-10]{FZ07} to the acyclic case.
 
 Let $A$ be any irreducible Cartan matrix not of finite type and let $c=s_1\cdots s_n$ be a Coxeter element in the Weyl group of $A$.
@@ -463,8 +472,14 @@ Taking inspiration from quiver representation theory we will refer to the former
 \saySS{I am not entirely happy with this definition: if I am not mistaken modules corresponding to initial cluster variables are neither preprojective not postinjective. Here we force them in the preprojective field to make it easier to state exchange relations later on. Would it make sense to drop the notation entirely? Do we need it anywhere?}
 \sayDR{It is really only necessary if we wish to emphasize the similarity of trichotomies: (preprojective, regular, postinjecive) and (positive level, level zero, negative level).  As you correctly pointed out the initial cluster is a bit of an anomaly from the ``classical'' representation theory perspective, but the initial cluster variables do correspond to shifted projectives in the cluster category so the terminology might still be considered acceptable.}
 
-\begin{corollary}
-  The cluster variables in the acyclic belt of $\cAb(B_c)$ satisfy the following exchange relations $(k\geq 0)$:
+**************************
+\end{proof}
+
+With the preceding Theorem in hand, we write $x_{c^k\omega_i}$ for the preprojective cluster variable with the indicated $\bfg$-vector, likewise $x_{-c^k\omega_i}$ for preinjective cluster variables and $x_{\omega_i}$ for initial cluster variables.
+
+\begin{theorem}
+The preprojective and preinjective cluster variables are determined by the following relations:
+  %The cluster variables in the acyclic belt of $\cAb(B_c)$ satisfy the following exchange relations $(k\geq 0)$:
   \begin{eqnarray}
     x_{c^k\omega_i}x_{c^{k+1}\omega_i} 
     &=& 
@@ -488,7 +503,7 @@ Taking inspiration from quiver representation theory we will refer to the former
     +
     1
   \end{eqnarray}
-\end{corollary}
+\end{theorem}
 \saySS{We may want to substitute $s_1\dots s_{i-1}\alpha_i = \beta_i^+$ and $s_n\dots s_{i+1}\alpha_i = \beta_i^-$ to make things slightly clearer in the formulas (I am worried people might have issues in decoding the cases $i=1$ in the first and $i=n$ in the second.}
 \begin{proof}
   Recall that $\beta_i^+=s_1\cdots s_{i-1}\alpha_i$ and $\beta_i^-=s_n\cdots s_{i+1}\alpha_i$. 
