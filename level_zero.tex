@@ -249,14 +249,14 @@ The definition of the cluster character involves the coindex $\coind(M) \in \ZZ^
 \[
 0 \to M \to \bigoplus I_j^{a_j} \to \bigoplus I_j^{b_j} \to 0
 \]
-is an injective resolution of $M$, then $\coind(M)$ is the element of $\ZZ^n$ whose $j$th component is $b_j - a_j$. Below we write $x^{\coind(M)}$ for the monomial $\prod x_j^{b_j - a_j}$. 
+is an injective resolution of $M$, then $\coind(M)$ is the element of $\ZZ^n$ whose $j$th component is $a_j - b_j$. Below we write $x^{-\coind(M)}$ for the monomial $\prod x_j^{b_j - a_j}$. 
 
 Given a dimension vector $e \in \NN^n$, the quiver Grassmannian $\Gr_eM$ is the variety of $e$-dimensional submodules of $M$. We write $\chi(\Gr_eM)$ for its Euler characteristic, \sayHW{Mumble something about Etale cohomology or specify representations are over $\CC$?}\sayDR{Should we also say ``with compact supports''?} and write $\hat{y}^e$ for the monomial $\prod_j \hat{y}_j^{e_j}$, where $e_j$\sayDR{At some points below (and above now) we use $e_j$ for standard basis vectors, should those be changed to something like $\varepsilon_j$?} is the $j$th component of $e \in \NN^n$.  
 
 \begin{definition}
 The cluster character of a representation $M$ of $Q$ is
 \[
-x_M := x^{\coind(M)} \sum_{e \in \NN^n}\chi(\Gr_eM) \hat{y}^e \in \kk[x_1^{\pm 1},\dotsc,x_m^{\pm 1}]
+x_M := x^{-\coind(M)} \sum_{e \in \NN^n}\chi(\Gr_eM) \hat{y}^e \in \kk[x_1^{\pm 1},\dotsc,x_m^{\pm 1}]
 \]
 \end{definition}
 
@@ -1343,7 +1343,7 @@ We define $\phi(P) \subset \ZZ_{n+1}$ by letting $j \in \phi(P)$ if and only if 
   \end{center}
 \end{proof}
 
-Recall that the regular cluster variables are labeled by intervals $[p,q] \subset \ZZ_{n+1}$ containing as many sources as sinks -- to such an interval we associate a boundary condition on paths in $\cN_c$:
+\sayDR{Move this into the section on tubes?}Recall that the regular cluster variables are labeled by intervals $[p,q] \subset \ZZ_{n+1}$ containing as many sources as sinks -- to such an interval we associate a boundary condition on paths in $\cN_c$:
 
 \begin{definition}\label{def:Spq}
 Let $[p,q] \subset \ZZ_{n+1}$ be an interval containing an even number of sinks and sources; that is, such that $M_{[p,q]}$ is regular. Write $k_1 < \cdots < k_m$ (resp. $c_1 < \cdots < c_m$) for the indices of the sinks (resp. sources) in $[p,q]$. Let $S_{[p,q]}$ denote the following subset of $\ZZ_{n+1}$:
@@ -1379,7 +1379,7 @@ M_{[p,q]} \to I_q \oplus I_{k_1} \oplus \cdots \oplus I_{k_m} \to I_{p-1} \oplus
 
 We now turn to the main result of the section:
 
-\begin{theorem}\sayDR{Merge this into Prop.~\ref{prop:level zero} and move the proof into the following section.}
+\begin{theorem}\sayDR{Merge this into Prop.~\ref{prop:level zero} and move the proof into the proof section below.}
 If $M_{[p,q]}$ is regular, then under the isomorphism $\CC[G^{c,c^{-1}}] \cong A_Q$ we have
 \[ x_{M_{[p,q]}} = \Delta_{\omega_{S_{[p,q]}}}\]  
 \end{theorem}
