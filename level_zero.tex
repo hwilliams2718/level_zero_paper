@@ -749,19 +749,22 @@ We will deduce some of the desired identities from the following fundamental one
   \end{equation}
 \end{proposition}
 
+The hard part in establishing the disired identities lies in realizing that some specific expressions in the generalized minors coincide when restricted to $G^{c,c^{-1}}$.
+We therefore begin by explicitly computhing those expressions.
 \begin{lemma}
   \label{lemma:coefficient_computations}
-  On the generic element $g$ of $G^{c,c^{-1}}$ expressed as in \Cref{eq:generic_element} the following can be computed explicitly:
-  \saySS{We may have to make these more general allowing other powers of $c$ as in the proof of the preprojective identity; if we do add a comment in the proof saying that $c^m$ is reduced.}
+  On the generic element $g$ of $G^{c,c^{-1}}$ expressed as in \Cref{eq:generic_element} the following can be computed explicitly for any $k\geq 0$:
   \begin{eqnarray}
-    \Delta^{c\omega_j}_{\omega_j}(g) &=& h^{\omega_j}\prod_{i=1}^n t_{-i}^{[\beta_j^+:\alpha_i]}\\
-    \Delta^{\omega_j}_{c\omega_j}(g) &=& h^{\omega_j}\prod_{i=1}^n t_{i}^{[\beta_j^+:\alpha_i]}\\
-    \Delta^{-c^{-1}\omega_j}_{-\omega_j}(g) &=& h^{-c^{-1}\omega_j}\prod_{i=1}^n t_{i}^{[\beta_j^-:\alpha_i]}\\
-    \Delta^{-\omega_j}_{-c^{-1}\omega_j}(g) &=& h^{-c^{-1}\omega_j}\prod_{i=1}^n t_{-i}^{[\beta_j^-:\alpha_i]}
+    \Delta^{c^{k+1}\omega_j}_{c^k\omega_j}(g) &=& h^{c^k\omega_j}\prod_{i=1}^n t_{-i}^{[c^k\beta_j^+:\alpha_i]}\\
+    \Delta^{c^k\omega_j}_{c^{k+1}\omega_j}(g) &=& h^{c^k\omega_j}\prod_{i=1}^n t_{i}^{[c^k\beta_j^+:\alpha_i]}\\
+    \Delta^{-c^{-k-1}\omega_j}_{-c^{-k}\omega_j}(g) &=& h^{-c^{-k-1}\omega_j}\prod_{i=1}^n t_{i}^{[c^{-k}\beta_j^-:\alpha_i]}\\
+    \Delta^{-c^{-k}\omega_j}_{-c^{-k-1}\omega_j}(g) &=& h^{-c^{-k-1}\omega_j}\prod_{i=1}^n t_{-i}^{[c^{-k}\beta_j^-:\alpha_i]}
   \end{eqnarray}
 \end{lemma}
 \begin{proof}
-  The first two identities are a straightforward calculation with root strings in the highest weight representation $L_{\omega_k}$; the remaining two are a similar computation in $L_{-\omega_k}$.
+  The first two identities are a straightforward calculation with root strings in the highest weight representation $L_{\omega_k}$ using the fact that the word $c^k$ is reduced for any $k\geq0$. 
+  \saySS{Would this be clearer using $L_{c^k\omega_k}$?}
+  The remaining two are a similar computation in $L_{-\omega_k}$.
   \saySS{We may want to say much more on this (Cf. \cite[Proof of eq. 3.20]{YZ08}) but we are already writing a lot of computations enough to disgust even the more coscentious reader.}
 \end{proof}
 
@@ -841,13 +844,11 @@ From the proof \Cref{lemma:coefficients_identities} we get immediately the follo
   \saySS{Scholium?}
   On the generic element \Cref{eq:generic_element} of $G^{c,c^{-1}}$ we can explicitly compute
   \begin{eqnarray}
-    y_i=
     \Delta_{c\omega_i}^{\omega_i}
     \prod_{ j <i}\big(\Delta_{c\omega_ j }^{\omega_ j }\big)^{a_{ j  i}}
     &=&
     t_i
     h^{\omega_i}\prod_{ j <i}h^{a_{ j  i}\omega_ j }\\
-    z_i=
     \Delta_{\omega_i}^{c\omega_i}
     \prod_{ j <i}\big(\Delta_{\omega_ j }^{c\omega_ j }\big)^{a_{ j  i}}
     &=&
@@ -855,6 +856,72 @@ From the proof \Cref{lemma:coefficients_identities} we get immediately the follo
     h^{\omega_i}\prod_{ j <i}h^{a_{ j  i}\omega_ j }
   \end{eqnarray}
 \end{corollary}
+
+\begin{lemma}
+  \label{lemma:coefficient_identity_powers}
+  Restricted to $G^{c,c^{-1}}$ the following two identities holds:
+  \begin{eqnarray} 
+    \Delta_{c^k \omega_i}^{c^{k+1} \omega_i}
+    &=&
+    \prod_{j=1}^n\left( 
+      \Delta^{c \omega_j}_{\omega_j}
+      \prod_{\ell<j}\big(
+        \Delta^{c \omega_\ell}_{\omega_\ell} 
+      \big)^{a_{\ell j}}
+    \right)^{[c^k\beta_i^+:\alpha_j]}
+    \\
+    \Delta_{c^{k+1} \omega_i}^{c^k \omega_i}
+    &=&
+    \prod_{j=1}^n\left( 
+      \Delta^{\omega_j}_{ c\omega_j} 
+      \prod_{\ell<j}\big(
+        \Delta^{\omega_\ell}_{c \omega_\ell}
+      \big)^{a_{\ell j}}
+    \right)^{[c^k\beta_i^+:\alpha_j]}
+  \end{eqnarray}
+\end{lemma}
+\begin{proof}
+  We concentrate on the first of the two identities the latter being obtained in a similar way.
+  In view of \Cref{lemma:coefficient_computations} the left hand side is
+  \[
+    h^{c^k\omega_i}\prod_{j=1}^n t_{j}^{[c^k\beta_i^+:\alpha_j]}
+  \]
+  while the right hand side is 
+  \[
+    \prod_{j=1}^n\left( 
+      h^{\omega_j}\prod_{m=1}^n t_{m}^{[\beta_j^+:\alpha_m]}
+      \prod_{\ell<j}\Big(
+      h^{\omega_\ell}\prod_{p=1}^n t_{p}^{[\beta_\ell^+:\alpha_p]}
+      \Big)^{a_{\ell j}}
+    \right)^{[c^k\beta_i^+:\alpha_j]}.
+  \]
+  Recalling from the proof of \Cref{lemma:coefficients_identities} that
+  \[
+    \alpha_j 
+    =
+    \beta_j^+
+    +
+    \sum_{\ell < j}
+    a_{\ell j}\beta_\ell^+
+  \]
+  to show that the two expressions are equal it remains to see that
+  \[
+    c^k\omega_i 
+    =
+    \sum_{j=1}^n
+    [c^k\beta_i^+:\beta_j^+]
+    \omega_j
+    =
+    \sum_{j=1}^n
+    [c^k\beta_i^+:\alpha_j]
+    \Big(
+    \omega_j+
+    \sum_{\ell<j} a_{\ell j}\omega_\ell
+    \Big).
+  \]
+  The first equality holds because the $\beta_i^+$ are linearly independent (they are obtained from the $\alpha_i$ by a unitriangular transformation) so that $1-c$ is an isomorphism from the subspace spanned by the $\omega_i$ to that spanned by the $\beta_i^+$, commuting with $c^{m-1}$.
+  The second equality is nothing but the change of coordinates in between the $\alpha_i$ and the $\beta_i^+$.
+\end{proof}
 
 We are finally ready to prove the three identities we are after.
 
@@ -876,6 +943,12 @@ We are finally ready to prove the three identities we are after.
   \end{equation}
   where all the running indices in the products are in $[1,n]$.
 \end{proposition}
+
+\begin{proof}
+  We apply \Cref{prop:fundid} with $u = v = c^k s_1 \cdots s_{i-1}$ and compare with the given expression.
+  Notice that the first monomials in these expressions are exactly identified.  
+  The second monomials, instead coincide on $G^{c,c^{-1}}$ by virtue of \Cref{lemma:coefficient_identity_powers}.
+\end{proof}
 
 \begin{proposition}
   Restricted to $G^{c,c^{-1}}$, for any $k\geq 0$ and $i\in[1,n]$, the product $\Delta_{-c^{-k}\omega_i}\Delta_{-c^{-k-1}\omega_i}$ is equal to
