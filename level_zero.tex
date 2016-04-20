@@ -270,7 +270,62 @@ We also recall the Auslander-Reiten translation $\tau: \mathrm{Rep}\: Q \to \mat
 
 Theorem \ref{thm:CCbijection} generalizes to the case of skew-symmetrizable matrices by replacing quiver representations with species representations. We refer to [R15] for details, though we will not make direct use of this here. 
 
-\subsection{Kac-Moody Groups}
+\section{Kac-Moody Groups, double Bruhat cells, and generalized minors}
+\subsection{PROVISIONAL: Generalities and main theorem}
+Things to do here:
+\begin{itemize}
+  \item
+    Introduce KM goups
+  \item
+    Say we restrict to derived subgroups (mention that this is just a trick to get rid of some irrelevant coefficients and that we could do without at the cost of heavier notation) 
+  \item
+    define generalized minors
+  \item
+    recall double bruhat decomposition
+  \item
+    Decide if, for the general and preproj/postinj sections, we assume $c=s_1\cdots s_n$ and permute the rows and columns of $A$ and $B$ accordingly. 
+    If not introduce $\prec_c$ and revisit all the statements.
+    If we do not make this assumption the explicit formulas in the next subsection (together with the various proofs in the preproj/postinj section) need to be altered significantly.
+  \item
+    prove thm: $G^{c,c^{-1}}$ is upper cluster algebra with coefficients $\Delta$ (Basically cite Harold)
+  \item
+    prove prop: we can rescale coefficients to have principal. 
+    This is needed because Harold's theorem says that $\CC[G^{c,c^{-1}}]$ is a cluster algebra with a different set of coefficients.
+    Use the notation $z_i$ and $z_{-i}$ for the new coefficients.
+    The choice of having the same letter and $\pm$ indices is justified by this explicit computation
+    \begin{eqnarray}
+      z_i
+      =
+      \Delta_{c\omega_i}^{\omega_i}
+      \prod_{ j <i}\big(\Delta_{c\omega_ j }^{\omega_ j }\big)^{a_{ j  i}}
+      &=&
+      t_i
+      h^{\omega_i}\prod_{ j <i}h^{a_{ j  i}\omega_ j }\\
+      z_{-i}
+      =
+      \Delta_{\omega_i}^{c\omega_i}
+      \prod_{ j <i}\big(\Delta_{\omega_ j }^{c\omega_ j }\big)^{a_{ j  i}}
+      &=&
+      t_{-i}
+      h^{\omega_i}\prod_{ j <i}h^{a_{ j  i}\omega_ j }
+    \end{eqnarray}
+    Not having picked the letter $y$ should help to distinguish principal coefficients from doubled principal coefficients.
+    I am partially satisfied by this choice; for uniformity with cluster variables I would rather have some capital/greek capital letter for the coefficients of $\CC[G^{c,c^{-1}}]$.
+  \item
+    mention that, since the algebra is acyclic this is a cluster algebra and not just an upper cluster algebra
+  \item
+    Do we want to even mention $L^{c,c^{-1}}$?
+  \item
+    anything else?
+  \item
+    Profit
+\end{itemize}
+
+*******
+
+Early attempts at this subsection below here 
+
+*******
 
 The data of an acyclic skew-symmetrizable matrix $B$ is equivalent to the data of a Cartan matrix $A$ (of possibly infinite type) together with a Coxeter element $c$ of its Weyl group. The Cartan matrix is obtained from $B$ by making all its entries negative without changing their absolute values, then setting each diagonal entry equal to two. The Coxeter element is $c = s_{\sigma_1} \cdots s_{\sigma_n}$, where $\sigma \in S_n$ is any permutation for which $\sigma_i > \sigma_j$ whenever there is an arrow from $i$ to $j$ in $Q_B$.\sayDR{$\sigma_1$ should be a sink}
 
@@ -282,7 +337,7 @@ The group $G$ has the double Bruhat decomposition
 \[
 G = \bigsqcup_{u,v \in W} G^{u,v},\quad G^{u,v} : = B_+ u B_+ \cap B_- v B_-,
 \]
-where $W$ is the Weyl group of $G$. Each $G^{u,v}$ is a smooth affine variety of dimension $n + \ell(u) + \ell(v)$, where $\ell(u)$, $\ell(v)$ are the lengths of $u$ and $v$ [FZ, Wil]. The coordinate ring of $G^{u,v}$ is an upper cluster algebra, and a finite subset of its clusters are in correspondence with shuffles of reduced words for $u$ and $v$ [BFZ, Wil]. 
+where $W$ is the Weyl group of $G$. Each $G^{u,v}$ is a smooth affine variety of dimension $n + \ell(u) + \ell(v)$, where $\ell(u)$, $\ell(v)$ are the lengths of $u$ and $v$ [FZ, Wil]\saySS{This already requires that we are working with the derived subgroup}. The coordinate ring of $G^{u,v}$ is an upper cluster algebra, and a finite subset of its clusters are in correspondence with shuffles of reduced words for $u$ and $v$ [BFZ, Wil]. 
 
 %Let $G := G_B$ be the Kac-Moody group associated to this root system. The cluster algebra has the following geometric realization in terms of $G$:
 
@@ -294,6 +349,164 @@ y_j = \Delta^{\omega_j}_{ c\omega_j} \prod_{i < j}(\Delta^{\omega_i}_{c \omega_i
 \end{proposition}
 \begin{proof}
 Let $B'$ be the $3n \times n$ exchange matrix with principal part $B_c$ and with $B'_{i+n,j} = B'_{i+2n,j} = [i = j] + a_{ij}[i < j]$ for $i,j \in [1,n]$.  Then the coordinate ring of $G^{c,c^{-1}}$ is the upper cluster algebra with exchange matrix $B'$, initial cluster variables $\Delta_{\omega_i}^{\omega_i}$, and frozen variables $\Delta^{\omega_i}_{c \omega_i}$, $\Delta^{c \omega_i}_{\omega_i}$ \cite{me}.  The proposition then follows from \Cref{prop:changeofcoeffs}
+\end{proof}
+
+****
+
+some more attempts
+
+****
+
+Throughout this section we fix a symmetrizable Kac-Moody group $G$ of infinite type and a Coxeter element $c$.  
+
+\saySS{This should cover all the minors we care about; please correct me if I am mistaken}
+Given $u,v\in W$ and $\lambda$ a weight, we denote by $\Delta_{u\lambda}^{v\lambda}$ the matrix coefficient 
+\begin{equation}
+  \Delta_{u\lambda}^{v\lambda}(g) 
+  := 
+  \left(\left[ \overline{u}^{-1}g\overline{v} \right]_0\right)^\lambda
+\end{equation}
+When $u=v$ above, we will write $\Delta_{u\lambda}$ instead of $\Delta_{u\lambda}^{u\lambda}$.
+
+\begin{proposition}\say[Group]{We need to think carefully about the change of coefficents, keeping in mind [Yang-Zelevinsky: p. 21] at the end of Sec. 4 and [Berenstein-Rupel: Lemma 6.8].}
+The coordinate ring of $G^{c,c^{-1}}$ is an upper cluster algebra of type $B_c$ with doubled principal coefficients, that is, whose $3n \times n$ exchange matrix has principal part $B_c$ and frozen part two copies of the identity matrix.  The initial cluster variables are the principal minors $\Delta_{\omega_i}$.  The frozen variables are
+\[
+y_j = \Delta^{\omega_j}_{ c\omega_j} \prod_{i < j}(\Delta^{\omega_i}_{c \omega_i})^{a_{ij}}, \quad z_j = \Delta^{c \omega_j}_{\omega_j} \prod_{i < j}(\Delta^{c \omega_i}_{\omega_i})^{a_{ij}}
+\]
+\end{proposition}
+\begin{proof}
+Let $B'$ be the $3n \times n$ exchange matrix with principal part $B_c$ and with $B'_{i+n,j} = B'_{i+2n,j} = [i = j] + a_{ij}[i < j]$ for $i,j \in [1,n]$.  Then the coordinate ring of $G^{c,c^{-1}}$ is the upper cluster algebra with exchange matrix $B'$, initial cluster variables $\Delta_{\omega_i}^{\omega_i}$, and frozen variables $\Delta^{\omega_i}_{c \omega_i}$, $\Delta^{c \omega_i}_{\omega_i}$ \cite{me}.  The proposition then follows from \Cref{prop:changeofcoeffs}
+\end{proof}
+
+
+\begin{proposition}
+Let $G$ be a Kac-Moody group, let $c$ be a Coxeter element of its Weyl group, and $B_c$ the associated exchange matrix.  The coordinate ring of the double Bruhat cell $G^{c,c^{-1}}$ is an upper cluster algebra of type $B_c$ with coefficients.  The coordinate ring of the reduced double Bruhat cell $L^{c,c^{-1}}$ is an upper cluster algebra of type $B_c$ with principal coefficients.
+\end{proposition}
+\begin{proof}
+\begin{enumerate}
+\item Cite other papers.
+\item Generalities on reducing double Bruhat cells and forgetting coefficients.
+\item Redo Yang-Zelevinsky change of coefficients.
+\end{enumerate}
+\end{proof}
+
+\begin{proposition}
+Let $G$ be a Kac-Moody group, let $c$ be a Coxeter element of its Weyl group, and $B_c$ the associated exchange matrix.  All initial and preprojective cluster variables in the coordinate ring of $G^{c,c^{-1}}$ are restrictions of principal minors of highest weight representations.  Their $g$-vectors are of the form $\dotsc$, and the cluster variable with $g$-vector $g = (g_1,\dotsc,g_n)$ is the restriction of the principal minor of weight $\sum g_i \omega_i$.
+\end{proposition}
+\begin{proof}
+\begin{enumerate}
+\item Redo Yang-Zelevinsky computation of the exchange relations among preprojective minors.
+\end{enumerate}
+\end{proof}
+
+\begin{proposition}
+Let $G$ be a Kac-Moody group, let $c$ be a Coxeter element of its Weyl group, and $B_c$ the associated exchange matrix.  All postinjective cluster variables in the coordinate ring of $G^{c,c^{-1}}$ are restrictions of principal minors of lowest weight representations.  Their $g$-vectors are of the form $\dotsc$, and the cluster variable with $g$-vector $g = (g_1,\dotsc,g_n)$ is the restriction of the principal minor of weight $\sum g_i \omega_i$.
+\end{proposition}
+\begin{proof}
+\begin{enumerate}
+\item Compute change of coordinates between oppositely shuffled parametrizations.
+\item Use this to show antifundamental minors are mutations of fundamental ones.
+\item Think about coefficients in oppositely shuffled parametrization.
+\item Show negative version of generalized minor identities reduce to exchange relations among postinjective minors.
+\end{enumerate}
+\end{proof}
+
+
+\subsection{Explicit computations}
+\saySS{This subsection is written assuming $c=s_1\cdots s_n$}
+\saySS{the rationale of this subsection is to introduce the notation for the generic element of $G^{c,c^{-1}}$ that we use in both the preproj/postinj and the regular sections. With the excuse, having showed that we have a cluster algebra by pinpointing generalized minors it sounds like a good idea to say what are they.}
+For later use we record here the values that both the initial cluster variables and the coefficients of $\CC[G^{c,c^{-1}}]$ assume on the generic element of $G^{c,c^{-1}}$.
+In most cases to obtain these formulas it suffices to perform a straightforward computation in the relevant representation (either $L_{\omega_i}$ or $L_{-\omega_i}$) so we will omit proofs.
+
+For $i\in[1,n]$ let $\varphi_i:SL_2\rightarrow G$ denote the canonical embedding corresponding to the simple root $\alpha_i$. 
+For $t\in\CC$ write 
+\begin{equation}
+  x_{-i}(t):=\varphi_i\left(\begin{array}{cc}1 & 0 \\ t & 1\end{array}\right)
+  \quad
+  \quad
+  x_i(t):=\varphi_i\left(\begin{array}{cc}1 & t \\ 0 & 1\end{array}\right)
+\end{equation}
+and for $t \in \CC^\times$
+\begin{equation}
+  t^{\alpha_i^\vee}:=\varphi_i\left(\begin{array}{cc}t & 0 \\ 0 & t^{-1}\end{array}\right)
+\end{equation}
+so that the generic element of $G^{c,c^{-1}}$ is
+\begin{equation}
+  \label{eq:generic_element}
+  g=x_{-1}(t_{-1}) \cdots x_{-n}(t_{-n}) h x_n(t_n) \cdots x_1(t_1)
+\end{equation}
+with $h\in H$ and $t_{\pm i} \in \CC$ (cf. \cite[Proposition 3.2]{Wil13} were we prefer to place the torus part in central position using the classical commutation relations \cite[(2.5)]{FZ99}).
+
+\begin{lemma}
+  \label{lemma:initial_cluster_variables}
+  On the generic element $g$ of $G^{c,c^{-1}}$ expressed as in \Cref{eq:generic_element} the initial cluster variables of $\CC[G^{c,c^{-1}}]$ assume the following values:
+  \begin{equation}
+    \Delta_{\omega_i}(g) = h^{\omega_i}
+  \end{equation}
+\end{lemma}
+
+Keeping in mind that for any $k\geq0$ the word $c^k$ is reduced (cf. \cite{Spe09}), we also get the following.
+\saySS{We may want to give a proof of this (Cf. \cite[Proof of eq. 3.20]{YZ08}) but we are already writing a lot of computations enough to disgust even the more coscentious reader.}
+\begin{lemma}
+  \label{lemma:coefficient_computations}
+  On the generic element $g$ of $G^{c,c^{-1}}$ expressed as in \Cref{eq:generic_element} the following can be computed explicitly for any $k\geq 0$:
+  \begin{eqnarray}
+    \Delta^{c^{k+1}\omega_j}_{c^k\omega_j}(g) &=& h^{c^k\omega_j}\prod_{i=1}^n t_{-i}^{[c^k\beta_j^+:\alpha_i]}\\
+    \Delta^{c^k\omega_j}_{c^{k+1}\omega_j}(g) &=& h^{c^k\omega_j}\prod_{i=1}^n t_{i}^{[c^k\beta_j^+:\alpha_i]}\\
+    \Delta^{-c^{-k-1}\omega_j}_{-c^{-k}\omega_j}(g) &=& h^{-c^{-k-1}\omega_j}\prod_{i=1}^n t_{i}^{[c^{-k}\beta_j^-:\alpha_i]}\\
+    \Delta^{-c^{-k}\omega_j}_{-c^{-k-1}\omega_j}(g) &=& h^{-c^{-k-1}\omega_j}\prod_{i=1}^n t_{-i}^{[c^{-k}\beta_j^-:\alpha_i]}
+  \end{eqnarray}
+\end{lemma}
+
+Finally we can explicitly compute the value of $z_i$ and $z_{-i}$.
+\begin{lemma}
+  \label{lemma:coefficients_values}
+  On the generic element $g$ of $G^{c,c^{-1}}$ expressed as in \Cref{eq:generic_element} we can explicitly compute
+  \begin{eqnarray}
+    z_i(g)
+    &=&
+    t_i
+    h^{\omega_i}\prod_{ j <i}h^{a_{ j  i}\omega_ j }\\
+    z_{-i}(g)
+    &=&
+    t_{-i}
+    h^{\omega_i}\prod_{ j <i}h^{a_{ j  i}\omega_ j }
+  \end{eqnarray}
+\end{lemma}
+\begin{proof}
+  We will only concern ourself with the first identity, the other being derived exactly in the same way.
+  Recall the definition of $z_i$
+  \saySS{Add the relevant reference once it is in place}
+  \[
+    z_i 
+    =
+    \Delta_{c\omega_i}^{\omega_i}
+    \prod_{ j <i}\big(\Delta_{c\omega_ j }^{\omega_ j }\big)^{a_{ j  i}}
+  \]
+  and substitute the values computed in \Cref{lemma:coefficient_computations} to get
+  \[
+    z_i(g)
+    =
+    \left(h^{\omega_i}\prod_{\ell =1}^n t_{\ell}^{[\beta_i^+:\alpha_\ell]}\right)
+    \prod_{j<i}\left(h^{\omega_j}\prod_{\ell=1}^n t_{\ell}^{[\beta_j^+:\alpha_\ell]}\right)^{a_{ji}}.
+  \]
+  To establish our result we need to verify that
+  \saySS{This should be changed to Harold's boolean notation}
+  \[
+    [\beta_i^+:\alpha_\ell]+\sum_{j<i}a_{ji}[\beta_j^+:\alpha_\ell]
+    =
+    \begin{cases}
+      1 & \text{ if $i=\ell$}\\
+      0 & \text{ otherwise.}
+    \end{cases}
+  \]
+  Summing up over $\ell$ we get
+  \[
+    \beta_i^++\sum_{j<i}a_{ji}\beta_j^+
+    =
+    \alpha_i
+  \]
+  which holds by telescoping.
 \end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -512,350 +725,8 @@ The preprojective and preinjective cluster variables are determined by the follo
 
 \subsection{Highest and Lowest Weight Minors}
 
-Throughout this section we fix a symmetrizable Kac-Moody group $G$ of infinite type and a Coxeter element $c$.  
-
-\saySS{This should cover all the minors we care about; please correct me if I am mistaken}
-Given $u,v\in W$ and $\lambda$ a weight, we denote by $\Delta_{u\lambda}^{v\lambda}$ the matrix coefficient 
-\begin{equation}
-  \Delta_{u\lambda}^{v\lambda}(g) 
-  := 
-  \left(\left[ \overline{u}^{-1}g\overline{v} \right]_0\right)^\lambda
-\end{equation}
-When $u=v$ above, we will write $\Delta_{u\lambda}$ instead of $\Delta_{u\lambda}^{u\lambda}$.
-
-\begin{proposition}\say[Group]{We need to think carefully about the change of coefficents, keeping in mind [Yang-Zelevinsky: p. 21] at the end of Sec. 4 and [Berenstein-Rupel: Lemma 6.8].}
-The coordinate ring of $G^{c,c^{-1}}$ is an upper cluster algebra of type $B_c$ with doubled principal coefficients, that is, whose $3n \times n$ exchange matrix has principal part $B_c$ and frozen part two copies of the identity matrix.  The initial cluster variables are the principal minors $\Delta_{\omega_i}$.  The frozen variables are
-\[
-y_j = \Delta^{\omega_j}_{ c\omega_j} \prod_{i < j}(\Delta^{\omega_i}_{c \omega_i})^{a_{ij}}, \quad z_j = \Delta^{c \omega_j}_{\omega_j} \prod_{i < j}(\Delta^{c \omega_i}_{\omega_i})^{a_{ij}}
-\]
-\end{proposition}
-\begin{proof}
-Let $B'$ be the $3n \times n$ exchange matrix with principal part $B_c$ and with $B'_{i+n,j} = B'_{i+2n,j} = [i = j] + a_{ij}[i < j]$ for $i,j \in [1,n]$.  Then the coordinate ring of $G^{c,c^{-1}}$ is the upper cluster algebra with exchange matrix $B'$, initial cluster variables $\Delta_{\omega_i}^{\omega_i}$, and frozen variables $\Delta^{\omega_i}_{c \omega_i}$, $\Delta^{c \omega_i}_{\omega_i}$ \cite{me}.  The proposition then follows from \Cref{prop:changeofcoeffs}
-\end{proof}
-
-\begin{proposition}
-  %\label{prop:fundid}
-Suppose $u, v \in W$, $k \in [1,n]$ satisfy $u s_k \omega_k < u \omega_k$ and $v s_k \omega_k < v \omega_k$.  Then the identity \sayHW{May make sense to just state on the derived subgroup, so we can ignore ``extended'' fundamental weights.}
-\[
-\Delta_{v \omega_k}^{u \omega_k}\Delta_{v s_k \omega_k}^{u s_k \omega_k} = 
-\Delta_{v \omega_k}^{u s_k \omega_k}\Delta_{v s_k \omega_k}^{u \omega_k} + 
-\prod_{i \neq k} (\Delta_{v\omega_i}^{u \omega_i})^{-a_{ik}}
-\]
-holds on $G$.
-\end{proposition}
-
-\begin{proposition}[{\cite[Proposition 2.16]{Wil13}}]
-  %\label{prop:fundid}
-  \saySS{I am restating the previous proposition using the non derived version of $G$. Once we decide which theorem we are going to prove we should fix which $G$ do we care about.}
-  Suppose $u,v \in W$ and $k\in[1,n]$ are such that $\ell(u)<\ell(us_k)$ and $\ell(v)<\ell(vs_k)$. 
-  Then 
-  \begin{equation}
-    \label{eq:fundid}
-    \Delta_{u\omega_k}^{v\omega_k} \Delta_{us_k\omega_k}^{vs_k\omega_k} 
-    =
-    \Delta_{us_k\omega_k}^{v\omega_k} \Delta_{u\omega_k}^{vs_k\omega_k}
-    +
-    \prod_{\stackrel{1\leq i \leq \tilde{n}}{i\neq k}}\left(\Delta_{u\omega_i}^{v\omega_i}\right)^{-a_{ik}}
-    .
-  \end{equation}
-\end{proposition}
-
-From \Cref{prop:fundid} we deduce two identities valid on $G$.
-Set $u=v=c^ms_1\cdots s_{k-1}$. 
-Then
-\begin{align}
-  \Delta_{c^m\omega_k} \Delta_{c^{m+1}\omega_k} 
-  &=\Delta_{c^{m+1}\omega_k}^{c^m\omega_k} \Delta_{c^m\omega_k}^{c^{m+1}\omega_k}\\
-  \nonumber &\quad+\prod_{1\leq i<k}\left(\Delta_{c^{m+1}\omega_i}\right)^{-a_{ik}}
-  \prod_{k<i\leq n}\left(\Delta_{c^m\omega_i}\right)^{-a_{ik}}
-  \prod_{n<i\leq\tilde{n}}\left(\Delta_{\omega_i}\right)^{-a_{ik}}
-  .
-\end{align}
-Recall that (cf. \cite[(3.6)]{YZ}) $G$ is equipped with an anti-involutive automorphism $\iota$ defined by
-\begin{equation}
-  a^\iota = a^{-1} \quad (a\in H)
-  \quad\quad
-  x_i(t)^\iota=x_i(t)
-  \quad\quad
-  x_{\overline{i}}(t)^\iota=x_{\overline{i}}(t)
-  .
-\end{equation}
-Note that 
-\begin{equation}
-  \Delta_{u\lambda}^{v\lambda}(x) 
-  =
-  \Delta_{-v\lambda}^{-u\lambda}(x^\iota)
-\end{equation}
-Substituting $u=v=c^{-m}s_n\cdots s_{k+1}$ in \Cref{eq:fundid} and evaluating at $x^\iota$ we get
-\begin{align}
-  \Delta_{-c^{-m}\omega_k} \Delta_{-c^{-m-1}\omega_k}
-  &=\Delta_{-c^{-m}\omega_k}^{-c^{-m-1}\omega_k} \Delta_{-c^{-m-1}\omega_k}^{-c^{-m}\omega_k}\\
-  \nonumber &\quad+\prod_{1\leq i<k}\left(\Delta_{-c^{-m}\omega_i}\right)^{-a_{ik}}
-  \prod_{k<i\leq n}\left(\Delta_{-c^{-m-1}\omega_i}\right)^{-a_{ik}}
-  \prod_{n<i\leq\tilde{n}}\left(\Delta_{-\omega_i}\right)^{-a_{ik}}.
-\end{align}
-
-For any root $\alpha$ we define $[\alpha:\alpha_i]$ by $\alpha = \sum_{i=1}^n [\alpha:\alpha_i]\alpha_i$, defining $[\alpha:\beta_k^+]$ analogously.
-
-  \begin{lemma}\label{lem:minorsondbc}
-    Restricted to $G^{c,c^{-1}}$, the product $\Delta_{c^{m-1}\omega_k}\Delta_{c^{m}\omega_k}$ is equal to
-    \begin{equation} 
-      \prod_{j=1}^n \left( \Delta^{c \omega_j}_{\omega_j}\Delta^{\omega_j}_{ c\omega_j} \prod_{i < j}\big(\Delta^{c \omega_i}_{\omega_i} \Delta^{\omega_i}_{c \omega_i}\big)^{a_{ij}}\right)^{[c^{m-1} \beta_k^+:\alpha_j]} + 
-      \left(\prod_{i < k}\big(\Delta_{c^{m}\omega_i}\big)^{-a_{ik}}\right)\left(\prod_{i>k}\big(\Delta_{c^{m-1}\omega_i}\big)^{-a_{ik}}\right)
-    \end{equation}
-    for any $k \in [1,n]$, $m \geq 1$.  
-  \end{lemma}
-
-  \begin{proof}
-    We apply \Cref{prop:fundid} with $u = v = c^{m-1}s_1 \cdots s_{k-1}$ and compare with the given expression.  Notice that the final monomials in these expressions are exactly identified.  It only remains to understand the monomial $\Delta_{c^m \omega_k}^{c^{m-1} \omega_k}\Delta_{c^{m-1} \omega_k}^{c^m \omega_k}$ from \Cref{prop:fundid}.
-
-    We first claim that upon restriction to $G^{c,c^{-1}}$ we have
-    \begin{equation}\label{eq:coeffreduction}
-      \Delta_{c^m \omega_k}^{c^{m-1} \omega_k} = 
-      \prod_{i=1}^n (\Delta_{c \omega_i}^{\omega_i})^{[c^{m-1}\beta_k^+:\beta_i^+]}.
-    \end{equation}
-    To see this, it suffices to evaluate both sides on a generic $g \in G^{c,c^{-1}}$ of the form
-    \[
-      g = hx_{-1}(t_{-1}) \cdots x_{-n}(t_{-n}) x_{n}(t_{n}) \cdots x_{1}(t_{1})
-    \]
-    for $h \in H$ and $t_i \in \CC^*$.  Since $(s_1 \cdots s_n)^m$ is a reduced expression of $c^m$ for any $m \geq 1$ (cf. \cite{Spe09}), a straightforward calculation with root strings in the highest weight representation $L_{\omega_k}$ yields
-    \begin{equation}\label{eq:coeffeval}
-      \Delta_{c^m \omega_k}^{c^{m-1}\omega_k}(g) = h^{c^{m-1}\omega_k} \prod_{j=1}^n t_j^{[c^{m-1}\beta_k^+:\alpha_j]}.
-    \end{equation}
-    
-    The case $m=1$ of eq. \eqref{eq:coeffreduction} is immediate.  To reduce the general case to this one we will need to rewrite eq. \eqref{eq:coeffeval} using the equality
-    \[
-      c^{m-1} \omega_k = \sum_{i=1}^n [c^{m-1}\beta_k^+:\beta_i^+]\omega_i.
-    \]
-    To see this, first notice that the $\beta_i^+$ are linearly independent since they are obtained from the $\alpha_i$ by a unitriangular transformation.  Thus $1-c$ is an isomorphism from the subspace spanned by the $\omega_i$ to that spanned by the $\beta_i^+$, and the identity follows since $1-c$ commutes with $c^{m-1}$.  
-
-    Now applying the identity
-    \[
-      [\alpha:\alpha_j] = \sum_{i=1}^n [\alpha:\beta_i^+][\beta_i^+:\alpha_j]
-    \]
-    with $\alpha=c^{m-1}\beta_k^+$ in the final exponent of eq. \eqref{eq:coeffeval},
-    we may rewrite \Cref{eq:coeffeval} with $i = k$ and arbitrary $m$ in terms of the $m = 1$, arbitrary $i$ case and obtain \Cref{eq:coeffreduction}.
-
-    Since $\beta_j^+ + \sum_{i=1}^{j-1} a_{ij} \beta_i^+ = \alpha_j$, we can further rewrite \Cref{eq:coeffreduction} as
-    \begin{equation}\label{eq:coeffident}
-      \Delta_{c^m \omega_k}^{c^{m-1} \omega_k} = 
-      \prod_{j=1}^n \left( \Delta_{c \omega_j}^{\omega_j} \prod_{i < j}(\Delta_{c \omega_i}^{\omega_i})^{a_{ij}}\right)^{[c^{m-1} \beta_k^+:\alpha_j]}. 
-    \end{equation}
-    On the other hand, consider the anti-automorphism of $G$ which fixes $H$ and exchanges $x_i(t)$ with $x_{-i}(t)$.  This takes $G^{c,c^{-1}}$ to itself and pulls back $\Delta_{\omega}^{\lambda}$ to $\Delta^{\omega}_{\lambda}$.  Applying this anti-automorphism to \Cref{eq:coeffident} we obtain
-    \[
-      \Delta^{c^m \omega_k}_{c^{m-1} \omega_k} = 
-      \prod_{j=1}^n \left( \Delta^{c \omega_j}_{\omega_j} \prod_{i < j}(\Delta^{c \omega_i}_{\omega_i})^{a_{ij}}\right)^{[c^{m-1} \beta_k^+:\alpha_j]}.
-    \]
-    This completes the proof.
-  \end{proof}
-
-\begin{proposition}
-Let $G$ be a Kac-Moody group, let $c$ be a Coxeter element of its Weyl group, and $B_c$ the associated exchange matrix.  The coordinate ring of the double Bruhat cell $G^{c,c^{-1}}$ is an upper cluster algebra of type $B_c$ with coefficients.  The coordinate ring of the reduced double Bruhat cell $L^{c,c^{-1}}$ is an upper cluster algebra of type $B_c$ with principal coefficients.
-\end{proposition}
-\begin{proof}
-\begin{enumerate}
-\item Cite other papers.
-\item Generalities on reducing double Bruhat cells and forgetting coefficients.
-\item Redo Yang-Zelevinsky change of coefficients.
-\end{enumerate}
-\end{proof}
-
-\begin{proposition}
-Let $G$ be a Kac-Moody group, let $c$ be a Coxeter element of its Weyl group, and $B_c$ the associated exchange matrix.  All initial and preprojective cluster variables in the coordinate ring of $G^{c,c^{-1}}$ are restrictions of principal minors of highest weight representations.  Their $g$-vectors are of the form $\dotsc$, and the cluster variable with $g$-vector $g = (g_1,\dotsc,g_n)$ is the restriction of the principal minor of weight $\sum g_i \omega_i$.
-\end{proposition}
-\begin{proof}
-\begin{enumerate}
-\item Redo Yang-Zelevinsky computation of the exchange relations among preprojective minors.
-\end{enumerate}
-\end{proof}
-
-\begin{proposition}
-Let $G$ be a Kac-Moody group, let $c$ be a Coxeter element of its Weyl group, and $B_c$ the associated exchange matrix.  All postinjective cluster variables in the coordinate ring of $G^{c,c^{-1}}$ are restrictions of principal minors of lowest weight representations.  Their $g$-vectors are of the form $\dotsc$, and the cluster variable with $g$-vector $g = (g_1,\dotsc,g_n)$ is the restriction of the principal minor of weight $\sum g_i \omega_i$.
-\end{proposition}
-\begin{proof}
-\begin{enumerate}
-\item Compute change of coordinates between oppositely shuffled parametrizations.
-\item Use this to show antifundamental minors are mutations of fundamental ones.
-\item Think about coefficients in oppositely shuffled parametrization.
-\item Show negative version of generalized minor identities reduce to exchange relations among postinjective minors.
-\end{enumerate}
-\end{proof}
-
-\saySS{From this point to the end of the section is some refactoring that will replace the above part. I am mostly tying to uniformize notation across the board}
 \saySS{Add a sentence stating that we work in the derived version of $G$}
 \saySS{Add a sentence to say that we borrow/adapt most of the proofs from \cite{YZ08}}
-
-We begin by recalling some known identities and giving explicit expressions for the value of certain minors on the generic point of $G^{c,c^{-1}}$ that will be used in the subsequent proofs.
-
-For $i\in[1,n]$ let $\varphi_i:SL_2\rightarrow G$ denote the canonical embedding corresponding to the simple root $\alpha_i$. 
-For $t\in\CC$ write 
-\begin{equation}
-  x_{-i}(t):=\varphi_i\left(\begin{array}{cc}1 & 0 \\ t & 1\end{array}\right)
-  \quad
-  \quad
-  x_i(t):=\varphi_i\left(\begin{array}{cc}1 & t \\ 0 & 1\end{array}\right)
-\end{equation}
-and for $t \in \CC^\times$
-\begin{equation}
-  t^{\alpha_i^\vee}:=\varphi_i\left(\begin{array}{cc}t & 0 \\ 0 & t^{-1}\end{array}\right)
-\end{equation}
-so that the generic element of $G^{c,c^{-1}}$ is
-\begin{equation}
-  \label{eq:generic_element}
-  g=x_{-1}(t_{-1}) \cdots x_{-n}(t_{-n}) h x_n(t_n) \cdots x_1(t_1)
-\end{equation}
-with $h\in H$ and $t_{\pm i} \in \CC$ (cf. \cite[Proposition 3.2]{Wil13} were we prefer to place the torus part in central position using the classical commutation relations \cite[(2.5)]{FZ99}).
-
-Let $\iota$ be the anti-automorphism of $G$ defined by
-\begin{equation}
-  h^\iota := h^{-1}\,\, (h\in H),
-  \quad
-  \quad
-  x_i(t)^\iota := x_i(t),
-  \quad
-  \quad
-  x_{-i}(t)^\iota := x_{-i}(t).
-\end{equation}
-\begin{lemma}
-  \label{lemma:iota_iso}
-  \saySS{This lemma is true-ish as in this is not an isomorphism; what is the right wording here?}
-  $\iota$ restrict to an isomorphism of $G^{c,c^{-1}}$ with $G^{c^{-1},c}$.
-\end{lemma}
-\begin{proof}
-  \saySS{This is kind of obvious so we might consider getting rid of the proof}
-  It suffices to verify this on the generic element $g$ of $G^{c,c^{-1}}$ written as in \Cref{eq:generic_element}.
-  We have 
-  \begin{eqnarray*}
-    g^\iota &=& \big(x_{-1}(t_{-1}) \cdots x_{-n}(t_{-n}) h x_n(t_n) \cdots x_1(t_1)\big)^\iota\\
-    &=& x_1(t_1)^\iota \cdots x_n(t_n)^\iota h^\iota x_{-n}(t_{-n})^\iota \cdots x_{-1}(t_{-1})^\iota\\
-    &=& x_1(t_1) \cdots x_n(t_n) h^{-1} x_{-n}(t_{-n}) \cdots x_{-1}(t_{-1})
-  \end{eqnarray*}
-  which is the generic element of $G^{c^{-1},c}$ by \cite[Proposition 3.2]{Wil13}.
-\end{proof}
-
-We will deduce some of the desired identities from the following fundamental one.
-\begin{proposition}[{\cite[Proposition 2.16]{Wil13}}]
-  \label{prop:fundid}
-  Suppose $u,v \in W$ and $i\in[1,n]$ are such that $\ell(u)<\ell(us_i)$ and $\ell(v)<\ell(vs_i)$. 
-  Then 
-  \begin{equation}
-    \label{eq:fundid}
-    \Delta_{u\omega_i}^{v\omega_i} \Delta_{us_i\omega_i}^{vs_i\omega_i} 
-    =
-    \prod_{\stackrel{1\leq j \leq n}{j\neq i}}\left(\Delta_{u\omega_j}^{v\omega_j}\right)^{-a_{ji}}
-    +
-    \Delta_{us_i\omega_i}^{v\omega_i} \Delta_{u\omega_i}^{vs_i\omega_i}
-    .
-  \end{equation}
-\end{proposition}
-
-The hard part in establishing the disired identities lies in realizing that some specific expressions in the generalized minors coincide when restricted to $G^{c,c^{-1}}$.
-We therefore begin by explicitly computhing those expressions.
-\begin{lemma}
-  \label{lemma:coefficient_computations}
-  On the generic element $g$ of $G^{c,c^{-1}}$ expressed as in \Cref{eq:generic_element} the following can be computed explicitly for any $k\geq 0$:
-  \begin{eqnarray}
-    \Delta^{c^{k+1}\omega_j}_{c^k\omega_j}(g) &=& h^{c^k\omega_j}\prod_{i=1}^n t_{-i}^{[c^k\beta_j^+:\alpha_i]}\\
-    \Delta^{c^k\omega_j}_{c^{k+1}\omega_j}(g) &=& h^{c^k\omega_j}\prod_{i=1}^n t_{i}^{[c^k\beta_j^+:\alpha_i]}\\
-    \Delta^{-c^{-k-1}\omega_j}_{-c^{-k}\omega_j}(g) &=& h^{-c^{-k-1}\omega_j}\prod_{i=1}^n t_{i}^{[c^{-k}\beta_j^-:\alpha_i]}\\
-    \Delta^{-c^{-k}\omega_j}_{-c^{-k-1}\omega_j}(g) &=& h^{-c^{-k-1}\omega_j}\prod_{i=1}^n t_{-i}^{[c^{-k}\beta_j^-:\alpha_i]}
-  \end{eqnarray}
-\end{lemma}
-\begin{proof}
-  The first two identities are a straightforward calculation with root strings in the highest weight representation $L_{\omega_k}$ using the fact that the word $c^k$ is reduced for any $k\geq0$. 
-  \saySS{Would this be clearer using $L_{c^k\omega_k}$?}
-  The remaining two are a similar computation in $L_{-\omega_k}$.
-  \saySS{We may want to say much more on this (Cf. \cite[Proof of eq. 3.20]{YZ08}) but we are already writing a lot of computations enough to disgust even the more coscentious reader.}
-\end{proof}
-
-\begin{lemma}
-  Restricted to $G^{c,c^{-1}}$ the following two identities holds:
-  \label{lemma:coefficients_identities}
-  \begin{eqnarray}
-    \Delta_{c\omega_j}^{\omega_j}
-    \prod_{\ell<j}\big(\Delta_{c\omega_\ell}^{\omega_\ell}\big)^{a_{\ell j}}
-    &=&
-    \Delta_{-\omega_j}^{-c^{-1}\omega_j}
-    \prod_{\ell>j}\big(\Delta_{-\omega_\ell}^{-c^{-1}\omega_\ell}\big)^{a_{\ell j}}\\
-    \Delta_{\omega_j}^{c\omega_j}
-    \prod_{\ell<j}\big(\Delta_{\omega_\ell}^{c\omega_\ell}\big)^{a_{\ell j}}
-    &=&
-    \Delta_{-c^{-1}\omega_j}^{-\omega_j}
-    \prod_{\ell>j}\big(\Delta_{-c^{-1}\omega_\ell}^{-\omega_\ell}\big)^{a_{\ell j}}
-  \end{eqnarray}
-\end{lemma}
-\begin{proof}
-  We will show only the first one the other being obtained in a similar fashon.
-  Evaluating both sides at the generic element $g$ of $G^{c,c^{-1}}$ expressed as in \Cref{eq:generic_element}, and using \Cref{lemma:coefficient_computations} the identity to prove becomes
-  \[
-    \left(h^{\omega_j}\prod_{i=1}^n t_{i}^{[\beta_j^+:\alpha_i]}\right)
-    \prod_{\ell<j}\left(h^{\omega_\ell}\prod_{i=1}^n t_{i}^{[\beta_\ell^+:\alpha_i]}\right)^{a_{\ell j}}
-    =
-    \left(h^{-c^{-1}\omega_j}\prod_{i=1}^n t_{i}^{[\beta_j^-:\alpha_i]}\right)
-    \prod_{\ell>j}\left(h^{-c^{-1}\omega_\ell}\prod_{i=1}^n t_{i}^{[\beta_\ell^-:\alpha_i]}\right)^{a_{\ell j}}
-  \]
-  which holds if the following two identities are both satisfied:
-  \begin{equation}
-    \omega_j + \sum_{\ell<j} a_{\ell j}\omega_\ell
-    =
-    -c^{-1}\left(\omega_j + \sum_{\ell>j} a_{\ell j}\omega_\ell\right)
-  \end{equation}
-  and, for every $i\in[1,n]$,
-  \begin{equation}
-    \label{eq:identity_betas}
-    [\beta_j^+:\alpha_i]+\sum_{\ell<j}a_{\ell j}[\beta_\ell^+:\alpha_i]
-    =
-    [\beta_j^-:\alpha_i]+\sum_{\ell>j}a_{\ell j}[\beta_\ell^-:\alpha_i].
-  \end{equation}
-
-  We begin by the former. 
-  Mupliplying both sides by $s_{j+1}\cdots s_n$ we want to show that
-  \[
-    s_{j+1}\cdots s_n\left(\omega_j + \sum_{\ell<j} a_{\ell j}\omega_\ell\right)=
-    -s_js_{j-1}\cdots s_1\left(\omega_j + \sum_{\ell>j} a_{\ell j}\omega_\ell\right).
-  \]
-  Since $s_i\omega_j=\omega_j$ for $i\neq j$, this is equivalent to
-  \[
-    \omega_j + \sum_{\ell<j} a_{\ell j}\omega_\ell
-    =
-    -s_j\omega_j-\sum_{\ell>j} a_{\ell j}\omega_\ell
-  \]
-  i.e. 
-  \begin{equation}
-    s_j\omega_j
-    =
-    -\omega_j-\sum_{\ell\neq j}a_{\ell j}\omega_\ell
-  \end{equation}
-  which is the definition of $s_j\omega_j$.
-
-  We turn now to \Cref{eq:identity_betas}.
-  Summing over $i$ we can restate it as
-  \begin{equation}
-    \beta_j^++\sum_{\ell<j}a_{\ell j}\beta_\ell^+
-    =
-    \beta_j^-+\sum_{\ell>j}a_{\ell j}\beta_\ell^-
-  \end{equation}
-  and both sides are equal to $\alpha_j$ by telescoping.
-\end{proof}
-
-From the proof \Cref{lemma:coefficients_identities} we get immediately the following:
-\begin{corollary}
-  \label{corollary:coefficients_values}
-  \saySS{Scholium?}
-  On the generic element \Cref{eq:generic_element} of $G^{c,c^{-1}}$ we can explicitly compute
-  \begin{eqnarray}
-    \Delta_{c\omega_i}^{\omega_i}
-    \prod_{ j <i}\big(\Delta_{c\omega_ j }^{\omega_ j }\big)^{a_{ j  i}}
-    &=&
-    t_i
-    h^{\omega_i}\prod_{ j <i}h^{a_{ j  i}\omega_ j }\\
-    \Delta_{\omega_i}^{c\omega_i}
-    \prod_{ j <i}\big(\Delta_{\omega_ j }^{c\omega_ j }\big)^{a_{ j  i}}
-    &=&
-    t_{-i}
-    h^{\omega_i}\prod_{ j <i}h^{a_{ j  i}\omega_ j }
-  \end{eqnarray}
-\end{corollary}
 
 \begin{lemma}
   \label{lemma:coefficient_identity_powers}
@@ -895,7 +766,7 @@ From the proof \Cref{lemma:coefficients_identities} we get immediately the follo
       \Big)^{a_{\ell j}}
     \right)^{[c^k\beta_i^+:\alpha_j]}.
   \]
-  Recalling from the proof of \Cref{lemma:coefficients_identities} that
+  Recalling from the proof of \Cref{lemma:coefficients_values} shat
   \[
     \alpha_j 
     =
@@ -921,9 +792,24 @@ From the proof \Cref{lemma:coefficients_identities} we get immediately the follo
   \]
   The first equality holds because the $\beta_i^+$ are linearly independent (they are obtained from the $\alpha_i$ by a unitriangular transformation) so that $1-c$ is an isomorphism from the subspace spanned by the $\omega_i$ to that spanned by the $\beta_i^+$, commuting with $c^{m-1}$.
   The second equality is nothing but the change of coordinates in between the $\alpha_i$ and the $\beta_i^+$.
+  \saySS{I do not like how this part is written, I should try to make this more clear}
 \end{proof}
 
-We are finally ready to prove the three identities we are after.
+We will deduce some of the desired identities from the following fundamental one.
+\begin{proposition}[{\cite[Proposition 2.16]{Wil13}}]
+  \label{prop:fundid}
+  Suppose $u,v \in W$ and $i\in[1,n]$ are such that $\ell(u)<\ell(us_i)$ and $\ell(v)<\ell(vs_i)$. 
+  Then 
+  \begin{equation}
+    \label{eq:fundid}
+    \Delta_{u\omega_i}^{v\omega_i} \Delta_{us_i\omega_i}^{vs_i\omega_i} 
+    =
+    \prod_{\stackrel{1\leq j \leq n}{j\neq i}}\left(\Delta_{u\omega_j}^{v\omega_j}\right)^{-a_{ji}}
+    +
+    \Delta_{us_i\omega_i}^{v\omega_i} \Delta_{u\omega_i}^{vs_i\omega_i}
+    .
+  \end{equation}
+\end{proposition}
 
 \begin{proposition}
   \label{prop:projective_minors_identity}
@@ -948,6 +834,98 @@ We are finally ready to prove the three identities we are after.
   We apply \Cref{prop:fundid} with $u = v = c^k s_1 \cdots s_{i-1}$ and compare with the given expression.
   Notice that the first monomials in these expressions are exactly identified.  
   The second monomials, instead coincide on $G^{c,c^{-1}}$ by virtue of \Cref{lemma:coefficient_identity_powers}.
+\end{proof}
+
+
+Let $\iota$ be the anti-automorphism of $G$ defined by
+\begin{equation}
+  h^\iota := h^{-1}\,\, (h\in H),
+  \quad
+  \quad
+  x_i(t)^\iota := x_i(t),
+  \quad
+  \quad
+  x_{-i}(t)^\iota := x_{-i}(t).
+\end{equation}
+
+\begin{lemma}
+  \label{lemma:iota_iso}
+  \saySS{Please check my math here: if an iso is defined on an open dense then it is birationa, correct?}
+  $\iota$ restrict to a birational isomorphism of $G^{c,c^{-1}}$ with $G^{c^{-1},c}$.
+\end{lemma}
+\begin{proof}
+  \saySS{This is kind of obvious so we might consider getting rid of the proof}
+  It suffices to verify this on the generic element $g$ of $G^{c,c^{-1}}$ written as in \Cref{eq:generic_element}.
+  We have 
+  \begin{eqnarray*}
+    g^\iota &=& \big(x_{-1}(t_{-1}) \cdots x_{-n}(t_{-n}) h x_n(t_n) \cdots x_1(t_1)\big)^\iota\\
+    &=& x_1(t_1)^\iota \cdots x_n(t_n)^\iota h^\iota x_{-n}(t_{-n})^\iota \cdots x_{-1}(t_{-1})^\iota\\
+    &=& x_1(t_1) \cdots x_n(t_n) h^{-1} x_{-n}(t_{-n}) \cdots x_{-1}(t_{-1})
+  \end{eqnarray*}
+  which is the generic element of $G^{c^{-1},c}$ by \cite[Proposition 3.2]{Wil13}.
+\end{proof}
+
+\begin{lemma}
+  Restricted to $G^{c,c^{-1}}$ the following two identities holds:
+  \label{lemma:coefficients_identities}
+  \begin{eqnarray}
+    \Delta_{c\omega_j}^{\omega_j}
+    \prod_{\ell<j}\big(\Delta_{c\omega_\ell}^{\omega_\ell}\big)^{a_{\ell j}}
+    &=&
+    \Delta_{-\omega_j}^{-c^{-1}\omega_j}
+    \prod_{\ell>j}\big(\Delta_{-\omega_\ell}^{-c^{-1}\omega_\ell}\big)^{a_{\ell j}}\\
+    \Delta_{\omega_j}^{c\omega_j}
+    \prod_{\ell<j}\big(\Delta_{\omega_\ell}^{c\omega_\ell}\big)^{a_{\ell j}}
+    &=&
+    \Delta_{-c^{-1}\omega_j}^{-\omega_j}
+    \prod_{\ell>j}\big(\Delta_{-c^{-1}\omega_\ell}^{-\omega_\ell}\big)^{a_{\ell j}}
+  \end{eqnarray}
+\end{lemma}
+\begin{proof}
+  We will show only the first one the other being obtained in a similar fashon.
+  \Cref{lemma:coefficients_values} says that the left hand side equals
+  \[
+    t_j
+    h^{\omega_j}
+    \prod_{\ell<j}h^{a_{\ell j}\omega_\ell}.
+  \]
+  A similar computation, this time using the fact that 
+  \[
+    \beta_j^-+\sum_{\ell>j}a_{\ell j}\beta_\ell^-
+    =
+    \alpha_j,
+  \]
+  expresses the right hand side as
+  \[
+    t_j
+    h^{-c^{-1}\omega_j}
+    \prod_{\ell>j}h^{-a_{\ell j}c^{-1}\omega_\ell}
+  \]
+  and the two sides are equal if
+  \begin{equation}
+    \omega_j + \sum_{\ell<j} a_{\ell j}\omega_\ell
+    =
+    -c^{-1}\left(\omega_j + \sum_{\ell>j} a_{\ell j}\omega_\ell\right).
+  \end{equation}
+  
+  Mupliplying both sides by $s_{j+1}\cdots s_n$ we want to show that
+  \[
+    s_{j+1}\cdots s_n\left(\omega_j + \sum_{\ell<j} a_{\ell j}\omega_\ell\right)=
+    -s_js_{j-1}\cdots s_1\left(\omega_j + \sum_{\ell>j} a_{\ell j}\omega_\ell\right).
+  \]
+  Since $s_i\omega_j=\omega_j$ for $i\neq j$, this is equivalent to
+  \[
+    \omega_j + \sum_{\ell<j} a_{\ell j}\omega_\ell
+    =
+    -s_j\omega_j-\sum_{\ell>j} a_{\ell j}\omega_\ell
+  \]
+  i.e. 
+  \begin{equation}
+    s_j\omega_j
+    =
+    -\omega_j-\sum_{\ell\neq j}a_{\ell j}\omega_\ell
+  \end{equation}
+  which is the definition of $s_j\omega_j$.
 \end{proof}
 
 \begin{proposition}
@@ -1015,11 +993,7 @@ We are finally ready to prove the three identities we are after.
   where all the running indices in the products are in $[1,n]$.
 \end{proposition}
 \begin{proof}
-  In view of \Cref{corollary:coefficients_values} and remebering that on the generic element \Cref{eq:generic_element} of $G^{c,c^{-1}}$ 
-  \[
-    \Delta_{\omega_i}(g) = h^{\omega_i}
-  \]
-  the identity to prove becomes
+  In view of \Cref{lemma:coefficients_values} and \Cref{lemma:initial_cluster_variables} the identity to prove becomes
   \[
     h^{\omega_i}\Delta_{-\omega_i}(g)
     =
