@@ -24,11 +24,12 @@ urlcolor=blue]{hyperref}
 \usepackage{accents}
 \usepackage{bbm}
 \usepackage{tikz}
-\usetikzlibrary{decorations.markings}
+\usetikzlibrary{calc,decorations.markings}
 \tikzset{
   singlearrow/.style={draw=none,postaction={decorate,decoration={markings,mark=at position 0.5 with {\arrow[xshift=2pt]{stealth}}}}},
   doublearrow/.style={draw=none,postaction={decorate,decoration={markings,mark=at position 0.25 with {\arrow{stealth}},mark=at position 0.85 with {\arrow{stealth}}}}},
-  triplearrow/.style={draw=none,postaction={decorate,decoration={markings,mark=at position 0.1 with {\arrow{stealth}},mark=at position 0.5 with {\arrow{stealth}},mark=at position 0.9 with {\arrow{stealth}}}}}
+  triplearrow/.style={draw=none,postaction={decorate,decoration={markings,mark=at position 0.1 with {\arrow{stealth}},mark=at position 0.5 with {\arrow{stealth}},mark=at position 0.9 with {\arrow{stealth}}}}},
+  dots/.style={draw=none,postaction={decorate,decoration={markings,mark=at position 0.25 with {\draw[fill=black] (0,0) circle (0.75pt);},mark=at position 0.5 with {\draw[fill=black] (0,0) circle (0.75pt);},mark=at position 0.75 with {\draw[fill=black] (0,0) circle (0.75pt);}}}}
 }
 
 \usepackage[draft]{say}
@@ -160,7 +161,7 @@ Our main result is that cluster variables in $\cA_Q$ are also realized as genera
 \begin{theorem}\label{thm:maintheorem}
 Let $Q$ be a finite quiver without oriented cycles and $G^{c,c^{-1}} \subset G$ the associated Coxeter double Bruhat cell.
 \begin{enumerate}
-\item The preprojective and initial cluster variables in $\cA_Q \cong \CC[G^{c,c^{-1}}]$ are restrictions of generalized minors of highest-weight representations of $G$. The preinjective\sayDR{I am in favor of writing postinjective because for me the AR-translation always goes from right to left, any objections?} cluster variables are restrictions of generalized minors of lowest-weight representations of $G$.
+\item The preprojective and initial cluster variables in $\cA_Q \cong \CC[G^{c,c^{-1}}]$ are restrictions of generalized minors of highest-weight representations of $G$. The preinjective cluster variables are restrictions of generalized minors of lowest-weight representations of $G$.
 \item Suppose $Q$ is an acyclic orientation of an $n$-cycle, so that $G$ is the central extension of the loop group $LSL_{n}$. Then the regular cluster variables are restrictions of generalized minors of level zero representations of $G$.
 \end{enumerate}
 \end{theorem}
@@ -175,7 +176,7 @@ However, these identities depend crucially on the fact that all minors involved 
 The minors arising from level zero representations do not have this property, so the relations that determine them cannot be deduced from these identities.
 
 
-Instead, we study level zero minors in type $A_n^{(1)}$ by direct combinatorial means. The $LSL_n$ representations that appear are of the form $(\bigwedge^k\CC^n)[z^{\pm 1}]$, which inherits a natural basis from the standard basis of $\CC^n$. The restrictions to $G^{c,c^{-1}}$ of the level zero minors appearing in (2) can be computed as a weighted sum over collections of paths through a directed network on the cylinder, as in [FM,GSV]. When $Q$ is an acyclic orientation of an $n$-cycle, its regular representations likewise have a simple combinatorial description, and one can construct by hand a bijection between their subrepresentations and collections of paths in the network.
+Instead, we study level zero minors in type $A_n^{(1)}$\sayDR{Shouldn't this be $A_{n-1}^{(1)}$?} by direct combinatorial means. The $LSL_n$ representations that appear are of the form $(\bigwedge^k\CC^n)[z^{\pm 1}]$, which inherits a natural basis from the standard basis of $\CC^n$. The restrictions to $G^{c,c^{-1}}$ of the level zero minors appearing in (2) can be computed as a weighted sum over collections of paths through a directed network on the cylinder, as in [FM,GSV]. When $Q$ is an acyclic orientation of an $n$-cycle, its regular representations likewise have a simple combinatorial description, and one can construct by hand a bijection between their subrepresentations and collections of paths in the network.
 
 %\begin{theorem}\label{thm:maintheorem}
 %Let $G$ be an affine Lie group of type $A_n^{(1)}$, let $c$ be a Coxeter element of the affine Weyl group, and $Q_c$ the associated affine quiver.  The coordinate ring of $G^{c,c^{-1}}$ is an upper cluster algebras of type $Q_c$ and all mutable cluster variables are restrictions of principal minors for representations of $G$ with finite-dimensional weight spaces.  Those that are cluster characters of preprojective, regular, or postinjective representations of $Q_c$ are minors of positive level, level zero, and negative level $G$-representations, respectively.
@@ -1095,6 +1096,7 @@ Given $c = s_{\sigma_0} \dotsc s_{\sigma_n}$, define the \emph{network} $\cN_c$ 
 where $h$ factors as $\prod\limits_{i=0}^n h_i$ with $h_i=\big(h^{\omega_i}\big)^{\alpha_i^\vee}$.  Note that $h_i^{\omega_i}=h^{\omega_i}$ and $h_i^{\omega_j}=1$ for $i\ne j$.  We will abuse notation slightly and write $h_i$ also for the value $h_i^{\omega_i}$.
 
 Each subcylinder has $n+1$ non-crossing \emph{horizontal} edges running from one boundary component to the other which are oriented from right to left and labeled by $\ZZ_{n+1}$ compatibly with their cyclic ordering.  The subcylinder associated to $x_{\pm i}(t_{\pm i})$ contains a (\emph{vertical}) \emph{bridge} with weight $t_{\pm i}$ joining the $(i-1)^{st}$ horizontal edge and the $i^{th}$ horizontal edge, this bridge is oriented upward for $i$ and downward for $-i$.  In the subcylinder associated to $h_i$, the $i^{th}$ edge has weight $h_i^{-1}$ and the $(i-1)^{st}$ edge has weight $h_i$.  All other edges in a subcylinder are taken to have weight 1.
+\bigskip
 
  \erase{The vertical edge in the subcylinder associated to $x_{\overline{i}\,}(u_i)$ runs from the $(i - 1)^{st}$ horizontal edge to the $i^{th}$ horizontal edge. It and all horizontal edges other than the two it connects have weight $1$. The part of the $i^{th}$ edge before it meets the vertical edge has weight $u_i$, the part after has weight $1$.  The part of the $(\sigma_i-1)$st edge before it meets the vertical edge has weight $1$, the part after has weight $u_{\sigma_i}^{-1}$.\sayHW{This is correct if we are using $L^{c,c^{-1}}$, would need change for $G^{c,c^{-1}}$}}
 \begin{center}
@@ -1241,7 +1243,7 @@ where the sum is over collections $P$ of pairwise disjoint paths with $\partial_
 \end{proposition}
 
 \begin{proof}
-By construction, the directed graph $\cN_c$ encodes the action of $g$ in the standard basis $\{ e_{i_1} \wedge \cdots \wedge e_{i_k} z^\ell\}$ of $\bigwedge^k \CC^n[z^{\pm 1}]$. 
+By construction, the directed graph $\cN_c$ encodes the action of $g$ in the standard basis $\{ e_{i_1} \wedge \cdots \wedge e_{i_k} z^\ell\}$ of $\left(\bigwedge^k \CC^n\right)[z^{\pm 1}]$. 
 This basis is labeled by pairs of a $k$-element subset of $\ZZ_{n+1}$ and an integer $\ell$.
 \end{proof}
 
@@ -1254,10 +1256,13 @@ We define $\phi(P) \subset \ZZ_{n+1}$ by letting $j \in \phi(P)$ if and only if 
     \item For $i\in\partial_{in}P$:
     \begin{enumerate}
       \item if $i\to i+1$ in $Q$ or $i\notin\phi(P)$, then $i+1\notin\phi(P)$;
-      \item if $i\leftarrow i+1$ in $Q$ and $i+1\in\phi(P)$, then $i\in\phi(P)$;
-      \item[(b')] if  $i+1\in\phi(P)$, then $i\in\phi(P)$ and $i+1\to i$ in $Q$;
+      \item if $i+1\to i$ in $Q$ and $i+1\in\phi(P)$, then $i\in\phi(P)$;
+      \item[(b')] if  $i+1\in\phi(P)$, then $i+1\to i$ in $Q$ and $i\in\phi(P)$;
     \end{enumerate}
-    \item For $i\notin\partial_{in}P$: if $i\to i+1$ in $Q$ and $i\in\phi(P)$, then $i+1\in\phi(P)$.\\
+    \item For $i\notin\partial_{in}P$: 
+    \begin{enumerate}
+      \item if $i\in\phi(P)$, then $i\to i+1$ in $Q$ and $i+1\in\phi(P)$.\\
+    \end{enumerate}
   \end{enumerate}
   \begin{enumerate}
     \item If $i \to i+1$ in $Q$, $i \in \phi(P)$, and $i \notin \partial_{in}(P)$, then $i + 1 \in \phi(P)$.
@@ -1402,8 +1407,88 @@ Suppose now that $E \in \cE$ is a target-closed subset of $[p,q]$. We define a c
 % Since the total number of sinks and sources in $[p,q]$ is even, it follows that $Q$ has an arrow $q \to q+1$. 
 \end{proof}
 
+
+\subsection{Proof of Proposition~\ref{prop:level zero}}
+
+
+\subsection{Other affine types}\label{sec:othertypes}
+
+\begin{proposition}
+\Cref{conj:mainconjecture} holds when $G$ is of type $B_2^{(1)}$, $B_3^{(1)}$, $C_2^{(1)}$, $D_4^{(1)}$, $G_2^{(1)}$ and $c$ is $\dotsc$. 
+\end{proposition}
+\begin{proof}
+\begin{enumerate}
+\item Write out the computation.
+\end{enumerate}
+\end{proof}
+
+\section{Appendix: Cluster Algebras --- OLD STUFF TO BE REMOVED}
+Let $A$ be any irreducible Cartan matrix of infinite type and let $c=s_1\dots s_n$ be a Coxeter element in the Weyl group of $A$. 
+Because of the assumption, any prefix of the infinite word $c^\infty$ is reduced. 
+The letters of $c^\infty$ (and thus its prefixes) are naturally labeled by pair of integers $(k,m)$ with $1\leq k\leq n$ and $m\geq 0$ where the element $c^ms_1\dots s_k$ corresponds to the indices $(k,m)$. 
+\saySS{We should be able to do this also in finite type replacing prefixes with reduced words.}
+Let $\cAb(B_c)$ be the cluster algebra with principal coefficients associated to $c$.
+\saySS{We may want to settle the notation that relates $B_c$ to $A$ and $c$ once and for all in some notation section.}
+
+\begin{definition}
+  The \emph{preprojective} cluster variables of $\cAb(B_c)$ are the cluster variables obtained by mutating along the word $c^\infty$.
+  Namely $x_{k,m}$ is the cluster variable obtained from the initial cluster by mutating the cluster variables $x_{1,0},x_{2,0},\ldots,x_{n,0},x_{1,1}$ through $x_{k,m}$.
+  \saySS{This phrasing sucks but I am fighting the blank page at the moment.}
+\end{definition}
+
+\begin{proposition}
+  The preprojective cluster variables of $\cAb(B_c)$ satisfy the exchange relations
+  \begin{equation}
+    x_{k,m-1}x_{k,m} = \prod_{i<k}x_{i,m}^{-a_{i,k}} \prod_{i>k}x_{i,m-1}^{-a_{i,k}} + \prod_{j\in I}y_j^{[c^{m-1}\beta_k^+:\alpha_j]}
+  \end{equation}
+\end{proposition}
+This follows immediately from the following Lemma.
+\begin{lemma}\label{le:positive mutations}
+  Let $\tilde B=\left[\begin{array}{c} B\\ M\end{array}\right]$ denote an $m\times n$ ($m\ge n)$ exchange matrix with $b_{ik}\le0$ for $1\le i\le n$ and $m_{ik}\ge0$ for $n+1\le i\le m$.  Writing $\mu_k\tilde B=\left[\begin{array}{c} B'\\ M'\end{array}\right]$ we have $M'=MF_k$ where $F_k=(f_{ij})$ with $f_{ij}=\begin{cases}1 & \text{if $i=j\ne k$;}\\ -1 & \text{if $i=j=k$;}\\ b_{kj} & \text{if $i=k$;}\\ 0 & \text{otherwise.}\end{cases}$
+\end{lemma}
+Define the $2n\times n$ matrix $\tilde B_{k,m}=\mu_k\mu_{k-1}\cdots\mu_1(\mu_n\cdots\mu_1)^m\left[\begin{array}{c} B_c\\ I_n\end{array}\right]$ for $0\le k\le n-1$ and $m\in\ZZ$.  Write $\gamma^{(k,m)}_j\in\ZZ^n$ for the last $n$ rows of the $j^th$ column of $\tilde B_{k,m}$, where we identify $\ZZ^n$ with the root lattice.  These are the $c$-vectors of $\tilde B_{k,m}$.
+\begin{lemma}\mbox{}
+  \begin{enumerate}
+    \item The principal part of column $k$ in $\tilde B_{k,m}$ is weakly positive while the principal part of column $k+1$ is weakly negative (with the convention that column $0$ refers to the last column of $\tilde B_{k,m}$).
+    \item The $c$-vectors of $\tilde B_{k,m}$ are given by 
+    \[\gamma^{(k,m)}_j=\begin{cases}c^m s_1\cdots s_k\alpha_j & \text{if $m\ge0$;}\\\alpha_j & \text{if $m=-1$ and $j\le k$;}\\-\alpha_j & \text{if $m=-1$ and $j>k$;}\\-c^{m+1} s_1\cdots s_k\alpha_j & \text{if $m<-1$.}\end{cases}\]
+  \end{enumerate}
+\end{lemma}
+\begin{proof}
+  The first claim is essentially the statement that the sequence $1,\ldots,n$ (resp. $n,\ldots,1$) is sink (resp. source) adapted for $Q$.
+
+  For the final claim we work by induction on the length of the mutation sequence.  For $k=m=0$ we have $\gamma^{(0,0)}_j=\alpha_j$ is exactly the $j^{th}$ column of the identity matrix.  For the general case we claim that
+  \[\gamma^{(k,m)}_j=s_{\gamma^{(k-1,m)}_k}\big(\gamma^{(k-1,m)}_j\big).\]
+
+  To see this, recall that the pairing $(\cdot,\cdot)$ is $W$-invariant, in particular we have $(\gamma^{(k-1,m)}_j,\gamma^{(k-1,m)}_k)=(\alpha_j,\alpha_k)$.  Using this we may compute
+  \begin{align*}
+    s_{\gamma^{(k-1,m)}_k}\big(\gamma^{(k-1,m)}_j\big)
+    &=\gamma^{(k-1,m)}_j-\frac{(\gamma^{(k-1,m)}_k,\gamma^{(k-1,m)}_j)}{2(\gamma^{(k-1,m)}_k,\gamma^{(k-1,m)}_k)}\gamma^{(k-1,m)}_k\\
+    &=\gamma^{(k-1,m)}_j-\frac{(\alpha_k,\alpha_j)}{2(\alpha_k,\alpha_k)}\gamma^{(k-1,m)}_k\\
+    &=\gamma^{(k-1,m)}_j-a_{kj}\gamma^{(k-1,m)}_k\\
+    &=\gamma^{(k-1,m)}_j+b_{kj}\gamma^{(k-1,m)}_k.
+  \end{align*}
+  
+  Thus the claim follows from Lemma~\ref{le:positive mutations} \sayDR{Cite [Nakanishi-Zelevinsky, Prop. 1.3] instead}.  To conclude the proof we note that 
+  \[s_{\gamma^{(k-1,m)}_k}=c^m s_1\cdots s_{k-1} s_k s_{k-1}\cdots s_1 c^{-m}\]
+  and thus applying the induction hypothesis
+  \[\gamma^{(k,m)}_j=s_{\gamma^{(k-1,m)}_k}\big(\gamma^{(k-1,m)}_j\big)=c^m s_1\cdots s_k\alpha_j.\]
+\end{proof}
+
+\begin{proposition}\label{prop:changeofcoeffs}
+Let $B$ and $B'$ be $(n+m)\times n$ exchange matrices and $M$ and invertible $m \times m$ matrix such that the bottom $m \times n$ part of $B$ is equal to $M$ times the bottom $m \times n$ part of $B'$.  Let $x_1,\dotsc,x_n$ and $x'_1,\dotsc,x'_n$ be the mutable initial cluster variables of $\cA(B)$ and $\cA(B')$, respectively, and $y_1,\dotsc,y_m$, $y'_1,\dotsc, y'_m$ their frozen variables.  Then the map $x'_i \mapsto x_i$, $y'_j \mapsto \prod_{i=1}^m y_i^{M_{ij}}$ extends to an isomorphism of upper cluster algebras.
+\end{proposition}
+
+
+\section{Appendix: Quiver Representations}
+  A quiver $Q=(Q_0,Q_1,s,t)$ with $n$ vertices consist of a set $Q_0=\{1,2,\ldots,n\}$ of vertices, a set $Q_1$ of arrows, and maps $s,t:Q_1\to Q_0$ giving the source and target of an arrow.  
+  Given a field $\kk$, a representation $V=(V_i,V_a)$ consists of a $\kk$-vector space $V_i$ for each $i\in Q_0$ and a $\kk$-linear map $V_a:V_{s(a)}\to V_{t(a)}$ for each arrow $a\in Q_1$.  
+  A morphism of representation $\theta:V\to W$ consists of a collection of $\kk$-linear maps $\theta_i:V_i\to W_i$ so that $\theta_{t(a)}\circ V_a=W_a\circ \theta_{s(a)}$ for each arrow $a\in Q_1$.  
+  When the quiver $Q$ has no oriented cycles (i.e. is acyclic), its category $\rep_\kk Q$ of representations is particularly nice and thus we assume $Q$ is acyclic throughout.  
+  In this case, it is well-known that $\rep_\kk Q$ a hereditary, abelian, length category with finitely many simple objects.\sayDR{Introduce the AR-translation? Reflection functors?}
+
 \subsection{Affine Tubes}\sayDR{Clean up this section.}
-  Let $Q$ be an acyclic affine quiver of type $A$, in particular $Q$ contains at least one source.  Suppose $Q$ has $p$ clockwise pointing arrows $\{\vec{a}_1,\ldots,\vec{a}_p\}$ labeled counterclockwise around $Q$ and $q$ counterclockwise pointing arrows $\{\cev{a}_1,\ldots,\cev{a}_q\}$ labeled clockwise around $Q$. \sayDR{This seemingly strange choice of labeling will make extensions go in the right directions later and thus keep the arrows in the AR quiver pointing from left to right.  The phrase ``against the flow'' might be appropriate to include somewhere.}  It will be convenient to allow arbitrary integer labeling of the arrows taken modulo $p$ and $q$ respectively.  Thus $Q$ takes the following form:  
+  Let $Q$ be an acyclic affine quiver of type $A$, that is $Q$ is an acyclic orientation of a cycle, in particular $Q$ contains at least one source.  Suppose $Q$ has $p$ clockwise pointing arrows $\{a^-_1,\ldots,a^-_p\}$ labeled counterclockwise around $Q$ and $q$ counterclockwise pointing arrows $\{a^+_1,\ldots,a^+_q\}$ labeled clockwise around $Q$ with the convention that $s(a^-_p)=s(a^+_q)$. \sayDR{This seemingly strange choice of labeling will make extensions go in the right directions later and thus keep the arrows in the AR quiver pointing from left to right.  The phrase ``against the flow'' might be appropriate to include somewhere.}  It will be convenient to allow arbitrary integer labeling of the arrows taken modulo $p$ and $q$ respectively.  Thus $Q$ takes the following form:  
   \begin{center}
     \erase{%begin erase
     \begin{tikzpicture}
@@ -1441,7 +1526,7 @@ Suppose now that $E \in \cE$ is a target-closed subset of $[p,q]$. We define a c
       \draw[fill=black] (0.75,0.75) circle (1.5pt);
       \draw[->] (0.1,0.1) -- (0.65,0.65);
       \node[above right] at (0.25,0) {$\scriptstyle \vec{a}_p$};
-    \end{tikzpicture}\\}%end erase
+    \end{tikzpicture}\\
     \begin{tikzpicture}
       \node at (-2,0) {$Q=$};
       \draw[fill=black] (0,0) circle (1.5pt);
@@ -1484,6 +1569,32 @@ Suppose now that $E \in \cE$ is a target-closed subset of $[p,q]$. We define a c
       \draw[fill=black] (0.75,-0.75) circle (1.5pt);
       \draw[->] (0.1,-0.1) -- (0.65,-0.65);
       \node[below right] at (0,-0.25) {$\scriptstyle \vec{a}_p$};
+    \end{tikzpicture}}%end erase
+    \begin{tikzpicture}
+      \node at (-2.75,0) {$Q=$};
+      \foreach \i in {0,...,8}{
+        \pgfmathsetmacro{\theta}{20+40*\i}
+        \draw[fill=black] (2*cos{\theta},2*sin{\theta}) circle (1.5pt);}
+      \foreach \i in {0,2,5}{
+        \pgfmathsetmacro{\theta}{185+40*\i}
+        \draw[->] (2*cos{\theta},2*sin{\theta}) arc (\theta:\theta+30:2);}
+      \foreach \i in {0,2,5}{
+        \pgfmathsetmacro{\theta}{175-40*\i}
+        \draw[->] (2*cos{\theta},2*sin{\theta}) arc (\theta:\theta-30:2);}
+      \pgfmathsetmacro{\theta}{20}
+      \draw[dots] (2*cos{\theta},2*sin{\theta}) arc (\theta:\theta-40:2);
+      \pgfmathsetmacro{\theta}{135}
+      \draw[dashed,->] (2*cos{\theta},2*sin{\theta}) arc (\theta:\theta-30:2);
+      \pgfmathsetmacro{\theta}{225}
+      \draw[dashed,->] (2*cos{\theta},2*sin{\theta}) arc (\theta:\theta+30:2);
+      \pgfmathsetmacro{\theta}{160}
+      \node at (2.2*cos{\theta},2.2*sin{\theta}) {$\scriptstyle a^-_p$};
+      \pgfmathsetmacro{\theta}{-40}
+      \node at (2.23*cos{\theta},2.23*sin{\theta}) {$\scriptstyle a^-_1$};
+      \pgfmathsetmacro{\theta}{200}
+      \node at (2.25*cos{\theta},2.25*sin{\theta}) {$\scriptstyle a^+_q$};
+      \pgfmathsetmacro{\theta}{40}
+      \node at (2.3*cos{\theta},2.3*sin{\theta}) {$\scriptstyle a^+_1$};
     \end{tikzpicture}
   \end{center}
   
@@ -1588,80 +1699,6 @@ Suppose now that $E \in \cE$ is a target-closed subset of $[p,q]$. We define a c
       where $I$ denotes the sinks in the support quiver $Q_{k,\ell}$ of $\cev{M}_{k,\ell}$ and $O$ denotes the set of internal sources of $\cev{Q}_{k,\ell}$ together with $s(\cev{a}_{k+\ell-1})$.
     \end{enumerate}
   \end{lemma}
-
-\subsection{Proof of Proposition~\ref{prop:level zero}}
-
-
-\subsection{Other affine types}\label{sec:othertypes}
-
-\begin{proposition}
-\Cref{conj:mainconjecture} holds when $G$ is of type $B_2^{(1)}$, $B_3^{(1)}$, $C_2^{(1)}$, $D_4^{(1)}$, $G_2^{(1)}$ and $c$ is $\dotsc$. 
-\end{proposition}
-\begin{proof}
-\begin{enumerate}
-\item Write out the computation.
-\end{enumerate}
-\end{proof}
-
-\section{Appendix: Cluster Algebras --- OLD STUFF TO BE REMOVED}
-Let $A$ be any irreducible Cartan matrix of infinite type and let $c=s_1\dots s_n$ be a Coxeter element in the Weyl group of $A$. 
-Because of the assumption, any prefix of the infinite word $c^\infty$ is reduced. 
-The letters of $c^\infty$ (and thus its prefixes) are naturally labeled by pair of integers $(k,m)$ with $1\leq k\leq n$ and $m\geq 0$ where the element $c^ms_1\dots s_k$ corresponds to the indices $(k,m)$. 
-\saySS{We should be able to do this also in finite type replacing prefixes with reduced words.}
-Let $\cAb(B_c)$ be the cluster algebra with principal coefficients associated to $c$.
-\saySS{We may want to settle the notation that relates $B_c$ to $A$ and $c$ once and for all in some notation section.}
-
-\begin{definition}
-  The \emph{preprojective} cluster variables of $\cAb(B_c)$ are the cluster variables obtained by mutating along the word $c^\infty$.
-  Namely $x_{k,m}$ is the cluster variable obtained from the initial cluster by mutating the cluster variables $x_{1,0},x_{2,0},\ldots,x_{n,0},x_{1,1}$ through $x_{k,m}$.
-  \saySS{This phrasing sucks but I am fighting the blank page at the moment.}
-\end{definition}
-
-\begin{proposition}
-  The preprojective cluster variables of $\cAb(B_c)$ satisfy the exchange relations
-  \begin{equation}
-    x_{k,m-1}x_{k,m} = \prod_{i<k}x_{i,m}^{-a_{i,k}} \prod_{i>k}x_{i,m-1}^{-a_{i,k}} + \prod_{j\in I}y_j^{[c^{m-1}\beta_k^+:\alpha_j]}
-  \end{equation}
-\end{proposition}
-This follows immediately from the following Lemma.
-\begin{lemma}\label{le:positive mutations}
-  Let $\tilde B=\left[\begin{array}{c} B\\ M\end{array}\right]$ denote an $m\times n$ ($m\ge n)$ exchange matrix with $b_{ik}\le0$ for $1\le i\le n$ and $m_{ik}\ge0$ for $n+1\le i\le m$.  Writing $\mu_k\tilde B=\left[\begin{array}{c} B'\\ M'\end{array}\right]$ we have $M'=MF_k$ where $F_k=(f_{ij})$ with $f_{ij}=\begin{cases}1 & \text{if $i=j\ne k$;}\\ -1 & \text{if $i=j=k$;}\\ b_{kj} & \text{if $i=k$;}\\ 0 & \text{otherwise.}\end{cases}$
-\end{lemma}
-Define the $2n\times n$ matrix $\tilde B_{k,m}=\mu_k\mu_{k-1}\cdots\mu_1(\mu_n\cdots\mu_1)^m\left[\begin{array}{c} B_c\\ I_n\end{array}\right]$ for $0\le k\le n-1$ and $m\in\ZZ$.  Write $\gamma^{(k,m)}_j\in\ZZ^n$ for the last $n$ rows of the $j^th$ column of $\tilde B_{k,m}$, where we identify $\ZZ^n$ with the root lattice.  These are the $c$-vectors of $\tilde B_{k,m}$.
-\begin{lemma}\mbox{}
-  \begin{enumerate}
-    \item The principal part of column $k$ in $\tilde B_{k,m}$ is weakly positive while the principal part of column $k+1$ is weakly negative (with the convention that column $0$ refers to the last column of $\tilde B_{k,m}$).
-    \item The $c$-vectors of $\tilde B_{k,m}$ are given by 
-    \[\gamma^{(k,m)}_j=\begin{cases}c^m s_1\cdots s_k\alpha_j & \text{if $m\ge0$;}\\\alpha_j & \text{if $m=-1$ and $j\le k$;}\\-\alpha_j & \text{if $m=-1$ and $j>k$;}\\-c^{m+1} s_1\cdots s_k\alpha_j & \text{if $m<-1$.}\end{cases}\]
-  \end{enumerate}
-\end{lemma}
-\begin{proof}
-  The first claim is essentially the statement that the sequence $1,\ldots,n$ (resp. $n,\ldots,1$) is sink (resp. source) adapted for $Q$.
-
-  For the final claim we work by induction on the length of the mutation sequence.  For $k=m=0$ we have $\gamma^{(0,0)}_j=\alpha_j$ is exactly the $j^{th}$ column of the identity matrix.  For the general case we claim that
-  \[\gamma^{(k,m)}_j=s_{\gamma^{(k-1,m)}_k}\big(\gamma^{(k-1,m)}_j\big).\]
-
-  To see this, recall that the pairing $(\cdot,\cdot)$ is $W$-invariant, in particular we have $(\gamma^{(k-1,m)}_j,\gamma^{(k-1,m)}_k)=(\alpha_j,\alpha_k)$.  Using this we may compute
-  \begin{align*}
-    s_{\gamma^{(k-1,m)}_k}\big(\gamma^{(k-1,m)}_j\big)
-    &=\gamma^{(k-1,m)}_j-\frac{(\gamma^{(k-1,m)}_k,\gamma^{(k-1,m)}_j)}{2(\gamma^{(k-1,m)}_k,\gamma^{(k-1,m)}_k)}\gamma^{(k-1,m)}_k\\
-    &=\gamma^{(k-1,m)}_j-\frac{(\alpha_k,\alpha_j)}{2(\alpha_k,\alpha_k)}\gamma^{(k-1,m)}_k\\
-    &=\gamma^{(k-1,m)}_j-a_{kj}\gamma^{(k-1,m)}_k\\
-    &=\gamma^{(k-1,m)}_j+b_{kj}\gamma^{(k-1,m)}_k.
-  \end{align*}
-  
-  Thus the claim follows from Lemma~\ref{le:positive mutations} \sayDR{Cite [Nakanishi-Zelevinsky, Prop. 1.3] instead}.  To conclude the proof we note that 
-  \[s_{\gamma^{(k-1,m)}_k}=c^m s_1\cdots s_{k-1} s_k s_{k-1}\cdots s_1 c^{-m}\]
-  and thus applying the induction hypothesis
-  \[\gamma^{(k,m)}_j=s_{\gamma^{(k-1,m)}_k}\big(\gamma^{(k-1,m)}_j\big)=c^m s_1\cdots s_k\alpha_j.\]
-\end{proof}
-
-\begin{proposition}\label{prop:changeofcoeffs}
-Let $B$ and $B'$ be $(n+m)\times n$ exchange matrices and $M$ and invertible $m \times m$ matrix such that the bottom $m \times n$ part of $B$ is equal to $M$ times the bottom $m \times n$ part of $B'$.  Let $x_1,\dotsc,x_n$ and $x'_1,\dotsc,x'_n$ be the mutable initial cluster variables of $\cA(B)$ and $\cA(B')$, respectively, and $y_1,\dotsc,y_m$, $y'_1,\dotsc, y'_m$ their frozen variables.  Then the map $x'_i \mapsto x_i$, $y'_j \mapsto \prod_{i=1}^m y_i^{M_{ij}}$ extends to an isomorphism of upper cluster algebras.
-\end{proposition}
-
-
-\section{Appendix: Quiver Representations}
 
 
 
