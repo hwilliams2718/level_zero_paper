@@ -60,11 +60,13 @@ urlcolor=blue]{hyperref}
 
 \newcommand{\Gr}{\mathrm{Gr}}
 
+\newcommand{\defect}{\operatorname{def}}
 \newcommand{\rep}{\operatorname{rep}}
 \newcommand{\sgn}{\operatorname{sgn}}
 \newcommand{\soc}{\operatorname{soc}}
 \newcommand{\supp}{\operatorname{supp}}
 \renewcommand{\top}{\operatorname{top}}
+\newcommand{\udim}{\operatorname{udim}}
 \newcommand{\dashname}[1]{\stackrel{#1}{\begin{picture}(22,3)\put(0,2.5){\line(1,0){22}}\end{picture}}}
 \renewcommand{\vec}[1]{\accentset{\shortrightarrow}{#1}}
 \newcommand{\cev}[1]{\accentset{\shortleftarrow}{#1}}
@@ -1086,6 +1088,33 @@ Let $G = \widehat{LSL_{n+1}}$ be the affine Kac-Moody group of type $A_n^{(1)}$,
 \end{enumerate}
 \end{proof}
 
+\subsection{Quiver Representations}
+  A quiver $Q=(Q_0,Q_1,s,t)$ with $n$ vertices consist of a set $Q_0=\{1,2,\ldots,n\}$ of vertices, a set $Q_1$ of arrows, and maps $s,t:Q_1\to Q_0$ giving the source and target of an arrow.  
+  Given a field $\kk$, a representation $V=(V_i,V_a)$ consists of a $\kk$-vector space $V_i$ for each $i\in Q_0$ and a $\kk$-linear map $V_a:V_{s(a)}\to V_{t(a)}$ for each arrow $a\in Q_1$.  
+  Write $\udim V=(\dim_\kk V_i)_{i\in Q_0}\in\ZZ^n$ for the dimension vector of $V$.
+  A morphism of representation $\theta:V\to W$ consists of a collection of $\kk$-linear maps $\theta_i:V_i\to W_i$ so that $\theta_{t(a)}\circ V_a=W_a\circ \theta_{s(a)}$ for each arrow $a\in Q_1$.  
+  When the quiver $Q$ has no oriented cycles (i.e. is acyclic), its category $\rep_\kk Q$ of finite-dimensional representations is particularly nice and thus we assume $Q$ is acyclic throughout.  
+  In this case, it is well-known that $\rep_\kk Q$ a hereditary, abelian, length category with finitely many simple objects.\sayDR{Introduce the AR-translation? Reflection functors?}
+
+  Since $\rep_\kk Q$ is hereditary, the Euler-Ringel form $\langle V,W\rangle:=\dim_\kk\Hom(V,W)-\dim_\kk\Ext^1(V,W)$ only depends on the dimension vectors of $V$ and $W$.  In particular, the Euler-Ringel form is completely determined by the pairing of vertex-simple representations:
+  \[\langle S_i,S_j\rangle=\begin{cases}1 & \text{if $i=j$;}\\ -1 & \text{if $i\to j\in Q_1$;}\\ 0 & \text{otherwise.}\end{cases}\]
+
+  To prove Proposition~\ref{prop:level zero} we will consider the representations of an acyclic quiver $Q$ of affine type $A$, that is $Q$ is an acyclic orientation of a cycle, in particular $Q$ contains at least one source.  Our main interest will be in rigid representations, i.e. $V\in\rep_\kk Q$ such that $\Ext^1(V,V)=0$.  In particular, we aim to give a concrete characterization of all rigid indecomposable representations $V$ which are regular, that is for which the defect $\defect(V):=\langle\delta,V\rangle$ is zero.
+
+  The following characterization of rigid indecomposable regular representations appears to be new and may be of independent interest.  For $i,j\in Q_0$ write $M_{[i,j]}$ for the representation of $Q$ given by...
+  \begin{proposition}
+    Let $V$ be a rigid indecomposable regular representation of an acyclic quiver $Q$ of affine type $A$.  Then there are $i,j\in Q_0$ with $[i,j]\subsetneq[1,n]$ containing the same number of sinks and sources of $Q$ so that $V=M_{[i,j]}$. 
+  \end{proposition}
+  \begin{proof}\mbox{}
+    \begin{itemize}
+      \item $\defect(V)=0$ if and only if the $\sum_{i\text{ sink in }Q}\dim V_i=\sum_{i\text{ source in }Q}\dim V_i$
+      \item if $V$ is regular and sincere, then it is not rigid.  Use identification of a tube with nilpotent representations of a cyclic quiver.
+      \item non-sincere representations of $Q$ can be identified with representations of a Dynkin type $A$ quiver
+    \end{itemize}
+    Indecomposability completes the proof.
+  \end{proof}
+
+
 \subsection{Networks}
 
 We will study generalized minors by modeling them with weighted networks on a cylinder. A graph is weighted if all of its edges are assigned elements of a fixed ring; below this will be the Laurent polynomial ring $\CC[t_{\pm0}^{\pm1},\dotsc,t_{\pm n}^{\pm1},h_0^{\pm1},\dotsc,h_n^{\pm1}]$ with $3n+3$ polynomial generators.
@@ -1481,122 +1510,8 @@ Let $B$ and $B'$ be $(n+m)\times n$ exchange matrices and $M$ and invertible $m 
 
 
 \section{Appendix: Quiver Representations}
-  A quiver $Q=(Q_0,Q_1,s,t)$ with $n$ vertices consist of a set $Q_0=\{1,2,\ldots,n\}$ of vertices, a set $Q_1$ of arrows, and maps $s,t:Q_1\to Q_0$ giving the source and target of an arrow.  
-  Given a field $\kk$, a representation $V=(V_i,V_a)$ consists of a $\kk$-vector space $V_i$ for each $i\in Q_0$ and a $\kk$-linear map $V_a:V_{s(a)}\to V_{t(a)}$ for each arrow $a\in Q_1$.  
-  A morphism of representation $\theta:V\to W$ consists of a collection of $\kk$-linear maps $\theta_i:V_i\to W_i$ so that $\theta_{t(a)}\circ V_a=W_a\circ \theta_{s(a)}$ for each arrow $a\in Q_1$.  
-  When the quiver $Q$ has no oriented cycles (i.e. is acyclic), its category $\rep_\kk Q$ of representations is particularly nice and thus we assume $Q$ is acyclic throughout.  
-  In this case, it is well-known that $\rep_\kk Q$ a hereditary, abelian, length category with finitely many simple objects.\sayDR{Introduce the AR-translation? Reflection functors?}
 
 \subsection{Affine Tubes}\sayDR{Clean up this section.}
-  Let $Q$ be an acyclic affine quiver of type $A$, that is $Q$ is an acyclic orientation of a cycle, in particular $Q$ contains at least one source.  Suppose $Q$ has $p$ clockwise pointing arrows $\{a^-_1,\ldots,a^-_p\}$ labeled counterclockwise around $Q$ and $q$ counterclockwise pointing arrows $\{a^+_1,\ldots,a^+_q\}$ labeled clockwise around $Q$ with the convention that $s(a^-_p)=s(a^+_q)$. \sayDR{This seemingly strange choice of labeling will make extensions go in the right directions later and thus keep the arrows in the AR quiver pointing from left to right.  The phrase ``against the flow'' might be appropriate to include somewhere.}  It will be convenient to allow arbitrary integer labeling of the arrows taken modulo $p$ and $q$ respectively.  Thus $Q$ takes the following form:  
-  \begin{center}
-    \erase{%begin erase
-    \begin{tikzpicture}
-      \node at (-1,1) {$Q=$};
-      \draw[fill=black] (0,0) circle (1.5pt);
-      \node[below left] at (0,0) {$\scriptstyle 0$};
-      \draw[->] (0.1,-0.1) -- (0.65,-0.65);
-      \node[below right] at (0.25,0) {$\scriptstyle \cev{a}_q$};
-      \draw[fill=black] (0.75,-0.75) circle (1.5pt);
-      \draw[fill=black] (0.9375,-0.75) circle (0.75pt);
-      \draw[fill=black] (1.125,-0.75) circle (0.75pt);
-      \draw[fill=black] (1.3125,-0.75) circle (0.75pt);
-      \draw[fill=black] (1.5,-0.75) circle (1.5pt);
-      \draw[->] (1.65,-0.75) -- (2.1,-0.75);
-      \draw[fill=black] (2.25,-0.75) circle (1.5pt);
-      \draw[<-] (2.4,-0.75) -- (2.85,-0.75);
-      \node at (2.675,-0.575) {$\scriptstyle \vec{a}_1$};
-      \draw[fill=black] (3,-0.75) circle (1.5pt);
-      \draw[fill=black] (3.1875,-0.5625) circle (0.75pt);
-      \draw[fill=black] (3.375,-0.375) circle (0.75pt);
-      \draw[fill=black] (3.5625,-0.1875) circle (0.75pt);
-      \draw[fill=black] (3.75,0) circle (1.5pt);
-      \draw[fill=black] (3.5625,0.1875) circle (0.75pt);
-      \draw[fill=black] (3.375,0.375) circle (0.75pt);
-      \draw[fill=black] (3.1875,0.5625) circle (0.75pt);
-      \draw[fill=black] (3,0.75) circle (1.5pt);
-      \draw[<-] (2.4,0.75) -- (2.85,0.75);
-      \node at (2.675,0.575) {$\scriptstyle \cev{a}_1$};
-      \draw[fill=black] (2.25,0.75) circle (1.5pt);
-      \draw[->] (1.65,0.75) -- (2.1,0.75);
-      \draw[fill=black] (1.5,0.75) circle (1.5pt);
-      \draw[fill=black] (1.3125,0.75) circle (0.75pt);
-      \draw[fill=black] (1.125,0.75) circle (0.75pt);
-      \draw[fill=black] (0.9375,0.75) circle (0.75pt);
-      \draw[fill=black] (0.75,0.75) circle (1.5pt);
-      \draw[->] (0.1,0.1) -- (0.65,0.65);
-      \node[above right] at (0.25,0) {$\scriptstyle \vec{a}_p$};
-    \end{tikzpicture}\\
-    \begin{tikzpicture}
-      \node at (-2,0) {$Q=$};
-      \draw[fill=black] (0,0) circle (1.5pt);
-      \node[right] at (0,0) {$\scriptstyle t(\cev{a}_1)^+$};
-      \node[left] at (0,0) {$\scriptstyle t(\vec{a}_1)^-$};
-      \draw[->] (-0.1,-0.1) -- (-0.65,-0.65);
-      \node[below left] at (0.1,-0.25) {$\scriptstyle \cev{a}_q$};
-      \draw[fill=black] (-0.75,-0.75) circle (1.5pt);
-      \draw[fill=black] (-0.75,-0.9375) circle (0.75pt);
-      \draw[fill=black] (-0.75,-1.125) circle (0.75pt);
-      \draw[fill=black] (-0.75,-1.3125) circle (0.75pt);
-      \draw[fill=black] (-0.75,-1.5) circle (1.5pt);
-      \node[left] at (-0.75,-1.5) {$\scriptstyle t(\vec{a}_1)_-$};
-      \draw[->] (-0.75,-1.65) -- (-0.75,-2.1);
-      \draw[fill=black] (-0.75,-2.25) circle (1.5pt);
-      \node[left] at (-0.75,-2.25) {$\scriptstyle t(\vec{a}_1)$};
-      \draw[<-] (-0.75,-2.4) -- (-0.75,-2.85);
-      \node at (-0.575,-2.675) {$\scriptstyle \vec{a}_1$};
-      \draw[fill=black] (-0.75,-3) circle (1.5pt);
-      \node[left] at (-0.75,-3) {$\scriptstyle t(\vec{a}_1)_+$};
-      \draw[fill=black] (-0.5625,-3.1875) circle (0.75pt);
-      \draw[fill=black] (-0.375,-3.375) circle (0.75pt);
-      \draw[fill=black] (-0.1875,-3.5625) circle (0.75pt);
-      \draw[fill=black] (0,-3.75) circle (1.5pt);
-      \draw[fill=black] (0.1875,-3.5625) circle (0.75pt);
-      \draw[fill=black] (0.375,-3.375) circle (0.75pt);
-      \draw[fill=black] (0.5625,-3.1875) circle (0.75pt);
-      \draw[fill=black] (0.75,-3) circle (1.5pt);
-      \node[right] at (0.75,-3) {$\scriptstyle t(\cev{a}_1)_-$};
-      \draw[<-] (0.75,-2.4) -- (0.75,-2.85);
-      \node at (0.575,-2.675) {$\scriptstyle \cev{a}_1$};
-      \draw[fill=black] (0.75,-2.25) circle (1.5pt);
-      \node[right] at (0.75,-2.25) {$\scriptstyle t(\cev{a}_1)$};
-      \draw[->] (0.75,-1.65) -- (0.75,-2.1);
-      \draw[fill=black] (0.75,-1.5) circle (1.5pt);
-      \node[right] at (0.75,-1.5) {$\scriptstyle t(\cev{a}_1)_+$};
-      \draw[fill=black] (0.75,-1.3125) circle (0.75pt);
-      \draw[fill=black] (0.75,-1.125) circle (0.75pt);
-      \draw[fill=black] (0.75,-0.9375) circle (0.75pt);
-      \draw[fill=black] (0.75,-0.75) circle (1.5pt);
-      \draw[->] (0.1,-0.1) -- (0.65,-0.65);
-      \node[below right] at (0,-0.25) {$\scriptstyle \vec{a}_p$};
-    \end{tikzpicture}}%end erase
-    \begin{tikzpicture}
-      \node at (-2.75,0) {$Q=$};
-      \foreach \i in {0,...,8}{
-        \pgfmathsetmacro{\theta}{20+40*\i}
-        \draw[fill=black] (2*cos{\theta},2*sin{\theta}) circle (1.5pt);}
-      \foreach \i in {0,2,5}{
-        \pgfmathsetmacro{\theta}{185+40*\i}
-        \draw[->] (2*cos{\theta},2*sin{\theta}) arc (\theta:\theta+30:2);}
-      \foreach \i in {0,2,5}{
-        \pgfmathsetmacro{\theta}{175-40*\i}
-        \draw[->] (2*cos{\theta},2*sin{\theta}) arc (\theta:\theta-30:2);}
-      \pgfmathsetmacro{\theta}{20}
-      \draw[dots] (2*cos{\theta},2*sin{\theta}) arc (\theta:\theta-40:2);
-      \pgfmathsetmacro{\theta}{135}
-      \draw[dashed,->] (2*cos{\theta},2*sin{\theta}) arc (\theta:\theta-30:2);
-      \pgfmathsetmacro{\theta}{225}
-      \draw[dashed,->] (2*cos{\theta},2*sin{\theta}) arc (\theta:\theta+30:2);
-      \pgfmathsetmacro{\theta}{160}
-      \node at (2.2*cos{\theta},2.2*sin{\theta}) {$\scriptstyle a^-_p$};
-      \pgfmathsetmacro{\theta}{-40}
-      \node at (2.23*cos{\theta},2.23*sin{\theta}) {$\scriptstyle a^-_1$};
-      \pgfmathsetmacro{\theta}{200}
-      \node at (2.25*cos{\theta},2.25*sin{\theta}) {$\scriptstyle a^+_q$};
-      \pgfmathsetmacro{\theta}{40}
-      \node at (2.3*cos{\theta},2.3*sin{\theta}) {$\scriptstyle a^+_1$};
-    \end{tikzpicture}
-  \end{center}
   
   For a vertex $i$ in $Q$, write $i_+$ for the next vertex of $Q$ counterclockwise from $i$ and write $i^+$ for the next source or sink of $Q$ counterclockwise from $i$.  Define $i_-$ and $i^-$ similarly by looking clockwise from $i$.  Note that $t(\vec{a}_\ell)_+=s(\vec{a}_\ell)$ and $t(\cev{a}_\ell)_-=s(\cev{a}_\ell)$.  Also note that when $i$ is a source (resp. a sink) in $Q$, both $i^-$ and $i^+$ will be sinks (resp. sources) in $Q$.  
 
