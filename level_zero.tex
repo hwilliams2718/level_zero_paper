@@ -401,7 +401,7 @@ Let $(V,\lambda)$ be a weight representation $V$ of $\widehat{G}$ and a weight $
 \[
 g \mapsto \pi_\lambda(gv_\lambda)/v_\lambda \in \kk,
 \]
-where $\pi_\lambda:V \onto V_\lambda$ is the projection whose kernel is the direct sum of the other weight spaces, and $v_\lambda \in V_\lambda$ is any nonzero vector. When $\lambda \in X \cup -X$, we write $\Delta_\lambda$ for $\Delta_{(V(\lambda),\lambda)}$. 
+where $\pi_\lambda:V \onto V_\lambda$ is the projection whose kernel is the direct sum of the other weight spaces, and $v_\lambda \in V_\lambda$ is any nonzero vector. When $\lambda \in X \cup -X$ or when $\widehat{G}$ is of untwisted affine type, we write $\Delta_\lambda$ for $\Delta_{(V(\lambda),\lambda)}$. 
 %Given $\lambda \in X \cup -X$, the principal generalized minor $\Delta_\lambda \in \kk[G]$ is the function
 %\[
 %g \mapsto \pi_\lambda(gv_\lambda)/v_\lambda \in \kk.
@@ -465,6 +465,17 @@ In computing various relations in $\kk[G^{c,c^{-1}}]$ we will make extensive use
   g=x_{-1}(t_{-1}) \cdots x_{-n}(t_{-n}) h x_n(t_n) \cdots x_1(t_1)
 \end{equation}
 for some $h \in H$ and $t_i \in \kk^\times$ [FZ,Wil]. 
+Here we write 
+\begin{equation}
+  x_{-i}(t):=\varphi_i\left(\begin{array}{cc}1 & 0 \\ t & 1\end{array}\right)
+  \quad
+  \quad
+  x_i(t):=\varphi_i\left(\begin{array}{cc}1 & t \\ 0 & 1\end{array}\right)
+\end{equation}
+and for $t \in \kk^\times$
+\begin{equation}
+  t^{\alpha_i^\vee}:=\varphi_i\left(\begin{array}{cc}t & 0 \\ 0 & t^{-1}\end{array}\right)
+\end{equation}
 
 %\saySS{This should cover all the minors we care about; please correct me if I am mistaken}
 %Given $u,v\in W$ and $\lambda$ a weight, we denote by $\Delta_{u\lambda}^{v\lambda}$ the matrix coefficient 
@@ -510,30 +521,33 @@ for some $h \in H$ and $t_i \in \kk^\times$ [FZ,Wil].
 %\end{proof}
 
 
-\subsection{Explicit computations}
+%\subsection{Explicit computations}
 %\saySS{This subsection is written assuming $c=s_1\cdots s_n$}
 %\saySS{the rationale of this subsection is to introduce the notation for the generic element of $G^{c,c^{-1}}$ that we use in both the preproj/postinj and the regular sections. With the excuse, having showed that we have a cluster algebra by pinpointing generalized minors it sounds like a good idea to say what are they.}
-For later use we record here the values that both the initial cluster variables and the coefficients of $\CC[G^{c,c^{-1}}]$ assume on the generic element of $G^{c,c^{-1}}$.
-In most cases to obtain these formulas it suffices to perform a straightforward computation in the relevant representation (either $L_{\omega_i}$ or $L_{-\omega_i}$) so we will omit proofs.
+%For later use we record here the values that both the initial cluster variables and the coefficients of $\CC[G^{c,c^{-1}}]$ assume on the generic element of $G^{c,c^{-1}}$.
+%In most cases to obtain these formulas it suffices to perform a straightforward computation in the relevant representation (either $L_{\omega_i}$ or $L_{-\omega_i}$) so we will omit proofs.
 
-For $i\in[1,n]$ let $\varphi_i:SL_2\rightarrow G$ denote the canonical embedding corresponding to the simple root $\alpha_i$. 
-For $t\in\CC$ write 
-\begin{equation}
-  x_{-i}(t):=\varphi_i\left(\begin{array}{cc}1 & 0 \\ t & 1\end{array}\right)
-  \quad
-  \quad
-  x_i(t):=\varphi_i\left(\begin{array}{cc}1 & t \\ 0 & 1\end{array}\right)
-\end{equation}
-and for $t \in \CC^\times$
-\begin{equation}
-  t^{\alpha_i^\vee}:=\varphi_i\left(\begin{array}{cc}t & 0 \\ 0 & t^{-1}\end{array}\right)
-\end{equation}
-so that the generic element of $G^{c,c^{-1}}$ is
-\begin{equation}
-  \label{eq:generic_element}
-  g=x_{-1}(t_{-1}) \cdots x_{-n}(t_{-n}) h x_n(t_n) \cdots x_1(t_1)
-\end{equation}
-with $h\in H$ and $t_{\pm i} \in \CC$ (cf. \cite[Proposition 3.2]{Wil13} were we prefer to place the torus part in central position using the classical commutation relations \cite[(2.5)]{FZ99}).
+%For $i\in[1,n]$ let $\varphi_i:SL_2\rightarrow G$ denote the canonical embedding corresponding to the simple root $\alpha_i$. 
+%For $t\in\CC$ 
+%Here we write 
+%\begin{equation}
+%  x_{-i}(t):=\varphi_i\left(\begin{array}{cc}1 & 0 \\ t & 1\end{array}\right)
+%  \quad
+%  \quad
+%  x_i(t):=\varphi_i\left(\begin{array}{cc}1 & t \\ 0 & 1\end{array}\right)
+%\end{equation}
+%and for $t \in \kk^\times$
+%\begin{equation}
+%  t^{\alpha_i^\vee}:=\varphi_i\left(\begin{array}{cc}t & 0 \\ 0 & t^{-1}\end{array}\right)
+%\end{equation}
+%so that the generic element of $G^{c,c^{-1}}$ is
+%\begin{equation}
+%  \label{eq:generic_element}
+%  g=x_{-1}(t_{-1}) \cdots x_{-n}(t_{-n}) h x_n(t_n) \cdots x_1(t_1)
+%\end{equation}
+%with $h\in H$ and $t_{\pm i} \in \CC$ (cf. \cite[Proposition 3.2]{Wil13} were we prefer to place the torus part in central position using the classical commutation relations \cite[(2.5)]{FZ99}).
+
+For example, we have the following computations:
 
 \begin{lemma}
   \label{lemma:initial_cluster_variables}
@@ -543,7 +557,7 @@ with $h\in H$ and $t_{\pm i} \in \CC$ (cf. \cite[Proposition 3.2]{Wil13} were we
   \end{equation}
 \end{lemma}
 
-Keeping in mind that for any $k\geq0$ the word $c^k$ is reduced (cf. \cite{Spe09}), we also get the following.
+%Keeping in mind that for any $k\geq0$ the word $c^k$ is reduced (cf. \cite{Spe09}), we also get the following.
 \saySS{We may want to give a proof of this (Cf. \cite[Proof of eq. 3.20]{YZ08}) but we are already writing a lot of computations enough to disgust even the more coscentious reader.}
 \begin{lemma}
   \label{lemma:coefficient_computations}
