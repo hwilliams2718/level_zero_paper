@@ -24,7 +24,7 @@ urlcolor=blue]{hyperref}
 \usepackage{accents}
 \usepackage{bbm}
 \usepackage{tikz}
-\usetikzlibrary{calc,decorations.markings}
+\usetikzlibrary{calc,decorations.markings,arrows}
 \tikzset{
   singlearrow/.style={draw=none,postaction={decorate,decoration={markings,mark=at position 0.5 with {\arrow[xshift=2pt]{stealth}}}}},
   doublearrow/.style={draw=none,postaction={decorate,decoration={markings,mark=at position 0.25 with {\arrow{stealth}},mark=at position 0.85 with {\arrow{stealth}}}}},
@@ -80,6 +80,10 @@ urlcolor=blue]{hyperref}
 
 \newcommand{\erase}[1]{{}}
 
+\newcommand{\wh}{\widehat}
+\newcommand{\ol}[1]{\overline{#1}}
+\newcommand{\dol}[1]{\overline{\overline{#1}}}
+
 % ambients and numbering
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{conjecture}[theorem]{Conjecture}
@@ -88,6 +92,7 @@ urlcolor=blue]{hyperref}
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{example}[theorem]{Example}
+\theoremstyle{remark} 
 \newtheorem{remark}[theorem]{Remark}
 \numberwithin{equation}{section}
 
@@ -197,7 +202,10 @@ Finally, in type $A_n^{(1)}$ the following suggestive extension of Theorem \ref{
 \textsc{Acknowledgments}  We would like to thank Misha Gekhtman and V. Chari for helpful discussions and comments. D.R. is supported by... S.S. is supported by... H.W. is supported by...
 
 %\section{Cluster Structures on Coxeter Double Bruhat Cells}
-\section{Reminders on Acyclic Cluster Algebras}
+\section{Background and notation}
+
+We collect here some needed material on cluster algebras and Kac-Moody groups, and lay out the notation we will use.  
+We fix throughout an algebraically closed field $\kk$ of characteristic zero. 
 
 \subsection{Cluster Algebras}
 
@@ -235,7 +243,7 @@ When working with explicit formulas for cluster variables, it will also be conve
 We associate a quiver $Q := Q_B$ to $B$ as follows: its vertices are indexed by $\{1,\dotsc,n\}$, and there are $[-B_{ij}]_+$ arrows from vertex $i$ to vertex $j$. 
 Note that this prescription only records the principal part of $B$. 
 We say $B$ is acyclic if $Q_B$ has no oriented cycles. 
-Conversely, given a finite quiver without oriented cycles, there is a unique skew-symmetric matrix $B$ that gives rise to it in this way (though there will be many associated matrices that are only skew-symmetrizable). 
+Conversely, given a finite quiver without oriented cycles, there is a unique skew-symmetric matrix $B$ that gives rise to it in this way (though there will be many associated matrices that are only skew-symmetrizable); see Figure \ref{fig:matrices}. 
 When $B$ is acyclic, $\cA_B$ is finitely generated as a $\kk$-algebra and %\sayHW{Check reference}\sayDR{It's correct.} 
 coincides with the upper cluster algebra associated to $B$ [BFZ] (as such, we will not need to recall the latter notion explicitly).  
 
@@ -244,6 +252,21 @@ Each cluster variable $x_{i;t}$ is labeled by a distinct $g$-vector $g_{i;t}$ in
   \item $g_{i;t_0}=e_i$ is the standard basis vector in $\ZZ^n$;
   \item if $t,t'\in T_0$ are joined by an edge labeled $k$, then we have\sayDR{Salvatore, I know you have a favorite way of writing this so I didn't continue.}
 \end{itemize}
+
+We will also make use of the following ``change of coefficients'' result:
+
+\begin{proposition}\label{prop:changeofcoeffs}
+Let $B$ be an $m times n$ matrix with skew-symmetrizable principal part, $M$ an invertible $m \times m$ matrix of the form 
+\[
+M = \begin{bmatrix} Id_n & 0 \\ 0 & L \end{bmatrix}
+\]
+for some matrix $L$, and $B' = M^{-1}B$. Then the map 
+\[
+x'_i \mapsto \prod_{i=1}^m x_i^{M_{ij}}
+\]
+extends to an isomorphism $\cA_{B'} \cong \cA_B$.
+%Let $B$ and $B'$ be $(n+m)\times n$ exchange matrices and $M$ and invertible $m \times m$ matrix such that the bottom $m \times n$ part of $B$ is equal to $M$ times the bottom $m \times n$ part of $B'$.  Let $x_1,\dotsc,x_n$ and $x'_1,\dotsc,x'_n$ be the mutable initial cluster variables of $\cA(B)$ and $\cA(B')$, respectively, and $y_1,\dotsc,y_m$, $y'_1,\dotsc, y'_m$ their frozen variables.  Then the map $x'_i \mapsto x_i$, $y'_j \mapsto \prod_{i=1}^m y_i^{M_{ij}}$ extends to an isomorphism of upper cluster algebras.
+\end{proposition}
 
 \subsection{Cluster Characters}
 
@@ -274,68 +297,142 @@ We also recall the Auslander-Reiten translation $\tau: \mathrm{Rep}\: Q \to \mat
 
 Theorem \ref{thm:CCbijection} generalizes to the case of skew-symmetrizable matrices by replacing quiver representations with species representations. We refer to [R15] for details, though we will not make direct use of this here. 
 
-\section{Kac-Moody Groups, double Bruhat cells, and generalized minors}
-\subsection{PROVISIONAL: Generalities and main theorem}
-Things to do here:
-\begin{itemize}
-  \item
-    Introduce KM goups
-  \item
-    Say we restrict to derived subgroups (mention that this is just a trick to get rid of some irrelevant coefficients and that we could do without at the cost of heavier notation) 
-  \item
-    define generalized minors
-  \item
-    recall double bruhat decomposition
-  \item
-    Decide if, for the general and preproj/postinj sections, we assume $c=s_1\cdots s_n$ and permute the rows and columns of $A$ and $B$ accordingly. 
-    If not introduce $\prec_c$ and revisit all the statements.
-    If we do not make this assumption the explicit formulas in the next subsection (together with the various proofs in the preproj/postinj section) need to be altered significantly.
-  \item
-    prove thm: $G^{c,c^{-1}}$ is upper cluster algebra with coefficients $\Delta$ (Basically cite Harold)
-  \item
-    prove prop: we can rescale coefficients to have principal. 
-    This is needed because Harold's theorem says that $\CC[G^{c,c^{-1}}]$ is a cluster algebra with a different set of coefficients.
-    Use the notation $z_i$ and $z_{-i}$ for the new coefficients.
-    The choice of having the same letter and $\pm$ indices is justified by this explicit computation
-    \begin{eqnarray}
-      z_i
-      =
-      \Delta_{c\omega_i}^{\omega_i}
-      \prod_{ j <i}\big(\Delta_{c\omega_ j }^{\omega_ j }\big)^{a_{ j  i}}
-      &=&
-      t_i
-      h^{\omega_i}\prod_{ j <i}h^{a_{ j  i}\omega_ j }\\
-      z_{-i}
-      =
-      \Delta_{\omega_i}^{c\omega_i}
-      \prod_{ j <i}\big(\Delta_{\omega_ j }^{c\omega_ j }\big)^{a_{ j  i}}
-      &=&
-      t_{-i}
-      h^{\omega_i}\prod_{ j <i}h^{a_{ j  i}\omega_ j }
-    \end{eqnarray}
-    Not having picked the letter $y$ should help to distinguish principal coefficients from doubled principal coefficients.
-    I am partially satisfied by this choice; for uniformity with cluster variables I would rather have some capital/greek capital letter for the coefficients of $\CC[G^{c,c^{-1}}]$.
-  \item
-    mention that, since the algebra is acyclic this is a cluster algebra and not just an upper cluster algebra
-  \item
-    Do we want to even mention $L^{c,c^{-1}}$?
-  \item
-    anything else?
-  \item
-    Profit
-\end{itemize}
+%\section{Kac-Moody Groups, double Bruhat cells, and generalized minors}
 
-*******
+\begin{figure}
+\centering
+\begin{tikzpicture}
+\node (l) [matrix] at (0,0) {
+\coordinate (a) at (0,0); \coordinate (b) at (2,0); \coordinate (c) at (1,-1.3);
+\foreach \c in {a,b,c} {\fill (\c) circle (.06);}
+\foreach \c/\d in {b/a,b/c,c/a} {\draw[thick,-stealth',shorten <=2mm,shorten >=2mm] (\c) to (\d);}
+\node (alabel) at ($(a)+(-.3,.1)$) {1};
+\node (blabel) at ($(b)+(.3,.1)$) {2};
+\node (clabel) at ($(c)+(0,-.35)$) {3};
+\\
+};
+\node (Q) at (-1.3,0) {$Q =$};
+\node (m)  at (4.5,0) {$B = \begin{bmatrix} 0 & 1 & 1 \\ -1 & 0 & -1 \\ -1 & 1 & 0 \end{bmatrix}$
+};
+\node (r) at (9,0) {$A = \begin{bmatrix} 2 & -1 & -1 \\ -1 & 2 & -1 \\ -1 & -1 & A \end{bmatrix}$
+};
+\end{tikzpicture}
+\caption{An acyclic quiver $Q$, the associated skew-symmetrix matrix $B$, and the associated Cartan matrix $A$. The vertex labels of $Q$ correspond to the row/column labels of $B$ and $A$, and the Coxeter element associated to $B$ and $Q$ is $c = s_1 s_3 s_2$.}\label{fig:matrices}
+\end{figure}
 
-Early attempts at this subsection below here 
+%\subsection{PROVISIONAL: Generalities and main theorem}
+%Things to do here:
+%\begin{itemize}
+%  \item
+%    Introduce KM goups
+%  \item
+%    Say we restrict to derived subgroups (mention that this is just a trick to get rid of some irrelevant coefficients and that we could do without at the cost of heavier notation) 
+%  \item
+%    define generalized minors
+%  \item
+%    recall double bruhat decomposition
+%  \item
+%    Decide if, for the general and preproj/postinj sections, we assume $c=s_1\cdots s_n$ and permute the rows and columns of $A$ and $B$ accordingly. 
+%    If not introduce $\prec_c$ and revisit all the statements.
+%    If we do not make this assumption the explicit formulas in the next subsection (together with the various proofs in the preproj/postinj section) need to be altered significantly.
+%  \item
+%    prove thm: $G^{c,c^{-1}}$ is upper cluster algebra with coefficients $\Delta$ (Basically cite Harold)
+%  \item
+%    prove prop: we can rescale coefficients to have principal. 
+%    This is needed because Harold's theorem says that $\CC[G^{c,c^{-1}}]$ is a cluster algebra with a different set of coefficients.
+%    Use the notation $z_i$ and $z_{-i}$ for the new coefficients.
+%    The choice of having the same letter and $\pm$ indices is justified by this explicit computation
+%    \begin{eqnarray}
+%      z_i
+%      =
+%      \Delta_{c\omega_i}^{\omega_i}
+%      \prod_{ j <i}\big(\Delta_{c\omega_ j }^{\omega_ j }\big)^{a_{ j  i}}
+%      &=&
+%      t_i
+%      h^{\omega_i}\prod_{ j <i}h^{a_{ j  i}\omega_ j }\\
+%      z_{-i}
+%      =
+%      \Delta_{\omega_i}^{c\omega_i}
+%      \prod_{ j <i}\big(\Delta_{\omega_ j }^{c\omega_ j }\big)^{a_{ j  i}}
+%      &=&
+%      t_{-i}
+%      h^{\omega_i}\prod_{ j <i}h^{a_{ j  i}\omega_ j }
+%    \end{eqnarray}
+%    Not having picked the letter $y$ should help to distinguish principal coefficients from doubled principal coefficients.
+%    I am partially satisfied by this choice; for uniformity with cluster variables I would rather have some capital/greek capital letter for the coefficients of $\CC[G^{c,c^{-1}}]$.
+%  \item
+%    mention that, since the algebra is acyclic this is a cluster algebra and not just an upper cluster algebra
+%  \item
+%    Do we want to even mention $L^{c,c^{-1}}$?
+%  \item
+%    anything else?
+%  \item
+%    Profit
+%\end{itemize}
 
-*******
+\subsection{Kac-Moody groups and generalized minors}
 
-The data of an acyclic skew-symmetrizable matrix $B$ is equivalent to the data of a Cartan matrix $A$ (of possibly infinite type) together with a Coxeter element $c$ of its Weyl group. The Cartan matrix is obtained from $B$ by making all its entries negative without changing their absolute values, then setting each diagonal entry equal to two. The Coxeter element is $c = s_{\sigma_1} \cdots s_{\sigma_n}$, where $\sigma \in S_n$ is any permutation for which $\sigma_i > \sigma_j$ whenever there is an arrow from $i$ to $j$ in $Q_B$.\sayDR{$\sigma_1$ should be a sink}
+Given a symmetrizable Cartan matrix $A$, there is an associated Kac-Moody group $G:=G_A$. 
+It has several variants, and we consider the minimal version studied in [KP]. 
+This is an ind-algebraic group generated by coroot subgroups $\varphi_i: SL_2 \into G$. 
+We denote its ($n$-dimensional) Cartan subgroup by $H$, its standard opposite Borel subgroups by $B_\pm$, and its root and weight lattices by $Q \subset P = \Hom(H,\kk^\times)$. 
+When $A$ is of (untwisted) affine type, $G$ is the universal central extension of the group of regular maps from $\kk^\times$ to a simple algebraic group $G^\circ$. 
 
-The cluster algebra $\cA_B$ can be realized geometrically in terms of the Kac-Moody group $G := G_A$ associated to $A$. This group has several variants, and we consider the minimal version studied in [KP]. This is an ind-algebraic group generated by coroot subgroups $\varphi_i: SL_2 \into G$. We denote its ($n$-dimensional) Cartan subgroup by $H$ and its standard opposite Borel subgroups by $B_\pm$. When $A$ is of (untwisted) affine type, $G$ is the universal central extension of the group of regular maps from $\kk^\times$ to a simple algebraic group. Note that one often considers a larger group which is the semidirect product of $G$ with an algebraic torus of dimension equal to $n$ minus the rank of $A$; in the affine case this is the group that also includes a copy of $\kk^\times$ acting by loop rotations. 
+The group $G$ is the derived subgroup of a larger group $\widehat{G}$, which is the semidirect product of $G$ with an algebraic torus of dimension equal to $n$ minus the rank of $A$; in the affine case this is the group that also includes a copy of $\kk^\times$ acting by loop rotations. We write $\widehat{H}$ for its Cartan subgroup (which contains $H$), $\widehat{P}$ for the extended weight lattice $\Hom(\widehat{H},\kk^\times)$, and fix once and for all a splitting $P \into \widehat{P}$ of the natural map $\widehat{P} \onto P$.
 
-Something about defining generalized minors...
+Generalized minors are certain functions on $G$, recovering the usual notion of minors when $G = SL_n$. 
+To define them, we recall a bit of representation theory. 
+By a weight representation $V$ of $\widehat{G}$ we will mean a representation that splits as a direct sum
+\[
+V = \bigoplus_{\lambda \in \widehat{P}} V_\lambda
+\]
+of finte-dimensional weight spaces under the action of $\widehat{H}$. Note that the weight spaces of $V$ as a $G$-representation are not necessarily finite-dimensional, as the weight decomposition of the $\widehat{H}$-action is finer than that of the $H$-action. 
+Let $P^+=\{\lambda: \lambda(\alpha_i^\vee)\} \subset \widehat{P}$ denote the set of dominant weights. 
+Each $\lambda \in P^+$ labels an irreducible highest-weight representation $V(\lambda)$ of $\widehat{G}$. 
+
+%We will be interested in principal generalized minors on $G$, and to define these we recall a little representation theory. Let $P$ be the weight lattice $\Hom(H,\kk^\times)$, and $Q \subset P$ the root lattice of $G$. Let $P^+ \subset P$ denote the set of dominant weights, which are nonnegative integral combinations of the fundamental weights $\omega_1,\dotsc,\omega_n$. Each $\lambda \in P^+$ labels an irreducible highest-weight representation $L(\lambda)$ of $\widehat{G}$. This is a weight representation with finite-dimensional weight spaces; the weights that appear lie in the convex hull of the (infinite) Weyl group orbit of $\lambda$ in $P$. 
+
+The Tits cone $X = \{w\lambda : w \in W, \lambda \in P^+\}$ is the set of weights obtained from a dominant weight by the action of the Weyl group. To each $\lambda \in P^+$ is an associated irreducible highest-weight representation $L(\lambda)$; if $\lambda \in X$ and $w \lambda \in P^+$ the unique dominant weight conjugate to $\lambda$, we also write $L(\lambda)$ for $L(w \lambda)$. Likewise for $\lambda \in -P^+$ there is an irreducible lowest-weight representation $L(\lambda)$, and for $\lambda \in -X$ we write $L(\lambda)$ for $L(w\lambda)$ where $w\lambda$ is the unique anti-dominant conjugate of $\lambda$. Note that for any $\lambda \in X \cup -X$, the weight space $V(\lambda)_\lambda$ is one-dimensional.
+
+When $A$ is of (untwisted) affine type, $P = P^\circ \oplus \kk \kappa$, where $P^\circ$ is the weight lattice of the underlying finite type group $G^\circ$. A weight $\lambda \in P$ is in the complement of $X \cup -X$ if and only if it lies in $P^\circ \subset P$. We write $V(\lambda)^\circ$ for the irreducible $G^\circ$ representation whose highest weight is conjugate to $\lambda$ under the action of the Weyl group of $G^\circ$. The space $V(\lambda) := V(\lambda)^\circ[z^{\pm 1}]$ of Laurent polynomials valued in $V(\lambda)^\circ$ is naturally a weight representation of $\widehat{G}$. The level of a representation of $G$ is the character by which $Z(G) = Z(\widehat{G}) \cong \kk^\times$ acts; the level of $V(\lambda)$ is positive, negative, or zero if $\lambda \in X$, $\lambda \in -X$, or $\lambda \in P^\circ$, respectively.
+
+\begin{definition}
+Let $(V,\lambda)$ be a weight representation $V$ of $\widehat{G}$ and a weight $\lambda$ for which the weight space $V_\lambda \subset V$ is one-dimensional. The principal generalized minor $\Delta_{(V,\lambda)} \in \kk[\widehat{G}]$ is the function 
+\[
+g \mapsto \pi_\lambda(gv_\lambda)/v_\lambda \in \kk,
+\]
+where $\pi_\lambda:V \onto V_\lambda$ is the projection whose kernel is the direct sum of the other weight spaces, and $v_\lambda \in V_\lambda$ is any nonzero vector. When $\lambda \in X \cup -X$, we write $\Delta_\lambda$ for $\Delta_{(V(\lambda),\lambda)}$. 
+%Given $\lambda \in X \cup -X$, the principal generalized minor $\Delta_\lambda \in \kk[G]$ is the function
+%\[
+%g \mapsto \pi_\lambda(gv_\lambda)/v_\lambda \in \kk.
+%\]
+%That is, its value at $g$ is a diagonal matrix coefficient in a matrix by which $g$ acts on $L(\lambda)$.
+%Let $\lambda \in P^+$ be a dominant weight and $\lambda_1 = w_1\lambda$, $\lambda_2 = w_2 \lambda \in X$ be any two conjugates under the Weyl group. The 
+\end{definition}
+
+We distinguish two lifts of the simple reflection $s_i \in W$ to $G$, 
+\begin{align}\label{eqn:simplerootformula}
+\ol{s_{i}} = \ol{s}_i = x_{i}(-1) x_{-i}(1) x_{i}(-1) = \varphi_i \begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix} \\
+\dol{s_{i}} = x_{i}(1) x_{-i}(-1) x_{i}(1) = \varphi_i \begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix}.
+\end{align}  
+In particular, for any $w \in W$ we have well-defined representatives
+\[
+\ol{w} = \ol{s_{i_1}} \cdots \ol{s_{i_n}}, \quad \dol{w} = \dol{s_{i_1}} \cdots \dol{s_{i_n}},
+\]
+where $s_{i_1} \cdots s_{i_n}$ is any reduced word for $w$. 
+
+Given $\lambda \in X \cup -X$ and $\lambda' = w \lambda$, the generalized minor $\Delta^{\lambda}_{\lambda'}$ is the function $g \mapsto \Delta_\lambda(g\ol{w})$. \sayHW{Check the exact formula} 
+
+
+\begin{remark}
+The representations $V(\lambda)$ with $\lambda \in P^\circ$ are not the only irreducible level zero weight representations of an affine type group $\widehat{G}$. The set of all such representations is parametrized by pairs $(\{\lambda_1,\dotsc,\lambda_m\},\{a_1,\dotsc,a_m\})$ of a tuple of dominant weights of $G^\circ$ and a tuple of nonzero elements of $\kk$ [Cha]. As a vector space the associated representation is the space of Laurent polynomials valued in the tensor product of the $V(\lambda_i)^\circ$, and the scalars $a_i$ rescale the action of $G^\circ$-valued loops on each factor [CP].
+\end{remark}
+
+\subsection{Acyclic cluster algebras from double Bruhat cells}
+
+The data of an acyclic skew-symmetrizable matrix $B$ is equivalent to the data of a Cartan matrix $A$ (of possibly infinite type) together with a Coxeter element $c$ of its Weyl group. The Cartan matrix is obtained from $B$ by making all its entries negative without changing their absolute values, then setting each diagonal entry equal to two; see Figure \ref{fig:matrices}. The Coxeter element is $c = s_{\sigma_1} \cdots s_{\sigma_n}$, where $\sigma \in S_n$ is any permutation for which $\sigma_i > \sigma_j$ whenever there is an arrow from $i$ to $j$ in $Q_B$. Conversely, any Coxeter element $c$ arises in this way from a unique skew-symmetrizable matrix, which we write as $B_c$. 
+
+The cluster algebra $\cA_B$ can be realized geometrically in terms of the Kac-Moody group $G := G_A$ associated to $A$. 
 
 The group $G$ has the double Bruhat decomposition
 \[
@@ -346,79 +443,76 @@ where $W$ is the Weyl group of $G$. Each $G^{u,v}$ is a smooth affine variety of
 %Let $G := G_B$ be the Kac-Moody group associated to this root system. The cluster algebra has the following geometric realization in terms of $G$:
 
 \begin{proposition}\say[Group]{We need to think carefully about the change of coefficents, keeping in mind [Yang,Zelevinsky: p. 21] at the end of Sec. 4 and [Berenstein,Rupel: Lemma 6.8].}
-The coordinate ring of $G^{c,c^{-1}}$ is an upper cluster algebra of type $B_c$ with doubled principal coefficients, that is, whose $3n \times n$ exchange matrix has principal part $B_c$ and frozen part two copies of the identity matrix.  The initial cluster variables are the principal minors $\Delta_{\omega_i}$.  The frozen variables are
+The coordinate ring of $G^{c,c^{-1}}$ is isomorphic to the cluster algebra associated to the $3n \times n$ matrix whose principal part is $B_c$ and whose bottom $n \times n$ blocks are identity matrices. 
+The isomorphism takes the initial cluster variables to restrictions of monomials in generalized minors; for $1 \leq j \leq n$ we have 
 \[
-y_j = \Delta^{\omega_j}_{ c\omega_j} \prod_{i < j}(\Delta^{\omega_i}_{c \omega_i})^{a_{ij}}, \quad z_j = \Delta^{c \omega_j}_{\omega_j} \prod_{i < j}(\Delta^{c \omega_i}_{\omega_i})^{a_{ij}}
+x_j \mapsto \Delta_{\omega_j},\quad x_{j+n} \mapsto \Delta^{\omega_j}_{ c\omega_j} \prod_{i < j}(\Delta^{\omega_i}_{c \omega_i})^{a_{ij}},\quad x_{j+2n} = \Delta^{c \omega_j}_{\omega_j} \prod_{i < j}(\Delta^{c \omega_i}_{\omega_i})^{a_{ij}}.
 \]
 \end{proposition}
 \begin{proof}
-Let $B'$ be the $3n \times n$ exchange matrix with principal part $B_c$ and with $B'_{i+n,j} = B'_{i+2n,j} = [i = j] + a_{ij}[i < j]$ for $i,j \in [1,n]$.  Then the coordinate ring of $G^{c,c^{-1}}$ is the upper cluster algebra with exchange matrix $B'$, initial cluster variables $\Delta_{\omega_i}^{\omega_i}$, and frozen variables $\Delta^{\omega_i}_{c \omega_i}$, $\Delta^{c \omega_i}_{\omega_i}$ \cite{me}.  The proposition then follows from \Cref{prop:changeofcoeffs}
+Let $B'$ be the $3n \times n$ matrix with principal part $B_c$ and with $B'_{i+n,j} = B'_{i+2n,j} = [i = j] + a_{ij}[i < j]$ for $i,j \in [1,n]$.  Then the coordinate ring of $G^{c,c^{-1}}$ is the upper cluster algebra with exchange matrix $B'$, initial cluster variables $\Delta_{\omega_i}$, and frozen variables $\Delta^{\omega_i}_{c \omega_i}$, $\Delta^{c \omega_i}_{\omega_i}$ [BFZ,Wil]. Since $B_c$ is acylic, the upper cluster algebra and cluster algebra coincide [BFZ]. The proposition then follows from an application of \Cref{prop:changeofcoeffs}.
 \end{proof}
 
-****
+We often write $z_i$ for $x_{i+n}$ and $z_{-i}$ for $x_{i+2n}$, and say that $\kk[G^{c,c^{-1}}]$ is a cluster algebra with ``doubled principal coefficients.''
 
-some more attempts
+\begin{remark}
+Each $G^{u,v}$ is a subvariety of a double Bruhat cell $\widehat{G}^{u,v}$ of $\widehat{G}$. The coordianate ring of the latter is also an upper cluster algebra whose initial exchange matrix has the same principal part but additional frozen variables -- $G^{u,v}$ is the locus where these are equal to one. Conversely one could consider the $2n$-dimensional subvariety $L^{c,c^{-1}} \subset G^{c,c^{-1}}$ where the $z_1,\dotsc,z_n$ are equal to one -- this is the reduced double Bruhat cell considered in \cite{YZ08}.
+\end{remark}
 
-****
-
-Throughout this section we fix a symmetrizable Kac-Moody group $G$ of infinite type and a Coxeter element $c$.  
-
-\saySS{This should cover all the minors we care about; please correct me if I am mistaken}
-Given $u,v\in W$ and $\lambda$ a weight, we denote by $\Delta_{u\lambda}^{v\lambda}$ the matrix coefficient 
+In computing various relations in $\kk[G^{c,c^{-1}}]$ we will make extensive use of the fact that a generic element $g$ of $G^{c,c^{-1}}$ can be factored as
 \begin{equation}
-  \Delta_{u\lambda}^{v\lambda}(g) 
-  := 
-  \left(\left[ \overline{u}^{-1}g\overline{v} \right]_0\right)^\lambda
+  \label{eq:generic_element}
+  g=x_{-1}(t_{-1}) \cdots x_{-n}(t_{-n}) h x_n(t_n) \cdots x_1(t_1)
 \end{equation}
-When $u=v$ above, we will write $\Delta_{u\lambda}$ instead of $\Delta_{u\lambda}^{u\lambda}$.
+for some $h \in H$ and $t_i \in \kk^\times$ [FZ,Wil]. 
 
-\begin{proposition}\say[Group]{We need to think carefully about the change of coefficents, keeping in mind [Yang-Zelevinsky: p. 21] at the end of Sec. 4 and [Berenstein-Rupel: Lemma 6.8].}
-The coordinate ring of $G^{c,c^{-1}}$ is an upper cluster algebra of type $B_c$ with doubled principal coefficients, that is, whose $3n \times n$ exchange matrix has principal part $B_c$ and frozen part two copies of the identity matrix.  The initial cluster variables are the principal minors $\Delta_{\omega_i}$.  The frozen variables are
-\[
-y_j = \Delta^{\omega_j}_{ c\omega_j} \prod_{i < j}(\Delta^{\omega_i}_{c \omega_i})^{a_{ij}}, \quad z_j = \Delta^{c \omega_j}_{\omega_j} \prod_{i < j}(\Delta^{c \omega_i}_{\omega_i})^{a_{ij}}
-\]
-\end{proposition}
-\begin{proof}
-Let $B'$ be the $3n \times n$ exchange matrix with principal part $B_c$ and with $B'_{i+n,j} = B'_{i+2n,j} = [i = j] + a_{ij}[i < j]$ for $i,j \in [1,n]$.  Then the coordinate ring of $G^{c,c^{-1}}$ is the upper cluster algebra with exchange matrix $B'$, initial cluster variables $\Delta_{\omega_i}^{\omega_i}$, and frozen variables $\Delta^{\omega_i}_{c \omega_i}$, $\Delta^{c \omega_i}_{\omega_i}$ \cite{me}.  The proposition then follows from \Cref{prop:changeofcoeffs}
-\end{proof}
+%\saySS{This should cover all the minors we care about; please correct me if I am mistaken}
+%Given $u,v\in W$ and $\lambda$ a weight, we denote by $\Delta_{u\lambda}^{v\lambda}$ the matrix coefficient 
+%\begin{equation}
+%  \Delta_{u\lambda}^{v\lambda}(g) 
+%  := 
+%  \left(\left[ \overline{u}^{-1}g\overline{v} \right]_0\right)^\lambda
+%\end{equation}
+%When $u=v$ above, we will write $\Delta_{u\lambda}$ instead of $\Delta_{u\lambda}^{u\lambda}$.
 
+%\begin{proposition}\say[Group]{We need to think carefully about the change of coefficents, keeping in mind [Yang-Zelevinsky: p. 21] at the end of Sec. 4 and [Berenstein-Rupel: Lemma 6.8].}
 
-\begin{proposition}
-Let $G$ be a Kac-Moody group, let $c$ be a Coxeter element of its Weyl group, and $B_c$ the associated exchange matrix.  The coordinate ring of the double Bruhat cell $G^{c,c^{-1}}$ is an upper cluster algebra of type $B_c$ with coefficients.  The coordinate ring of the reduced double Bruhat cell $L^{c,c^{-1}}$ is an upper cluster algebra of type $B_c$ with principal coefficients.
-\end{proposition}
-\begin{proof}
-\begin{enumerate}
-\item Cite other papers.
-\item Generalities on reducing double Bruhat cells and forgetting coefficients.
-\item Redo Yang-Zelevinsky change of coefficients.
-\end{enumerate}
-\end{proof}
+%\begin{proposition}
+%Let $G$ be a Kac-Moody group, let $c$ be a Coxeter element of its Weyl group, and $B_c$ the associated exchange matrix.  The coordinate ring of the double Bruhat cell $G^{c,c^{-1}}$ is an upper cluster algebra of type $B_c$ with coefficients.  The coordinate ring of the reduced double Bruhat cell $L^{c,c^{-1}}$ is an upper cluster algebra of type $B_c$ with principal coefficients.
+%\end{proposition}
+%\begin{proof}
+%\begin{enumerate}
+%\item Cite other papers.
+%\item Generalities on reducing double Bruhat cells and forgetting coefficients.
+%\item Redo Yang-Zelevinsky change of coefficients.
+%\end{enumerate}
+%\end{proof}
 
-\begin{proposition}
-Let $G$ be a Kac-Moody group, let $c$ be a Coxeter element of its Weyl group, and $B_c$ the associated exchange matrix.  All initial and preprojective cluster variables in the coordinate ring of $G^{c,c^{-1}}$ are restrictions of principal minors of highest weight representations.  Their $g$-vectors are of the form $\dotsc$, and the cluster variable with $g$-vector $g = (g_1,\dotsc,g_n)$ is the restriction of the principal minor of weight $\sum g_i \omega_i$.
-\end{proposition}
-\begin{proof}
-\begin{enumerate}
-\item Redo Yang-Zelevinsky computation of the exchange relations among preprojective minors.
-\end{enumerate}
-\end{proof}
+%\begin{proposition}
+%Let $G$ be a Kac-Moody group, let $c$ be a Coxeter element of its Weyl group, and $B_c$ the associated exchange matrix.  All initial and preprojective cluster variables in the coordinate ring of $G^{c,c^{-1}}$ are restrictions of principal minors of highest weight representations.  Their $g$-vectors are of the form $\dotsc$, and the cluster variable with $g$-vector $g = (g_1,\dotsc,g_n)$ is the restriction of the principal minor of weight $\sum g_i \omega_i$.
+%\end{proposition}
+%\begin{proof}
+%\begin{enumerate}
+%\item Redo Yang-Zelevinsky computation of the exchange relations among preprojective minors.
+%\end{enumerate}
+%\end{proof}
 
-\begin{proposition}
-Let $G$ be a Kac-Moody group, let $c$ be a Coxeter element of its Weyl group, and $B_c$ the associated exchange matrix.  All postinjective cluster variables in the coordinate ring of $G^{c,c^{-1}}$ are restrictions of principal minors of lowest weight representations.  Their $g$-vectors are of the form $\dotsc$, and the cluster variable with $g$-vector $g = (g_1,\dotsc,g_n)$ is the restriction of the principal minor of weight $\sum g_i \omega_i$.
-\end{proposition}
-\begin{proof}
-\begin{enumerate}
-\item Compute change of coordinates between oppositely shuffled parametrizations.
-\item Use this to show antifundamental minors are mutations of fundamental ones.
-\item Think about coefficients in oppositely shuffled parametrization.
-\item Show negative version of generalized minor identities reduce to exchange relations among postinjective minors.
-\end{enumerate}
-\end{proof}
+%\begin{proposition}
+%Let $G$ be a Kac-Moody group, let $c$ be a Coxeter element of its Weyl group, and $B_c$ the associated exchange matrix.  All postinjective cluster variables in the coordinate ring of $G^{c,c^{-1}}$ are restrictions of principal minors of lowest weight representations.  Their $g$-vectors are of the form $\dotsc$, and the cluster variable with $g$-vector $g = (g_1,\dotsc,g_n)$ is the restriction of the principal minor of weight $\sum g_i \omega_i$.
+%\end{proposition}
+%\begin{proof}
+%\begin{enumerate}
+%\item Compute change of coordinates between oppositely shuffled parametrizations.
+%\item Use this to show antifundamental minors are mutations of fundamental ones.
+%\item Think about coefficients in oppositely shuffled parametrization.
+%\item Show negative version of generalized minor identities reduce to exchange relations among postinjective minors.
+%\end{enumerate}
+%\end{proof}
 
 
 \subsection{Explicit computations}
-\saySS{This subsection is written assuming $c=s_1\cdots s_n$}
-\saySS{the rationale of this subsection is to introduce the notation for the generic element of $G^{c,c^{-1}}$ that we use in both the preproj/postinj and the regular sections. With the excuse, having showed that we have a cluster algebra by pinpointing generalized minors it sounds like a good idea to say what are they.}
+%\saySS{This subsection is written assuming $c=s_1\cdots s_n$}
+%\saySS{the rationale of this subsection is to introduce the notation for the generic element of $G^{c,c^{-1}}$ that we use in both the preproj/postinj and the regular sections. With the excuse, having showed that we have a cluster algebra by pinpointing generalized minors it sounds like a good idea to say what are they.}
 For later use we record here the values that both the initial cluster variables and the coefficients of $\CC[G^{c,c^{-1}}]$ assume on the generic element of $G^{c,c^{-1}}$.
 In most cases to obtain these formulas it suffices to perform a straightforward computation in the relevant representation (either $L_{\omega_i}$ or $L_{-\omega_i}$) so we will omit proofs.
 
@@ -1504,10 +1598,6 @@ Define the $2n\times n$ matrix $\tilde B_{k,m}=\mu_k\mu_{k-1}\cdots\mu_1(\mu_n\c
   and thus applying the induction hypothesis
   \[\gamma^{(k,m)}_j=s_{\gamma^{(k-1,m)}_k}\big(\gamma^{(k-1,m)}_j\big)=c^m s_1\cdots s_k\alpha_j.\]
 \end{proof}
-
-\begin{proposition}\label{prop:changeofcoeffs}
-Let $B$ and $B'$ be $(n+m)\times n$ exchange matrices and $M$ and invertible $m \times m$ matrix such that the bottom $m \times n$ part of $B$ is equal to $M$ times the bottom $m \times n$ part of $B'$.  Let $x_1,\dotsc,x_n$ and $x'_1,\dotsc,x'_n$ be the mutable initial cluster variables of $\cA(B)$ and $\cA(B')$, respectively, and $y_1,\dotsc,y_m$, $y'_1,\dotsc, y'_m$ their frozen variables.  Then the map $x'_i \mapsto x_i$, $y'_j \mapsto \prod_{i=1}^m y_i^{M_{ij}}$ extends to an isomorphism of upper cluster algebras.
-\end{proposition}
 
 
 \section{Appendix: Quiver Representations}
