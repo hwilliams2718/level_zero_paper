@@ -256,7 +256,7 @@ Each cluster variable $x_{i;t}$ is labeled by a distinct $g$-vector $g_{i;t}$ in
 We will also make use of the following ``change of coefficients'' result:
 
 \begin{proposition}\label{prop:changeofcoeffs}
-Let $B$ be an $m times n$ matrix with skew-symmetrizable principal part, $M$ an invertible $m \times m$ matrix of the form 
+Let $B$ be an $m \times n$ matrix with skew-symmetrizable principal part, $M$ an invertible $m \times m$ matrix of the form 
 \[
 M = \begin{bmatrix} Id_n & 0 \\ 0 & L \end{bmatrix}
 \]
@@ -295,7 +295,7 @@ The assignment $M \mapsto x_M$ defines a bijection between the set of rigid inde
 
 We also recall the Auslander-Reiten translation $\tau: \mathrm{Rep}\: Q \to \mathrm{Rep}\: Q$ \cite{ASS06}. \sayHW{Perhaps recall its definition? We may need to at least recall its description via reflection functors in order to explain that preprojective variables are exactly those that arise along the acyclic belt.}  An indecomposable representation $M$ is projective if and only if $\tau(M) = 0$, and is injective if and only if $M$ is not of the form $\tau(N)$ for some $N$. With this in mind one says $M$ is preprojective if $\tau^k(M) = 0$ for $k >> 0$, preinjective if it is not of the form $\tau^k(N)$ for $k >> 0$, and regular otherwise. With this definition in mind we refer to a non-initial cluster variable as preprojective, preinjective, or regular according to the classification of its associated representation.
 
-Theorem \ref{thm:CCbijection} generalizes to the case of skew-symmetrizable matrices by replacing quiver representations with species representations. We refer to [R15] for details, though we will not make direct use of this here. 
+Theorem \ref{thm:CCbijection} generalizes to the case of skew-symmetrizable matrices by replacing quiver representations with species representations. We refer to [R15]\sayDR{We could also refer to Demonet and mention quivers with automorphism.} for details, though we will not make direct use of this here. 
 
 %\section{Kac-Moody Groups, double Bruhat cells, and generalized minors}
 
@@ -387,12 +387,12 @@ By a weight representation $V$ of $\widehat{G}$ we will mean a representation th
 V = \bigoplus_{\lambda \in \widehat{P}} V_\lambda
 \]
 of finte-dimensional weight spaces under the action of $\widehat{H}$. Note that the weight spaces of $V$ as a $G$-representation are not necessarily finite-dimensional, as the weight decomposition of the $\widehat{H}$-action is finer than that of the $H$-action. 
-Let $P^+=\{\lambda: \lambda(\alpha_i^\vee)\} \subset \widehat{P}$ denote the set of dominant weights. 
-Each $\lambda \in P^+$ labels an irreducible highest-weight representation $V(\lambda)$ of $\widehat{G}$. 
+Let $P^+=\{\lambda: \lambda(\alpha_i^\vee)>0\} \subset \widehat{P}$ denote the set of dominant weights. 
+
 
 %We will be interested in principal generalized minors on $G$, and to define these we recall a little representation theory. Let $P$ be the weight lattice $\Hom(H,\kk^\times)$, and $Q \subset P$ the root lattice of $G$. Let $P^+ \subset P$ denote the set of dominant weights, which are nonnegative integral combinations of the fundamental weights $\omega_1,\dotsc,\omega_n$. Each $\lambda \in P^+$ labels an irreducible highest-weight representation $L(\lambda)$ of $\widehat{G}$. This is a weight representation with finite-dimensional weight spaces; the weights that appear lie in the convex hull of the (infinite) Weyl group orbit of $\lambda$ in $P$. 
 
-The Tits cone $X = \{w\lambda : w \in W, \lambda \in P^+\}$ is the set of weights obtained from a dominant weight by the action of the Weyl group. To each $\lambda \in P^+$ is an associated irreducible highest-weight representation $L(\lambda)$; if $\lambda \in X$ and $w \lambda \in P^+$ the unique dominant weight conjugate to $\lambda$, we also write $L(\lambda)$ for $L(w \lambda)$. Likewise for $\lambda \in -P^+$ there is an irreducible lowest-weight representation $L(\lambda)$, and for $\lambda \in -X$ we write $L(\lambda)$ for $L(w\lambda)$ where $w\lambda$ is the unique anti-dominant conjugate of $\lambda$. Note that for any $\lambda \in X \cup -X$, the weight space $V(\lambda)_\lambda$ is one-dimensional.
+The Tits cone $X = \{w\lambda : w \in W, \lambda \in P^+\}$ is the set of weights obtained from a dominant weight by the action of the Weyl group. To each $\lambda \in P^+$ is an associated irreducible highest-weight representation $L(\lambda)$; if $\lambda \in X$ and $w \lambda \in P^+$ is the unique dominant weight conjugate to $\lambda$, we also write $L(\lambda)$ for $L(w \lambda)$. Likewise for $\lambda \in -P^+$ there is an irreducible lowest-weight representation $L(\lambda)$\sayDR{Is this an abuse of notation?  Are there anti-dominant weights which are not $W$ conjugate to a dominant weight?}, and for $\lambda \in -X$ we write $L(\lambda)$ for $L(w\lambda)$ where $w\lambda$ is the unique anti-dominant conjugate of $\lambda$. Note that for any $\lambda \in X \cup -X$, the weight space $L(\lambda)_\lambda$ is one-dimensional.
 
 When $A$ is of (untwisted) affine type, $P = P^\circ \oplus \kk \kappa$, where $P^\circ$ is the weight lattice of the underlying finite type group $G^\circ$. A weight $\lambda \in P$ is in the complement of $X \cup -X$ if and only if it lies in $P^\circ \subset P$. We write $V(\lambda)^\circ$ for the irreducible $G^\circ$ representation whose highest weight is conjugate to $\lambda$ under the action of the Weyl group of $G^\circ$. The space $V(\lambda) := V(\lambda)^\circ[z^{\pm 1}]$ of Laurent polynomials valued in $V(\lambda)^\circ$ is naturally a weight representation of $\widehat{G}$. The level of a representation of $G$ is the character by which $Z(G) = Z(\widehat{G}) \cong \kk^\times$ acts; the level of $V(\lambda)$ is positive, negative, or zero if $\lambda \in X$, $\lambda \in -X$, or $\lambda \in P^\circ$, respectively.
 
