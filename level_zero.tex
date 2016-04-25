@@ -230,7 +230,7 @@ To define the cluster algebra $\cA_B$ associated to an $m \times n$ matrix $B$ w
 Label its edges by $\{1,\dotsc,n\}$ so that the edges incident to any given vertex have distinct labels. 
 For a fixed root $t_0 \in T_0$, assign a matrix $B^t$ to each $t \in T_0$ so that $B^{t_0} = B$, and if $t, t' \in T_0$ are joined by an edge labeled $k$, then $B^t$ and $B^{t'}$ are related by mutation at $k$. 
 
-Let $\cF$ denote the field of rational functions in formal variables $x_{1}\,\dotsc,x_{m}$ with coefficients in $\kk$. \sayHW{Fix earlier an alg. closed field $\kk$?} The \emph{cluster variables} $$\{ x_{i;t}: i \in \{1,\dotsc,m\}, t \in T_0\} \subset \cF$$ are defined recursively as follows. The initial cluster variables $x_{i;t_0}$ are taken to be the generators $x_i$. If $t,t' \in T_0$ are joined by an edge labeled $k$, then $x_{i;t} = x_{i;t'}$ for $i \neq k$, and $x_{k;t}$, $x_{k;t'}$ are related by the \emph{exchange relation} 
+Let $\cF$ denote the field of rational functions in formal variables $x_{1}\,\dotsc,x_{m}$ with coefficients in $\kk$. The \emph{cluster variables} $$\{ x_{i;t}: i \in \{1,\dotsc,m\}, t \in T_0\} \subset \cF$$ are defined recursively as follows. The initial cluster variables $x_{i;t_0}$ are taken to be the generators $x_i$. If $t,t' \in T_0$ are joined by an edge labeled $k$, then $x_{i;t} = x_{i;t'}$ for $i \neq k$, and $x_{k;t}$, $x_{k;t'}$ are related by the \emph{exchange relation} 
 \[
 x_{k;t}x_{k;t'} = \prod_{B^t_{ik}>0}x_{i;t}^{B^t_{ik}} + \prod_{B^t_{ik}<0}x_{i;t}^{-B^t_{ik}}.
 \]
@@ -240,7 +240,7 @@ x_{k;t}x_{k;t'} = \prod_{B^t_{ik}>0}x_{i;t}^{B^t_{ik}} + \prod_{B^t_{ik}<0}x_{i;
 \end{definition}
 
 The variables $x_{n+1;t},\dotsc, x_{m;t}$ do not depend on $t$ and are referred to as frozen variables. 
-We sometimes write $y_i$ for $x_{n+i}$, where $i \in \{1,\dotsc, m-n\}$. 
+We sometimes write $y_i$\sayDR{Do we need the notation $y_i$?} for $x_{n+i}$, where $i \in \{1,\dotsc, m-n\}$. 
 When working with explicit formulas for cluster variables, it will also be convenient to introduce monomials $\hat{y}_j = \prod\limits_{i=1}^m x_i^{B_{ij}}$. 
 
 We associate a quiver $Q := Q_B$ to $B$ as follows: its vertices are indexed by $\{1,\dotsc,n\}$, and there are $[-B_{ij}]_+$ arrows from vertex $i$ to vertex $j$. 
@@ -263,7 +263,7 @@ Let $B$ be an $m \times n$ matrix with skew-symmetrizable principal part, $M$ an
 \[
 M = \begin{bmatrix} Id_n & 0 \\ 0 & L \end{bmatrix}
 \]
-for some matrix $L$, and $B' = M^{-1}B$. Then the map 
+for some matrix $L$\sayDR{Should we emphasize $L\in GL_{m-n}(\ZZ)$ so that $B'$ is guaranteed to be an integer matrix?}, and $B' = M^{-1}B$. Then the map 
 \[
 x'_i \mapsto \prod_{i=1}^m x_i^{M_{ij}}
 \]
@@ -387,7 +387,7 @@ t^{\alpha_i^\vee}:=\varphi_i\begin{pmatrix}t & 0 \\ 0 & t^{-1}\end{pmatrix} \qua
 x_{-i}(t):=\varphi_i\begin{pmatrix} 1 & 0 \\ t & 1\end{pmatrix} \\
 \ol{s_{i}} = \varphi_i \begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix} \quad
 \dol{s_{i}} = \varphi_i \begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix},
-\end{gather}
+\end{gather}\sayDR{Are the $\dol{s_{i}}$ needed?}
 By extension for any $w$ in the Weyl group $W$ of $\widehat{G}$ we set $\ol{w} = \ol{s_{i_1}}\cdots\ol{s_{i_k}}$, where $s_{i_1}\cdots s_{i_k}$ is any reduced word for $w$. 
 We write $H$ for the ($n$-dimensional) Cartan subgroup of $G$, likewise $\widehat{H} \cong H \times (\kk^\times)^{\corank(A)}$ for the Cartan subgroup of $\widehat{G}$. We also let $\kk[\widehat{G}]$ denote the (complete topological) algebra of regular functions on $\widehat{G}$.
 %The Cartan subgroup $H$ of $G$ (resp. $\widehat{H}$ of $\widehat{G}$) is $n$-dimensional (resp. ($n + \corank(A)$)-dimensional). 
@@ -419,11 +419,11 @@ of finte-dimensional weight spaces under the action of $\widehat{H}$. Note that 
 %We will be interested in principal generalized minors on $G$, and to define these we recall a little representation theory. Let $P$ be the weight lattice $\Hom(H,\kk^\times)$, and $Q \subset P$ the root lattice of $G$. Let $P^+ \subset P$ denote the set of dominant weights, which are nonnegative integral combinations of the fundamental weights $\omega_1,\dotsc,\omega_n$. Each $\lambda \in P^+$ labels an irreducible highest-weight representation $L(\lambda)$ of $\widehat{G}$. This is a weight representation with finite-dimensional weight spaces; the weights that appear lie in the convex hull of the (infinite) Weyl group orbit of $\lambda$ in $P$. 
 
 Let $\widehat{P}^+=\{\lambda \in \widehat{P}: \lambda(\alpha_i^\vee)>0\} \subset \widehat{P}$ denote the cone of dominant (integral) weights. 
-The Tits cone $X = \{w\lambda : w \in W, \lambda \in \widehat{P}^+\}$ is the set of weights obtained from a dominant weight by the action of the Weyl group. To each $\lambda \in P^+$ is an associated irreducible highest-weight representation $V(\lambda)$; if $\lambda \in X$ and $w \lambda \in \widehat{P}^+$ is the unique dominant weight conjugate to $\lambda$, we also write $V(\lambda)$ for $V(w \lambda)$. Likewise for $\lambda \in -\widehat{P}^+$ there is an irreducible lowest-weight representation $V(\lambda)$, \sayDR{Is this an abuse of notation?  Are there anti-dominant weights which are not $W$ conjugate to a dominant weight?}\sayHW{It's ok -- *all* anti-dominant weights are not conjugate to any dominant weight, unless $A$ is finite type -- and in that case the two redundant definitions of $V(\lambda)$ agree} and for $\lambda \in -X$ we write $V(\lambda)$ for $V(w\lambda)$ where $w\lambda$ is the unique anti-dominant conjugate of $\lambda$. Highest- and lowest-weight representations are distinct classes unless $A$ is of finite-type. Note that for any $\lambda \in X \cup -X$, the weight space $V(\lambda)_\lambda$ is one-dimensional.
+The Tits cone $X = \{w\lambda : w \in W, \lambda \in \widehat{P}^+\}$ is the set of weights obtained from a dominant weight by the action of the Weyl group. To each $\lambda \in P^+$ is an associated irreducible highest-weight representation $V(\lambda)$; if $\lambda \in X$ and $w \lambda \in \widehat{P}^+$ is the unique dominant weight conjugate to $\lambda$, we also write $V(\lambda)$ for $V(w \lambda)$. Likewise for $\lambda \in -\widehat{P}^+$ there is an irreducible lowest-weight representation $V(\lambda)$, and for $\lambda \in -X$ we write $V(\lambda)$ for $V(w\lambda)$ where $w\lambda$ is the unique anti-dominant conjugate of $\lambda$. Highest- and lowest-weight representations are distinct classes unless $A$ is of finite-type. Note that for any $\lambda \in X \cup -X$, the weight space $V(\lambda)_\lambda$ is one-dimensional.
 
 When $A$ is of (untwisted) affine type, identifying $G$ with a central extension of $LG^\circ$ fixes a splitting $P \cong P^\circ \oplus \kk \kappa$, where $P^\circ$ is the weight lattice of the underlying semisimple group $G^\circ$ and $\kk \kappa = \Hom( Z(G),\kk^\times)$. Above this we have the splitting $\widehat{P} \cong P \oplus \kk \delta$, where $\delta$ is a character of the $\kk^\times$ acting by loop rotations. A weight $\lambda \in \widehat{P}$ is in the complement of $X \cup -X$ if and only if it lies in $P^\circ \oplus \kk \delta \subset \widehat{P}$. If $\lambda^\circ$ is the $P^\circ$-component of such a weight, then following the above notation we have an irreducible $G^\circ$-representation $V(\lambda^\circ)$ whose highest weight is conjugate to $\lambda^\circ$ under the Weyl group of $G^\circ$. 
 %For such $\lambda$, we write $V(\lambda)^\circ$ for the irreducible $G^\circ$ representation whose highest weight is conjugate to the $P^\circ$ component of $\lambda$ under the Weyl group of $G^\circ$. 
-The space $V(\lambda) := V(\lambda^\circ)[z^{\pm 1}]$ of algebraic loops in $V(\lambda^\circ)$ is then naturally a weight representation of $\widehat{G}$. The level of an irreducible $\widehat{G}$-representation is the character by which $Z(G) = Z(\widehat{G}) \cong \kk^\times$ acts; the level of $V(\lambda)$ is positive if $\lambda \in X$, negative if $\lambda \in -X$, and zero if $\lambda \in \widehat{P} \smallsetminus(X \cup -X)$. 
+The space $V(\lambda) := V(\lambda^\circ)[z^{\pm 1}]$\sayDR{Should this representation be named as $V(\lambda)$ without specifying how $\lambda$ relates to $\lambda^\circ$? Ah, the idea is to emphasize that it is irreducible, can $\lambda$ be described explicitly?} of algebraic loops in $V(\lambda^\circ)$ is then naturally a weight representation of $\widehat{G}$. The level of an irreducible $\widehat{G}$-representation is the character by which $Z(G) = Z(\widehat{G}) \cong \kk^\times$ acts; the level of $V(\lambda)$ is positive if $\lambda \in X$, negative if $\lambda \in -X$, and zero if $\lambda \in \widehat{P} \smallsetminus(X \cup -X)$. 
 %or zero if $\lambda \in X$, $\lambda \in -X$, or $\lambda \in \widehat{P} \smallsetminus (X \cup -X)$, respectively.
 %the level of $V(\lambda)$ is positive, negative, or zero if $\lambda \in X$, $\lambda \in -X$, or $\lambda \in \widehat{P} \smallsetminus (X \cup -X)$, respectively.
 
@@ -441,10 +441,10 @@ where $\pi_\lambda:V \onto V_\lambda$ is the projection whose kernel is the dire
 %Let $\lambda \in P^+$ be a dominant weight and $\lambda_1 = w_1\lambda$, $\lambda_2 = w_2 \lambda \in X$ be any two conjugates under the Weyl group. The 
 \end{definition}
 
-In other words, if we use a weight basis of $V$ to write the action action of $g$ as a matrix, $\Delta_{(V,\lambda)}(g)$ is the diagonal entry corresponding to $V_\lambda$. 
+In other words, if we use a weight basis of $V$ to write the action of $g$ as a matrix, $\Delta_{(V,\lambda)}(g)$ is the diagonal entry corresponding to $V_\lambda$. 
 
 \begin{remark}
-When $\widehat{G}$ is of affine type, the representations $V(\lambda)$ with $\lambda \in \widehat{P}\smallsetminus(X \cup - X)$ are not the only irreducible level zero weight representations. The set of all such representations is parametrized by pairs $(\{\lambda_1,\dotsc,\lambda_m\},\{a_1,\dotsc,a_m\})$ of a tuple of dominant weights of $G^\circ$ and a tuple of nonzero elements of $\kk$ [Cha]. As a vector space the associated representation is the space of Laurent polynomials valued in the tensor product of the $V(\lambda_i^\circ)$, and the scalars $a_i$ rescale the action of $G^\circ$-valued loops on each factor [CP].
+When $\widehat{G}$ is of affine type, the representations $V(\lambda)$ with $\lambda \in \widehat{P}\smallsetminus(X \cup - X)$ are not the only irreducible level zero weight representations. The set of all such representations is parametrized by pairs $(\{\lambda_1,\dotsc,\lambda_m\},\{a_1,\dotsc,a_m\})$ of a tuple of dominant weights of $G^\circ$ and a tuple of elements of $\kk^\times$ [Cha]. As a vector space the associated representation is the space of Laurent polynomials valued in the tensor product of the $V(\lambda_i^\circ)$, and the scalars $a_i$ rescale the action of $G^\circ$-valued loops on each factor [CP].
 \end{remark}
 
 A crucial feature of generalized minors is the following generalized determinantal identity:
