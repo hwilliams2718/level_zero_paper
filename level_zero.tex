@@ -46,17 +46,18 @@ urlcolor=blue]{hyperref}
 \newcommand{\CC}{\mathbb{C}}
 \newcommand{\NN}{\mathbb{N}}
 \newcommand{\ZZ}{\mathbb{Z}}
-\newcommand{\kk}{\mathbbm{k}}
+\newcommand{\kk}{\Bbbk}%\mathbbm{k}}
 
 \newcommand{\bfb}{\mathbf{b}}
 \newcommand{\bfc}{\mathbf{c}}
 \newcommand{\bfe}{\mathbf{e}}
 \newcommand{\bfg}{\mathbf{g}}
 
-\newcommand{\cN}{\mathcal{N}} % symbol for network
-\newcommand{\cP}{\mathcal{P}}
 \newcommand{\cE}{\mathcal{E}}
 \newcommand{\cF}{\mathcal{F}}
+\newcommand{\cN}{\mathcal{N}} % symbol for network
+\newcommand{\cP}{\mathcal{P}}
+\newcommand{\cQ}{\mathcal{Q}}
 
 \newcommand{\Gr}{\mathrm{Gr}}
 
@@ -66,7 +67,7 @@ urlcolor=blue]{hyperref}
 \newcommand{\soc}{\operatorname{soc}}
 \newcommand{\supp}{\operatorname{supp}}
 \renewcommand{\top}{\operatorname{top}}
-\newcommand{\udim}{\operatorname{udim}}
+\newcommand{\udim}{\underline{\operatorname{dim}}}
 \newcommand{\dashname}[1]{\stackrel{#1}{\begin{picture}(22,3)\put(0,2.5){\line(1,0){22}}\end{picture}}}
 \renewcommand{\vec}[1]{\accentset{\shortrightarrow}{#1}}
 \newcommand{\cev}[1]{\accentset{\shortleftarrow}{#1}}
@@ -140,7 +141,7 @@ Given a finite quiver $Q$ without oriented cycles, there is an associated group 
 
 %The relationship is naturally stated in the language of cluster algebras, and takes the form on an interplay between two trichotomies in the representation theory of quivers and Kac-Moody groups: the classification of indecomposable $Q$-representations as preprojective, preinjective, or regular, and the classication of irreducible $G$-representations (say, in affine type) as positive-level, negative-level, or level zero.
 
-Recall that the representation theory of $Q$, or any finite-dimensional algebra, is organized by the Auslander-Reiten translation $\tau: \mathrm{Rep}\: Q \to \mathrm{Rep}\: Q$ \cite{ASS06}. An indecomposable representation $M$ is projective if and only if $\tau(M) = 0$, and is injective if and only if $M$ is not of the form $\tau(N)$ for some $N$. With this in mind one says $M$ is preprojective if $\tau^k(M) = 0$ for $k >> 0$, preinjective if it is not of the form $\tau^k(N)$ for $k >> 0$, and regular otherwise. Preprojective and preinjective representations coincide exactly when $Q$ is of ADE type, in which case there are no regular representations. 
+Recall that the representation theory of $Q$, or any finite-dimensional algebra, is organized by the Auslander-Reiten translation $\tau: \rep Q \to \rep Q$ \cite{ASS06}\sayDR{Why is this not showing up as [ASS06]?}. An indecomposable representation $M$ is projective if and only if $\tau(M) = 0$, and is injective if and only if $M$ is not of the form $\tau(N)$ for some $N$. With this in mind one says $M$ is preprojective if $\tau^k(M) = 0$ for $k\gg 0$, preinjective if it is not of the form $\tau^k(N)$ for $k\gg 0$, and regular otherwise. Preprojective and preinjective representations coincide exactly when $Q$ is of ADE type, in which case there are no regular representations. 
 
 On the other hand, the representation theory of $G$ is largely centered around its (dual) categories of highest- and lowest-weight representations [KP, Kum]. These coincide exactly when $G$ is a simple algebraic group, in which case they include all representations of $G$ with finite-dimensional weight spaces. In general $G$ has many other such representations, which are only well-understood when $G$ is of affine type [Cha]. In this case, an irreducible representation is highest-weight, lowest-weight, or neither if its level (the character by which $Z(G) \cong \CC^\times$ acts) is positive, negative, or zero.
 
@@ -156,14 +157,14 @@ The varieties $G^{c,c^{-1}}$ generalize the space of tridiagonal matrices with d
 From the perspective of $Q$, $\cA_Q$ is a repository for information about the submodule structure of representations of $Q$. 
 After embedding $\cA_Q$ into the ring of Laurent polynomials in the initial cluster variables, the remaining cluster variables are in bijection with the rigid indecomposable representations of $Q$ [CC, CK]. 
 This correspondence takes a quiver representation to a generating function of the Euler characteristics of its varieties of submodules. 
-This expression is called the cluster character of the representation, and with this in mind we refer to a cluster variable as preprojective, preinjective, or regular according to the classification of its associated representation. 
+This expression is called the cluster character of the representation, and with this in mind we refer to a (non-initial)\sayDR{Even the initial cluster variables have a projective flavor in the categorification since they are identified with shifted projectives in the cluster category, but I'm not sure how much of this we want to say in the paper.} cluster variable as preprojective, preinjective, or regular according to the classification of its associated representation. 
 Given the description of $\cA_Q$ as the coordinate ring of $G^{c,c^{-1}}$, we see in particular that representations of $Q$ naturally label functions on a subvariety of $G$.
 
 %. To $c$ we associate the double Bruhat cell $$G^{c,c^{-1}} := B_+ c B_+ \cap B_- c^{-1} B_- \subset G,$$ and $\cA_Q$ can be identified with the coordinate ring of $G^{c,c^{-1}}$ (for suitable coefficients). On the other hand, a cluster algebra is equipped with a set of distinguished elements, cluster variables, which can be completed to a basis of $\cA_Q$ in various interesting ways. The (non-initial) cluster variables in $\cA_Q$ are in bijection with the rigid indecomposable representations of $Q$: $\cA_Q$ is canonically embedded in a Laurent polynomial ring, and to a representation we assign a generating function of Euler characteristics of its varieties of subrepresentations; we refer to a cluster variable as preprojective, preinjective, or regular according to its associated representation. In summary, representations of $Q$ label functions on a subvariety of $G$.
 
 When $Q$ is of ADE type and $G$ a simple algebraic group, Yang and Zelevinsky showed these functions have an interpretation in terms of the representation theory of $G$: they are restrictions of generalized minors. 
 These are functions on $G$ labeled by a representation $V$ together with an extremal one-dimensional weight space $V_\lambda$. 
-Their value on $g \in G$ is the ratio of any $v \in V_\lambda$ with the projection of $gv \in V$ to $V_\lambda$. 
+Their value on $g \in G$ is the ratio of any nonzero $v \in V_\lambda$ with the projection of $gv \in V$ to $V_\lambda$. 
 Our main result is that cluster variables in $\cA_Q$ are also realized as generalized minors on $G^{c,c^{-1}}$ when $Q$ is not finite type, and that moreover the resulting correspondence between quiver representations and group representations intertwines the classifications described above: 
 
 \begin{theorem}\label{thm:maintheorem}
@@ -185,7 +186,9 @@ The minors arising from level zero representations do not have this property, so
 
 
 Instead, we study level zero minors on the loop group $LSL_n$ %\sayDR{Shouldn't this be $A_{n-1}^{(1)}$?} 
-by direct combinatorial means. The relevant representations are of the form $(\bigwedge^k\CC^n)[z^{\pm 1}]$, which inherits a natural basis from the standard basis of $\CC^n$. The restrictions to $G^{c,c^{-1}}$ of the level zero minors appearing in (2) can be computed as a weighted sum over collections of paths through a directed network on the cylinder, as in [FM,GSV]. When $Q$ is an acyclic orientation of an $n$-cycle, its regular representations likewise have a simple combinatorial description, and one can construct by hand a bijection between their subrepresentations and collections of paths in the network.
+by direct combinatorial means. The relevant representations are of the form $(\bigwedge^k\CC^n)[z^{\pm 1}]$, which inherits a natural basis from the standard basis of $\CC^n$. The restrictions to $G^{c,c^{-1}}$ of the level zero minors appearing in (2) can be computed as a weighted sum over collections of paths through a directed network on the cylinder, as in [FM,GSV]. When $Q$ is an acyclic orientation of an $n$-cycle, its regular representations likewise have a simple combinatorial description, and one can construct by hand a bijection between their subrepresentations and collections of paths in the network.  
+
+It would be interesting to find an interpretation of the resulting exchange relations involving level zero minors as restrictions of minor identities valid on the entire group $G$.  We believe that such identities hold more generally and should lead to a proof of the following.\sayDR{This can probably be said more cleanly.  The first statement needs to be said, do we believe the second?}
 
 %\begin{theorem}\label{thm:maintheorem}
 %Let $G$ be an affine Lie group of type $A_n^{(1)}$, let $c$ be a Coxeter element of the affine Weyl group, and $Q_c$ the associated affine quiver.  The coordinate ring of $G^{c,c^{-1}}$ is an upper cluster algebras of type $Q_c$ and all mutable cluster variables are restrictions of principal minors for representations of $G$ with finite-dimensional weight spaces.  Those that are cluster characters of preprojective, regular, or postinjective representations of $Q_c$ are minors of positive level, level zero, and negative level $G$-representations, respectively.
@@ -198,7 +201,7 @@ Let $Q$ be a finite quiver without oriented cycles and $G^{c,c^{-1}} \subset G$ 
 
 In addition to verifying the conjecture for all Coxeter elements when $G = LSL_n$, we check a finite list of other affine types, see Section \ref{sec:othertypes}. In any affine type, the regular cluster variables can be explicitly enumerated and computed. One can calculate that if they are restrictions of minors, they must come from an explicitly identifiable level zero representation. The types checked in Section \ref{sec:othertypes} are essentially the ones where these minors can be evaluated on $G^{c,c^{-1}}$ knowing only the character of this representation. In non-affine types, general weight representations of $G$ are not well-understood, and the conjecture is much more speculative.
 
-Finally, in type $A_n^{(1)}$ the following suggestive extension of Theorem \ref{thm:maintheorem} also holds. There is a one-parameter family of quiver representations whose dimension vector is a primitive imaginary root. The cluster character of a generic element is not a cluster variable, but is an element of the generic bases, and presumably other standard bases. This element too is a level zero generalized minor; with this in mind it is natural to further ask which canonical basis elements other than cluster variables are generalized minors. \sayDR{In the $A_n^{(1)}$ case we should be able to compute the minors associated to multiples of $\delta$ (Salvatore and I played with this a little at MSRI) and get an apparently new basis for the cluster algebra, should we pursue this in the present paper?}\sayHW{Probably we should get out what we have, and leave the ``minor basis'' alone for now -- the paper is enough overdue that enlarging its scope requires extremely compelling justification, and even talking about the homogeneous element is pushing this}
+Finally, in type $A_n^{(1)}$ the following suggestive extension of Theorem \ref{thm:maintheorem} also holds. There is a one-parameter family of quiver representations whose dimension vector is a primitive imaginary root. The cluster character of a generic element is not a cluster variable, but is an element of the generic bases, and presumably other standard bases. This element too is a level zero generalized minor; with this in mind it is natural to further ask which canonical basis elements other than cluster variables are generalized minors.
 
 \textsc{Acknowledgments}  We would like to thank Misha Gekhtman and V. Chari for helpful discussions and comments. D.R. is supported by... S.S. is supported by... H.W. is supported by...
 
@@ -228,7 +231,7 @@ To define the cluster algebra $\cA_B$ associated to an $m \times n$ matrix $B$ w
 Label its edges by $\{1,\dotsc,n\}$ so that the edges incident to any given vertex have distinct labels. 
 For a fixed root $t_0 \in T_0$, assign a matrix $B^t$ to each $t \in T_0$ so that $B^{t_0} = B$, and if $t, t' \in T_0$ are joined by an edge labeled $k$, then $B^t$ and $B^{t'}$ are related by mutation at $k$. 
 
-Let $\cF$ denote the field of rational functions in formal variables $x_{1}\,\dotsc,x_{m}$ with coefficients in $\kk$. %\sayHW{Fix earlier an alg. closed field $\kk$?} 
+Let $\cF$ denote the field of rational functions in formal variables $x_{1}\,\dotsc,x_{m}$ with coefficients in $\kk$. 
 The \emph{cluster variables} $$\{ x_{i;t}: i \in \{1,\dotsc,m\}, t \in T_0\} \subset \cF$$ are defined recursively as follows. The initial cluster variables $x_{i;t_0}$ are taken to be the generators $x_i$. If $t,t' \in T_0$ are joined by an edge labeled $k$, then $x_{i;t} = x_{i;t'}$ for $i \neq k$, and $x_{k;t}$, $x_{k;t'}$ are related by the \emph{exchange relation} 
 \[
 x_{k;t}x_{k;t'} = \prod_{B^t_{ik}>0}x_{i;t}^{B^t_{ik}} + \prod_{B^t_{ik}<0}x_{i;t}^{-B^t_{ik}}.
@@ -239,7 +242,7 @@ x_{k;t}x_{k;t'} = \prod_{B^t_{ik}>0}x_{i;t}^{B^t_{ik}} + \prod_{B^t_{ik}<0}x_{i;
 \end{definition}
 
 The variables $x_{n+1;t},\dotsc, x_{m;t}$ do not depend on $t$ and are referred to as frozen variables. 
-We sometimes write $y_i$ for $x_{n+i}$, where $i \in \{1,\dotsc, m-n\}$. 
+We sometimes write $y_i$\sayDR{Do we need the notation $y_i$?} for $x_{n+i}$, where $i \in \{1,\dotsc, m-n\}$. 
 When working with explicit formulas for cluster variables, it will also be convenient to introduce monomials $\hat{y}_j = \prod\limits_{i=1}^m x_i^{B_{ij}}$. 
 
 We associate a quiver $Q := Q_B$ to $B$ as follows: its vertices are indexed by $\{1,\dotsc,n\}$, and there are $[-B_{ij}]_+$ arrows from vertex $i$ to vertex $j$. 
@@ -247,7 +250,28 @@ Note that this prescription only records the principal part of $B$.
 We say $B$ is acyclic if $Q_B$ has no oriented cycles. 
 Conversely, given a finite quiver without oriented cycles, there is a unique skew-symmetric matrix $B$ that gives rise to it in this way (though there will be many associated matrices that are only skew-symmetrizable); see Figure \ref{fig:matrices}. 
 When $B$ is acyclic, $\cA_B$ is finitely generated as a $\kk$-algebra and %\sayHW{Check reference}\sayDR{It's correct.} 
-coincides with the upper cluster algebra associated to $B$ [BFZ] (as such, we will not need to recall the latter notion explicitly).  
+coincides with the upper cluster algebra associated to $B$ [BFZ] (as such, we will not need to recall the latter notion explicitly).
+
+\begin{figure}
+\centering
+\begin{tikzpicture}
+\node (l) [matrix] at (0,0) {
+\coordinate (a) at (0,0); \coordinate (b) at (2,0); \coordinate (c) at (1,-1.3);
+\foreach \c in {a,b,c} {\fill (\c) circle (.06);}
+\foreach \c/\d in {b/a,b/c,c/a} {\draw[thick,-stealth',shorten <=2mm,shorten >=2mm] (\c) to (\d);}
+\node (alabel) at ($(a)+(-.3,.1)$) {1};
+\node (blabel) at ($(b)+(.3,.1)$) {2};
+\node (clabel) at ($(c)+(0,-.35)$) {3};
+\\
+};
+\node (Q) at (-1.3,0) {$Q =$};
+\node (m)  at (4.5,0) {$B = \begin{bmatrix} 0 & 1 & 1 \\ -1 & 0 & -1 \\ -1 & 1 & 0 \end{bmatrix}$
+};
+\node (r) at (9,0) {$A = \begin{bmatrix} 2 & -1 & -1 \\ -1 & 2 & -1 \\ -1 & -1 & 2 \end{bmatrix}$
+};
+\end{tikzpicture}
+\caption{An acyclic quiver $Q$, the associated skew-symmetrix matrix $B$, and the associated Cartan matrix $A$. The vertex labels of $Q$ correspond to the row/column labels of $B$ and $A$, and the Coxeter element associated to $B$ and $Q$ is $c = s_1 s_3 s_2$.}\label{fig:matrices}
+\end{figure}  
 
 Each cluster variable $x_{i;t}$ is labeled by a distinct $g$-vector $g_{i;t}$ in $\ZZ^n$. These are determined by the following relations:
 \begin{itemize}
@@ -262,7 +286,7 @@ Let $B$ be an $m \times n$ matrix with skew-symmetrizable principal part, $M$ an
 \[
 M = \begin{bmatrix} Id_n & 0 \\ 0 & L \end{bmatrix}
 \]
-for some matrix $L$, and $B' = M^{-1}B$. Then the map 
+for some matrix $L$\sayDR{Should we emphasize $L\in GL_{m-n}(\ZZ)$ so that $B'$ is guaranteed to be an integer matrix?}, and $B' = M^{-1}B$. Then the map 
 \[
 x'_i \mapsto \prod_{i=1}^m x_i^{M_{ij}}
 \]
@@ -295,32 +319,9 @@ Recall that a representation $M$ of $Q$ is rigid if $\Ext^1(M,M) = 0$.
 The assignment $M \mapsto x_M$ defines a bijection between the set of rigid indecomposable representations of $Q$ and the set of non-initial cluster variables in $\cA_Q$. 
 \end{theorem}
 
-We also recall the Auslander-Reiten translation $\tau: \mathrm{Rep}\: Q \to \mathrm{Rep}\: Q$ \cite{ASS06}. \sayHW{Perhaps recall its definition? We may need to at least recall its description via reflection functors in order to explain that preprojective variables are exactly those that arise along the acyclic belt.}  An indecomposable representation $M$ is projective if and only if $\tau(M) = 0$, and is injective if and only if $M$ is not of the form $\tau(N)$ for some $N$. With this in mind one says $M$ is preprojective if $\tau^k(M) = 0$ for $k >> 0$, preinjective if it is not of the form $\tau^k(N)$ for $k >> 0$, and regular otherwise. With this definition in mind we refer to a non-initial cluster variable as preprojective, preinjective, or regular according to the classification of its associated representation.
-
 Theorem \ref{thm:CCbijection} generalizes to the case of skew-symmetrizable matrices by replacing quiver representations with species representations. We refer to [R15]\sayDR{We could also refer to Demonet and mention quivers with automorphism.} for details, though we will not make direct use of this here. 
 
 %\section{Kac-Moody Groups, double Bruhat cells, and generalized minors}
-
-\begin{figure}
-\centering
-\begin{tikzpicture}
-\node (l) [matrix] at (0,0) {
-\coordinate (a) at (0,0); \coordinate (b) at (2,0); \coordinate (c) at (1,-1.3);
-\foreach \c in {a,b,c} {\fill (\c) circle (.06);}
-\foreach \c/\d in {b/a,b/c,c/a} {\draw[thick,-stealth',shorten <=2mm,shorten >=2mm] (\c) to (\d);}
-\node (alabel) at ($(a)+(-.3,.1)$) {1};
-\node (blabel) at ($(b)+(.3,.1)$) {2};
-\node (clabel) at ($(c)+(0,-.35)$) {3};
-\\
-};
-\node (Q) at (-1.3,0) {$Q =$};
-\node (m)  at (4.5,0) {$B = \begin{bmatrix} 0 & 1 & 1 \\ -1 & 0 & -1 \\ -1 & 1 & 0 \end{bmatrix}$
-};
-\node (r) at (9,0) {$A = \begin{bmatrix} 2 & -1 & -1 \\ -1 & 2 & -1 \\ -1 & -1 & A \end{bmatrix}$
-};
-\end{tikzpicture}
-\caption{An acyclic quiver $Q$, the associated skew-symmetrix matrix $B$, and the associated Cartan matrix $A$. The vertex labels of $Q$ correspond to the row/column labels of $B$ and $A$, and the Coxeter element associated to $B$ and $Q$ is $c = s_1 s_3 s_2$.}\label{fig:matrices}
-\end{figure}
 
 %\subsection{PROVISIONAL: Generalities and main theorem}
 %Things to do here:
@@ -386,7 +387,7 @@ t^{\alpha_i^\vee}:=\varphi_i\begin{pmatrix}t & 0 \\ 0 & t^{-1}\end{pmatrix} \qua
 x_{-i}(t):=\varphi_i\begin{pmatrix} 1 & 0 \\ t & 1\end{pmatrix} \\
 \ol{s_{i}} = \varphi_i \begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix} \quad
 \dol{s_{i}} = \varphi_i \begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix},
-\end{gather}
+\end{gather}\sayDR{Are the $\dol{s_{i}}$ needed?}
 By extension for any $w$ in the Weyl group $W$ of $\widehat{G}$ we set $\ol{w} = \ol{s_{i_1}}\cdots\ol{s_{i_k}}$, where $s_{i_1}\cdots s_{i_k}$ is any reduced word for $w$. 
 We write $H$ for the ($n$-dimensional) Cartan subgroup of $G$, likewise $\widehat{H} \cong H \times (\kk^\times)^{\corank(A)}$ for the Cartan subgroup of $\widehat{G}$. We also let $\kk[\widehat{G}]$ denote the (complete topological) algebra of regular functions on $\widehat{G}$.
 %The Cartan subgroup $H$ of $G$ (resp. $\widehat{H}$ of $\widehat{G}$) is $n$-dimensional (resp. ($n + \corank(A)$)-dimensional). 
@@ -418,11 +419,11 @@ of finte-dimensional weight spaces under the action of $\widehat{H}$. Note that 
 %We will be interested in principal generalized minors on $G$, and to define these we recall a little representation theory. Let $P$ be the weight lattice $\Hom(H,\kk^\times)$, and $Q \subset P$ the root lattice of $G$. Let $P^+ \subset P$ denote the set of dominant weights, which are nonnegative integral combinations of the fundamental weights $\omega_1,\dotsc,\omega_n$. Each $\lambda \in P^+$ labels an irreducible highest-weight representation $L(\lambda)$ of $\widehat{G}$. This is a weight representation with finite-dimensional weight spaces; the weights that appear lie in the convex hull of the (infinite) Weyl group orbit of $\lambda$ in $P$. 
 
 Let $\widehat{P}^+=\{\lambda \in \widehat{P}: \lambda(\alpha_i^\vee)>0\} \subset \widehat{P}$ denote the cone of dominant (integral) weights. 
-The Tits cone $X = \{w\lambda : w \in W, \lambda \in \widehat{P}^+\}$ is the set of weights obtained from a dominant weight by the action of the Weyl group. To each $\lambda \in P^+$ is an associated irreducible highest-weight representation $V(\lambda)$; if $\lambda \in X$ and $w \lambda \in \widehat{P}^+$ is the unique dominant weight conjugate to $\lambda$, we also write $V(\lambda)$ for $V(w \lambda)$. Likewise for $\lambda \in -\widehat{P}^+$ there is an irreducible lowest-weight representation $V(\lambda)$, \sayDR{Is this an abuse of notation?  Are there anti-dominant weights which are not $W$ conjugate to a dominant weight?}\sayHW{It's ok -- *all* anti-dominant weights are not conjugate to any dominant weight, unless $A$ is finite type -- and in that case the two redundant definitions of $V(\lambda)$ agree} and for $\lambda \in -X$ we write $V(\lambda)$ for $V(w\lambda)$ where $w\lambda$ is the unique anti-dominant conjugate of $\lambda$. Highest- and lowest-weight representations are distinct classes unless $A$ is of finite-type. Note that for any $\lambda \in X \cup -X$, the weight space $V(\lambda)_\lambda$ is one-dimensional.
+The Tits cone $X = \{w\lambda : w \in W, \lambda \in \widehat{P}^+\}$ is the set of weights obtained from a dominant weight by the action of the Weyl group. To each $\lambda \in P^+$ is an associated irreducible highest-weight representation $V(\lambda)$; if $\lambda \in X$ and $w \lambda \in \widehat{P}^+$ is the unique dominant weight conjugate to $\lambda$, we also write $V(\lambda)$ for $V(w \lambda)$. Likewise for $\lambda \in -\widehat{P}^+$ there is an irreducible lowest-weight representation $V(\lambda)$, and for $\lambda \in -X$ we write $V(\lambda)$ for $V(w\lambda)$ where $w\lambda$ is the unique anti-dominant conjugate of $\lambda$. Highest- and lowest-weight representations are distinct classes unless $A$ is of finite-type. Note that for any $\lambda \in X \cup -X$, the weight space $V(\lambda)_\lambda$ is one-dimensional.
 
 When $A$ is of (untwisted) affine type, identifying $G$ with a central extension of $LG^\circ$ fixes a splitting $P \cong P^\circ \oplus \kk \kappa$, where $P^\circ$ is the weight lattice of the underlying semisimple group $G^\circ$ and $\kk \kappa = \Hom( Z(G),\kk^\times)$. Above this we have the splitting $\widehat{P} \cong P \oplus \kk \delta$, where $\delta$ is a character of the $\kk^\times$ acting by loop rotations. A weight $\lambda \in \widehat{P}$ is in the complement of $X \cup -X$ if and only if it lies in $P^\circ \oplus \kk \delta \subset \widehat{P}$. If $\lambda^\circ$ is the $P^\circ$-component of such a weight, then following the above notation we have an irreducible $G^\circ$-representation $V(\lambda^\circ)$ whose highest weight is conjugate to $\lambda^\circ$ under the Weyl group of $G^\circ$. 
 %For such $\lambda$, we write $V(\lambda)^\circ$ for the irreducible $G^\circ$ representation whose highest weight is conjugate to the $P^\circ$ component of $\lambda$ under the Weyl group of $G^\circ$. 
-The space $V(\lambda) := V(\lambda^\circ)[z^{\pm 1}]$ of algebraic loops in $V(\lambda^\circ)$ is then naturally a weight representation of $\widehat{G}$. The level of an irreducible $\widehat{G}$-representation is the character by which $Z(G) = Z(\widehat{G}) \cong \kk^\times$ acts; the level of $V(\lambda)$ is positive if $\lambda \in X$, negative if $\lambda \in -X$, and zero if $\lambda \in \widehat{P} \smallsetminus(X \cup -X)$. 
+The space $V(\lambda) := V(\lambda^\circ)[z^{\pm 1}]$\sayDR{Should this representation be named as $V(\lambda)$ without specifying how $\lambda$ relates to $\lambda^\circ$? Ah, the idea is to emphasize that it is irreducible, can $\lambda$ be described explicitly?} of algebraic loops in $V(\lambda^\circ)$ is then naturally a weight representation of $\widehat{G}$. The level of an irreducible $\widehat{G}$-representation is the character by which $Z(G) = Z(\widehat{G}) \cong \kk^\times$ acts; the level of $V(\lambda)$ is positive if $\lambda \in X$, negative if $\lambda \in -X$, and zero if $\lambda \in \widehat{P} \smallsetminus(X \cup -X)$. 
 %or zero if $\lambda \in X$, $\lambda \in -X$, or $\lambda \in \widehat{P} \smallsetminus (X \cup -X)$, respectively.
 %the level of $V(\lambda)$ is positive, negative, or zero if $\lambda \in X$, $\lambda \in -X$, or $\lambda \in \widehat{P} \smallsetminus (X \cup -X)$, respectively.
 
@@ -440,10 +441,10 @@ where $\pi_\lambda:V \onto V_\lambda$ is the projection whose kernel is the dire
 %Let $\lambda \in P^+$ be a dominant weight and $\lambda_1 = w_1\lambda$, $\lambda_2 = w_2 \lambda \in X$ be any two conjugates under the Weyl group. The 
 \end{definition}
 
-In other words, if we use a weight basis of $V$ to write the action action of $g$ as a matrix, $\Delta_{(V,\lambda)}(g)$ is the diagonal entry corresponding to $V_\lambda$. 
+In other words, if we use a weight basis of $V$ to write the action of $g$ as a matrix, $\Delta_{(V,\lambda)}(g)$ is the diagonal entry corresponding to $V_\lambda$. 
 
 \begin{remark}
-When $\widehat{G}$ is of affine type, the representations $V(\lambda)$ with $\lambda \in \widehat{P}\smallsetminus(X \cup - X)$ are not the only irreducible level zero weight representations. The set of all such representations is parametrized by pairs $(\{\lambda_1,\dotsc,\lambda_m\},\{a_1,\dotsc,a_m\})$ of a tuple of dominant weights of $G^\circ$ and a tuple of nonzero elements of $\kk$ [Cha]. As a vector space the associated representation is the space of Laurent polynomials valued in the tensor product of the $V(\lambda_i^\circ)$, and the scalars $a_i$ rescale the action of $G^\circ$-valued loops on each factor [CP].
+When $\widehat{G}$ is of affine type, the representations $V(\lambda)$ with $\lambda \in \widehat{P}\smallsetminus(X \cup - X)$ are not the only irreducible level zero weight representations. The set of all such representations is parametrized by pairs $(\{\lambda_1,\dotsc,\lambda_m\},\{a_1,\dotsc,a_m\})$ of a tuple of dominant weights of $G^\circ$ and a tuple of elements of $\kk^\times$ [Cha]. As a vector space the associated representation is the space of Laurent polynomials valued in the tensor product of the $V(\lambda_i^\circ)$, and the scalars $a_i$ rescale the action of $G^\circ$-valued loops on each factor [CP].
 \end{remark}
 
 A crucial feature of generalized minors is the following generalized determinantal identity:
@@ -1428,7 +1429,7 @@ In particular, the lowest-weight minors $\Delta_{-c^{-k}\omega_i}$ satisfy Equat
 \section{Regular cluster variables as minors}
 
 \begin{proposition}\label{prop:level zero}
-Let $G = \widehat{LSL_{n+1}}$ be the affine Kac-Moody group of type $A_n^{(1)}$, let $c$ be a Coxeter element of the affine Weyl group, and $Q_c$ the associated affine quiver.  All regular cluster variables in the coordinate ring of $G^{c,c^{-1}}$ are principal minors of level zero representations.  
+Let $G = \widehat{LSL_n}$ be the affine Kac-Moody group of type $A_{n-1}^{(1)}$, let $c$ be a Coxeter element of the affine Weyl group, and $Q_c$ the associated affine quiver.  All regular cluster variables in the coordinate ring of $G^{c,c^{-1}}$ are principal minors of level zero representations.  
 \end{proposition}
 \begin{proof}
 \begin{enumerate}
@@ -1440,19 +1441,44 @@ Let $G = \widehat{LSL_{n+1}}$ be the affine Kac-Moody group of type $A_n^{(1)}$,
 \subsection{Quiver Representations}
   A quiver $Q=(Q_0,Q_1,s,t)$ with $n$ vertices consist of a set $Q_0=\{1,2,\ldots,n\}$ of vertices, a set $Q_1$ of arrows, and maps $s,t:Q_1\to Q_0$ giving the source and target of an arrow.  
   Given a field $\kk$, a representation $V=(V_i,V_a)$ consists of a $\kk$-vector space $V_i$ for each $i\in Q_0$ and a $\kk$-linear map $V_a:V_{s(a)}\to V_{t(a)}$ for each arrow $a\in Q_1$.  
-  Write $\udim V=(\dim_\kk V_i)_{i\in Q_0}\in\ZZ^n$ for the dimension vector of $V$.
   A morphism of representation $\theta:V\to W$ consists of a collection of $\kk$-linear maps $\theta_i:V_i\to W_i$ so that $\theta_{t(a)}\circ V_a=W_a\circ \theta_{s(a)}$ for each arrow $a\in Q_1$.  
-  When the quiver $Q$ has no oriented cycles (i.e. is acyclic), its category $\rep_\kk Q$ of finite-dimensional representations is particularly nice and thus we assume $Q$ is acyclic throughout.  
-  In this case, it is well-known that $\rep_\kk Q$ a hereditary, abelian, length category with finitely many simple objects.\sayDR{Introduce the AR-translation? Reflection functors?}
+  When the quiver $Q$ is acyclic (i.e. has no oriented cycles), its category $\rep_\kk Q$ of finite-dimensional representations is particularly nice and thus we assume $Q$ is acyclic throughout.  
+  In this case, it is well-known that $\rep_\kk Q$ a hereditary, abelian, length category with finitely many simple objects.  
+  When $Q$ is an orientation of a simply-laced finite-type Dynkin diagram, $\rep_\kk Q$ contains only finitely many indecomposable representations.
 
-  Since $\rep_\kk Q$ is hereditary, the Euler-Ringel form $\langle V,W\rangle:=\dim_\kk\Hom(V,W)-\dim_\kk\Ext^1(V,W)$ only depends on the dimension vectors of $V$ and $W$.  In particular, the Euler-Ringel form is completely determined by the pairing of vertex-simple representations:
+  Write $\kk Q$ for the path algebra of $Q$, this is the $\kk$-vector space with basis given by paths (including the trivial paths) in $Q$.  
+  One may identify the module category of $\kk Q$ with $\rep_\kk Q$ but we will not use this here.  
+  The path algebra is naturally considered as a representation of $Q$ where the vector space at vertex $i$ is spanned by all paths ending at $i$ and the action of an arrow $a$ is by concatenation.  
+  Given a representation $V\in\rep_\kk Q$ and a projective presentation $0\to P_1\to P_0\to V\to 0$ (which terminates after two terms since $\rep_\kk Q$ is hereditary), we define the Auslander-Reiten translate $\tau(V)\in\rep_\kk Q$ via the short exact sequence
+  \begin{equation}\label{eq:AR translation}
+    0\longrightarrow \tau(V)\longrightarrow D\Hom(P_1,\kk Q)\longrightarrow D\Hom(P_0,\kk Q)\longrightarrow 0,
+  \end{equation}
+  where $D=\Hom(-,\kk)$ is the standard $\kk$-linear duality functor.  
+  The AR translation $\tau$ strongly controls the representation theory of $Q$: a representation $P$ is projective if and only if $\tau(P)=0$ and a representation $I$ is injective if and only if it is not of the form $\tau(V)$ for some $V$.  
+  Call a representation $V$ preprojective if $\tau^k(V)$ is projective for some $k\ge0$, preinjective\sayDR{post?} if $V=\tau^k(I)$ for an injective representation $I$ and some $k\ge0$, and regular otherwise.  
+  When $Q$ is an orientation of a simply-laced finite-type Dynkin diagram, the injective representations are preprojective (hence projective representations are preinjective) and there are no regular representations.  
+  When $Q$ is an orientation of a simply-laced affine Dynkin diagram, the regular representations admit a concrete description but to describe it we need more notation.
+
+  Write $\cQ$ for the Grothendieck group of $\rep_\kk Q$ and note that $\cQ$ is a free abelian group generated by the classes $\alpha_i=[S_i]$ of the simple representations of $Q$.  
+  For $V\in\rep_\kk Q$ we thus call $[V]\in\cQ$ its dimension vector.  
+  Since $\rep_\kk Q$ is hereditary, the Euler-Ringel form $\langle V,W\rangle:=\dim_\kk\Hom(V,W)-\dim_\kk\Ext^1(V,W)$ only depends on the dimension vectors of $V$ and $W$.  
+  In particular, the Euler-Ringel form is completely determined by the pairing of vertex-simple representations:
   \[\langle S_i,S_j\rangle=\begin{cases}1 & \text{if $i=j$;}\\ -1 & \text{if $i\to j\in Q_1$;}\\ 0 & \text{otherwise.}\end{cases}\]
 
-  To prove Proposition~\ref{prop:level zero} we will consider the representations of an acyclic quiver $Q$ of affine type $A$, that is $Q$ is an acyclic orientation of a cycle, in particular $Q$ contains at least one source.  Our main interest will be in rigid representations, i.e. $V\in\rep_\kk Q$ such that $\Ext^1(V,V)=0$.  In particular, we aim to give a concrete characterization of all rigid indecomposable representations $V$ which are regular, that is for which the defect $\defect(V):=\langle\delta,V\rangle$ is zero.
+  For the remainder of the section we restrict $Q$ to be an orientation of a simply-laced affine Dynkin diagram.
+  Identifying $\cQ\cong\ZZ^n$ with the root lattice, we write $\delta\in\cQ$ for the minimal positive imaginary and define the defect $\defect(V):=\langle\delta,V\rangle$.
+  \begin{lemma}\cite{ASS06}
+      A representation $V\in\rep_\kk Q$ is regular if and only if $\defect(V)=0$.
+  \end{lemma}
+
+  To prove Proposition~\ref{prop:level zero} we will further restrict $Q$ to be of affine type $\tilde{A}_{n-1}$, that is $Q$ is an acyclic orientation of a cycle.  
+  Our main interest will be in rigid representations, i.e. $V\in\rep_\kk Q$ such that $\Ext^1(V,V)=0$.  
+  In particular, we aim to give a concrete characterization of all rigid indecomposable representations $V$ which are regular.
 
   The following characterization of rigid indecomposable regular representations appears to be new and may be of independent interest.  For $i,j\in Q_0$ write $M_{[i,j]}$ for the representation of $Q$ given by...
   \begin{proposition}
-    Let $V$ be a rigid indecomposable regular representation of an acyclic quiver $Q$ of affine type $A$.  Then there are $i,j\in Q_0$ with $[i,j]\subsetneq[1,n]$ containing the same number of sinks and sources of $Q$ so that $V=M_{[i,j]}$. 
+    Let $V$ be a rigid indecomposable regular representation of an acyclic quiver $Q$ of affine type $A$.  
+    Then there are $i,j\in Q_0$ with $[i,j]\subsetneq[1,n]$ containing the same number of sinks and sources of $Q$ so that $V=M_{[i,j]}$. 
   \end{proposition}
   \begin{proof}\mbox{}
     \begin{itemize}
