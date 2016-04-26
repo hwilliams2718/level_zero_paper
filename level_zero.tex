@@ -209,7 +209,7 @@ Finally, in type $A_n^{(1)}$ the following suggestive extension of Theorem \ref{
 \textsc{Acknowledgments}  We would like to thank Misha Gekhtman and V. Chari for helpful discussions and comments. D.R. is supported by... S.S. is supported by... H.W. is supported by...
 
 %\section{Cluster Structures on Coxeter Double Bruhat Cells}
-\section{Background and notation}
+\section{Background on clusters, quivers, and minors}
 
 We collect here some needed material on cluster algebras and Kac-Moody groups, and lay out the notation we will use.  
 We fix throughout an algebraically closed field $\kk$ of characteristic zero. 
@@ -234,7 +234,8 @@ To define the cluster algebra $\cA_B$ associated to an $m \times n$ matrix $B$ w
 Label its edges by $\{1,\dotsc,n\}$ so that the edges incident to any given vertex have distinct labels. 
 For a fixed root $t_0 \in T_0$, assign a matrix $B^t$ to each $t \in T_0$ so that $B^{t_0} = B$, and if $t, t' \in T_0$ are joined by an edge labeled $k$, then $B^t$ and $B^{t'}$ are related by mutation at $k$. 
 
-Let $\cF$ denote the field of rational functions in formal variables $x_{1}\,\dotsc,x_{m}$ with coefficients in $\kk$. The \emph{cluster variables} $$\{ x_{i;t}: i \in \{1,\dotsc,m\}, t \in T_0\} \subset \cF$$ are defined recursively as follows. The initial cluster variables $x_{i;t_0}$ are taken to be the generators $x_i$. If $t,t' \in T_0$ are joined by an edge labeled $k$, then $x_{i;t} = x_{i;t'}$ for $i \neq k$, and $x_{k;t}$, $x_{k;t'}$ are related by the \emph{exchange relation} 
+Let $\cF$ denote the field of rational functions in formal variables $x_{1}\,\dotsc,x_{m}$ with coefficients in $\kk$. 
+The \emph{cluster variables} $$\{ x_{i;t}: i \in \{1,\dotsc,m\}, t \in T_0\} \subset \cF$$ are defined recursively as follows. The initial cluster variables $x_{i;t_0}$ are taken to be the generators $x_i$. If $t,t' \in T_0$ are joined by an edge labeled $k$, then $x_{i;t} = x_{i;t'}$ for $i \neq k$, and $x_{k;t}$, $x_{k;t'}$ are related by the \emph{exchange relation} 
 \[
 x_{k;t}x_{k;t'} = \prod_{B^t_{ik}>0}x_{i;t}^{B^t_{ik}} + \prod_{B^t_{ik}<0}x_{i;t}^{-B^t_{ik}}.
 \]
@@ -495,7 +496,7 @@ Let $B'$ be the $3n \times n$ matrix with principal part $B_c$ and with $B'_{i+n
 We often write $z_i$ for $x_{i+n}$ and $z_{-i}$ for $x_{i+2n}$, and say that $\kk[G^{c,c^{-1}}]$ is a cluster algebra with ``doubled principal coefficients.''
 
 \begin{remark}
-Each $G^{u,v}$ is the intersection of $G \subset \widehat{G}$ with the double Bruhat cell $\widehat{G}^{u,v}$ of $\widehat{G}$. The coordianate ring of the latter is also an upper cluster algebra whose initial exchange matrix has the same principal part but $\corank(A)$ additional frozen variables -- $G^{u,v}$ is the locus where these are equal to one. Conversely one could consider the $2n$-dimensional subvariety $L^{c,c^{-1}} \subset G^{c,c^{-1}}$ where $z_1,\dotsc,z_n$ are equal to one -- this is the reduced double Bruhat cell considered in \cite{YZ08}.
+Each $G^{u,v}$ is the intersection of $G \subset \widehat{G}$ with the double Bruhat cell $\widehat{G}^{u,v}$ of $\widehat{G}$. The coordianate ring of the latter is also an upper cluster algebra whose initial exchange matrix has the same principal part but $\corank(A)$ additional frozen variables -- $G^{u,v}$ is the locus where these are equal to one. In the other direction one could consider the $2n$-dimensional subvariety $L^{c,c^{-1}} \subset G^{c,c^{-1}}$ where $z_1,\dotsc,z_n$ are equal to one -- this is the reduced double Bruhat cell considered in \cite{YZ08}.
 \end{remark}
 
 In computing various relations in $\kk[G^{c,c^{-1}}]$ we will make extensive use of the fact that a generic element $g$ of $G^{c,c^{-1}}$ can be factored as
@@ -662,7 +663,7 @@ For example, with respect to such a factorization it is clear that for any domin
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Preprojective and preinjective cluster variables as minors}
 %\subsection{The acyclic belt in non-finite types}
-In this section we prove that when $B$ is any acyclic skew-symmetrizable matrix, the identification $\cA_B \cong \kk[G^{c,c^{-1}}]$ realizes preprojective and postinjective cluster variables as restrictions of highest- and lowest-weight minors, respectively. We begin by computing the $\bfg$-vectors of these cluster variables; identifying the lattice of $\bfg$-vectors with the weight lattice of $G$, these are the weights of the corresponding minors, and they are all in the orbit of the fundamental weights (and their negatives) under the action of the Coxeter element $c$. We then compute a list of exchange relations that determine all of these cluster variables from the initial ones. The identification with minors then follows by identifying these relations with restrictions of certain generalized determinantal identities to $G^{c,c^{-1}}$.
+In this section we prove that when $B$ is any acyclic skew-symmetrizable matrix, the identification $\cA_B \cong \kk[G^{c,c^{-1}}]$ realizes preprojective and postinjective cluster variables as restrictions of highest- and lowest-weight minors, respectively. We begin by computing the $\bfg$-vectors of these cluster variables; identifying the lattice of $\bfg$-vectors with the weight lattice of $G$, these are the weights of the corresponding minors, and they all lie in the orbit of the fundamental weights (and their negatives) under the action of the Coxeter element $c$. We then compute a list of exchange relations which determine all such cluster variables in terms of initial ones. The identification with minors then follows by identifying these relations with restrictions of certain generalized determinantal identities to $G^{c,c^{-1}}$.
 
 \subsection{Exchange relations and $\bfg$-vectors}
 
@@ -874,9 +875,16 @@ The preprojective and preinjective cluster variables with doubled principal coef
   The relations are an obvious consequence of \Cref{prop:c-vectors,prop:g-vectors} once we recall that mutations happen along a source/sink adapted sequence so that, at $t_m$, the $\mod{m}$-th colum of $B_m$ contains only non-negative entries and the $\mod{m+1}$-th column only non-positive entries. 
 \end{proof}
 
-\subsection{Highest and Lowest Weight Minors}
+\subsection{Highest- and lowest-weight minors}
 
-Before proving the main result of the section, Theorem \ref{thm:mainirregular}, we collect some Lemmas concerning restrictions of minors to $G^{c,c^{-1}}$. The first computes the evaluations of various minors of interest in terms of the factorization of a generic element of $G^{c,c^{-1}}$ into one-parameter subgroups:
+Before proving the main result of the section, Theorem \ref{thm:mainirregular}, we collect some Lemmas concerning restrictions of minors to $G^{c,c^{-1}}$. The first computes the evaluations of various minors of interest in terms of the factorization of a generic element of $G^{c,c^{-1}}$ into one-parameter subgroups. We recall that given a root $\beta \in Q$ we write $[\beta:\alpha_i]$ for the coefficient in the expansion
+\[
+\beta = \sum_{i = 1}^n [\beta:\alpha_i]\alpha_i,
+\]
+as well as the specific roots $\beta_i^+=s_1\cdots s_{i-1}\alpha_i$ and $\beta_i^-=s_n\cdots s_{i+1}\alpha_i$. We also recall that for $1 \leq j \leq n$, we write
+\[
+x_j \mapsto \Delta_{\omega_j},\quad z_j \mapsto \Delta^{\omega_j}_{ c\omega_j} \prod_{i < j}(\Delta^{\omega_i}_{c \omega_i})^{a_{ij}},\quad z_{-j} = \Delta^{c \omega_j}_{\omega_j} \prod_{i < j}(\Delta^{c \omega_i}_{\omega_i})^{a_{ij}}.
+\]
 
 \begin{lemma}\label{lemma:coefficients_values}
 If $g \in G^{c,c^{-1}}$ factors as
