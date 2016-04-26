@@ -40,11 +40,13 @@ urlcolor=blue]{hyperref}
 % shorthands 
 \newcommand{\cA}{\mathcal{A}}
 \newcommand{\cAb}{\mathcal{A}_\bullet}
+\newcommand{\cC}{\mathcal{C}}
 \newcommand{\cT}{\mathcal{T}}
 
 \newcommand{\RR}{\mathbb{R}}
 \newcommand{\CC}{\mathbb{C}}
 \newcommand{\NN}{\mathbb{N}}
+\newcommand{\PP}{\mathbb{P}}
 \newcommand{\ZZ}{\mathbb{Z}}
 \newcommand{\kk}{\Bbbk}%\mathbbm{k}}
 
@@ -58,6 +60,7 @@ urlcolor=blue]{hyperref}
 \newcommand{\cN}{\mathcal{N}} % symbol for network
 \newcommand{\cP}{\mathcal{P}}
 \newcommand{\cQ}{\mathcal{Q}}
+\newcommand{\cR}{\mathcal{R}}
 
 \newcommand{\Gr}{\mathrm{Gr}}
 
@@ -1473,12 +1476,30 @@ Let $G = \widehat{LSL_n}$ be the affine Kac-Moody group of type $A_{n-1}^{(1)}$,
     Then there are $i,j\in Q_0$ with $[i,j]\subsetneq[1,n]$ containing the same number of sinks and sources of $Q$ so that $V=M_{[i,j]}$. 
   \end{proposition}
   \begin{proof}\mbox{}
-    \begin{itemize}
-      \item $\defect(V)=0$ if and only if the $\sum_{i\text{ sink in }Q}\dim V_i=\sum_{i\text{ source in }Q}\dim V_i$
-      \item if $V$ is regular and sincere, then it is not rigid.  Use identification of a tube with nilpotent representations of a cyclic quiver.
-      \item non-sincere representations of $Q$ can be identified with representations of a Dynkin type $A$ quiver
-    \end{itemize}
-    Indecomposability completes the proof.
+    To begin we recall the structure of the subcategory $\cR\subset\rep_\kk Q$ consisting of the regular representations.  
+    Suppose that $Q$ contains $p$ clockwise arrows and $q$ counterclockwise arrows.  
+    Then $\cR$ is equivalent the direct product of three categories: the category of nilpotent representations of an oriented $p$-cycle, the category of nilpotent representations of an oriented $q$-cycle, and the category of invertible representations of the Jordan quiver (this is the quiver with a single vertex and a single loop based at this vertex so that an invertible representation is specified by a single invertible matrix).\sayDR{For uniformity I am separating the standard $\PP^1$-family of homogeneous tubes for the Kronecker quiver into nilpotent ``north pole'' representations, nilpotent ``south pole'' representations, and ``invertible'' representations.}
+
+    Any invertible representation $M$ of the Jordan quiver has nontrivial self-extensions given by block upper triangular matrices with two copies of $M$ on the diagonal, in particular there are no rigid representations in this component.
+    For representations of $Q$ in this component, the dimension of the vector space at each vertex is equal and all maps are invertible.
+    From the considerations above, such representations are never rigid.
+    
+    Now consider the category $\cC$ of nilpotent representations of an oriented $k$-cycle.  
+    Write $\tilde\cC$ for the category of finite-dimensional representations of the equioriented bi-infinite $A_{\infty,\infty}$ quiver.  
+    For any choice of base point, there is an essentially surjective exact functor $\pi:\tilde\cC\to\cC$ given by ``wrapping around'' the $k$-cycle (nilpotency guarantees the essential surjectivity).  
+    Now consider a nilpotent representation $V$ of the $k$-cycle which is sincere (i.e. every vertex contains a nontrivial vector space).
+    Choose a lift $\tilde V\in\tilde\cC$ of $V$ in which every indecomposable summand has support intersecting a given fundamental domain and write $\tilde V'$ for the representation obtained by shifting $\tilde V$ to the right by $k$ vertices.  
+    Since $V$ was sincere, it is easy to see that $\tilde\cC$ contains a nontrivial extension of $\tilde V$ by $\tilde V'$, in particular $\Ext^1(V,V)\ne 0$ since $\pi$ is exact.  
+    For $k=p$ ($k=q$ is handled similarly), the representations of $Q$ in this component have isomorphisms at each of the $q$ counterclockwise arrows\sayDR{It feels a little funny to think that the zero map between zero vector spaces is an isomorphism but it's true.} and are sincere as representations of the $k$-cycle if and only if they are sincere as representations of $Q$.
+
+    Following the discussion above we see that a regular representation of $Q$ is rigid only if it is non-sincere.  
+    Since a non-sincere representation of $Q$ can be identified with a representation of a Dynkin quiver of type $A$, any rigid indecomposable regular representation of $Q$ must be of the form $M_{[i,j]}$ for some $i,j\in Q_0$ with $[i,j]\subsetneq[1,n]$.  
+
+    It only remains to observe the condition of sinks and sources in $[i,j]$.  
+    Write $C,K\subset Q_0$ for the subset of source and sinks in $Q$ respectively. 
+    For any representation $V$ we have  
+    \[\langle\delta,V\rangle=\sum_{i\in Q_0}\dim V_i-\sum_{a\in Q_1}\dim V_{t(a)}=\sum_{i\in C}\dim V_i-\sum_{i\in K}\dim V_i.\]
+    For regular $V$, we have $\langle\delta,V\rangle=0$ and so $\sum\limits_{i\in C}\dim V_i=\sum\limits_{i\in K}\dim V_i$.
   \end{proof}
 
 
