@@ -245,7 +245,7 @@ x_{k;t}x_{k;t'} = \prod_{B^t_{ik}>0}x_{i;t}^{B^t_{ik}} + \prod_{B^t_{ik}<0}x_{i;
 \end{definition}
 
 The variables $x_{n+1;t},\dotsc, x_{m;t}$ do not depend on $t$ and are referred to as frozen variables. 
-We sometimes write $y_i$\sayDR{Do we need the notation $y_i$?} for $x_{n+i}$, where $i \in \{1,\dotsc, m-n\}$. 
+We sometimes write $y_i$\sayDR{Do we need the notation $y_i$?}\sayHW{Maybe not -- revisit this during wrap-up} for $x_{n+i}$, where $i \in \{1,\dotsc, m-n\}$. 
 When working with explicit formulas for cluster variables, it will also be convenient to introduce monomials $\hat{y}_j = \prod\limits_{i=1}^m x_i^{B_{ij}}$. 
 
 We associate a quiver $Q := Q_B$ to $B$ as follows: its vertices are indexed by $\{1,\dotsc,n\}$, and there are $[-B_{ij}]_+$ arrows from vertex $i$ to vertex $j$. 
@@ -285,11 +285,13 @@ Each cluster variable $x_{i;t}$ is labeled by a distinct $g$-vector $g_{i;t}$ in
 We will also make use of the following ``change of coefficients'' result:
 
 \begin{proposition}\label{prop:changeofcoeffs}
-Let $B$ be an $m \times n$ matrix with skew-symmetrizable principal part, $M$ an invertible $m \times m$ matrix of the form 
+Let $B$ be an $m \times n$ integer matrix with skew-symmetrizable principal part, $M$ an invertible $m \times m$ matrix of the form 
 \[
 M = \begin{bmatrix} Id_n & 0 \\ 0 & L \end{bmatrix}
 \]
-for some matrix $L$\sayDR{Should we emphasize $L\in GL_{m-n}(\ZZ)$ so that $B'$ is guaranteed to be an integer matrix?}, and $B' = M^{-1}B$. Then the map 
+for some $L\in GL_{m-n}(\ZZ)$, 
+%\sayDR{Should we emphasize $L\in GL_{m-n}(\ZZ)$ so that $B'$ is guaranteed to be an integer matrix?} 
+and $B' = M^{-1}B$. Then the map 
 \[
 x'_i \mapsto \prod_{i=1}^m x_i^{M_{ij}}
 \]
@@ -390,7 +392,7 @@ t^{\alpha_i^\vee}:=\varphi_i\begin{pmatrix}t & 0 \\ 0 & t^{-1}\end{pmatrix} \qua
 x_{-i}(t):=\varphi_i\begin{pmatrix} 1 & 0 \\ t & 1\end{pmatrix} \\
 \ol{s_{i}} = \varphi_i \begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix} \quad
 \dol{s_{i}} = \varphi_i \begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix},
-\end{gather}\sayDR{Are the $\dol{s_{i}}$ needed?}
+\end{gather}\sayDR{Are the $\dol{s_{i}}$ needed?}\sayHW{Maybe not -- check during wrap-up}
 By extension for any $w$ in the Weyl group $W$ of $\widehat{G}$ we set $\ol{w} = \ol{s_{i_1}}\cdots\ol{s_{i_k}}$, where $s_{i_1}\cdots s_{i_k}$ is any reduced word for $w$. 
 We write $H$ for the ($n$-dimensional) Cartan subgroup of $G$, likewise $\widehat{H} \cong H \times (\kk^\times)^{\corank(A)}$ for the Cartan subgroup of $\widehat{G}$. We also let $\kk[\widehat{G}]$ denote the (complete topological) algebra of regular functions on $\widehat{G}$.
 %The Cartan subgroup $H$ of $G$ (resp. $\widehat{H}$ of $\widehat{G}$) is $n$-dimensional (resp. ($n + \corank(A)$)-dimensional). 
@@ -424,9 +426,10 @@ of finte-dimensional weight spaces under the action of $\widehat{H}$. Note that 
 Let $\widehat{P}^+=\{\lambda \in \widehat{P}: \lambda(\alpha_i^\vee)>0\} \subset \widehat{P}$ denote the cone of dominant (integral) weights. 
 The Tits cone $X = \{w\lambda : w \in W, \lambda \in \widehat{P}^+\}$ is the set of weights obtained from a dominant weight by the action of the Weyl group. To each $\lambda \in P^+$ is an associated irreducible highest-weight representation $V(\lambda)$; if $\lambda \in X$ and $w \lambda \in \widehat{P}^+$ is the unique dominant weight conjugate to $\lambda$, we also write $V(\lambda)$ for $V(w \lambda)$. Likewise for $\lambda \in -\widehat{P}^+$ there is an irreducible lowest-weight representation $V(\lambda)$, and for $\lambda \in -X$ we write $V(\lambda)$ for $V(w\lambda)$ where $w\lambda$ is the unique anti-dominant conjugate of $\lambda$. Highest- and lowest-weight representations are distinct classes unless $A$ is of finite-type. Note that for any $\lambda \in X \cup -X$, the weight space $V(\lambda)_\lambda$ is one-dimensional.
 
-When $A$ is of (untwisted) affine type, identifying $G$ with a central extension of $LG^\circ$ fixes a splitting $P \cong P^\circ \oplus \kk \kappa$, where $P^\circ$ is the weight lattice of the underlying semisimple group $G^\circ$ and $\kk \kappa = \Hom( Z(G),\kk^\times)$. Above this we have the splitting $\widehat{P} \cong P \oplus \kk \delta$, where $\delta$ is a character of the $\kk^\times$ acting by loop rotations. A weight $\lambda \in \widehat{P}$ is in the complement of $X \cup -X$ if and only if it lies in $P^\circ \oplus \kk \delta \subset \widehat{P}$. If $\lambda^\circ$ is the $P^\circ$-component of such a weight, then following the above notation we have an irreducible $G^\circ$-representation $V(\lambda^\circ)$ whose highest weight is conjugate to $\lambda^\circ$ under the Weyl group of $G^\circ$. 
+When $A$ is of (untwisted) affine type, identifying $G$ with a central extension of $LG^\circ$ fixes a splitting $P \cong P^\circ \oplus \kk \kappa$, where $P^\circ$ is the weight lattice of the underlying semisimple group $G^\circ$ and $\kk \kappa = \Hom( Z(G),\kk^\times)$. Above this we have the splitting $\widehat{P} \cong P \oplus \kk \delta$, where $\delta$ is a character of the $\kk^\times$ acting by loop rotations. A weight $\lambda \in \widehat{P}$ is in the complement of $X \cup -X$ if and only if it lies in $P^\circ \oplus \kk \delta$. If $\lambda^\circ$ is the $P^\circ$-component of such a weight, then following the above notation we have an irreducible $G^\circ$-representation $V(\lambda^\circ)$ whose highest weight is conjugate to $\lambda^\circ$ under the Weyl group of $G^\circ$. 
 %For such $\lambda$, we write $V(\lambda)^\circ$ for the irreducible $G^\circ$ representation whose highest weight is conjugate to the $P^\circ$ component of $\lambda$ under the Weyl group of $G^\circ$. 
-The space $V(\lambda) := V(\lambda^\circ)[z^{\pm 1}]$\sayDR{Should this representation be named as $V(\lambda)$ without specifying how $\lambda$ relates to $\lambda^\circ$? Ah, the idea is to emphasize that it is irreducible, can $\lambda$ be described explicitly?} of algebraic loops in $V(\lambda^\circ)$ is then naturally a weight representation of $\widehat{G}$. The level of an irreducible $\widehat{G}$-representation is the character by which $Z(G) = Z(\widehat{G}) \cong \kk^\times$ acts; the level of $V(\lambda)$ is positive if $\lambda \in X$, negative if $\lambda \in -X$, and zero if $\lambda \in \widehat{P} \smallsetminus(X \cup -X)$. 
+With this in hand we extend our association of an irreducible $\widehat{G}$-representation $V(\lambda)$ to all $\lambda \in \widehat{P}$: when $\lambda \in \widehat{P} \smallsetminus(X \cup -X)$ \sayDR{Should this representation be named as $V(\lambda)$ without specifying how $\lambda$ relates to $\lambda^\circ$? Ah, the idea is to emphasize that it is irreducible, can $\lambda$ be described explicitly?}\sayHW{The idea is that we are specifying a representation $V(\lambda)$ of $\widehat(G)$ for all $\lambda \in \widehat{P}$; when $\lambda \in \widehat{P} \smallsetminus(X \cup -X) \cong P^\circ \oplus \kk \delta$ this uses the projection to $P^\circ$, which we are notating as $\lambda \mapsto \lambda^\circ$ -- I realize now this wasn't clear before}
+we set $V(\lambda) := V(\lambda^\circ)[z^{\pm 1}]$, the space of algebraic loops in $V(\lambda^\circ)$. The level of an irreducible $\widehat{G}$-representation is the character by which $Z(G) = Z(\widehat{G}) \cong \kk^\times$ acts; the level of $V(\lambda)$ is positive if $\lambda \in X$, negative if $\lambda \in -X$, and zero if $\lambda \in \widehat{P} \smallsetminus(X \cup -X)$. 
 %or zero if $\lambda \in X$, $\lambda \in -X$, or $\lambda \in \widehat{P} \smallsetminus (X \cup -X)$, respectively.
 %the level of $V(\lambda)$ is positive, negative, or zero if $\lambda \in X$, $\lambda \in -X$, or $\lambda \in \widehat{P} \smallsetminus (X \cup -X)$, respectively.
 
@@ -444,7 +447,7 @@ where $\pi_\lambda:V \onto V_\lambda$ is the projection whose kernel is the dire
 %Let $\lambda \in P^+$ be a dominant weight and $\lambda_1 = w_1\lambda$, $\lambda_2 = w_2 \lambda \in X$ be any two conjugates under the Weyl group. The 
 \end{definition}
 
-In other words, if we use a weight basis of $V$ to write the action of $g$ as a matrix, $\Delta_{(V,\lambda)}(g)$ is the diagonal entry corresponding to $V_\lambda$. 
+In other words, if we use a weight basis of $V$ to write the action of $g$ as a matrix, $\Delta_{(V,\lambda)}(g)$ is the diagonal entry corresponding to $V_\lambda$. Similarly, $\Delta^{\lambda}_{\lambda'}(g)$ is the matrix entry whose row corresponds to $V_{\lambda'}$ and whose column corresponds to $V_{\lambda}$ (up to an overall scalar fixed by the representative $\ol{w} \in \widehat{G}$ of $w$).
 
 \begin{remark}
 When $\widehat{G}$ is of affine type, the representations $V(\lambda)$ with $\lambda \in \widehat{P}\smallsetminus(X \cup - X)$ are not the only irreducible level zero weight representations. The set of all such representations is parametrized by pairs $(\{\lambda_1,\dotsc,\lambda_m\},\{a_1,\dotsc,a_m\})$ of a tuple of dominant weights of $G^\circ$ and a tuple of elements of $\kk^\times$ [Cha]. As a vector space the associated representation is the space of Laurent polynomials valued in the tensor product of the $V(\lambda_i^\circ)$, and the scalars $a_i$ rescale the action of $G^\circ$-valued loops on each factor [CP].
@@ -477,7 +480,7 @@ The cluster algebra $\cA_B$ has the following geometric realization in terms of 
 \[
 G = \bigsqcup_{u,v \in W} G^{u,v},\quad G^{u,v} : = B_+ u B_+ \cap B_- v B_-
 \]
-of $G$, where $B_{\pm}$ are the standard opposite Borel subgroups of $G$. Each $G^{u,v}$ is a smooth affine variety of dimension $n + \ell(u) + \ell(v)$, where $\ell(u)$, $\ell(v)$ are the lengths of $u$ and $v$ [FZ, Wil]. \saySS{This already requires that we are working with the derived subgroup} 
+of $G$, where $B_{\pm}$ are the standard opposite Borel subgroups of $G$. Each $G^{u,v}$ is a smooth affine variety of dimension $n + \ell(u) + \ell(v)$, where $\ell(u)$, $\ell(v)$ are the lengths of $u$ and $v$ [FZ, Wil]. \saySS{This already requires that we are working with the derived subgroup}\sayHW{I think the remark below now adequately addresses this -- delete comments if you agree}
 The coordinate ring of $G^{u,v}$ is an upper cluster algebra, and a finite subset of its clusters are in correspondence with shuffles of reduced words for $u$ and $v$ [BFZ, Wil]. 
 
 %Let $G := G_B$ be the Kac-Moody group associated to this root system. The cluster algebra has the following geometric realization in terms of $G$:
@@ -877,26 +880,29 @@ The preprojective and preinjective cluster variables with doubled principal coef
 
 \subsection{Highest- and lowest-weight minors}
 
-Before proving the main result of the section, Theorem \ref{thm:mainirregular}, we collect some Lemmas concerning restrictions of minors to $G^{c,c^{-1}}$. The first computes the evaluations of various minors of interest in terms of the factorization of a generic element of $G^{c,c^{-1}}$ into one-parameter subgroups. We recall that given a root $\beta \in Q$ we write $[\beta:\alpha_i]$ for the coefficient in the expansion
+Before proving the main result of the section, Theorem \ref{thm:mainirregular}, we collect some Lemmas concerning restrictions of minors to $G^{c,c^{-1}}$. All of the arguments involved are straightforward generalizations of those in \cite{YZ08} to the infinite-type case. 
+
+The first Lemma computes the evaluations of various minors of interest in terms of the factorization of a generic element of $G^{c,c^{-1}}$ into one-parameter subgroups. We recall that, for any root $\beta \in Q$, we let $[\beta:\alpha_i]$ denote the $i$th coefficient in the expansion
 \[
-\beta = \sum_{i = 1}^n [\beta:\alpha_i]\alpha_i,
+\beta = \sum_{i = 1}^n [\beta:\alpha_i]\alpha_i.
 \]
-as well as the specific roots $\beta_i^+=s_1\cdots s_{i-1}\alpha_i$ and $\beta_i^-=s_n\cdots s_{i+1}\alpha_i$. We also recall that for $1 \leq j \leq n$, we write
+The roots to which we apply this notation are $\beta_i^+=s_1\cdots s_{i-1}\alpha_i$, $\beta_i^-=s_n\cdots s_{i+1}\alpha_i$, and their conjugates. We also recall that the initial cluster variables in $\kk[G^{c,c^{-1}}]$ are 
 \[
-x_j \mapsto \Delta_{\omega_j},\quad z_j \mapsto \Delta^{\omega_j}_{ c\omega_j} \prod_{i < j}(\Delta^{\omega_i}_{c \omega_i})^{a_{ij}},\quad z_{-j} = \Delta^{c \omega_j}_{\omega_j} \prod_{i < j}(\Delta^{c \omega_i}_{\omega_i})^{a_{ij}}.
+x_j = \Delta_{\omega_j},\quad z_j = \Delta^{\omega_j}_{ c\omega_j} \prod_{i < j}(\Delta^{\omega_i}_{c \omega_i})^{a_{ij}},\quad z_{-j} = \Delta^{c \omega_j}_{\omega_j} \prod_{i < j}(\Delta^{c \omega_i}_{\omega_i})^{a_{ij}},
 \]
+for $1 \leq j \leq n$.
 
 \begin{lemma}\label{lemma:coefficients_values}
 If $g \in G^{c,c^{-1}}$ factors as
 \[
 g = x_{-1}(t_{-1}) \cdots x_{-n}(t_{-n}) h x_n(t_n) \cdots x_1(t_1)
 \]
-for $h \in H$ and $t_i \in \kk^\times$, then  \saySS{We may want to give a proof of this (Cf. \cite[Proof of eq. 3.20]{YZ08}) but we are already writing a lot of computations enough to disgust even the more coscentious reader.}
+for $h \in H$ and $t_i \in \kk^\times$, then  
 \begin{gather}
     \Delta^{c^{k+1}\omega_j}_{c^k\omega_j}(g) = h^{c^k\omega_j}\prod_{i=1}^n t_{-i}^{[c^k\beta_j^+:\alpha_i]},\quad 
-    \Delta^{c^k\omega_j}_{c^{k+1}\omega_j}(g) = h^{c^k\omega_j}\prod_{i=1}^n t_{i}^{[c^k\beta_j^+:\alpha_i]},\\
+    \Delta^{c^k\omega_j}_{c^{k+1}\omega_j}(g) = h^{c^k\omega_j}\prod_{i=1}^n t_{i}^{[c^k\beta_j^+:\alpha_i]},\label{eq:positive_cminor_values}\\
     \Delta^{-c^{-k-1}\omega_j}_{-c^{-k}\omega_j}(g) = h^{-c^{-k-1}\omega_j}\prod_{i=1}^n t_{i}^{[c^{-k}\beta_j^-:\alpha_i]}, \quad
-    \Delta^{-c^{-k}\omega_j}_{-c^{-k-1}\omega_j}(g) = h^{-c^{-k-1}\omega_j}\prod_{i=1}^n t_{-i}^{[c^{-k}\beta_j^-:\alpha_i]},\\
+    \Delta^{-c^{-k}\omega_j}_{-c^{-k-1}\omega_j}(g) = h^{-c^{-k-1}\omega_j}\prod_{i=1}^n t_{-i}^{[c^{-k}\beta_j^-:\alpha_i]},\label{eq:negative_cminor_values}\\
     z_i(g)
     =
     t_i
@@ -904,21 +910,24 @@ for $h \in H$ and $t_i \in \kk^\times$, then  \saySS{We may want to give a proof
     z_{-i}(g)
     =
     t_{-i}
-    h^{\omega_i}\prod_{ j <i}h^{a_{ j  i}\omega_ j }.
+    h^{\omega_i}\prod_{ j <i}h^{a_{ j  i}\omega_ j }.\label{eq:frozen_values}
 \end{gather}
 \end{lemma}
 
 \begin{proof}
-The first four identities follow easily from considering root strings in $V(\omega_i)$, and we omit an explicit discussion. Let us prove the fifth identity, the remaining being derived exactly in the same way.
-  Recall the definition of $z_i$
-  \saySS{Add the relevant reference once it is in place}
-  \[
-    z_i 
-    =
-    \Delta_{c\omega_i}^{\omega_i}
-    \prod_{ j <i}\big(\Delta_{c\omega_ j }^{\omega_ j }\big)^{a_{ j  i}}
-  \]
-  and substitute the values computed in \Cref{lemma:coefficient_computations} to get
+The first four identities follow easily from considering root strings in $V(\omega_i)$ as in \cite[Proof of eq. 3.20]{YZ08}, and we omit an explicit discussion. For example, if $v_{\omega_j}$ is a highest-weight vector of $V(\omega_j)$, then $\Delta^{c\omega_j}_{\omega_j}(g)$ measures the component of $gv_{\omega_j}$ in the weight space $V(\omega_j)_{c \omega_j}$; sequentially considering how each one-parameter subgroup in the factorization can affect this component leads to the given formula. \saySS{We may want to give a proof of this (Cf. \cite[Proof of eq. 3.20]{YZ08}) but we are already writing a lot of computations enough to disgust even the more coscentious reader.}\sayHW{This is a bit better than nothing for now -- we can add more later if we have time}
+
+Let us prove the first identity of Equation \ref{eq:frozen_values}, the second being derived the same way.
+%  Recall the definition of $z_i$
+%  \saySS{Add the relevant reference once it is in place}
+%  \[
+%    z_i 
+%    =
+%    \Delta_{c\omega_i}^{\omega_i}
+%    \prod_{ j <i}\big(\Delta_{c\omega_ j }^{\omega_ j }\big)^{a_{ j  i}}
+%  \]
+%  and substitute the values computed in \Cref{lemma:coefficient_computations} to get
+Using Equation \ref{eq:positive_cminor_values} we obtain 
   \[
     z_i(g)
     =
