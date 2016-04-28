@@ -160,7 +160,7 @@ The varieties $G^{c,c^{-1}}$ generalize the space of tridiagonal matrices with d
 From the perspective of $Q$, $\cA_Q$ is a repository for information about the submodule structure of representations of $Q$. 
 After embedding $\cA_Q$ into the ring of Laurent polynomials in the initial cluster variables, the remaining cluster variables are in bijection with the rigid indecomposable representations of $Q$ [CC, CK]. 
 This correspondence takes a quiver representation to a generating function of the Euler characteristics of its varieties of submodules. 
-This expression is called the cluster character of the representation, and with this in mind we refer to a (non-initial)\sayDR{Even the initial cluster variables have a projective flavor in the categorification since they are identified with shifted projectives in the cluster category, but I'm not sure how much of this we want to say in the paper.} cluster variable as preprojective, preinjective, or regular according to the classification of its associated representation. 
+This expression is called the cluster character of the representation, and with this in mind we refer to a (non-initial)\sayDR{Even the initial cluster variables have a projective flavor in the categorification since they are identified with shifted projectives in the cluster category, but I'm not sure how much of this we want to say in the paper.}\sayHW{I think I'm happiest letting initial cluster variables be their own thing -- we should mention the cluster category at some point though, if just in passing.} cluster variable as preprojective, preinjective, or regular according to the classification of its associated representation. 
 Given the description of $\cA_Q$ as the coordinate ring of $G^{c,c^{-1}}$, we see in particular that representations of $Q$ naturally label functions on a subvariety of $G$.
 
 %. To $c$ we associate the double Bruhat cell $$G^{c,c^{-1}} := B_+ c B_+ \cap B_- c^{-1} B_- \subset G,$$ and $\cA_Q$ can be identified with the coordinate ring of $G^{c,c^{-1}}$ (for suitable coefficients). On the other hand, a cluster algebra is equipped with a set of distinguished elements, cluster variables, which can be completed to a basis of $\cA_Q$ in various interesting ways. The (non-initial) cluster variables in $\cA_Q$ are in bijection with the rigid indecomposable representations of $Q$: $\cA_Q$ is canonically embedded in a Laurent polynomial ring, and to a representation we assign a generating function of Euler characteristics of its varieties of subrepresentations; we refer to a cluster variable as preprojective, preinjective, or regular according to its associated representation. In summary, representations of $Q$ label functions on a subvariety of $G$.
@@ -431,12 +431,13 @@ The Tits cone $X = \{w\lambda : w \in W, \lambda \in \widehat{P}^+\}$ is the set
 Thus each weight $\lambda\in X \cup -X$ determines an irreducible (highest- or lowest-) weight representation $V(\lambda)$ of $\widehat{G}$ whose weight space $V(\lambda)_\lambda$ is one-dimensional.
 Note that highest- and lowest-weight representations are distinct classes unless $A$ is of finite-type.
 
-When $A$ is of (untwisted) affine type, identifying $G$ with a central extension of $LG^\circ$ fixes a splitting $P \cong P^\circ \oplus \kk \kappa$\sayDR{Should this have $\ZZ\kappa$ so that $P$ is a lattice?}, where $P^\circ$ is the weight lattice of the underlying semisimple group $G^\circ$ and $\kk \kappa = \Hom( Z(G),\kk^\times)$.
-Above this we have the splitting $\widehat{P} \cong P \oplus \kk \delta$, where $\delta$ is a character of the $\kk^\times$ acting by loop rotations. 
-A weight $\lambda \in \widehat{P}$ is in the complement of $X \cup -X$ if and only if it lies in $P^\circ \oplus \kk \delta$. 
+When $A$ is of (untwisted) affine type, identifying $G$ with a central extension of $LG^\circ$ fixes a splitting $P \cong P^\circ \oplus \ZZ \kappa$, %\sayDR{Should this have $\ZZ\kappa$ so that $P$ is a lattice?} 
+where $P^\circ$ is the weight lattice of the underlying semisimple group $G^\circ$ and $\kk \kappa = \Hom( Z(G),\kk^\times)$.
+Above this we have the splitting $\widehat{P} \cong P \oplus \ZZ \delta$, where $\delta$ is a character of the $\kk^\times$ acting by loop rotations. 
+A weight $\lambda \in \widehat{P}$ is in the complement of $X \cup -X$ if and only if it lies in $P^\circ \oplus \ZZ \delta$. 
 Following the above notation, for $\lambda^\circ\in P^\circ$ we have an irreducible $G^\circ$-representation $V(\lambda^\circ)$ whose highest weight is conjugate to $\lambda^\circ$ under the Weyl group of $G^\circ$. 
 %For such $\lambda$, we write $V(\lambda)^\circ$ for the irreducible $G^\circ$ representation whose highest weight is conjugate to the $P^\circ$ component of $\lambda$ under the Weyl group of $G^\circ$. 
-With this in hand we extend our association of an irreducible $\widehat{G}$-representation $V(\lambda)$ to all $\lambda \in \widehat{P}$: when $\lambda \in \widehat{P} \smallsetminus(X \cup -X)$ we set $V(\lambda) := V(\lambda^\circ)[z^{\pm 1}]$\sayDR{Should we mention somewhere that all $\lambda^\circ+r\kappa$ are in the same Weyl group orbit?}, the space of algebraic loops in $V(\lambda^\circ)$, where $\lambda^\circ$ is the $P^\circ$-component of $\lambda$. 
+With this in hand we extend our association of an irreducible $\widehat{G}$-representation $V(\lambda)$ to all $\lambda \in \widehat{P}$: when $\lambda \in \widehat{P} \smallsetminus(X \cup -X)$ we set $V(\lambda) := V(\lambda^\circ)[z^{\pm 1}]$, \sayDR{Should we mention somewhere that all $\lambda^\circ+r\kappa$ are in the same Weyl group orbit?}\sayHW{You mean that $W$ preserves the $\ZZ\kappa$ component of a weight? I don't think it's necessary to parse the ensuing definition, and I'm already a little unhappy with the wordcount here anyway...} the space of algebraic loops in $V(\lambda^\circ)$, where $\lambda^\circ$ is the $P^\circ$-component of $\lambda$. 
 The level of an irreducible $\widehat{G}$-representation is the character by which $Z(G) = Z(\widehat{G}) \cong \kk^\times$ acts; the level of $V(\lambda)$ is positive if $\lambda \in X$, negative if $\lambda \in -X$, and zero if $\lambda \in \widehat{P} \smallsetminus(X \cup -X)$. 
 %or zero if $\lambda \in X$, $\lambda \in -X$, or $\lambda \in \widehat{P} \smallsetminus (X \cup -X)$, respectively.
 %the level of $V(\lambda)$ is positive, negative, or zero if $\lambda \in X$, $\lambda \in -X$, or $\lambda \in \widehat{P} \smallsetminus (X \cup -X)$, respectively.
@@ -902,9 +903,9 @@ for $1 \leq j \leq n$.
 
 \begin{lemma}\label{lemma:coefficients_values}
 If $g \in G^{c,c^{-1}}$ factors as
-\[
+\begin{equation}\label{eq:generic_factorization}
 g = x_{-1}(t_{-1}) \cdots x_{-n}(t_{-n}) h x_n(t_n) \cdots x_1(t_1)
-\]
+\end{equation}
 for $h \in H$ and $t_i \in \kk^\times$, then  
 \begin{gather}
     \Delta^{c^{k+1}\omega_j}_{c^k\omega_j}(g) = h^{c^k\omega_j}\prod_{i=1}^n t_{-i}^{[c^k\beta_j^+:\alpha_i]},\quad 
@@ -925,7 +926,7 @@ for $h \in H$ and $t_i \in \kk^\times$, then
 \begin{proof}
 The first four identities follow easily from considering root strings in $V(\omega_i)$ as in \cite[Proof of eq. 3.20]{YZ08}, and we omit an explicit discussion. For example, if $v_{\omega_j}$ is a highest-weight vector of $V(\omega_j)$, then $\Delta^{c\omega_j}_{\omega_j}(g)$ measures the component of $gv_{\omega_j}$ in the weight space $V(\omega_j)_{c \omega_j}$; sequentially considering how each one-parameter subgroup in the factorization can affect this component leads to the given formula. \saySS{We may want to give a proof of this (Cf. \cite[Proof of eq. 3.20]{YZ08}) but we are already writing a lot of computations enough to disgust even the more coscentious reader.}\sayHW{This is a bit better than nothing for now -- we can add more later if we have time}
 
-Let us prove the first identity of Equation \ref{eq:frozen_values}, the second being derived the same way.
+We derive the first identity of Equation \ref{eq:frozen_values}, the second being similar.
 %  Recall the definition of $z_i$
 %  \saySS{Add the relevant reference once it is in place}
 %  \[
@@ -935,15 +936,16 @@ Let us prove the first identity of Equation \ref{eq:frozen_values}, the second b
 %    \prod_{ j <i}\big(\Delta_{c\omega_ j }^{\omega_ j }\big)^{a_{ j  i}}
 %  \]
 %  and substitute the values computed in \Cref{lemma:coefficient_computations} to get
-Using Equation \ref{eq:positive_cminor_values} we obtain 
+Plugging Equation \ref{eq:positive_cminor_values} into the definition of $z_i(g)$ we obtain 
   \[
     z_i(g)
     =
     \left(h^{\omega_i}\prod_{\ell =1}^n t_{\ell}^{[\beta_i^+:\alpha_\ell]}\right)
     \prod_{j<i}\left(h^{\omega_j}\prod_{\ell=1}^n t_{\ell}^{[\beta_j^+:\alpha_\ell]}\right)^{a_{ji}}.
   \]
-  To establish our result we need to verify that
+  To establish the desired identiy we need to verify that
   \saySS{This should be changed to Harold's boolean notation}
+\sayHW{Let's see if there are other places where it would be useful -- if there aren't many it may be clearer to stick to the cases notation}
   \[
     [\beta_i^+:\alpha_\ell]+\sum_{j<i}a_{ji}[\beta_j^+:\alpha_\ell]
     =
@@ -952,72 +954,62 @@ Using Equation \ref{eq:positive_cminor_values} we obtain
       0 & \text{ otherwise.}
     \end{cases}
   \]
-  Summing up over $\ell$ we get
-  \[
-    \beta_i^++\sum_{j<i}a_{ji}\beta_j^+
+  This in turn follows from 
+  \begin{equation}\label{eq:alpha_to_beta}
+    \beta_i^++\sum_{j<i}a_{ji}\beta_j^+ = s_1\cdots s_{i-1}\alpha_i + \sum_{j<i}s_1\cdots s_{j-1}(\alpha_i - s_j\alpha_i)
     =
-    \alpha_i
-  \]
-  which holds by telescoping.
+    \alpha_i,
+  \end{equation}
+  the last equality following by collapsing the telescoping sum.
 \end{proof}
 
 %\saySS{Add a sentence stating that we work in the derived version of $G$}
-\saySS{Add a sentence to say that we borrow/adapt most of the proofs from \cite{YZ08}}
+%\saySS{Add a sentence to say that we borrow/adapt most of the proofs from \cite{YZ08}}
 
 \begin{lemma}
   \label{lemma:coefficient_identity_powers}
-  Restricted to $G^{c,c^{-1}}$ the following two identities holds:
-  \begin{eqnarray} 
-    \Delta_{c^k \omega_i}^{c^{k+1} \omega_i}
-    &=&
-    \prod_{j=1}^n\left( 
-      \Delta^{c \omega_j}_{\omega_j}
-      \prod_{\ell<j}\big(
-        \Delta^{c \omega_\ell}_{\omega_\ell} 
-      \big)^{a_{\ell j}}
-    \right)^{[c^k\beta_i^+:\alpha_j]}
-    \\
-    \Delta_{c^{k+1} \omega_i}^{c^k \omega_i}
-    &=&
-    \prod_{j=1}^n\left( 
-      \Delta^{\omega_j}_{ c\omega_j} 
-      \prod_{\ell<j}\big(
-        \Delta^{\omega_\ell}_{c \omega_\ell}
-      \big)^{a_{\ell j}}
-    \right)^{[c^k\beta_i^+:\alpha_j]}
-  \end{eqnarray}
+For $g \in G^{c,c^{-1}}$, $k \geq 0$, and $1 \leq i \leq n$ we have
+%  Restricted to $G^{c,c^{-1}}$ the following two identities holds:
+\begin{equation}
+    \Delta_{c^{k+1} \omega_i}^{c^k \omega_i}(g)
+    =
+    \prod_{j=1}^nz_j(g)^{[c^k\beta_i^+:\alpha_j]},\quad 
+    \Delta_{c^k \omega_i}^{c^{k+1} \omega_i}(g)
+    =
+    \prod_{j=1}^nz_{-j}(g)^{[c^k\beta_i^+:\alpha_j]}
+\end{equation}
+
+%  \begin{eqnarray} 
+%    \Delta_{c^k \omega_i}^{c^{k+1} \omega_i}
+%    &=&
+%    \prod_{j=1}^n\left( 
+%      \Delta^{c \omega_j}_{\omega_j}
+%      \prod_{\ell<j}\big(
+%        \Delta^{c \omega_\ell}_{\omega_\ell} 
+%      \big)^{a_{\ell j}}
+%    \right)^{[c^k\beta_i^+:\alpha_j]}
+%    \\
+%    \Delta_{c^{k+1} \omega_i}^{c^k \omega_i}
+%    &=&
+%    \prod_{j=1}^n\left( 
+%      \Delta^{\omega_j}_{ c\omega_j} 
+%      \prod_{\ell<j}\big(
+%        \Delta^{\omega_\ell}_{c \omega_\ell}
+%      \big)^{a_{\ell j}}
+%    \right)^{[c^k\beta_i^+:\alpha_j]}
+%  \end{eqnarray}
 \end{lemma}
 \begin{proof}
-  We concentrate on the first of the two identities the latter being obtained in a similar way.
-  In view of \Cref{lemma:coefficient_computations} the left hand side is
-  \[
-    h^{c^k\omega_i}\prod_{j=1}^n t_{j}^{[c^k\beta_i^+:\alpha_j]}
-  \]
-  while the right hand side is 
-  \[
-    \prod_{j=1}^n\left( 
-      h^{\omega_j}\prod_{m=1}^n t_{m}^{[\beta_j^+:\alpha_m]}
-      \prod_{\ell<j}\Big(
-      h^{\omega_\ell}\prod_{p=1}^n t_{p}^{[\beta_\ell^+:\alpha_p]}
-      \Big)^{a_{\ell j}}
-    \right)^{[c^k\beta_i^+:\alpha_j]}.
-  \]
-  Recalling from the proof of \Cref{lemma:coefficients_values} shat
-  \[
-    \alpha_j 
-    =
-    \beta_j^+
-    +
-    \sum_{\ell < j}
-    a_{\ell j}\beta_\ell^+
-  \]
-  to show that the two expressions are equal it remains to see that
-  \[
+  We concentrate on the first identity, the latter being obtained in a similar way. It suffices to consider the case where $g$ factors as in Equation \ref{eq:generic_factorization}, since such elements are generic in $G^{c,c^{-1}}$.  
+  In the parameters of the factorization, Lemma \ref{lemma:coefficients_values} lets us rewrite the desired identity as
+\[
+h^{c^k\omega_i}\prod_{j=1}^n t_{j}^{[c^k\beta_i^+:\alpha_j]} = \prod_{j=1}^n\Big( 
+    t_j
+    h^{\omega_j}\prod_{ \ell <j}h^{a_{\ell j}\omega_ \ell }\Big)^{[c^k\beta_i^+:\alpha_j]}.
+\]
+Establishing this is in turn equivalent to showing that
+  \begin{equation}\label{eq:coxeter_identity_omega}
     c^k\omega_i 
-    =
-    \sum_{j=1}^n
-    [c^k\beta_i^+:\beta_j^+]
-    \omega_j
     =
     \sum_{j=1}^n
     [c^k\beta_i^+:\alpha_j]
@@ -1025,10 +1017,51 @@ Using Equation \ref{eq:positive_cminor_values} we obtain
     \omega_j+
     \sum_{\ell<j} a_{\ell j}\omega_\ell
     \Big).
-  \]
-  The first equality holds because the $\beta_i^+$ are linearly independent (they are obtained from the $\alpha_i$ by a unitriangular transformation) so that $1-c$ is an isomorphism from the subspace spanned by the $\omega_i$ to that spanned by the $\beta_i^+$, commuting with $c^{m-1}$.
-  The second equality is nothing but the change of coordinates in between the $\alpha_i$ and the $\beta_i^+$.
-  \saySS{I do not like how this part is written, I should try to make this more clear}
+  \end{equation}
+%We claim that both sides are equal to $\sum_{j=1}^n [c^k\beta_i^+:\beta_j^+] \omega_j$. 
+
+%On one hand, since $(1-c)(\omega_i) = \beta_i^+$ and the $\beta_i^+$ are linearly independent (they are obtained from the $\alpha_i$ by a unitriangular transformation), $1-c$ is an isomorphism from the $n$-dimensional subspace of $\widehat{P}_\RR$ spanned by the $\omega_i$ to that spanned by the $\beta_i^+$. Since moreover this isomorphism commutes with $c^{k}$, the fact that $c^k\omega_i = \sum_{j=1}^n [c^k\beta_i^+:\beta_j^+] \omega_j$ follows from the tautology $c^k\beta_i^+ = \sum_{j=1}^n [c^k\beta_i^+:\beta_j^+] \beta_j^+.$
+
+On the other hand, from Equation \ref{eq:alpha_to_beta} it follows that
+\begin{equation}\label{eq:coxeter_identity_beta}
+c^k\beta_i^+ = \sum_{j=1}^n [c^k\beta_i^+:\alpha_j] \alpha_j
+= \sum_{j=1}^n [c^k\beta_i^+:\alpha_j] \Big(\beta_j^+ + \sum_{\ell<j} a_{\ell j}\beta_\ell^+\Big).
+\end{equation}
+Since $(1-c)(\omega_i) = \beta_i^+$ and the $\beta_i^+$ are linearly independent (they are obtained from the $\alpha_i$ by a unitriangular transformation), the endomorphism $1-c$ of $\widehat{P}_\RR$ restricts to an isomorphism from the subspace spanned by the $\omega_i$ to that spanned by the $\beta_i^+$. Since this isomorphism moreover commutes with the action of $c^{k}$, applying its inverse to Equation \ref{eq:coxeter_identity_beta} yields Equation \ref{eq:coxeter_identity_omega}. 
+\saySS{I do not like how this part is written, I should try to make this more clear}\sayHW{Here is my attempt at clarification}
+%\prod_{j=1}^n\left( 
+%      h^{\omega_j}\prod_{m=1}^n t_{m}^{[\beta_j^+:\alpha_m]}
+%      \prod_{\ell<j}\Big(
+%      h^{\omega_\ell}\prod_{p=1}^n t_{p}^{[\beta_\ell^+:\alpha_p]}
+%      \Big)^{a_{\ell j}}
+ %   \right)^{[c^k\beta_i^+:\alpha_j]}.
+%  \]
+%  Recalling from the proof of \Cref{lemma:coefficients_values} shat
+%  \[
+%    \alpha_j 
+%    =
+%    \beta_j^+
+%    +
+%    \sum_{\ell < j}
+%    a_{\ell j}\beta_\ell^+
+%  \]
+%  to show that the two expressions are equal it remains to see that
+%  \[
+%    c^k\omega_i 
+%    =
+%    \sum_{j=1}^n
+%    [c^k\beta_i^+:\beta_j^+]
+%    \omega_j
+%    =
+%    \sum_{j=1}^n
+%    [c^k\beta_i^+:\alpha_j]
+%    \Big(
+%    \omega_j+
+%    \sum_{\ell<j} a_{\ell j}\omega_\ell
+%    \Big).
+%  \]
+%  The first equality holds because the $\beta_i^+$ are linearly independent (they are obtained from the $\alpha_i$ by a unitriangular transformation) so that $1-c$ is an isomorphism from the subspace spanned by the $\omega_i$ to that spanned by the $\beta_i^+$, commuting with $c^{m-1}$.
+%  The second equality is nothing but the change of coordinates in between the $\alpha_i$ and the $\beta_i^+$.
 \end{proof}
 
 
