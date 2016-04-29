@@ -970,14 +970,14 @@ Plugging Equation \ref{eq:positive_cminor_values} into the definition of $z_i(g)
   \label{lemma:coefficient_identity_powers}
 For $g \in G^{c,c^{-1}}$, $k \geq 0$, and $1 \leq i \leq n$ we have
 %  Restricted to $G^{c,c^{-1}}$ the following two identities holds:
-\begin{equation}
+\begin{equation*}
     \Delta_{c^{k+1} \omega_i}^{c^k \omega_i}(g)
     =
     \prod_{j=1}^nz_j(g)^{[c^k\beta_i^+:\alpha_j]},\quad 
     \Delta_{c^k \omega_i}^{c^{k+1} \omega_i}(g)
     =
     \prod_{j=1}^nz_{-j}(g)^{[c^k\beta_i^+:\alpha_j]}
-\end{equation}
+\end{equation*}
 
 %  \begin{eqnarray} 
 %    \Delta_{c^k \omega_i}^{c^{k+1} \omega_i}
@@ -1000,7 +1000,7 @@ For $g \in G^{c,c^{-1}}$, $k \geq 0$, and $1 \leq i \leq n$ we have
 %  \end{eqnarray}
 \end{lemma}
 \begin{proof}
-  We concentrate on the first identity, the latter being obtained in a similar way. It suffices to consider the case where $g$ factors as in Equation \ref{eq:generic_factorization}, since such elements are generic in $G^{c,c^{-1}}$.  
+  We derive the first identity, the second being obtained in a similar way. It suffices to consider the case where $g$ factors as in Equation \ref{eq:generic_factorization}, since such elements are generic in $G^{c,c^{-1}}$.  
   In the parameters of the factorization, Lemma \ref{lemma:coefficients_values} lets us rewrite the desired identity as
 \[
 h^{c^k\omega_i}\prod_{j=1}^n t_{j}^{[c^k\beta_i^+:\alpha_j]} = \prod_{j=1}^n\Big( 
@@ -1022,12 +1022,13 @@ Establishing this is in turn equivalent to showing that
 
 %On one hand, since $(1-c)(\omega_i) = \beta_i^+$ and the $\beta_i^+$ are linearly independent (they are obtained from the $\alpha_i$ by a unitriangular transformation), $1-c$ is an isomorphism from the $n$-dimensional subspace of $\widehat{P}_\RR$ spanned by the $\omega_i$ to that spanned by the $\beta_i^+$. Since moreover this isomorphism commutes with $c^{k}$, the fact that $c^k\omega_i = \sum_{j=1}^n [c^k\beta_i^+:\beta_j^+] \omega_j$ follows from the tautology $c^k\beta_i^+ = \sum_{j=1}^n [c^k\beta_i^+:\beta_j^+] \beta_j^+.$
 
-On the other hand, from Equation \ref{eq:alpha_to_beta} it follows that
+On the other hand, we have 
 \begin{equation}\label{eq:coxeter_identity_beta}
 c^k\beta_i^+ = \sum_{j=1}^n [c^k\beta_i^+:\alpha_j] \alpha_j
-= \sum_{j=1}^n [c^k\beta_i^+:\alpha_j] \Big(\beta_j^+ + \sum_{\ell<j} a_{\ell j}\beta_\ell^+\Big).
+= \sum_{j=1}^n [c^k\beta_i^+:\alpha_j] \Big(\beta_j^+ + \sum_{\ell<j} a_{\ell j}\beta_\ell^+\Big),
 \end{equation}
-Since $(1-c)(\omega_i) = \beta_i^+$ and the $\beta_i^+$ are linearly independent (they are obtained from the $\alpha_i$ by a unitriangular transformation), the endomorphism $1-c$ of $\widehat{P}_\RR$ restricts to an isomorphism from the subspace spanned by the $\omega_i$ to that spanned by the $\beta_i^+$. Since this isomorphism moreover commutes with the action of $c^{k}$, applying its inverse to Equation \ref{eq:coxeter_identity_beta} yields Equation \ref{eq:coxeter_identity_omega}. 
+where the second equality follows from Equation \ref{eq:alpha_to_beta}. 
+Since $(1-c)(\omega_i) = \beta_i^+$ and the $\beta_i^+$ are linearly independent (they are obtained from the $\alpha_i$ by a unitriangular transformation), the endomorphism $1-c$ of $\widehat{P}_\RR$ restricts to an isomorphism from the subspace $P_\RR$ spanned by the $\omega_i$ to the subspace $Q_\RR$ spanned by the $\beta_i^+$. Since this isomorphism moreover commutes with the action of $c^{k}$, applying its inverse to Equation \ref{eq:coxeter_identity_beta} yields Equation \ref{eq:coxeter_identity_omega}. 
 \saySS{I do not like how this part is written, I should try to make this more clear}\sayHW{Here is my attempt at clarification}
 %\prod_{j=1}^n\left( 
 %      h^{\omega_j}\prod_{m=1}^n t_{m}^{[\beta_j^+:\alpha_m]}
@@ -1091,50 +1092,88 @@ Since $(1-c)(\omega_i) = \beta_i^+$ and the $\beta_i^+$ are linearly independent
 %\end{proof}
 
 
-\begin{lemma}
-  Restricted to $G^{c,c^{-1}}$ the following two identities hold:
-  \label{lemma:coefficients_identities}
-  \begin{eqnarray}
-    \Delta_{c\omega_j}^{\omega_j}
-    \prod_{\ell<j}\big(\Delta_{c\omega_\ell}^{\omega_\ell}\big)^{a_{\ell j}}
-    &=&
-    \Delta_{-\omega_j}^{-c^{-1}\omega_j}
-    \prod_{\ell>j}\big(\Delta_{-\omega_\ell}^{-c^{-1}\omega_\ell}\big)^{a_{\ell j}}\\
-    \Delta_{\omega_j}^{c\omega_j}
-    \prod_{\ell<j}\big(\Delta_{\omega_\ell}^{c\omega_\ell}\big)^{a_{\ell j}}
-    &=&
-    \Delta_{-c^{-1}\omega_j}^{-\omega_j}
-    \prod_{\ell>j}\big(\Delta_{-c^{-1}\omega_\ell}^{-\omega_\ell}\big)^{a_{\ell j}}
-  \end{eqnarray}
+\begin{lemma}\label{lemma:coefficients_identities}
+For $g \in G^{c,c^{-1}}$ and $1 \leq j \leq n$ we have
+  \begin{equation*}
+z_j(g) =\Delta_{-\omega_j}^{-c^{-1}\omega_j}(g)
+    \prod_{\ell>j}\Big(\Delta_{-\omega_\ell}^{-c^{-1}\omega_\ell}(g)\Big)^{a_{\ell j}},\quad
+z_{-j}(g) = \Delta_{-c^{-1}\omega_j}^{-\omega_j}(g)
+    \prod_{\ell>j}\Big(\Delta_{-c^{-1}\omega_\ell}^{-\omega_\ell}(g)\Big)^{a_{\ell j}}.
+  \end{equation*}
+%  Restricted to $G^{c,c^{-1}}$ the following two identities hold:
+%  \begin{eqnarray}
+%    \Delta_{c\omega_j}^{\omega_j}
+%    \prod_{\ell<j}\big(\Delta_{c\omega_\ell}^{\omega_\ell}\big)^{a_{\ell j}}
+%    &=&
+%    \Delta_{-\omega_j}^{-c^{-1}\omega_j}
+%    \prod_{\ell>j}\big(\Delta_{-\omega_\ell}^{-c^{-1}\omega_\ell}\big)^{a_{\ell j}}\\
+%    \Delta_{\omega_j}^{c\omega_j}
+%    \prod_{\ell<j}\big(\Delta_{\omega_\ell}^{c\omega_\ell}\big)^{a_{\ell j}}
+%    &=&
+%    \Delta_{-c^{-1}\omega_j}^{-\omega_j}
+%    \prod_{\ell>j}\big(\Delta_{-c^{-1}\omega_\ell}^{-\omega_\ell}\big)^{a_{\ell j}}
+%  \end{eqnarray}
 \end{lemma}
 \begin{proof}
-  We will show only the first one the other being obtained in a similar fashon.
-  \Cref{lemma:coefficients_values} says that the left hand side equals
-  \[
-    t_j
+Again, we derive the first identity, the second being obtained in a similar fashion. If $g$ is generic and factored as in Equation \ref{eq:generic_factorization}, then in terms of factorization parameters the desired identity is
+\begin{equation}
+t_j
     h^{\omega_j}
-    \prod_{\ell<j}h^{a_{\ell j}\omega_\ell}.
-  \]
-  A similar computation, this time using the fact that 
-  \[
+    \prod_{\ell<j}h^{a_{\ell j}\omega_\ell} = 
+t_j
+    h^{-c^{-1}\omega_j}
+    \prod_{\ell>j}h^{-a_{\ell j}c^{-1}\omega_\ell}.
+\end{equation}
+In rewriting the left-hand side we have used Equation \ref{eq:frozen_values}, while rewriting the right-hand uses a similar computation involving the identity
+\[
     \beta_j^-+\sum_{\ell>j}a_{\ell j}\beta_\ell^-
     =
-    \alpha_j,
-  \]
-  expresses the right hand side as
-  \[
-    t_j
-    h^{-c^{-1}\omega_j}
-    \prod_{\ell>j}h^{-a_{\ell j}c^{-1}\omega_\ell}
-  \]
-  and the two sides are equal if
-  \begin{equation}
+    \alpha_j.
+\]
+
+%  We will show only the first one the other being obtained in a similar fashon.
+%  \Cref{lemma:coefficients_values} says that the left hand side equals
+%  \[
+%    t_j
+%    h^{\omega_j}
+%    \prod_{\ell<j}h^{a_{\ell j}\omega_\ell}.
+%  \]
+%  A similar computation, this time using the fact that 
+%  \[
+%    \beta_j^-+\sum_{\ell>j}a_{\ell j}\beta_\ell^-
+%    =
+%    \alpha_j,
+%  \]
+%  expresses the right hand side as
+%  \[
+%    t_j
+%    h^{-c^{-1}\omega_j}
+%    \prod_{\ell>j}h^{-a_{\ell j}c^{-1}\omega_\ell}
+%  \]
+  This equality of monomials in factorization parameters is then equivalent to the equality
+  \begin{equation}\label{eq:c_inverse_equality}
     \omega_j + \sum_{\ell<j} a_{\ell j}\omega_\ell
     =
-    -c^{-1}\left(\omega_j + \sum_{\ell>j} a_{\ell j}\omega_\ell\right).
+    -c^{-1}\left(\omega_j + \sum_{\ell>j} a_{\ell j}\omega_\ell\right)
   \end{equation}
+of weights. 
   
-  Mupliplying both sides by $s_{j+1}\cdots s_n$ we want to show that
+Multiplying both sides by $s_{j+1}\cdots s_n$ transforms Equation \ref{eq:c_inverse_equality} into
+  \[
+    s_{j+1}\cdots s_n\left(\omega_j + \sum_{\ell<j} a_{\ell j}\omega_\ell\right)=
+    -s_js_{j-1}\cdots s_1\left(\omega_j + \sum_{\ell>j} a_{\ell j}\omega_\ell\right).
+  \]
+Simplifying using the fact that $s_i\omega_j=\omega_j$ for $i\neq j$, then moving both summations to the right-hand side turns this into
+  \begin{equation}
+    s_j\omega_j
+    =
+    -\omega_j-\sum_{\ell\neq j}a_{\ell j}\omega_\ell,
+  \end{equation}
+  which is the definition of $s_j\omega_j$.
+
+  We transform Equation \ref{eq:c_inverse_equality} by multiplying both sides by $s_{j+1}\cdots s_n$; after simplifying using the fact that  $s_i\omega_j=\omega_j$ for $i\neq j$, the result is
+Equation \ref{eq:c_inverse_equality}
+we want to show that
   \[
     s_{j+1}\cdots s_n\left(\omega_j + \sum_{\ell<j} a_{\ell j}\omega_\ell\right)=
     -s_js_{j-1}\cdots s_1\left(\omega_j + \sum_{\ell>j} a_{\ell j}\omega_\ell\right).
