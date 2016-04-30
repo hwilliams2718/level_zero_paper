@@ -78,6 +78,7 @@ urlcolor=blue]{hyperref}
 \newcommand\onto{\twoheadrightarrow}
 \newcommand\into{\hookrightarrow}
 \DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\End}{End}
 \DeclareMathOperator{\Hom}{Hom}
 \DeclareMathOperator{\coind}{coind}
 \DeclareMathOperator{\corank}{corank}
@@ -437,17 +438,19 @@ Above this we have the splitting $\widehat{P} \cong P \oplus \ZZ \delta$, where 
 A weight $\lambda \in \widehat{P}$ is in the complement of $X \cup -X$ if and only if it lies in $P^\circ \oplus \ZZ \delta$. 
 Following the above notation, for $\lambda^\circ\in P^\circ$ we have an irreducible $G^\circ$-representation $V(\lambda^\circ)$ whose highest weight is conjugate to $\lambda^\circ$ under the Weyl group of $G^\circ$. 
 %For such $\lambda$, we write $V(\lambda)^\circ$ for the irreducible $G^\circ$ representation whose highest weight is conjugate to the $P^\circ$ component of $\lambda$ under the Weyl group of $G^\circ$. 
-With this in hand we extend our association of an irreducible $\widehat{G}$-representation $V(\lambda)$ to all $\lambda \in \widehat{P}$: when $\lambda \in \widehat{P} \smallsetminus(X \cup -X)$ we set $V(\lambda) := V(\lambda^\circ)[z^{\pm 1}]$, \sayDR{Should we mention somewhere that all $\lambda^\circ+r\kappa$ are in the same Weyl group orbit?}\sayHW{You mean that $W$ preserves the $\ZZ\kappa$ component of a weight? I don't think it's necessary to parse the ensuing definition, and I'm already a little unhappy with the wordcount here anyway...}\sayDR{Maybe I am confused, it seems to be implicit in the definition that the $\kappa$ component of $\lambda$ is irrelevant in defining $V(\lambda)$ so by our conventions above it seems to suggest that any choice of coefficient for $\kappa$ results in the same representation, i.e. they are all in the same Weyl orbit, is this false?  Or is it a question of how we grade $z$?} the space of algebraic loops in $V(\lambda^\circ)$, where $\lambda^\circ$ is the $P^\circ$-component of $\lambda$. 
+With this in hand we extend our association of an irreducible $\widehat{G}$-representation $V(\lambda)$ to all $\lambda \in \widehat{P}$: when $\lambda \in \widehat{P} \smallsetminus(X \cup -X)$ we set $V(\lambda) := V(\lambda^\circ)[z^{\pm 1}]$, \sayDR{Should we mention somewhere that all $\lambda^\circ+r\kappa$ are in the same Weyl group orbit?}\sayHW{You mean that $W$ preserves the $\ZZ\kappa$ component of a weight? I don't think it's necessary to parse the ensuing definition, and I'm already a little unhappy with the wordcount here anyway...}\sayDR{Maybe I am confused, it seems to be implicit in the definition that the $\kappa$ component of $\lambda$ is irrelevant in defining $V(\lambda)$ so by our conventions above it seems to suggest that any choice of coefficient for $\kappa$ results in the same representation, i.e. they are all in the same Weyl orbit, is this false?  Or is it a question of how we grade $z$?}\sayHW{$V(\lambda)$ does indeed depend on the $\kappa$ component; indeed $\kappa$ itself is what we usually denote by the fundamental weight $\omega_0$} the space of algebraic loops in $V(\lambda^\circ)$, where $\lambda^\circ$ is the $P^\circ$-component of $\lambda$. 
 The level of an irreducible $\widehat{G}$-representation is the character by which $Z(G) = Z(\widehat{G}) \cong \kk^\times$ acts; the level of $V(\lambda)$ is positive if $\lambda \in X$, negative if $\lambda \in -X$, and zero if $\lambda \in \widehat{P} \smallsetminus(X \cup -X)$. 
 %or zero if $\lambda \in X$, $\lambda \in -X$, or $\lambda \in \widehat{P} \smallsetminus (X \cup -X)$, respectively.
 %the level of $V(\lambda)$ is positive, negative, or zero if $\lambda \in X$, $\lambda \in -X$, or $\lambda \in \widehat{P} \smallsetminus (X \cup -X)$, respectively.
 
 \begin{definition}
-Let $V$ be a weight representation of $\widehat{G}$ and $\lambda$ a weight for which the weight space $V_\lambda$ is one-dimensional. The principal generalized minor $\Delta_{(V,\lambda)} \in \kk[\widehat{G}]$ is the function 
+Let $V$ be a weight representation of $\widehat{G}$ and $\lambda \in \widehat{P}$ a weight for which the weight space $V_\lambda$ is one-dimensional. The principal generalized minor $\Delta_{(V,\lambda)} \in \kk[\widehat{G}]$ is the function 
 \[
 g \mapsto \pi_\lambda(gv_\lambda)/v_\lambda,
 \]
-where $\pi_\lambda:V \onto V_\lambda$ is the projection whose kernel is the direct sum of the other weight spaces, and $v_\lambda \in V_\lambda$ is any nonzero vector. When $\lambda \in X \cup -X$, or when $\widehat{G}$ is of untwisted affine type and $\lambda$ is arbitrary, we simply write $\Delta_\lambda$ for $\Delta_{(V(\lambda),\lambda)}$. When $\lambda \in X \cup -X$ and $\lambda' = w \lambda$, the generalized minor $\Delta^{\lambda}_{\lambda'}$ is the function $g \mapsto \Delta_\lambda(g\ol{w})$. \sayHW{Check the exact formula} 
+where $\pi_\lambda:V \onto V_\lambda$ is the projection whose kernel is the direct sum of the other weight spaces, and $v_\lambda \in V_\lambda$ is any nonzero vector. When $\lambda \in X \cup -X$, or when $\widehat{G}$ is of untwisted affine type and $\lambda$ is arbitrary, we simply write $\Delta_\lambda$ for $\Delta_{(V(\lambda),\lambda)}$. When $\lambda \in \widehat{P}^+ \cup -\widehat{P}^+$, $\lambda' = u\lambda$, and $\lambda'' = v\lambda$, the generalized minor $\Delta^{\lambda'}_{\lambda''}$ is the function $g \mapsto \Delta_\lambda(\ol{u}^{-1}g\ol{v})$.
+%When $\lambda \in X \cup -X$ and $\lambda' = w \lambda$, the generalized minor $\Delta^{\lambda}_{\lambda'}$ is the function $g \mapsto \Delta_\lambda(g\ol{w})$. 
+\sayHW{Sure the signs are right for lowest weights?} 
 %Given $\lambda \in X \cup -X$, the principal generalized minor $\Delta_\lambda \in \kk[G]$ is the function
 %\[
 %g \mapsto \pi_\lambda(gv_\lambda)/v_\lambda \in \kk.
@@ -1007,7 +1010,7 @@ h^{c^k\omega_i}\prod_{j=1}^n t_{j}^{[c^k\beta_i^+:\alpha_j]} = \prod_{j=1}^n\Big
     t_j
     h^{\omega_j}\prod_{ \ell <j}h^{a_{\ell j}\omega_ \ell }\Big)^{[c^k\beta_i^+:\alpha_j]}.
 \]
-Establishing this is in turn equivalent to showing that
+Establishing this is in turn equivalent to showing that in $P$ we have
   \begin{equation}\label{eq:coxeter_identity_omega}
     c^k\omega_i 
     =
@@ -1027,9 +1030,14 @@ On the other hand, we have
 c^k\beta_i^+ = \sum_{j=1}^n [c^k\beta_i^+:\alpha_j] \alpha_j
 = \sum_{j=1}^n [c^k\beta_i^+:\alpha_j] \Big(\beta_j^+ + \sum_{\ell<j} a_{\ell j}\beta_\ell^+\Big),
 \end{equation}
-where the second equality follows from Equation \ref{eq:alpha_to_beta}. 
-Since $(1-c)(\omega_i) = \beta_i^+$ and the $\beta_i^+$ are linearly independent (they are obtained from the $\alpha_i$ by a unitriangular transformation), the endomorphism $1-c$ of $\widehat{P}_\RR$ restricts to an isomorphism from the subspace $P_\RR$ spanned by the $\omega_i$ to the subspace $Q_\RR$ spanned by the $\beta_i^+$. Since this isomorphism moreover commutes with the action of $c^{k}$, applying its inverse to Equation \ref{eq:coxeter_identity_beta} yields Equation \ref{eq:coxeter_identity_omega}. 
+where the second equality follows from Equation \ref{eq:alpha_to_beta}. Observe that the endomorphism $1-c$ of $\widehat{P}$, in addition to taking $\omega_i$ to $\beta_i^+$, factors through natural projection $\widehat{P} \onto P$. Since the $\beta_i^+$ are linearly independent and generate the root lattice $Q$ (they are obtained from the $\alpha_i$ by a unitriangular transformation), $1-c$ restricts to an isomorphism of $P$ onto $Q$; with some abuse we denote its inverse as $(1-c)^{-1}: Q \to P$. Since $1-c$ commutes with the action of $c^{k}$ so does $(1-c)^{-1}$, hence applying $(1-c)^{-1}$ to Equation \ref{eq:coxeter_identity_beta} yields Equation \ref{eq:coxeter_identity_omega}. Note that Equation \ref{eq:coxeter_identity_omega} does not necessarily hold if interpreted in $\widehat{P}$, since in general a splitting $P \into \widehat{P}$ is not $W$-equivariant.
+%Since $(1-c)(\omega_i) = \beta_i^+$, if $1-c \in \End \widehat{P}_\RR$ were invrtible we could obtain Equation \ref{eq:coxeter_identity_omega} by applying $(1-c)^{-1}$ to Equation \ref{eq:coxeter_identity_beta}. In general, the kernel of $1-c$ coincides with the kernel of the natural projection $\widehat{P} \onto P$, which is nonzero except in finite type. 
+% and the $\beta_i^+$ are linearly independent (they are obtained from the $\alpha_i$ by a unitriangular transformation), the endomorphism $1-c$ of $\widehat{P}_\RR$ restricts to an isomorphism from the subspace $P_\RR$ spanned by the $\omega_i$ to the subspace $Q_\RR$ spanned by the $\beta_i^+$. Since this isomorphism moreover commutes with the action of $c^{k}$, applying its inverse to Equation \ref{eq:coxeter_identity_beta} yields Equation \ref{eq:coxeter_identity_omega}. 
 \saySS{I do not like how this part is written, I should try to make this more clear}\sayHW{Here is my attempt at clarification}
+
+
+%Since $(1-c)(\omega_i) = \beta_i^+$ and the $\beta_i^+$ are linearly independent (they are obtained from the $\alpha_i$ by a unitriangular transformation), the endomorphism $1-c$ of $\widehat{P}_\RR$ restricts to an isomorphism from the subspace $P_\RR$ spanned by the $\omega_i$ to the subspace $Q_\RR$ spanned by the $\beta_i^+$. Since this isomorphism moreover commutes with the action of $c^{k}$, applying its inverse to Equation \ref{eq:coxeter_identity_beta} yields Equation \ref{eq:coxeter_identity_omega}. 
+%\saySS{I do not like how this part is written, I should try to make this more clear}\sayHW{Here is my attempt at clarification}
 %\prod_{j=1}^n\left( 
 %      h^{\omega_j}\prod_{m=1}^n t_{m}^{[\beta_j^+:\alpha_m]}
 %      \prod_{\ell<j}\Big(
@@ -1124,7 +1132,7 @@ t_j
     h^{-c^{-1}\omega_j}
     \prod_{\ell>j}h^{-a_{\ell j}c^{-1}\omega_\ell}.
 \end{equation}
-In rewriting the left-hand side we have used Equation \ref{eq:frozen_values}, while rewriting the right-hand uses a similar computation involving the identity
+In rewriting the left-hand side we have used Equation \ref{eq:frozen_values}, while rewriting the right-hand side uses a similar computation involving the identity
 \[
     \beta_j^-+\sum_{\ell>j}a_{\ell j}\beta_\ell^-
     =
@@ -1156,7 +1164,7 @@ In rewriting the left-hand side we have used Equation \ref{eq:frozen_values}, wh
     =
     -c^{-1}\left(\omega_j + \sum_{\ell>j} a_{\ell j}\omega_\ell\right)
   \end{equation}
-of weights. 
+of weights in $P$. 
   
 Multiplying both sides by $s_{j+1}\cdots s_n$ transforms Equation \ref{eq:c_inverse_equality} into
   \[
@@ -1169,29 +1177,30 @@ Simplifying using the fact that $s_i\omega_j=\omega_j$ for $i\neq j$, then movin
     =
     -\omega_j-\sum_{\ell\neq j}a_{\ell j}\omega_\ell,
   \end{equation}
-  which is the definition of $s_j\omega_j$.
-
-  We transform Equation \ref{eq:c_inverse_equality} by multiplying both sides by $s_{j+1}\cdots s_n$; after simplifying using the fact that  $s_i\omega_j=\omega_j$ for $i\neq j$, the result is
-Equation \ref{eq:c_inverse_equality}
-we want to show that
-  \[
-    s_{j+1}\cdots s_n\left(\omega_j + \sum_{\ell<j} a_{\ell j}\omega_\ell\right)=
-    -s_js_{j-1}\cdots s_1\left(\omega_j + \sum_{\ell>j} a_{\ell j}\omega_\ell\right).
-  \]
-  Since $s_i\omega_j=\omega_j$ for $i\neq j$, this is equivalent to
-  \[
-    \omega_j + \sum_{\ell<j} a_{\ell j}\omega_\ell
-    =
-    -s_j\omega_j-\sum_{\ell>j} a_{\ell j}\omega_\ell
-  \]
-  i.e. 
-  \begin{equation}
-    s_j\omega_j
-    =
-    -\omega_j-\sum_{\ell\neq j}a_{\ell j}\omega_\ell
-  \end{equation}
-  which is the definition of $s_j\omega_j$.
+  which is the definition of $s_j\omega_j \in P$. Note that for this equality to hold when interpreted in $\widehat{P}$, additional terms in the kernel of $\widehat{P} \onto P$ must in general be added to the right-hand side.
 \end{proof}
+
+%  We transform Equation \ref{eq:c_inverse_equality} by multiplying both sides by $s_{j+1}\cdots s_n$; after simplifying using the fact that  $s_i\omega_j=\omega_j$ for $i\neq j$, the result is
+%Equation \ref{eq:c_inverse_equality}
+%we want to show that
+%  \[
+%    s_{j+1}\cdots s_n\left(\omega_j + \sum_{\ell<j} a_{\ell j}\omega_\ell\right)=
+%    -s_js_{j-1}\cdots s_1\left(\omega_j + \sum_{\ell>j} a_{\ell j}\omega_\ell\right).
+%  \]
+%  Since $s_i\omega_j=\omega_j$ for $i\neq j$, this is equivalent to
+%  \[
+%    \omega_j + \sum_{\ell<j} a_{\ell j}\omega_\ell
+%    =
+%    -s_j\omega_j-\sum_{\ell>j} a_{\ell j}\omega_\ell
+%  \]
+%  i.e. 
+%  \begin{equation}
+%    s_j\omega_j
+%    =
+%    -\omega_j-\sum_{\ell\neq j}a_{\ell j}\omega_\ell
+%  \end{equation}
+%  which is the definition of $s_j\omega_j$.
+%\end{proof}
 
 %\begin{proposition}
 %  Restricted to $G^{c,c^{-1}}$, for any $k\geq 0$ and $i\in[1,n]$, the product $\Delta_{-c^{-k}\omega_i}\Delta_{-c^{-k-1}\omega_i}$ is equal to
