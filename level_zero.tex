@@ -313,9 +313,9 @@ Given a dimension vector $e \in \NN^n$, the quiver Grassmannian $\Gr_eM$ is the 
 
 \begin{definition}
 The cluster character of a representation $M$ of $Q$ is
-\[
-x_M := x^{-\coind(M)} \sum_{e \in \NN^n}\chi(\Gr_eM) \hat{y}^e \in \kk[x_1^{\pm 1},\dotsc,x_m^{\pm 1}]
-\]
+\begin{equation}\label{eq:cc formula}
+  x_M := x^{-\coind(M)} \sum_{e \in \NN^n}\chi(\Gr_eM) \hat{y}^e \in \kk[x_1^{\pm 1},\dotsc,x_m^{\pm 1}]
+\end{equation}
 \end{definition}
 
 Recall that a representation $M$ of $Q$ is rigid if $\Ext^1(M,M) = 0$. 
@@ -1491,84 +1491,119 @@ Let $G = \widehat{LSL_n}$ be the affine Kac-Moody group of type $A_{n-1}^{(1)}$,
 \end{proof}
 
 \subsection{Quiver Representations}
-  A quiver $Q=(Q_0,Q_1,s,t)$ with $n$ vertices consists of a set $Q_0=\{1,2,\ldots,n\}$ of vertices, a set $Q_1$ of arrows, and maps $s,t:Q_1\to Q_0$ giving the source and target of an arrow.  
-  Given a field $\kk$, a representation $V=(V_i,V_a)$ consists of a $\kk$-vector space $V_i$ for each $i\in Q_0$ and a $\kk$-linear map $V_a:V_{s(a)}\to V_{t(a)}$ for each arrow $a\in Q_1$.  
-  A morphism of representation $\theta:V\to W$ consists of a collection of $\kk$-linear maps $\theta_i:V_i\to W_i$ so that $\theta_{t(a)}\circ V_a=W_a\circ \theta_{s(a)}$ for each arrow $a\in Q_1$.  
-  When the quiver $Q$ is acyclic (i.e. has no oriented cycles), its category $\rep_\kk Q$ of finite-dimensional representations is particularly nice and thus we assume $Q$ is acyclic throughout.  
-  In this case, it is well-known that $\rep_\kk Q$ is a hereditary, abelian, length category with finitely many simple objects.  
-  When $Q$ is an orientation of a simply-laced finite-type Dynkin diagram, $\rep_\kk Q$ contains only finitely many indecomposable representations.
+A quiver $Q=(Q_0,Q_1,s,t)$ with $n$ vertices consists of a set $Q_0=\{1,2,\ldots,n\}$ of vertices, a set $Q_1$ of arrows, and maps $s,t:Q_1\to Q_0$ giving the source and target of an arrow.  
+Given a field $\kk$, a representation $V=(V_i,V_a)$ consists of a $\kk$-vector space $V_i$ for each $i\in Q_0$ and a $\kk$-linear map $V_a:V_{s(a)}\to V_{t(a)}$ for each arrow $a\in Q_1$.  
+A morphism of representation $\theta:V\to W$ consists of a collection of $\kk$-linear maps $\theta_i:V_i\to W_i$ so that $\theta_{t(a)}\circ V_a=W_a\circ \theta_{s(a)}$ for each arrow $a\in Q_1$.  
+When the quiver $Q$ is acyclic (i.e. has no oriented cycles), its category $\rep_\kk Q$ of finite-dimensional representations is particularly nice and thus we assume $Q$ is acyclic throughout.  
+In this case, it is well-known that $\rep_\kk Q$ is a hereditary, abelian, length category with finitely many simple objects.  
+When $Q$ is an orientation of a simply-laced finite-type Dynkin diagram, $\rep_\kk Q$ contains only finitely many indecomposable representations.
 
-  Write $\kk Q$ for the path algebra of $Q$, this is the $\kk$-vector space with basis given by paths (including the trivial paths) in $Q$.  
-  The vector space $\kk Q$ has a multiplication given by concatenation of paths and one may identify the module category of $\kk Q$ with $\rep_\kk Q$, but we will not use this here.  
-  The path algebra is naturally considered as a representation of $Q$ where the vector space at vertex $i$ is spanned by all paths in $Q$ ending at $i$ and the action of an arrow $a$ is by concatenation.  
-  Given a representation $V\in\rep_\kk Q$ and a projective presentation $0\to P_1\to P_0\to V\to 0$ (which terminates after two terms since $\rep_\kk Q$ is hereditary), we define the Auslander-Reiten translate $\tau(V)\in\rep_\kk Q$ via the short exact sequence
-  \begin{equation}\label{eq:AR translation}
-    0\longrightarrow \tau(V)\longrightarrow D\Hom(P_1,\kk Q)\longrightarrow D\Hom(P_0,\kk Q)\longrightarrow 0,
-  \end{equation}
-  where $D=\Hom(-,\kk)$ is the standard $\kk$-linear duality functor.
+Write $\kk Q$ for the path algebra of $Q$, this is the $\kk$-vector space with basis given by paths (including the trivial paths) in $Q$.  
+The vector space $\kk Q$ has a multiplication given by concatenation of paths and one may identify the module category of $\kk Q$ with $\rep_\kk Q$, but we will not use this here.  
+The path algebra is naturally considered as a representation of $Q$ where the vector space at vertex $i$ is spanned by all paths in $Q$ ending at $i$ and the action of an arrow $a$ is by concatenation.  
+Given a representation $V\in\rep_\kk Q$ and a projective presentation $0\to P_1\to P_0\to V\to 0$ (which terminates after two terms since $\rep_\kk Q$ is hereditary), we define the Auslander-Reiten translate $\tau(V)\in\rep_\kk Q$ via the short exact sequence
+\begin{equation}\label{eq:AR translation}
+  0\longrightarrow \tau(V)\longrightarrow D\Hom(P_1,\kk Q)\longrightarrow D\Hom(P_0,\kk Q)\longrightarrow 0,
+\end{equation}
+where $D=\Hom(-,\kk)$ is the standard $\kk$-linear duality functor.
 
-  The AR translation $\tau$ strongly controls the representation theory of $Q$: a representation $P$ is projective if and only if $\tau(P)=0$ and a representation $I$ is injective if and only if it is not of the form $\tau(V)$ for any $V$.  
-  Call a representation $V$ preprojective if $\tau^k(V)$ is projective for some $k\ge0$, preinjective\sayDR{post?} if there is an injective representation $I$ so that $V=\tau^k(I)$ for some $k\ge0$, and regular otherwise.  
-  When $Q$ is an orientation of a simply-laced finite-type Dynkin diagram, the injective representations are preprojective (hence projective representations are preinjective) and there are no regular representations.  
-  When $Q$ is an orientation of a simply-laced affine Dynkin diagram, the regular representations admit a concrete description but to describe it we need more notation.
+The AR translation $\tau$ strongly controls the representation theory of $Q$: a representation $P$ is projective if and only if $\tau(P)=0$ and a representation $I$ is injective if and only if it is not of the form $\tau(V)$ for any $V$.  
+Call a representation $V$ preprojective if $\tau^k(V)$ is projective for some $k\ge0$, preinjective\sayDR{post?} if there is an injective representation $I$ so that $V=\tau^k(I)$ for some $k\ge0$, and regular otherwise.  
+When $Q$ is an orientation of a simply-laced finite-type Dynkin diagram, the injective representations are preprojective (hence projective representations are preinjective) and there are no regular representations.  
+When $Q$ is an orientation of a simply-laced affine Dynkin diagram, the regular representations admit a concrete description but to describe it we need more notation.
 
-  Write $\cQ$ for the Grothendieck group of $\rep_\kk Q$ and note that $\cQ$ is a free abelian group generated by the classes $\alpha_i=[S_i]$ of the vertex-simple representations of $Q$.  
-  For $V\in\rep_\kk Q$ we thus call $[V]\in\cQ$ its dimension vector.  
-  Since $\rep_\kk Q$ is hereditary, the Euler-Ringel form \[\langle V,W\rangle:=\dim_\kk\Hom(V,W)-\dim_\kk\Ext^1(V,W)\] only depends on the dimension vectors of $V$ and $W$.  
-  In particular, the Euler-Ringel form is completely determined by the pairing of vertex-simple representations:
-  \[\langle S_i,S_j\rangle=\begin{cases}1 & \text{if $i=j$;}\\ -1 & \text{if $i\to j\in Q_1$;}\\ 0 & \text{otherwise.}\end{cases}\]
+Write $\cQ$ for the Grothendieck group of $\rep_\kk Q$ and note that $\cQ$ is a free abelian group generated by the classes $\alpha_i=[S_i]$ of the vertex-simple representations of $Q$.  
+For $V\in\rep_\kk Q$ we thus call $[V]\in\cQ$ its dimension vector.  
+Since $\rep_\kk Q$ is hereditary, the Euler-Ringel form \[\langle V,W\rangle:=\dim_\kk\Hom(V,W)-\dim_\kk\Ext^1(V,W)\] only depends on the dimension vectors of $V$ and $W$.  
+In particular, the Euler-Ringel form is completely determined by the pairing of vertex-simple representations:
+\[\langle S_i,S_j\rangle=\begin{cases}1 & \text{if $i=j$;}\\ -1 & \text{if $i\to j\in Q_1$;}\\ 0 & \text{otherwise.}\end{cases}\]
 
-  For the remainder of the section we restrict $Q$ to be an orientation of a simply-laced affine Dynkin diagram.
-  Identifying $\cQ\cong\ZZ^n$ with the root lattice, we write $\delta\in\cQ$ for the minimal positive imaginary root.
-  \begin{lemma}\cite{ASS06}
-      A representation $V\in\rep_\kk Q$ is regular if and only if $\langle\delta,V\rangle=0$.
-  \end{lemma}
+For the remainder of the section we restrict $Q$ to be an orientation of a simply-laced affine Dynkin diagram.
+Identifying $\cQ\cong\ZZ^n$ with the root lattice, we write $\delta\in\cQ$ for the minimal positive imaginary root.
+\begin{lemma}\cite{ASS06}
+  A representation $V\in\rep_\kk Q$ is regular if and only if $\langle\delta,V\rangle=0$.
+\end{lemma}
 
-  To prove Proposition~\ref{prop:level zero} we will further restrict $Q$ to be of affine type $\tilde{A}_{n-1}$, that is $Q$ is an acyclic orientation of a cycle.  
-  In this case we identify the vertices of $Q$ with $\ZZ_n$, the integers modulo $n$, so that neighboring vertices have consecutive labels.
-  Our main interest will be in rigid representations, i.e. $V\in\rep_\kk Q$ such that $\Ext^1(V,V)=0$.  
-  In particular, we aim to give a concrete characterization of all rigid indecomposable representations $V$ which are regular.
+To prove Proposition~\ref{prop:level zero} we will further restrict $Q$ to be of affine type $\tilde{A}_{n-1}$, that is $Q$ is an acyclic orientation of a cycle.  
+In this case we identify the vertices of $Q$ with $\ZZ_n$, the integers modulo $n$, so that neighboring vertices have consecutive labels.
+Our main interest will be in rigid representations, i.e. $V\in\rep_\kk Q$ such that $\Ext^1(V,V)=0$.  
+In particular, we aim to give a concrete characterization of all rigid indecomposable representations $V$ which are regular.
 
-  The following characterization of rigid indecomposable regular representations appears to be new and may be of independent interest.  For $i,j\in\ZZ_n$ write $[i,j]=\{i,i+1,\ldots,j\}$ and define a representation $V_{[i,j]}$ of $Q$ with one-dimensional vector spaces at each of the vertices in $[i,j]$ and identity maps between neighboring vector spaces.
-  \begin{proposition}
-    Let $V$ be a rigid indecomposable regular representation of an acyclic quiver $Q$ of affine type $\tilde{A}_{n-1}$.  
-    Then there are $i,j\in Q_0$ with $[i,j]\subsetneq[1,n]$ containing the same number of sinks and sources of $Q$ so that $V\cong V_{[i,j]}$. 
-  \end{proposition}
-  \begin{proof}\mbox{}
-    To begin we recall the structure of the subcategory $\cR\subset\rep_\kk Q$ consisting of the regular representations.  
-    Suppose that $Q$ contains $p$ clockwise arrows and $q$ counterclockwise arrows.  
-    Then $\cR$ is equivalent the direct product of three categories: the category of nilpotent representations of an oriented $p$-cycle, the category of nilpotent representations of an oriented $q$-cycle, and the category of invertible representations of the Jordan quiver (this is the quiver with a single vertex and a single loop based at this vertex so that an invertible representation is specified by a single invertible matrix).\sayDR{For uniformity I am separating the standard $\PP^1$-family of homogeneous tubes for the Kronecker quiver into nilpotent ``north pole'' representations, nilpotent ``south pole'' representations, and ``invertible'' representations.}
+The following characterization of rigid indecomposable regular representations appears to be new and may be of independent interest.  For $k,\ell\in\ZZ_n$ write $[k,\ell]=\{k,k+1,\ldots,\ell\}$ and define a representation $V_{[k,\ell]}$ of $Q$ with one-dimensional vector spaces at each of the vertices in $[k,\ell]$ and identity maps between neighboring vector spaces.
+\begin{proposition}
+  Let $V$ be a rigid indecomposable regular representation of an acyclic quiver $Q$ of affine type $\tilde{A}_{n-1}$.  
+  There are $k,\ell\in Q_0$ with $[k,\ell]\subsetneq\ZZ_n$ containing the same number of sinks and sources of $Q$ so that $V\cong V_{[k,\ell]}$.
+  Moreover, every rigid indecomposable regular representation arises in this way. 
+\end{proposition}
+\begin{proof}\mbox{}
+  To begin we recall the structure of the subcategory $\cR\subset\rep_\kk Q$ consisting of the regular representations.  
+  Suppose that $Q$ contains $p$ clockwise arrows and $q$ counterclockwise arrows.  
+  Then $\cR$ is equivalent the direct product of three categories: the category of nilpotent representations of an oriented $p$-cycle, the category of nilpotent representations of an oriented $q$-cycle, and the category of invertible representations of the Jordan quiver (this is the quiver with a single vertex and a single loop based at this vertex so that an invertible representation is specified by a single invertible matrix).\sayDR{For uniformity I am separating the standard $\PP^1$-family of homogeneous tubes for the Kronecker quiver into nilpotent ``north pole'' representations, nilpotent ``south pole'' representations, and ``invertible'' representations.}
 
-    Any invertible representation $M$ of the Jordan quiver has nontrivial self-extensions given by block upper triangular matrices with two copies of $M$ on the diagonal, in particular there are no rigid representations in this component.
-    For representations of $Q$ in this component, the dimension of the vector space at each vertex is equal and all maps are invertible.
-    From the considerations above, such representations are never rigid.
-    
-    Now consider the category $\cC$ of nilpotent representations of an oriented $k$-cycle.  
-    Write $\tilde\cC$ for the category of finite-dimensional representations of the equioriented bi-infinite $A_{\infty,\infty}$ quiver.  
-    For any choice of base point, there is an essentially surjective exact functor $\pi:\tilde\cC\to\cC$ given by ``wrapping around'' the $k$-cycle (nilpotency guarantees the essential surjectivity).  
-    Now consider a nilpotent representation $V$ of the $k$-cycle which is sincere (i.e. every vertex contains a nontrivial vector space).
-    Choose a lift $\tilde V\in\tilde\cC$ of $V$ in which every indecomposable summand has support intersecting a given fundamental domain and write $\tilde V'$ for the lift of $V$ obtained by shifting $\tilde V$ to the right by $k$ vertices.  
-    Since $V$ was sincere, it is easy to see that $\tilde\cC$ contains a nontrivial extension of $\tilde V$ by $\tilde V'$, in particular $\Ext^1(V,V)\ne 0$ since $\pi$ is exact.  
-    For $k=p$ ($k=q$ is handled similarly), the representations of $Q$ in this component have isomorphisms at each of the $q$ counterclockwise arrows\sayDR{It feels a little funny to think that the zero map between zero vector spaces is an isomorphism but it's true.} and are sincere as representations of the $k$-cycle if and only if they are sincere as representations of $Q$.
+  Any invertible representation $M$ of the Jordan quiver has nontrivial self-extensions given by block upper triangular matrices with two copies of $M$ on the diagonal, in particular there are no rigid representations in this component.
+  For representations of $Q$ in this component, the dimension of the vector space at each vertex is equal and all maps are invertible.
+  From the considerations above, such representations are never rigid.
+  
+  Now consider the category $\cC$ of nilpotent representations of an oriented $r$-cycle.  
+  Write $\tilde\cC$ for the category of finite-dimensional representations of the equioriented bi-infinite $A_{\infty,\infty}$ quiver.  
+  For any choice of base point, there is an essentially surjective exact functor $\pi:\tilde\cC\to\cC$ given by ``wrapping around'' the $r$-cycle (nilpotency guarantees the essential surjectivity).  
+  Now consider a nilpotent representation $V$ of the $r$-cycle which is sincere (i.e. every vertex contains a nontrivial vector space).
+  Choose a lift $\tilde V\in\tilde\cC$ of $V$ in which every indecomposable summand has support intersecting a given fundamental domain and write $\tilde V'$ for the lift of $V$ obtained by shifting $\tilde V$ to the right by $r$ vertices.  
+  Since $V$ was sincere, it is easy to see that $\tilde\cC$ contains a nontrivial extension of $\tilde V$ by $\tilde V'$, in particular $\Ext^1(V,V)\ne 0$ since $\pi$ is exact.  
+  For $r=p$ ($r=q$ is handled similarly), the representations of $Q$ in this component have isomorphisms at each of the $q$ counterclockwise arrows\sayDR{It feels a little funny to think that the zero map between zero vector spaces is an isomorphism but it's true.} and are sincere as representations of the $r$-cycle if and only if they are sincere as representations of $Q$.
 
-    Following the discussion above we see that a regular representation of $Q$ is rigid only if it is non-sincere.  
-    Since a non-sincere representation of $Q$ can be identified with a representation of a Dynkin quiver of type $A$, any rigid indecomposable regular representation of $Q$ must be of the form $V_{[i,j]}$ for some $i,j\in Q_0$ with $[i,j]\subsetneq[1,n]$.  
+  Following the discussion above we see that a regular representation of $Q$ is rigid only if it is non-sincere.  
+  Since a non-sincere representation of $Q$ can be identified with a representation of a Dynkin quiver of type $A$, any rigid indecomposable regular representation of $Q$ must be of the form $V_{[k,\ell]}$ for some $k,\ell\in Q_0$ with $[k,\ell]\subsetneq\ZZ_n$.  
+  It only remains to observe the condition on sinks and sources in $[k,\ell]$.  
+  Write $I,O\subset Q_0$ for the subset of sinks and sources in $Q$ respectively. 
+  For any representation $V$ we have  
+  \[\langle\delta,V\rangle=\sum_{j\in Q_0}\dim V_j-\sum_{a\in Q_1}\dim V_{t(a)}=\sum_{o\in O}\dim V_o-\sum_{i\in I}\dim V_i.\]
+  For regular $V$, we have $\langle\delta,V\rangle=0$ and so $\sum\limits_{o\in O}\dim V_o=\sum\limits_{i\in I}\dim V_i$.  In particular, this holds for $V_{[k,\ell]}$ and so the number of sinks in $[k,\ell]$ must equal the number of sources in $[k,\ell]$ as desired.
+\end{proof}
 
-    It only remains to observe the condition on sinks and sources in $[i,j]$.  
-    Write $C,K\subset Q_0$ for the subset of source and sinks in $Q$ respectively. 
-    For any representation $V$ we have  
-    \[\langle\delta,V\rangle=\sum_{i\in Q_0}\dim V_i-\sum_{a\in Q_1}\dim V_{t(a)}=\sum_{i\in C}\dim V_i-\sum_{i\in K}\dim V_i.\]
-    For regular $V$, we have $\langle\delta,V\rangle=0$ and so $\sum\limits_{i\in C}\dim V_i=\sum\limits_{i\in K}\dim V_i$.
-  \end{proof}
+To conclude, we aim to compute the cluster characters \eqref{eq:cc formula} of the regular representations $V_{[k,\ell]}$ in preparation for comparing with certain minors on $G^{c,c^{-1}}$.  For this we need an explicit description of their coindices and their submodules.  
 
+\begin{proposition}\label{prop:regular coindices}
+  Consider $[k,\ell]\subsetneq\ZZ_n$ containing sinks $i_1 < \cdots < i_m$ and sources $o_1 < \cdots < o_m$.
+  Let 
+  \[0\to V_{[k,\ell]} \to \bigoplus I_j^{a_j} \to \bigoplus I_j^{b_j}\to 0\]
+  be the minimal injective resolution of $V_{[k,\ell]}$.
+  Then
+  \[-\coind(V_{[k,\ell]})=\sum_j(b_j-a_j)\omega_j=\sum_{j\in S_{[k,\ell]}} \omega_{j+1} - \omega_j,\]
+  where $S_{[k,\ell]}\subset\ZZ_n$ is determined as follows:
+  \begin{itemize}
+    \item if the first sink in $[k,\ell]$ comes before the first source (i.e. $i_1 < o_1$ in $[k,\ell]$), then 
+    \[S_{[k,\ell]} = [\ell,k-2] \cup [i_1, o_1 -1] \cup \cdots \cup [i_m, o_m - 1];\]
+    \item if the first source in $[k,\ell]$ comes before the first sink (i.e. $o_1 < i_1$ in $[k,\ell]$), then
+    \[S_{[k,\ell]} = [k,o_1-1] \cup [i_1,o_2-1] \cup \cdots \cup [i_m,\ell].\]
+  \end{itemize}
+\end{proposition}
+\begin{proof}
+  If $i_1 < o_1$ in $[k,\ell]$, then the minimal injective resolution of $V_{[k,\ell]}$ is
+  \[0\to V_{[k,\ell]} \to I_\ell \oplus I_{i_1} \oplus \cdots \oplus I_{i_m} \to I_{k-1} \oplus I_{o_1} \oplus \cdots \oplus I_{o_m}.\]
+  But notice that in the sum $\sum\limits_{j\in S_{[k,\ell]}} \omega_{j+1} - \omega_j$, the terms coming from each connected interval of $S_{[k,\ell]}$ telescope to give
+  \[\sum_{j\in S_{[k,\ell]}} \omega_{j+1} - \omega_j=\omega_{k-1}-\omega_\ell+\sum_{r=1}^m \omega_{o_r}-\omega_{i_r}=-\coind(V_{[k,\ell]}).\]
+  The case $o_1<i_1$ is handled similarly.
+\end{proof}
+
+Given a connected interval of vertices $[k,\ell]\subsetneq\ZZ_n$, write $Q_{[k,\ell]}$ for the full connected subquiver of $Q$ having vertex set $[k,\ell]$.  Note that $Q_{[k,\ell]}$ is a quiver of Dynkin type $A$ and so the vertex set $[k,\ell]$ can be considered as a poset with Hasse quiver $Q_{[k,\ell]}$.  The following result is well-known.
+\begin{lemma}
+  Subrepresentations of $V_{[k,\ell]}$ are naturally in bijection with successor-closed subsets $E\subset[k,\ell]$, where $E$ records the dimension vector of the subrepresentation.
+\end{lemma}
+
+Let $\cE_{[k,\ell]}$ denote the collection of successor-closed subsets $E \subset [k,\ell]$.  Then the cluster character of $V_{[k,\ell]}$ is given by
+\begin{equation}\label{eq:regular cluster characters}
+  x_{V_{[k,\ell]}} = x^{\sum\limits_{j\in S_{[k,\ell]}} \omega_{j+1} - \omega_j} \sum_{E \in \cE} \prod_{j \in E} \hat{y}_j,
+\end{equation}
+where $\hat y_j=\prod_{i=1}^m x_i^{B_{ij}}$.
 
 
 \subsection{Networks}
 
-We will study generalized minors by modeling them with weighted networks on a cylinder. A graph is weighted if all of its edges are assigned elements of a fixed ring; below this will be the Laurent polynomial ring $\CC[t_{\pm1}^{\pm1},\dotsc,t_{\pm n}^{\pm1},h_1^{\pm1},\dotsc,h_n^{\pm1}]$ with $3n$ polynomial generators.
+We will study generalized minors in affine type $\tilde A_{n-1}$ by modeling generic elements of a double Bruhat cell with weighted networks on a cylinder. A graph is weighted if all of its edges are assigned elements of a fixed ring; below this will be the Laurent polynomial ring $\CC[t_{\pm1}^{\pm1},\dotsc,t_{\pm n}^{\pm1},h_1^{\pm1},\dotsc,h_n^{\pm1}]$ with $3n$ polynomial generators.
 
 \begin{definition}
-Given $c = s_{\sigma_1} \dotsc s_{\sigma_n}$, define the \emph{network} $\cN_c$ to be the following weighted directed graph on the cylinder. 
+Given a Coxeter element $c = s_{\sigma_1} \dotsc s_{\sigma_n}$, define the \emph{network} $\cN_c$ to be the following weighted directed graph on the cylinder. 
 We describe it as the concatenation of subgraphs on cylinders associated to the factors in the decomposition 
 \[g=x_{-\sigma_1}(t_{-\sigma_1})\cdots x_{-\sigma_n}(t_{-\sigma_n}) hx_{\sigma_n}(t_{\sigma_n}) \cdots x_{\sigma_1}(t_{\sigma_1}),\]
 where $h$ factors as $\prod\limits_{i=1}^n h_i$ with $h_i=\big(h^{\omega_i}\big)^{\alpha_i^\vee}$.  
@@ -1577,7 +1612,7 @@ We will abuse notation slightly and write $h_i$ also for the value $h_i^{\omega_
 
 Each subcylinder has $n$ non-crossing \emph{horizontal} edges running from one boundary component to the other which are oriented from right to left and labeled by $\ZZ_n$ compatibly with their cyclic ordering.  
 The subcylinder associated to $x_{\pm i}(t_{\pm i})$ contains a (\emph{vertical}) \emph{bridge} with weight $t_{\pm i}$ joining the $(i-1)^{st}$ horizontal edge and the $i^{th}$ horizontal edge, this bridge is oriented upward for $i$ and downward for $-i$.  
-In the subcylinder associated to $h_i$, the $i^{th}$ edge has weight $h_i^{-1}$ and the $(i-1)^{st}$ edge has weight $h_i$.  
+In the subcylinder associated to $h_i$, the $i^{th}$ horizontal edge has weight $h_i^{-1}$ and the $(i-1)^{st}$ horizontal edge has weight $h_i$.  
 All other edges in a subcylinder are taken to have weight 1.
 \bigskip
 \begin{center}
@@ -1803,40 +1838,6 @@ We define $\phi(P) \subset \ZZ_n$ by letting $j \in \phi(P)$ if and only if a pa
   \end{center}
 \end{proof}
 
-\sayDR{Move this into the section on tubes?}Recall that the regular cluster variables are labeled by intervals $[p,q] \subset \ZZ_n$ containing as many sources as sinks -- to such an interval we associate a boundary condition on paths in $\cN_c$:
-
-\begin{definition}\label{def:Spq}
-Let $[p,q] \subset \ZZ_n$ be an interval containing an even number of sinks and sources; that is, such that $M_{[p,q]}$ is regular. Write $k_1 < \cdots < k_m$ (resp. $c_1 < \cdots < c_m$) for the indices of the sinks (resp. sources) in $[p,q]$. Let $S_{[p,q]}$ denote the following subset of $\ZZ_n$:
-\begin{itemize}
-\item If the first sink in $[p,q]$ comes before the first source (i.e. $k_1 < c_1$ in $[p,q]$), then 
-\[
-S_{[p,q]} = [q,p-2] \cup [k_1, c_1 -1] \cup \cdots \cup [k_m, c_m - 1].
-\]
-\item If the first source in $[p,q]$ comes before the first sink (i.e. $c_1 < k_1$ in $[p,q]$),
-\[
-S_{[p,q]} = [p,c_1-1] \cup [k_1,c_2-1] \cup \cdots \cup [k_m,q].
-\]
-\end{itemize}
-\end{definition}
-
-The above definition is determined by the following property:
-\begin{proposition}
-Let 
-\[
-M_{[p,q]} \to \bigoplus I_j^{a_j} \to \bigoplus I_j^{b_j}
-\]
-be the minimal injective resolution of $M_{[p,q]}$. Then
-\[
-\sum_j (b_j - a_j)\omega_j = \sum_{i \in S_{[p,q]}} \omega_{i+1} - \omega_i.
-\]
-\end{proposition}
-\begin{proof}
-As in Definition \ref{def:Spq}, we let $k_1 < \cdots < k_m$, $c_1 < \cdots < c_m$ be the labels of the sinks and sources in $[p,q]$. If $k_1 < c_1$ in $[p,q]$, then the minimal injective resolution of $M_{[p,q]}$ is
-\[
-M_{[p,q]} \to I_q \oplus I_{k_1} \oplus \cdots \oplus I_{k_m} \to I_{p-1} \oplus I_{c_1} \oplus \cdots \oplus I_{c_m}.
-\]
-\end{proof}
-
 We now turn to the main result of the section:
 
 \begin{theorem}\sayDR{Merge this into Prop.~\ref{prop:level zero} and move the proof into the proof section below.}
@@ -1851,12 +1852,6 @@ the evaluation $\Delta_{\omega_{S_{[p,q]}}}(g)$ is the weighted sum
 \[
 \Delta_{\omega_{S_{[p,q]}}}(g) = \sum_{P \in \mathcal{P}} wt(P).
 \]
-As in Theorem~\ref{???}, let $\cE = \{ E \subset [p,q]\}$ denote the subsets of $E \subset [p,q]$ that are target-closed: if there is an arrow $i \to j$ in $Q$ and $i, j$ are in $[p,q]$, then $E$ must contain $j$ if it contains $i$. 
-% $i \in E$, $j \in [p,q]$, and there is an arrow from $i$ to $j$ in $Q$, then $j \in E$. 
-Then we have 
-\[
-x_{M_{[p,q]}} = x^g \sum_{E \in \cE} \prod_{i \in E} \hat{y}_i.
-\]\sayDR{Using $g$ here for the $g$-vector is an abuse of notation.}
 
 As in Lemma \ref{lem:phi}, we define $\phi(P) \subset \ZZ_{n+1}$ by letting $j \in \phi(P)$ if and only if a path in $P$ traverses the unique edge of weight $t_j$. We claim that for $P \in \cP$, $\phi(P)$ is in fact a subset of $[p,q]$, is target-closed in $[p,q]$, and that the assignment $P \mapsto \phi(P)$ defines a bijection $\cP \cong \cE$.
 
@@ -1866,7 +1861,7 @@ As in Lemma \ref{lem:phi}, we define $\phi(P) \subset \ZZ_{n+1}$ by letting $j \
 
 %Let $\phi(P) \subset \ZZ_{n+1}$ denote the set of indices $j$ such that $wt(P)$ depends non-trivially on $t_j$. Recall that $t_j$ appears as the weight of a unique edge in $\cN_c$, so equivalently $\phi(P)$ records which of these edges are traversed by a path in $P$. We claim that $\phi(P)$ is in fact a subset of $[p,q]$, is target-closed in $[p,q]$, and that the assignment $P \mapsto \phi(P)$ defines a bijection $\cP \cong \cE$.
 
-As in Definition \ref{def:Spq}, we let $k_1 < \cdots < k_m$, $c_1 < \cdots < c_m$ denote the labels of the sinks and sources in $[p,q]$. We first consider the case where the first sink in $[p,q]$ comes before the first source (i.e. $k_1 < c_1$ in $[p,q]$). Recall that in this case
+As in Definition \ref{prop:regular coindices}, we let $k_1 < \cdots < k_m$, $c_1 < \cdots < c_m$ denote the labels of the sinks and sources in $[p,q]$. We first consider the case where the first sink in $[p,q]$ comes before the first source (i.e. $k_1 < c_1$ in $[p,q]$). Recall that in this case
 \[
 S_{[p,q]} = [q,p-2] \cup [k_1, c_1 -1] \cup \cdots \cup [k_m, c_m - 1].
 \]
