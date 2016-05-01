@@ -443,7 +443,7 @@ The level of an irreducible $\widehat{G}$-representation is the character by whi
 %or zero if $\lambda \in X$, $\lambda \in -X$, or $\lambda \in \widehat{P} \smallsetminus (X \cup -X)$, respectively.
 %the level of $V(\lambda)$ is positive, negative, or zero if $\lambda \in X$, $\lambda \in -X$, or $\lambda \in \widehat{P} \smallsetminus (X \cup -X)$, respectively.
 
-\begin{definition}
+\begin{definition}\label{def:minors}
 Let $V$ be a weight representation of $\widehat{G}$ and $\lambda \in \widehat{P}$ a weight for which the weight space $V_\lambda$ is one-dimensional. The principal generalized minor $\Delta_{(V,\lambda)} \in \kk[\widehat{G}]$ is the function 
 \[
 g \mapsto \pi_\lambda(gv_\lambda)/v_\lambda,
@@ -1792,21 +1792,20 @@ It follows that $h_i^{\omega_i}=h^{\omega_i}$ and $h_i^{\omega_j}=1$ for $i\ne j
 Here we abuse notation slightly and write $h_i$ also for the value $h_i^{\omega_i}$.
 \end{definition}
 
-By a \emph{path} in $\cN_c$ we will mean a directed path which begins as a source on the right-hand side of the cylinder, is directed compatibly with the edges of $\cN_c$, and ends at a sink on the left-hand side of the cylinder. 
+By a \emph{path} in $\cN_c$ we will mean a directed path in the network which begins at a source on the right-hand side of the cylinder, is directed compatibly with the edges of $\cN_c$, and ends at a sink on the left-hand side of the cylinder. 
 If $P = \{P_i\}$ is a collection of paths, we write $\partial_{in}P \subset \ZZ_n$ for the set of boundary sources at which paths in $P$ begin; similarly $\partial_{out}P \subset \ZZ_n$ denotes the set of boundary sinks. 
 We say the weight of a path is the product of the weights of edges it traverses, and the weight $wt(P)$ of a collection of paths is the product of the weights of its constituent paths.
 
-\begin{proposition}\label{prop:minorsfrompaths}
-Given $S \subset \ZZ_n$, let
-\[ \omega_S = \sum_{i \in S} \omega_{i+1} - \omega_i.\] 
-Then for generic $g\in G^{c,c^{-1}}$ we have \[ \Delta_{\omega_S}(g) = \sum_{P: S \to S} wt(P), \]
-where the sum is over collections $P$ of pairwise disjoint paths with $\partial_{in}P = \partial_{out}P = S$.
-%$|S|$-tuples of non-intersecting paths in $\cN_c$ with input and output sets equal to $S$.
+\begin{proposition}\label{prop:minorsfrompaths}\sayDR{I know it isn't relevant to the paper but I am very tempted to give a network $N_{u,v}$ and an analogue of this proposition for each double Bruhat cell $G^{u,v}$ since there is really nothing special about the Coxeter case here.}
+  Given $S \subset \ZZ_n$, let
+  \[ \omega_S = \sum_{i \in S} \omega_{i+1} - \omega_i.\] 
+  Then for generic $g\in G^{c,c^{-1}}$ we have \[ \Delta_{\omega_S}(g) = \sum_{P: S \to S} wt(P), \]
+  where the sum is over collections $P$ of pairwise disjoint paths in $\cN_c$ with $\partial_{in}P = \partial_{out}P = S$.
 \end{proposition}
-
 \begin{proof}
-By construction, the directed graph $\cN_c$ encodes the action of $g$ in the standard basis $\{ e_{j_1} \wedge \cdots \wedge e_{j_r} z^d\}$ of $\big(\!\bigwedge^{\!r}\CC^n\big)[z^{\pm 1}]$. 
-This basis is labeled by pairs of an $r$-element subset of $\ZZ_n$ and an integer $d$.
+  Write $r=|S|$.  
+  Inside the irreducible representation $\big(\!\bigwedge^{\!r}\CC^n\big)[z^{\pm 1}]$ of $G$, the vector $\bigwedge\limits_{i\in S} e_i$ (following Definition~\ref{def:minors} the choice of sign will be irrelevant) has weight $\omega_S$ and thus this representation identifies with $V(\omega_S)$.
+  By construction, the network $\cN_c$ encodes the action of $g\in G^{c,c^{-1}}$ in the standard basis $\{ e_{j_1} \wedge \cdots \wedge e_{j_r} z^d\}$ of $\big(\!\bigwedge^{\!r}\CC^n\big)[z^{\pm 1}]$ labeled by pairs of an $r$-element subset of $\ZZ_n$ and an integer $d$.  The result then follows from the definition of $\Delta_{\omega_S}$.
 \end{proof}
 
 To use the above proposition effectively, we collect some elementary combinatorial observations about non-crossing paths $P$ in $\cN_c$. 
