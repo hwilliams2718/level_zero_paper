@@ -520,7 +520,7 @@ In computing various relations in $\kk[G^{c,c^{-1}}]$ we will make extensive use
   g=x_{-1}(t_{-1}) \cdots x_{-n}(t_{-n}) h x_n(t_n) \cdots x_1(t_1)
 \end{equation}
 for some $h \in H$ and $t_i \in \kk^\times$ [FZ,Wil]. 
-For example, with respect to such a factorization it is clear that for any dominant weight $\lambda \in \widehat{P}^+$, we have $\Delta_\lambda(g) = h^\lambda$. Some similar computations are collected in Lemma \ref{lemma:coefficients_values}. 
+For example, with respect to such a factorization it is clear that for any dominant weight $\lambda \in \widehat{P}^+$, we have $\Delta_\lambda(g) = h^\lambda$.\sayDR{This seems to be the first use of this notation for the evaluation of a weight on an element of the Cartan subgroup, we should define it somewhere above.} Some similar computations are collected in Lemma \ref{lemma:coefficients_values}. 
 %Here we write 
 %\begin{equation}
 %  x_{-i}(t):=\varphi_i\left(\begin{array}{cc}1 & 0 \\ t & 1\end{array}\right)
@@ -1805,8 +1805,8 @@ where the sum is over collections $P$ of pairwise disjoint paths with $\partial_
 \end{proposition}
 
 \begin{proof}
-By construction, the directed graph $\cN_c$ encodes the action of $g$ in the standard basis $\{ e_{j_1} \wedge \cdots \wedge e_{j_r} z^\ell\}$ of $\big(\!\bigwedge^{\!k}\CC^n\big)[z^{\pm 1}]$. 
-This basis is labeled by pairs of a $k$-element subset of $\ZZ_n$ and an integer $\ell$.
+By construction, the directed graph $\cN_c$ encodes the action of $g$ in the standard basis $\{ e_{j_1} \wedge \cdots \wedge e_{j_r} z^d\}$ of $\big(\!\bigwedge^{\!r}\CC^n\big)[z^{\pm 1}]$. 
+This basis is labeled by pairs of an $r$-element subset of $\ZZ_n$ and an integer $d$.
 \end{proof}
 
 To use the above proposition effectively, we collect some elementary combinatorial observations about non-crossing paths $P$ in $\cN_c$. 
@@ -2103,6 +2103,46 @@ Define the $2n\times n$ matrix $\tilde B_{k,m}=\mu_k\mu_{k-1}\cdots\mu_1(\mu_n\c
       where $I$ denotes the sinks in the support quiver $Q_{k,\ell}$ of $\cev{M}_{k,\ell}$ and $O$ denotes the set of internal sources of $\cev{Q}_{k,\ell}$ together with $s(\cev{a}_{k+\ell-1})$.
     \end{enumerate}
   \end{lemma}
+
+
+  
+  \begin{lemma}\sayDR{This should be translated into our current notation and placed in an appropriate location, maybe somewhere near Lemma~\ref{lemma:coefficients_values}}
+    Let $g$ be a generic element of $L^{c,c^{-1}}$.
+    \begin{enumerate}
+      \item $\Delta_{\omega_i}(g)=u_i^{-1}$
+      \item $\Delta_{c\omega_i}^{\omega_i}(g)=\begin{cases}u_i^{-1}\prod\limits_{j=i^-}^{i^+}t_j & \text{if $i$ is a sink in $Q$;}\\u_i^{-1}t_i & \text{if $i$ is a source in $Q$;}\\u_i^{-1}\prod\limits_{j=i}^{i^+}t_j & \text{if $i$ is neither a source nor a sink in $Q$ but $i^+$ is a source;}\\u_i^{-1}\prod\limits_{j=i^-}^it_j & \text{if $i$ is neither a source nor a sink in $Q$ but $i^-$ is a source.}\end{cases}$
+      \item For 
+      \begin{equation}
+        y_i=\begin{cases}\Delta_{c\omega_i}^{\omega_i} & \text{if $i$ is a sink in $Q$;}\\\Delta_{c\omega_i}^{\omega_i}\left(\Delta_{c\omega_{i_-}}^{\omega_{i_-}}\Delta_{c\omega_{i_+}}^{\omega_{i_+}}\right)^{-1} & \text{if $i$ is a source in $Q$;}\\\Delta_{c\omega_i}^{\omega_i}\left(\Delta_{c\omega_{i_+}}^{\omega_{i_+}}\right)^{-1} & \text{if $i$ is neither a source nor a sink in $Q$ but $i^+$ is a sink;}\\\Delta_{c\omega_i}^{\omega_i}\left(\Delta_{c\omega_{i_-}}^{\omega_{i_-}}\right)^{-1} & \text{if $i$ is neither a source nor a sink in $Q$ but $i^-$ is a sink.}\end{cases}
+      \end{equation}
+      we have
+      \begin{align}
+        y_i(g)&=\begin{cases}u_i^{-1}t_i & \text{if $i$ is a sink in $Q$;}\\u_{i_-}u_i^{-1}u_{i_+}t_i & \text{if $i$ is a source in $Q$;}\\u_i^{-1}u_{i_+}t_i & \text{if $i$ is neither a source nor a sink in $Q$ but $i^+$ is a sink;}\\u_{i_-}u_i^{-1}t_i & \text{if $i$ is neither a source nor a sink in $Q$ but $i^-$ is a sink.}\end{cases}
+      \end{align}
+    \end{enumerate}
+  \end{lemma}
+
+%  \begin{theorem}
+%    For $x_i=\Delta_{\omega_i}$ and $y_i$ as above, we have $x_{\vec{M}_{k,\ell}}=\Delta_{-\vec{\lambda}_{k,\ell}}$ and $x_{\scev{M}_{k,\ell}}=\Delta_{-\scev{\lambda}_{k,\ell}}$ on $L^{c,c^{-1}}$.
+%  \end{theorem}
+%  \begin{proof}\mbox{}
+%    \begin{itemize}
+%      \item $x^{\sum_{i\in O}\omega_i-\sum_{i\in I}\omega_i}=\prod\limits_{i\in O}u_i^{-1}\prod\limits_{i\in I}u_i$
+%      \item For a sink $i\in J$ we have
+%      \[\left(x_{i_-}^{-1}y_ix_{i_+}^{-1}\right)(g)=u_{i_-}u_i^{-1}u_{i_+}t_i.\]
+%      \item For $j\in I^-(P)$ and $m\in(j^-,j)$ we have
+%      \[\left(x_{m_-}^{-1}x_m^{-1}x_{j_-}x_j\prod\limits_{i\in[m,j_-]}y_i\right)(g)=u_{m_-}u_{j_-}^{-1}\prod\limits_{i\in[m,j_-]}t_i.\]
+%      \item For $j\in I^+(P)$ and $m\in(j,j^+)$ we have
+%      \[\left(x_jx_{j_+}x_m^{-1}x_{m_+}^{-1}\prod\limits_{i\in[j_+,m]}y_i\right)(g)=u_{j_+}^{-1}u_{m_+}\prod\limits_{i\in[j_+,m]}t_i.\]
+%      \item For a source $j\in P$ we have
+%      \[\left(x_{j^-}x_{(j^-)_+}x_j^{-2}x_{(j^+)_-}x_{j^+}\prod\limits_{i\in(j^-,j^+)}y_i\right)(g)=u_{(j^-)_+}^{-1}u_ju_{(j^+)_-}^{-1}\prod\limits_{i\in(j^-,j^+)}t_i.\]
+%      \item 
+%      \[\left(x_{\left(t(\vec{a}_\ell)^-\right)_-}x_{t(\vec{a}_\ell)^-}^{-1}x_{t(\vec{a}_\ell)_-}x_{t(\vec{a}_\ell)}\prod_{i=t(\vec{a}_\ell)^-}^{t(\vec{a}_\ell)_-}y_i\right)(g)=u_{t(\vec{a}_\ell)_-}^{-1}\prod_{i=t(\vec{a}_\ell)^-}^{t(\vec{a}_\ell)_-}t_i\]
+%      \item
+%      \[\left(x_{t(\scev{a}_\ell)}x_{t(\scev{a}_\ell)_+}x_{t(\scev{a}_\ell)^+}^{-1}x_{\left(t(\scev{a}_\ell)^+\right)_+}\prod_{i=t(\scev{a}_\ell)_+}^{t(\scev{a}_\ell)^+}y_i\right)(g)=u_{t(\scev{a}_\ell)_+}^{-1}\prod_{i=t(\scev{a}_\ell)_+}^{t(\scev{a}_\ell)^+}t_i\]
+%    \end{itemize}
+%    Comparing formulas using the above substitutions completes the proof.
+%  \end{proof}
 
 
 
