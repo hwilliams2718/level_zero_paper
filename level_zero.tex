@@ -1809,31 +1809,17 @@ We say the weight of a path is the product of the weights of edges it traverses,
 \end{proof}
 
 To use the above proposition effectively, we collect some elementary combinatorial observations about non-crossing paths $P$ in $\cN_c$. 
-We define $\phi(P) \subset \ZZ_n$ by letting $j \in \phi(P)$ if and only if a path in $P$ traverses the unique bridge of weight $t_j$.
+Define $\phi(P)\subset\ZZ_n$ by letting $j\in\phi(P)$ if and only if a path in $P$ traverses the unique bridge of weight $t_j$.
 
 \begin{lemma}\label{lem:phi}
   Let $P$ be a collection of pairwise disjoint paths in $\cN_c$.  Then:
   \begin{enumerate}
-    \item For $i\in\partial_{in}P$:
-    \begin{enumerate}
-      \item if $i\to i+1$ in $Q$ or $i\notin\phi(P)$, then $i+1\notin\phi(P)$;
-      \item if $i+1\to i$ in $Q$ and $i+1\in\phi(P)$, then $i\in\phi(P)$;
-      \item[(b')] if  $i+1\in\phi(P)$, then $i+1\to i$ in $Q$ and $i\in\phi(P)$;
-    \end{enumerate}
-    \item For $i\notin\partial_{in}P$: 
-    \begin{enumerate}
-      \item if $i\in\phi(P)$, then $i\to i+1$ in $Q$ and $i+1\in\phi(P)$.\\
-    \end{enumerate}
-  \end{enumerate}
-  \begin{enumerate}
-    \item If $i \to i+1$ in $Q$, $i \in \phi(P)$, and $i \notin \partial_{in}(P)$, then $i + 1 \in \phi(P)$.
-    \item If $i \to i+1$ in $Q$ and $i \in \partial_{in}P$, then $i +1 \notin \phi(P)$.
-    \item If $i+1 \to i$ in $Q$, $i \in \partial_{in}P$, and $i+1 \in \phi(P)$, then $i \in \phi(P)$.
-    \item If $i \notin \phi(P)$ and $i \in \partial_{in}P$, then $i +1 \notin \phi(P)$.
+    \item for $i\in\partial_{in}P$, $i+1\in\phi(P)$ implies $i+1\to i$ in $Q$ and $i\in\phi(P)$;
+    \item for $i\notin\partial_{in}P$, $i\in\phi(P)$ implies $i\to i+1$ in $Q$ and $i+1\in\phi(P)$.
   \end{enumerate}
 \end{lemma}
 \begin{proof}
-  \sayHW{Probably an explanation of one together with a picture is sufficient.}
+  Since $(\sigma_1,\ldots,\sigma_n)$ is sink adapted for $Q$, we have the following local picture of the network $\cN_c$ based on the orientation of the arrow connecting vertices $i$ and $i+1$:
   \begin{center}
   \begin{tikzpicture}
     \node[below] at (0,-2) {$i+1\to i$};
@@ -1881,24 +1867,34 @@ We define $\phi(P) \subset \ZZ_n$ by letting $j \in \phi(P)$ if and only if a pa
     \draw[thick,->] (-0.38,0.38) -- (0.38,-0.38);
   \end{tikzpicture}
   \end{center}
+  The result follows immediately by comparing the statements against these two networks.
 \end{proof}
+\begin{corollary}
+  Let $P$ be a collection of pairwise disjoint paths in $\cN_c$.  Then:
+  \begin{enumerate}
+    \item If $i \to i+1$ in $Q$, $i \in \phi(P)$, and $i \notin \partial_{in}(P)$, then $i + 1 \in \phi(P)$.
+    \item If $i \to i+1$ in $Q$ and $i \in \partial_{in}P$, then $i +1 \notin \phi(P)$.
+    \item If $i+1 \to i$ in $Q$, $i \in \partial_{in}P$, and $i+1 \in \phi(P)$, then $i \in \phi(P)$.
+    \item If $i \notin \phi(P)$ and $i \in \partial_{in}P$, then $i +1 \notin \phi(P)$.
+  \end{enumerate}
+\end{corollary}
 
 We now turn to the main result of the section:
 
-\begin{theorem}\sayDR{Merge this into Prop.~\ref{prop:level zero} and move the proof into the proof section below.}
-If $M_{[p,q]}$ is regular, then under the isomorphism $\CC[G^{c,c^{-1}}] \cong A_Q$ we have
-\[ x_{M_{[p,q]}} = \Delta_{\omega_{S_{[p,q]}}}\]  
+\begin{theorem}
+  If $V_{[k,\ell]}$ is regular, then under the isomorphism $\CC[G^{c,c^{-1}}] \cong A_Q$ we have
+  \[x_{V_{[k,\ell]}} = \Delta_{\omega_{S_{[k,\ell]}}}.\]  
 \end{theorem}
 \begin{proof}
-Let $\cP = \{P: S_{[p,q]} \to S_{[p,q]}\}$ denote the set of pairwise disjoint collections of paths in $\cN_c$ with $\partial_{in}P = \partial_{out}P = S_{[p,q]}$. 
+Let $\cP = \{P: S_{[k,\ell]} \to S_{[k,\ell]}\}$ denote the set of pairwise disjoint collections of paths in $\cN_c$ with $\partial_{in}P = \partial_{out}P = S_{[k,\ell]}$. 
 By Proposition \ref{prop:minorsfrompaths}, for a generic element 
-\[g = x_{-\sigma_0}(t_{-\sigma_0})\cdots x_{-\sigma_n}(t_{-\sigma_n}) hx_{\sigma_n}(t_{\sigma_n}) \cdots x_{\sigma_0}(t_{\sigma_0})\]
-the evaluation $\Delta_{\omega_{S_{[p,q]}}}(g)$ is the weighted sum 
+\[g = x_{-\sigma_1}(t_{-\sigma_1})\cdots x_{-\sigma_n}(t_{-\sigma_n}) hx_{\sigma_n}(t_{\sigma_n}) \cdots x_{\sigma_1}(t_{\sigma_1})\]
+the evaluation $\Delta_{\omega_{S_{[k,\ell]}}}(g)$ is the weighted sum 
 \[
-\Delta_{\omega_{S_{[p,q]}}}(g) = \sum_{P \in \mathcal{P}} wt(P).
+\Delta_{\omega_{S_{[k,\ell]}}}(g) = \sum_{P \in \mathcal{P}} wt(P).
 \]
 
-As in Lemma \ref{lem:phi}, we define $\phi(P) \subset \ZZ_{n+1}$ by letting $j \in \phi(P)$ if and only if a path in $P$ traverses the unique edge of weight $t_j$. We claim that for $P \in \cP$, $\phi(P)$ is in fact a subset of $[p,q]$, is target-closed in $[p,q]$, and that the assignment $P \mapsto \phi(P)$ defines a bijection $\cP \cong \cE$.
+As in Lemma \ref{lem:phi}, we define $\phi(P) \subset \ZZ_n$ by letting $j \in \phi(P)$ if and only if a path in $P$ traverses the unique edge of weight $t_j$. We claim that for $P \in \cP$, $\phi(P)$ is in fact a subset of $[k,\ell]$, is target-closed in $[k,\ell]$, and that the assignment $P \mapsto \phi(P)$ defines a bijection $\cP \simeq \cE$.
 
 %Recall that $\cN_c$ consists of parallel strands labeled by $\Z_{n+1}$ connecting the two boundary components of the cylinder, and two sets of $n+1$ vertical strands connecting them. One of those sets has edges weighted $t_j$, and with 
 
