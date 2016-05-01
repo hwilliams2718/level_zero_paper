@@ -1651,19 +1651,10 @@ where $\hat y_j=\prod_{i=1}^m x_i^{B_{ij}}$.
 We will study generalized minors in affine type $\tilde A_{n-1}$ by modeling generic elements of a double Bruhat cell with weighted networks on a cylinder. A graph is weighted if all of its edges are assigned elements of a fixed ring; below this will be the Laurent polynomial ring $\CC[t_{\pm1}^{\pm1},\dotsc,t_{\pm n}^{\pm1},h_1^{\pm1},\dotsc,h_n^{\pm1}]$ with $3n$ polynomial generators.
 
 \begin{definition}
-Given a Coxeter element $c = s_{\sigma_1} \dotsc s_{\sigma_n}$, define the \emph{network} $\cN_c$ to be the following weighted directed graph on the cylinder. 
-We describe it as the concatenation of subgraphs on cylinders associated to the factors in the decomposition 
-\[g=x_{-\sigma_1}(t_{-\sigma_1})\cdots x_{-\sigma_n}(t_{-\sigma_n}) hx_{\sigma_n}(t_{\sigma_n}) \cdots x_{\sigma_1}(t_{\sigma_1}),\]
-where $h$ factors as $\prod\limits_{i=1}^n h_i$ with $h_i=\big(h^{\omega_i}\big)^{\alpha_i^\vee}$.  
-It follows that $h_i^{\omega_i}=h^{\omega_i}$ and $h_i^{\omega_j}=1$ for $i\ne j$.  
-We will abuse notation slightly and write $h_i$ also for the value $h_i^{\omega_i}$.
-
-Each subcylinder has $n$ non-crossing \emph{horizontal} edges running from one boundary component to the other which are oriented from right to left and labeled by $\ZZ_n$ compatibly with their cyclic ordering.  
-The subcylinder associated to $x_{\pm i}(t_{\pm i})$ contains a (\emph{vertical}) \emph{bridge} with weight $t_{\pm i}$ joining the $(i-1)^{st}$ horizontal edge and the $i^{th}$ horizontal edge, this bridge is oriented upward for $i$ and downward for $-i$.  
-In the subcylinder associated to $h_i$, the $i^{th}$ horizontal edge has weight $h_i^{-1}$ and the $(i-1)^{st}$ horizontal edge has weight $h_i$.  
-All other edges in a subcylinder are taken to have weight 1.
+For $i\in[-n,-1]\cup[1,n]$ define a directed network on a cylinder (which we associate with $x_i(t_i)$) containing $n$ non-crossing \emph{horizontal} edges of weight $1$ running from the right-hand boundary component to the left-hand boundary component, which are labeled by $\ZZ_n$ compatibly with their cyclic ordering, and a (\emph{vertical}) \emph{bridge} of weight $t_i$ joining the $(i-1)^{st}$ horizontal edge and the $i^{th}$ horizontal edge, which is oriented upward for $i>0$ and downward for $i<0$ (see Figure~\ref{fig:networks on cylinders}).  
+For $i\in[1,n]$ define another directed network on a cylinder (which we associate with $h_i^{\alpha_i^\vee}$) again containing the $n$ non-crossing horizontal edges with the $i^{th}$ horizontal edge of weight $h_i^{-1}$ and the $(i-1)^{st}$ horizontal edge of weight $h_i$ and all other horizontal edges of weight 1 (see Figure~\ref{fig:networks on cylinders}).
 \bigskip
-\begin{center}
+\begin{figure}
 \begin{tikzpicture}
   \node[below] at (0,-2) {$x_{-i}(t_{-i})$};
   \draw (0.75,0) ellipse (0.5 and 2);
@@ -1791,7 +1782,14 @@ All other edges in a subcylinder are taken to have weight 1.
   \draw[singlearrow] (1.2,0.85) -- (-0.3,0.85);
   \node[right] at (1.2,0.85) {$\scriptstyle 2$};
 \end{tikzpicture}
-\end{center}
+\caption{Basic networks on a cylinder.}\label{fig:networks on cylinders}
+\end{figure}
+
+Given a Coxeter element $c = s_{\sigma_1} \dotsc s_{\sigma_n}$, define the \emph{network} $\cN_c$ to be the concatenation of the basic networks above associated to the factors in the decomposition 
+\[g=x_{-\sigma_1}(t_{-\sigma_1})\cdots x_{-\sigma_n}(t_{-\sigma_n}) hx_{\sigma_n}(t_{\sigma_n}) \cdots x_{\sigma_1}(t_{\sigma_1})\]
+of a generic element of $G^{c,c^{-1}}$, where $h$ factors as $\prod\limits_{i=1}^n h_i$ with $h_i=\big(h^{\omega_i}\big)^{\alpha_i^\vee}$.
+It follows that $h_i^{\omega_i}=h^{\omega_i}$ and $h_i^{\omega_j}=1$ for $i\ne j$.  
+Here we abuse notation slightly and write $h_i$ also for the value $h_i^{\omega_i}$.
 \end{definition}
 
 By a path in $\cN_c$ we will mean a path which is directed compatibly with the edges of $\cN_c$, and which begins at a source on one end of the cyclinder and ends at a sink on the other end. 
