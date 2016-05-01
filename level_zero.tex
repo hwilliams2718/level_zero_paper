@@ -1616,8 +1616,8 @@ To conclude, we aim to compute the cluster characters \eqref{eq:cc formula} of t
   Let 
   \[0\to V_{[k,\ell]} \to \bigoplus I_j^{a_j} \to \bigoplus I_j^{b_j}\to 0\]
   be the minimal injective resolution of $V_{[k,\ell]}$.
-  Then
-  \[-\coind(V_{[k,\ell]})=\sum_j(b_j-a_j)\omega_j=\sum_{j\in S_{[k,\ell]}} \omega_{j+1} - \omega_j,\]
+  Then the $g$-vector $g_{[k,\ell]}$ of $V_{[k,\ell]}$ is given by
+  \[g_{[k,\ell]}=-\coind(V_{[k,\ell]})=\sum_j(b_j-a_j)\omega_j=\sum_{j\in S_{[k,\ell]}} \omega_{j+1} - \omega_j,\]
   where $S_{[k,\ell]}\subset\ZZ_n$ is determined as follows:
   \begin{itemize}
     \item if the first sink in $[k,\ell]$ comes before the first source (i.e. $i_1 < o_1$ in $[k,\ell]$), then 
@@ -1641,7 +1641,7 @@ Given a connected interval of vertices $[k,\ell]\subsetneq\ZZ_n$, write $Q_{[k,\
 
 Let $\cE_{[k,\ell]}$ denote the collection of successor-closed subsets $E \subset [k,\ell]$.  Then the cluster character of $V_{[k,\ell]}$ is given by
 \begin{equation}\label{eq:regular cluster characters}
-  x_{V_{[k,\ell]}} = x^{\sum\limits_{j\in S_{[k,\ell]}} \omega_{j+1} - \omega_j} \sum_{E \in \cE} \prod_{j \in E} \hat{y}_j,
+  x_{V_{[k,\ell]}} = x^{g_{[k,\ell]}} \sum_{E \in \cE_{[k,\ell]}} \prod_{j \in E} \hat{y}_j,
 \end{equation}
 where $\hat y_j=\prod_{i=1}^m x_i^{B_{ij}}$.
 
