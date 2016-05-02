@@ -288,13 +288,19 @@ coincides with its upper cluster algebra [BFZ].% (as such, we will not need to r
 \caption{An acyclic quiver $Q$, the associated skew-symmetrix matrix $B$, and the associated Cartan matrix $A$. The vertex labels of $Q$ correspond to the row/column labels of $B$ and $A$, and the Coxeter element associated to $B$ and $Q$ is $c = s_1 s_3 s_2$.}\label{fig:matrices}
 \end{figure}  
 
-For each $1 \leq i \leq n$ and $t \in T_0$ there is an auxiliary pair of integer vectors, the $\bfc$-vector $\bfc_{i;t} \in \ZZ^n$ and the $\bfg$-vector $\bfg_{i;t} \in \ZZ^n$. Writing $C_t^B$ and $G_t^B$ for the matrices whose $i$th columns are $\bfc_{i;t}$ and $\bfg_{i;t}$, respectively.
+For each $1 \leq i \leq n$ and $t \in T_0$ there is an auxiliary pair of integer vectors depending only on the principal part of $B$, the $\bfc$-vector $\bfc_{i;t} \in \ZZ^n$ and the $\bfg$-vector $\bfg_{i;t} \in \ZZ^n$. We write $C_t^B$ and $G_t^B$ for the matrices whose $i$th columns are $\bfc_{i;t}$ and $\bfg_{i;t}$, respectively. To define $C_t^B$ consider the $2n \times n$ matrix whose principal part is equal to that of $B$ and whose bottom $n \times n$ block is the identity matrix. Labeling the root $t_0 \in T_0$ by this matrix (whose cluster algebra is said to have principal coefficients), $C_t^B$ is then the bottom $n \times n$ block of the matrix labeling $t$. 
 
-Each cluster variable $x_{i;t}$ is labeled by a distinct $g$-vector $g_{i;t}$ in $\ZZ^n$. These are determined by the following relations:
-\begin{itemize}
-  \item $g_{i;t_0}=e_i$ is the standard basis vector in $\ZZ^n$;
-  \item if $t,t'\in T_0$ are joined by an edge labeled $k$, then we have\sayDR{Salvatore, I know you have a favorite way of writing this so I didn't continue.}
-\end{itemize}
+Given the matrix of $\bfc$-vectors, we may define the matrix of $\bfg$-vectors by
+\[
+  (G_t^B)^T = (C_t^{-B^T})^{-1}.
+\]
+Note the standard definition is different, but the above characterization due to [NZ] is what we will use in Section \ref{sec:exchange}. The basic role of $\bfg$-vectors is that they provide natural labels of cluster variables: two cluster variables $x_{i;t}$ and $x_{j;t'}$ coincide in $\cA_B$ if and only if $\bfg_{i;t}$ and $\bfg_{j;t'}$ coincide in $\ZZ^n$.
+
+%Each cluster variable $x_{i;t}$ is labeled by a distinct $g$-vector $g_{i;t}$ in $\ZZ^n$. These are determined by the following relations:
+%\begin{itemize}
+%  \item $g_{i;t_0}=e_i$ is the standard basis vector in $\ZZ^n$;
+%  \item if $t,t'\in T_0$ are joined by an edge labeled $k$, then we have\sayDR{Salvatore, I know you have a favorite way of writing this so I didn't continue.}
+%\end{itemize}
 
 We will also make use of the following ``change of coefficients'' result:
 
@@ -391,6 +397,8 @@ Theorem \ref{thm:CCbijection} generalizes to the case of skew-symmetrizable matr
 %  \item
 %    Profit
 %\end{itemize}
+To do: 1) definition of preprojective and injective representations and cluster variables. 2) Characterization of these via acyclic belt.
+
 
 \subsection{Kac-Moody groups and generalized minors}
 
@@ -704,9 +712,9 @@ Some similar computations are collected in Lemma \ref{lemma:coefficients_values}
 %\subsection{The acyclic belt in non-finite types}
 In this section we prove that when $B$ is any acyclic skew-symmetrizable matrix, the identification $\cA_B \cong \kk[G^{c,c^{-1}}]$ realizes preprojective and postinjective cluster variables as restrictions of highest- and lowest-weight minors, respectively. We begin by computing the $\bfg$-vectors of these cluster variables; identifying the lattice of $\bfg$-vectors with the weight lattice of $G$, these are the weights of the corresponding minors, and they all lie in the orbit of the fundamental weights (and their negatives) under the action of the Coxeter element $c$. We then compute a list of exchange relations which determine all such cluster variables in terms of the initial cluster variables. The identification with minors then follows by identifying these relations with restrictions of certain generalized determinantal identities to $G^{c,c^{-1}}$.
 
-\subsection{Exchange relations and $\bfg$-vectors}
+\subsection{Exchange relations and $\bfg$-vectors}\label{sec:exchange}
 
-Fix an acyclic skew-symmetrizable matrix $B$, and let $A$ and $c$ be the associated Cartan matrix and Coxeter element. 
+Fix an acyclic skew-symmetrizable matrix $B$, and let $A$ and $c$ be the associated Cartan matrix and Coxeter element. We begin by computing the $\bfc$-vectors appearing in the acyclic belt of $B$. This serves two purposes: first, using the results of [NZ] it allows us to compute $\bfg$-vectors of preprojective and preinjective cluster variables. Second, from the definition of $\bfc$-vectors we will immediately be able to read off exchange relations in the doubled principal coefficients cluster algebra $\cA_{B_{dbl}} \cong \kk[G^{c,c^{-1}}]$.
 
 \begin{theorem}
 Identify the $\bfg$-vector lattice of $\cA_B$ with the weight lattice of $A$ by taking the initial $\bfg$-vector $g_i$ to the fundamental weight $\omega_i$. Under this identification the $\bfg$-vectors of the preprojective cluster variables are in correspondence with the weights $\{c^k\omega_i : k > 0, 1 \leq i \leq n\}$, and the $\bfg$-vectors of the preinjective cluster variables are in correspondence with the weights $\{-c^k\omega_i : k \leq 0, 1 \leq i \leq n\}$.
