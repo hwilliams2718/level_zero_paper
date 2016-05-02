@@ -462,7 +462,7 @@ The level of an irreducible $\widehat{G}$-representation is the character by whi
 %or zero if $\lambda \in X$, $\lambda \in -X$, or $\lambda \in \widehat{P} \smallsetminus (X \cup -X)$, respectively.
 %the level of $V(\lambda)$ is positive, negative, or zero if $\lambda \in X$, $\lambda \in -X$, or $\lambda \in \widehat{P} \smallsetminus (X \cup -X)$, respectively.
 
-\begin{definition}
+\begin{definition}\label{def:minors}
 Let $V$ be a weight representation of $\widehat{G}$ and $\lambda \in \widehat{P}$ a weight for which the weight space $V_\lambda$ is one-dimensional. The principal generalized minor $\Delta_{(V,\lambda)} \in \kk[\widehat{G}]$ is the function 
 \[
 g \mapsto \pi_\lambda(gv_\lambda)/v_\lambda,
@@ -1814,49 +1814,34 @@ It follows that $h_i^{\omega_i}=h^{\omega_i}$ and $h_i^{\omega_j}=1$ for $i\ne j
 Here we abuse notation slightly and write $h_i$ also for the value $h_i^{\omega_i}$.
 \end{definition}
 
-By a \emph{path} in $\cN_c$ we will mean a directed path which begins as a source on the right-hand side of the cylinder, is directed compatibly with the edges of $\cN_c$, and ends at a sink on the left-hand side of the cylinder. 
+By a \emph{path} in $\cN_c$ we will mean a directed path in the network which begins at a source on the right-hand side of the cylinder, is directed compatibly with the edges of $\cN_c$, and ends at a sink on the left-hand side of the cylinder. 
 If $P = \{P_i\}$ is a collection of paths, we write $\partial_{in}P \subset \ZZ_n$ for the set of boundary sources at which paths in $P$ begin; similarly $\partial_{out}P \subset \ZZ_n$ denotes the set of boundary sinks. 
 We say the weight of a path is the product of the weights of edges it traverses, and the weight $wt(P)$ of a collection of paths is the product of the weights of its constituent paths.
 
-\begin{proposition}\label{prop:minorsfrompaths}
-Given $S \subset \ZZ_n$, let
-\[ \omega_S = \sum_{i \in S} \omega_{i+1} - \omega_i.\] 
-Then for generic $g\in G^{c,c^{-1}}$ we have \[ \Delta_{\omega_S}(g) = \sum_{P: S \to S} wt(P), \]
-where the sum is over collections $P$ of pairwise disjoint paths with $\partial_{in}P = \partial_{out}P = S$.
-%$|S|$-tuples of non-intersecting paths in $\cN_c$ with input and output sets equal to $S$.
+\begin{proposition}\label{prop:minorsfrompaths}\sayDR{I know it isn't relevant to the paper but I am very tempted to give a network $N_{u,v}$ and an analogue of this proposition for each double Bruhat cell $G^{u,v}$ since there is really nothing special about the Coxeter case here.}
+  Given $S \subset \ZZ_n$, let
+  \[ \omega_S = \sum_{i \in S} \omega_{i+1} - \omega_i.\] 
+  Then for generic $g\in G^{c,c^{-1}}$ we have \[ \Delta_{\omega_S}(g) = \sum_{P: S \to S} wt(P), \]
+  where the sum is over collections $P$ of pairwise disjoint paths in $\cN_c$ with $\partial_{in}P = \partial_{out}P = S$.
 \end{proposition}
-
 \begin{proof}
-By construction, the directed graph $\cN_c$ encodes the action of $g$ in the standard basis $\{ e_{j_1} \wedge \cdots \wedge e_{j_r} z^d\}$ of $\big(\!\bigwedge^{\!r}\CC^n\big)[z^{\pm 1}]$. 
-This basis is labeled by pairs of an $r$-element subset of $\ZZ_n$ and an integer $d$.
+  Write $r=|S|$.  
+  Inside the irreducible representation $\big(\!\bigwedge^{\!r}\CC^n\big)[z^{\pm 1}]$ of $G$, the vector $\bigwedge\limits_{i\in S} e_i$ (following Definition~\ref{def:minors} the choice of sign will be irrelevant) has weight $\omega_S$ and thus this representation identifies with $V(\omega_S)$.
+  By construction, the network $\cN_c$ encodes the action of $g\in G^{c,c^{-1}}$ in the standard basis $\{ e_{j_1} \wedge \cdots \wedge e_{j_r} z^d\}$ of $\big(\!\bigwedge^{\!r}\CC^n\big)[z^{\pm 1}]$ labeled by pairs of an $r$-element subset of $\ZZ_n$ and an integer $d$.  The result then follows from the definition of $\Delta_{\omega_S}$.
 \end{proof}
 
 To use the above proposition effectively, we collect some elementary combinatorial observations about non-crossing paths $P$ in $\cN_c$. 
-We define $\phi(P) \subset \ZZ_n$ by letting $j \in \phi(P)$ if and only if a path in $P$ traverses the unique bridge of weight $t_j$.
+Define $\phi(P)\subset\ZZ_n$ by letting $j\in\phi(P)$ if and only if a path in $P$ traverses the unique bridge of weight $t_j$.
 
 \begin{lemma}\label{lem:phi}
   Let $P$ be a collection of pairwise disjoint paths in $\cN_c$.  Then:
   \begin{enumerate}
-    \item For $i\in\partial_{in}P$:
-    \begin{enumerate}
-      \item if $i\to i+1$ in $Q$ or $i\notin\phi(P)$, then $i+1\notin\phi(P)$;
-      \item if $i+1\to i$ in $Q$ and $i+1\in\phi(P)$, then $i\in\phi(P)$;
-      \item[(b')] if  $i+1\in\phi(P)$, then $i+1\to i$ in $Q$ and $i\in\phi(P)$;
-    \end{enumerate}
-    \item For $i\notin\partial_{in}P$: 
-    \begin{enumerate}
-      \item if $i\in\phi(P)$, then $i\to i+1$ in $Q$ and $i+1\in\phi(P)$.\\
-    \end{enumerate}
-  \end{enumerate}
-  \begin{enumerate}
-    \item If $i \to i+1$ in $Q$, $i \in \phi(P)$, and $i \notin \partial_{in}(P)$, then $i + 1 \in \phi(P)$.
-    \item If $i \to i+1$ in $Q$ and $i \in \partial_{in}P$, then $i +1 \notin \phi(P)$.
-    \item If $i+1 \to i$ in $Q$, $i \in \partial_{in}P$, and $i+1 \in \phi(P)$, then $i \in \phi(P)$.
-    \item If $i \notin \phi(P)$ and $i \in \partial_{in}P$, then $i +1 \notin \phi(P)$.
+    \item for $i\in\partial_{in}P$, $i+1\in\phi(P)$ implies $i+1\to i$ in $Q$ and $i\in\phi(P)$;
+    \item for $i\notin\partial_{in}P$, $i\in\phi(P)$ implies $i\to i+1$ in $Q$ and $i+1\in\phi(P)$.
   \end{enumerate}
 \end{lemma}
 \begin{proof}
-  \sayHW{Probably an explanation of one together with a picture is sufficient.}
+  Since $(\sigma_1,\ldots,\sigma_n)$ is sink adapted for $Q$, we have the following local picture of the network $\cN_c$ based on the orientation of the arrow connecting vertices $i$ and $i+1$:
   \begin{center}
   \begin{tikzpicture}
     \node[below] at (0,-2) {$i+1\to i$};
@@ -1904,24 +1889,34 @@ We define $\phi(P) \subset \ZZ_n$ by letting $j \in \phi(P)$ if and only if a pa
     \draw[thick,->] (-0.38,0.38) -- (0.38,-0.38);
   \end{tikzpicture}
   \end{center}
+  The result follows immediately by comparing the statements against these two networks.
 \end{proof}
+\begin{corollary}
+  Let $P$ be a collection of pairwise disjoint paths in $\cN_c$.  Then:
+  \begin{enumerate}
+    \item If $i \to i+1$ in $Q$, $i \in \phi(P)$, and $i \notin \partial_{in}(P)$, then $i + 1 \in \phi(P)$.
+    \item If $i \to i+1$ in $Q$ and $i \in \partial_{in}P$, then $i +1 \notin \phi(P)$.
+    \item If $i+1 \to i$ in $Q$, $i \in \partial_{in}P$, and $i+1 \in \phi(P)$, then $i \in \phi(P)$.
+    \item If $i \notin \phi(P)$ and $i \in \partial_{in}P$, then $i +1 \notin \phi(P)$.
+  \end{enumerate}
+\end{corollary}
 
 We now turn to the main result of the section:
 
-\begin{theorem}\sayDR{Merge this into Prop.~\ref{prop:level zero} and move the proof into the proof section below.}
-If $M_{[p,q]}$ is regular, then under the isomorphism $\CC[G^{c,c^{-1}}] \cong A_Q$ we have
-\[ x_{M_{[p,q]}} = \Delta_{\omega_{S_{[p,q]}}}\]  
+\begin{theorem}
+  If $V_{[k,\ell]}$ is regular, then under the isomorphism $\CC[G^{c,c^{-1}}] \cong A_Q$ we have
+  \[x_{V_{[k,\ell]}} = \Delta_{\omega_{S_{[k,\ell]}}}.\]  
 \end{theorem}
 \begin{proof}
-Let $\cP = \{P: S_{[p,q]} \to S_{[p,q]}\}$ denote the set of pairwise disjoint collections of paths in $\cN_c$ with $\partial_{in}P = \partial_{out}P = S_{[p,q]}$. 
+Let $\cP = \{P: S_{[k,\ell]} \to S_{[k,\ell]}\}$ denote the set of pairwise disjoint collections of paths in $\cN_c$ with $\partial_{in}P = \partial_{out}P = S_{[k,\ell]}$. 
 By Proposition \ref{prop:minorsfrompaths}, for a generic element 
-\[g = x_{-\sigma_0}(t_{-\sigma_0})\cdots x_{-\sigma_n}(t_{-\sigma_n}) hx_{\sigma_n}(t_{\sigma_n}) \cdots x_{\sigma_0}(t_{\sigma_0})\]
-the evaluation $\Delta_{\omega_{S_{[p,q]}}}(g)$ is the weighted sum 
+\[g = x_{-\sigma_1}(t_{-\sigma_1})\cdots x_{-\sigma_n}(t_{-\sigma_n}) hx_{\sigma_n}(t_{\sigma_n}) \cdots x_{\sigma_1}(t_{\sigma_1})\]
+the evaluation $\Delta_{\omega_{S_{[k,\ell]}}}(g)$ is the weighted sum 
 \[
-\Delta_{\omega_{S_{[p,q]}}}(g) = \sum_{P \in \mathcal{P}} wt(P).
+\Delta_{\omega_{S_{[k,\ell]}}}(g) = \sum_{P \in \mathcal{P}} wt(P).
 \]
 
-As in Lemma \ref{lem:phi}, we define $\phi(P) \subset \ZZ_{n+1}$ by letting $j \in \phi(P)$ if and only if a path in $P$ traverses the unique edge of weight $t_j$. We claim that for $P \in \cP$, $\phi(P)$ is in fact a subset of $[p,q]$, is target-closed in $[p,q]$, and that the assignment $P \mapsto \phi(P)$ defines a bijection $\cP \cong \cE$.
+As in Lemma \ref{lem:phi}, we define $\phi(P) \subset \ZZ_n$ by letting $j \in \phi(P)$ if and only if a path in $P$ traverses the unique edge of weight $t_j$. We claim that for $P \in \cP$, $\phi(P)$ is in fact a subset of $[k,\ell]$, is target-closed in $[k,\ell]$, and that the assignment $P \mapsto \phi(P)$ defines a bijection $\cP \simeq \cE$.
 
 %Recall that $\cN_c$ consists of parallel strands labeled by $\Z_{n+1}$ connecting the two boundary components of the cylinder, and two sets of $n+1$ vertical strands connecting them. One of those sets has edges weighted $t_j$, and with 
 
