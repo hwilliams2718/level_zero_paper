@@ -37,6 +37,9 @@ urlcolor=blue]{hyperref}
 \newcommand{\saySS}[1]{\say[SS]{\color{blue}{\bf SS:}\;#1}}
 \newcommand{\sayDR}[1]{\say[DR]{\color{red}{\bf DR:}\;#1}}
 
+% For setting off new terms
+\newcommand{\newword}[1]{\textbf{\emph{#1}}}
+
 % shorthands 
 \newcommand{\cA}{\mathcal{A}}
 \newcommand{\cAb}{\mathcal{A}_\bullet}
@@ -140,6 +143,16 @@ The cluster algebra of any acyclic quiver is the coordinate ring of a subvariety
 \maketitle
 
 %%%%%%%%%%%%%%%%%%%%%%
+\setcounter{section}{-1}
+\section{Todo list}
+\begin{itemize}
+  \item
+    Decide on preprojective/postinjective notation and apply changes through
+  \item
+    Fix the algebra statements: double principal vs double Euler
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
 
 Given a finite quiver $Q$ without oriented cycles, there is an associated group $G$: the Kac-Moody group whose Dynkin diagram is the underlying unoriented graph of $Q$. The representation theory of $Q$ is connected to $G$ and its Lie algebra in a range of ways; for example, one has the classical result of [BGP] that if $Q$ is of ADE type, its irreducible representations are classified by the positive roots of $G$. In this paper we explore a new relationship, suggested by the results of \cite{YZ08} in finite type. Broadly speaking, we will be interested in the interplay between the following two trichotomies in the representation theories of $Q$ and $G$.
@@ -218,8 +231,8 @@ We fix throughout an algebraically closed field $\kk$ of characteristic zero.
 
 \subsection{Cluster Algebras}
 
-If $B$ is an $m \times n$ matrix with $m \geq n$, the principal part of $B$ is the $n \times n$ submatrix formed by the first $n$ rows. 
-We say a square matrix is skew-symmetrizable if it is related to a skew-symmetric matrix through multiplication by a diagonal matrix. 
+If $B$ is an $m \times n$ matrix with $m \geq n$, the \newword{principal part} of $B$ is the $n \times n$ submatrix formed by the first $n$ rows. 
+We say a square matrix is \newword{skew-symmetrizable} if it is related to a skew-symmetric matrix through multiplication by a diagonal matrix. 
 %$B$ is skew-symmetrizable if there is a diagonal matrix $D$ such that the principal part of $DB$ is skew-symmetric. \sayHW{$DB$ or $BD$?} \sayDR{It should be $BD$ if you want to multiply the entire exchange matrix}
 %We say an $m \times n$ integer matrix with $m > n$, and $D$ an $m \times m$ diagonal integer matrix such that $DB$ is skew-symmetric. 
 Two $m \times n$ matrices $B$ and $B'$ with skew-symmetrizable principal part are related by mutation at $k \in \{1,\dotsc,n\}$ if their entries are related by  
@@ -237,7 +250,7 @@ Label its edges by $\{1,\dotsc,n\}$ so that the edges incident to any given vert
 For a fixed root $t_0 \in\TT$, assign a matrix $B^t$ to each $t \in\TT$ so that $B^{t_0} = B$, and if $t, t' \in\TT$ are joined by an edge labeled $k$, then $B^t$ and $B^{t'}$ are related by mutation at $k$. 
 
 Let $\cF$ denote the field of rational functions in formal variables $x_{1}\,\dotsc,x_{m}$ with coefficients in $\kk$. 
-The \emph{cluster variables} $$\{ x_{i;t}: i \in \{1,\dotsc,m\}, t \in\TT\} \subset \cF$$ are defined recursively as follows. The initial cluster variables $x_{i;t_0}$ are taken to be the generators $x_i$. If $t,t' \in T_0$ are joined by an edge labeled $k$, then $x_{i;t} = x_{i;t'}$ for $i \neq k$, and $x_{k;t}$, $x_{k;t'}$ are related by the \emph{exchange relation} 
+The \newword{cluster variables} $$\{ x_{i;t}: i \in \{1,\dotsc,m\}, t \in\TT\} \subset \cF$$ are defined recursively as follows. The initial cluster variables $x_{i;t_0}$ are taken to be the generators $x_i$. If $t,t' \in T_0$ are joined by an edge labeled $k$, then $x_{i;t} = x_{i;t'}$ for $i \neq k$, and $x_{k;t}$, $x_{k;t'}$ are related by the \newword{exchange relation} 
 \[
 x_{k;t}x_{k;t'} = \prod_{B^t_{ik}>0}x_{i;t}^{B^t_{ik}} + \prod_{B^t_{ik}<0}x_{i;t}^{-B^t_{ik}}.
 \]
@@ -251,7 +264,10 @@ The variables $x_{n+1;t},\dotsc, x_{m;t}$ do not depend on $t$ hence are referre
 %We sometimes write $y_i$\sayDR{Do we need the notation $y_i$?}\sayHW{Maybe not -- revisit this during wrap-up} for $x_{n+i}$, where $i \in \{1,\dotsc, m-n\}$. 
 %When working with explicit formulas for cluster variables, it will also be convenient to introduce monomials $\hat{y}_j = \prod\limits_{i=1}^m x_i^{B_{ij}}$. 
 
-We say a skew-symmetrizable matrix is acyclic if it can be conjugated by a permutation matrix so that the entries above the diagonal all become nonnegative. The terminology is justified by the skew-symmetric case: a skew-symmetric matrix $B$ can be recovered from the quiver $Q := Q_B$ whose vertices are indexed by the columns of $B$ and which has $[-B_{ij}]_+$ arrows to vertex $i$ from vertex $j$; the skew-symmetric matrix is acyclic exactly when this quiver has no oriented cycles. The cluster algebra associated to a matrix with acyclic principal part is especially well-behaved: it is finitely generated as a $\kk$-algebra and %\sayHW{Check reference}\sayDR{It's correct.} 
+We say a skew-symmetrizable matrix is \newword{acyclic} if it can be conjugated by a permutation matrix so that the entries above the diagonal all become nonnegative.
+By extension we say that an $m\times n$ matrix is acyclic if is its principal part is. 
+The terminology is justified by the skew-symmetric case: a skew-symmetric matrix $B$ can be recovered from the quiver $Q := Q_B$ whose vertices are indexed by the columns of $B$ and which has $[-B_{ij}]_+$ arrows to vertex $i$ from vertex $j$; the skew-symmetric matrix is acyclic exactly when this quiver has no oriented cycles. 
+The cluster algebra associated to a matrix with acyclic principal part is especially well-behaved: it is finitely generated as a $\kk$-algebra and %\sayHW{Check reference}\sayDR{It's correct.} 
 coincides with its upper cluster algebra [BFZ].% (as such, we will not need to recall the latter notion explicitly).
 
 % is acyclic if there is a permutation $\sigma \in S_n$ such that $B_{\sigma_i \sigma_j} \geq 0$ whenever $i < j$. Note that there is a map from skew-symmetric matrices to finite quivers: to such a matrix $B$ we associate the quiver $Q := Q_B$ whose vertices are indexed by $\{1,\dotsc,n\}$, and there are $[-B_{ij}]_+$ arrows from vertex $i$ to vertex $j$. If $B$ is skew-symmetric it is acyclic exactly when $Q$ has no oriented cycles.
@@ -289,14 +305,18 @@ coincides with its upper cluster algebra [BFZ].% (as such, we will not need to r
 \caption{An acyclic quiver $Q$, the associated skew-symmetrix matrix $B$, and the associated Cartan matrix $A$. The vertex labels of $Q$ correspond to the row/column labels of $B$ and $A$, and the Coxeter element associated to $B$ and $Q$ is $c = s_1 s_3 s_2$.}\label{fig:matrices}
 \end{figure}  
 
-For each $1 \leq i \leq n$ and $t \in\TT$ there is an auxiliary pair of integer vectors depending only on the principal part of $B$, the $\bfc$-vector $\bfc_{i;t} \in \ZZ^n$ and the $\bfg$-vector $\bfg_{i;t} \in \ZZ^n$. We write $C_t^B$ and $G_t^B$ for the matrices whose $i$th columns are $\bfc_{i;t}$ and $\bfg_{i;t}$, respectively. To define $C_t^B$, consider the $2n \times n$ matrix $\tilde B^{t_0}$ whose first $n$ rows are equal to the first $n$ rows of $B$ and whose bottom $n \times n$ block is the identity matrix. 
-For $t\in\TT$, define $\tilde B^t$ by matrix mutation \eqref{eq:matrix mutation} from $\tilde B^{t_0}$, then $C_t^B$ is defined to be the bottom $n \times n$ block of $\tilde B^t$. 
+For each $1 \leq i \leq n$ and $t \in\TT$ there is an auxiliary pair of integer vectors depending only on the principal part of $B$, the \newword{$\bfc$-vector} $\bfc_{i;t} \in \ZZ^n$ and the \newword{$\bfg$-vector} $\bfg_{i;t} \in \ZZ^n$. We write $C_t^B$ and $G_t^B$ for the matrices whose $i$th columns are $\bfc_{i;t}$ and $\bfg_{i;t}$, respectively.
+To define $C_t^B$, consider the $2n \times n$ matrix $\tilde B^{t_0}$ whose principal part equals the principal part of $B$ and whose bottom $n \times n$ block is the identity matrix.
+For $t\in\TT$, compute $\tilde B^t$ by matrix mutations \eqref{eq:matrix mutation} from $\tilde B^{t_0}$, then $C_t^B$ is defined to be the bottom $n \times n$ block of $\tilde B^t$. 
 
-Given the matrix of $\bfc$-vectors, we may define the matrix of $\bfg$-vectors by
+Given the matrix of $\bfc$-vectors at a given $t\in\TT$, we may define the matrix of $\bfg$-vectors at the same vertex $t$ by
 \[
   (G_t^B)^T = (C_t^{-B^T})^{-1}.
 \]
-Note the standard definition is different, but the above characterization due to [NZ] is what we will use in Section \ref{sec:exchange}. The basic role of $\bfg$-vectors is that they provide natural labels of cluster variables: two cluster variables $x_{i;t}$ and $x_{j;t'}$ coincide in $\cA_B$ if and only if $\bfg_{i;t}$ and $\bfg_{j;t'}$ coincide in $\ZZ^n$.
+Note that ths is not the the standard definition, but the above characterization, due to \cite[Theorem 1.2]{NZ12}, is what we will use in Section \ref{sec:exchange}; the equivalence of the two is guaranteed by sign coherence [GHKK??].
+\saySS{maybe we do not need to say this}
+The basic role of $\bfg$-vectors is that they provide natural labels of cluster variables: two cluster variables $x_{i;t}$ and $x_{j;t'}$ coincide in $\cA_B$ if and only if $\bfg_{i;t}$ and $\bfg_{j;t'}$ coincide in $\ZZ^n$.
+\saySS{This is Conjecture 7.10 (1) in CA4 and conjecture 1.5 in quiver with potentials (proved there for skew-symmetric); this also follows immediately from the fact that cluster variables are in the theta basis and tetha basis elements are parametrized by g-vectors.}
 
 %Each cluster variable $x_{i;t}$ is labeled by a distinct $g$-vector $g_{i;t}$ in $\ZZ^n$. These are determined by the following relations:
 %\begin{itemize}
@@ -305,6 +325,7 @@ Note the standard definition is different, but the above characterization due to
 %\end{itemize}
 
 We will also make use of the following ``change of coefficients'' result:
+\saySS{Do we believe this result?}
 
 \begin{proposition}\label{prop:changeofcoeffs}
 Let $B$ be an $m \times n$ integer matrix with skew-symmetrizable principal part, $M$ an invertible $m \times m$ matrix of the form 
@@ -514,7 +535,42 @@ We will directly use the above identity, but note that it restricts from a simil
 
 \subsection{Acyclic cluster algebras from double Bruhat cells}
 
-The data of an acyclic skew-symmetrizable matrix $B$ is equivalent to the data of a symmetrizable Cartan matrix $A$ together with a Coxeter element $c$ of its Weyl group. The Cartan matrix is obtained from $B$ by making all its entries negative without changing their absolute values, then setting each diagonal entry equal to two; see Figure \ref{fig:matrices}. Since $B$ is acyclic there is a permutation $\sigma \in S_n$ such that $B_{\sigma_i \sigma_j} \geq 0$ when $\sigma_i < \sigma_j$, and we take $c$ to be $s_{\sigma_1} \cdots s_{\sigma_n}$ (choosing a different permutation with the above property defines the same element via a different reduced word). Conversely, any Cartan matrix and Coxeter element arise in this way from a unique skew-symmetrizable matrix.
+The data of an $n\times n$ acyclic skew-symmetrizable matrix $B$ is equivalent to the data of a symmetrizable Cartan matrix $A$ together with a Coxeter element $c$ of its Weyl group.
+The Cartan matrix is obtained from $B$ by making all its entries negative without changing their absolute values, then setting each diagonal entry equal to two; see Figure \ref{fig:matrices}.
+Since $B$ is acyclic, there is a permutation $\sigma \in S_n$ such that $B_{\sigma_i \sigma_j} \geq 0$ when $\sigma_i < \sigma_j$, and we take $c$ to be $s_{\sigma_1} \cdots s_{\sigma_n}$ (choosing a different permutation with the above property defines the same element via a different reduced word).
+Conversely, any acyclic skew-symmetrizable matrix can be obtained from a Cartan matrix and Coxeter element assigning signs to the off-diagonal entries according to $c$.
+
+We will be interested in the following two $3n\times n$ extensions of $B$:
+\begin{equation}
+  B_{\bullet\bullet}
+  :=
+  \left[
+    \begin{array}{c}
+      B\\
+      \hline
+      1\\
+      \hline
+      1 
+    \end{array}
+  \right]
+  \quad
+  \quad
+  B_{EE}
+  :=
+  \left[
+    \begin{array}{c}
+      B\\
+      \hline
+      1-[B]_+\\
+      \hline
+      1-[B]_+\\
+    \end{array}
+  \right]
+\end{equation}
+where $1$ denotes the identity matrix and we apply $[\,\cdot\,]_+$ entrywise. 
+We refer to them as the \newword{double principal} and \newword{double Euler} extension of $B$ respectively. 
+\saySS{Notation here is temporary: we have two ``doubled'' things so $B_{dbl}$ seemed ambiguous.}
+\saySS{The name for $B_{EE}$ comes from the fact that $1-[B]_+$ is the Euler matrix for $-B$. Unfortunately I can't do anything about the sign: live is tough} 
 
 %The Coxeter element is $c = s_{\sigma_1} \cdots s_{\sigma_n}$, where $\sigma \in S_n$ is any permutation for which $\sigma_i > \sigma_j$ whenever there is an arrow from $i$ to $j$ in $Q_B$. Conversely, any Coxeter element $c$ arises in this way from a unique skew-symmetrizable matrix, which we write as $B_c$. \sayHW{We are deprecating $Q_B$, and possibly also $B_c$}.
 
@@ -532,7 +588,8 @@ The coordinate ring of $G^{u,v}$ is an upper cluster algebra, and a finite subse
 %Let $G := G_B$ be the Kac-Moody group associated to this root system. The cluster algebra has the following geometric realization in terms of $G$:
 
 \begin{proposition}\label{prop:coordring}\say[Group]{We need to think carefully about the change of coefficents, keeping in mind [Yang,Zelevinsky: p. 21] at the end of Sec. 4 and [Berenstein,Rupel: Lemma 6.8].}
-Let $B$ be an acyclic skew-symmetrizable matrix, $G$ the associated Kac-Moody group, and $c$ the associated Coxeter element. Then there is an isomorphism $\cA_{B_{dbl}} \cong \kk[G^{c,c^{-1}}]$ that identifies the initial cluster variables with thfollowing restrictions of monomials in generalized minors
+Let $B$ be an acyclic skew-symmetrizable matrix, $G$ the associated Kac-Moody group, and $c$ the associated Coxeter element. 
+Then there is an isomorphism $\cA_{B_{dbl}} \cong \kk[G^{c,c^{-1}}]$ that identifies the initial cluster variables with the following restrictions of monomials in generalized minors
 %The isomorphism takes the initial cluster variables to restrictions of monomials in generalized minors; for $1 \leq j \leq n$ we have 
 \begin{equation}\label{eq:initialcluster}
 x_j = \Delta_{\omega_j},\quad z_j = \Delta^{\omega_j}_{ c\omega_j} \prod_{i < j}(\Delta^{\omega_i}_{c \omega_i})^{a_{ij}},\quad z_{-j} = \Delta^{c \omega_j}_{\omega_j} \prod_{i < j}(\Delta^{c \omega_i}_{\omega_i})^{a_{ij}}.
