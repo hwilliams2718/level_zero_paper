@@ -1820,7 +1820,7 @@ For $i\in[1,n]$ define another directed network on a cylinder (which we associat
 Given reduced decompositions $u=s_{\sigma_1}\cdots s_{\sigma_{\ell(u)}}$ and $v=s_{\tau_1}\cdots s_{\tau_{\ell(v)}}$, define the network $\cN^{u,v}$ to be the concatenation of the basic networks associated to the factors in the decomposition 
 \begin{equation}\label{eq:double Bruhat generic element}
   g=x_{-\tau_{\ell(v)}}(t_{-\tau_{\ell(v)}})\cdots x_{-\tau_1}(t_{-\tau_1}) hx_{\sigma_{\ell(u)}}(t_{\sigma_{\ell(u)}}) \cdots x_{\sigma_1}(t_{\sigma_1})
-\end{equation}
+\end{equation}\sayDR{Check whether order of factors is correct.}
 of a generic element of $G^{u,v}$, where $h$ factors as $\prod\limits_{i=1}^n h_i$ with $h_i=\big(h^{\omega_i}\big)^{\alpha_i^\vee}$.
 It follows that $h_i^{\omega_i}=h^{\omega_i}$ and $h_i^{\omega_j}=1$ for $i\ne j$.  
 Here we abuse notation slightly and write $h_i$ also for the value $h_i^{\omega_i}$.
@@ -1847,60 +1847,60 @@ We say the weight of a path is the product of the weights of edges it traverses,
   By construction, each basic network $x_i(t_i)$ for $i\in[-n,-1]\cup[1,n]$ and $h_i$ for $i\in[1,n]$ encodes the action of the corresponding group element on the standard basis $\{ e_{j_1} \wedge \cdots \wedge e_{j_r} z^d\}$ of $\big(\!\bigwedge^{\!r}\CC^n\big)[z^{\pm 1}]$ labeled by pairs of an $r$-element subset of $\ZZ_n$ and an integer $d$.  Thus the network $\cN^{u,v}$ encodes the action of a generic element $g\in G^{c,c^{-1}}$ given by \eqref{eq:double Bruhat generic element} on this basis and the result then follows from the definition of $\Delta_{\omega_S}$.
 \end{proof}
 
-To use the above proposition effectively, we collect some elementary combinatorial observations about non-crossing paths $P$ in $\cN_c$. 
+To use the above proposition effectively, we collect some elementary combinatorial observations about non-crossing paths $P$ in $\cN^{c,c^{-1}}$. 
 Define $\phi(P)\subset\ZZ_n$ by letting $j\in\phi(P)$ if and only if a path in $P$ traverses the unique bridge of weight $t_j$.
 
 \begin{lemma}\label{lem:phi}
-  Let $P$ be a collection of pairwise disjoint paths in $\cN_c$.  Then:
+  Let $P$ be a collection of pairwise disjoint paths in $\cN^{c,c^{-1}}$.  Then:
   \begin{enumerate}
-    \item for $i\in\partial_{in}P$, $i+1\in\phi(P)$ implies $i+1\to i$ in $Q$ and $i\in\phi(P)$;
-    \item for $i\notin\partial_{in}P$, $i\in\phi(P)$ implies $i\to i+1$ in $Q$ and $i+1\in\phi(P)$.
+    \item for $j\in\partial_{in}P$, $j+1\in\phi(P)$ implies $j+1\to j$ in $Q$ and $j\in\phi(P)$;
+    \item for $j\notin\partial_{in}P$, $j\in\phi(P)$ implies $j\to j+1$ in $Q$ and $j+1\in\phi(P)$.
   \end{enumerate}
 \end{lemma}
 \begin{proof}
-  Since $(\sigma_1,\ldots,\sigma_n)$ is sink adapted for $Q$, we have the following local picture of the network $\cN_c$ based on the orientation of the arrow connecting vertices $i$ and $i+1$:
+  Since $(\sigma_1,\ldots,\sigma_n)$ is sink adapted for $Q$, we have the following local picture of the network $\cN^{c,c^{-1}}$ based on the orientation of the arrow connecting vertices $j$ and $j+1$:
   \begin{center}
   \begin{tikzpicture}
-    \node[below] at (0,-2) {$i+1\to i$};
+    \node[below] at (0,-2) {$j+1\to j$};
     \draw[singlearrow,draw] (1.5,1) -- (0.5,1);
     \draw[-] (0.5,1) -- (-0.5,1);
     \draw[singlearrow,draw] (-0.5,1) -- (-1.5,1);
-    \node[right] at (1.5,1) {$\scriptstyle i-1$};
+    \node[right] at (1.5,1) {$\scriptstyle j-1$};
     \draw[singlearrow,draw] (0.5,0) -- (0.5,1);
-    \node[left] at (0.5,0.5) {$\scriptstyle t_i\ $};
+    \node[left] at (0.5,0.5) {$\scriptstyle t_j\ $};
     \draw[singlearrow,draw] (1.5,0) -- (0.5,0);
     \draw[-] (0.5,0) -- (-0.5,0);
     \draw[singlearrow,draw] (-0.5,0) -- (-1.5,0);
-    \node[right] at (1.5,0) {$\scriptstyle i$};
+    \node[right] at (1.5,0) {$\scriptstyle j$};
     \draw[singlearrow,draw] (-0.5,-1) -- (-0.5,0);
-    \node[right] at (-0.5,-0.5) {$\ \scriptstyle t_{i+1}$};
+    \node[right] at (-0.5,-0.5) {$\ \scriptstyle t_{j+1}$};
     \draw[singlearrow,draw] (1.5,-1) -- (0.5,-1);
     \draw[-] (0.5,-1) -- (-0.5,-1);
     \draw[singlearrow,draw] (-0.5,-1) -- (-1.5,-1);
-    \node[right] at (1.5,-1) {$\scriptstyle i+1$};
+    \node[right] at (1.5,-1) {$\scriptstyle j+1$};
     \draw (-0.5,-0.5) circle (5pt);
     \draw (0.5,0.5) circle (5pt);
     \draw[thick,->] (-0.38,-0.38) -- (0.38,0.38);
   \end{tikzpicture}
   \qquad\qquad
   \begin{tikzpicture}
-    \node[below] at (0,-2) {$i\to i+1$};
+    \node[below] at (0,-2) {$j\to j+1$};
     \draw[singlearrow,draw] (1.5,1) -- (0.5,1);
     \draw[-] (0.5,1) -- (-0.5,1);
     \draw[singlearrow,draw] (-0.5,1) -- (-1.5,1);
-    \node[right] at (1.5,1) {$\scriptstyle i-1$};
+    \node[right] at (1.5,1) {$\scriptstyle j-1$};
     \draw[singlearrow,draw] (-0.5,0) -- (-0.5,1);
-    \node[right] at (-0.5,0.5) {$\ \scriptstyle t_i$};
+    \node[right] at (-0.5,0.5) {$\ \scriptstyle t_j$};
     \draw[singlearrow,draw] (1.5,0) -- (0.5,0);
     \draw[-] (0.5,0) -- (-0.5,0);
     \draw[singlearrow,draw] (-0.5,0) -- (-1.5,0);
-    \node[right] at (1.5,0) {$\scriptstyle i$};
+    \node[right] at (1.5,0) {$\scriptstyle j$};
     \draw[singlearrow,draw] (0.5,-1) -- (0.5,0);
-    \node[left] at (0.5,-0.5) {$\scriptstyle t_{i+1}\ $};
+    \node[left] at (0.5,-0.5) {$\scriptstyle t_{j+1}\ $};
     \draw[singlearrow,draw] (1.5,-1) -- (0.5,-1);
     \draw[-] (0.5,-1) -- (-0.5,-1);
     \draw[singlearrow,draw] (-0.5,-1) -- (-1.5,-1);
-    \node[right] at (1.5,-1) {$\scriptstyle i+1$};
+    \node[right] at (1.5,-1) {$\scriptstyle j+1$};
     \draw (-0.5,0.5) circle (5pt);
     \draw (0.5,-0.5) circle (5pt);
     \draw[thick,->] (-0.38,0.38) -- (0.38,-0.38);
@@ -1909,7 +1909,7 @@ Define $\phi(P)\subset\ZZ_n$ by letting $j\in\phi(P)$ if and only if a path in $
   The result follows immediately by comparing the statements against these two networks.
 \end{proof}
 \begin{corollary}
-  Let $P$ be a collection of pairwise disjoint paths in $\cN_c$.  Then:
+  Let $P$ be a collection of pairwise disjoint paths in $\cN^{c,c^{-1}}$.  Then:
   \begin{enumerate}
     \item If $i \to i+1$ in $Q$, $i \in \phi(P)$, and $i \notin \partial_{in}(P)$, then $i + 1 \in \phi(P)$.
     \item If $i \to i+1$ in $Q$ and $i \in \partial_{in}P$, then $i +1 \notin \phi(P)$.
@@ -1925,7 +1925,7 @@ We now turn to the main result of the section:
   \[x_{V_{[k,\ell]}} = \Delta_{\omega_{S_{[k,\ell]}}}.\]  
 \end{theorem}
 \begin{proof}
-Let $\cP = \{P: S_{[k,\ell]} \to S_{[k,\ell]}\}$ denote the set of pairwise disjoint collections of paths in $\cN_c$ with $\partial_{in}P = \partial_{out}P = S_{[k,\ell]}$. 
+Let $\cP_{[k,\ell]} = \{P: S_{[k,\ell]} \to S_{[k,\ell]}\}$ denote the set of pairwise disjoint collections of paths in $\cN^{c,c^{-1}}$ with $\partial_{in}P = \partial_{out}P = S_{[k,\ell]}$. 
 By Proposition \ref{prop:minorsfrompaths}, for a generic element 
 \[g = x_{-\sigma_1}(t_{-\sigma_1})\cdots x_{-\sigma_n}(t_{-\sigma_n}) hx_{\sigma_n}(t_{\sigma_n}) \cdots x_{\sigma_1}(t_{\sigma_1})\]
 the evaluation $\Delta_{\omega_{S_{[k,\ell]}}}(g)$ is the weighted sum 
@@ -1941,10 +1941,16 @@ As in Lemma \ref{lem:phi}, we define $\phi(P) \subset \ZZ_n$ by letting $j \in \
 
 %Let $\phi(P) \subset \ZZ_{n+1}$ denote the set of indices $j$ such that $wt(P)$ depends non-trivially on $t_j$. Recall that $t_j$ appears as the weight of a unique edge in $\cN_c$, so equivalently $\phi(P)$ records which of these edges are traversed by a path in $P$. We claim that $\phi(P)$ is in fact a subset of $[p,q]$, is target-closed in $[p,q]$, and that the assignment $P \mapsto \phi(P)$ defines a bijection $\cP \cong \cE$.
 
-As in Definition \ref{prop:regular coindices}, we let $k_1 < \cdots < k_m$, $c_1 < \cdots < c_m$ denote the labels of the sinks and sources in $[p,q]$. We first consider the case where the first sink in $[p,q]$ comes before the first source (i.e. $k_1 < c_1$ in $[p,q]$). Recall that in this case
-\[
-S_{[p,q]} = [q,p-2] \cup [k_1, c_1 -1] \cup \cdots \cup [k_m, c_m - 1].
-\]
+As in Definition \ref{prop:regular coindices}, we let $i_1 < \cdots < i_m$, $o_1 < \cdots < o_m$ denote the labels of the sinks and sources in $[k,\ell]$.  
+We consider the case where the first source in $[k,\ell]$ comes before the first sink (i.e. $o_1 < i_1$ in $[k,\ell]$), the opposite case following by symmetry.\sayDR{I need to fill in more details.} Recall that in this case
+\[S_{[k,\ell]} = [k,o_1-1] \cup [i_1,o_2-1] \cup \cdots \cup [i_m,\ell].\]
+
+Let $P \in \cP_{[k,\ell]}$.  Since $o_1<i_1$, we have $j+1\to j\in Q$ for each $j\in[k^-,k-1]$.  But $[k^-,k-1]\cap\partial_{in}P=\emptyset$ and thus Lemma~\ref{lem:phi}(2) implies $j\notin\phi(P)$ for any $j\in[k^-,k-1]$.  Similarly, $o_m<i_m$ gives $j\to j-1\in Q$ for each $j\in[\ell+1,\ell^+]$ and applying Lemma~\ref{lem:phi}(2) inductively beginning with the source $j=\ell^+$ we see that $j\notin\phi(P)$ for any $j\in[\ell+1,\ell^+]$.  Noting that $[\ell^+,k^-]\cap\partial_{in}P=\emptyset$ and then arguing as above we conclude that $\phi(P)\subset[k,\ell]$.
+
+Write $i_0=k$ and $o_{m+1}=\ell+1$.  For $1\le r\le m+1$ and $j\in[i_{r-1},o_r-1]\subset\partial_{in}P$, we have $j+1\to j\in Q$ and Lemma~\ref{lem:phi}(1) says $j+1\in\phi(P)$ implies $j\in\phi(P)$.  For $1\le r\le m$ and $j\in[o_r,i_r-1]$ we have $j\notin\partial_{in}P$ and $j\to j+1\in Q$ so that Lemma~\ref{lem:phi}(1) says $j\in\phi(P)$ implies $j+1\in\phi(P)$.  Putting together these observations we conclude that $\phi(P)\subset[k,\ell]$ is successor-closed.
+
+
+
 
 Let $P \in \cP$. By assumption we have $q \to q+1$ in $Q$; $q \in \partial_{in}P$ then implies $q+1 \notin \phi(P)$ by item (3) in Lemma \ref{lem:phi}. Then since $[q+1,p-2] \subset \partial_{in}P$, it follows inductively from item (4) in Lemma \ref{lem:phi} that $[q+2,p-1] \not\subset \phi(P)$, hence $\phi(P) \subset [p,q]$.
 
