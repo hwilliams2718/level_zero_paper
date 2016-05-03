@@ -143,6 +143,16 @@ The cluster algebra of any acyclic quiver is the coordinate ring of a subvariety
 \maketitle
 
 %%%%%%%%%%%%%%%%%%%%%%
+\setcounter{section}{-1}
+\section{Todo list}
+\begin{itemize}
+  \item
+    Decide on preprojective/postinjective notation and apply changes through
+  \item
+    Fix the algebra statements: double principal vs double Euler
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
 
 Given a finite quiver $Q$ without oriented cycles, there is an associated group $G$: the Kac-Moody group whose Dynkin diagram is the underlying unoriented graph of $Q$. The representation theory of $Q$ is connected to $G$ and its Lie algebra in a range of ways; for example, one has the classical result of [BGP] that if $Q$ is of ADE type, its irreducible representations are classified by the positive roots of $G$. In this paper we explore a new relationship, suggested by the results of \cite{YZ08} in finite type. Broadly speaking, we will be interested in the interplay between the following two trichotomies in the representation theories of $Q$ and $G$.
@@ -525,7 +535,10 @@ We will directly use the above identity, but note that it restricts from a simil
 
 \subsection{Acyclic cluster algebras from double Bruhat cells}
 
-The data of an acyclic skew-symmetrizable matrix $B$ is equivalent to the data of a symmetrizable Cartan matrix $A$ together with a Coxeter element $c$ of its Weyl group. The Cartan matrix is obtained from $B$ by making all its entries negative without changing their absolute values, then setting each diagonal entry equal to two; see Figure \ref{fig:matrices}. Since $B$ is acyclic there is a permutation $\sigma \in S_n$ such that $B_{\sigma_i \sigma_j} \geq 0$ when $\sigma_i < \sigma_j$, and we take $c$ to be $s_{\sigma_1} \cdots s_{\sigma_n}$ (choosing a different permutation with the above property defines the same element via a different reduced word). Conversely, any Cartan matrix and Coxeter element arise in this way from a unique skew-symmetrizable matrix.
+The data of an acyclic skew-symmetrizable matrix $B$ is equivalent to the data of a symmetrizable Cartan matrix $A$ together with a Coxeter element $c$ of its Weyl group.
+The Cartan matrix is obtained from $B$ by making all its entries negative without changing their absolute values, then setting each diagonal entry equal to two; see Figure \ref{fig:matrices}.
+Since $B$ is acyclic, there is a permutation $\sigma \in S_n$ such that $B_{\sigma_i \sigma_j} \geq 0$ when $\sigma_i < \sigma_j$, and we take $c$ to be $s_{\sigma_1} \cdots s_{\sigma_n}$ (choosing a different permutation with the above property defines the same element via a different reduced word).
+Conversely, any acyclic skew-symmetrizable matrix can be obtained from a Cartan matrix and Coxeter element assigning signs to the off-diagonal entries according to $c$.
 
 %The Coxeter element is $c = s_{\sigma_1} \cdots s_{\sigma_n}$, where $\sigma \in S_n$ is any permutation for which $\sigma_i > \sigma_j$ whenever there is an arrow from $i$ to $j$ in $Q_B$. Conversely, any Coxeter element $c$ arises in this way from a unique skew-symmetrizable matrix, which we write as $B_c$. \sayHW{We are deprecating $Q_B$, and possibly also $B_c$}.
 
@@ -543,7 +556,8 @@ The coordinate ring of $G^{u,v}$ is an upper cluster algebra, and a finite subse
 %Let $G := G_B$ be the Kac-Moody group associated to this root system. The cluster algebra has the following geometric realization in terms of $G$:
 
 \begin{proposition}\label{prop:coordring}\say[Group]{We need to think carefully about the change of coefficents, keeping in mind [Yang,Zelevinsky: p. 21] at the end of Sec. 4 and [Berenstein,Rupel: Lemma 6.8].}
-Let $B$ be an acyclic skew-symmetrizable matrix, $G$ the associated Kac-Moody group, and $c$ the associated Coxeter element. Then there is an isomorphism $\cA_{B_{dbl}} \cong \kk[G^{c,c^{-1}}]$ that identifies the initial cluster variables with thfollowing restrictions of monomials in generalized minors
+Let $B$ be an acyclic skew-symmetrizable matrix, $G$ the associated Kac-Moody group, and $c$ the associated Coxeter element. 
+Then there is an isomorphism $\cA_{B_{dbl}} \cong \kk[G^{c,c^{-1}}]$ that identifies the initial cluster variables with the following restrictions of monomials in generalized minors
 %The isomorphism takes the initial cluster variables to restrictions of monomials in generalized minors; for $1 \leq j \leq n$ we have 
 \begin{equation}\label{eq:initialcluster}
 x_j = \Delta_{\omega_j},\quad z_j = \Delta^{\omega_j}_{ c\omega_j} \prod_{i < j}(\Delta^{\omega_i}_{c \omega_i})^{a_{ij}},\quad z_{-j} = \Delta^{c \omega_j}_{\omega_j} \prod_{i < j}(\Delta^{c \omega_i}_{\omega_i})^{a_{ij}}.
