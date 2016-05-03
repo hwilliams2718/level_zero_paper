@@ -535,10 +535,42 @@ We will directly use the above identity, but note that it restricts from a simil
 
 \subsection{Acyclic cluster algebras from double Bruhat cells}
 
-The data of an acyclic skew-symmetrizable matrix $B$ is equivalent to the data of a symmetrizable Cartan matrix $A$ together with a Coxeter element $c$ of its Weyl group.
+The data of an $n\times n$ acyclic skew-symmetrizable matrix $B$ is equivalent to the data of a symmetrizable Cartan matrix $A$ together with a Coxeter element $c$ of its Weyl group.
 The Cartan matrix is obtained from $B$ by making all its entries negative without changing their absolute values, then setting each diagonal entry equal to two; see Figure \ref{fig:matrices}.
 Since $B$ is acyclic, there is a permutation $\sigma \in S_n$ such that $B_{\sigma_i \sigma_j} \geq 0$ when $\sigma_i < \sigma_j$, and we take $c$ to be $s_{\sigma_1} \cdots s_{\sigma_n}$ (choosing a different permutation with the above property defines the same element via a different reduced word).
 Conversely, any acyclic skew-symmetrizable matrix can be obtained from a Cartan matrix and Coxeter element assigning signs to the off-diagonal entries according to $c$.
+
+We will be interested in the following two $3n\times n$ extensions of $B$:
+\begin{equation}
+  B_{\bullet\bullet}
+  :=
+  \left[
+    \begin{array}{c}
+      B\\
+      \hline
+      1\\
+      \hline
+      1 
+    \end{array}
+  \right]
+  \quad
+  \quad
+  B_{EE}
+  :=
+  \left[
+    \begin{array}{c}
+      B\\
+      \hline
+      1-[B]_+\\
+      \hline
+      1-[B]_+\\
+    \end{array}
+  \right]
+\end{equation}
+where $1$ denotes the identity matrix and we apply $[\,\cdot\,]_+$ entrywise. 
+We refer to them as the \newword{double principal} and \newword{double Euler} extension of $B$ respectively. 
+\saySS{Notation here is temporary: we have two ``doubled'' things so $B_{dbl}$ seemed ambiguous.}
+\saySS{The name for $B_{EE}$ comes from the fact that $1-[B]_+$ is the Euler matrix for $-B$. Unfortunately I can't do anything about the sign: live is tough} 
 
 %The Coxeter element is $c = s_{\sigma_1} \cdots s_{\sigma_n}$, where $\sigma \in S_n$ is any permutation for which $\sigma_i > \sigma_j$ whenever there is an arrow from $i$ to $j$ in $Q_B$. Conversely, any Coxeter element $c$ arises in this way from a unique skew-symmetrizable matrix, which we write as $B_c$. \sayHW{We are deprecating $Q_B$, and possibly also $B_c$}.
 
