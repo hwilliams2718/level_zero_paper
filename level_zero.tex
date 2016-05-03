@@ -47,6 +47,7 @@ urlcolor=blue]{hyperref}
 \newcommand{\CC}{\mathbb{C}}
 \newcommand{\NN}{\mathbb{N}}
 \newcommand{\PP}{\mathbb{P}}
+\newcommand{\TT}{\mathbb{T}}
 \newcommand{\ZZ}{\mathbb{Z}}
 \newcommand{\kk}{\Bbbk}%\mathbbm{k}}
 
@@ -222,21 +223,21 @@ We say a square matrix is skew-symmetrizable if it is related to a skew-symmetri
 %$B$ is skew-symmetrizable if there is a diagonal matrix $D$ such that the principal part of $DB$ is skew-symmetric. \sayHW{$DB$ or $BD$?} \sayDR{It should be $BD$ if you want to multiply the entire exchange matrix}
 %We say an $m \times n$ integer matrix with $m > n$, and $D$ an $m \times m$ diagonal integer matrix such that $DB$ is skew-symmetric. 
 Two $m \times n$ matrices $B$ and $B'$ with skew-symmetrizable principal part are related by mutation at $k \in \{1,\dotsc,n\}$ if their entries are related by  
-\[
-B'_{ij} = \begin{cases}
--B_{ij} & i = k \text{ or } j = k\\
-B_{ij} + \sgn(B_{ik})[B_{ik}B_{kj}]_+ & \text{otherwise.}
-\end{cases}
-\]
+\begin{equation}\label{eq:matrix mutation}
+  B'_{ij} = \begin{cases}
+  -B_{ij} & i = k \text{ or } j = k\\
+  B_{ij} + \sgn(B_{ik})[B_{ik}B_{kj}]_+ & \text{otherwise.}
+  \end{cases}
+\end{equation}
 Here and elsewhere we write $[a]_+$ for $\max(a,0)$ and $\sgn(a) \in \{\pm 1,0\}$ for the sign of $a$ where $\sgn(a)=0$ for $a=0$. %\sayHW{Make sure $[a]_+$ notation is properly introduced somewhere}\sayDR{We need either $\sgn(B_{ik})[B_{ik}B_{kj}]_+$ or $[B_{ik}]_+B_{kj}+B_{ik}[-B_{kj}]_+$, which is preferred?}
 
 %We recall the definition of the cluster algebra $\cA_B$ associated to a skew-symmetrizable matrix $B$. 
-To define the cluster algebra $\cA_B$ associated to an $m \times n$ matrix $B$ with skew-symmetrizable principal part we begin with an infinite $n$-ary tree  $T$. 
+To define the cluster algebra $\cA_B$ associated to an $m \times n$ matrix $B$ with skew-symmetrizable principal part we begin with an infinite $n$-ary tree  $\TT$. 
 Label its edges by $\{1,\dotsc,n\}$ so that the edges incident to any given vertex have distinct labels. 
-For a fixed root $t_0 \in T_0$, assign a matrix $B^t$ to each $t \in T_0$ so that $B^{t_0} = B$, and if $t, t' \in T_0$ are joined by an edge labeled $k$, then $B^t$ and $B^{t'}$ are related by mutation at $k$. 
+For a fixed root $t_0 \in\TT$, assign a matrix $B^t$ to each $t \in\TT$ so that $B^{t_0} = B$, and if $t, t' \in\TT$ are joined by an edge labeled $k$, then $B^t$ and $B^{t'}$ are related by mutation at $k$. 
 
 Let $\cF$ denote the field of rational functions in formal variables $x_{1}\,\dotsc,x_{m}$ with coefficients in $\kk$. 
-The \emph{cluster variables} $$\{ x_{i;t}: i \in \{1,\dotsc,m\}, t \in T_0\} \subset \cF$$ are defined recursively as follows. The initial cluster variables $x_{i;t_0}$ are taken to be the generators $x_i$. If $t,t' \in T_0$ are joined by an edge labeled $k$, then $x_{i;t} = x_{i;t'}$ for $i \neq k$, and $x_{k;t}$, $x_{k;t'}$ are related by the \emph{exchange relation} 
+The \emph{cluster variables} $$\{ x_{i;t}: i \in \{1,\dotsc,m\}, t \in\TT\} \subset \cF$$ are defined recursively as follows. The initial cluster variables $x_{i;t_0}$ are taken to be the generators $x_i$. If $t,t' \in T_0$ are joined by an edge labeled $k$, then $x_{i;t} = x_{i;t'}$ for $i \neq k$, and $x_{k;t}$, $x_{k;t'}$ are related by the \emph{exchange relation} 
 \[
 x_{k;t}x_{k;t'} = \prod_{B^t_{ik}>0}x_{i;t}^{B^t_{ik}} + \prod_{B^t_{ik}<0}x_{i;t}^{-B^t_{ik}}.
 \]
@@ -250,7 +251,7 @@ The variables $x_{n+1;t},\dotsc, x_{m;t}$ do not depend on $t$ hence are referre
 %We sometimes write $y_i$\sayDR{Do we need the notation $y_i$?}\sayHW{Maybe not -- revisit this during wrap-up} for $x_{n+i}$, where $i \in \{1,\dotsc, m-n\}$. 
 %When working with explicit formulas for cluster variables, it will also be convenient to introduce monomials $\hat{y}_j = \prod\limits_{i=1}^m x_i^{B_{ij}}$. 
 
-We say a skew-symmetrizable matrix is acyclic if it can be conjugated by a permutation matrix so that the entries above the diagonal all become nonnegative. The terminology is justified by the skew-symmetric case: a skew-symmetric matrix $B$ can be recovered from the quiver $Q := Q_B$ whose vertices are indexed by the columns of $B$ and which has $[B_{ij}]_+$ arrows to vertex $i$ from vertex $j$; the skew-symmetric matrix is acyclic exactly when this quiver has no oriented cycles. The cluster algebra associated to a matrix with acyclic principal part is especially well-behaved: it is finitely generated as a $\kk$-algebra and %\sayHW{Check reference}\sayDR{It's correct.} 
+We say a skew-symmetrizable matrix is acyclic if it can be conjugated by a permutation matrix so that the entries above the diagonal all become nonnegative. The terminology is justified by the skew-symmetric case: a skew-symmetric matrix $B$ can be recovered from the quiver $Q := Q_B$ whose vertices are indexed by the columns of $B$ and which has $[-B_{ij}]_+$ arrows to vertex $i$ from vertex $j$; the skew-symmetric matrix is acyclic exactly when this quiver has no oriented cycles. The cluster algebra associated to a matrix with acyclic principal part is especially well-behaved: it is finitely generated as a $\kk$-algebra and %\sayHW{Check reference}\sayDR{It's correct.} 
 coincides with its upper cluster algebra [BFZ].% (as such, we will not need to recall the latter notion explicitly).
 
 % is acyclic if there is a permutation $\sigma \in S_n$ such that $B_{\sigma_i \sigma_j} \geq 0$ whenever $i < j$. Note that there is a map from skew-symmetric matrices to finite quivers: to such a matrix $B$ we associate the quiver $Q := Q_B$ whose vertices are indexed by $\{1,\dotsc,n\}$, and there are $[-B_{ij}]_+$ arrows from vertex $i$ to vertex $j$. If $B$ is skew-symmetric it is acyclic exactly when $Q$ has no oriented cycles.
@@ -288,7 +289,8 @@ coincides with its upper cluster algebra [BFZ].% (as such, we will not need to r
 \caption{An acyclic quiver $Q$, the associated skew-symmetrix matrix $B$, and the associated Cartan matrix $A$. The vertex labels of $Q$ correspond to the row/column labels of $B$ and $A$, and the Coxeter element associated to $B$ and $Q$ is $c = s_1 s_3 s_2$.}\label{fig:matrices}
 \end{figure}  
 
-For each $1 \leq i \leq n$ and $t \in T_0$ there is an auxiliary pair of integer vectors depending only on the principal part of $B$, the $\bfc$-vector $\bfc_{i;t} \in \ZZ^n$ and the $\bfg$-vector $\bfg_{i;t} \in \ZZ^n$. We write $C_t^B$ and $G_t^B$ for the matrices whose $i$th columns are $\bfc_{i;t}$ and $\bfg_{i;t}$, respectively. To define $C_t^B$ consider the $2n \times n$ matrix whose principal part is equal to that of $B$ and whose bottom $n \times n$ block is the identity matrix. Labeling the root $t_0 \in T_0$ by this matrix (whose cluster algebra is said to have principal coefficients), $C_t^B$ is then the bottom $n \times n$ block of the matrix labeling $t$. 
+For each $1 \leq i \leq n$ and $t \in\TT$ there is an auxiliary pair of integer vectors depending only on the principal part of $B$, the $\bfc$-vector $\bfc_{i;t} \in \ZZ^n$ and the $\bfg$-vector $\bfg_{i;t} \in \ZZ^n$. We write $C_t^B$ and $G_t^B$ for the matrices whose $i$th columns are $\bfc_{i;t}$ and $\bfg_{i;t}$, respectively. To define $C_t^B$, consider the $2n \times n$ matrix $\tilde B^{t_0}$ whose first $n$ rows are equal to the first $n$ rows of $B$ and whose bottom $n \times n$ block is the identity matrix. 
+For $t\in\TT$, define $\tilde B^t$ by matrix mutation \eqref{eq:matrix mutation} from $\tilde B^{t_0}$, then $C_t^B$ is defined to be the bottom $n \times n$ block of $\tilde B^t$. 
 
 Given the matrix of $\bfc$-vectors, we may define the matrix of $\bfg$-vectors by
 \[
@@ -1677,11 +1679,12 @@ where $\hat y_j=\prod_{i=1}^m x_i^{B_{ij}}$.
 
 \subsection{Networks}
 
-We will study generalized minors in affine type $\tilde A_{n-1}$ by modeling generic elements of a double Bruhat cell with weighted networks on a cylinder. A graph is weighted if all of its edges are assigned elements of a fixed ring; below this will be the Laurent polynomial ring $\CC[t_{\pm1}^{\pm1},\dotsc,t_{\pm n}^{\pm1},h_1^{\pm1},\dotsc,h_n^{\pm1}]$ with $3n$ polynomial generators.
+We will study generalized minors in affine type $\tilde A_{n-1}$ by modeling generic elements of a double Bruhat cell $G^{u,v}$ with weighted networks on a cylinder. 
+A graph is weighted if all of its edges are assigned elements of a fixed ring; below this will be the Laurent polynomial ring $\CC[t_{\pm1}^{\pm1},\dotsc,t_{\pm n}^{\pm1},h_1^{\pm1},\dotsc,h_n^{\pm1}]$ with $3n$ polynomial generators.
 
 \begin{definition}
 For $i\in[-n,-1]\cup[1,n]$ define a directed network on a cylinder (which we associate with $x_i(t_i)$) containing $n$ non-crossing \emph{horizontal} edges of weight $1$ running from the right-hand boundary component to the left-hand boundary component, which are labeled by $\ZZ_n$ compatibly with their cyclic ordering, and a (\emph{vertical}) \emph{bridge} of weight $t_i$ joining the $(i-1)^{st}$ horizontal edge and the $i^{th}$ horizontal edge, which is oriented upward for $i>0$ and downward for $i<0$ (see Figure~\ref{fig:networks on cylinders}).  
-For $i\in[1,n]$ define another directed network on a cylinder (which we associate with $h_i^{\alpha_i^\vee}$) again containing the $n$ non-crossing horizontal edges with the $i^{th}$ horizontal edge of weight $h_i^{-1}$ and the $(i-1)^{st}$ horizontal edge of weight $h_i$ and all other horizontal edges of weight 1 (see Figure~\ref{fig:networks on cylinders}).
+For $i\in[1,n]$ define another directed network on a cylinder (which we associate with $h_i^{\alpha_i^\vee}$) again containing the $n$ non-crossing horizontal edges with the $i^{th}$ horizontal edge of weight $h_i^{-1}$, the $(i-1)^{st}$ horizontal edge of weight $h_i$, and all other horizontal edges of weight 1 (see Figure~\ref{fig:networks on cylinders}).
 \bigskip
 \begin{figure}
 \begin{tikzpicture}
@@ -1814,27 +1817,34 @@ For $i\in[1,n]$ define another directed network on a cylinder (which we associat
 \caption{Basic networks on a cylinder.}\label{fig:networks on cylinders}
 \end{figure}
 
-Given a Coxeter element $c = s_{\sigma_1} \dotsc s_{\sigma_n}$, define the \emph{network} $\cN_c$ to be the concatenation of the basic networks above associated to the factors in the decomposition 
-\[g=x_{-\sigma_1}(t_{-\sigma_1})\cdots x_{-\sigma_n}(t_{-\sigma_n}) hx_{\sigma_n}(t_{\sigma_n}) \cdots x_{\sigma_1}(t_{\sigma_1})\]
-of a generic element of $G^{c,c^{-1}}$, where $h$ factors as $\prod\limits_{i=1}^n h_i$ with $h_i=\big(h^{\omega_i}\big)^{\alpha_i^\vee}$.
+Given reduced decompositions $u=s_{\sigma_1}\cdots s_{\sigma_{\ell(u)}}$ and $v=s_{\tau_1}\cdots s_{\tau_{\ell(v)}}$, define the network $\cN^{u,v}$ to be the concatenation of the basic networks associated to the factors in the decomposition 
+\begin{equation}\label{eq:double Bruhat generic element}
+  g=x_{-\tau_{\ell(v)}}(t_{-\tau_{\ell(v)}})\cdots x_{-\tau_1}(t_{-\tau_1}) hx_{\sigma_{\ell(u)}}(t_{\sigma_{\ell(u)}}) \cdots x_{\sigma_1}(t_{\sigma_1})
+\end{equation}
+of a generic element of $G^{u,v}$, where $h$ factors as $\prod\limits_{i=1}^n h_i$ with $h_i=\big(h^{\omega_i}\big)^{\alpha_i^\vee}$.
 It follows that $h_i^{\omega_i}=h^{\omega_i}$ and $h_i^{\omega_j}=1$ for $i\ne j$.  
 Here we abuse notation slightly and write $h_i$ also for the value $h_i^{\omega_i}$.
+%Given a Coxeter element $c = s_{\sigma_1} \dotsc s_{\sigma_n}$, define the \emph{network} $\cN_c$ to be the concatenation of the basic networks above associated to the factors in the decomposition 
+%\[g=x_{-\sigma_1}(t_{-\sigma_1})\cdots x_{-\sigma_n}(t_{-\sigma_n}) hx_{\sigma_n}(t_{\sigma_n}) \cdots x_{\sigma_1}(t_{\sigma_1})\]
+%of a generic element of $G^{c,c^{-1}}$, where $h$ factors as $\prod\limits_{i=1}^n h_i$ with $h_i=\big(h^{\omega_i}\big)^{\alpha_i^\vee}$.
+%It follows that $h_i^{\omega_i}=h^{\omega_i}$ and $h_i^{\omega_j}=1$ for $i\ne j$.  
+%Here we abuse notation slightly and write $h_i$ also for the value $h_i^{\omega_i}$.
 \end{definition}
 
-By a \emph{path} in $\cN_c$ we will mean a directed path in the network which begins at a source on the right-hand side of the cylinder, is directed compatibly with the edges of $\cN_c$, and ends at a sink on the left-hand side of the cylinder. 
+By a \emph{path} in $\cN^{u,v}$ we will mean a directed path in the network which begins at a source on the right-hand side of the cylinder, is directed compatibly with the edges of $\cN^{u,v}$, and ends at a sink on the left-hand side of the cylinder. 
 If $P = \{P_i\}$ is a collection of paths, we write $\partial_{in}P \subset \ZZ_n$ for the set of boundary sources at which paths in $P$ begin; similarly $\partial_{out}P \subset \ZZ_n$ denotes the set of boundary sinks. 
 We say the weight of a path is the product of the weights of edges it traverses, and the weight $wt(P)$ of a collection of paths is the product of the weights of its constituent paths.
 
-\begin{proposition}\label{prop:minorsfrompaths}\sayDR{I know it isn't relevant to the paper but I am very tempted to give a network $N_{u,v}$ and an analogue of this proposition for each double Bruhat cell $G^{u,v}$ since there is really nothing special about the Coxeter case here.}
+\begin{proposition}\label{prop:minorsfrompaths}
   Given $S \subset \ZZ_n$, let
   \[ \omega_S = \sum_{i \in S} \omega_{i+1} - \omega_i.\] 
-  Then for generic $g\in G^{c,c^{-1}}$ we have \[ \Delta_{\omega_S}(g) = \sum_{P: S \to S} wt(P), \]
-  where the sum is over collections $P$ of pairwise disjoint paths in $\cN_c$ with $\partial_{in}P = \partial_{out}P = S$.
+  Then for generic $g\in G^{u,v}$ we have \[ \Delta_{\omega_S}(g) = \sum_{P: S \to S} wt(P), \]
+  where the sum is over collections $P$ of pairwise disjoint paths in $\cN^{u,v}$ with $\partial_{in}P = \partial_{out}P = S$.
 \end{proposition}
 \begin{proof}
   Write $r=|S|$.  
   Inside the irreducible representation $\big(\!\bigwedge^{\!r}\CC^n\big)[z^{\pm 1}]$ of $G$, the vector $\bigwedge\limits_{i\in S} e_i$ (following Definition~\ref{def:minors} the choice of sign will be irrelevant) has weight $\omega_S$ and thus this representation identifies with $V(\omega_S)$.
-  By construction, the network $\cN_c$ encodes the action of $g\in G^{c,c^{-1}}$ in the standard basis $\{ e_{j_1} \wedge \cdots \wedge e_{j_r} z^d\}$ of $\big(\!\bigwedge^{\!r}\CC^n\big)[z^{\pm 1}]$ labeled by pairs of an $r$-element subset of $\ZZ_n$ and an integer $d$.  The result then follows from the definition of $\Delta_{\omega_S}$.
+  By construction, each basic network $x_i(t_i)$ for $i\in[-n,-1]\cup[1,n]$ and $h_i$ for $i\in[1,n]$ encodes the action of the corresponding group element on the standard basis $\{ e_{j_1} \wedge \cdots \wedge e_{j_r} z^d\}$ of $\big(\!\bigwedge^{\!r}\CC^n\big)[z^{\pm 1}]$ labeled by pairs of an $r$-element subset of $\ZZ_n$ and an integer $d$.  Thus the network $\cN^{u,v}$ encodes the action of a generic element $g\in G^{c,c^{-1}}$ given by \eqref{eq:double Bruhat generic element} on this basis and the result then follows from the definition of $\Delta_{\omega_S}$.
 \end{proof}
 
 To use the above proposition effectively, we collect some elementary combinatorial observations about non-crossing paths $P$ in $\cN_c$. 
