@@ -150,6 +150,8 @@ The cluster algebra of any acyclic quiver is the coordinate ring of a subvariety
     Decide on preprojective/postinjective notation and apply changes through
   \item
     Fix the algebra statements: double principal vs double Euler
+  \item
+    Make sure $\kk[G]$ is used throughout
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%
@@ -1889,9 +1891,9 @@ Here we abuse notation slightly and write $h_i$ also for the value $h_i^{\omega_
 %Here we abuse notation slightly and write $h_i$ also for the value $h_i^{\omega_i}$.
 \end{definition}
 
-By a \emph{path} in $\cN^{u,v}$ we will mean a directed path in the network which begins at a source on the right-hand side of the cylinder, is directed compatibly with the edges of $\cN^{u,v}$, and ends at a sink on the left-hand side of the cylinder. 
+By a \newword{path} in $\cN^{u,v}$ we will mean a directed path in the network which begins at a source on the right-hand side of the cylinder, is directed compatibly with the edges of $\cN^{u,v}$, and ends at a sink on the left-hand side of the cylinder. 
 If $P = \{P_i\}$ is a collection of paths, we write $\partial_{in}P \subset \ZZ_n$ for the set of boundary sources at which paths in $P$ begin; similarly $\partial_{out}P \subset \ZZ_n$ denotes the set of boundary sinks. 
-We say the weight of a path is the product of the weights of edges it traverses, and the weight $wt(P)$ of a collection of paths is the product of the weights of its constituent paths.  
+We say the \newword{weight} of a path is the product of the weights of edges it traverses, and the weight $wt(P)$ of a collection of paths is the product of the weights of its constituent paths.  
 
 \begin{proposition}\label{prop:minorsfrompaths}
   Given $S \subset \ZZ_n$, let
@@ -1979,23 +1981,23 @@ Given a collection of disjoint paths $P$, define its \newword{bridge set} $\beta
 We now turn to the main result of the section:
 
 \begin{theorem}
-  If $V_{[k,\ell]}$ is regular, then under the isomorphism $\CC[G^{c,c^{-1}}] \cong A_Q$ we have
+  If $V_{[k,\ell]}$ is regular, then under the isomorphism $\kk[G^{c,c^{-1}}] \cong A_Q$ we have
   \[x_{V_{[k,\ell]}} = \Delta_{\omega_{S_{[k,\ell]}}}.\]  
 \end{theorem}
 \begin{proof}
 Let $\cP_{[k,\ell]} = \{P: S_{[k,\ell]} \to S_{[k,\ell]}\}$ denote the set of pairwise disjoint collections of paths in $\cN^{c,c^{-1}}$ with $\partial_{in}P = \partial_{out}P = S_{[k,\ell]}$. 
-By Proposition \ref{prop:minorsfrompaths}, for a generic element 
+By Proposition \ref{prop:minorsfrompaths}, the evaluation of $\Delta_{\omega_{S_{[k,\ell]}}}$ on a generic element 
 \[g = x_{-\sigma_1}(t_{-\sigma_1})\cdots x_{-\sigma_n}(t_{-\sigma_n}) hx_{\sigma_n}(t_{\sigma_n}) \cdots x_{\sigma_1}(t_{\sigma_1})\]
-the evaluation $\Delta_{\omega_{S_{[k,\ell]}}}(g)$ is the weighted sum 
+is the weighted sum 
 \[
-\Delta_{\omega_{S_{[k,\ell]}}}(g) = \sum_{P \in \mathcal{P}} wt(P).
+\Delta_{\omega_{S_{[k,\ell]}}}(g) = \sum_{P \in \mathcal{P}_{[k,\ell]}} wt(P).
 \]
-Our goal is to identify this with the evaluation $x_{V_{[k,\ell]}}(g)$ of the cluster character from \eqref{eq:regular cluster characters}, where the functions $x_i,\hat y_j\in\CC[G^{c,c^{-1}}]$ are determined by the initial cluster \eqref{eq:initialcluster}.
+Our goal is to identify this with the evaluation $x_{V_{[k,\ell]}}(g)$ of the cluster character from \eqref{eq:regular cluster characters}, where the functions $x_i,\hat y_j\in\kk[G^{c,c^{-1}}]$ are determined by the initial cluster \eqref{eq:initialcluster}.\sayDR{Say this better, maybe compute $x_i(g)$ and $\hat y_j(g)$ here?  I just realized an abuse of notation by writing $x_i$ in both sections 2.2 and 2.3.}
 
 As in Lemma \ref{lem:phi}, we define $\beta(P) \subset \ZZ_n$ by letting $j \in \beta(P)$ if and only if a path in $P$ traverses the unique edge of weight $t_j$. We claim that for $P \in \cP_{[k,\ell]}$, $\beta(P)$ is in fact a subset of $[k,\ell]$, is successor-closed in the poset $[k,\ell]$, and that the assignment $P \mapsto \beta(P)$ defines a bijection $\cP_{[k,\ell]} \simeq \cE_{[k,\ell]}$.
 
 As in Definition \ref{prop:regular coindices}, we let $i_1 < \cdots < i_m$ and $o_1 < \cdots < o_m$ denote the labels of the sinks and sources in $[k,\ell]$.  
-We consider the case where the first source in $[k,\ell]$ comes before the first sink (i.e. $o_1 < i_1$ in $[k,\ell]$), the opposite case following by symmetry.\sayDR{I need to fill in more details.} Recall that in this case
+We consider the case where the first source in $[k,\ell]$ comes before the first sink (i.e. $o_1 < i_1$ in $[k,\ell]$), the opposite case following by symmetry.\sayDR{Thinking of cluster variables in terms of the opposite quiver dualizes representations, negates $g$-vectors, and negates the principal part of $\tilde B$ (this in effect interchanges $h_i$ with $h_i^{-1}$).  Applying $\iota$ to $g$ has the same effect.} Recall that in this case
 \[S_{[k,\ell]} = [k,o_1-1] \cup [i_1,o_2-1] \cup \cdots \cup [i_m,\ell].\]
 
 Let $P \in \cP_{[k,\ell]}$.  Since $o_1<i_1$, we have $j+1\to j$ in $Q$ for each $j\in[k^-,k-1]$, where $k^-$ is the nearest sink less that $k$.  
@@ -2005,30 +2007,31 @@ Applying part (2) of Lemma~\ref{lem:phi} inductively beginning with the source $
 Noting that $[\ell^+,k^-]\cap\partial_{in}P=\emptyset$ and then arguing as above we conclude that $\beta(P)\subset[k,\ell]$.
 
 Write $i_0=k$ and $i_{m+1}=o_{m+1}=\ell+1$.  For $1\le r\le m+1$ and $j\in[i_{r-1},o_r-1]\subset\partial_{in}P$, we have $j+1\to j$ in $Q$ and part (1) of Lemma~\ref{lem:phi} says $j+1\in\beta(P)$ implies $j\in\beta(P)$.  
-For $1\le r\le m$ and $j\in[o_r,i_r-1]$ we have $j\notin\partial_{in}P$ and $j\to j+1$ in $Q$ so that part (2) of Lemma~\ref{lem:phi} says $j\in\beta(P)$ implies $j+1\in\beta(P)$.  
+For $1\le r\le m$ and $j\in[o_r,i_r-1]$, we have $j\notin\partial_{in}P$ and $j\to j+1$ in $Q$ so that part (2) of Lemma~\ref{lem:phi} says $j\in\beta(P)$ implies $j+1\in\beta(P)$.  
 Putting together these observations we conclude that $\beta(P)\subset[k,\ell]$ is successor-closed.
 
 Now suppose $E\in\cE_{[k,\ell]}$ is a successor-closed subset of $[k,\ell]$.  
-Write $P_0\in\cP_{[k,\ell]}$ for the trivial collection of pairwise disjoint paths in which the path which begins at level $j\in S_{[k,\ell]}=\partial_{in}P_0$ does not leave the level $j$ horizontal edge of $\cN^{c,c^{-1}}$.
-Note that $wt(P_0)=h_{k-1}h_\ell^{-1}\prod_{r=1}^m (h_{o_r}h_{i_r}^{-1})$.  
-We will show how to modify $P_0$ to obtain a unique collection of paths $P\in\cP_{[k,\ell]}$ with $\beta(P)=E$ in such a way that $P$ clearly contains pairwise disjoint paths, along the way we also compute $wt(P)$ for these collections.  Note that since each $P\in\cP_{[k,\ell]}$ has the same starting and ending set of vertices $S_{[k,\ell]}$, it suffices to only describe the upward steps along bridges labeled $t_i$ for $i\in[1,n]$ since the downward steps along bridges labeled $t_i$ for $i\in[-n,-1]$ will be mirror to these upward steps.  
+Write $P_0\in\cP_{[k,\ell]}$ for the trivial collection of pairwise disjoint paths in which the path beginning at level $j\in S_{[k,\ell]}=\partial_{in}P_0$ does not leave the level $j$ horizontal edge of $\cN^{c,c^{-1}}$.  
+Let $\bfe_0=\boldsymbol{0}\in\ZZ_{\ge0}^n$ and note that $wt(P_0)=h_{k-1}h_\ell^{-1}\prod_{r=1}^m (h_{o_r}h_{i_r}^{-1})=x^{g_{[k,\ell]}}(g)\hat y^{\bfe_0}(g)$.  
+We will show how to modify $P_0$ to obtain a unique collection of paths $P\in\cP_{[k,\ell]}$ with $\beta(P)=E$ in such a way that $P$ clearly contains pairwise disjoint paths, along the way we also compute $wt(P)$ for these collections and show coincidence with $x^{g_{[k,\ell]}}(g)\hat y^\bfe(g)$ for $\bfe=\sum\limits_{j\in E}\alpha_j\in\cQ$.  Note that since each $P\in\cP_{[k,\ell]}$ has the same starting and ending set of vertices $S_{[k,\ell]}$, it suffices to only describe the upward steps along bridges labeled $t_j$ for $j\in[1,n]$ since the downward steps along bridges labeled $t_j$ for $j\in[-n,-1]$ will be mirror to these upward steps.  
 For $1\le r\le m$ we define $P_r$ iteratively as a modification of $P_{r-1}$ by the following two steps.
 \begin{itemize}
   \item Let $o'_r\in[i_{r-1},o_r-1]$ be maximum so that $[i_{r-1},o'_r]\subset E$.  
   If no such $o'_r$ exists (i.e. $i_{r-1}\notin E$) let $P'_r=P_{r-1}$.  
-  Otherwise, for each $j\in[i_{r-1},o'_r]$ the path staying on level $j$ will now traverse its corresponding bridge labeled $t_j$ and by part (1) of Lemma~\ref{lem:phi} the resulting collection $P'_r$ will remain pairwise disjoint.  
+  Otherwise, for each $j\in[i_{r-1},o'_r]$ the path in $P_{r-1}$ staying on level $j$ will now traverse its corresponding bridge labeled $t_j$ and by part (1) of Lemma~\ref{lem:phi} the resulting collection $P'_r$ will remain pairwise disjoint.  
+  Set $\bfe'_r=\bfe_{r-1}+\sum\limits_{j\in[i_{r-1},o'_r]}\alpha_j$.
   In the latter case, the weight of $P_{r-1}$ transforms as follows: 
-  \[wt(P'_r)=wt(P_{r-1})\cdot h_{i_{r-1}-1}^{-1}h_{i_{r-1}}h_{o'_r}h_{o'_r+1}^{-1}\prod_{j\in[i_{r-1},o'_r]}(t_jt_{-j}).\]
+  \[wt(P'_r)=wt(P_{r-1})\cdot h_{i_{r-1}-1}^{-1}h_{i_{r-1}}h_{o'_r}h_{o'_r+1}^{-1}\prod_{j\in[i_{r-1},o'_r]}(t_jt_{-j})=x^{g_{[k,\ell]}}(g)\hat y^{\bfe'_r}(g).\]
   \item Let $o''_r\in[o_r,i_r]$ be minimum so that $[o''_r,i_r]\subset E$.  
   If no such $o''_r$ exists (i.e. $i_r\notin E$) let $P_r=P'_r$.  
-  Otherwise, the path staying on level $i_r$ will now traverse every bridge $t_j$ for $j\in[o''_r,i_r]$ and following part (2) of Lemma~\ref{lem:phi} the resulting collection $P_r$ will remain pairwise disjoint since $[o''_r,i_r]\cap\partial_{in}P'_r=\{i_r\}$ and when $o''_r=o_r$ (i.e. $o_r\in E$) we have $o_r-1\in\beta(P'_r)$.
+  Otherwise, the path in $P'_r$ staying on level $i_r$ will now traverse every bridge $t_j$ for $j\in[o''_r,i_r]$ and following part (2) of Lemma~\ref{lem:phi} the resulting collection $P_r$ will remain pairwise disjoint since $[o''_r,i_r]\cap\partial_{in}P'_r=\{i_r\}$ and when $o''_r=o_r$ (i.e. $o_r\in E$) we have $o_r-1\in\beta(P'_r)$.  
+  Set $\bfe_r=\bfe'_r+\sum\limits_{j\in[o''_r,i_r]}\alpha_j$.
   In the latter case, the weight of $P'_r$ transforms as follows: 
-  \[wt(P_r)=wt(P'_r)\cdot h_{o''_r-1}^{-1}h_{o''_r}h_{i_r}h_{i_r+1}^{-1}\prod_{j\in[o''_r,i_r]}(t_jt_{-j}).\]
+  \[wt(P_r)=wt(P'_r)\cdot h_{o''_r-1}^{-1}h_{o''_r}h_{i_r}h_{i_r+1}^{-1}\prod_{j\in[o''_r,i_r]}(t_jt_{-j})=x^{g_{[k,\ell]}}(g)\hat y^{\bfe'_r}(g).\]
 \end{itemize}
-Then $P=P_{m+1}\in\cP_{[k,\ell]}$ is the desired collection of pairwise disjoint paths with $\beta(P)=E$.
-
-\sayHW{Things not addressed yet: what about the other tube?}
-
+Then $P=P_{m+1}\in\cP_{[k,\ell]}$ is the desired collection of pairwise disjoint paths with $\beta(P)=E$ and we have shown 
+\[wt(P)=x^{g_{[k,\ell]}}(g)\prod_{j\in E}\hat y(g),\]
+as desired.
 \end{proof}
 
   \begin{lemma}\sayDR{This should be translated into our current notation and placed in an appropriate location.}
