@@ -1992,43 +1992,43 @@ the evaluation $\Delta_{\omega_{S_{[k,\ell]}}}(g)$ is the weighted sum
 
 As in Lemma \ref{lem:phi}, we define $\phi(P) \subset \ZZ_n$ by letting $j \in \phi(P)$ if and only if a path in $P$ traverses the unique edge of weight $t_j$. We claim that for $P \in \cP$, $\phi(P)$ is in fact a subset of $[k,\ell]$, is successor-closed in the poset $[k,\ell]$, and that the assignment $P \mapsto \phi(P)$ defines a bijection $\cP \simeq \cE$.
 
-%Recall that $\cN_c$ consists of parallel strands labeled by $\Z_{n+1}$ connecting the two boundary components of the cylinder, and two sets of $n+1$ vertical strands connecting them. One of those sets has edges weighted $t_j$, and with 
-
-%Recall that for $P \in \cP$ and any $j \in \Z_{n+1}$, $wt(P)$ either does not depend on $t_j$ or is linear in $t_j$. 
-
-%Let $\phi(P) \subset \ZZ_{n+1}$ denote the set of indices $j$ such that $wt(P)$ depends non-trivially on $t_j$. Recall that $t_j$ appears as the weight of a unique edge in $\cN_c$, so equivalently $\phi(P)$ records which of these edges are traversed by a path in $P$. We claim that $\phi(P)$ is in fact a subset of $[p,q]$, is target-closed in $[p,q]$, and that the assignment $P \mapsto \phi(P)$ defines a bijection $\cP \cong \cE$.
-
 As in Definition \ref{prop:regular coindices}, we let $i_1 < \cdots < i_m$ and $o_1 < \cdots < o_m$ denote the labels of the sinks and sources in $[k,\ell]$.  
 We consider the case where the first source in $[k,\ell]$ comes before the first sink (i.e. $o_1 < i_1$ in $[k,\ell]$), the opposite case following by symmetry.\sayDR{I need to fill in more details.} Recall that in this case
 \[S_{[k,\ell]} = [k,o_1-1] \cup [i_1,o_2-1] \cup \cdots \cup [i_m,\ell].\]
 
-Let $P \in \cP_{[k,\ell]}$.  Since $o_1<i_1$, we have $j+1\to j$ in $Q$ for each $j\in[k^-,k-1]$.  
+Let $P \in \cP_{[k,\ell]}$.  Since $o_1<i_1$, we have $j+1\to j$ in $Q$ for each $j\in[k^-,k-1]$, where $k^-$ is the nearest sink less that $k$.  
 But $[k^-,k-1]\cap\partial_{in}P=\emptyset$ and thus part (2) of Lemma~\ref{lem:phi} implies $j\notin\phi(P)$ for any $j\in[k^-,k-1]$.  
-Similarly, $o_m<i_m$ gives $j\to j-1$ in $Q$ for each $j\in[\ell+1,\ell^+]$ and applying part (2) of Lemma~\ref{lem:phi} inductively beginning with the source $j=\ell^+$ we see that $j\notin\phi(P)$ for any $j\in[\ell+1,\ell^+]$.  
+Similarly, $o_m<i_m$ gives $j\to j-1$ in $Q$ for each $j\in[\ell+1,\ell^+]$, where $\ell^+$ is the nearest source after $\ell$.  
+Applying part (2) of Lemma~\ref{lem:phi} inductively beginning with the source $j=\ell^+$ we see that $j\notin\phi(P)$ for any $j\in[\ell+1,\ell^+]$.  
 Noting that $[\ell^+,k^-]\cap\partial_{in}P=\emptyset$ and then arguing as above we conclude that $\phi(P)\subset[k,\ell]$.
 
-Write $i_0=k$ and $o_{m+1}=\ell+1$.  For $1\le r\le m+1$ and $j\in[i_{r-1},o_r-1]\subset\partial_{in}P$, we have $j+1\to j$ in $Q$ and part (1) of Lemma~\ref{lem:phi} says $j+1\in\phi(P)$ implies $j\in\phi(P)$.  
+Write $i_0=k$ and $i_{m+1}=o_{m+1}=\ell+1$.  For $1\le r\le m+1$ and $j\in[i_{r-1},o_r-1]\subset\partial_{in}P$, we have $j+1\to j$ in $Q$ and part (1) of Lemma~\ref{lem:phi} says $j+1\in\phi(P)$ implies $j\in\phi(P)$.  
 For $1\le r\le m$ and $j\in[o_r,i_r-1]$ we have $j\notin\partial_{in}P$ and $j\to j+1$ in $Q$ so that part (2) of Lemma~\ref{lem:phi} says $j\in\phi(P)$ implies $j+1\in\phi(P)$.  
 Putting together these observations we conclude that $\phi(P)\subset[k,\ell]$ is successor-closed.
 
 Now suppose $E\in\cE_{[k,\ell]}$ is a successor-closed subset of $[k,\ell]$.  
-Write $P_0\in\cP_{[k,\ell]}$ for the trivial collection of pairwise disjoint paths in which the path at level $j\in S_{[k,\ell]}=\partial_{in}P_0$ does not leave the level $j$ horizontal edge.  
-We will show how to modify $P_0$ to obtain a unique collection of paths $P\in\cP_{[k,\ell]}$ with $\phi(P)=E$ in such a way that $P$ clearly contains pairwise disjoint paths.  Note that since each $P\in\cP_{[k,\ell]}$ has the same starting and ending set of vertices $S_{[k,\ell]}$, it suffices to only describe the upward steps along bridges labeled $t_i$ for $i\in[1,n]$ since the downward steps along bridges labeled $t_i$ for $i\in[-n,-1]$ will be mirror to these upward steps.  
-
+Write $P_0\in\cP_{[k,\ell]}$ for the trivial collection of pairwise disjoint paths in which the path at level $j\in S_{[k,\ell]}=\partial_{in}P_0$ does not leave the level $j$ horizontal edge.
+Note that $wt(P_0)=h_{k-1}h_\ell^{-1}\prod_{r=1}^m (h_{o_r}h_{i_r}^{-1})$.  
+We will show how to modify $P_0$ to obtain a unique collection of paths $P\in\cP_{[k,\ell]}$ with $\phi(P)=E$ in such a way that $P$ clearly contains pairwise disjoint paths, along the way we also compute $wt(P)$ for these collections.  Note that since each $P\in\cP_{[k,\ell]}$ has the same starting and ending set of vertices $S_{[k,\ell]}$, it suffices to only describe the upward steps along bridges labeled $t_i$ for $i\in[1,n]$ since the downward steps along bridges labeled $t_i$ for $i\in[-n,-1]$ will be mirror to these upward steps.  
 For $1\le r\le m$ we define $P_r$ iteratively as a modification of $P_{r-1}$ by the following two steps.
 \begin{itemize}
   \item Let $o'_r\in[i_{r-1},o_r-1]$ be maximum so that $[i_{r-1},o'_r]\subset E$.  
   If no such $o'_r$ exists (i.e. $i_{r-1}\notin E$) let $P'_r=P_{r-1}$.  
-  Otherwise, for each $j\in[i_{r-1},o'_r]$ the path staying on level $j$ will now traverse its corresponding bridge labeled $t_j$ and by part (1) of Lemma~\ref{lem:phi} the resulting collection $P'_r$ will remain pairwise disjoint.
+  Otherwise, for each $j\in[i_{r-1},o'_r]$ the path staying on level $j$ will now traverse its corresponding bridge labeled $t_j$ and by part (1) of Lemma~\ref{lem:phi} the resulting collection $P'_r$ will remain pairwise disjoint.  
+  In the latter case, the weight of $P_{r-1}$ transforms as follows: 
+  \[wt(P'_r)=wt(P_{r-1})\cdot h_{i_{r-1}-1}^{-1}h_{i_{r-1}}h_{o'_r}h_{o'_r+1}^{-1}\prod_{j\in[i_{r-1},o'_r]}(t_jt_{-j}).\]
   \item Let $o''_r\in[o_r,i_r]$ be minimum so that $[o''_r,i_r]\subset E$.  
   If no such $o''_r$ exists (i.e. $i_r\notin E$) let $P_r=P'_r$.  
   Otherwise, the path staying on level $i_r$ will now traverse every bridge $t_j$ for $j\in[o''_r,i_r]$ and following part (2) of Lemma~\ref{lem:phi} the resulting collection $P_r$ will remain pairwise disjoint since $[o''_r,i_r]\cap\partial_{in}P'_r=\{i_r\}$ and when $o''_r=o_r$ (i.e. $o_r\in E$) we have $o_r-1\in\phi(P'_r)$.
+  In the latter case, the weight of $P'_r$ transforms as follows: 
+  \[wt(P_r)=wt(P'_r)\cdot h_{o''_r-1}^{-1}h_{o''_r}h_{i_r}h_{i_r+1}^{-1}\prod_{j\in[o''_r,i_r]}(t_jt_{-j}).\]
 \end{itemize}
-
+Then $P=P_{m+1}\in\cP_{[k,\ell]}$ is the desired collection of pairwise disjoint paths with $\phi(P)=E$.
 
 \sayHW{Things not addressed yet: what about the other tube?}
 
 \end{proof}
+
 
 
 \subsection{Proof of Proposition~\ref{prop:level zero}}
