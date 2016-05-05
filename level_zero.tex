@@ -315,7 +315,7 @@ More specifically, let $t_0$ be the node of $\TT$ containing the initial exchang
   \dashname{\sigma_1}
   \cdots
 \end{equation}
-it is straigthforward to observe that all the matrices $B^{t_m}$ are acyclic. 
+it is straigthforward to observe that all the matrices $B^{t_m}$ are acyclic when $B^{t_0}$ is. 
 \saySS{Shall we say that these are all?}
 We will refer to the non-initial cluster variables $x_{i;t_m}$ with $m>0$ (resp. $m<0$) as \newword{preprojective} (resp. \newword{postinjective}). 
 \saySS{Maybe here is a good place to justify our notation}
@@ -604,14 +604,15 @@ The coordinate ring of $G^{u,v}$ is an upper cluster algebra, and a finite subse
 
 %Let $G := G_B$ be the Kac-Moody group associated to this root system. The cluster algebra has the following geometric realization in terms of $G$:
 
-\begin{proposition}\label{prop:coordring}\say[Group]{We need to think carefully about the change of coefficents, keeping in mind [Yang,Zelevinsky: p. 21] at the end of Sec. 4 and [Berenstein,Rupel: Lemma 6.8].}
+\begin{theorem}
+  \label{thm:coordring}\say[Group]{We need to think carefully about the change of coefficents, keeping in mind [Yang,Zelevinsky: p. 21] at the end of Sec. 4 and [Berenstein,Rupel: Lemma 6.8].}
 Let $B$ be an acyclic skew-symmetrizable matrix, $G$ the associated Kac-Moody group, and $c$ the associated Coxeter element. 
 Then there is an isomorphism $\cA_{B_{dbl}} \cong \kk[G^{c,c^{-1}}]$ that identifies the initial cluster variables with the following restrictions of monomials in generalized minors
 %The isomorphism takes the initial cluster variables to restrictions of monomials in generalized minors; for $1 \leq j \leq n$ we have 
 \begin{equation}\label{eq:initialcluster}
 x_j = \Delta_{\omega_j},\quad z_j = \Delta^{\omega_j}_{ c\omega_j} \prod_{i < j}(\Delta^{\omega_i}_{c \omega_i})^{a_{ij}},\quad z_{-j} = \Delta^{c \omega_j}_{\omega_j} \prod_{i < j}(\Delta^{c \omega_i}_{\omega_i})^{a_{ij}}.
 \end{equation}
-\end{proposition}
+\end{theorem}
 \begin{proof}
 Let $B'$ be the $3n \times n$ matrix with principal part $B_c$ and with $B'_{i+n,j} = B'_{i+2n,j} = [i = j] + a_{ij}[i < j]$ for $i,j \in [1,n]$.  Then the coordinate ring of $G^{c,c^{-1}}$ is the upper cluster algebra with exchange matrix $B'$, initial cluster variables $\Delta_{\omega_i}$, and frozen variables $\Delta^{\omega_i}_{c \omega_i}$, $\Delta^{c \omega_i}_{\omega_i}$ [BFZ, Wil]. Since $B_c$ is acylic, the upper cluster algebra and cluster algebra coincide [BFZ]. The proposition then follows from an application of \Cref{prop:changeofcoeffs}.
 \end{proof}
@@ -785,7 +786,11 @@ Some similar computations are collected in Lemma \ref{lemma:coefficients_values}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Preprojective and preinjective cluster variables as minors}
 %\subsection{The acyclic belt in non-finite types}
-In this section we prove that when $B$ is any acyclic skew-symmetrizable matrix, the identification $\cA_B \cong \kk[G^{c,c^{-1}}]$ realizes preprojective and postinjective cluster variables as restrictions of highest- and lowest-weight minors, respectively. We begin by computing the $\bfg$-vectors of these cluster variables; identifying the lattice of $\bfg$-vectors with the weight lattice of $G$, these are the weights of the corresponding minors, and they all lie in the orbit of the fundamental weights (and their negatives) under the action of the Coxeter element $c$. We then compute a list of exchange relations which determine all such cluster variables in terms of the initial cluster variables. The identification with minors then follows by identifying these relations with restrictions of certain generalized determinantal identities to $G^{c,c^{-1}}$.
+In this section we prove that when $B$ is any acyclic skew-symmetrizable matrix, the identification $\cA_{\widetilde B_{\bullet\bullet}} \cong \kk[G^{c,c^{-1}}]$ of \Cref{thm:coordring} realizes preprojective and postinjective cluster variables as restrictions of highest- and lowest-weight minors, respectively. 
+For our argument we will first deduce a parametrization of such cluster variables together with a list of exchange relations they satisfy from an explicit description of all the $\bfg$-vectors and $\bfc$-vectors in the acyclic belt.
+The identification with minors then follows by comparing these relations with restrictions of certain generalized determinantal identities to $G^{c,c^{-1}}$.
+
+We begin by computing the $\bfg$-vectors of these cluster variables; identifying the lattice of $\bfg$-vectors with the weight lattice of $G$, these are the weights of the corresponding minors, and they all lie in the orbit of the fundamental weights (and their negatives) under the action of the Coxeter element $c$. We then compute a list of exchange relations which determine all such cluster variables in terms of the initial cluster variables. 
 
 \subsection{Exchange relations and $\bfg$-vectors}\label{sec:exchange}
 
