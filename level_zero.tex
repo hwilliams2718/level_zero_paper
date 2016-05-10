@@ -339,6 +339,7 @@ The terminology is justified by the skew-symmetric case: the data of a skew-symm
 \end{figure}  
 
 The cluster algebra associated to any extension of an acyclic skew-symmetrizable matrix is especially well-behaved: it is finitely generated as a $\kk$-algebra and coincides with its upper cluster algebra [BFZ??].
+\saySS{This is only true if the seed is ``coprime'', that is if the exchange matrix has full rank. This is of course our case but we should be more careful with statements like this one.}
 For such cluster algebras we will concern ourself with a specific sequence of nodes in $\TT$ and the cluster variables associated to them.
 
 Recall that $t_0$ is the root of $\TT$.  Fix an acyclic skew-symmetrizable matrix $B$ and the corresponding permutation $\sigma$ as above.
@@ -592,8 +593,14 @@ The coordinate ring of $G^{u,v}$ is an upper cluster algebra, and a finite subse
   \end{equation}
 \end{theorem}
 \begin{proof}
-  \saySS{This needs to be completely rewritten: mention Harold's and explain change of coefficients}
-Let $B'$ be the $3n \times n$ matrix with principal part $B_c$ and with $B'_{i+n,j} = B'_{i+2n,j} = [i = j] + a_{ij}[i < j]$ for $i,j \in [1,n]$.  Then the coordinate ring of $G^{c,c^{-1}}$ is the upper cluster algebra with exchange matrix $B'$, initial cluster variables $\Delta_{\omega_i}$, and frozen variables $\Delta^{\omega_i}_{c \omega_i}$, $\Delta^{c \omega_i}_{\omega_i}$ [BFZ, Wil]. Since $B_c$ is acylic, the upper cluster algebra and cluster algebra coincide [BFZ]. The proposition then follows from an application of \Cref{prop:changeofcoeffs}.
+  Specializing \cite[Theorem 2.10]{BFZ05} and \cite[Theorem 4.9]{Wil13} to the case at hand we get that $\kk[G^{c,c^{-1}}]$ is the upper cluster algebra with initial cluster variables $\Delta_{\omega_j}$, frozen variables $\Delta_{c\omega_j}^{\omega_j}$ and $\Delta_{\omega_j}^{c\omega_j}$, and initial exchange matrix obtained extending $B$ with two copies of the matrix $1-[B]_+$ (here we denote by $1$ the identity matrix and we apply $[\,\cdot\,]_+$ entrywise).
+  \saySS{BIG FAT WARNING: the two theorems use opposite conventions for associating an exchange matrix to a double reduce word! My feeling is that we should say much more in the proof of this theorem but I have no clue on how to do it and still sweep under the rug the issue with conventions.}
+
+  This exchange matrix is acyclic by hypotesis and has full rank so, by \cite[Corollary 1.19]{BFZ05}, $\kk[G^{c,c^{-1}}]$ is a cluster algebra.
+
+  The cluster structure we obtained in this way is not quite the one in the statement of the theorem; the two are none the less strictly related. 
+  Indeed, since the variables $z_j$ are obtained from the minors $\Delta^{\omega_j}_{ c\omega_j}$ by an invertible monomial transformation (and similarly the variables $z_{-j}$ from the minors $\Delta^{c \omega_j}_{\omega_j}$), we can use separation of additions to rescale all the cluster variables in $k[G^{c,c^{-1}}]$ and establish the desired isomorphism (Cf. \cite[Proposition 4.5]{YZ08}).
+  \saySS{The proof of this theorem should now be correct but I am quite unhappy because it is vague and it uses some results without recalling all the required details. Can you improve what I did in any way?}
 \end{proof}
 
 \begin{remark}
@@ -959,9 +966,12 @@ With the preceding results in hand, we are ready to describe the cluster variabl
   The first part of our claim follows immediately from \Cref{lemma:g-vectors}: it suffices to recall how simple reflections act on fundamental weights and to observe that, the type of $A$ being not finite, all prefixes of $c^\infty$ are reduced expressions so that all the elements of $\Pi_{\textit{proj}}$ and $\Pi_{\textit{inj}}$ are distinct.
 
   For the second part recall that $\beta_i^+=s_1\cdots s_{i-1}\alpha_i$ and $\beta_i^-=s_n\cdots s_{i+1}\alpha_i$. 
+  \saySS{Were the $\beta_\pm$ defined before?}
   The relations are then an obvious consequence of \Cref{lemma:c-vectors} once we observe that mutations happen along a source/sink adapted sequence so that, at $t_m$, the $\mod{m}$-th colum of $B^{t_m}$ contains only non-negative entries and the $\mod{m+1}$-th column only non-positive entries. 
 \end{proof}
-
+\begin{remark}
+  As noted before, to obtain the exchange relations in the cluster algebra with principal coefficients $\cA_{\widetilde B_\bullet}$ it suffices to set $z_{-1},\dotsc,z_{-n}$ to one in the relations of \Cref{thm:vars_and_rels_in_bipartite_belt}. 
+\end{remark}
 \subsection{Highest- and lowest-weight minors}
 
 Before proving the main result of the section, Theorem \ref{thm:mainirregular}, we collect some lemmas concerning restrictions of minors to $G^{c,c^{-1}}$. All of the arguments involved are straightforward generalizations of those in \cite{YZ08} to the infinite-type case. 
@@ -1452,11 +1462,11 @@ Since $\iota$ preserves $B_+$ and $B_-$ but takes any lift of $w \in W$ to a lif
 %\end{proof}
 
 \begin{theorem}\label{thm:mainirregular}
-The isomorphism $\cA_{B_{\doublebullet}} \cong \kk[G^{c,c^{-1}}]$ of Proposition \ref{prop:coordring} identifies the preprojective cluster variable $x_{c^k\omega_i}$ with the restriction of the highest-weight minor $\Delta_{c^k\omega_i}$, and the preinjective cluster variable $x_{-c^k \omega_i}$ with the restriction of the lowest-weight minor $\Delta_{-c^k \omega_i}$. 
+The isomorphism $\cA_{\widetilde B_{\doublebullet}} \cong \kk[G^{c,c^{-1}}]$ of \Cref{thm:coordring} identifies the preprojective cluster variable $x_{c^k\omega_i}$ with the restriction of the highest-weight minor $\Delta_{c^k\omega_i}$, and the preinjective cluster variable $x_{-c^k \omega_i}$ with the restriction of the lowest-weight minor $\Delta_{-c^k \omega_i}$. 
 \end{theorem}
 
 \begin{proof}
-In Theorem \ref{thm:exchangerelations} we computed exchange relations that determine these cluster variables in terms of the initial ones, so it suffices to check that the indicated restrictions of minors satisfy the same relations.
+In \Cref{thm:vars_and_rels_in_bipartite_belt} we computed exchange relations that determine these cluster variables in terms of the initial ones, so it suffices to check that the indicated restrictions of minors satisfy the same relations.
 
 If we apply Proposition \ref{prop:fundid} with $u = v = c^k s_1 \cdots s_{i-1}$ and make a substitution following Lemma \ref{lemma:coefficient_identity_powers}, we find that 
 \begin{equation}
