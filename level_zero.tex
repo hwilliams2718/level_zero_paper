@@ -94,6 +94,21 @@ urlcolor=blue]{hyperref}
 \newcommand{\ol}[1]{\overline{#1}}
 \newcommand{\dol}[1]{\overline{\overline{#1}}}
 
+\makeatletter
+\newcommand{\@doublebullet}{
+  \begin{tikzpicture}[baseline={(0,-0.8ex)}]
+    \fill (0,0.5ex) circle (.4ex);
+    \fill (0,-0.5ex) circle (.4ex);
+  \end{tikzpicture}
+}
+\newcommand{\doublebullet}{{\mathrel{\mathchoice
+  {\hbox{\fontsize{\tf@size}{\tf@size}\selectfont\@doublebullet}}
+  {\hbox{\fontsize{\tf@size}{\tf@size}\selectfont\@doublebullet}}
+  {\hbox{\fontsize{\sf@size}{\sf@size}\selectfont\@doublebullet}}
+  {\hbox{\fontsize{\ssf@size}{\ssf@size}\selectfont\@doublebullet}}
+}}}
+\makeatother
+
 % ambients and numbering
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{conjecture}[theorem]{Conjecture}
@@ -243,7 +258,7 @@ Two exchange matrices $\widetilde B$ and $\widetilde B'$ are related by \newword
   \widetilde b_{ij} + \sgn(\widetilde b_{ik})[\widetilde b_{ik}\widetilde b_{kj}]_+ & \text{otherwise.}
   \end{cases}
 \end{equation}
-\saySS{I changed $B_{ij}$ into $b_{ij}$ for two reasons: 1) uniformity with Cartan matrix notation; 2) avoid confusion with $B_{\bullet \bullet}$ if we can't find a better notation for this.}
+\saySS{I changed $B_{ij}$ into $b_{ij}$ for uniformity with Cartan matrix notation}
 Here and elsewhere we write $[a]_+$ for $\max(a,0)$ and $\sgn(a) \in \{\pm 1,0\}$ for the sign of $a$ where $\sgn(a)=0$ for $a=0$. 
 Note that mutation defines an equivalence relation on exchange matrices.
 
@@ -293,7 +308,7 @@ The basic role of $\bfg$-vectors is that they provide natural labels of cluster 
 \saySS{Citation Needed. This is Conjecture 7.10 (1) in CA4 and conjecture 1.5 in quiver with potentials (proved there for skew-symmetric); this also follows immediately from the fact that cluster variables are in the theta basis and tetha basis elements are parametrized by g-vectors.}
 
 We say a skew-symmetrizable matrix is \newword{acyclic} if it can be conjugated by a permutation matrix so that the entries above the diagonal all become nonnegative.
-In other words, $B$ is acyclic if there is a permutation $\sigma \in S_n$ such that $B_{\sigma_i \sigma_j} \geq 0$ when $\sigma_i < \sigma_j$.
+In other words, $B$ is acyclic if there is a permutation $\sigma \in S_n$ such that $b_{\sigma_i \sigma_j} \geq 0$ when $\sigma_i < \sigma_j$.
 \saySS{This is redundant but we need the permutation to talk about the acyclic belt}
 The terminology is justified by the skew-symmetric case: the data of a skew-symmetric matrix $B$ is the same as that of a quiver $Q := Q_B$ with vertices indexed by the columns of $B$ and $[-B_{ij}]_+$ arrows to vertex $i$ from vertex $j$; the skew-symmetric matrix is acyclic exactly when this quiver has no oriented cycles.
 
@@ -361,7 +376,7 @@ The definition of the cluster character involves the coindex $\coind(M) \in \ZZ^
 \]
 is an injective resolution of $M$, then $\coind(M)$ is the element of $\ZZ^n$ whose $j$th component is $a_j - b_j$. Below we write $x^{-\coind(M)}$ for the monomial $\prod x_j^{b_j - a_j}$. 
 
-Given a dimension vector $e \in \NN^n$, the quiver Grassmannian $\Gr_eM$ is the variety of $e$-dimensional submodules of $M$. We write $\chi(\Gr_eM)$ for its Euler characteristic, \sayHW{Mumble something about Etale cohomology or specify representations are over $\CC$?}\sayDR{Should we also say ``with compact supports''?} and write $\hat{y}^e$ for the monomial $\prod_j \hat{y}_j^{e_j}$, where $e_j$\sayDR{At some points below (and above now) we use $e_j$ for standard basis vectors, should those be changed to something like $\varepsilon_j$?} is the $j$th component of $e \in \NN^n$. We also write $\hat{y}_j$ for the monomial $\prod\limits_{i=1}^m x_i^{B_{ij}}$.
+Given a dimension vector $e \in \NN^n$, the quiver Grassmannian $\Gr_eM$ is the variety of $e$-dimensional submodules of $M$. We write $\chi(\Gr_eM)$ for its Euler characteristic, \sayHW{Mumble something about Etale cohomology or specify representations are over $\CC$?}\sayDR{Should we also say ``with compact supports''?} and write $\hat{y}^e$ for the monomial $\prod_j \hat{y}_j^{e_j}$, where $e_j$\sayDR{At some points below (and above now) we use $e_j$ for standard basis vectors, should those be changed to something like $\varepsilon_j$?} is the $j$th component of $e \in \NN^n$. We also write $\hat{y}_j$ for the monomial $\prod\limits_{i=1}^m x_i^{b_{ij}}$.
 
 \begin{definition}
 The cluster character of a representation $M$ of $Q$ is
@@ -547,11 +562,11 @@ We will directly use the above identity, but note that it restricts from a simil
 
 The data of an $n\times n$ acyclic skew-symmetrizable matrix $B$ is equivalent to the data of a symmetrizable Cartan matrix $A$ (the \newword{Cartan companion} of $B$) together with a Coxeter element $c$ of its Weyl group.
 The Cartan matrix is obtained from $B$ by making all its entries negative without changing their absolute values, then setting each diagonal entry equal to two; see Figure \ref{fig:matrices}.
-Recall that, since $B$ is acyclic, there is a permutation $\sigma \in S_n$ such that $B_{\sigma_i \sigma_j} \geq 0$ when $\sigma_i < \sigma_j$, and we take $c$ to be $s_{\sigma_1} \cdots s_{\sigma_n}$ (choosing a different permutation with the above property defines the same element via a different reduced word).
+Recall that, since $B$ is acyclic, there is a permutation $\sigma \in S_n$ such that $b_{\sigma_i \sigma_j} \geq 0$ when $\sigma_i < \sigma_j$, and we take $c$ to be $s_{\sigma_1} \cdots s_{\sigma_n}$ (choosing a different permutation with the above property defines the same element via a different reduced word).
 Conversely, any acyclic skew-symmetrizable matrix can be obtained from a Cartan matrix and Coxeter element assigning signs to the off-diagonal entries according to $c$.
 
-The goal of this section is to realize geometrically the ``doubled pricipal coefficients'' cluster algebra $\cA_{\widetilde B_{\bullet\bullet}}$, given by the $3n\times n$ extensions $\widetilde B_{\bullet\bullet}$ of $B$ by two identity matrices, in terms of the derived Kac-Moody group $G$ associated to $A$. 
-\saySS{here I am temporarely setting up the notation $\widetilde B_{\bullet\bullet}$. We may want to change this to something else. Giovanni suggests to put the bullets one ontop of the other since we stack matrices.}
+The goal of this section is to realize geometrically the ``doubled pricipal coefficients'' cluster algebra $\cA_{\widetilde B_{\doublebullet}}$, given by the $3n\times n$ extensions $\widetilde B_{\doublebullet}$ of $B$ by two identity matrices, in terms of the derived Kac-Moody group $G$ associated to $A$. 
+\saySS{Giovanni suggested to use two bullets one on top of the other for doubled principal coefficients. The standard notation for principal coefficients is a single bullet so it sounded like a good idea to stack two bullets.}
 To emphasize that we get two copies of each frozen cluster variable, and to suggestively record their values, we will denote $x_{i+n}$ and $x_{i+2n}$ by $z_i$ and $z_{-i}$, respectively for $1 \leq i \leq n$. 
 
 We recall the double Bruhat decomposition
@@ -565,7 +580,7 @@ The coordinate ring of $G^{u,v}$ is an upper cluster algebra, and a finite subse
 \begin{theorem}
   \label{thm:coordring}
   Let $B$ be an acyclic skew-symmetrizable matrix, $G$ the derived Kac-Moody group of its cartan companion $A$, and $c$ the associated Coxeter element. 
-  Then there is an isomorphism $\cA_{\widetilde B_{\bullet\bullet}} \cong \kk[G^{c,c^{-1}}]$ that identifies the initial cluster variables with the following restrictions of monomials in generalized minors
+  Then there is an isomorphism $\cA_{\widetilde B_{\doublebullet}} \cong \kk[G^{c,c^{-1}}]$ that identifies the initial cluster variables with the following restrictions of monomials in generalized minors
   \begin{equation}
     \label{eq:initialcluster}
     x_j = \Delta_{\omega_j},
@@ -599,7 +614,7 @@ In computing various relations in $\kk[G^{c,c^{-1}}]$ we will make extensive use
 \end{equation}
 for some $h \in H$ and $t_i \in \kk^\times$ [FZ,Wil]. 
 For example, with respect to such a factorization it is clear that for any dominant weight $\lambda \in \widehat{P}^+$, we have $\Delta_\lambda(g) = h^\lambda$.
-In particular the initial cluster variables of $\cA_{\widetilde B_{\bullet\bullet}}$ evaluates to $x_i(g)=h^{\omega_i}$.
+In particular the initial cluster variables of $\cA_{\widetilde B_{\doublebullet}}$ evaluates to $x_i(g)=h^{\omega_i}$.
 Some similar computations are collected in Lemma \ref{lemma:coefficients_values}. 
 %Here we write 
 %\begin{equation}
@@ -757,13 +772,13 @@ Some similar computations are collected in Lemma \ref{lemma:coefficients_values}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Preprojective and preinjective cluster variables as minors}
-In this section we prove that when $B$ is any acyclic skew-symmetrizable matrix, the identification $\cA_{\widetilde B_{\bullet\bullet}} \cong \kk[G^{c,c^{-1}}]$ of \Cref{thm:coordring} realizes preprojective and postinjective cluster variables as restrictions of some highest- and lowest-weight minors, respectively. 
+In this section we prove that when $B$ is any acyclic skew-symmetrizable matrix, the identification $\cA_{\widetilde B_{\doublebullet}} \cong \kk[G^{c,c^{-1}}]$ of \Cref{thm:coordring} realizes preprojective and postinjective cluster variables as restrictions of some highest- and lowest-weight minors, respectively. 
 For our argument we will first deduce a parametrization of such cluster variables, together with a list of exchange relations they satisfy, from an explicit description of all the $\bfg$-vectors and $\bfc$-vectors in the acyclic belt.
 The identification with minors will then follow by comparing these relations with restrictions  to $G^{c,c^{-1}}$ of the generalized determinantal identities of \Cref{prop:fundid}.
 
-\subsection{The bipartite belt of $\cA_{\widetilde B_{\bullet\bullet}}$}
+\subsection{Cluster variables in the bipartite belt}
 \label{sec:bipartite_belt}
-Recall from the definition of acyclic matrix that there exists $\sigma\in S_n$ such that $B_{\sigma_i,\sigma_j}\geq 0$ whenever $i<j$. 
+Recall from the definition of acyclic matrix that there exists $\sigma\in S_n$ such that $b_{\sigma_i,\sigma_j}\geq 0$ whenever $i<j$. 
 To simplify our notation, in this section, we will assume that $\sigma$ is the identity permutation by relabeling rows and columns of $B$ as needed.
 Moreover, since our claim is already established in \cite{YZ08} for the simply-connected semisimple group case,  we will also assume that the Cartan companion $A$ of $B$ is not of finite type.
 \saySS{For uniformity, if you want, we could cover also finite type here if we use $w_0$ in place of $c^\infty$. It is not clear to me that it is worth doing even though it will make life more uniform. Maybe we should add a comment here.}
@@ -899,12 +914,12 @@ From \Cref{lemma:c-vectors}, in view of \Cref{eq:g-vectors_from_c-vectors} and r
   \end{equation}
 \end{lemma}
 
-With the preceding results in hand, we are ready to describe the cluster variables of $\cA_{\widetilde B_{\bullet\bullet}}$ attached to the acyclc belt.
+With the preceding results in hand, we are ready to describe the cluster variables of $\cA_{\widetilde B_{\doublebullet}}$ attached to the acyclc belt.
 
 \saySS{Is this a theorem or a proposition?}
 \begin{theorem}
   \label{thm:vars_and_rels_in_bipartite_belt}
-  The preprojective and postjective cluster variables of $\cA_{\widetilde B_{\bullet\bullet}}$ are parametrized by the sets of $\bfg$-vectors
+  The preprojective and postjective cluster variables of $\cA_{\widetilde B_{\doublebullet}}$ are parametrized by the sets of $\bfg$-vectors
   \[
     \Pi_{\textit{proj}}:=\big\{c^k\omega_i: i \in [1,n], k>0\big\}
   \]
@@ -943,7 +958,7 @@ With the preceding results in hand, we are ready to describe the cluster variabl
   The first part of our claim follows immediately from \Cref{lemma:g-vectors}: it suffices to recall how simple reflections act on fundamental weights and to observe that, the type of $A$ being not finite, all prefixes of $c^\infty$ are reduced expressions so that all the elements of $\Pi_{\textit{proj}}$ and $\Pi_{\textit{inj}}$ are distinct.
 
   For the second part recall that $\beta_i^+=s_1\cdots s_{i-1}\alpha_i$ and $\beta_i^-=s_n\cdots s_{i+1}\alpha_i$. 
-  The relations are then an obvious consequence of \Cref{lemma:c-vectors} once we observe that mutations happen along a source/sink adapted sequence so that, at $t_m$, the $\mod{m}$-th colum of $B_m$ contains only non-negative entries and the $\mod{m+1}$-th column only non-positive entries. 
+  The relations are then an obvious consequence of \Cref{lemma:c-vectors} once we observe that mutations happen along a source/sink adapted sequence so that, at $t_m$, the $\mod{m}$-th colum of $B^{t_m}$ contains only non-negative entries and the $\mod{m+1}$-th column only non-positive entries. 
 \end{proof}
 
 \subsection{Highest- and lowest-weight minors}
@@ -1436,7 +1451,7 @@ Since $\iota$ preserves $B_+$ and $B_-$ but takes any lift of $w \in W$ to a lif
 %\end{proof}
 
 \begin{theorem}\label{thm:mainirregular}
-The isomorphism $\cA_{B_{dbl}} \cong \kk[G^{c,c^{-1}}]$ of Proposition \ref{prop:coordring} identifies the preprojective cluster variable $x_{c^k\omega_i}$ with the restriction of the highest-weight minor $\Delta_{c^k\omega_i}$, and the preinjective cluster variable $x_{-c^k \omega_i}$ with the restriction of the lowest-weight minor $\Delta_{-c^k \omega_i}$. 
+The isomorphism $\cA_{B_{\doublebullet}} \cong \kk[G^{c,c^{-1}}]$ of Proposition \ref{prop:coordring} identifies the preprojective cluster variable $x_{c^k\omega_i}$ with the restriction of the highest-weight minor $\Delta_{c^k\omega_i}$, and the preinjective cluster variable $x_{-c^k \omega_i}$ with the restriction of the lowest-weight minor $\Delta_{-c^k \omega_i}$. 
 \end{theorem}
 
 \begin{proof}
@@ -1698,7 +1713,7 @@ Let $\cE_{[k,\ell]}$ denote the collection of successor-closed subsets $E \subse
 \begin{equation}\label{eq:regular cluster characters}
   x_{V_{[k,\ell]}} = x^{g_{[k,\ell]}} \sum_{E \in \cE_{[k,\ell]}} \prod_{j \in E} \hat{y}_j,
 \end{equation}
-where $\hat y_j=\prod_{i=1}^m x_i^{B_{ij}}$.
+where $\hat y_j=\prod_{i=1}^m x_i^{b_{ij}}$.
 
 
 \subsection{Networks}
