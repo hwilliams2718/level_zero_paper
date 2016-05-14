@@ -138,7 +138,7 @@ urlcolor=blue]{hyperref}
 \email{hwilliams@math.utexas.edu}
 
 \begin{abstract}
-The cluster algebra of any acyclic quiver is the coordinate ring of a subvariety in a corresponding Kac-Moody group -- the quiver is an orientation of its Dynkin diagram, defining a Coxeter element and thereby a double Bruhat cell. We interpret cluster variables in this realization in terms of the representation theory of the group and relate this to their interpretation as generating functions associated to quiver representations. We show that cluster variables of preprojective representations are realized by generalized minors of highest-weight representations (generalizing results of Yang-Zelevinsky in finite type), and that cluster variables of preinjective representations are realized by generalized minors of lowest-weight representations. In type $A_{\:n}^{(1)}$ and several other affine types we show that cluster variables of regular representations are realized by generalized minors of group representations that are neither highest- nor lowest-weight; we conjecture this holds more generally.
+The cluster algebra of any acyclic quiver is the coordinate ring of a subvariety in a corresponding Kac-Moody group -- the quiver is an orientation of its Dynkin diagram, defining a Coxeter element and thereby a double Bruhat cell. We interpret cluster variables in this realization in terms of the representation theory of the group and relate this to their interpretation as generating functions associated to quiver representations. We show that cluster variables of preprojective representations are realized by generalized minors of highest-weight representations (generalizing results of Yang-Zelevinsky in finite type), and that cluster variables of preinjective representations are realized by generalized minors of lowest-weight representations. In type $A_{\:n}^{(1)}$ and several other affine types, we show that cluster variables of regular representations are realized by generalized minors of group representations that are neither highest- nor lowest-weight; we conjecture this holds more generally.
 
 %to their interpretation in terms of quiver representations. We show that the cluster variables associated to preprojective quiver representations are realized as generalized minors of highest weight representations (generalizing results of Yang-Zelevinsky in finite type), those of preinjective representations are generalized minors of lowest weight representations, and in type $A_n^{1}$
 
@@ -167,6 +167,10 @@ The cluster algebra of any acyclic quiver is the coordinate ring of a subvariety
     Fix the algebra statements: double principal vs double Euler
   \item
     Make sure $\kk[G]$ is used throughout
+  \item 
+    Settle on a convention for bibliography entries, in particular: ``first last'' vs ``f. last'' vs ``last, first'' \sayDR{I am most in favor of the first or maybe the second of these possibilities}
+  \item
+    Mention cluster categories?
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%
@@ -178,7 +182,7 @@ Given a finite quiver $Q$ without oriented cycles, there is an associated group 
 
 Recall that the representation theory of $Q$, or any finite-dimensional algebra, is organized by the Auslander-Reiten translation $\tau: \rep Q \to \rep Q$ \cite{ASS06}\sayDR{Why is this not showing up as [ASS06]?}. An indecomposable representation $M$ is projective if and only if $\tau(M) = 0$, and is injective if and only if $M$ is not of the form $\tau(N)$ for some $N$. With this in mind one says $M$ is preprojective if $\tau^k(M) = 0$ for $k\gg 0$, preinjective if it is not of the form $\tau^k(N)$ for $k\gg 0$, and regular otherwise. Preprojective and preinjective representations coincide exactly when $Q$ is of ADE type, in which case there are no regular representations. 
 
-On the other hand, the representation theory of $G$ is largely centered around its (dual) categories of highest- and lowest-weight representations [KP, Kum]. These coincide exactly when $G$ is a simple algebraic group, in which case they include all representations of $G$ with finite-dimensional weight spaces. In general $G$ has many other such representations, which are only well-understood when $G$ is of affine type [Cha]. In this case, an irreducible representation is highest-weight, lowest-weight, or neither if its level (the character by which $Z(G) \cong \CC^\times$ acts) is positive, negative, or zero.
+On the other hand, the representation theory of $G$ is largely centered around its (dual) categories of highest- and lowest-weight representations [KP, Kum ??]. These coincide exactly when $G$ is a simple algebraic group, in which case they include all representations of $G$ with finite-dimensional weight spaces. In general $G$ has many other such representations, which are only well-understood when $G$ is of affine type [Cha ??]. In this case, an irreducible representation is highest-weight, lowest-weight, or neither if its level (the character by which $Z(G) \cong \CC^\times$ acts) is positive, negative, or zero.
 
 %While the full representation theory of $G$ is in general not well-understood, it has a well-behaved category of highest weight representations. These share many properties of finite-dimensional representations of simple Lie groups, which they specialize to when $G$ is finite-dimensional. There is a dual subcategory of lowest-weight representations. These categories coincide if and only if $G$ is finite-dimensional, in which case they encompass all representations with finite-dimensional weight spaces. Aside from this case, a complete description of all such representations exists only when $Q$ is of affine type. In this case $G$ is the central $\CC^\times$-extension of a loop group, and irreducible representations are categorized by their level: the character by which the center acts. 
 
@@ -186,13 +190,13 @@ We connect these two classifications by passing through the cluster algebra $\cA
 This is an algebra equipped with a (partial) canonical basis whose elements are called cluster variables. 
 %The relationship we study is mediated by the cluster algebra $\cA_Q$. 
 From the perspective of $G$, an orientation of its Dynkin diagram is equivalent to a choice of Coxeter element $c$ in its Weyl group; the cluster algebra $\cA_Q$ (with suitable frozen variables) is the coordinate ring of the double Bruhat cell  $$G^{c,c^{-1}} := B_+ c B_+ \cap B_- c^{-1} B_- \subset G,$$
-where $B_+$ and $B_-$ are the usual opposite Borel subgroups [BFZ, Wil]. 
+where $B_+$ and $B_-$ are the usual opposite Borel subgroups \cite{BFZ05,Wil13}. 
 The varieties $G^{c,c^{-1}}$ generalize the space of tridiagonal matrices with determinant equal to one, which they recover when $G=SL_n$ and $c$ is the standard Coxeter element.
 
 From the perspective of $Q$, $\cA_Q$ is a repository for information about the submodule structure of representations of $Q$. 
-After embedding $\cA_Q$ into the ring of Laurent polynomials in the initial cluster variables, the remaining cluster variables are in bijection with the rigid indecomposable representations of $Q$ [CC, CK]. 
+After embedding $\cA_Q$ into the ring of Laurent polynomials in the initial cluster variables, the remaining cluster variables are in bijection with the rigid indecomposable representations of $Q$ \cite{CC,CK}. 
 This correspondence takes a quiver representation to a generating function of the Euler characteristics of its varieties of submodules. 
-This expression is called the cluster character of the representation, and with this in mind we refer to a (non-initial)\sayDR{Even the initial cluster variables have a projective flavor in the categorification since they are identified with shifted projectives in the cluster category, but I'm not sure how much of this we want to say in the paper.}\sayHW{I think I'm happiest letting initial cluster variables be their own thing -- we should mention the cluster category at some point though, if just in passing.} cluster variable as preprojective, preinjective, or regular according to the classification of its associated representation. 
+This expression is called the cluster character of the representation, and with this in mind we refer to a (non-initial) cluster variable as preprojective, preinjective, or regular according to the classification of its associated representation. 
 Given the description of $\cA_Q$ as the coordinate ring of $G^{c,c^{-1}}$, we see in particular that representations of $Q$ naturally label functions on a subvariety of $G$.
 
 %. To $c$ we associate the double Bruhat cell $$G^{c,c^{-1}} := B_+ c B_+ \cap B_- c^{-1} B_- \subset G,$$ and $\cA_Q$ can be identified with the coordinate ring of $G^{c,c^{-1}}$ (for suitable coefficients). On the other hand, a cluster algebra is equipped with a set of distinguished elements, cluster variables, which can be completed to a basis of $\cA_Q$ in various interesting ways. The (non-initial) cluster variables in $\cA_Q$ are in bijection with the rigid indecomposable representations of $Q$: $\cA_Q$ is canonically embedded in a Laurent polynomial ring, and to a representation we assign a generating function of Euler characteristics of its varieties of subrepresentations; we refer to a cluster variable as preprojective, preinjective, or regular according to its associated representation. In summary, representations of $Q$ label functions on a subvariety of $G$.
@@ -258,7 +262,7 @@ Two exchange matrices $\widetilde B$ and $\widetilde B'$ are related by \newword
   \widetilde b_{ij} + \sgn(\widetilde b_{ik})[\widetilde b_{ik}\widetilde b_{kj}]_+ & \text{otherwise.}
   \end{cases}
 \end{equation}
-\saySS{I changed $B_{ij}$ into $b_{ij}$ for uniformity with Cartan matrix notation}
+\saySS{I changed $B_{ij}$ into $b_{ij}$ for uniformity with Cartan matrix notation}\sayDR{Are tildes necessary here?}
 Here and elsewhere we write $[a]_+$ for $\max(a,0)$ and $\sgn(a) \in \{\pm 1,0\}$ for the sign of $a$ where $\sgn(a)=0$ for $a=0$. 
 Note that mutation defines an equivalence relation on exchange matrices.
 
@@ -292,7 +296,7 @@ The variables $x_{n+1;t},\dotsc, x_{m;t}$ do not depend on $t$ and hence are ref
 \end{definition}
 
 For each $t \in\TT$ and $1 \leq i \leq n$ there is an auxiliary pair of integer vectors depending only on $B$, the \newword{$\bfc$-vector} $\gamma_{i;t} \in \ZZ^n$ and the \newword{$\bfg$-vector} $\lambda_{i;t} \in \ZZ^n$. 
-\saySS{I renamed the $\bfc$- and $\bfg$-vectors to have uniform notation with section 3.1. There there are plenty of $c$'s floating around and it is probably sligthly better try to distinguish them. This notation emphasize that we are dealing with roots and weights even if it is not stated here yet.}
+\saySS{I renamed the $\bfc$- and $\bfg$-vectors to have uniform notation with section 3.1. There there are plenty of $c$'s floating around and it is probably sligthly better try to distinguish them. This notation emphasize that we are dealing with roots and weights even if it is not stated here yet.}\sayDR{Is $\gamma$ common notation for a root?  I am more familiar with $\alpha$.}
 We write $C_t^B$ and $G_t^B$ for the matrices whose $i$th columns are $\gamma_{i;t}$ and $\lambda_{i;t}$, respectively.
 To define $C_t^B$, consider the extension $\widetilde B_\bullet$ of $B$ by an identity matrix.
 \saySS{I am temporarely using the bullet notation, we should fix this later}
@@ -370,7 +374,7 @@ This terminology will be justified in the next section.
 
 \subsection{Quiver representations and cluster characters}
 \saySS{Say something to the effect that $Q$ comes from $B$. Otherwise define $\mathcal{A}_Q$ somewhere.}
-If $Q$ is a finite quiver without oriented cycles, the non-initial cluster variables in $\cA_Q$ are in bijection with the rigid indecomposable representations of $Q$ [CC, CK]. The bijection is given by associating to a representation $M$ a generating function encoding its submodule structure, referred to as its cluster character or Caldero-Chapoton function. 
+If $Q$ is a finite quiver without oriented cycles, the non-initial cluster variables in $\cA_Q$ are in bijection with the rigid indecomposable representations of $Q$ \cite{CC,CK}. The bijection is given by associating to a representation $M$ a generating function encoding its submodule structure, referred to as its \newword{cluster character} or Caldero-Chapoton function. 
 
 The definition of the cluster character involves the coindex $\coind(M) \in \ZZ^n$. If
 \[
@@ -452,7 +456,7 @@ To do: 1) definition of preprojective and injective representations and cluster 
 \subsection{Kac-Moody groups and generalized minors}
 
 For each symmetrizable Cartan matrix $A$ there is an associated Kac-Moody group $\widehat{G}:=\widehat{G}_A$. 
-It has several variants, and we consider the minimal version studied in [KP] and [Kum, Sec. 7.4]. 
+It has several variants, and we consider the minimal version studied in [KP??] and [Kum, Sec. 7.4??]. 
 This is an ind-algebraic group whose derived subgroup $G$ is generated by coroot subgroups $\varphi_i: SL_2 \into G$ for $1 \leq i \leq n$. Starting from $G$, the larger group $\widehat{G}$ is obtained as a semidirect product with an algebraic torus of dimension equal to the corank of $A$.
 %isomorphic to  $G \rtimes (\kk^\times)^{\corank(A)}$. 
 
@@ -538,7 +542,7 @@ In other words, if we use a weight basis of $V$ to write the action of $g$ as a 
 \saySS{Or we could say ``this is the rationale behind of prop bla in [BFZ]''}
 
 \begin{remark}
-When $\widehat{G}$ is of affine type, the representations $V(\lambda)$ with $\lambda \in \widehat{P}\smallsetminus(X \cup - X)$ are not the only irreducible level zero weight representations. The set of all such representations is parametrized by pairs $(\{\lambda_1,\dotsc,\lambda_m\},\{a_1,\dotsc,a_m\})$ of a tuple of dominant weights of $G^\circ$ and a tuple of elements of $\kk^\times$ [Cha]. As a vector space the associated representation is the space of Laurent polynomials valued in the tensor product of the $V(\lambda_i^\circ)$, and the scalars $a_i$ rescale the action of $G^\circ$-valued loops on each factor [CP].
+When $\widehat{G}$ is of affine type, the representations $V(\lambda)$ with $\lambda \in \widehat{P}\smallsetminus(X \cup - X)$ are not the only irreducible level zero weight representations. The set of all such representations is parametrized by pairs $(\{\lambda_1,\dotsc,\lambda_m\},\{a_1,\dotsc,a_m\})$ of a tuple of dominant weights of $G^\circ$ and a tuple of elements of $\kk^\times$ [Cha??]. As a vector space the associated representation is the space of Laurent polynomials valued in the tensor product of the $V(\lambda_i^\circ)$, and the scalars $a_i$ rescale the action of $G^\circ$-valued loops on each factor [CP??].
 \end{remark}
 
 A crucial feature of generalized minors is the following generalized determinantal identity:
@@ -620,7 +624,7 @@ In computing various relations in $\kk[G^{c,c^{-1}}]$ we will make extensive use
   \label{eq:generic_element}
   g=x_{-1}(t_{-1}) \cdots x_{-n}(t_{-n}) h x_n(t_n) \cdots x_1(t_1)
 \end{equation}
-for some $h \in H$ and $t_i \in \kk^\times$ [FZ,Wil]. 
+for some $h \in H$ and $t_i \in \kk^\times$ [FZ,Wil??]. 
 For example, with respect to such a factorization it is clear that for any dominant weight $\lambda \in \widehat{P}^+$, we have $\Delta_\lambda(g) = h^\lambda$.
 In particular the initial cluster variables of $\cA_{\widetilde B_{\doublebullet}}$ evaluates to $x_i(g)=h^{\omega_i}$.
 Some similar computations are collected in Lemma \ref{lemma:coefficients_values}. 
