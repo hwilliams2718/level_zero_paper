@@ -173,6 +173,10 @@ The cluster algebra of any acyclic quiver is the coordinate ring of a subvariety
     Settle on a convention for bibliography entries, in particular: ``first last'' vs ``f. last'' vs ``last, first'' \sayDR{I am most in favor of the first or maybe the second of these possibilities}
   \item
     Mention cluster categories?
+\item
+Move quiver background from 4.1 to 2.2.
+\item Write out homogeneous element computation.
+\item Write out section on other affine types.
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%
@@ -1624,7 +1628,9 @@ and are non-zero elements of $\kk$ for generic values of the parameters $t_{\pm 
 %\section{Level Zero Representations}
 \section{Regular cluster variables as minors}
 
-\begin{proposition}\label{prop:level zero}
+In this section we prove that the identification $\cA_{\Bdp} \cong \kk[G^{c,c^{-1}}]$ of \Cref{thm:coordring} realizes all regular cluster variables as restrictions of level zero minors when the Cartan companion of $B$ is of type $A_n^{(1)}$. The proof exploits the fact that when $G = LSL_n$ level zero minors can be expressed combinatorially as weighted sums over collections of paths in a directed network on a cylinder. We show that the collections of paths relevant to a given minor are in bijection with submodules of a corresponding regular quiver representation, hence the network computation directly recovers the Caldero-Chapoton formula. A similar computation shows that the generic basis element associated to the base of the homogeneous tube in type $A_n^{(1)}$ is also a level zero minor. We expect that for any affine type the regular cluster variables are minors of level zero representations, and we verify this for the finite list of other affine types where it can be checked using only the characters of those representations. 
+
+\begin{proposition}\label{prop:level zero}\sayHW{This should be moved into section 4.2}
 Let $G = \widehat{LSL_n}$ be the affine Kac-Moody group of type $A_{n-1}^{(1)}$, let $c$ be a Coxeter element of the affine Weyl group, and $Q_c$ the associated affine quiver.  All regular cluster variables in the coordinate ring of $G^{c,c^{-1}}$ are principal minors of level zero representations.  
 \end{proposition}
 \begin{proof}
