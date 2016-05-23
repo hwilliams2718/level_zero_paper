@@ -179,6 +179,7 @@ The cluster algebra of any acyclic quiver is the coordinate ring of a subvariety
 Move quiver background from 4.1 to 2.2.
 \item Write out homogeneous element computation.
 \item Write out section on other affine types.
+\item Check for $\backslash$newword's throughout.
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%
@@ -386,43 +387,45 @@ We will refer to the non-initial cluster variables $x_{i;t_m}$ with $m>0$ (resp.
 This terminology will be justified in the next section.
 
 \subsection{Quiver representations and cluster characters}
-A quiver $Q=(Q_0,Q_1,s,t)$ with $n$ vertices consists of a set $Q_0=\{1,2,\ldots,n\}$ of vertices, a set $Q_1$ of arrows, and maps $s,t:Q_1\to Q_0$ giving the source and target of an arrow.  
-Given a field $\kk$, a representation $V=(V_i,V_a)$ consists of a $\kk$-vector space $V_i$ for each $i\in Q_0$ and a $\kk$-linear map $V_a:V_{s(a)}\to V_{t(a)}$ for each arrow $a\in Q_1$.  
+A \newword{quiver} $Q=(Q_0,Q_1,s,t)$ with $n$ vertices consists of a set $Q_0=\{1,2,\ldots,n\}$ of vertices, a set $Q_1$ of arrows, and maps $s,t:Q_1\to Q_0$ giving the source and target of an arrow.  
+A \newword{$\kk$-representation} $V=(V_i,V_a)$ of $Q$ consists of a $\kk$-vector space $V_i$ for each $i\in Q_0$ and a $\kk$-linear map $V_a:V_{s(a)}\to V_{t(a)}$ for each arrow $a\in Q_1$.  
 A morphism of representation $\theta:V\to W$ consists of a collection of $\kk$-linear maps $\theta_i:V_i\to W_i$ so that $\theta_{t(a)}\circ V_a=W_a\circ \theta_{s(a)}$ for each arrow $a\in Q_1$.  
-When the quiver $Q$ is acyclic (i.e. has no oriented cycles), its category $\rep_\kk Q$ of finite-dimensional representations is particularly nice and thus we assume $Q$ is acyclic throughout.  
-In this case, it is well-known that $\rep_\kk Q$ is a hereditary, abelian, length category with finitely many simple objects.  
-When $Q$ is an orientation of a simply-laced finite-type Dynkin diagram, $\rep_\kk Q$ contains only finitely many indecomposable representations.
+The space of all such homomorphisms will be denoted $\Hom_Q(V,W)$.
 
-Write $\kk Q$ for the path algebra of $Q$, this is the $\kk$-vector space with basis given by paths (including the trivial paths) in $Q$.  
-The vector space $\kk Q$ has a multiplication given by concatenation of paths and one may identify the module category of $\kk Q$ with $\rep_\kk Q$, but we will not use this here.  
-The path algebra is naturally considered as a representation of $Q$ where the vector space at vertex $i$ is spanned by all paths in $Q$ ending at $i$ and the action of an arrow $a$ is by concatenation.  
-Given a representation $V\in\rep_\kk Q$ and a projective presentation $0\to P_1\to P_0\to V\to 0$ (which terminates after two terms since $\rep_\kk Q$ is hereditary), we define the Auslander-Reiten translate $\tau(V)\in\rep_\kk Q$ via the short exact sequence
+When the quiver $Q$ is acyclic (i.e. has no oriented cycles), its category $\rep_\kk(Q)$ of finite-dimensional representations is particularly nice and thus we assume $Q$ is acyclic throughout.  
+In this case, it is well-known that $\rep_\kk(Q)$ is a hereditary, abelian, length category with finitely many simple objects.  
+When $Q$ is an orientation of a simply-laced finite-type Dynkin diagram, $\rep_\kk(Q)$ contains only finitely many indecomposable representations.
+
+Write $\kk Q$ for the \newword{path algebra} of $Q$, this is the $\kk$-vector space with basis given by paths (including the trivial paths) in $Q$.  
+The vector space $\kk Q$ has a multiplication given by concatenation of paths and one may identify the module category of $\kk Q$ with $\rep_\kk(Q)$, however we will not use this here.  
+The path algebra $\kk Q$ is naturally considered as a representation of $Q$ where the vector space at vertex $i$ is spanned by all paths in $Q$ ending at $i$ and the action of an arrow $a$ is by concatenation.  The \newword{projective} representations of $Q$ are exactly the indecomposable summands of $\kk Q$.
+
+Given a representation $V\in\rep_\kk(Q)$ and a projective presentation $0\to P_1\to P_0\to V\to 0$ (which may always be chosen to terminate after two terms since $\rep_\kk(Q)$ is hereditary), we define the \newword{Auslander-Reiten translate} $\tau(V)\in\rep_\kk(Q)$ via the short exact sequence
 \begin{equation}\label{eq:AR translation}
-  0\longrightarrow \tau(V)\longrightarrow D\Hom(P_1,\kk Q)\longrightarrow D\Hom(P_0,\kk Q)\longrightarrow 0,
+  0\longrightarrow \tau(V)\longrightarrow D\Hom_Q(P_1,\kk Q)\longrightarrow D\Hom_Q(P_0,\kk Q)\longrightarrow 0,
 \end{equation}
 where $D=\Hom(-,\kk)$ is the standard $\kk$-linear duality functor.
 
-The AR translation $\tau$ strongly controls the representation theory of $Q$: a representation $P$ is projective if and only if $\tau(P)=0$ and a representation $I$ is injective if and only if it is not of the form $\tau(V)$ for any $V$.  
-Call a representation $V$ preprojective if $\tau^k(V)$ is projective for some $k\ge0$, preinjective\sayDR{post?} if there is an injective representation $I$ so that $V=\tau^k(I)$ for some $k\ge0$, and regular otherwise.  
-When $Q$ is an orientation of a simply-laced finite-type Dynkin diagram, the injective representations are preprojective (hence projective representations are preinjective) and there are no regular representations.  
-When $Q$ is an orientation of a simply-laced affine Dynkin diagram, the regular representations admit a concrete description but to describe it we need more notation.
+The AR translation $\tau$ strongly controls the representation theory of $Q$: a representation $P$ is projective if and only if $\tau(P)=0$ while a representation $I$ is injective if and only if it is not of the form $\tau(V)$ for any $V$.  
+Call a representation $V$ \newword{preprojective} if $\tau^k(V)$ is projective for some $k\ge0$, \newword{postinjective} if there is an injective representation $I$ so that $V=\tau^k(I)$ for some $k\ge0$, and \newword{regular} otherwise.  
+When $Q$ is an orientation of a simply-laced finite-type Dynkin diagram, the injective representations are preprojective (hence projective representations are postinjective) and there are no regular representations.  
 
-Write $\cQ$ for the Grothendieck group of $\rep_\kk Q$ and note that $\cQ$ is a free abelian group generated by the classes $\alpha_i=[S_i]$ of the vertex-simple representations of $Q$.  
-For $V\in\rep_\kk Q$ we thus call $[V]\in\cQ$ its dimension vector.  
-Since $\rep_\kk Q$ is hereditary, the Euler-Ringel form \[\langle V,W\rangle:=\dim_\kk\Hom(V,W)-\dim_\kk\Ext^1(V,W)\] only depends on the dimension vectors of $V$ and $W$.  
-In particular, the Euler-Ringel form is completely determined by the pairing of vertex-simple representations:
+Write $\cQ$ for the \newword{Grothendieck group} of $\rep_\kk(Q)$ and note that $\cQ$ is a free abelian group generated by the classes $\alpha_i=[S_i]$ of the vertex-simple representations of $Q$.  
+For $V\in\rep_\kk(Q)$ we thus call $[V]\in\cQ$ its \newword{dimension vector}.  
+Since $\rep_\kk(Q)$ is hereditary, the \newword{Euler-Ringel form} \[\langle V,W\rangle:=\dim_\kk\Hom(V,W)-\dim_\kk\Ext^1(V,W)\] only depends on the dimension vectors of $V$ and $W$.  
+In particular, the Euler-Ringel form is completely determined by the pairings of vertex-simple representations:
 \[\langle S_i,S_j\rangle=\begin{cases}1 & \text{if $i=j$;}\\ -1 & \text{if $i\to j\in Q_1$;}\\ 0 & \text{otherwise.}\end{cases}\]
 
 \saySS{Say something to the effect that $Q$ comes from $B$. Otherwise define $\mathcal{A}_Q$ somewhere.}
 If $Q$ is a finite quiver without oriented cycles, the non-initial cluster variables in $\cA_Q$ are in bijection with the rigid indecomposable representations of $Q$ \cite{CC,CK}. The bijection is given by associating to a representation $M$ a generating function encoding its submodule structure, referred to as its \newword{cluster character} or Caldero-Chapoton function. 
 
-The definition of the cluster character involves the coindex $\coind(M) \in \ZZ^n$. If
+The definition of the cluster character involves the \newword{coindex} $\coind(M) \in \ZZ^n$. If
 \[
 0 \to M \to \bigoplus I_j^{a_j} \to \bigoplus I_j^{b_j} \to 0
 \]
 is an injective resolution of $M$, then $\coind(M)$ is the element of $\ZZ^n$ whose $j$-th component is $a_j - b_j$. Below we write $x^{-\coind(M)}$ for the monomial $\prod x_j^{b_j - a_j}$. 
 
-Given a dimension vector $e \in \NN^n$, the quiver Grassmannian $\Gr_eM$ is the variety of $e$-dimensional submodules of $M$. We write $\chi(\Gr_eM)$ for its Euler characteristic, \sayHW{Mumble something about Etale cohomology or specify representations are over $\CC$?}\sayDR{Should we also say ``with compact supports''?} and write $\hat{y}^e$ for the monomial $\prod_j \hat{y}_j^{e_j}$, where $e_j$\sayDR{At some points below (and above now) we use $e_j$ for standard basis vectors, should those be changed to something like $\varepsilon_j$?} is the $j$-th component of $e \in \NN^n$. We also write $\hat{y}_j$ for the monomial $\prod\limits_{i=1}^m x_i^{b_{ij}}$.
+Given a dimension vector $e \in \NN^n$, the \newword{quiver Grassmannian} $\Gr_eM$ is the variety of $e$-dimensional submodules of $M$. We write $\chi(\Gr_eM)$ for its Euler characteristic, \sayHW{Mumble something about Etale cohomology or specify representations are over $\CC$?}\sayDR{Should we also say ``with compact supports''?} and write $\hat{y}^e$ for the monomial $\prod_j \hat{y}_j^{e_j}$, where $e_j$\sayDR{At some points below (and above now) we use $e_j$ for standard basis vectors, should those be changed to something like $\varepsilon_j$?} is the $j$-th component of $e \in \NN^n$ and we write $\hat{y}_j$ for the monomial $\prod\limits_{i=1}^m x_i^{b_{ij}}$.
 
 \begin{definition}
 The cluster character of a representation $M$ of $Q$ is
@@ -431,13 +434,18 @@ The cluster character of a representation $M$ of $Q$ is
 \end{equation}
 \end{definition}
 
-Recall that a representation $M$ of $Q$ is rigid if $\Ext^1(M,M) = 0$. 
+Recall that a representation $M$ of $Q$ is \newword{rigid} if $\Ext^1(M,M) = 0$. 
 
-\begin{theorem}\label{thm:CCbijection} \emph{[CC, CK]} 
+\begin{theorem}\label{thm:CCbijection} \emph{[CC, CK ??]} 
 The assignment $M \mapsto x_M$ defines a bijection between the set of rigid indecomposable representations of $Q$ and the set of non-initial cluster variables in $\cA_Q$. 
 \end{theorem}
 
-Theorem \ref{thm:CCbijection} generalizes to the case of skew-symmetrizable matrices by replacing quiver representations with species representations. We refer to [R15]\sayDR{We could also refer to Demonet and mention quivers with automorphism.} for details, though we will not make direct use of this here. 
+Thus we refer to non-initial cluster variables of $\cA_Q$ as preprojective, postinjective, or regular if they come from a quiver representation of the corresponding type.
+
+To do: Characterization of these via acyclic belt.
+
+Theorem \ref{thm:CCbijection} generalizes to the case of skew-symmetrizable matrices by replacing quiver representations with representations of valued quivers or species. We refer to [R15 ??] for details, though we will not make direct use of this here. 
+
 
 %\section{Kac-Moody Groups, double Bruhat cells, and generalized minors}
 
@@ -490,7 +498,6 @@ Theorem \ref{thm:CCbijection} generalizes to the case of skew-symmetrizable matr
 %  \item
 %    Profit
 %\end{itemize}
-To do: 1) definition of preprojective and injective representations and cluster variables. 2) Characterization of these via acyclic belt.
 
 
 \subsection{Kac-Moody groups and generalized minors}
@@ -1671,14 +1678,14 @@ Let $G = \widehat{LSL_n}$ be the affine Kac-Moody group of type $A_{n-1}^{(1)}$,
 \end{proof}
 
 \subsection{Affine Quiver Representations}
-Let $Q$ be an orientation of a simply-laced affine Dynkin diagram.  Identifying the Grothendieck group $\cQ\cong\ZZ^n$ with the root lattice, we write $\delta\in\cQ$ for the minimal positive imaginary root.
+Let $Q$ be an orientation of a simply-laced affine Dynkin diagram.  Identifying the Grothendieck group $\cQ\cong\ZZ^n$ with the root lattice, we write $\delta\in\cQ$ for the minimal positive imaginary root.  Then the regular representations of $Q$ admit the following concrete description in terms of the Euler-Ringel form.
 \begin{lemma}\cite{ASS06}
-  A representation $V\in\rep_\kk Q$ is regular if and only if $\langle\delta,V\rangle=0$.
+  A representation $V\in\rep_\kk(Q)$ is regular if and only if $\langle\delta,V\rangle=0$.
 \end{lemma}
 
 To prove Proposition~\ref{prop:level zero} we will further restrict $Q$ to be of affine type $\tilde{A}_{n-1}$, that is $Q$ is an acyclic orientation of a cycle.  
 In this case we identify the vertices of $Q$ with $\ZZ_n$, the integers modulo $n$, so that neighboring vertices have consecutive labels.
-Our main interest will be in rigid representations, i.e. $V\in\rep_\kk Q$ such that $\Ext^1(V,V)=0$.  
+Our main interest will be in rigid representations, i.e. $V\in\rep_\kk(Q)$ such that $\Ext^1(V,V)=0$.  
 In particular, we aim to give a concrete characterization of all rigid indecomposable representations $V$ which are regular.
 
 The following characterization of rigid indecomposable regular representations appears to be new and may be of independent interest.  For $k,\ell\in\ZZ_n$ write $[k,\ell]=\{k,k+1,\ldots,\ell\}$ and define a representation $V_{[k,\ell]}$ of $Q$ with one-dimensional vector spaces at each of the vertices in $[k,\ell]$ and identity maps between neighboring vector spaces.
@@ -1688,7 +1695,7 @@ The following characterization of rigid indecomposable regular representations a
   Moreover, every rigid indecomposable regular representation arises in this way. 
 \end{proposition}
 \begin{proof}\mbox{}
-  To begin we recall the structure of the subcategory $\cR\subset\rep_\kk Q$ consisting of the regular representations.  
+  To begin we recall the structure of the subcategory $\cR\subset\rep_\kk(Q)$ consisting of the regular representations.  
   Suppose that $Q$ contains $p$ clockwise arrows and $q$ counterclockwise arrows.  
   Then $\cR$ is equivalent the direct product of three categories: the category of nilpotent representations of an oriented $p$-cycle, the category of nilpotent representations of an oriented $q$-cycle, and the category of invertible representations of the Jordan quiver (this is the quiver with a single vertex and a single loop based at this vertex so that an invertible representation is specified by a single invertible matrix).\sayDR{For uniformity I am separating the standard $\PP^1$-family of homogeneous tubes for the Kronecker quiver into nilpotent ``north pole'' representations, nilpotent ``south pole'' representations, and ``invertible'' representations.}
 
