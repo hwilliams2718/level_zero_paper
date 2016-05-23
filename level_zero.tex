@@ -276,7 +276,7 @@ Note that mutation defines an equivalence relation on exchange matrices.
 
 To define the %(geometric type) 
 cluster algebra $\cA_{\widetilde B}$ associated to an $m \times n$ exchange matrix $\widetilde B$, we begin with an infinite $n$-ary tree $\TT$ with edges labeled by $\{1,\dotsc,n\}$ so that the edges incident to any given vertex have distinct labels.
-Fix a root vertex $t_0 \in\TT$.  Assign an exchange matrix $\widetilde B^t$ to each $t \in\TT$ so that:
+Fix a root vertex $t_0 \in\TT$.  Assign an exchange matrix $\widetilde B^t=(b_{ij}^t)$ to each $t \in\TT$ so that:
 \begin{itemize}
   \item $\widetilde B^{t_0} = \widetilde B$,
   \item if $t, t' \in\TT$ are joined by an edge labeled $k$, then $\widetilde B^t$ and $\widetilde B^{t'}$ are related by mutation at $k$.
@@ -294,9 +294,13 @@ If $t,t' \in \TT$ are joined by an edge labeled $k$, then $x_{i;t} = x_{i;t'}$ f
 \[
   x_{k;t}x_{k;t'} 
   = 
-  \prod_{\widetilde b^t_{ik}>0}x_{i;t}^{\widetilde b^t_{ik}} 
+  \prod_{b^t_{ik}>0}x_{i;t}^{b^t_{ik}} 
   + 
-  \prod_{\widetilde b^t_{ik}<0}x_{i;t}^{-\widetilde b^t_{ik}}.
+  \prod_{b^t_{ik}<0}x_{i;t}^{-b^t_{ik}}
+  = 
+  \prod_{b^{t'}_{ik}>0}x_{i;t'}^{b^{t'}_{ik}} 
+  + 
+  \prod_{b^{t'}_{ik}<0}x_{i;t'}^{-b^{t'}_{ik}}.
 \]
 The variables $x_{n+1;t},\dotsc, x_{m;t}$ do not depend on $t$ and hence are referred to as \newword{frozen variables}. 
 
