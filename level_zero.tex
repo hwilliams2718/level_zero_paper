@@ -264,16 +264,14 @@ whose principal part $B$ is skew-symmetrizable.
 %with skew-symmetrizable submatrix $B$ formed by its first $n$ rows.
 We will refer to such a $\widetilde B$ as an \newword{extension} of $B$.
 
-Two exchange matrices $\widetilde B$ and $\widetilde B'$ are related by \newword{mutation} at $k \in \{1,\dotsc,n\}$ if their entries satisfy 
+Two $m\times n$ exchange matrices $\widetilde B=(b_{ij})$ and $\widetilde B'=(b'_{ij})$ are related by \newword{mutation} at $k \in \{1,\dotsc,n\}$ if their entries satisfy 
 \begin{equation}\label{eq:matrix mutation}
-  \widetilde b'_{ij} = \begin{cases}
-  -\widetilde b_{ij} & i = k \text{ or } j = k\\
-  \widetilde b_{ij} + \sgn(\widetilde b_{ik})[\widetilde b_{ik}\widetilde b_{kj}]_+ & \text{otherwise.}
+  b'_{ij} = \begin{cases}
+  -b_{ij} & i = k \text{ or } j = k\\
+  b_{ij} + \sgn(b_{ik})[b_{ik}b_{kj}]_+ & \text{otherwise.}
   \end{cases}
 \end{equation}
-%\saySS{I changed $B_{ij}$ into $b_{ij}$ for uniformity with Cartan matrix notation}
-\sayDR{Are tildes necessary here?  They seem heavy.}\sayHW{I don't love them}
-Here and elsewhere we write $[a]_+$ for $\max(a,0)$ and $\sgn(a) \in \{\pm 1,0\}$ for the sign of $a$ where $\sgn(a)=0$ for $a=0$. 
+Here and elsewhere we write $[a]_+$ for $\max(a,0)$ and $\sgn(a) \in \{\pm 1,0\}$ for the sign of $a$ where $\sgn(a)=0$ if and only if $a=0$. 
 Note that mutation defines an equivalence relation on exchange matrices.
 
 To define the %(geometric type) 
