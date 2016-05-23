@@ -310,7 +310,7 @@ The variables $x_{n+1;t},\dotsc, x_{m;t}$ do not depend on $t$ and hence are ref
 
 For each $t \in\TT$ and $1 \leq i \leq n$ there is an auxiliary pair of integer vectors depending only on the principal part $B$, namely the \newword{$\bfc$-vector} $\gamma_{i;t} \in \ZZ^n$ and the \newword{$\bfg$-vector} $\lambda_{i;t} \in \ZZ^n$. 
 \saySS{I renamed the $\bfc$- and $\bfg$-vectors to have uniform notation with section 3.1. There there are plenty of $c$'s floating around and it is probably slightly better to try to distinguish them. This notation emphasize that we are dealing with roots and weights even if it is not stated here yet.}\sayDR{Is $\gamma$ common notation for a root?  I am more familiar with $\alpha$.}
-We write $C_t^B$ and $G_t^B$ for the matrices whose $i$th columns are $\gamma_{i;t}$ and $\lambda_{i;t}$, respectively.
+We write $C_t^B$ and $G_t^B$ for the matrices whose $i$-th columns are $\gamma_{i;t}$ and $\lambda_{i;t}$, respectively.
 To define these vectors, consider the exchange matrix $$\Bpr := \begin{bmatrix} B \\ Id_n \end{bmatrix},$$ which is said to have \newword{principal coefficients}. 
 For $t\in\TT$, if $\Bpr^t$ is the exchange matrix obtained by mutations from $\Bpr^{t_0}=\Bpr$, then $C_t^B$ is defined to be the bottom $n \times n$ submatrix of $\Bpr^t$. 
 
@@ -327,7 +327,7 @@ The basic role of $\bfg$-vectors is that they provide natural labels of cluster 
 We say a skew-symmetrizable matrix is \newword{acyclic} if it can be conjugated by a permutation matrix so that the entries above the diagonal all become nonnegative.
 In other words, $B$ is acyclic if there is a permutation $\sigma \in S_n$ such that $b_{\sigma_i \sigma_j} \geq 0$ when $\sigma_i < \sigma_j$.
 %\saySS{This is redundant but we need the permutation to talk about the acyclic belt}
-The terminology is justified by the skew-symmetric case: the data of a skew-symmetric matrix $B$ is the same as that of a quiver $Q := Q_B$ with vertices indexed by the columns of $B$ and $[-B_{ij}]_+$ arrows to vertex $i$ from vertex $j$; the skew-symmetric matrix is acyclic exactly when this quiver has no oriented cycles. We call an exchange matrix acyclic if its principal part is. 
+The terminology is justified by the skew-symmetric case: the data of a skew-symmetric matrix $B$ is the same as that of a quiver $Q := Q_B$ with vertices indexed by the columns of $B$ and $[-B_{ij}]_+$ arrows to vertex $i$ from vertex $j$; the skew-symmetric matrix is acyclic exactly when this quiver has no oriented cycles. We call an exchange matrix \newword{acyclic} if its principal part is acyclic. 
 
 \begin{figure}%[h]
   \centering
@@ -359,8 +359,8 @@ The cluster algebra associated to a skew-symmetrizable exchange matrix is especi
 For such cluster algebras we will concern ourself with a specific sequence of nodes in $\TT$ and the cluster variables associated to them.
 
 Recall that $t_0$ is the root of $\TT$.  Fix an acyclic skew-symmetrizable matrix $B$ and the corresponding permutation $\sigma$ as above.
-Write $t_m$, $m\in\ZZ$, for the nodes of $\TT$ lying along the unique path below, called the \newword{acyclic belt}:
-\saySS{I just realized that this definition of bipartite belt is wrong: we do not take care of commuting mutations here. Somehow we should improve on this definition by saying that we allow commutation relations but not braid relations.}
+Write $t_m:m\in\ZZ$ for the nodes of $\TT$ lying along the unique path below, called the \newword{acyclic belt}:
+\saySS{I just realized that this definition of bipartite belt is wrong: we do not take care of commuting mutations here. Somehow we should improve on this definition by saying that we allow commutation relations but not braid relations.}\sayDR{It needs to be stated in terms of the corresponding Coxeter element instead of the permutation of rows and columns.}
 \begin{equation}
   \cdots
   \dashname{\sigma_n}
@@ -380,8 +380,8 @@ Write $t_m$, $m\in\ZZ$, for the nodes of $\TT$ lying along the unique path below
   \dashname{\sigma_1}
   \cdots
 \end{equation}
-It is straightforward to observe that all the matrices $B^{t_m}$ are acyclic, it is less obvious but ultimately true that if $B^t$ is acyclic for some $t\in\TT$ then $t$ lies on the acyclic belt.
-\saySS{Citation needed. The statement is currently false because we define the acyclic belt in the wrong way}
+It is straightforward to observe that all the matrices $B^{t_m}$ are acyclic, it is less obvious but ultimately true that if $B^t$ is acyclic for some $t\in\TT$ then all cluster variables $x_{i;t}$ are realized in the acyclic belt.
+\saySS{Citation needed.}
 We will refer to the non-initial cluster variables $x_{i;t_m}$ with $m>0$ (resp. $m<0$) as \newword{preprojective} (resp. \newword{postinjective}).
 This terminology will be justified in the next section.
 
@@ -420,9 +420,9 @@ The definition of the cluster character involves the coindex $\coind(M) \in \ZZ^
 \[
 0 \to M \to \bigoplus I_j^{a_j} \to \bigoplus I_j^{b_j} \to 0
 \]
-is an injective resolution of $M$, then $\coind(M)$ is the element of $\ZZ^n$ whose $j$th component is $a_j - b_j$. Below we write $x^{-\coind(M)}$ for the monomial $\prod x_j^{b_j - a_j}$. 
+is an injective resolution of $M$, then $\coind(M)$ is the element of $\ZZ^n$ whose $j$-th component is $a_j - b_j$. Below we write $x^{-\coind(M)}$ for the monomial $\prod x_j^{b_j - a_j}$. 
 
-Given a dimension vector $e \in \NN^n$, the quiver Grassmannian $\Gr_eM$ is the variety of $e$-dimensional submodules of $M$. We write $\chi(\Gr_eM)$ for its Euler characteristic, \sayHW{Mumble something about Etale cohomology or specify representations are over $\CC$?}\sayDR{Should we also say ``with compact supports''?} and write $\hat{y}^e$ for the monomial $\prod_j \hat{y}_j^{e_j}$, where $e_j$\sayDR{At some points below (and above now) we use $e_j$ for standard basis vectors, should those be changed to something like $\varepsilon_j$?} is the $j$th component of $e \in \NN^n$. We also write $\hat{y}_j$ for the monomial $\prod\limits_{i=1}^m x_i^{b_{ij}}$.
+Given a dimension vector $e \in \NN^n$, the quiver Grassmannian $\Gr_eM$ is the variety of $e$-dimensional submodules of $M$. We write $\chi(\Gr_eM)$ for its Euler characteristic, \sayHW{Mumble something about Etale cohomology or specify representations are over $\CC$?}\sayDR{Should we also say ``with compact supports''?} and write $\hat{y}^e$ for the monomial $\prod_j \hat{y}_j^{e_j}$, where $e_j$\sayDR{At some points below (and above now) we use $e_j$ for standard basis vectors, should those be changed to something like $\varepsilon_j$?} is the $j$-th component of $e \in \NN^n$. We also write $\hat{y}_j$ for the monomial $\prod\limits_{i=1}^m x_i^{b_{ij}}$.
 
 \begin{definition}
 The cluster character of a representation $M$ of $Q$ is
@@ -2134,7 +2134,7 @@ as desired.
     The transpose $g \mapsto g^T$ of YZ is defined in passing without notation in the proof of \Cref{lem:minorsondbc}.
   
   \item 
-    $L_{\omega_i}$ is the $i$th fundamental representation in the proof of \Cref{lem:minorsondbc}.
+    $L_{\omega_i}$ is the $i$-th fundamental representation in the proof of \Cref{lem:minorsondbc}.
 
   \item 
     Used the notation $h^\omega$ for $\omega$ a weight and $h \in H$ without explaining it in the proof of \Cref{lem:minorsondbc}.
