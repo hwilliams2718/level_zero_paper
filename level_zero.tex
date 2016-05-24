@@ -1667,57 +1667,65 @@ and are non-zero elements of $\kk$ for generic values of the parameters $t_{\pm 
 
 In this section we prove that the identification $\cA_{\Bdp} \cong \kk[G^{c,c^{-1}}]$ of \Cref{thm:coordring} realizes all regular cluster variables as restrictions of level zero minors in the case that the Cartan companion of $B$ is of type $A_n^{\!(1)}$. The proof exploits the fact that, when $G = LSL_n$, level zero minors can be expressed combinatorially as weighted sums over collections of paths in a directed network on a cylinder. We show that the collections of paths relevant to a given minor are in bijection with submodules of a corresponding regular quiver representation, hence the network computation directly recovers the Caldero-Chapoton formula. A similar computation shows that the generic basis element associated to the base of the homogeneous tube in type $A_n^{\!(1)}$ is also a level zero minor. We expect that for any affine type the regular cluster variables are minors of level zero representations, and we verify this for the finite list of other affine types where it can be checked using only the characters of those representations. 
 
-\begin{proposition}\label{prop:level zero}\sayHW{This should be moved into section 4.2}
-Let $G = \widehat{LSL_n}$ be the affine Kac-Moody group of type $A_{n-1}^{(1)}$, let $c$ be a Coxeter element of the affine Weyl group, and $Q_c$ the associated affine quiver.  All regular cluster variables in the coordinate ring of $G^{c,c^{-1}}$ are principal minors of level zero representations.  
-\end{proposition}
-\begin{proof}
-\begin{enumerate}
-\item Given a regular representation $M_{[p,q]}$ compute the strand configuration whose minor has the same $F$-polynomial.
-\item Show that the injective copresentation matches the weight of the minor.
-\end{enumerate}
-\end{proof}
+%\begin{proposition}\label{prop:level zero}\sayHW{This should be moved into section 4.2}
+%Let $G = \widehat{LSL_n}$ be the affine Kac-Moody group of type $A_{n-1}^{(1)}$, let $c$ be a Coxeter element of the affine Weyl group, and $Q_c$ the associated affine quiver.  All regular cluster variables in the coordinate ring of $G^{c,c^{-1}}$ are principal minors of level zero representations.  
+%\end{proposition}
+%\begin{proof}
+%\begin{enumerate}
+%\item Given a regular representation $M_{[p,q]}$ compute the strand configuration whose minor has the same $F$-polynomial.
+%\item Show that the injective copresentation matches the weight of the minor.
+%\end{enumerate}
+%\end{proof}
 
 \subsection{Affine Quiver Representations}
-Let $Q$ be an orientation of a simply-laced affine Dynkin diagram.  Identifying the Grothendieck group $\cQ\cong\ZZ^n$ with the root lattice, we write $\delta\in\cQ$ for the minimal positive imaginary root.  Then the regular representations of $Q$ admit the following concrete description in terms of the Euler-Ringel form.
-\begin{lemma}\cite{ASS06}
-  A representation $V\in\rep_\kk(Q)$ is regular if and only if $\langle\delta,V\rangle=0$.
-\end{lemma}
+Let $Q$ be an acyclic orientation of an $n$-cycle for $n>2$, and label the vertices of $Q$ by $\ZZ_n$ so that neighboring vertices have cyclically adjacent labels. %The regular representations of $Q$ (or of any acyclic orientation of a simply-laced affine Dynkin diagram) admit a concrete description in terms of the Euler-Ringel form:
+%\begin{proposition} (\cite{ASS06}) 
+%A finite-dimensional representation $V$ of $Q$ is regular if and only if $\langle\delta,V\rangle=0$.
+%\end{proposition}
+%To prove Proposition~\ref{prop:level zero} we will further restrict $Q$ to be of affine type $\tilde{A}_{n-1}$, that is $Q$ is an acyclic orientation of a cycle.  
+%In this case we identify the vertices of $Q$ with $\ZZ_n$, the integers modulo $n$, so that neighboring vertices have consecutive labels.
+%Our main interest will be in rigid representations, i.e. $V\in\rep_\kk(Q)$ such that $\Ext^1(V,V)=0$.  
+We have the following explicit classification of the indecomposable regular representations $V$ which are rigid (i.e. $\Ext^1(V,V)=0$). For $k,\ell\in\ZZ_n$ we write $[k,\ell]=\{k,k+1,\ldots,\ell\}$ and let $V_{[k,\ell]}$ be the representation with 
+\[
+V_i \cong \begin{cases} \kk & i \in [k,\ell] \\ 0 & \text{otherwise,} \end{cases}
+\]
+and all arrows acting by invertible maps except the arrow between $k$ and $k-1$ and the arrow between $\ell$ and $\ell + 1$. 
 
-To prove Proposition~\ref{prop:level zero} we will further restrict $Q$ to be of affine type $\tilde{A}_{n-1}$, that is $Q$ is an acyclic orientation of a cycle.  
-In this case we identify the vertices of $Q$ with $\ZZ_n$, the integers modulo $n$, so that neighboring vertices have consecutive labels.
-Our main interest will be in rigid representations, i.e. $V\in\rep_\kk(Q)$ such that $\Ext^1(V,V)=0$.  
-In particular, we aim to give a concrete characterization of all rigid indecomposable representations $V$ which are regular.
-
-The following characterization of rigid indecomposable regular representations appears to be new and may be of independent interest.  For $k,\ell\in\ZZ_n$ write $[k,\ell]=\{k,k+1,\ldots,\ell\}$ and define a representation $V_{[k,\ell]}$ of $Q$ with one-dimensional vector spaces at each of the vertices in $[k,\ell]$ and identity maps between neighboring vector spaces.
+%a one-dimensional vector spaces at each of the vertices in $[k,\ell]$ and identity maps between neighboring vector spaces.
+%In particular, we aim to give a concrete characterization of all rigid indecomposable representations $V$ which are regular.
+%The following characterization of rigid indecomposable regular representations appears to be new and may be of independent interest.  
 \begin{proposition}
-  Let $V$ be a rigid indecomposable regular representation of an acyclic quiver $Q$ of affine type $\tilde{A}_{n-1}$.  
-  There are $k,\ell\in Q_0$ with $[k,\ell]\subsetneq\ZZ_n$ containing the same number of sinks and sources of $Q$ so that $V\cong V_{[k,\ell]}$.
-  Moreover, every rigid indecomposable regular representation arises in this way. 
+If $[k,\ell]$ contains the same number of sinks and sources of $Q$, then $V_{[k,\ell]}$ is an indecomposable rigid regular representation of $Q$. Every such representation is isomorphic to one of this form. 
+%  Let $V$ be a rigid indecomposable regular representation of an acyclic quiver $Q$ of affine type ${A}^{(1)}_{n-1}$.  
+%  There are $k,\ell\in Q_0$ with $[k,\ell]\subsetneq\ZZ_n$ containing the same number of sinks and sources of $Q$ so that $V\cong V_{[k,\ell]}$.
+%  Moreover, every rigid indecomposable regular representation arises in this way. 
 \end{proposition}
 \begin{proof}\mbox{}
-  To begin we recall the structure of the subcategory $\cR\subset\rep_\kk(Q)$ consisting of the regular representations.  
-  Suppose that $Q$ contains $p$ clockwise arrows and $q$ counterclockwise arrows.  
-  Then $\cR$ is equivalent the direct product of three categories: the category of nilpotent representations of an oriented $p$-cycle, the category of nilpotent representations of an oriented $q$-cycle, and the category of invertible representations of the Jordan quiver (this is the quiver with a single vertex and a single loop based at this vertex so that an invertible representation is specified by a single invertible matrix).\sayDR{For uniformity I am separating the standard $\PP^1$-family of homogeneous tubes for the Kronecker quiver into nilpotent ``north pole'' representations, nilpotent ``south pole'' representations, and ``invertible'' representations.}
+We first recall the structure of the full subcategory $\cR\subset\rep_\kk(Q)$ of regular representations.\sayHW{Is there an appropriate reference for this description?} 
+Say an arrow $a$ of $Q$ is clockwise if $s(a) = t(a) - 1$ and counterclockwise if $s(a) = t(a) + 1$. Let $p$ and $q$ be the numbers of clockwise and counterclockwise arrows, respectively. 
+Then we have decomposition $$\cR \cong \cR_{nil}^p \oplus \cR_{nil}^q \oplus \cR_{inv},$$ where $\cR_{nil}^p$ (resp. $\cR_{nil}^q$) is equivalent to the category of nilpotent representations of an oriented $p$-cycle (resp. $q$-cycle), and $\cR_{inv}$ is equivalent to the category of invertible representations of the Jordan quiver (this is the quiver with a single vertex and a single arrow from that vertex to itself, and an invertible representation is one for which this arrow acts by an invertible linear map). 
+%\sayDR{For uniformity I am separating the standard $\PP^1$-family of homogeneous tubes for the Kronecker quiver into nilpotent ``north pole'' representations, nilpotent ``south pole'' representations, and ``invertible'' representations.}
 
-  Any invertible representation $M$ of the Jordan quiver has nontrivial self-extensions given by block upper triangular matrices with two copies of $M$ on the diagonal, in particular there are no rigid representations in this component.
-  For representations of $Q$ in this component, the dimension of the vector space at each vertex is equal and all maps are invertible.
-  From the considerations above, such representations are never rigid.
-  
-  Now consider the category $\cC$ of nilpotent representations of an oriented $r$-cycle.  
-  Write $\tilde\cC$ for the category of finite-dimensional representations of the equi-oriented bi-infinite $A_{\infty,\infty}$ quiver.  
-  For any choice of base point, there is an essentially surjective exact functor $\pi:\tilde\cC\to\cC$ given by ``wrapping around'' the $r$-cycle (nilpotency guarantees the essential surjectivity).  
-  Now consider a nilpotent representation $V$ of the $r$-cycle which is sincere (i.e. every vertex contains a nontrivial vector space).
-  Choose a lift $\tilde V\in\tilde\cC$ of $V$ in which every indecomposable summand has support intersecting a given fundamental domain and write $\tilde V'$ for the lift of $V$ obtained by shifting $\tilde V$ to the right by $r$ vertices.  
-  Since $V$ was sincere, it is easy to see that $\tilde\cC$ contains a nontrivial extension of $\tilde V$ by $\tilde V'$, in particular $\Ext^1(V,V)\ne 0$ since $\pi$ is exact.  
-  For $r=p$ ($r=q$ is handled similarly), the representations of $Q$ in this component have isomorphisms at each of the $q$ counterclockwise arrows\sayDR{It feels a little funny to think that the zero map between zero vector spaces is an isomorphism but it's true.} and are sincere as representations of the $r$-cycle if and only if they are sincere as representations of $Q$.
+Any invertible representation of the Jordan quiver has nontrivial self-extensions: if $M$ is an invertible matrix defining such a representation, the self-extension is defined by the block upper triangular matrix $$\begin{bmatrix} M & Id \\ 0 & M \end{bmatrix}.$$ In particular, $\cR_{inv}$ does not contain any rigid representations.
+%For representations of $Q$ in this component, the dimension of the vector space at each vertex is equal and all maps are invertible.
+%From the considerations above, such representations are never rigid.
 
-  Following the discussion above we see that a regular representation of $Q$ is rigid only if it is non-sincere.  
-  Since a non-sincere representation of $Q$ can be identified with a representation of a Dynkin quiver of type $A$, any rigid indecomposable regular representation of $Q$ must be of the form $V_{[k,\ell]}$ for some $k,\ell\in Q_0$ with $[k,\ell]\subsetneq\ZZ_n$.  
-  It only remains to observe the condition on sinks and sources in $[k,\ell]$.  
-  Write $I,O\subset Q_0$ for the subset of sinks and sources in $Q$ respectively.
-  For any representation $V$ we have  
+Now consider the category $\cC^p$ of nilpotent representations of an oriented $p$-cycle.  
+  Write $\tilde\cC$ for the category of finite-dimensional representations of the equi-oriented $A_{\infty,\infty}$ quiver (i.e. its vertices are labeled by $\ZZ^2$, and for all $i$, $j$ there is an arrow from $(i,j)$ to $(i+1,j)$ and an arrow from $(i,j)$ to $(i,j+1)$).\sayHW{Either I am misinterpreting your quiver or I don't understand the role of one of the coordinates: it seems like the argument works with $\tilde\cC$ being representations of the equi-oriented $A_\infty$-quiver} 
+  For any choice of base point, there is an essentially surjective exact functor $\pi:\tilde\cC\to\cC^p$ given by ``wrapping around'' the $p$-cycle (nilpotency guarantees the essential surjectivity).  
+  Now consider an indecomposable object $V$ of $\cC^p$ which is sincere (i.e. $V_i \neq 0$ for every vertex $i$).
+  Given any lift $\tilde V\in\tilde\cC$ of $V$, let $\tilde V'$ be the lift of $V$ obtained by shifting $\tilde V$ to the right by $p$ vertices.  
+  Since $V$ was sincere, $\tilde\cC$ contains a nontrivial extension of $\tilde V$ by $\tilde V'$. Since $\pi$ is exact, the image of this extension is a nontrivial self-extension of $V$ in $\cC^p$. %in particular $\Ext^1(V,V)\ne 0$ since $\pi$ is exact. 
+As all counterclockwise arrows act by invertible linear maps in any $Q$-representation in $\cR_{inv}$, the equivalence $\cC^p \cong \cR_{inv}^p$ takes sincere representations to sincere representations. In particular, we conclude that no indecomposable sincere representation in $\cR_{inv}^p$ is rigid, and likewise for $\cR_{inv}^q$ by the same argument. 
+%  For $r=p$ ($r=q$ is handled similarly), the representations of $Q$ in this component have isomorphisms at each of the $q$ counterclockwise arrows\sayDR{It feels a little funny to think that the zero map between zero vector spaces is an isomorphism but it's true.} and are sincere as representations of the $r$-cycle if and only if they are sincere as representations of $Q$.
+
+From the discussion so far we see that any indecomposable rigid regular representation of $Q$ is non-sincere and in either $\cR_{inv}^p$ or $\cR_{inv}^q$.  Any proper subquiver $Q'$ of $Q$ defines an exact inclusion $\rep_\kk(Q') \into \rep_\kk(Q)$. 
+Any non-sincere representation of $Q$ is the image of a representation of a proper subquiver, which without loss of generality is of type $A_m$ with $m < n$. Thus any indecomposable rigid regular representation of $Q$ is the image of an indecomposable representation of such a subquiver -- in particular, it is isomorphic to $V_{[k,\ell]}$ for a proper subset $[k,\ell]\subsetneq\ZZ_n$.  
+
+It remains to derive the condition on sinks and sources in $[k,\ell]$. We identify the Grothendieck group of $\rep_\kk(Q)$ with the root lattice $\cQ$ of type $A_{n-1}^{(1)}$, and write $\delta\in\cQ$ for the minimal positive imaginary root. Recall that $V \in \rep_\kk(Q)$ is regular if and only if the Euler-Ringel pairing $\langle\delta,V\rangle$ vanishes \cite{ASS06}. 
+Writing $I \subset \ZZ_n$ (resp. $O \subset \ZZ_n$) for the subset of sinks (resp. sources) in $Q$, we have  
   \[\langle\delta,V\rangle=\sum_{j\in Q_0}\dim V_j-\sum_{a\in Q_1}\dim V_{t(a)}=\sum_{o\in O}\dim V_o-\sum_{i\in I}\dim V_i.\]
-  For regular $V$, we have $\langle\delta,V\rangle=0$ and so $\sum\limits_{o\in O}\dim V_o=\sum\limits_{i\in I}\dim V_i$.  In particular, this holds for $V_{[k,\ell]}$ and so the number of sinks in $[k,\ell]$ must equal the number of sources in $[k,\ell]$ as desired.
+Thus $V$ is regular if and only if $\sum\limits_{o\in O}\dim V_o=\sum\limits_{i\in I}\dim V_i$.  In particular, this holds for $V = V_{[k,\ell]}$ exactly when the number of sinks in $[k,\ell]$ is equal to the number of sources in $[k,\ell]$. 
 \end{proof}
 
 To conclude, we aim to compute the cluster characters \eqref{eq:cc formula} of the regular representations $V_{[k,\ell]}$ in preparation for comparing with certain minors on $G^{c,c^{-1}}$.  For this we need an explicit description of their coindices and their submodules.  
