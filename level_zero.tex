@@ -1754,7 +1754,7 @@ To conclude, we aim to compute the cluster characters \eqref{eq:cc formula} of t
   \[0\to V_{[k,\ell]} \to I_k\oplus I_{i_1} \oplus \cdots \oplus I_{i_m} \to I_{o_1} \oplus \cdots \oplus I_{o_m}\oplus I_{\ell+1}.\]
 \end{proof}
 
-Given a connected interval of vertices $[k,\ell]\subsetneq\ZZ_n$, write $Q_{[k,\ell]}$ for the full connected subquiver of $Q$ having vertex set $[k,\ell]$.  Note that $Q_{[k,\ell]}$ is a quiver of Dynkin type $A$ and so the vertex set $[k,\ell]$ can be considered as a poset with Hasse quiver $Q_{[k,\ell]}$.  The following result is well-known.\sayHW{Define successor-closed. Maybe say target-closed? Successor could be conflated with ``successor in the cyclic ordering''}
+Given a connected interval of vertices $[k,\ell]\subsetneq\ZZ_n$, write $Q_{[k,\ell]}$ for the full connected subquiver of $Q$ having vertex set $[k,\ell]$.  Note that $Q_{[k,\ell]}$ is a quiver of Dynkin type $A$ and so the vertex set $[k,\ell]$ can be considered as a poset with Hasse quiver $Q_{[k,\ell]}$.  The following result is well-known.\sayHW{Define successor-closed. Maybe say target-closed? Successor could be conflated with ``successor in the cyclic ordering''}\sayDR{Is it enough to be explicit about how to consider $Q_{[k,\ell]}$ as a poset?}
 \begin{lemma}
   Subrepresentations of $V_{[k,\ell]}$ are naturally in bijection with successor-closed subsets $E\subset[k,\ell]$, where $E$ records the dimension vector of the subrepresentation.
 \end{lemma}
@@ -1772,7 +1772,7 @@ We will study generalized minors in affine type $\tilde A_{n-1}$ by modeling gen
 A graph is weighted if all of its edges are assigned elements of a fixed ring; below this will be the Laurent polynomial ring $\CC[t_{\pm1}^{\pm1},\dotsc,t_{\pm n}^{\pm1},h_1^{\pm1},\dotsc,h_n^{\pm1}]$ with $3n$ polynomial generators.
 
 \begin{definition}
-For $i\in[-n,-1]\cup[1,n]$ define a directed network on a cylinder (which we associate with $x_i(t_i)$) containing $n$ pairwise disjoint \emph{horizontal} edges of weight $1$ running from the right-hand boundary component to the left-hand boundary component, which are labeled by $\ZZ_n$ compatibly with their cyclic ordering, and a (\emph{vertical}) \emph{bridge} of weight $t_i$ joining the $(i-1)^{st}$\sayHW{wrong if $i < 0$?} horizontal edge and the $i^{th}$ horizontal edge, which is oriented upward for $i>0$ and downward for $i<0$ (see Figure~\ref{fig:networks on cylinders}).  
+For $i\in[-n,-1]\cup[1,n]$ define a directed network on a cylinder (which we associate with $x_i(t_i)$) containing $n$ pairwise disjoint \emph{horizontal} edges of weight $1$ running from the right-hand boundary component to the left-hand boundary component, which are labeled by $\ZZ_n$ compatibly with their cyclic ordering, and a (\emph{vertical}) \emph{bridge} of weight $t_i$ joining the $(i-1)^{st}$\sayHW{wrong if $i < 0$?}\sayDR{Ugh, signs...I guess it should have an absolute value $|i|$ but this will be really ugly.} horizontal edge and the $i^{th}$ horizontal edge, which is oriented upward for $i>0$ and downward for $i<0$ (see Figure~\ref{fig:networks on cylinders}).  
 For $i\in[1,n]$ define another directed network on a cylinder (which we associate with $h_i^{\alpha_i^\vee}$) again containing the $n$ pairwise disjoint horizontal edges with the $i^{th}$ horizontal edge of weight $h_i^{-1}$, the $(i-1)^{st}$ horizontal edge of weight $h_i$, and all other horizontal edges of weight 1 (see Figure~\ref{fig:networks on cylinders}).
 \bigskip
 \begin{figure}[h]
