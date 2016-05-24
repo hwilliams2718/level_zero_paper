@@ -849,7 +849,7 @@ To simplify our notation, in this section, we will assume that $\sigma$ is the i
 Moreover, since our claim is already established in \cite{YZ08} for the simply-connected semisimple group case,  we will also assume that the Cartan companion $A$ of $B$ is not of finite type.
 \saySS{For uniformity, if you want, we could cover also finite type here if we use $w_0$ in place of $c^\infty$. It is not clear to me that it is worth doing even though it will make life more uniform. Maybe we should add a comment here.}
 
-In view of these assumptions the Coxeter element associated to $B$ is $c=s_1\cdots s_n$ and any prefix of the word $c^\infty$ is reduced (cf. \cite{Spe09}). 
+In view of these assumptions, the Coxeter element associated to $B$ is $c=s_1\cdots s_n$ and any prefix of the word $c^\infty$ is reduced (cf. \cite{Spe09}). 
 Therefore the acyclic belt becomes
 \begin{equation}
   \cdots
@@ -872,11 +872,11 @@ Therefore the acyclic belt becomes
 \end{equation}
 \saySS{We should probably comment on the fact that all these nodes of the exchange graph are distinct. It follows from the propositions we are about to prove but one might wonder whether the argument is circular here.}
 \sayDR{I think the proposition below establishes this fact, I did not see any point where you assumed they were distinct in the proof.}
-Following \cite{FZ02}, we denote by $\mod{m}$ the element of $[1,n]$ congruent to $m$ modulo $n$.
+Following \cite{FZ02}, we denote by $\mod{m}$ the unique integer in $[1,n]$ congruent to $m$ modulo $n$.
 The edge immediately to the left of $t_m$ is then labeled by $\mod{m}$.
-Observe further that the nodes of $\TT$ we are considering lie along a \emph{sink/source adapted sequence}. 
-In particular, the off-diagonal entries of the exchange matrix $B^{t_m}$ at $t_m$ equal, in absolute value, the entries of $A$. 
-Moreover, the $\mod{m}$-th row of $B^{t_m}$ contains only non-positive entries and the $\mod{m+1}$-st row only non-negative entries.
+Observe that the nodes of $\TT$ we are considering lie along a \emph{sink/source adapted sequence}.  
+More precisely, the $\mod{m}$-th row of $B^{t_m}$ contains only non-positive entries and the $\mod{m+1}$-st row only non-negative entries.
+In particular, the mutation relations \eqref{eq:matrix mutation} imply that the off-diagonal entries of the exchange matrix $B^{t_m}$ are equal, in absolute value, to the entries of $A$.
 
 We begin our analysis with a computation of $\bfc$-vectors by interpreting them as coordinate vectors in the basis of simple roots for the root system of the Cartan companion $A$.  This calculation will start by taking the $i$-th $\bfc$-vector at $t_0$ is $\alpha_i$.
 \begin{lemma}
@@ -972,10 +972,10 @@ From \Cref{lemma:c-vectors}, in view of \Cref{eq:g-vectors_from_c-vectors} and r
     \lambda_{i;t_m}
     =
     \begin{cases}
-      c^{\left\lfloor\frac{m-1}{n}\right\rfloor}s_1\cdots s_{\mod{m}} \omega_i & \text{if $m>0$}\\
-      \omega_i & \text{if $-n\leq m \leq 0$ and  $i\leq n+m$} \\
-      -\omega_i & \text{if $-n\leq m \leq 0$ and $i>n+m$} \\
-      -c^{1+\left\lceil\frac{m+1}{n}\right\rceil}s_n\cdots s_{\mod{m+1}} \omega_i & \text{if $m <-n$}\\
+      c^{\left\lfloor\frac{m-1}{n}\right\rfloor}s_1\cdots s_{\mod{m}} \omega_i & \text{if $m>0$;}\\
+      \omega_i & \text{if $-n\leq m \leq 0$ and  $i\leq n+m$;} \\
+      -\omega_i & \text{if $-n\leq m \leq 0$ and $i>n+m$;} \\
+      -c^{1+\left\lceil\frac{m+1}{n}\right\rceil}s_n\cdots s_{\mod{m+1}} \omega_i & \text{if $m <-n$.}\\
     \end{cases}
   \end{equation}
 \end{lemma}
@@ -1025,10 +1025,10 @@ With the preceding results in hand, we are ready to describe the cluster variabl
 
   For the second part recall that $\beta_i^+=s_1\cdots s_{i-1}\alpha_i$ and $\beta_i^-=s_n\cdots s_{i+1}\alpha_i$. 
   \saySS{Were the $\beta_\pm$ defined before?}
-  The relations are then an obvious consequence of \Cref{lemma:c-vectors} once we observe that mutations happen along a source/sink adapted sequence so that, at $t_m$, the $\mod{m}$-th column of $B^{t_m}$ contains only non-negative entries and the $\mod{m+1}$-th column only non-positive entries. 
+  The relations are then an obvious consequence of \Cref{lemma:c-vectors} once we observe that mutations happen along a sink/source adapted sequence so that the $\mod{m}$-th column of $B^{t_m}$ contains only non-negative entries and the $\mod{m+1}$-th column only non-positive entries. 
 \end{proof}
 \begin{remark}
-  As noted before, to obtain the exchange relations in the cluster algebra $\cA_{\Bpr}$ with principal coefficients it suffices to set $z_{-1},\dotsc,z_{-n}$ to one in the relations of \Cref{thm:vars_and_rels_in_bipartite_belt}. 
+  As noted before, to obtain the exchange relations in the cluster algebra $\cA_{\Bpr}$ with principal coefficients it suffices to set the coefficients $z_{-1},\dotsc,z_{-n}$ to $1$ in the relations of \Cref{thm:vars_and_rels_in_bipartite_belt}. 
 \end{remark}
 \subsection{Highest- and lowest-weight minors}
 
