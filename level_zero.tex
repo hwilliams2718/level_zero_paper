@@ -849,7 +849,7 @@ To simplify our notation, in this section, we will assume that $\sigma$ is the i
 Moreover, since our claim is already established in \cite{YZ08} for the simply-connected semisimple group case,  we will also assume that the Cartan companion $A$ of $B$ is not of finite type.
 \saySS{For uniformity, if you want, we could cover also finite type here if we use $w_0$ in place of $c^\infty$. It is not clear to me that it is worth doing even though it will make life more uniform. Maybe we should add a comment here.}
 
-In view of these assumptions the Coxeter element associated to $B$ is $c=s_1\cdots s_n$ and any prefix of the word $c^\infty$ is reduced (cf. \cite{Spe09}). 
+In view of these assumptions, the Coxeter element associated to $B$ is $c=s_1\cdots s_n$ and any prefix of the word $c^\infty$ is reduced (cf. \cite{Spe09}). 
 Therefore the acyclic belt becomes
 \begin{equation}
   \cdots
@@ -872,11 +872,11 @@ Therefore the acyclic belt becomes
 \end{equation}
 \saySS{We should probably comment on the fact that all these nodes of the exchange graph are distinct. It follows from the propositions we are about to prove but one might wonder whether the argument is circular here.}
 \sayDR{I think the proposition below establishes this fact, I did not see any point where you assumed they were distinct in the proof.}
-Following \cite{FZ02}, we denote by $\mod{m}$ the element of $[1,n]$ congruent to $m$ modulo $n$.
+Following \cite{FZ02}, we denote by $\mod{m}$ the unique integer in $[1,n]$ congruent to $m$ modulo $n$.
 The edge immediately to the left of $t_m$ is then labeled by $\mod{m}$.
-Observe further that the nodes of $\TT$ we are considering lie along a \emph{sink/source adapted sequence}. 
-In particular, the off-diagonal entries of the exchange matrix $B^{t_m}$ at $t_m$ equal, in absolute value, the entries of $A$. 
-Moreover, the $\mod{m}$-th row of $B^{t_m}$ contains only non-positive entries and the $\mod{m+1}$-st row only non-negative entries.
+Observe that the nodes of $\TT$ we are considering lie along a \emph{sink/source adapted sequence}.  
+More precisely, the $\mod{m}$-th row of $B^{t_m}$ contains only non-positive entries and the $\mod{m+1}$-st row only non-negative entries.
+In particular, the mutation relations \eqref{eq:matrix mutation} imply that the off-diagonal entries of the exchange matrix $B^{t_m}$ are equal, in absolute value, to the entries of $A$.
 
 We begin our analysis with a computation of $\bfc$-vectors by interpreting them as coordinate vectors in the basis of simple roots for the root system of the Cartan companion $A$.  This calculation will start by taking the $i$-th $\bfc$-vector at $t_0$ is $\alpha_i$.
 \begin{lemma}
@@ -972,10 +972,10 @@ From \Cref{lemma:c-vectors}, in view of \Cref{eq:g-vectors_from_c-vectors} and r
     \lambda_{i;t_m}
     =
     \begin{cases}
-      c^{\left\lfloor\frac{m-1}{n}\right\rfloor}s_1\cdots s_{\mod{m}} \omega_i & \text{if $m>0$}\\
-      \omega_i & \text{if $-n\leq m \leq 0$ and  $i\leq n+m$} \\
-      -\omega_i & \text{if $-n\leq m \leq 0$ and $i>n+m$} \\
-      -c^{1+\left\lceil\frac{m+1}{n}\right\rceil}s_n\cdots s_{\mod{m+1}} \omega_i & \text{if $m <-n$}\\
+      c^{\left\lfloor\frac{m-1}{n}\right\rfloor}s_1\cdots s_{\mod{m}} \omega_i & \text{if $m>0$;}\\
+      \omega_i & \text{if $-n\leq m \leq 0$ and  $i\leq n+m$;} \\
+      -\omega_i & \text{if $-n\leq m \leq 0$ and $i>n+m$;} \\
+      -c^{1+\left\lceil\frac{m+1}{n}\right\rceil}s_n\cdots s_{\mod{m+1}} \omega_i & \text{if $m <-n$.}\\
     \end{cases}
   \end{equation}
 \end{lemma}
@@ -1025,10 +1025,10 @@ With the preceding results in hand, we are ready to describe the cluster variabl
 
   For the second part recall that $\beta_i^+=s_1\cdots s_{i-1}\alpha_i$ and $\beta_i^-=s_n\cdots s_{i+1}\alpha_i$. 
   \saySS{Were the $\beta_\pm$ defined before?}
-  The relations are then an obvious consequence of \Cref{lemma:c-vectors} once we observe that mutations happen along a source/sink adapted sequence so that, at $t_m$, the $\mod{m}$-th column of $B^{t_m}$ contains only non-negative entries and the $\mod{m+1}$-th column only non-positive entries. 
+  The relations are then an obvious consequence of \Cref{lemma:c-vectors} once we observe that mutations happen along a sink/source adapted sequence so that the $\mod{m}$-th column of $B^{t_m}$ contains only non-negative entries and the $\mod{m+1}$-th column only non-positive entries. 
 \end{proof}
 \begin{remark}
-  As noted before, to obtain the exchange relations in the cluster algebra $\cA_{\Bpr}$ with principal coefficients it suffices to set $z_{-1},\dotsc,z_{-n}$ to one in the relations of \Cref{thm:vars_and_rels_in_bipartite_belt}. 
+  As noted before, to obtain the exchange relations in the cluster algebra $\cA_{\Bpr}$ with principal coefficients it suffices to set the coefficients $z_{-1},\dotsc,z_{-n}$ to $1$ in the relations of \Cref{thm:vars_and_rels_in_bipartite_belt}. 
 \end{remark}
 \subsection{Highest- and lowest-weight minors}
 
@@ -1703,7 +1703,7 @@ If $[k,\ell] \subsetneq \ZZ_n$ is a proper subset containing the same number of 
 \end{proposition}
 \begin{proof}\mbox{}
 We first recall the structure of the full subcategory $\cR\subset\rep_\kk(Q)$ of regular representations \cite[Ch. 9]{ASS06}.%\sayHW{Is there an appropriate reference for this description?}
-\sayDR{Either Ringel or Assem-Simson-Skowronski, though the description in each seems to be a little more cryptic than we present here}\sayHW{I think the chapter is right, though I note it is technically in vol. 2 rather than vol. 1 which the bib entry says right now} 
+\sayDR{Either Ringel or Assem-Simson-Skowronski, though the description in each seems to be a little more cryptic than we present here}\sayHW{I think the chapter is right, though I note it is technically in vol. 2 rather than vol. 1 which the bib entry says right now}\sayDR{I agree that vol 2 is correct but I believe Ch 9 is in vol 1, is the correct reference something like Ch 11 Thm 2.8? Maybe Ch 12 Thm 2.8 is better?} 
 Say an arrow $a$ of $Q$ is \newword{clockwise} if $s(a) = t(a) - 1$ and \newword{counterclockwise} if $s(a) = t(a) + 1$. Let $p$ and $q$ be the numbers of clockwise and counterclockwise arrows, respectively. 
 Then we have a decomposition $$\cR \cong \cR_{nil}^p \oplus \cR_{nil}^q \oplus \cR_{inv},$$ where $\cR_{nil}^p$ (resp. $\cR_{nil}^q$) is equivalent to the category of nilpotent representations of an oriented $p$-cycle (resp. $q$-cycle), and $\cR_{inv}$ is equivalent to the category of invertible representations of the Jordan quiver (this is the quiver with a single vertex and a single arrow from that vertex to itself, and an invertible representation is one for which this arrow acts by an invertible linear map). 
 %\sayDR{For uniformity I am separating the standard $\PP^1$-family of homogeneous tubes for the Kronecker quiver into nilpotent ``north pole'' representations, nilpotent ``south pole'' representations, and ``invertible'' representations.}
@@ -1722,9 +1722,9 @@ As all counterclockwise arrows act by invertible linear maps on any $Q$-represen
 %  For $r=p$ ($r=q$ is handled similarly), the representations of $Q$ in this component have isomorphisms at each of the $q$ counterclockwise arrows\sayDR{It feels a little funny to think that the zero map between zero vector spaces is an isomorphism but it's true.} and are sincere as representations of the $r$-cycle if and only if they are sincere as representations of $Q$.
 
 From the discussion so far we see that any indecomposable rigid regular representation of $Q$ is non-sincere and in either $\cR_{nil}^p$ or $\cR_{nil}^q$.  Any proper subquiver $Q'$ of $Q$ defines an exact inclusion $\rep_\kk(Q') \into \rep_\kk(Q)$. 
-Any non-sincere representation of $Q$ is the image of a representation of a proper subquiver, which without loss of generality we may take to be of type $A_m$ for some $m < n$.\sayHW{I removed ``by indecomposability'' because the point is rather that any *proper* subquiver is contained in an $A_m$ subquiver -- i.e. a decomposable but sincere representation also comes from an $A_m$ subquiver.} Thus any indecomposable rigid regular representation of $Q$ is the image of an indecomposable representation of such a subquiver -- in particular, it is isomorphic to $V_{[k,\ell]}$ for a proper subset $[k,\ell]\subsetneq\ZZ_n$.  
+Any non-sincere representation of $Q$ is the image of a representation of a proper subquiver, which without loss of generality we may take to be of type $A_m$ for some $m < n$.\sayHW{I removed ``by indecomposability'' because the point is rather that any *proper* subquiver is contained in an $A_m$ subquiver -- i.e. a decomposable but sincere representation also comes from an $A_m$ subquiver.}\sayDR{Thanks Harold!  I was being stupid about ``non-sincere'' vs ``not every map is an isomorphism''} Thus any indecomposable rigid regular representation of $Q$ is the image of an indecomposable representation of such a subquiver -- in particular, it is isomorphic to $V_{[k,\ell]}$ for a proper subset $[k,\ell]\subsetneq\ZZ_n$.  
 
-It remains to derive the condition on sinks and sources in $[k,\ell]$. We identify the Grothendieck group of $\rep_\kk(Q)$ with the root lattice $\cQ$ of type $A_{n-1}^{(1)}$, and write $\delta\in\cQ$ for the minimal positive imaginary root. Recall that $V \in \rep_\kk(Q)$ is regular if and only if the Euler-Ringel pairing $\langle\delta,V\rangle$ vanishes \cite{ASS06}.\sayHW{@Dylan: can you dig up the exact proposition (or at least section) number?} 
+It remains to derive the condition on sinks and sources in $[k,\ell]$. We identify the Grothendieck group of $\rep_\kk(Q)$ with the root lattice $\cQ$ of type $A_{n-1}^{(1)}$, and write $\delta\in\cQ$ for the minimal positive imaginary root. Recall that $V \in \rep_\kk(Q)$ is regular if and only if the Euler-Ringel pairing $\langle\delta,V\rangle$ vanishes \cite{ASS06}.\sayHW{@Dylan: can you dig up the exact proposition (or at least section) number?} \sayDR{I believe it follows from Ch 11 Thm 2.8 and the standard directionality of Hom and Ext in the AR quiver, but I am surprised at how hard it seems to be to find the exact statement.  I asked my goto expert and I hope to provide the reference soon}
 Writing $I \subset \ZZ_n$ (resp. $O \subset \ZZ_n$) for the subset of sinks (resp. sources) in $Q$, we have  
   \[\langle\delta,V\rangle=\sum_{j\in Q_0}\dim V_j-\sum_{a\in Q_1}\dim V_{t(a)}=\sum_{o\in O}\dim V_o-\sum_{i\in I}\dim V_i.\]
 Thus $V$ is regular if and only if $\sum\limits_{o\in O}\dim V_o=\sum\limits_{i\in I}\dim V_i$.  In particular, this holds for $V = V_{[k,\ell]}$ exactly when the number of sinks in $[k,\ell]$ is equal to the number of sources in $[k,\ell]$. 
