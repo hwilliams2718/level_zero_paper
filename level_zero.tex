@@ -387,7 +387,7 @@ It is straightforward to observe that all the matrices $B^{t_m}$ are acyclic, it
 We will refer to the non-initial cluster variables $x_{i;t_m}$ with $m>0$ (resp. $m<0$) as \newword{preprojective} (resp. \newword{postinjective}).
 This terminology will be justified in the next section.
 
-\subsection{Quiver representations and cluster characters}
+\subsection{Quiver representations and cluster characters}\label{sec:quiverbackground}
 A \newword{quiver} $Q=(Q_0,Q_1,s,t)$ with $n$ vertices consists of a set $Q_0=\{1,2,\ldots,n\}$ of vertices, a set $Q_1$ of arrows, and maps $s,t:Q_1\to Q_0$ giving the source and target of an arrow.  
 A \newword{$\kk$-representation} $V=(V_i,V_a)$ of $Q$ consists of a $\kk$-vector space $V_i$ for each $i\in Q_0$ and a $\kk$-linear map $V_a:V_{s(a)}\to V_{t(a)}$ for each arrow $a\in Q_1$.  
 A morphism of representation $\theta:V\to W$ consists of a collection of $\kk$-linear maps $\theta_i:V_i\to W_i$ so that $\theta_{t(a)}\circ V_a=W_a\circ \theta_{s(a)}$ for each arrow $a\in Q_1$.  
@@ -1730,45 +1730,71 @@ Writing $I \subset \ZZ_n$ (resp. $O \subset \ZZ_n$) for the subset of sinks (res
 Thus $V$ is regular if and only if $\sum\limits_{o\in O}\dim V_o=\sum\limits_{i\in I}\dim V_i$.  In particular, this holds for $V = V_{[k,\ell]}$ exactly when the number of sinks in $[k,\ell]$ is equal to the number of sources in $[k,\ell]$. 
 \end{proof}
 
-To conclude, we aim to compute the cluster characters \eqref{eq:cc formula} of the regular representations $V_{[k,\ell]}$ in preparation for comparing with certain minors on $G^{c,c^{-1}}$.  For this we need an explicit description of their coindices and their submodules.  
+With this classification in hand, we now describe the cluster characters of the rigid regular representations of $Q$ combinatorially in terms of target-closed subsets. Given $[k,\ell]\subsetneq\ZZ_n$, we say a subset $E$ of $[k,\ell]$ is target-closed if whenever $a$ is an arrow of $Q$ with $s(a) \in E$ and $t(a) \in [k,\ell]$, then in fact $t(a) \in E$. We let $\cE_{[k,\ell]}$ denote the collection of target-closed subsets of $[k,\ell]$, and otherwise follow the notation of Section \ref{sec:quiverbackground}.\sayHW{Make sure the convention of notating generators of the $\bfg$-vector lattice as $\omega_i$ is introduced there}
+
+%To conclude, we aim to compute the cluster characters \eqref{eq:cc formula} of the regular representations $V_{[k,\ell]}$ in preparation for comparing with certain minors on $G^{c,c^{-1}}$.  For this we need an explicit description of their coindices and their submodules.  
 
 \begin{proposition}\label{prop:regular coindices}
-  Consider $[k,\ell]\subsetneq\ZZ_n$ containing sinks $i_1 < \cdots < i_m$ and sources $o_1 < \cdots < o_m$.
-  Let 
-  \[0\to V_{[k,\ell]} \to \bigoplus I_j^{a_j} \to \bigoplus I_j^{b_j}\to 0\]
-  be the minimal injective resolution of $V_{[k,\ell]}$.
-  Then the $g$-vector $g_{[k,\ell]}$ of $V_{[k,\ell]}$ is given by
-  \[g_{[k,\ell]}=-\coind(V_{[k,\ell]})=\sum_j(b_j-a_j)\omega_j=\sum_{j\in S_{[k,\ell]}} \omega_{j+1} - \omega_j,\]
-  where $S_{[k,\ell]}\subset\ZZ_n$ is determined as follows:
-  \begin{itemize}
-    \item if the first sink in $[k,\ell]$ comes before the first source (i.e. $i_1 < o_1$ in $[k,\ell]$), then 
-    \[S_{[k,\ell]} = [\ell,k-2] \cup [i_1, o_1 -1] \cup \cdots \cup [i_m, o_m - 1];\]
-    \item if the first source in $[k,\ell]$ comes before the first sink (i.e. $o_1 < i_1$ in $[k,\ell]$), then
-    \[S_{[k,\ell]} = [k,o_1-1] \cup [i_1,o_2-1] \cup \cdots \cup [i_m,\ell].\]
-  \end{itemize}
+Let $[k,\ell] \subsetneq \ZZ_n$ be a proper subset containing the same number of sinks and sources of $Q$, so $V_{[k,\ell]}$ is rigid and regular. If $i_1 < \cdots < i_m$ (resp. $o_1 < \cdots < o_m$) are the sinks (resp. sources) of $Q$ contained in $[k,\ell]$ (ordered by the restriction of the cyclic order on $\ZZ_n$ to a linear order on $[k,\ell]$), then 
+\[
+\bfg(V_{[k,\ell]}) = \begin{cases} \omega_{k-1}-\omega_\ell+\sum_{j=1}^m (\omega_{o_j}-\omega_{i_j}) & \text{$i_1<o_1$ in $[k,\ell]$}\\ \omega_{\ell+1}-\omega_k+\sum_{j=1}^m (\omega_{o_j}-\omega_{i_j}) & \text{$o_1 < i_1$ in $[k,\ell]$,}\end{cases}
+\]
+and the cluster character of $V_{[k,\ell]}$ is 
+\begin{equation}\label{eq:regular cluster characters}
+x_{V_{[k,\ell]}} = x^{\bfg(V_{[k,\ell]})} \sum_{E \in \cE_{[k,\ell]}} \prod_{j \in E} \hat{y}_j.
+\end{equation}
+%  Consider $[k,\ell]\subsetneq\ZZ_n$ containing sinks $i_1 < \cdots < i_m$ and sources $o_1 < \cdots < o_m$.
+%  Let 
+%  \[0\to V_{[k,\ell]} \to \bigoplus I_j^{a_j} \to \bigoplus I_j^{b_j}\to 0\]
+%  be the minimal injective resolution of $V_{[k,\ell]}$.
+%  Then the $g$-vector $g_{[k,\ell]}$ of $V_{[k,\ell]}$ is given by
+%  \[g_{[k,\ell]}=-\coind(V_{[k,\ell]})=\sum_j(b_j-a_j)\omega_j=\sum_{j\in S_{[k,\ell]}} \omega_{j+1} - \omega_j,\]
+%  where $S_{[k,\ell]}\subset\ZZ_n$ is determined as follows:
+%  \begin{itemize}
+%    \item if the first sink in $[k,\ell]$ comes before the first source (i.e. $i_1 < o_1$ in $[k,\ell]$), then 
+%    \[S_{[k,\ell]} = [\ell,k-2] \cup [i_1, o_1 -1] \cup \cdots \cup [i_m, o_m - 1];\]
+%    \item if the first source in $[k,\ell]$ comes before the first sink (i.e. $o_1 < i_1$ in $[k,\ell]$), then
+%    \[S_{[k,\ell]} = [k,o_1-1] \cup [i_1,o_2-1] \cup \cdots \cup [i_m,\ell].\]
+%  \end{itemize}
 \end{proposition}
 \begin{proof}
-  If $i_1 < o_1$ in $[k,\ell]$, then the minimal injective resolution of $V_{[k,\ell]}$ is
-  \[0\to V_{[k,\ell]} \to I_{i_1} \oplus \cdots \oplus I_{i_m}\oplus I_\ell \to I_{k-1} \oplus I_{o_1} \oplus \cdots \oplus I_{o_m}.\]
-  But notice that in the sum $\sum\limits_{j\in S_{[k,\ell]}} (\omega_{j+1} - \omega_j)$, the terms coming from each connected interval of $S_{[k,\ell]}$ telescope to give
-  \[\sum_{j\in S_{[k,\ell]}} \omega_{j+1} - \omega_j=\omega_{k-1}-\omega_\ell+\sum_{r=1}^m (\omega_{o_r}-\omega_{i_r})=-\coind(V_{[k,\ell]}).\]
-  The case $o_1<i_1$ is handled similarly using the minimal injective resolution
-  \[0\to V_{[k,\ell]} \to I_k\oplus I_{i_1} \oplus \cdots \oplus I_{i_m} \to I_{o_1} \oplus \cdots \oplus I_{o_m}\oplus I_{\ell+1}.\]
+  If $i_1 < o_1$ in $[k,\ell]$, then it is straightforward to see that the minimal injective resolution of $V_{[k,\ell]}$ is of the form
+  \[0\to V_{[k,\ell]} \to I_{i_1} \oplus \cdots \oplus I_{i_m}\oplus I_\ell \to I_{k-1} \oplus I_{o_1} \oplus \cdots \oplus I_{o_m},\] 
+from which the given formula for $\bfg(V_{[k,\ell]})$ follows. The $o_1 < i_1$ case is similar. The description of submodules of $V_{[k,\ell]}$ in terms of target-closed subsets of $[k,\ell]$ is an instance of a more general description in terms of the coefficient quiver of a representation [Cer, Rin]; in our case the coefficient quiver of $V_{[k,\ell]}$ is just the full subquiver of $Q$ with vertex set $[k,\ell]$. 
+%  The case $o_1<i_1$ is handled similarly using the minimal injective resolution
+%  \[0\to V_{[k,\ell]} \to I_k\oplus I_{i_1} \oplus \cdots \oplus I_{i_m} \to I_{o_1} \oplus \cdots \oplus I_{o_m}\oplus I_{\ell+1}.\]
 \end{proof}
 
-Given a connected interval of vertices $[k,\ell]\subsetneq\ZZ_n$, write $Q_{[k,\ell]}$ for the full connected subquiver of $Q$ having vertex set $[k,\ell]$.  Note that $Q_{[k,\ell]}$ is a quiver of Dynkin type $A$ and so the vertex set $[k,\ell]$ can be considered as a poset with Hasse quiver $Q_{[k,\ell]}$.  The following result is well-known.\sayHW{Define successor-closed. Maybe say target-closed? Successor could be conflated with ``successor in the cyclic ordering''}\sayDR{Is it enough to be explicit about how to consider $Q_{[k,\ell]}$ as a poset?}
+%Given a connected interval of vertices $[k,\ell]\subsetneq\ZZ_n$, write $Q_{[k,\ell]}$ for the full connected subquiver of $Q$ having vertex set $[k,\ell]$.  Note that $Q_{[k,\ell]}$ is a quiver of Dynkin type $A$ and so the vertex set $[k,\ell]$ can be considered as a poset with Hasse quiver $Q_{[k,\ell]}$.  The following result is well-known.\sayHW{Define successor-closed. Maybe say target-closed? Successor could be conflated with ``successor in the cyclic ordering''}\sayDR{Is it enough to be explicit about how to consider $Q_{[k,\ell]}$ as a poset?}
+%\begin{lemma}
+%Subrepresentations of $V_{[k,\ell]}$ are naturally in bijection with successor-closed subsets $E\subset[k,\ell]$, where $E$ records the dimension vector of the subrepresentation.
+%\end{lemma}
+
+%Let $\cE_{[k,\ell]}$ denote the collection of successor-closed subsets $E \subset [k,\ell]$.  Then the cluster character of $V_{[k,\ell]}$ is given by
+%\begin{equation}\label{eq:regular cluster characters}
+%x_{V_{[k,\ell]}} = x^{g_{[k,\ell]}} \sum_{E \in \cE_{[k,\ell]}} \prod_{j \in E} \hat{y}_j,
+%\end{equation}
+%where $\hat y_j=\prod_{i=1}^m x_i^{b_{ij}}$.
+
+In Section \ref{sec:networks} it will be useful to rewrite regular $\bfg$-vectors using the following Lemma, whose proof is an elementary computation.
+
 \begin{lemma}
-  Subrepresentations of $V_{[k,\ell]}$ are naturally in bijection with successor-closed subsets $E\subset[k,\ell]$, where $E$ records the dimension vector of the subrepresentation.
+If $V_{[k,\ell]}$ is rigid and regular, we can write its $\bfg$-vector as
+\[
+\bfg(V_{[k,\ell]})=\sum_{j\in S_{[k,\ell]}} \omega_{j+1} - \omega_j,
+\]
+where 
+\[
+S_{[k,\ell]} = \begin{cases} [\ell,k-2] \cup [i_1, o_1 -1] \cup \cdots \cup [i_m, o_m - 1] & \text{$i_1<o_1$ in $[k,\ell]$}\\ [i_1,o_2-1] \cup \cdots \cup [i_m,\ell] & \text{$o_1 < i_1$ in $[k,\ell]$.}\end{cases}
+\]
 \end{lemma}
-
-Let $\cE_{[k,\ell]}$ denote the collection of successor-closed subsets $E \subset [k,\ell]$.  Then the cluster character of $V_{[k,\ell]}$ is given by
-\begin{equation}\label{eq:regular cluster characters}
-  x_{V_{[k,\ell]}} = x^{g_{[k,\ell]}} \sum_{E \in \cE_{[k,\ell]}} \prod_{j \in E} \hat{y}_j,
-\end{equation}
-where $\hat y_j=\prod_{i=1}^m x_i^{b_{ij}}$.
+%\begin{proof}
+%But notice that in the sum $\sum\limits_{j\in S_{[k,\ell]}} (\omega_{j+1} - \omega_j)$, the terms coming from each connected interval of $S_{[k,\ell]}$ telescope to give
+%  \[\sum_{j\in S_{[k,\ell]}} \omega_{j+1} - \omega_j=\omega_{k-1}-\omega_\ell+\sum_{r=1}^m (\omega_{o_r}-\omega_{i_r})=-\coind(V_{[k,\ell]}).\]
+%\end{proof}
 
 
-\subsection{Networks}
+\subsection{Networks}\label{sec:networks}
 
 We will study generalized minors in affine type $\tilde A_{n-1}$ by modeling generic elements of a double Bruhat cell $G^{u,v}$ with weighted networks on a cylinder. 
 A graph is weighted if all of its edges are assigned elements of a fixed ring; below this will be the Laurent polynomial ring $\CC[t_{\pm1}^{\pm1},\dotsc,t_{\pm n}^{\pm1},h_1^{\pm1},\dotsc,h_n^{\pm1}]$ with $3n$ polynomial generators.
