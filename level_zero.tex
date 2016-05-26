@@ -58,6 +58,7 @@ urlcolor=blue]{hyperref}
 \newcommand{\bfc}{\mathbf{c}}
 \newcommand{\bfe}{\mathbf{e}}
 \newcommand{\bfg}{\mathbf{g}}
+\newcommand{\bfi}{\mathbf{i}}
 
 \newcommand{\cE}{\mathcal{E}}
 \newcommand{\cF}{\mathcal{F}}
@@ -123,6 +124,7 @@ urlcolor=blue]{hyperref}
 \theoremstyle{remark} 
 \newtheorem{remark}[theorem]{Remark}
 \numberwithin{equation}{section}
+\numberwithin{figure}{section}
 
 \begin{document}
 \title{On Generalized Minors and Quiver Representations}
@@ -1702,8 +1704,9 @@ If $[k,\ell] \subsetneq \ZZ_n$ is a proper subset containing the same number of 
 %  Moreover, every rigid indecomposable regular representation arises in this way. 
 \end{proposition}
 \begin{proof}\mbox{}
-We first recall the structure of the full subcategory $\cR\subset\rep_\kk(Q)$ of regular representations \cite[Ch. 9]{ASS06}.%\sayHW{Is there an appropriate reference for this description?}
-\sayDR{Either Ringel or Assem-Simson-Skowronski, though the description in each seems to be a little more cryptic than we present here}\sayHW{I think the chapter is right, though I note it is technically in vol. 2 rather than vol. 1 which the bib entry says right now}\sayDR{I agree that vol 2 is correct but I believe Ch 9 is in vol 1, is the correct reference something like Ch 11 Thm 2.8? Maybe Ch 12 Thm 2.8 is better?} 
+We first recall the structure of the full subcategory $\cR\subset\rep_\kk(Q)$ of regular representations \cite[Ch. 11]{ASS06}.%\sayHW{Is there an appropriate reference for this description?}
+%\sayDR{Either Ringel or Assem-Simson-Skowronski, though the description in each seems to be a little more cryptic than we present here}%\sayHW{I think the chapter is right, though I note it is technically in vol. 2 rather than vol. 1 which the bib entry says right now}
+\sayDR{I agree that vol 2 is correct but I believe Ch 9 is in vol 1, is the correct reference something like Ch 11 Thm 2.8? Maybe Ch 12 Thm 2.8 is better?}\sayHW{Oops forgot how to read roman numerals :) I think the section-level citation is best here -- leaving the comment open until the reference is fixed.}
 Say an arrow $a$ of $Q$ is \newword{clockwise} if $s(a) = t(a) - 1$ and \newword{counterclockwise} if $s(a) = t(a) + 1$. Let $p$ and $q$ be the numbers of clockwise and counterclockwise arrows, respectively. 
 Then we have a decomposition $$\cR \cong \cR_{nil}^p \oplus \cR_{nil}^q \oplus \cR_{inv},$$ where $\cR_{nil}^p$ (resp. $\cR_{nil}^q$) is equivalent to the category of nilpotent representations of an oriented $p$-cycle (resp. $q$-cycle), and $\cR_{inv}$ is equivalent to the category of invertible representations of the Jordan quiver (this is the quiver with a single vertex and a single arrow from that vertex to itself, and an invertible representation is one for which this arrow acts by an invertible linear map). 
 %\sayDR{For uniformity I am separating the standard $\PP^1$-family of homogeneous tubes for the Kronecker quiver into nilpotent ``north pole'' representations, nilpotent ``south pole'' representations, and ``invertible'' representations.}
@@ -1722,7 +1725,7 @@ As all counterclockwise arrows act by invertible linear maps on any $Q$-represen
 %  For $r=p$ ($r=q$ is handled similarly), the representations of $Q$ in this component have isomorphisms at each of the $q$ counterclockwise arrows\sayDR{It feels a little funny to think that the zero map between zero vector spaces is an isomorphism but it's true.} and are sincere as representations of the $r$-cycle if and only if they are sincere as representations of $Q$.
 
 From the discussion so far we see that any indecomposable rigid regular representation of $Q$ is non-sincere and in either $\cR_{nil}^p$ or $\cR_{nil}^q$.  Any proper subquiver $Q'$ of $Q$ defines an exact inclusion $\rep_\kk(Q') \into \rep_\kk(Q)$. 
-Any non-sincere representation of $Q$ is the image of a representation of a proper subquiver, which without loss of generality we may take to be of type $A_m$ for some $m < n$.\sayHW{I removed ``by indecomposability'' because the point is rather that any *proper* subquiver is contained in an $A_m$ subquiver -- i.e. a decomposable but sincere representation also comes from an $A_m$ subquiver.}\sayDR{Thanks Harold!  I was being stupid about ``non-sincere'' vs ``not every map is an isomorphism''} Thus any indecomposable rigid regular representation of $Q$ is the image of an indecomposable representation of such a subquiver -- in particular, it is isomorphic to $V_{[k,\ell]}$ for a proper subset $[k,\ell]\subsetneq\ZZ_n$.  
+Any non-sincere representation of $Q$ is the image of a representation of a proper subquiver, which without loss of generality we may take to be of type $A_m$ for some $m < n$. Thus any indecomposable rigid regular representation of $Q$ is the image of an indecomposable representation of such a subquiver -- in particular, it is isomorphic to $V_{[k,\ell]}$ for a proper subset $[k,\ell]\subsetneq\ZZ_n$.  
 
 It remains to derive the condition on sinks and sources in $[k,\ell]$. We identify the Grothendieck group of $\rep_\kk(Q)$ with the root lattice $\cQ$ of type $A_{n-1}^{(1)}$, and write $\delta\in\cQ$ for the minimal positive imaginary root. Recall that $V \in \rep_\kk(Q)$ is regular if and only if the Euler-Ringel pairing $\langle\delta,V\rangle$ vanishes \cite{ASS06}.\sayHW{@Dylan: can you dig up the exact proposition (or at least section) number?} \sayDR{I believe it follows from Ch 11 Thm 2.8 and the standard directionality of Hom and Ext in the AR quiver, but I am surprised at how hard it seems to be to find the exact statement.  I asked my goto expert and I hope to provide the reference soon}
 Writing $I \subset \ZZ_n$ (resp. $O \subset \ZZ_n$) for the subset of sinks (resp. sources) in $Q$, we have  
@@ -1796,14 +1799,28 @@ S_{[k,\ell]} = \begin{cases} [\ell,k-2] \cup [i_1, o_1 -1] \cup \cdots \cup [i_m
 
 \subsection{Networks}\label{sec:networks}
 
-We will study generalized minors in affine type $\tilde A_{n-1}$ by modeling generic elements of a double Bruhat cell $G^{u,v}$ with weighted networks on a cylinder. 
-A graph is weighted if all of its edges are assigned elements of a fixed ring; below this will be the Laurent polynomial ring $\CC[t_{\pm1}^{\pm1},\dotsc,t_{\pm n}^{\pm1},h_1^{\pm1},\dotsc,h_n^{\pm1}]$ with $3n$ polynomial generators.
+%Factorization coordinates on double Bruhat cells in $LSL_n$ admit a combinatorial description in terms of directed networks on a cylinder, generalizing a similar relation between $SL_n$ and directed networks on a disk. 
+Recall that for any Kac-Moody group $G$, if $u=s_{i_1}\cdots s_{i_{\ell(u)}}$ and $v=s_{j_1}\cdots s_{j_{\ell(v)}}$ are Weyl group elements with fixed reduced words, then a generic $g \in G^{u,v}$ can be factored as
+%\[
+%(\CC^\times)^m \into \widetilde{LSL}_n^{u,v}, \quad (t_{-1},\dotsc,t_{-\ell(u)},h_0,\dotsc,h_{n-1},\dotsc
+%\]
+%\[
+%g = x_{\ol{i_1}}(t_{\ol{1}})\cdots x_{\ol{i_{\ell(u)}}}(t_{\ol{\ell{u}}})hx_{j_1}(t_{j_1}) \cdots x_{j_{\ell(v)}}(t_{\ell(v)})
+%\]
+\begin{equation}\label{eq:uvfactorization}
+g = x_{-{i_1}}(t_{-{1}})\cdots x_{-{i_{\ell(u)}}}(t_{-{\ell(u)}})hx_{j_1}(t_{1}) \cdots x_{j_{\ell(v)}}(t_{\ell(v)})
+\end{equation}
+for some $h \in H$ and $t_i \in \kk^\times$. The $t_i$ and the components of $h$ are examples of factorization coordinates on $G$ (more generally, one can consider shuffles of reduced words for $u$ and $v$). When $G = \widetilde{LSL}_n$ is the central extension of $LSL_n$, these admit a combinatorial description in terms of directed networks on a cylinder, generalizing a similar relation between $SL_n$ and directed networks on a disk. By a weighted directed network on a surface we mean an embedded directed graph whose edges are assigned weights in some fixed ring. 
 
-\begin{definition}
-For $i\in[-n,-1]\cup[1,n]$ define a directed network on a cylinder (which we associate with $x_i(t_i)$) containing $n$ pairwise disjoint \emph{horizontal} edges of weight $1$ running from the right-hand boundary component to the left-hand boundary component, which are labeled by $\ZZ_n$ compatibly with their cyclic ordering, and a (\emph{vertical}) \emph{bridge} of weight $t_i$ joining the $(i-1)^{st}$\sayHW{wrong if $i < 0$?}\sayDR{Ugh, signs...I guess it should have an absolute value $|i|$ but this will be really ugly.} horizontal edge and the $i^{th}$ horizontal edge, which is oriented upward for $i>0$ and downward for $i<0$ (see Figure~\ref{fig:networks on cylinders}).  
-For $i\in[1,n]$ define another directed network on a cylinder (which we associate with $h_i^{\alpha_i^\vee}$) again containing the $n$ pairwise disjoint horizontal edges with the $i^{th}$ horizontal edge of weight $h_i^{-1}$, the $(i-1)^{st}$ horizontal edge of weight $h_i$, and all other horizontal edges of weight 1 (see Figure~\ref{fig:networks on cylinders}).
-\bigskip
-\begin{figure}[h]
+We caution that in affine types we label one node of the Dynkin diagram as $0$, and the subscripts in $x_{-0}(t)$, $x_{0}(t)$ are to be understood as distinct formal symbols. 
+
+%Recall that a \newword{double reduced word} $\bfi$ for a pair $u, v \in W$ of $A^{(1)}_{n-1}$ Weyl group elements is a shuffle of a reduced word for $u$ and one for $v$. We write this as $\bfi = (i_1,\dotsc,i_m)$, where $i_j \in \{\pm 0,\dotsc, \pm n-1\}$ (here $0$ and $-0$ are treated as distinct formal indices)
+
+%We will study generalized minors in affine type $\tilde A_{n-1}$ by modeling generic elements of a double Bruhat cell $G^{u,v}$ with weighted networks on a cylinder. 
+%A graph is weighted if all of its edges are assigned elements of a fixed ring; below this will be the Laurent polynomial ring $\CC[t_{\pm1}^{\pm1},\dotsc,t_{\pm n}^{\pm1},h_1^{\pm1},\dotsc,h_n^{\pm1}]$ with $3n$ polynomial generators.
+
+
+\begin{figure}\label{fig:network}
 \begin{tikzpicture}
   \node[below] at (0,-2) {$x_{-i}(t_{-i})$};
   \draw (0.75,0) ellipse (0.5 and 2);
@@ -1849,7 +1866,7 @@ For $i\in[1,n]$ define another directed network on a cylinder (which we associat
 \quad\quad
 \begin{tikzpicture}
   \node[below,color=white] at (0,-2) {$()$};
-  \node[below] at (0,-2) {$h_i$};
+  \node[below] at (0,-2) {$h$};
   \draw (0.75,0) ellipse (0.5 and 2);
   %\draw (-1,0) ellipse (0.5 and 1);
   \draw (-0.75,2) arc (90:270:0.5 and 2);
@@ -1871,12 +1888,12 @@ For $i\in[1,n]$ define another directed network on a cylinder (which we associat
   \draw[-] (-1.225,-0.65) -- (0.275,-0.65);
   \draw[doublearrow] (0.275,-0.65) -- (-1.225,-0.65);
   \node[right] at (0.275,-0.65) {$\scriptstyle i$};
-  \node at (-0.5,-0.435) {$\scriptstyle h_i^{-1}$};
+  \node at (-0.5,-0.435) {$\scriptstyle h_{i+1}h_i^{-1}$};
   %\draw[postaction=decorate] (-0.475,-0.65) arc (199:174.2:0.5 and 2);
   \draw[-] (-1.245,0.2) -- (0.255,0.2);
   \draw[doublearrow] (0.255,0.2) -- (-1.245,0.2);
   \node[right] at (0.255,0.2) {$\scriptstyle i-1$};
-  \node at (-0.5,0.355) {$\scriptstyle h_i$};
+  \node at (-0.5,0.355) {$\scriptstyle h_ih_{i-1}^{-1}$};
   %\draw[postaction=decorate] (-0.495,0.2) arc (174.2:199:0.5 and 2);
   %\node at (-0.8,-0.225) {$\scriptstyle t_{-i}$};
   %\draw[-] (-1.18,1.05) -- (0.32,1.05);
@@ -1931,16 +1948,33 @@ For $i\in[1,n]$ define another directed network on a cylinder (which we associat
   \draw[singlearrow] (1.2,0.85) -- (-0.3,0.85);
   \node[right] at (1.2,0.85) {$\scriptstyle 2$};
 \end{tikzpicture}
-\caption{Basic networks on a cylinder.}\label{fig:networks on cylinders}
+\caption{The constituent networks used to define $\cN^{u,v}$.}\label{fig:networks on cylinders}
 \end{figure}
 
-Given reduced decompositions $u=s_{\sigma_1}\cdots s_{\sigma_{\ell(u)}}$ and $v=s_{\tau_1}\cdots s_{\tau_{\ell(v)}}$, define the network $\cN^{u,v}$ to be the concatenation of the basic networks associated to the factors in the decomposition 
-\begin{equation}\label{eq:double Bruhat generic element}
-  g=x_{-\tau_{\ell(v)}}(t_{-\tau_{\ell(v)}})\cdots x_{-\tau_1}(t_{-\tau_1}) hx_{\sigma_{\ell(u)}}(t_{\sigma_{\ell(u)}}) \cdots x_{\sigma_1}(t_{\sigma_1})
-\end{equation}\sayDR{Check whether order of factors is correct.}
-of a generic element of $G^{u,v}$, where $h$ factors as $\prod\limits_{i=1}^n h_i$ with $h_i=\big(h^{\omega_i}\big)^{\alpha_i^\vee}$.
-It follows that $h_i^{\omega_i}=h^{\omega_i}$ and $h_i^{\omega_j}=1$ for $i\ne j$.  
-Here we abuse notation slightly and write $h_i$ also for the value $h_i^{\omega_i}$.
+
+\begin{definition}\label{def:network}
+Let $u$, $v$ be elements of the Weyl group of $\widetilde{LSL}_n$ together with a choice of reduced words $u=s_{i_1}\cdots s_{i_{\ell(u)}}$, $v=s_{j_1}\cdots s_{j_{\ell(v)}}$. We associate to this data a weighted directed network $\cN^{u,v}$ on a cylinder, by abuse omitting the choice of reduced words from the notation. The weights of $\cN^{u,v}$ take values in the Laurent polynomial ring
+\[
+\kk[t_{1}^{\pm1},\dotsc,t_{\ell(v)}^{\pm 1},h_0^{\pm 1},\dotsc,h_{n-1}^{\pm 1},t_{-1}^{\pm 1},\dotsc,t_{-\ell(u)}^{\pm 1}].
+\] 
+We declare one bundary component of the cylinder to be incoming and the other outgoing, and begin by associating a smaller cylindrical network to each factor in Equation \ref{eq:uvfactorization} (see Figure \ref{fig:networks on cylinders}). 
+
+For $1 \leq i \leq n$, the network associated to $x_i(t_i)$ contains $n$ horizontal \newword{levels} running from the incoming boundary to the outgoing boundary. These are labeled by $\ZZ_n$ compatibly with their cyclic ordering. There is also a vertical \newword{bridge} running from the $(i-1)^{st}$ level to the $i^{th}$ level; this bridge is of weight $t_i$ and all other edges are of weight $1$. The network associated to $x_{-i}(t_{-i})$ is the same except the bridge runs from the $i^{th}$ level to the $(i-1)^{st}$ level and is of weight $t_{-i}$.
+
+%For $i\in[-n,-1]\cup[1,n]$ define a directed network on a cylinder (which we associate with $x_i(t_i)$) containing $n$ pairwise disjoint \emph{horizontal} edges of weight $1$ running from the right-hand boundary component to the left-hand boundary component, which are labeled by $\ZZ_n$ compatibly with their cyclic ordering, and a (\emph{vertical}) \emph{bridge} of weight $t_i$ joining the $(i-1)^{st}$\sayHW{wrong if $i < 0$?}\sayDR{Ugh, signs...I guess it should have an absolute value $|i|$ but this will be really ugly.} horizontal edge and the $i^{th}$ horizontal edge, which is oriented upward for $i>0$ and downward for $i<0$ (see Figure~\ref{fig:networks on cylinders}).  
+
+The network associated to the Cartan factor $h$ again has horizontal levels running from the incoming boundary to the outgoing boundary and labeled by $\ZZ_n$. The $i^{th}$ level is of weight $h_{i+1}h_{i}^{-1}$. 
+
+The network $\cN^{u,v}$ is now defined by gluing these consituent networks together in the order they appear in Equation \ref{eq:uvfactorization} (see Figure \ref{fig:totalnetwork}). Given two adjacent factors, the incoming boundary of the left is glued to the outgoing boundary of the right so that the horizontal levels of each are aligned. 
+%For $i\in[1,n]$ define another directed network on a cylinder (which we associate with $h_i^{\alpha_i^\vee}$) again containing the $n$ pairwise disjoint horizontal edges with the $i^{th}$ horizontal edge of weight $h_i^{-1}$, the $(i-1)^{st}$ horizontal edge of weight $h_i$, and all other horizontal edges of weight 1 (see Figure~\ref{fig:networks on cylinders}).
+%\bigskip
+%Given reduced decompositions $u=s_{\sigma_1}\cdots s_{\sigma_{\ell(u)}}$ and $v=s_{\tau_1}\cdots s_{\tau_{\ell(v)}}$, define the network $\cN^{u,v}$ to be the concatenation of the basic networks associated to the factors in the decomposition 
+%\begin{equation}\label{eq:double Bruhat generic element}
+%  g=x_{-\tau_{\ell(v)}}(t_{-\tau_{\ell(v)}})\cdots x_{-\tau_1}(t_{-\tau_1}) hx_{\sigma_{\ell(u)}}(t_{\sigma_{\ell(u)}}) \cdots x_{\sigma_1}(t_{\sigma_1})
+%\end{equation}\sayDR{Check whether order of factors is correct.}
+%of a generic element of $G^{u,v}$, where $h$ factors as $\prod\limits_{i=1}^n h_i$ with $h_i=\big(h^{\omega_i}\big)^{\alpha_i^\vee}$.
+%It follows that $h_i^{\omega_i}=h^{\omega_i}$ and $h_i^{\omega_j}=1$ for $i\ne j$.  
+%Here we abuse notation slightly and write $h_i$ also for the value $h_i^{\omega_i}$.
 %Given a Coxeter element $c = s_{\sigma_1} \dotsc s_{\sigma_n}$, define the \emph{network} $\cN_c$ to be the concatenation of the basic networks above associated to the factors in the decomposition 
 %\[g=x_{-\sigma_1}(t_{-\sigma_1})\cdots x_{-\sigma_n}(t_{-\sigma_n}) hx_{\sigma_n}(t_{\sigma_n}) \cdots x_{\sigma_1}(t_{\sigma_1})\]
 %of a generic element of $G^{c,c^{-1}}$, where $h$ factors as $\prod\limits_{i=1}^n h_i$ with $h_i=\big(h^{\omega_i}\big)^{\alpha_i^\vee}$.
@@ -1948,14 +1982,31 @@ Here we abuse notation slightly and write $h_i$ also for the value $h_i^{\omega_
 %Here we abuse notation slightly and write $h_i$ also for the value $h_i^{\omega_i}$.
 \end{definition}
 
-By a \newword{path} in $\cN^{u,v}$ we will mean a directed path in the network which begins at a source on the right-hand side of the cylinder, is directed compatibly with the edges of $\cN^{u,v}$, and ends at a sink on the left-hand side of the cylinder. 
-If $P = \{P_i\}$ is a collection of paths, we write $\partial_{in}P \subset \ZZ_n$ for the set of boundary sources at which paths in $P$ begin; similarly $\partial_{out}P \subset \ZZ_n$ denotes the set of boundary sinks. 
-We say the \newword{weight} of a path is the product of the weights of edges it traverses, and the weight $wt(P)$ of a collection of paths is the product of the weights of its constituent paths.  
+\begin{figure}
+\centering
+\begin{tikzpicture}
+\newcommand*{\xcyl}{7}; \newcommand*{\ycyl}{5}; \newcommand*{\yzero}{4}; \newcommand*{\yone}{2.5}; \newcommand*{\ytwo}{1}; \newcommand*{\xa}{1}; \newcommand*{\xb}{2}; \newcommand*{\xc}{3}; \newcommand*{\xd}{4}; \newcommand*{\xe}{5}; \newcommand*{\xf}{6}; 
+\draw (0,0) -- (\xcyl,0) -- (\xcyl,\ycyl) -- (0,\ycyl) -- (0,0);
+\draw[-stealth] (\xcyl,\yzero) -- (0,\yzero);
+\draw[-stealth] (\xcyl,\yone) -- (0,\yone);
+\draw[-stealth] (\xcyl,\ytwo) -- (0,\ytwo);
+\foreach \x/\s/\t in {\xa/\yzero/\yone,\xb/\ycyl/\yzero,\xb/\ytwo/0,\xc/\yone/\ytwo,\xd/\ytwo/\yone,\xe/0/\ytwo,\xe/\yzero/\ycyl,\xf/\yone/\yzero} {\draw[-stealth] (\x,\s) -- (\x,\t);}
+\end{tikzpicture}
+\caption{The network $\cN^{c,c^{-1}}$ for $c = s_1 s_0 s_2$.}
+\label{fig:totalnetwork}
+\end{figure}
+
+By a \newword{path} in $\cN^{u,v}$ we always mean a path which begins at an incoming boundary vertex, is directed compatibly with the edges of $\cN^{u,v}$, and ends at an outgoing boundary vertex. 
+% directed path in the network which begins at a source on the right-hand side of the cylinder, is directed compatibly with the edges of $\cN^{u,v}$, and ends at a sink on the left-hand side of the cylinder. 
+If $P = \{P_i\}$ is a collection of paths, we write $\partial_{in}P \subset \ZZ_n$ for the set of boundary sources at which paths in $P$ begin; $\partial_{out}P \subset \ZZ_n$ denotes the corresponding set of boundary sinks. 
+The \newword{weight} of a path is the product of the weights of the edges it traverses, and the weight $wt(P)$ of a collection of paths is the product of the weights of its constituent paths.  
+
+Given $S \subsetneq \ZZ_n$, let
+\[ \omega_S = \sum_{i \in S} \omega_{i+1} - \omega_i \in P^\circ \subset \widehat{P}.\] 
+Recall that $P^\circ$, the weight lattice of $SL_n$, is contained in the complement of both the Tits cone and its negative in $\widehat{P}$. The level zero representation $V(\omega_S)$ is $\big(\bigwedge^{|S|}\kk^n\big)[z^{\pm 1}]$ with its natural $\widetilde{LSL}_n$ action. Definition \ref{def:network} is motivated by the following result:
 
 \begin{proposition}\label{prop:minorsfrompaths}
-  Given $S \subset \ZZ_n$, let
-  \[ \omega_S = \sum_{i \in S} \omega_{i+1} - \omega_i.\] 
-  Then for generic $g\in G^{u,v}$ we have \[ \Delta_{\omega_S}(g) = \sum_{P: S \to S} wt(P), \]
+  If $g\in G^{u,v}$ factors as in Equation \ref{eq:uvfactorization}, then \[ \Delta_{\omega_S}(g) = \sum_{P: S \to S} wt(P), \]
   where the sum is over collections $P$ of pairwise disjoint paths in $\cN^{u,v}$ with $\partial_{in}P = \partial_{out}P = S$.
 \end{proposition}
 \begin{proof}
