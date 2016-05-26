@@ -174,12 +174,8 @@ The cluster algebra of any acyclic quiver is the coordinate ring of a subvariety
     Fix the algebra statements: double principal vs double Euler
   \item
     Make sure $\kk[G]$ is used throughout
-  \item 
-    Settle on a convention for bibliography entries, in particular: ``first last'' vs ``f. last'' vs ``last, first'' \sayDR{I am most in favor of the first or maybe the second of these possibilities}
   \item
-    Mention cluster categories?
-\item
-Move quiver background from 4.1 to 2.2.
+    Mention cluster categories? 
 \item Write out homogeneous element computation.
 \item Write out section on other affine types.
 \item Check for $\backslash$newword's throughout.
@@ -194,7 +190,7 @@ Given a finite quiver $Q$ without oriented cycles, there is an associated group 
 
 Recall that the representation theory of $G$ is largely centered around its (dual) categories of highest- and lowest-weight representations [KP, Kum ??]. These coincide exactly when $G$ is a simple algebraic group, in which case they include all representations of $G$ with finite-dimensional weight spaces. In general, $G$ has many other such representations which are only well-understood when $G$ is of affine type [Cha ??]. In the affine case, an irreducible representation is highest-weight, lowest-weight, or neither if its level (the character by which $Z(G) \cong \CC^\times$ acts) is positive, negative, or zero respectively.
 
-On the other hand, the representation theory of $Q$ is organized by the Auslander-Reiten translation $\tau: \rep Q \to \rep Q$ \cite{ASS06}\sayDR{Why is this not showing up as [ASS06]?}. An indecomposable representation $M$ is projective if and only if $\tau(M) = 0$, and is injective if and only if $M$ is not of the form $\tau(N)$ for some $N$. With this in mind, one says $M$ is preprojective if $\tau^k(M) = 0$ for some $k\gg 0$, preinjective if it is not of the form $\tau^k(N)$ for any $k\gg 0$, and regular otherwise. Preprojective and preinjective representations coincide exactly when $Q$ is of ADE type, in which case there are no regular representations.
+On the other hand, the representation theory of $Q$ is organized by the Auslander-Reiten translation $\tau: \rep Q \to \rep Q$ \cite{ASS06}. An indecomposable representation $M$ is projective if and only if $\tau(M) = 0$, and is injective if and only if $M$ is not of the form $\tau(N)$ for some $N$. With this in mind, one says $M$ is preprojective if $\tau^k(M) = 0$ for some $k\gg 0$, preinjective if it is not of the form $\tau^k(N)$ for any $k\gg 0$, and regular otherwise. Preprojective and preinjective representations coincide exactly when $Q$ is of ADE type, in which case there are no regular representations.
 
 %While the full representation theory of $G$ is in general not well-understood, it has a well-behaved category of highest weight representations. These share many properties of finite-dimensional representations of simple Lie groups, which they specialize to when $G$ is finite-dimensional. There is a dual subcategory of lowest-weight representations. These categories coincide if and only if $G$ is finite-dimensional, in which case they encompass all representations with finite-dimensional weight spaces. Aside from this case, a complete description of all such representations exists only when $Q$ is of affine type. In this case $G$ is the central $\CC^\times$-extension of a loop group, and irreducible representations are categorized by their level: the character by which the center acts. 
 
@@ -385,7 +381,7 @@ Write $t_m:m\in\ZZ$ for the nodes of $\TT$ lying along the unique path below, ca
   \cdots
 \end{equation}
 It is straightforward to observe that all the matrices $B^{t_m}$ are acyclic, it is less obvious but ultimately true that if $B^t$ is acyclic for some $t\in\TT$ then all cluster variables $x_{i;t}$ are realized in the acyclic belt.
-\saySS{Citation needed.}
+\saySS{Citation needed.}\sayDR{The closest reference I know of is Cor. 4 in ``From Triangulated Categories to Cluster Algebras II'' by Caldero and Keller, though one has to look into the proof a little and note that the cluster variables in the acyclic belt sweep out the entire transjective component of the AR quiver for the cluster category.}
 We will refer to the non-initial cluster variables $x_{i;t_m}$ with $m>0$ (resp. $m<0$) as \newword{preprojective} (resp. \newword{postinjective}).
 This terminology will be justified in the next section.
 
@@ -447,7 +443,7 @@ Thus we refer to non-initial cluster variables of $\cA_Q$ as preprojective, post
 
 To do: Characterization of these via acyclic belt.
 
-Theorem \ref{thm:CCbijection} generalizes to the case of skew-symmetrizable matrices by replacing quiver representations with representations of valued quivers or species. We refer to [R15 ??] for details, though we will not make direct use of this here. 
+Theorem \ref{thm:CCbijection} generalizes to the case of skew-symmetrizable matrices by replacing quiver representations with representations of valued quivers or species. We refer to \cite{Ru15} for details, though we will not make direct use of this here. 
 
 
 %\section{Kac-Moody Groups, double Bruhat cells, and generalized minors}
@@ -1727,7 +1723,7 @@ As all counterclockwise arrows act by invertible linear maps on any $Q$-represen
 From the discussion so far we see that any indecomposable rigid regular representation of $Q$ is non-sincere and in either $\cR_{nil}^p$ or $\cR_{nil}^q$.  Any proper subquiver $Q'$ of $Q$ defines an exact inclusion $\rep_\kk(Q') \into \rep_\kk(Q)$. 
 Any non-sincere representation of $Q$ is the image of a representation of a proper subquiver, which without loss of generality we may take to be of type $A_m$ for some $m < n$. Thus any indecomposable rigid regular representation of $Q$ is the image of an indecomposable representation of such a subquiver -- in particular, it is isomorphic to $V_{[k,\ell]}$ for a proper subset $[k,\ell]\subsetneq\ZZ_n$.  
 
-It remains to derive the condition on sinks and sources in $[k,\ell]$. We identify the Grothendieck group of $\rep_\kk(Q)$ with the root lattice $\cQ$ of type $A_{n-1}^{(1)}$, and write $\delta\in\cQ$ for the minimal positive imaginary root. Recall that $V \in \rep_\kk(Q)$ is regular if and only if the Euler-Ringel pairing $\langle\delta,V\rangle$ vanishes \cite{ASS06}.\sayHW{@Dylan: can you dig up the exact proposition (or at least section) number?} \sayDR{I believe it follows from Ch 11 Thm 2.8 and the standard directionality of Hom and Ext in the AR quiver, but I am surprised at how hard it seems to be to find the exact statement.  I asked my goto expert and I hope to provide the reference soon}
+It remains to derive the condition on sinks and sources in $[k,\ell]$. We identify the Grothendieck group of $\rep_\kk(Q)$ with the root lattice $\cQ$ of type $A_{n-1}^{(1)}$, and write $\delta\in\cQ$ for the minimal positive imaginary root. Recall that $V \in \rep_\kk(Q)$ is regular if and only if the Euler-Ringel pairing $\langle\delta,V\rangle$ vanishes \cite[Sec. 7]{CrBo92}.
 Writing $I \subset \ZZ_n$ (resp. $O \subset \ZZ_n$) for the subset of sinks (resp. sources) in $Q$, we have  
   \[\langle\delta,V\rangle=\sum_{j\in Q_0}\dim V_j-\sum_{a\in Q_1}\dim V_{t(a)}=\sum_{o\in O}\dim V_o-\sum_{i\in I}\dim V_i.\]
 Thus $V$ is regular if and only if $\sum\limits_{o\in O}\dim V_o=\sum\limits_{i\in I}\dim V_i$.  In particular, this holds for $V = V_{[k,\ell]}$ exactly when the number of sinks in $[k,\ell]$ is equal to the number of sources in $[k,\ell]$. 
