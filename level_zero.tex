@@ -96,6 +96,7 @@ urlcolor=blue]{hyperref}
 \newcommand{\dol}[1]{\overline{\overline{#1}}}
 \newcommand{\Bpr}{\widetilde{B}_{pr}}
 \newcommand{\Bdp}{\widetilde{B}_{dp}}
+\newcommand{\Qdp}{Q_{dp}}
 
 \makeatletter
 \newcommand{\@doublebullet}{
@@ -179,6 +180,8 @@ The cluster algebra of any acyclic quiver is the coordinate ring of a subvariety
 \item Write out homogeneous element computation.
 \item Write out section on other affine types.
 \item Check for $\backslash$newword's throughout.
+\item Finalize/polish figures in Section 4.2.
+\item Do a worked example in Section 4.2 of the main result.
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%
@@ -1518,7 +1521,7 @@ Since $\iota$ preserves $B_+$ and $B_-$ but takes any lift of $w \in W$ to a lif
 %\end{proof}
 
 \begin{theorem}\label{thm:mainirregular}
-The isomorphism $\cA_{\Bdp} \cong \kk[G^{c,c^{-1}}]$ of \Cref{thm:coordring} identifies the preprojective cluster variable $x_{c^k\omega_i}$ with the restriction of the highest-weight minor $\Delta_{c^k\omega_i}$, and the preinjective cluster variable $x_{-c^k \omega_i}$ with the restriction of the lowest-weight minor $\Delta_{-c^k \omega_i}$. 
+The isomorphism $\cA_{\Bdp} \cong \kk[G^{c,c^{-1}}]$ of Theorem \ref{thm:coordring} identifies the preprojective cluster variable $x_{c^k\omega_i}$ with the restriction of the highest-weight minor $\Delta_{c^k\omega_i}$, and the preinjective cluster variable $x_{-c^k \omega_i}$ with the restriction of the lowest-weight minor $\Delta_{-c^k \omega_i}$. 
 \end{theorem}
 
 \begin{proof}
@@ -1664,7 +1667,7 @@ and are non-zero elements of $\kk$ for generic values of the parameters $t_{\pm 
 %\section{Level Zero Representations}
 \section{Regular cluster variables as minors}
 
-In this section we prove that the identification $\cA_{\Bdp} \cong \kk[G^{c,c^{-1}}]$ of \Cref{thm:coordring} realizes all regular cluster variables as restrictions of level zero minors in the case that the Cartan companion of $B$ is of type $A_n^{\!(1)}$. The proof exploits the fact that, when $G = LSL_n$, the level zero minors can be expressed combinatorially as weighted sums over collections of paths in a directed network on a cylinder. We show that the collections of paths relevant to a given minor are in bijection with submodules of a corresponding regular quiver representation, hence the network computation directly recovers the Caldero-Chapoton formula. A similar computation shows that the generic basis element associated to the base of the homogeneous tube in type $A_n^{\!(1)}$ is also a level zero minor. We expect that for any affine type the regular cluster variables are minors of level zero representations, and we verify this for the finite list of other affine types where it can be checked using only the characters of those representations. 
+In this section we prove that the identification $\cA_{\Bdp} \cong \kk[G^{c,c^{-1}}]$ of \Cref{thm:coordring} realizes all regular cluster variables as restrictions of level zero minors in the case that the Cartan companion of $B$ is of type $A_n^{\!(1)}$. The proof exploits the fact that, when $G = LSL_n$, the level zero minors can be expressed combinatorially as weighted sums over collections of paths in a directed network on a cylinder. We show that the collections of paths relevant to a given minor are in bijection with submodules of a corresponding regular quiver representation, and from this that the network computation directly recovers the Caldero-Chapoton formula. A similar computation shows that the generic basis element associated to the base of any homogeneous tube in type $A_n^{\!(1)}$ is also a level zero minor. We expect that all regular cluster variables are minors of level zero representations for anny affine type, and we verify this for the finite list of types where it can be checked using only the characters of those representations. 
 
 %\begin{proposition}\label{prop:level zero}\sayHW{This should be moved into section 4.2}
 %Let $G = \widehat{LSL_n}$ be the affine Kac-Moody group of type $A_{n-1}^{(1)}$, let $c$ be a Coxeter element of the affine Weyl group, and $Q_c$ the associated affine quiver.  All regular cluster variables in the coordinate ring of $G^{c,c^{-1}}$ are principal minors of level zero representations.  
@@ -1676,7 +1679,7 @@ In this section we prove that the identification $\cA_{\Bdp} \cong \kk[G^{c,c^{-
 %\end{enumerate}
 %\end{proof}
 
-\subsection{Affine Quiver Representations}
+\subsection{Affine Quiver Representations}\label{sec:rigidregular}
 Let $Q$ be an acyclic orientation of an $n$-cycle, and label the vertices of $Q$ by $\ZZ_n$ so that neighboring vertices have cyclically adjacent labels. %The regular representations of $Q$ (or of any acyclic orientation of a simply-laced affine Dynkin diagram) admit a concrete description in terms of the Euler-Ringel form:
 %\begin{proposition} (\cite{ASS06}) 
 %A finite-dimensional representation $V$ of $Q$ is regular if and only if $\langle\delta,V\rangle=0$.
@@ -1729,7 +1732,7 @@ Writing $I \subset \ZZ_n$ (resp. $O \subset \ZZ_n$) for the subset of sinks (res
 Thus $V$ is regular if and only if $\sum\limits_{o\in O}\dim V_o=\sum\limits_{i\in I}\dim V_i$.  In particular, this holds for $V = V_{[k,\ell]}$ exactly when the number of sinks in $[k,\ell]$ is equal to the number of sources in $[k,\ell]$. 
 \end{proof}
 
-With this classification in hand, we now describe the cluster characters of the rigid regular representations of $Q$ combinatorially in terms of target-closed subsets. Given $[k,\ell]\subsetneq\ZZ_n$, we say a subset $E$ of $[k,\ell]$ is target-closed if whenever $a$ is an arrow of $Q$ with $s(a) \in E$ and $t(a) \in [k,\ell]$, then in fact $t(a) \in E$. We let $\cE_{[k,\ell]}$ denote the collection of target-closed subsets of $[k,\ell]$, and otherwise follow the notation of Section \ref{sec:quiverbackground}.\sayHW{Make sure the convention of notating generators of the $\bfg$-vector lattice as $\omega_i$ is introduced there}
+With this classification in hand, we now describe the cluster characters of the rigid regular representations of $Q$ combinatorially in terms of target-closed subsets. Given $[k,\ell]\subsetneq\ZZ_n$, we say a subset $E$ of $[k,\ell]$ is \newword{target-closed} if whenever $a$ is an arrow of $Q$ with $s(a) \in E$ and $t(a) \in [k,\ell]$, then in fact $t(a) \in E$. We let $\cE_{[k,\ell]}$ denote the collection of target-closed subsets of $[k,\ell]$, and otherwise follow the notation of Section \ref{sec:quiverbackground}.\sayHW{Make sure the convention of notating generators of the $\bfg$-vector lattice as $\omega_i$ is introduced there}
 
 %To conclude, we aim to compute the cluster characters \eqref{eq:cc formula} of the regular representations $V_{[k,\ell]}$ in preparation for comparing with certain minors on $G^{c,c^{-1}}$.  For this we need an explicit description of their coindices and their submodules.  
 
@@ -1777,7 +1780,7 @@ from which the given formula for $\bfg(V_{[k,\ell]})$ follows. The $o_1 < i_1$ c
 
 In Section \ref{sec:networks} it will be useful to rewrite regular $\bfg$-vectors using the following Lemma, whose proof is an elementary computation.
 
-\begin{lemma}
+\begin{lemma}\label{lem:regulargvectors}
 If $V_{[k,\ell]}$ is rigid and regular, we can write its $\bfg$-vector as
 \[
 \bfg(V_{[k,\ell]})=\sum_{j\in S_{[k,\ell]}} \omega_{j+1} - \omega_j,
@@ -1806,9 +1809,11 @@ Recall that for any Kac-Moody group $G$, if $u=s_{i_1}\cdots s_{i_{\ell(u)}}$ an
 \begin{equation}\label{eq:uvfactorization}
 g = x_{-{i_1}}(t_{-{1}})\cdots x_{-{i_{\ell(u)}}}(t_{-{\ell(u)}})hx_{j_1}(t_{1}) \cdots x_{j_{\ell(v)}}(t_{\ell(v)})
 \end{equation}
-for some $h \in H$ and $t_i \in \kk^\times$. The $t_i$ and the components of $h$ are examples of factorization coordinates on $G$ (more generally, one can consider shuffles of reduced words for $u$ and $v$). When $G = \widetilde{LSL}_n$ is the central extension of $LSL_n$, these admit a combinatorial description in terms of directed networks on a cylinder, generalizing a similar relation between $SL_n$ and directed networks on a disk. By a weighted directed network on a surface we mean an embedded directed graph whose edges are assigned weights in some fixed ring. 
+for some $h \in H$ and $t_i \in \kk^\times$. When $G = \widetilde{LSL}_n$ is the central extension of $LSL_n$, these factorizations (and more general ones associated to shuffles of reduced words) admit a combinatorial description in terms of directed networks on a cylinder [GSV, FM]. This generalizes a similar relation between $SL_n$ and directed networks on a disk [FZ]. By a directed network on a surface we will mean an embedded directed graph whose edges are assigned weights in some fixed ring. 
 
-We caution that in affine types we label one node of the Dynkin diagram as $0$, and the subscripts in $x_{-0}(t)$, $x_{0}(t)$ are to be understood as distinct formal symbols. 
+\begin{remark}
+Following the notation of Section \ref{sec:rigidregular}, we adopt the convention that in type $A_{n-1}^{(1)}$ the vertices of the Dynkin diagram are labeled by $\ZZ_n$. For $i \in \ZZ_n$ the negative subscript in $x_{-i}(t)$ is to be understood formally rather than as the additive inverse in $\ZZ_n$, i.e. $x_{-i}(t)$ is a distinct symbol from $x_{n-i}(t)$. On the other hand, $x_{0}(t)$ and $x_{n}(t)$ refer to the same element of $\widetilde{LSL}_n$.
+\end{remark}
 
 %Recall that a \newword{double reduced word} $\bfi$ for a pair $u, v \in W$ of $A^{(1)}_{n-1}$ Weyl group elements is a shuffle of a reduced word for $u$ and one for $v$. We write this as $\bfi = (i_1,\dotsc,i_m)$, where $i_j \in \{\pm 0,\dotsc, \pm n-1\}$ (here $0$ and $-0$ are treated as distinct formal indices)
 
@@ -1949,9 +1954,9 @@ We caution that in affine types we label one node of the Dynkin diagram as $0$, 
 
 
 \begin{definition}\label{def:network}
-Let $u$, $v$ be elements of the Weyl group of $\widetilde{LSL}_n$ together with a choice of reduced words $u=s_{i_1}\cdots s_{i_{\ell(u)}}$, $v=s_{j_1}\cdots s_{j_{\ell(v)}}$. We associate to this data a weighted directed network $\cN^{u,v}$ on a cylinder, by abuse omitting the choice of reduced words from the notation. The weights of $\cN^{u,v}$ take values in the Laurent polynomial ring
+Let $u$, $v$ be elements of the Weyl group of $\widetilde{LSL}_n$ together with a choice of reduced words $u=s_{i_1}\cdots s_{i_{\ell(u)}}$, $v=s_{j_1}\cdots s_{j_{\ell(v)}}$. We associate to this data a weighted directed network $\cN^{u,v}$ on a cylinder, by abuse omitting the choice of reduced words from the notation. The edge weights of the network will take values in the Laurent polynomial ring
 \[
-\kk[t_{1}^{\pm1},\dotsc,t_{\ell(v)}^{\pm 1},h_0^{\pm 1},\dotsc,h_{n-1}^{\pm 1},t_{-1}^{\pm 1},\dotsc,t_{-\ell(u)}^{\pm 1}].
+\kk[t_{1}^{\pm1},\dotsc,t_{\ell(v)}^{\pm 1},h_1^{\pm 1},\dotsc,h_{n}^{\pm 1},t_{-1}^{\pm 1},\dotsc,t_{-\ell(u)}^{\pm 1}].
 \] 
 We declare one bundary component of the cylinder to be incoming and the other outgoing, and begin by associating a smaller cylindrical network to each factor in Equation \ref{eq:uvfactorization} (see Figure \ref{fig:networks on cylinders}). 
 
@@ -1994,25 +1999,31 @@ The network $\cN^{u,v}$ is now defined by gluing these consituent networks toget
 
 By a \newword{path} in $\cN^{u,v}$ we always mean a path which begins at an incoming boundary vertex, is directed compatibly with the edges of $\cN^{u,v}$, and ends at an outgoing boundary vertex. 
 % directed path in the network which begins at a source on the right-hand side of the cylinder, is directed compatibly with the edges of $\cN^{u,v}$, and ends at a sink on the left-hand side of the cylinder. 
-If $P = \{P_i\}$ is a collection of paths, we write $\partial_{in}P \subset \ZZ_n$ for the set of boundary sources at which paths in $P$ begin; $\partial_{out}P \subset \ZZ_n$ denotes the corresponding set of boundary sinks. 
+If $P = \{P_i\}$ is a collection of paths, we write $\partial_{in}P \subset \ZZ_n$ for the set of incoming boundary vertices at which paths in $P$ begin; $\partial_{out}P \subset \ZZ_n$ denotes the corresponding set of outgoing boundary vertices. 
 The \newword{weight} of a path is the product of the weights of the edges it traverses, and the weight $wt(P)$ of a collection of paths is the product of the weights of its constituent paths.  
 
 Given $S \subsetneq \ZZ_n$, let
 \[ \omega_S = \sum_{i \in S} \omega_{i+1} - \omega_i \in P^\circ \subset \widehat{P}.\] 
-Recall that $P^\circ$, the weight lattice of $SL_n$, is contained in the complement of both the Tits cone and its negative in $\widehat{P}$. The level zero representation $V(\omega_S)$ is $\big(\bigwedge^{|S|}\kk^n\big)[z^{\pm 1}]$ with its natural $\widetilde{LSL}_n$ action. Definition \ref{def:network} is motivated by the following result:
+Recall that $P^\circ$, the weight lattice of $SL_n$, is contained in the complement of both the Tits cone and its negative in $\widehat{P}$. The level zero representation $V(\omega_S)$ is $\big(\bigwedge^{|S|}\kk^n\big)[z^{\pm 1}]$ with its natural $\widetilde{LSL}_n$ action. Definition \ref{def:network} is motivated by the following observation:
 
 \begin{proposition}\label{prop:minorsfrompaths}
-  If $g\in G^{u,v}$ factors as in Equation \ref{eq:uvfactorization}, then \[ \Delta_{\omega_S}(g) = \sum_{P: S \to S} wt(P), \]
+  Suppose $g\in G^{u,v}$ factors as %in Equation \ref{eq:uvfactorization}, 
+\[
+g = x_{-{i_1}}(t_{-{1}})\cdots x_{-{i_{\ell(u)}}}(t_{-{\ell(u)}})hx_{j_1}(t_{1}) \cdots x_{j_{\ell(v)}}(t_{\ell(v)})
+\]
+and let $h_i:= h^{\omega_i}$. Then \[ \Delta_{\omega_S}(g) = \sum_{P: S \to S} wt(P), \]
   where the sum is over collections $P$ of pairwise disjoint paths in $\cN^{u,v}$ with $\partial_{in}P = \partial_{out}P = S$.
 \end{proposition}
 \begin{proof}
-  Write $r=|S|$.  
-  Inside the irreducible representation $\big(\!\bigwedge^{\!r}\CC^n\big)[z^{\pm 1}]$ of $G$, the vector $\bigwedge\limits_{i\in S} e_i$ (following Definition~\ref{def:minors} the choice of sign will be irrelevant) has weight $\omega_S$ and thus this representation identifies with $V(\omega_S)$.
-  By construction, each basic network $x_i(t_i)$ for $i\in[-n,-1]\cup[1,n]$ and $h_i$ for $i\in[1,n]$ encodes the action of the corresponding group element on the standard basis $\{ e_{j_1} \wedge \cdots \wedge e_{j_r} z^d\}$ of $\big(\!\bigwedge^{\!r}\CC^n\big)[z^{\pm 1}]$ labeled by pairs of an $r$-element subset of $\ZZ_n$ and an integer $d$.  Thus the network $\cN^{u,v}$ encodes the action of a generic element $g\in G^{c,c^{-1}}$ given by \eqref{eq:double Bruhat generic element} on this basis and the result then follows from the definition of $\Delta_{\omega_S}$.
+  The representation $\big(\bigwedge^{|S|}\kk^n\big)[z^{\pm 1}]$ has a natural basis $\{ e_{j_1} \wedge \cdots \wedge e_{j_{|S|}} z^d\}$ labeled by pairs of an $|S|$-element subset of $\ZZ_n$ and an integer $d$. The networks associated to $x_{\pm i }(t_{\pm i})$ and $h$ directly encode the action of the corresponding group elements in this basis (see [GSV, FM] for related constructions). If $S = \{i_1,\dotsc,i_{|S|}\}$, then by a generalized Lindstr\"om-Gessel-Viennot argument the sum over collections of nonintersecting paths with $\partial_{in}P = \partial_{out}P = S$ computes the diagonal matrix coefficient by which $g$ rescales the basis element $e_{i_1} \wedge \cdots \wedge e_{i_{|S|}}$. Since this element has weight $\omega_S$, this matrix coefficient is $\Delta_{\omega_S}(g)$. 
+% (the exponent $d$ could be encoded more directly by pulling back $\cN^{u,v}$ to the universal cover of the cylinder -- this network would have infinitely many boundary vertices and basis elements are in bijection with certain $|S|$-element subsets of them
+%  Write $r=|S|$.  
+%  Inside the irreducible representation $\big(\!\bigwedge^{\!r}\CC^n\big)[z^{\pm 1}]$ of $G$, the vector $\bigwedge\limits_{i\in S} e_i$ (following Definition~\ref{def:minors} the choice of sign will be irrelevant) has weight $\omega_S$ and thus this representation identifies with $V(\omega_S)$.
+%  By construction, each basic network $x_i(t_i)$ for $i\in[-n,-1]\cup[1,n]$ and $h_i$ for $i\in[1,n]$ encodes the action of the corresponding group element on the standard basis $\{ e_{j_1} \wedge \cdots \wedge e_{j_r} z^d\}$ of $\big(\!\bigwedge^{\!r}\CC^n\big)[z^{\pm 1}]$ labeled by pairs of an $r$-element subset of $\ZZ_n$ and an integer $d$.  Thus the network $\cN^{u,v}$ encodes the action of a generic element $g\in G^{c,c^{-1}}$ given by \eqref{eq:double Bruhat generic element} on this basis and the result then follows from the definition of $\Delta_{\omega_S}$.
 \end{proof}
 
-To use the above proposition effectively, we collect some elementary combinatorial observations about collections of pairwise disjoint paths $P$ in $\cN^{c,c^{-1}}$. 
-Given a collection of disjoint paths $P$, define its \newword{bridge set} $\beta(P)\subset\ZZ_n$ by letting $j\in\beta(P)$ if and only if a path in $P$ traverses the unique bridge of weight $t_j$.
+To use the above proposition effectively, we collect some elementary combinatorial observations about collections of pairwise disjoint paths $P$ in $\cN^{c,c^{-1}}$. Note that when $u$ and $v$ are Coxeter elements the choice of reduced word in Definition \ref{def:network} is immaterial: different reduced words differ by relations of the form $s_i s_j = s_j s_i$ for $A_{ij} = 0$, and these relations do not change the combinatorics of the network. Given a collection $P$ of disjoint paths, define its \newword{bridge set} $\beta(P)\subset\ZZ_n$ by letting $j\in\beta(P)$ if and only if a path in $P$ traverses the unique bridge of weight $t_j$.
+
 
 \begin{lemma}\label{lem:phi}
   Let $P$ be a collection of pairwise disjoint paths in $\cN^{c,c^{-1}}$.  Then:
@@ -2022,7 +2033,10 @@ Given a collection of disjoint paths $P$, define its \newword{bridge set} $\beta
   \end{enumerate}
 \end{lemma}
 \begin{proof}
-  Since $(\sigma_1,\ldots,\sigma_n)$ is sink adapted for $Q$, we have the following local picture of the network $\cN^{c,c^{-1}}$ based on the orientation of the arrow connecting vertices $j$ and $j+1$:
+If $c = s_{\sigma_0}\cdots s_{\sigma_{n-1}}$, then by our definitions $(\sigma_0,\ldots,\sigma_{n-1})$ is sink adapted for $Q$. The orientation of the arrow connecting vertices $j$ and $j+1$ is thus related to the local structure of the network $\cN^{c,c^{-1}}$ as in Figure \ref{fig:quivernetwork}. The result follows immediately by comparing the statements against the picture.
+\end{proof} 
+
+\begin{figure}
   \begin{center}
   \begin{tikzpicture}
     \node[below] at (0,-2) {$j+1\to j$};
@@ -2070,8 +2084,10 @@ Given a collection of disjoint paths $P$, define its \newword{bridge set} $\beta
     \draw[thick,->] (-0.38,0.38) -- (0.38,-0.38);
   \end{tikzpicture}
   \end{center}
-  The result follows immediately by comparing the statements against these two networks.
-\end{proof}
+\caption{
+The local picture relating the network $\cN^{c,c^{-1}}$ to the orientation of the arrow of $Q$ connecting vertices $j$ and $j+1$, where we draw the vertices on top of the corresponding bridges in $\cN^{c,c^{-1}}$}\label{fig:quivernetwork}
+\end{figure}
+  
 %\begin{corollary}
 %  Let $P$ be a collection of pairwise disjoint paths in $\cN^{c,c^{-1}}$.  Then:
 %  \begin{enumerate}
@@ -2082,29 +2098,44 @@ Given a collection of disjoint paths $P$, define its \newword{bridge set} $\beta
 %  \end{enumerate}
 %\end{corollary}
 
-We now turn to the main result of the section.  Recall that the coindex of a regular representation $V_{[k,\ell]}$ is computed using the set $S_{[k,\ell]}$ from Proposition~\ref{prop:regular coindices}.
+We now turn to the main result of the section.  Recall from Lemma \ref{lem:regulargvectors} the subset $S_{[k,\ell]} \subset \ZZ_n$ that we used to describe the $\bfg$-vector of the regular representation $V_{[k,\ell]}$. We freely use the isomorphism $\cA_{\Qdp} \cong \kk[\widetilde{LSL}_n^{c,c^{-1}}]$ to identify elements of $\cA_{\Qdp}$ with elements of 
+\[
+\kk[t_{1}^{\pm1},\dotsc,t_{n}^{\pm 1},h_1^{\pm 1},\dotsc,h_{n}^{\pm 1},t_{-1}^{\pm 1},\dotsc,t_{-n}^{\pm 1}]
+\]
+by evalutating them on a generic $g \in \widetilde{LSL}_n^{c,c^{-1}}$ factored as in Equation \ref{eq:uvfactorization} (and setting $h_i := h^{\omega_i}$). For example, we have\sayHW{Figure out what monomial in the $h_i$ goes in $\hat{y}_i$}
+$x_i = h_i$ and $\hat{y}_i = t_it_{-i}$.
 
 \begin{theorem}\label{th:cluster character equals minor}
-  If $V_{[k,\ell]}$ is regular, then under the isomorphism $\kk[G^{c,c^{-1}}] \cong A_Q$ we have
-  \[x_{V_{[k,\ell]}} = \Delta_{\omega_{S_{[k,\ell]}}}.\]  
+Let $V_{[k,\ell]}$ be a rigid regular representation of $Q$. Then the isomorphism $\cA_Q \cong \kk[\widetilde{LSL}_n^{c,c^{-1}}]$ of Theorem \ref{thm:coordring} identifies the regular cluster variable $x_{V_{[k,\ell]}}$ with the restriction of the level zero minor $\Delta_{\omega_{S_{[k,\ell]}}}$. 
 \end{theorem}
 \begin{proof}
-Let $\cP_{[k,\ell]} = \{P: S_{[k,\ell]} \to S_{[k,\ell]}\}$ denote the set of pairwise disjoint collections of paths in $\cN^{c,c^{-1}}$ with $\partial_{in}P = \partial_{out}P = S_{[k,\ell]}$. 
-By Proposition \ref{prop:minorsfrompaths}, the evaluation of $\Delta_{\omega_{S_{[k,\ell]}}}$ on a generic element 
-\[g = x_{-\sigma_1}(t_{-\sigma_1})\cdots x_{-\sigma_n}(t_{-\sigma_n}) hx_{\sigma_n}(t_{\sigma_n}) \cdots x_{\sigma_1}(t_{\sigma_1})\]
-is the weighted sum 
+Let $\cP_{[k,\ell]}$ denote the set of pairwise disjoint collections of paths in $\cN^{c,c^{-1}}$ with $\partial_{in}P = \partial_{out}P = S_{[k,\ell]}$. 
+%Our goal is to identify this with the evaluation $x_{V_{[k,\ell]}}(g)$ of the cluster character from \eqref{eq:regular cluster characters}, where the functions $x_i,\hat y_j\in\kk[G^{c,c^{-1}}]$ are determined by the initial cluster \eqref{eq:initialcluster}.\sayDR{Say this better, maybe compute $x_i(g)$ and $\hat y_j(g)$ here?  I just realized an abuse of notation by writing $x_i$ in both sections 2.2 and 2.3.}
+%As in Lemma \ref{lem:phi}, we define the bridge set $\beta(P) \subset \ZZ_n$ by letting $j \in \beta(P)$ if and only if a path in $P$ traverses the unique edge of weight $t_j$. 
+We claim that for $P \in \cP_{[k,\ell]}$: 
+\begin{enumerate}
+\item the bridge set $\beta(P)$ is a target-closed subset of $[k,\ell]$, 
+\item we have
 \[
-\Delta_{\omega_{S_{[k,\ell]}}}(g) = \sum_{P \in \mathcal{P}_{[k,\ell]}} wt(P).
+wt(P) = x^{\bfg(V_{[k,\ell]})} \prod_{j \in \beta(P)} \hat{y}_j,
 \]
-Our goal is to identify this with the evaluation $x_{V_{[k,\ell]}}(g)$ of the cluster character from \eqref{eq:regular cluster characters}, where the functions $x_i,\hat y_j\in\kk[G^{c,c^{-1}}]$ are determined by the initial cluster \eqref{eq:initialcluster}.\sayDR{Say this better, maybe compute $x_i(g)$ and $\hat y_j(g)$ here?  I just realized an abuse of notation by writing $x_i$ in both sections 2.2 and 2.3.}
+\item 
+the assignment $P \mapsto \beta(P)$ defines a bijection between $\cP_{[k,\ell]}$ and the set $\cE_{[k,\ell]}$ of target-closed subsets of $[k,\ell]$.
+\end{enumerate}
+The main claim follows from these given Propositions \ref{prop:regular coindices} and \ref{prop:minorsfrompaths}.
 
-As in Lemma \ref{lem:phi}, we define the bridge set $\beta(P) \subset \ZZ_n$ by letting $j \in \beta(P)$ if and only if a path in $P$ traverses the unique edge of weight $t_j$. We claim that for $P \in \cP_{[k,\ell]}$, $\beta(P)$ is in fact a subset of $[k,\ell]$, is successor-closed in the poset $[k,\ell]$, and that the assignment $P \mapsto \beta(P)$ defines a bijection $\cP_{[k,\ell]} \simeq \cE_{[k,\ell]}$.
+%By Proposition \ref{prop:minorsfrompaths}, given a generic $g \in \widetilde{LSL}_n^{c,c^{-1}}$ factored as in Equation \ref{eq:uvfactorization}, we have  
+%\[
+%\Delta_{\omega_{S_{[k,\ell]}}}(g) = \sum_{P: S_{[k,\ell]} \to S_{[k,\ell]}} wt(P),
+%\]
+%where the sum is over collections $P$ of pairwise disjoint paths in $\cN^{u,v}$ with $\partial_{in}P = \partial_{out}P = S_{[k,\ell]}$. Let $\cP_{[k,\ell]}$ denote the set of such collections. 
 
-As in Definition \ref{prop:regular coindices}, we let $i_1 < \cdots < i_m$ and $o_1 < \cdots < o_m$ denote the labels of the sinks and sources in $[k,\ell]$.  
-We consider the case where the first source in $[k,\ell]$ comes before the first sink (i.e. $o_1 < i_1$ in $[k,\ell]$), the opposite case following by symmetry.\sayDR{Thinking of cluster variables in terms of the opposite quiver dualizes representations, negates $g$-vectors, and negates the principal part of $\tilde B$ (this in effect interchanges $h_i$ with $h_i^{-1}$).  Applying $\iota$ to $g$ has the same effect.} Recall that in this case
+
+As in Proposition \ref{prop:regular coindices}, we let $i_1 < \cdots < i_m$ and $o_1 < \cdots < o_m$ denote the labels of the sinks and sources of $Q$ contained in $[k,\ell]$.  
+We consider the case where the first source in $[k,\ell]$ comes before the first sink (i.e. $o_1 < i_1$ in $[k,\ell]$), the opposite case following by a symmetric argument.\sayDR{Thinking of cluster variables in terms of the opposite quiver dualizes representations, negates $g$-vectors, and negates the principal part of $\tilde B$ (this in effect interchanges $h_i$ with $h_i^{-1}$).  Applying $\iota$ to $g$ has the same effect.}\sayHW{If we day ``by symmetry'' then we should write this out - I'm currently too lazy to do this, hence changing to the less slick statement that ``proving the other case has the same flavor.''} Recall that in this case
 \[S_{[k,\ell]} = [k,o_1-1] \cup [i_1,o_2-1] \cup \cdots \cup [i_m,\ell].\]
 
-Let $P \in \cP_{[k,\ell]}$.  Since $o_1<i_1$, we have $j+1\to j$ in $Q$ for each $j\in[k^-,k-1]$, where $k^-$ is the nearest sink less that $k$.  
+Let $P \in \cP_{[k,\ell]}$.  Since $o_1<i_1$, we have $j+1\to j$ in $Q$ for each $j\in[k^-,k-1]$, where $k^-$ is the nearest sink less that $k$ (i.e. none of $[k^-+1,k]$ is a sink).  
 But $[k^-,k-1]\cap\partial_{in}P=\emptyset$ and thus part (2) of Lemma~\ref{lem:phi} implies $j\notin\beta(P)$ for any $j\in[k^-,k-1]$.  
 Similarly, $o_m<i_m$ gives $j\to j-1$ in $Q$ for each $j\in[\ell+1,\ell^+]$, where $\ell^+$ is the nearest source after $\ell$.  
 Applying part (2) of Lemma~\ref{lem:phi} inductively beginning with the source $j=\ell^+$, we see that $j\notin\beta(P)$ for any $j\in[\ell+1,\ell^+]$.  
@@ -2112,58 +2143,61 @@ Noting that $[\ell^+,k^-]\cap\partial_{in}P=\emptyset$ and then arguing as above
 
 Write $i_0=k$ and $i_{m+1}=o_{m+1}=\ell+1$.  For $1\le r\le m+1$ and $j\in[i_{r-1},o_r-1]\subset\partial_{in}P$, we have $j+1\to j$ in $Q$ and part (1) of Lemma~\ref{lem:phi} says $j+1\in\beta(P)$ implies $j\in\beta(P)$.  
 For $1\le r\le m$ and $j\in[o_r,i_r-1]$, we have $j\notin\partial_{in}P$ and $j\to j+1$ in $Q$ so that part (2) of Lemma~\ref{lem:phi} says $j\in\beta(P)$ implies $j+1\in\beta(P)$.  
-Putting these observations together, we conclude that $\beta(P)\subset[k,\ell]$ is successor-closed.
+Putting these observations together, we conclude that $\beta(P)\subset[k,\ell]$ is target-closed.
 
-Now suppose $E\in\cE_{[k,\ell]}$ is a successor-closed subset of $[k,\ell]$.  
-Write $P_0\in\cP_{[k,\ell]}$ for the trivial collection of pairwise disjoint paths in which the path beginning at level $j\in S_{[k,\ell]}=\partial_{in}P_0$ does not leave the level $j$ horizontal edge of $\cN^{c,c^{-1}}$.  
-Let $\bfe_0=\boldsymbol{0}\in\ZZ_{\ge0}^n$ and note that $wt(P_0)=h_{k-1}h_\ell^{-1}\prod_{r=1}^m (h_{o_r}h_{i_r}^{-1})=x^{g_{[k,\ell]}}(g)\hat y^{\bfe_0}(g)$.  
-We will show how to inductively modify $P_0$ to obtain a unique collection of paths $P\in\cP_{[k,\ell]}$ with $\beta(P)=E$ in such a way that $P$ clearly contains pairwise disjoint paths, along the way we also compute $wt(P)$ for these collections and show coincidence with $x^{g_{[k,\ell]}}(g)\hat y^\bfe(g)$ for $\bfe=\sum\limits_{j\in E}\alpha_j\in\cQ$.  Note that since each $P\in\cP_{[k,\ell]}$ has the same starting and ending set of vertices $S_{[k,\ell]}$, it suffices to only describe the upward steps along bridges labeled $t_j$ for $j\in[1,n]$ since the downward steps along bridges labeled $t_j$ for $j\in[-n,-1]$ will be mirror to these upward steps.  
-For $1\le r\le m$ we define $P_r$ iteratively as a modification of $P_{r-1}$ by the following two steps.
-\begin{itemize}
-  \item Let $o'_r\in[i_{r-1},o_r-1]$ be maximum so that $[i_{r-1},o'_r]\subset E$.  
-  If no such $o'_r$ exists (i.e. $i_{r-1}\notin E$) let $P'_r=P_{r-1}$.  
-  Otherwise, for each $j\in[i_{r-1},o'_r]$ the path in $P_{r-1}$ staying on level $j$ will now traverse its corresponding bridge labeled $t_j$ and by part (1) of Lemma~\ref{lem:phi} the resulting collection $P'_r$ will remain pairwise disjoint.  
-  Set $\bfe'_r=\bfe_{r-1}+\sum\limits_{j\in[i_{r-1},o'_r]}\alpha_j$.
-  In the latter case, the weight of $P_{r-1}$ transforms as follows: 
-  \[wt(P'_r)=wt(P_{r-1})\cdot h_{i_{r-1}-1}^{-1}h_{i_{r-1}}h_{o'_r}h_{o'_r+1}^{-1}\prod_{j\in[i_{r-1},o'_r]}(t_jt_{-j})=x^{g_{[k,\ell]}}(g)\hat y^{\bfe'_r}(g).\]
-  \item Let $o''_r\in[o_r,i_r]$ be minimum so that $[o''_r,i_r]\subset E$.  
-  If no such $o''_r$ exists (i.e. $i_r\notin E$) let $P_r=P'_r$.  
-  Otherwise, the path in $P'_r$ staying on level $i_r$ will now traverse every bridge $t_j$ for $j\in[o''_r,i_r]$ and following part (2) of Lemma~\ref{lem:phi} the resulting collection $P_r$ will remain pairwise disjoint since $[o''_r,i_r]\cap\partial_{in}P'_r=\{i_r\}$ and when $o''_r=o_r$ (i.e. $o_r\in E$) we have $o_r-1\in\beta(P'_r)$.  
-  Set $\bfe_r=\bfe'_r+\sum\limits_{j\in[o''_r,i_r]}\alpha_j$.
-  In the latter case, the weight of $P'_r$ transforms as follows: 
-  \[wt(P_r)=wt(P'_r)\cdot h_{o''_r-1}^{-1}h_{o''_r}h_{i_r}h_{i_r+1}^{-1}\prod_{j\in[o''_r,i_r]}(t_jt_{-j})=x^{g_{[k,\ell]}}(g)\hat y^{\bfe_r}(g).\]
-\end{itemize}
-Then $P=P_{m+1}\in\cP_{[k,\ell]}$ is the desired collection of pairwise disjoint paths with $\beta(P)=E$ and we have shown 
+Now suppose $E\in\cE_{[k,\ell]}$ is a target-closed subset of $[k,\ell]$.  
+Write $P_0\in\cP_{[k,\ell]}$ for the trivial collection of pairwise disjoint paths in which the path beginning on level $j\in S_{[k,\ell]}=\partial_{in}P_0$ stays on level $j$ without traversing any bridges. 
+%Let $\bfe_0=\boldsymbol{0}\in\ZZ_{\ge0}^n$ and n
+Note that 
+\[
+wt(P_0)=\prod_{i \in S_{[k,\ell]}}h_{i+1} h_i^{-1}=x^{\bfg(V_{[k,\ell]})}.
+%h_{k-1}h_\ell^{-1}\prod_{r=1}^m (h_{o_r}h_{i_r}^{-1})=x^{g_{[k,\ell]}}.
+\]  
+We will show how to inductively modify $P_0$ to obtain a unique collection $P\in\cP_{[k,\ell]}$ with $\beta(P)=E$, keeping track of how the weight of the collection changes along the way. 
+%along the way we also compute $wt(P)$ for these collections and show coincidence with $x^{g_{[k,\ell]}}(g)\hat y^\bfe(g)$ for $\bfe=\sum\limits_{j\in E}\alpha_j\in\cQ$.  
+%Note that since each $P\in\cP_{[k,\ell]}$ has the same starting and ending set of vertices $S_{[k,\ell]}$, it suffices to only describe the upward steps along bridges labeled $t_j$ for $j\in[1,n]$ since the downward steps along bridges labeled $t_j$ for $j\in[-n,-1]$ will be mirror to these upward steps.  
+That is, for $1\le r\le m+1$\sayHW{Was $m$, but it should be $m+1$, right?} we build from $P_{r-1}$ a new collection $P_r \in \cP_{[k,\ell]}$ such that
+\[
+wt(P_r) = x^{\bfg(V_{[k,\ell]})} \prod_{j \in E \cap [k,i_r]} \hat{y}_j.
+\]
+We keep the convention that $i_0=k$ and $i_{m+1}=o_{m+1}=\ell+1$, and define $P_r$ in two steps:
+\begin{enumerate}
+  \item First define an intermediate network $P'_r \in \cP_{[k,\ell]}$. If $i_{r-1} \notin E$, let $P'_r=P_{r-1}$. Otherwise let $o'_r$ be the largest index in $[i_{r-1},o_r-1]$ such that $[i_{r-1},o'_r]\subset E$. We obtain $P'_r$ from $P_{r-1}$ by, for each $j\in[i_{r-1},o'_r]$, diverting the path that stays on level $j$\sayHW{This path is guaranteed to be straight in $P_{r-1}$, right? I.e. it crosses no bridges?} so that it traverses the bridges of weights $t_j$ and $t_{-j}$. By part (1) of Lemma~\ref{lem:phi} the resulting collection $P'_r$ will remain pairwise disjoint.\sayHW{I'm not sure referencing the lemma is correct: how can a lemma whose hypothesis is pairwise disjointness possibly be used to prove pairwise disjointness? Is what we want to say rather ``by inspection of Figure 4.3 and their counterparts with $t_{-j}$''?} 
+
+If $P'_r \neq P_{r-1}$, we have
+\[
+wt(P'_r)=wt(P_{r-1})\cdot h_{i_{r-1}-1}^{-1}h_{i_{r-1}}h_{o'_r}h_{o'_r+1}^{-1}\prod_{j\in[i_{r-1},o'_r]}(t_jt_{-j}) = wt(P_{r-1})\prod_{j \in [i_{r-1},o'_r]} \hat{y}_j.
+\]
+In either case, using our inductive assumption on $wt(P_{r-1})$ and the fact that $E$ is target-closed we have 
+\[
+wt(P'_r) = x^{\bfg(V_{[k,\ell]})} \prod_{j \in E \cap [k,o_{r}-1]} \hat{y}_j
+\]
+%Let $o'_r\in[i_{r-1},o_r-1]$ be maximum so that $[i_{r-1},o'_r]\subset E$.  
+%If no such $o'_r$ exists (i.e. $i_{r-1}\notin E$) let $P'_r=P_{r-1}$.  
+%  Otherwise, for each $j\in[i_{r-1},o'_r]$ the path in $P_{r-1}$ staying on level $j$ will now traverse its corresponding bridge labeled $t_j$ and by part (1) of Lemma~\ref{lem:phi} the resulting collection $P'_r$ will remain pairwise disjoint.  
+%  Set $\bfe'_r=\bfe_{r-1}+\sum\limits_{j\in[i_{r-1},o'_r]}\alpha_j$.
+%  In the latter case, the weight of $P_{r-1}$ transforms as follows: 
+%  \[wt(P'_r)=wt(P_{r-1})\cdot h_{i_{r-1}-1}^{-1}h_{i_{r-1}}h_{o'_r}h_{o'_r+1}^{-1}\prod_{j\in[i_{r-1},o'_r]}(t_jt_{-j})=x^{g_{[k,\ell]}}(g)\hat y^{\bfe'_r}(g).\]
+  \item If $i_r \notin E$, let $P_r = P'_r$. Otherwise let $o''_r$ be the smallest index in $[o_r,i_r]$ such that $[o''_r,i_r]\subset E$. 
+%If no such $o''_r$ exists (i.e. $i_r\notin E$) let $P_r=P'_r$. 
+We obtain $P_r$ from $P'_r$ by diverting the path that stays on level $i_r$ so that it traverses every bridge of weight $t_j$ or $t_{-j}$ for $j\in[o''_r,i_r]$. 
+%  Otherwise, the path in $P'_r$ staying on level $i_r$ will now traverse every bridge $t_j$ for $j\in[o''_r,i_r]$ and 
+Following part (2) of Lemma~\ref{lem:phi} the resulting collection $P_r$ will remain pairwise disjoint since $[o''_r,i_r]\cap\partial_{in}P'_r=\{i_r\}$ and when $o''_r=o_r$ (i.e. $o_r\in E$) we have $o_r-1\in\beta(P'_r)$.\sayHW{Same comment as above} 
+
+If $P_r \neq P'_r$, we have 
+\[wt(P_r)=wt(P'_r)\cdot h_{o''_r-1}^{-1}h_{o''_r}h_{i_r}h_{i_r+1}^{-1}\prod_{j\in[o''_r,i_r]}(t_jt_{-j})=wt(P'_r)\prod_{j \in [o''_r,i_r]} \hat{y}_j.\] 
+In either case, again by induction and the fact that $E$ is target-closed we have
+\[
+wt(P_r) = x^{\bfg(V_{[k,\ell]})} \prod_{j \in E \cap [k,i_r]} \hat{y}_j.
+\]
+%  Set $\bfe_r=\bfe'_r+\sum\limits_{j\in[o''_r,i_r]}\alpha_j$.
+%  In the latter case, the weight of $P'_r$ transforms as follows: 
+%  \[wt(P_r)=wt(P'_r)\cdot h_{o''_r-1}^{-1}h_{o''_r}h_{i_r}h_{i_r+1}^{-1}\prod_{j\in[o''_r,i_r]}(t_jt_{-j})=x^{g_{[k,\ell]}}(g)\hat y^{\bfe_r}(g).\]
+\end{enumerate}
+By induction, $P=P_{m+1} \in \cP_{[k,\ell]}$ has $\beta(P)=E$ and 
 \[wt(P)=x^{g_{[k,\ell]}}(g)\prod_{j\in E}\hat y_j(g),\]
-as desired.
+completing the proof.\sayHW{Probably should followup on the uniqueness aspect of finding $P$ with $\beta(P) = E$.}
 \end{proof}
-
-We complete this section with the following suggestive result which is proven exactly as Theorem~\ref{th:cluster character equals minor}.\sayDR{I am calling this a scholium since it really is a direct consequence (mutatis mutandis) of the proof above, any objections?}
-\begin{scholium}
-  Let $D$ be any indecomposable representation $Q$ with dimension vector $\delta=\sum\limits_{i\in Q_0}\alpha_i$ and all maps isomorphisms.  Under the identification $\kk[G^{c,c^{-1}}] \cong A_Q$ we have
-  \[x_D = \Delta_{\omega_S}\]
-  for $S=[i_1,o_1-1] \cup [i_2,o_2-1] \cup \cdots \cup [i_m,o_m-1]$, where $i_1<o_1<\cdots<i_m<o_m<i_1$ denote the sinks and sources of $Q$ in the cyclic ordering of vertices.
-\end{scholium}
-
-  \begin{lemma}\sayDR{This should be translated into our current notation and placed in an appropriate location.}
-    Let $g$ be a generic element of $L^{c,c^{-1}}$.
-    \begin{enumerate}
-      \item $\Delta_{\omega_i}(g)=u_i^{-1}$
-      \item $\Delta_{c\omega_i}^{\omega_i}(g)=\begin{cases}u_i^{-1}\prod\limits_{j=i^-}^{i^+}t_j & \text{if $i$ is a sink in $Q$;}\\u_i^{-1}t_i & \text{if $i$ is a source in $Q$;}\\u_i^{-1}\prod\limits_{j=i}^{i^+}t_j & \text{if $i$ is neither a source nor a sink in $Q$ but $i^+$ is a source;}\\u_i^{-1}\prod\limits_{j=i^-}^it_j & \text{if $i$ is neither a source nor a sink in $Q$ but $i^-$ is a source.}\end{cases}$
-      \item For 
-      \begin{equation}
-        y_i=\begin{cases}\Delta_{c\omega_i}^{\omega_i} & \text{if $i$ is a sink in $Q$;}\\\Delta_{c\omega_i}^{\omega_i}\left(\Delta_{c\omega_{i_-}}^{\omega_{i_-}}\Delta_{c\omega_{i_+}}^{\omega_{i_+}}\right)^{-1} & \text{if $i$ is a source in $Q$;}\\\Delta_{c\omega_i}^{\omega_i}\left(\Delta_{c\omega_{i_+}}^{\omega_{i_+}}\right)^{-1} & \text{if $i$ is neither a source nor a sink in $Q$ but $i^+$ is a sink;}\\\Delta_{c\omega_i}^{\omega_i}\left(\Delta_{c\omega_{i_-}}^{\omega_{i_-}}\right)^{-1} & \text{if $i$ is neither a source nor a sink in $Q$ but $i^-$ is a sink.}\end{cases}
-      \end{equation}
-      we have
-      \begin{align}
-        y_i(g)&=\begin{cases}u_i^{-1}t_i & \text{if $i$ is a sink in $Q$;}\\u_{i_-}u_i^{-1}u_{i_+}t_i & \text{if $i$ is a source in $Q$;}\\u_i^{-1}u_{i_+}t_i & \text{if $i$ is neither a source nor a sink in $Q$ but $i^+$ is a sink;}\\u_{i_-}u_i^{-1}t_i & \text{if $i$ is neither a source nor a sink in $Q$ but $i^-$ is a sink.}\end{cases}
-      \end{align}
-    \end{enumerate}
-  \end{lemma}
-
-
-
-\subsection{Proof of Proposition~\ref{prop:level zero}}
 
 
 \subsection{Other affine types}\label{sec:othertypes}
@@ -2176,6 +2210,16 @@ We complete this section with the following suggestive result which is proven ex
 \item Write out the computation.
 \end{enumerate}
 \end{proof}
+
+\subsection{The Homogeneous Element}
+
+We complete this section with the following suggestive result which is proven exactly as Theorem~\ref{th:cluster character equals minor}.\sayDR{I am calling this a scholium since it really is a direct consequence (mutatis mutandis) of the proof above, any objections?}\sayHW{I'd rather state it as a theorem of proposition and have the proof just refer to the other proof -- and I think it merits its own short subsection just to give a smidge of context about canonical bases}
+\begin{scholium}
+  Let $D$ be any indecomposable representation $Q$ with dimension vector $\delta=\sum\limits_{i\in Q_0}\alpha_i$ and all maps isomorphisms.  Under the identification $\kk[G^{c,c^{-1}}] \cong A_Q$ we have
+  \[x_D = \Delta_{\omega_S}\]
+  for $S=[i_1,o_1-1] \cup [i_2,o_2-1] \cup \cdots \cup [i_m,o_m-1]$, where $i_1<o_1<\cdots<i_m<o_m<i_1$ denote the sinks and sources of $Q$ in the cyclic ordering of vertices.
+\end{scholium}
+
 
 \section{Conventions}
 
@@ -2242,6 +2286,24 @@ We complete this section with the following suggestive result which is proven ex
   \item 
     The identity $\beta_j^+ + \sum_{i=1}^{j-1} a_{ij} \beta_i^+ = \alpha_j$ is used in the proof of \Cref{lem:minorsondbc} without comment.
 \end{itemize}
+
+  \begin{lemma}\sayDR{This should be translated into our current notation and placed in an appropriate location.}\sayHW{The final sentence before the main theorem in Section 4.2 I think now accomplishes ass that is needed.}
+    Let $g$ be a generic element of $L^{c,c^{-1}}$.
+    \begin{enumerate}
+      \item $\Delta_{\omega_i}(g)=u_i^{-1}$
+      \item $\Delta_{c\omega_i}^{\omega_i}(g)=\begin{cases}u_i^{-1}\prod\limits_{j=i^-}^{i^+}t_j & \text{if $i$ is a sink in $Q$;}\\u_i^{-1}t_i & \text{if $i$ is a source in $Q$;}\\u_i^{-1}\prod\limits_{j=i}^{i^+}t_j & \text{if $i$ is neither a source nor a sink in $Q$ but $i^+$ is a source;}\\u_i^{-1}\prod\limits_{j=i^-}^it_j & \text{if $i$ is neither a source nor a sink in $Q$ but $i^-$ is a source.}\end{cases}$
+      \item For 
+      \begin{equation}
+        y_i=\begin{cases}\Delta_{c\omega_i}^{\omega_i} & \text{if $i$ is a sink in $Q$;}\\\Delta_{c\omega_i}^{\omega_i}\left(\Delta_{c\omega_{i_-}}^{\omega_{i_-}}\Delta_{c\omega_{i_+}}^{\omega_{i_+}}\right)^{-1} & \text{if $i$ is a source in $Q$;}\\\Delta_{c\omega_i}^{\omega_i}\left(\Delta_{c\omega_{i_+}}^{\omega_{i_+}}\right)^{-1} & \text{if $i$ is neither a source nor a sink in $Q$ but $i^+$ is a sink;}\\\Delta_{c\omega_i}^{\omega_i}\left(\Delta_{c\omega_{i_-}}^{\omega_{i_-}}\right)^{-1} & \text{if $i$ is neither a source nor a sink in $Q$ but $i^-$ is a sink.}\end{cases}
+      \end{equation}
+      we have
+      \begin{align}
+        y_i(g)&=\begin{cases}u_i^{-1}t_i & \text{if $i$ is a sink in $Q$;}\\u_{i_-}u_i^{-1}u_{i_+}t_i & \text{if $i$ is a source in $Q$;}\\u_i^{-1}u_{i_+}t_i & \text{if $i$ is neither a source nor a sink in $Q$ but $i^+$ is a sink;}\\u_{i_-}u_i^{-1}t_i & \text{if $i$ is neither a source nor a sink in $Q$ but $i^-$ is a sink.}\end{cases}
+      \end{align}
+    \end{enumerate}
+  \end{lemma}
+
+
 
 % bibliography
 \bibliographystyle{amsalpha}
