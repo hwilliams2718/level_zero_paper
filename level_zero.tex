@@ -174,14 +174,13 @@ The cluster algebra of any acyclic quiver is the coordinate ring of a subvariety
   \item
     Fix the algebra statements: double principal vs double Euler
   \item
-    Make sure $\kk[G]$ is used throughout
-  \item
     Mention cluster categories? 
 \item Write out homogeneous element computation.
 \item Write out section on other affine types.
 \item Check for $\backslash$newword's throughout.
 \item Finalize/polish figures in Section 4.2.
 \item Do a worked example in Section 4.2 of the main result.
+\item Change $LSL_n$ to $LSL_{n-1}$ and $A_n^{(1)}$ to $A_{n-1}^{(1)}$ throughout?
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%
@@ -619,7 +618,7 @@ While the above identity on $G$ is the one we use directly, we note that it rest
 
 The data of an $n\times n$ acyclic skew-symmetrizable matrix $B$ is equivalent to the data of a symmetrizable Cartan matrix $A$ (the \newword{Cartan companion} of $B$) together with a Coxeter element $c$ of its Weyl group.
 The Cartan matrix is obtained from $B$ by making all its entries negative without changing their absolute values, then setting each diagonal entry equal to two; see Figure \ref{fig:matrices}.
-Recall that, since $B$ is acyclic, there is a permutation $\sigma \in S_n$ such that $b_{\sigma_i \sigma_j} \geq 0$ when $\sigma_i < \sigma_j$, and we take $c$ to be $s_{\sigma_1} \cdots s_{\sigma_n}$ (choosing a different permutation with the above property defines the same Coxeter element via a different reduced word).
+Recall that, since $B$ is acyclic, there is a permutation $\sigma \in S_n$ such that $b_{\sigma_i \sigma_j} \geq 0$ when $\sigma_i < \sigma_j$, and we take $c$ to be $s_{\sigma_1} \cdots s_{\sigma_n}$\sayDR{Fix this definition} (choosing a different permutation with the above property defines the same Coxeter element via a different reduced word).
 Conversely, any acyclic skew-symmetrizable matrix can be obtained from a Cartan matrix and a Coxeter element $c$ by assigning signs to the off-diagonal entries according to $c$.
 
 We can realize the cluster algebra associated to the acyclic matrix $B$ geometrically in terms of the Kac-Moody group $G$ associated to $A$. More precisely, through the group we naturally find the algebra associated to the exchange matrix
@@ -1522,7 +1521,7 @@ Since $\iota$ preserves $B_+$ and $B_-$ but takes any lift of $w \in W$ to a lif
 %\end{proof}
 
 \begin{theorem}\label{thm:mainirregular}
-The isomorphism $\cA_{\Bdp} \cong \kk[G^{c,c^{-1}}]$ of Theorem \ref{thm:coordring} identifies the preprojective cluster variable $x_{c^k\omega_i}$ with the restriction of the highest-weight minor $\Delta_{c^k\omega_i}$, and the preinjective cluster variable $x_{-c^k \omega_i}$ with the restriction of the lowest-weight minor $\Delta_{-c^k \omega_i}$. 
+The isomorphism $\cA_{\Bdp} \cong \kk[G^{c,c^{-1}}]$ of Theorem \ref{thm:coordring} identifies the preprojective cluster variable $x_{c^k\omega_i}$ with the restriction of the highest-weight minor $\Delta_{c^k\omega_i}$ and identifies the preinjective cluster variable $x_{-c^k \omega_i}$ with the restriction of the lowest-weight minor $\Delta_{-c^k \omega_i}$. 
 \end{theorem}
 
 \begin{proof}
@@ -1637,7 +1636,7 @@ To establish that the indicated minors satisfy Equation \ref{eq:plusminus} and t
     (1+t_it_{\ol{i}}h^{-\alpha_i})^{\alpha_i^\vee}
     x_{i}(t'_i),
   \end{equation*}
-  for some $t'_i$, $t'_{\ol{i}} \in \kk^\times$ \cite[Proposition 7.2]{BZ01} (this imposes an irrelevant generic condition on $t'_i$, $t'_{\ol{i}}$).
+  for some $t'_i$, $t'_{\ol{i}} \in \kk^\times$ \cite[Proposition 7.2]{BZ01} (this imposes an irrelevant genericity condition on $t'_i$ and $t'_{\ol{i}}$).
   Using this and the fact that $x_i(t_i)$ and $x_{\ol{j}}(t_{\ol{j}})$ commute for $i \neq j$, a straightforward computation yields
   \[
     g^\iota 
@@ -1660,7 +1659,7 @@ To establish that the indicated minors satisfy Equation \ref{eq:plusminus} and t
     1 + t_i t_{\ol{i}} h^{\alpha_i}
     \prod_{j > i} v_j^{-a_{j,i}},
   \]
-and are non-zero elements of $\kk$ for generic values of the parameters $t_i,t_{\ol{i}}$. From this one observes that $h^{\omega_i}\Delta_{\omega_i}(g^\iota) = v_i$, and the desired identity follows.
+and are non-zero elements of $\kk$ for generic values of the parameters $t_i$ and $t_{\ol{i}}$. From this one observes that $h^{\omega_i}\Delta_{\omega_i}(g^\iota) = v_i$, and the desired identity follows.
 %The statement regarding preprojective cluster variables follows from comparing Equation \ref{eq:preprojective} with Proposition \ref{prop:projective_minors_identity}, using the substitutions given by Equation \ref{eq:initialcluster}.
 \end{proof}
 
@@ -1763,7 +1762,7 @@ x_{V_{[k,\ell]}} = x^{\bfg(V_{[k,\ell]})} \sum_{E \in \cE_{[k,\ell]}} \prod_{j \
 \begin{proof}
   If $i_1 < o_1$ in $[k,\ell]$, then it is straightforward to see that the minimal injective resolution of $V_{[k,\ell]}$ is of the form
   \[0\to V_{[k,\ell]} \to I_{i_1} \oplus \cdots \oplus I_{i_m}\oplus I_\ell \to I_{k-1} \oplus I_{o_1} \oplus \cdots \oplus I_{o_m},\] 
-from which the given formula for $\bfg(V_{[k,\ell]})$ follows. The $o_1 < i_1$ case is similar. The description of submodules of $V_{[k,\ell]}$ in terms of target-closed subsets of $[k,\ell]$ is an instance of a more general description in terms of the coefficient quiver of a representation [Cer, Rin]; in our case the coefficient quiver of $V_{[k,\ell]}$ is just the full subquiver of $Q$ with vertex set $[k,\ell]$. 
+from which the given formula for $\bfg(V_{[k,\ell]})$ follows. The $o_1 < i_1$ case is similar. The description of submodules of $V_{[k,\ell]}$ in terms of target-closed subsets of $[k,\ell]$ is an instance of a more general description in terms of the coefficient quiver of a representation [Cer, Rin ??]; in our case the coefficient quiver of $V_{[k,\ell]}$ is just the full subquiver of $Q$ with vertex set $[k,\ell]$. 
 %  The case $o_1<i_1$ is handled similarly using the minimal injective resolution
 %  \[0\to V_{[k,\ell]} \to I_k\oplus I_{i_1} \oplus \cdots \oplus I_{i_m} \to I_{o_1} \oplus \cdots \oplus I_{o_m}\oplus I_{\ell+1}.\]
 \end{proof}
@@ -1810,7 +1809,7 @@ Recall that for any Kac-Moody group $G$, if $u=s_{i_1}\cdots s_{i_{\ell(u)}}$ an
 \begin{equation}\label{eq:uvfactorization}
 g = x_{\ol{i_1}}(t_{\ol{1}})\cdots x_{\ol{i_{\ell(u)}}}(t_{\ol{\ell(u)}})hx_{j_1}(t_{1}) \cdots x_{j_{\ell(v)}}(t_{\ell(v)})
 \end{equation}
-for some $h \in H$ and $t_i,t_{\ol{i}} \in \kk^\times$. When $G = \widetilde{LSL}_n$ is the central extension of $LSL_n$, these factorizations (and more general ones associated to shuffles of reduced words) admit a combinatorial description in terms of directed networks on a cylinder [GSV, FM]. This generalizes a similar relation between $SL_n$ and directed networks on a disk [FZ]. By a directed network on a surface we will mean an embedded directed graph whose edges are assigned weights in some fixed ring. 
+for some $h \in H$ and $t_i,t_{\ol{i}} \in \kk^\times$. When $G = \widetilde{LSL}_n$ is the central extension of $LSL_n$, these factorizations (and more general ones associated to shuffles of reduced words) admit a combinatorial description in terms of directed networks on a cylinder [GSV, FM ??]. This generalizes a similar relation between $SL_n$ and directed networks on a disk [FZ ??]. By a directed network on a surface we will mean an embedded directed graph whose edges are assigned weights in some fixed ring. 
 
 \begin{remark}
 Following the notation of Section \ref{sec:rigidregular}, we adopt the convention that in type $A_{n-1}^{(1)}$ the vertices of the Dynkin diagram are labeled by $\ZZ_n$.
@@ -1961,7 +1960,7 @@ Let $u$, $v$ be elements of the Weyl group of $\widetilde{LSL}_n$ together with 
 \] 
 We declare one bundary component of the cylinder to be incoming and the other outgoing, and begin by associating a smaller cylindrical network to each factor in Equation \ref{eq:uvfactorization} (see Figure \ref{fig:networks on cylinders}). 
 
-For $1 \leq i \leq n$, the networks associated to $x_i(t)$ and $x_{\ol{i}}(t)$ contain $n$ horizontal \newword{levels} running from the incoming boundary to the outgoing boundary. These are labeled by $\ZZ_n$ compatibly with their cyclic ordering. For $x_i(t)$ there is also a vertical \newword{bridge} running from the $(i-1)^{st}$ level to the $i^{th}$ level; this bridge is of weight $t$ and all other edges are of weight $1$. The network associated to $x_{\ol{i}}(t)$ is the same except the bridge is reversed and runs from the $i^{th}$ level to the $(i-1)^{st}$.
+For $1 \leq i \leq n$, the networks associated to $x_i(t)$ and $x_{\ol{i}}(t)$ contain $n$ horizontal \newword{levels} running from the incoming boundary to the outgoing boundary. These are labeled by $\ZZ_n$ compatibly with their cyclic ordering and all have weight $1$. There is also a vertical \newword{bridge} having weight $t$ running between the $(i-1)^{st}$ level and the $i^{th}$ level; for $x_i(t)$ this bridge is oriented from the $(i-1)^{st}$ level to the $i^{th}$ level, while for $x_{\ol{i}}(t)$ this bridge is oriented from the $i^{th}$ level to the $(i-1)^{st}$.
 
 %For $i\in[-n,-1]\cup[1,n]$ define a directed network on a cylinder (which we associate with $x_i(t_i)$) containing $n$ pairwise disjoint \emph{horizontal} edges of weight $1$ running from the right-hand boundary component to the left-hand boundary component, which are labeled by $\ZZ_n$ compatibly with their cyclic ordering, and a (\emph{vertical}) \emph{bridge} of weight $t_i$ joining the $(i-1)^{st}$\sayHW{wrong if $i < 0$?}\sayDR{Ugh, signs...I guess it should have an absolute value $|i|$ but this will be really ugly.} horizontal edge and the $i^{th}$ horizontal edge, which is oriented upward for $i>0$ and downward for $i<0$ (see Figure~\ref{fig:networks on cylinders}).  
 
@@ -2099,11 +2098,11 @@ The local picture relating the network $\cN^{c,c^{-1}}$ to the orientation of th
 %  \end{enumerate}
 %\end{corollary}
 
-We now turn to the main result of the section.  Recall from Lemma \ref{lem:regulargvectors} the subset $S_{[k,\ell]} \subset \ZZ_n$ that we used to describe the $\bfg$-vector of the regular representation $V_{[k,\ell]}$. We freely use the isomorphism $\cA_{\Qdp} \cong \kk[\widetilde{LSL}_n^{c,c^{-1}}]$ to identify elements of $\cA_{\Qdp}$ with elements of 
+We now turn to the main result of the section.  We will freely use the isomorphism $\cA_{\Qdp} \cong \kk[\widetilde{LSL}_n^{c,c^{-1}}]$ to identify elements of $\cA_{\Qdp}$ with elements of 
 \[
 \kk[t_{1}^{\pm1},\dotsc,t_{n}^{\pm 1},h_1^{\pm 1},\dotsc,h_{n}^{\pm 1},t_{\ol{1}}^{\pm 1},\dotsc,t_{\ol{n}}^{\pm 1}]
 \]
-by evaluating them on a generic $g \in \widetilde{LSL}_n^{c,c^{-1}}$ factored as in Equation \ref{eq:uvfactorization} (and setting $h_i := h^{\omega_i}$). For example, we have $x_i = h_i$ and $\hat{y}_i = t_it_{\ol{i}}h^{\alpha_i}$\sayDR{I believe this formula for $\hat y_i$ general, do we want to highlight it somewhere?}. 
+by evaluating them on a generic $g \in \widetilde{LSL}_n^{c,c^{-1}}$ factored as in Equation \ref{eq:uvfactorization} (and setting $h_i := h^{\omega_i}$). For example, we have $x_i = h_i$ and $\hat{y}_i = t_it_{\ol{i}}h_{i-1}^{-1}h_i^2h_{i+1}^{-1}$.  Recall from Lemma \ref{lem:regulargvectors} the subset $S_{[k,\ell]} \subset \ZZ_n$ that we used to describe the $\bfg$-vector of the regular representation $V_{[k,\ell]}$.
 
 \begin{theorem}\label{th:cluster character equals minor}
 Let $V_{[k,\ell]}$ be a rigid regular representation of $Q$. Then the isomorphism $\cA_Q \cong \kk[\widetilde{LSL}_n^{c,c^{-1}}]$ of Theorem \ref{thm:coordring} identifies the regular cluster variable $x_{V_{[k,\ell]}}$ with the restriction of the level zero minor $\Delta_{\omega_{S_{[k,\ell]}}}$. 
@@ -2132,7 +2131,8 @@ The main claim follows from these given Propositions \ref{prop:regular coindices
 
 
 As in Proposition \ref{prop:regular coindices}, we let $i_1 < \cdots < i_m$ and $o_1 < \cdots < o_m$ denote the labels of the sinks and sources of $Q$ contained in $[k,\ell]$.  
-We consider the case where the first source in $[k,\ell]$ comes before the first sink (i.e. $o_1 < i_1$ in $[k,\ell]$), the opposite case following by a symmetric argument.\sayDR{Thinking of cluster variables in terms of the opposite quiver dualizes representations, negates $g$-vectors, and negates the principal part of $\tilde B$ (this in effect interchanges $h_i$ with $h_i^{-1}$).  Applying $\iota$ to $g$ has the same effect.}\sayHW{If we day ``by symmetry'' then we should write this out - I'm currently too lazy to do this, hence changing to the less slick statement that ``proving the other case has the same flavor.''} Recall that in this case
+We consider the case where the first source in $[k,\ell]$ comes before the first sink (i.e. $o_1 < i_1$ in $[k,\ell]$), the opposite case following by a symmetric argument.%\sayDR{Thinking of cluster variables in terms of the opposite quiver dualizes representations, negates $g$-vectors, and negates the principal part of $\tilde B$ (this in effect interchanges $h_i$ with $h_i^{-1}$).  Applying $\iota$ to $g$ has the same effect.}\sayHW{If we day ``by symmetry'' then we should write this out - I'm currently too lazy to do this, hence changing to the less slick statement that ``proving the other case has the same flavor.''} 
+Recall that in this case
 \[S_{[k,\ell]} = [k,o_1-1] \cup [i_1,o_2-1] \cup \cdots \cup [i_m,\ell].\]
 
 Let $P \in \cP_{[k,\ell]}$.  Since $o_1<i_1$, we have $j+1\to j$ in $Q$ for each $j\in[k^-,k-1]$, where $k^-$ is the nearest sink less that $k$ (i.e. none of $[k^-+1,k]$ is a sink).  
@@ -2156,13 +2156,13 @@ wt(P_0)=\prod_{i \in S_{[k,\ell]}}h_{i+1} h_i^{-1}=x^{\bfg(V_{[k,\ell]})}.
 We will show how to inductively modify $P_0$ to obtain a unique collection $P\in\cP_{[k,\ell]}$ with $\beta(P)=E$, keeping track of how the weight of the collection changes along the way. 
 %along the way we also compute $wt(P)$ for these collections and show coincidence with $x^{g_{[k,\ell]}}(g)\hat y^\bfe(g)$ for $\bfe=\sum\limits_{j\in E}\alpha_j\in\cQ$.  
 %Note that since each $P\in\cP_{[k,\ell]}$ has the same starting and ending set of vertices $S_{[k,\ell]}$, it suffices to only describe the upward steps along bridges labeled $t_j$ for $j\in[1,n]$ since the downward steps along bridges labeled $t_j$ for $j\in[-n,-1]$ will be mirror to these upward steps.  
-That is, for $1\le r\le m+1$\sayHW{Was $m$, but it should be $m+1$, right?} we build from $P_{r-1}$ a new collection $P_r \in \cP_{[k,\ell]}$ such that
+That is, for $1\le r\le m+1$ we build from $P_{r-1}$ a new collection $P_r \in \cP_{[k,\ell]}$ such that
 \[
 wt(P_r) = x^{\bfg(V_{[k,\ell]})} \prod_{j \in E \cap [k,i_r]} \hat{y}_j.
 \]
 We keep the convention that $i_0=k$ and $i_{m+1}=o_{m+1}=\ell+1$, and define $P_r$ in two steps:
 \begin{enumerate}
-  \item First define an intermediate network $P'_r \in \cP_{[k,\ell]}$. If $i_{r-1} \notin E$, let $P'_r=P_{r-1}$. Otherwise let $o'_r$ be the largest index in $[i_{r-1},o_r-1]$ such that $[i_{r-1},o'_r]\subset E$. We obtain $P'_r$ from $P_{r-1}$ by, for each $j\in[i_{r-1},o'_r]$, diverting the path that stays on level $j$\sayHW{This path is guaranteed to be straight in $P_{r-1}$, right? I.e. it crosses no bridges?} so that it traverses the bridges of weights $t_j$ and $t_{\ol{j}}$. By part (1) of Lemma~\ref{lem:phi} the resulting collection $P'_r$ will remain pairwise disjoint.\sayHW{I'm not sure referencing the lemma is correct: how can a lemma whose hypothesis is pairwise disjointness possibly be used to prove pairwise disjointness? Is what we want to say rather ``by inspection of Figure 4.3 and their counterparts with $t_{\ol{j}}$''?} 
+  \item First define an intermediate network $P'_r \in \cP_{[k,\ell]}$. If $i_{r-1} \notin E$, let $P'_r=P_{r-1}$. Otherwise let $o'_r$ be the largest index in $[i_{r-1},o_r-1]$ such that $[i_{r-1},o'_r]\subset E$. We obtain $P'_r$ from $P_{r-1}$ by, for each $j\in[i_{r-1},o'_r]$, diverting the path that stays on level $j$\sayHW{This path is guaranteed to be straight in $P_{r-1}$, right? I.e. it crosses no bridges?}\sayDR{Yes, since it is just the initial horizontal path} so that it traverses the bridges of weights $t_j$ and $t_{\ol{j}}$. By part (1) of Lemma~\ref{lem:phi} the resulting collection $P'_r$ will remain pairwise disjoint.\sayHW{I'm not sure referencing the lemma is correct: how can a lemma whose hypothesis is pairwise disjointness possibly be used to prove pairwise disjointness? Is what we want to say rather ``by inspection of Figure 4.3 and their counterparts with $t_{\ol{j}}$''?} 
 
 If $P'_r \neq P_{r-1}$, we have
 \[
