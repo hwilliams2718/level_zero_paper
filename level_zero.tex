@@ -1810,11 +1810,7 @@ Recall that for any Kac-Moody group $G$, if $u=s_{i_1}\cdots s_{i_{\ell(u)}}$ an
 \begin{equation}\label{eq:uvfactorization}
 g = x_{\ol{i_1}}(t_{\ol{1}})\cdots x_{\ol{i_{\ell(u)}}}(t_{\ol{\ell(u)}})hx_{j_1}(t_{1}) \cdots x_{j_{\ell(v)}}(t_{\ell(v)})
 \end{equation}
-for some $h \in H$ and $t_i,t_{\ol{i}} \in \kk^\times$. When $G = \widetilde{LSL}_n$ is the central extension of $LSL_n$, these factorizations (and more general ones associated to shuffles of reduced words) admit a combinatorial description in terms of directed networks on a cylinder [GSV, FM ??]. This generalizes a similar relation between $SL_n$ and directed networks on a disk [FZ ??]. By a directed network on a surface we will mean an embedded directed graph whose edges are assigned weights in some fixed ring. 
-
-\begin{remark}
-Following the notation of Section \ref{sec:rigidregular}, we adopt the convention that in type $A_{n-1}^{(1)}$ the vertices of the Dynkin diagram are labeled by $\ZZ_n$.
-\end{remark}\sayDR{Do we still need this comment?}
+for some $h \in H$ and $t_i,t_{\ol{i}} \in \kk^\times$. When $G = \widetilde{LSL}_n$ is the central extension of $LSL_n$, these factorizations (and more general ones associated to shuffles of reduced words) admit a combinatorial description in terms of directed networks on a cylinder [GSV, FM ??]. This generalizes a similar relation between $SL_n$ and directed networks on a disk [FZ ??]. By a directed network on a surface we will mean an embedded directed graph whose edges are assigned weights in some fixed ring. As in Section \ref{sec:rigidregular} we fix a cyclic $\ZZ_n$-labeling of the vertices of the $A_{n-1}^{(1)}$ Dynkin diagram, chosen so that $0 \equiv n$ is the label of the affine root $\delta - \theta$. 
 
 %Recall that a \newword{double reduced word} $\bfi$ for a pair $u, v \in W$ of $A^{(1)}_{n-1}$ Weyl group elements is a shuffle of a reduced word for $u$ and one for $v$. We write this as $\bfi = (i_1,\dotsc,i_m)$, where $i_j \in \{\pm 0,\dotsc, \pm n-1\}$ (here $0$ and $-0$ are treated as distinct formal indices)
 
@@ -2103,7 +2099,8 @@ We now turn to the main result of the section.  We will freely use the isomorphi
 \[
 \kk[t_{1}^{\pm1},\dotsc,t_{n}^{\pm 1},h_1^{\pm 1},\dotsc,h_{n}^{\pm 1},t_{\ol{1}}^{\pm 1},\dotsc,t_{\ol{n}}^{\pm 1}]
 \]
-by evaluating them on a generic $g \in \widetilde{LSL}_n^{c,c^{-1}}$ factored as in Equation \ref{eq:uvfactorization} (and setting $h_i := h^{\omega_i}$). For example, we have $x_i = h_i$ and $\hat{y}_i = t_it_{\ol{i}}h_{i-1}^{-1}h_i^2h_{i+1}^{-1}$.\sayHW{Maybe this formula should come with a citation to the relevant lemma in section 3.2}  Recall from Lemma \ref{lem:regulargvectors} the subset $S_{[k,\ell]} \subset \ZZ_n$ that we used to describe the $\bfg$-vector of the regular representation $V_{[k,\ell]}$.
+by evaluating them on a generic $g \in \widetilde{LSL}_n^{c,c^{-1}}$ factored as in Equation \ref{eq:uvfactorization} (and setting $h_i := h^{\omega_i}$). For example, we have $x_i = h_i$ and (by Lemma \ref{lemma:coefficients_values}) $\hat{y}_i = t_it_{\ol{i}}h_{i-1}^{-1}h_i^2h_{i+1}^{-1}$. %\sayHW{Maybe this formula should come with a citation to the relevant lemma in section 3.2} 
+Recall from Lemma \ref{lem:regulargvectors} the subset $S_{[k,\ell]} \subset \ZZ_n$ that we used to describe the $\bfg$-vector of the regular representation $V_{[k,\ell]}$.
 
 \begin{theorem}\label{th:cluster character equals minor}
 Let $V_{[k,\ell]}$ be a rigid regular representation of $Q$. Then the isomorphism $\cA_Q \cong \kk[\widetilde{LSL}_n^{c,c^{-1}}]$ of Theorem \ref{thm:coordring} identifies the regular cluster variable $x_{V_{[k,\ell]}}$ with the restriction of the level zero minor $\Delta_{\omega_{S_{[k,\ell]}}}$. 
@@ -2205,7 +2202,8 @@ completing the proof.\sayHW{Probably should followup on the uniqueness aspect of
 
 \subsection{Other affine types}\label{sec:othertypes}
 
-We expect the interpretation of regular cluster variables as level zero minors is not specific to type $A_n^{(1)}$, though the explicit combinatorics used to prove Theorem \ref{th:cluster character equals minor} is. A basic result in this direction is the following fact about regular $\bfg$-vectors:
+We anticipate that the realization of regular cluster variables as level zero minors is not specific to type $A_n^{(1)}$. %, though the explicit combinatorics used to prove Theorem \ref{th:cluster character equals minor} is. 
+This is suggested, for example, by the following fact about $\bfg$-vectors in affine types:
 
 \begin{proposition}
 Let $B$ be an acyclic skew-symmetrizable matrix whose Cartan companion $A$ is of affine type. Let $x_{i;t} \in \cA_B$ be any non-initial cluster variable, $\bfg_{i;t}$ its $\bfg$-vector, and $\lambda_{i;t} \in P$ the associated weight. Then the level of $V(\lambda_{i;t})$ is greater than, equal to, or less than zero exactly when $x_{i;t}$ is preprojective, regular, or preinjective, respectively.
@@ -2220,13 +2218,30 @@ With the preceding proposition in hand we pose the following specific form of Co
 Let $B$ be an acyclic skew-symmetrizable matrix whose Cartan companion $A$ is of affine type. Let $x_{i;t} \in \cA_{\Bdp}$ be any regular cluster variable and $\lambda_{i;t} \in P$ its $\bfg$-vector interpreted as a weight. Then the isomorphism $\cA_{\Bdp} \cong \kk[G^{c,c^{-1}}]$ identifies $x_{i;t}$ with the level zero minor $\Delta_{\lambda_{i;t}}$.
 \end{conjecture}
 
+While the combinatorics we used to prove Conjecture \ref{conj:affine} in type $A_n^{(1)}$ is not available in general, in some types it is possible to compute the relevant minors by hand. In the simplest cases this can be done using only the characters of these representations (e.g. when they are spaces of Laurent polynomials valued in a minuscule representation), and the results are consistent with Conjecture \ref{conj:affine}:
+
 \begin{proposition}
 Conjecture \ref{conj:affine} holds when $A$ is of type $B_3^{(1)}$, $C_2^{(1)}$, $D_4^{(1)}$, $G_2^{(1)}$ and $c$ is arbitrary. 
 \end{proposition}
 \begin{proof}
-\begin{enumerate}
-\item Write out the computation.
-\end{enumerate}
+We illustrate the needed computation in the case of a sample regular cluster variable in type $B_{2}^{(1)}$. The full Proposition is an assertion about several dozen such computations, which can be efficiently checked by a computer. 
+
+Consider the exchange matrix
+\[
+B= \begin{bmatrix} 0 & 1 & 0 \\ -2 & 0 & 2 \\ 0 & -1 & 0  \end{bmatrix}.
+\]
+This corresponds to the Coxeter element $s_0 s_1 s_2$, where the $B_2^{(1)}$ Dynkin diagram is labeled as
+\[
+  \begin{tikzpicture}
+    \node (a) at (0,0) {\text{Put a picture here}};
+  \end{tikzpicture}
+\]
+If we mutate at indices ***** we obtain the regular cluster variable
+\[
+x_\bfg =
+\]
+with $\bfg$-vector is $\omega_2 - \omega_1$. 
+
 \end{proof}
 
 \subsection{The Homogeneous Element}
