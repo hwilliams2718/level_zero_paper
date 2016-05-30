@@ -626,7 +626,7 @@ We can realize the cluster algebra associated to the acyclic matrix $B$ geometri
 \[
 \Bdp := \begin{bmatrix} B \\ Id_n \\ Id_n \end{bmatrix},
 \]
-which we say has \newword{doubled principal coefficients}. When working with the cluster algebra $\cA_{\Bdp}$ we will denote the frozen variables $x_{i+n}$ and $x_{i+2n}$ for $1 \leq i \leq n$ by $z_i$ and $z_{-i}$, respectively
+which we say has \newword{doubled principal coefficients}. When working with the cluster algebra $\cA_{\Bdp}$ we will denote the frozen variables $x_{i+n}$ and $x_{i+2n}$ for $1 \leq i \leq n$ by $z_i$ and $z_{ol{i}}$, respectively
 
 %The goal of this section is to realize geometrically the ``doubled principal coefficients'' cluster algebra $\cA_{\widetilde B_{\doublebullet}}$, given by the $3n\times n$ extensions $\widetilde B_{\doublebullet}$ of $B$ by two identity matrices, in terms of the derived Kac-Moody group $G$ associated to $A$. 
 %\saySS{Giovanni suggested to use two bullets one on top of the other for doubled principal coefficients. The standard notation for principal coefficients is a single bullet so it sounded like a good idea to stack two bullets.}
@@ -660,7 +660,7 @@ The coordinate ring of $G^{u,v}$ is an upper cluster algebra, and a finite subse
   This exchange matrix is acyclic by hypothesis and has full rank so, by \cite[Corollary 1.19]{BFZ05}, $\kk[G^{c,c^{-1}}]$ is a cluster algebra.
 
   The cluster structure we obtain in this way is not quite the one in the statement of the theorem; the two are nonetheless strictly related. 
-  Indeed, since the variables $z_j$ are obtained from the minors $\Delta^{\omega_j}_{ c\omega_j}$ by an invertible monomial transformation (and the variables $z_{-j}$ are obtained similarly from the minors $\Delta^{c \omega_j}_{\omega_j}$), we can use separation of additions to rescale all the cluster variables in $\kk[G^{c,c^{-1}}]$ and establish the desired isomorphism (Cf. \cite[Proposition 4.5]{YZ08}).
+  Indeed, since the variables $z_j$ are obtained from the minors $\Delta^{\omega_j}_{ c\omega_j}$ by an invertible monomial transformation (and the variables $z_{\ol{j}}$ are obtained similarly from the minors $\Delta^{c \omega_j}_{\omega_j}$), we can use separation of additions to rescale all the cluster variables in $\kk[G^{c,c^{-1}}]$ and establish the desired isomorphism (Cf. \cite[Proposition 4.5]{YZ08}).
   \saySS{The proof of this theorem should now be correct but I am quite unhappy because it is vague and it uses some results without recalling all the required details. Can you improve what I did in any way?}
 \end{proof}
 
@@ -2103,7 +2103,7 @@ We now turn to the main result of the section.  We will freely use the isomorphi
 \[
 \kk[t_{1}^{\pm1},\dotsc,t_{n}^{\pm 1},h_1^{\pm 1},\dotsc,h_{n}^{\pm 1},t_{\ol{1}}^{\pm 1},\dotsc,t_{\ol{n}}^{\pm 1}]
 \]
-by evaluating them on a generic $g \in \widetilde{LSL}_n^{c,c^{-1}}$ factored as in Equation \ref{eq:uvfactorization} (and setting $h_i := h^{\omega_i}$). For example, we have $x_i = h_i$ and $\hat{y}_i = t_it_{\ol{i}}h_{i-1}^{-1}h_i^2h_{i+1}^{-1}$.  Recall from Lemma \ref{lem:regulargvectors} the subset $S_{[k,\ell]} \subset \ZZ_n$ that we used to describe the $\bfg$-vector of the regular representation $V_{[k,\ell]}$.
+by evaluating them on a generic $g \in \widetilde{LSL}_n^{c,c^{-1}}$ factored as in Equation \ref{eq:uvfactorization} (and setting $h_i := h^{\omega_i}$). For example, we have $x_i = h_i$ and $\hat{y}_i = t_it_{\ol{i}}h_{i-1}^{-1}h_i^2h_{i+1}^{-1}$.\sayHW{Maybe this formula should come with a citation to the relevant lemma in section 3.2}  Recall from Lemma \ref{lem:regulargvectors} the subset $S_{[k,\ell]} \subset \ZZ_n$ that we used to describe the $\bfg$-vector of the regular representation $V_{[k,\ell]}$.
 
 \begin{theorem}\label{th:cluster character equals minor}
 Let $V_{[k,\ell]}$ be a rigid regular representation of $Q$. Then the isomorphism $\cA_Q \cong \kk[\widetilde{LSL}_n^{c,c^{-1}}]$ of Theorem \ref{thm:coordring} identifies the regular cluster variable $x_{V_{[k,\ell]}}$ with the restriction of the level zero minor $\Delta_{\omega_{S_{[k,\ell]}}}$. 
@@ -2163,7 +2163,9 @@ wt(P_r) = x^{\bfg(V_{[k,\ell]})} \prod_{j \in E \cap [k,i_r]} \hat{y}_j.
 \]
 We keep the convention that $i_0=k$ and $i_{m+1}=o_{m+1}=\ell+1$, and define $P_r$ in two steps:
 \begin{enumerate}
-  \item First define an intermediate network $P'_r \in \cP_{[k,\ell]}$. If $i_{r-1} \notin E$, let $P'_r=P_{r-1}$. Otherwise let $o'_r$ be the largest index in $[i_{r-1},o_r-1]$ such that $[i_{r-1},o'_r]\subset E$. We obtain $P'_r$ from $P_{r-1}$ by, for each $j\in[i_{r-1},o'_r]$, diverting the path that stays on level $j$\sayHW{This path is guaranteed to be straight in $P_{r-1}$, right? I.e. it crosses no bridges?}\sayDR{Yes, since it is just the initial horizontal path} so that it traverses the bridges of weights $t_j$ and $t_{\ol{j}}$. By part (1) of Lemma~\ref{lem:phi} the resulting collection $P'_r$ will remain pairwise disjoint.\sayHW{I'm not sure referencing the lemma is correct: how can a lemma whose hypothesis is pairwise disjointness possibly be used to prove pairwise disjointness? Is what we want to say rather ``by inspection of Figure 4.3 and their counterparts with $t_{\ol{j}}$''?} 
+  \item First define an intermediate network $P'_r \in \cP_{[k,\ell]}$. If $i_{r-1} \notin E$, let $P'_r=P_{r-1}$. Otherwise let $o'_r$ be the largest index in $[i_{r-1},o_r-1]$ such that $[i_{r-1},o'_r]\subset E$. We obtain $P'_r$ from $P_{r-1}$ by, for each $j\in[i_{r-1},o'_r]$, diverting the path that stays on level $j$ 
+%\sayHW{This path is guaranteed to be straight in $P_{r-1}$, right? I.e. it crosses no bridges?}\sayDR{Yes, since it is just the initial horizontal path}
+ so that it traverses the bridges of weights $t_j$ and $t_{\ol{j}}$. By part (1) of Lemma~\ref{lem:phi} the resulting collection $P'_r$ will remain pairwise disjoint.\sayHW{I'm not sure referencing the lemma is correct: how can a lemma whose hypothesis is pairwise disjointness possibly be used to prove pairwise disjointness? Is what we want to say rather ``by inspection of Figure 4.3 and their counterparts with $t_{\ol{j}}$''?} 
 
 If $P'_r \neq P_{r-1}$, we have
 \[
@@ -2203,8 +2205,23 @@ completing the proof.\sayHW{Probably should followup on the uniqueness aspect of
 
 \subsection{Other affine types}\label{sec:othertypes}
 
+We expect the interpretation of regular cluster variables as level zero minors is not specific to type $A_n^{(1)}$, though the explicit combinatorics used to prove Theorem \ref{th:cluster character equals minor} is. A basic result in this direction is the following fact about regular $\bfg$-vectors:
+
 \begin{proposition}
-\Cref{conj:mainconjecture} holds when $G$ is of type $B_2^{(1)}$, $B_3^{(1)}$, $C_2^{(1)}$, $D_4^{(1)}$, $G_2^{(1)}$ and $c$ is $\dotsc$. 
+Let $B$ be an acyclic skew-symmetrizable matrix whose Cartan companion $A$ is of affine type. Let $x_{i;t} \in \cA_B$ be any non-initial cluster variable, $\bfg_{i;t}$ its $\bfg$-vector, and $\lambda_{i;t} \in P$ the associated weight. Then the level of $V(\lambda_{i;t})$ is greater than, equal to, or less than zero exactly when $x_{i;t}$ is preprojective, regular, or preinjective, respectively.
+\end{proposition}
+\begin{proof}
+The claim about preprojective and preinjective cluster variables follows from Theorem \ref{thm:vars_and_rels_in_bipartite_belt}. The claim about regular cluster variables corresponding to weights of level zero follows from [RS].\sayHW{Salvatore: this is a result of you and Nathan, right?}
+\end{proof}
+
+With the preceding proposition in hand we pose the following specific form of Conjecture \ref{conj:mainconjecture}:
+
+\begin{conjecture}\label{conj:affine}
+Let $B$ be an acyclic skew-symmetrizable matrix whose Cartan companion $A$ is of affine type. Let $x_{i;t} \in \cA_{\Bdp}$ be any regular cluster variable, and let $\lambda_{i;t} \in P$ be its $\bfg$-vector interpreted as a weight. Then the isomorphism $\cA_{\Bdp} \cong \kk[G^{c,c^{-1}}]$ identifies $x_{i;t}$ with the level zero minor $V(\lambda_{i;t})$.
+\end{conjecture}
+
+\begin{proposition}
+Conjecture \ref{conj:affine} holds when $A$ is of type $B_3^{(1)}$, $C_2^{(1)}$, $D_4^{(1)}$, $G_2^{(1)}$ and $c$ is arbitrary. 
 \end{proposition}
 \begin{proof}
 \begin{enumerate}
