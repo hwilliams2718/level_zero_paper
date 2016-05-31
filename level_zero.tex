@@ -2101,11 +2101,11 @@ We now turn to the main result of the section.  We will freely use the isomorphi
 \[
 \kk[t_{1}^{\pm1},\dotsc,t_{n}^{\pm 1},h_1^{\pm 1},\dotsc,h_{n}^{\pm 1},t_{\ol{1}}^{\pm 1},\dotsc,t_{\ol{n}}^{\pm 1}]
 \]
-by evaluating them on a generic $g \in \widetilde{LSL}_n^{c,c^{-1}}$ factored as in Equation \ref{eq:uvfactorization} (and setting $h_i := h^{\omega_i}$). For example, we have $x_i = h_i$ and (by Lemma \ref{lemma:coefficients_values})\sayDR{I am thinking this equation needs to be stated as a separate lemma, there is a small calculation to see that $\hat{y}_i$ has this form and the difference in naming conventions between the two sections is likely to be confusing before taking a few minutes of thought} $\hat{y}_i = t_it_{\ol{i}}h_{i-1}^{-1}h_i^2h_{i+1}^{-1}$. %\sayHW{Maybe this formula should come with a citation to the relevant lemma in section 3.2} 
-Recall from Lemma \ref{lem:regulargvectors} the subset $S_{[k,\ell]} \subset \ZZ_n$ that we used to describe the $\bfg$-vector of the regular representation $V_{[k,\ell]}$.
+by evaluating them on a generic $g \in \widetilde{LSL}_n^{c,c^{-1}}$ factored as in Equation \ref{eq:uvfactorization} (and setting $h_i := h^{\omega_i}$). For example, we have $x_i = h_i$ and  $\hat{y}_i = t_it_{\ol{i}}h_{i-1}^{-1}h_i^2h_{i+1}^{-1}$ (the latter following by plugging the results of Lemma \ref{lemma:coefficients_values} into the definition of $\hat{y}_i$).\sayDR{I am thinking this equation needs to be stated as a separate lemma, there is a small calculation to see that $\hat{y}_i$ has this form and the difference in naming conventions between the two sections is likely to be confusing before taking a few minutes of thought}\sayHW{Is this better? I'm not sure how useful it is to spell it out more that this, and the only notational difference seems to be the notation $h_i := h^{\omega_i}$, which has just been recalled. If you aren't convinced, I'd vote to move it into the following proof rather than a separate lemma.} %\sayHW{Maybe this formula should come with a citation to the relevant lemma in section 3.2} 
+Recall also the subset $S_{[k,\ell]} \subset \ZZ_n$ that we used in Lemma \ref{lem:regulargvectors} to describe the $\bfg$-vector of the regular representation $V_{[k,\ell]}$.
 
 \begin{theorem}\label{th:cluster character equals minor}
-Let $V_{[k,\ell]}$ be a rigid regular representation of $Q$. Then the isomorphism $\cA_Q \cong \kk[\widetilde{LSL}_n^{c,c^{-1}}]$ of Theorem \ref{thm:coordring} identifies the regular cluster variable $x_{V_{[k,\ell]}}$ with the restriction of the level zero minor $\Delta_{\omega_{S_{[k,\ell]}}}$. 
+Let $V_{[k,\ell]}$ be a rigid regular representation of $Q$. Then the isomorphism $\cA_{\Qdp} \cong \kk[\widetilde{LSL}_n^{c,c^{-1}}]$ of Theorem \ref{thm:coordring} identifies the regular cluster variable $x_{V_{[k,\ell]}}$ with the restriction of the level zero minor $\Delta_{\omega_{S_{[k,\ell]}}}$. 
 \end{theorem}
 \begin{proof}
 Let $\cP_{[k,\ell]}$ denote the set of pairwise disjoint collections of paths in $\cN^{c,c^{-1}}$ with $\partial_{in}P = \partial_{out}P = S_{[k,\ell]}$. 
@@ -2214,7 +2214,7 @@ Let $B$ be an acyclic skew-symmetrizable matrix whose Cartan companion $A$ is of
 The claim about preprojective and preinjective cluster variables follows from Theorem \ref{thm:vars_and_rels_in_bipartite_belt}. The claim about regular cluster variables corresponding to weights of level zero follows from [RS].\sayHW{Salvatore: this is a result of you and Nathan, right?}
 \end{proof}
 
-With the preceding proposition in hand we pose the following specific form of Conjecture \ref{conj:mainconjecture}:
+With the preceding proposition in hand we pose the following specific form of Conjecture \ref{conj:mainconjecture} in affine type:
 
 \begin{conjecture}\label{conj:affine}
 Let $B$ be an acyclic skew-symmetrizable matrix whose Cartan companion $A$ is of affine type. Let $x_{i;t} \in \cA_{\Bdp}$ be any regular cluster variable and $\lambda_{i;t} \in P$ its $\bfg$-vector interpreted as a weight. Then the isomorphism $\cA_{\Bdp} \cong \kk[G^{c,c^{-1}}]$ identifies $x_{i;t}$ with the level zero minor $\Delta_{\lambda_{i;t}}$.
@@ -2223,7 +2223,7 @@ Let $B$ be an acyclic skew-symmetrizable matrix whose Cartan companion $A$ is of
 While the combinatorics we used to prove Conjecture \ref{conj:affine} in type $A_n^{(1)}$ is not available in general, in some types it is possible to compute the relevant minors by hand. In the simplest cases this can be done using only the characters of these representations (e.g. when they are spaces of Laurent polynomials valued in a minuscule representation), and the results are consistent with Conjecture \ref{conj:affine}:
 
 \begin{proposition}
-Conjecture \ref{conj:affine} holds when $A$ is of type $B_3^{(1)}$, $C_2^{(1)}$, $D_4^{(1)}$, $G_2^{(1)}$ and $c$ is arbitrary. 
+Conjecture \ref{conj:affine} holds when the Cartan companion of $B$ is of type $B_3^{(1)}$, $C_2^{(1)}$, $D_4^{(1)}$, $G_2^{(1)}$. 
 \end{proposition}
 \begin{proof}
 We illustrate the needed computation in the case of a sample regular cluster variable in type $B_{2}^{(1)}$. The full Proposition is an assertion about several dozen such computations, which can be efficiently checked by a computer. 
@@ -2246,15 +2246,32 @@ with $\bfg$-vector is $\omega_2 - \omega_1$.
 
 \end{proof}
 
-\subsection{The Homogeneous Element}
+\subsection{The Homogeneous Element}\sayHW{In the process of trying to flesh out this section more, I'm a bit ambivalent about some of the notation I introduced, e.g. using $\lambda$ as a parameter for the tubes when we often use it as a weight.}
+We conclude with an extension of Theorem~\ref{th:cluster character equals minor} motivated by the theory of canonical bases. Cluster monomials form a partial basis of a cluster algebra, and there are various meaningful (and in general different) ways of completing them to a full basis [references]. One approach in line with the considerations of this paper is to form a basis consisting of cluster characters of potentially non-rigid representations. By taking the cluster character of a generic representation with each possible $\bfg$-vector, one obtains the generic basis of \cite{Dup12} (which directly generalizes the dual semicanonical basis of Lusztig).
 
-We conclude with a final suggestive result which is proven exactly as Theorem~\ref{th:cluster character equals minor}.
+When $Q$ is an acyclic orientation of an $n$-cycle as in Section \ref{sec:rigidregular}, the simplest example of a non-rigid representation is the representation $V_\lambda$ at the base of a homogeneous tube $\mathcal{T}_\lambda$, $\lambda \in \kk^*$. That is, $V_\lambda$ consists of a one-dimensional vector space at each vertiex of $Q$, with arrows acting by isomorphisms such that the monodromy around $Q$ is equal to $\lambda$. The dimension vector of $V_\lambda$ is the minimal imaginary root $\delta$, and if $i_1<\cdots<i_m$ and $o_1<\cdots < o_m$ denote the sinks and sources of $Q$, its $\bfg$-vector is 
+\[
+\bfg(V_\lambda) = \omega_\delta := \sum_{j=1}^m \omega_{o_j} - \omega_{i_j}.
+\]
+The cluster character of $V_\lambda$ is independent of $\lambda$, and we refer to the resulting element of the generic basis as the homogeneous element.
+
+%We conclude with a final suggestive result which is proven exactly as Theorem~\ref{th:cluster character equals minor}.
 \begin{theorem}
-  Let $D$ be any indecomposable representation $Q$ with dimension vector $\delta=\sum\limits_{i\in Q_0}\alpha_i$ and all maps isomorphisms.  Under the identification $\kk[G^{c,c^{-1}}] \cong A_Q$ we have
-  \[x_D = \Delta_{\omega_S}\]
-  for $S=[i_1,o_1-1] \cup [i_2,o_2-1] \cup \cdots \cup [i_m,o_m-1]$, where $i_1<o_1<\cdots<i_m<o_m<i_1$ denote the sinks and sources of $Q$ in the cyclic ordering of vertices.
+The isomorphism $\cA_{Qdp} \cong \kk[\widetilde{LSL}_n^{c,c^{-1}}]$ identifies the homogeneous element $x_{V_\lambda}$ with the level zero minor $\Delta_{\omega_\delta}$. 
+%  Let $D$ be any indecomposable representation $Q$ with dimension vector $\delta=\sum\limits_{i\in Q_0}\alpha_i$ and all maps isomorphisms.  Under the identification $\kk[G^{c,c^{-1}}] \cong A_Q$ we have
+%  \[x_D = \Delta_{\omega_S}\]
+%  for $S=[i_1,o_1-1] \cup [i_2,o_2-1] \cup \cdots \cup [i_m,o_m-1]$, where $i_1<o_1<\cdots<i_m<o_m<i_1$ denote the sinks and sources of $Q$ in the cyclic ordering of vertices.
 \end{theorem}
-While the element $x_D$ is not a cluster variable of $\cA_Q$, it is contained in the generic basis \cite{Dup12}.  It would be interesting to study the relationship of minors whose weights are $g$-vectors of other representations in the tubes with the generic basis elements.
+\begin{proof}
+Similarly to Lemma \ref{lem:regulargvectors}, we can rewrite $\omega_\delta$ as $\sum_{i \in S} \omega_{i+1} - \omega_i$, where
+\[
+S=[i_1,o_1-1] \cup [i_2,o_2-1] \cup \cdots \cup [i_m,o_m-1].
+\]
+The proof now proceeds exactly like that of Theorem~\ref{th:cluster character equals minor}, and we omit the details. 
+%$S=[i_1,o_1-1] \cup [i_2,o_2-1] \cup \cdots \cup [i_m,o_m-1]$, where $i_1<o_1<\cdots<i_m<o_m<i_1$
+\end{proof}
+
+%While the element $x_D$ is not a cluster variable of $\cA_Q$, it is contained in the generic basis \cite{Dup12}.  It would be interesting to study the relationship of minors whose weights are $g$-vectors of other representations in the tubes with the generic basis elements.
 
 %This suggests the study of minors whose weights are $g$-vectors of other representations in the tubes.  It turns out that these other minors do not belong to the generic basis as they do not satisfy the relations of \cite[Lemma 5.2]{Dup12}.
 
