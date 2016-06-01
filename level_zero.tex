@@ -2281,16 +2281,16 @@ When $Q$ is an acyclic orientation of an $n$-cycle as in Section \ref{sec:rigidr
 The cluster character of $\Qrep_\lambda$ is independent of $\lambda$, and we refer to the resulting element of the generic basis as the homogeneous element.
 
 %We conclude with a final suggestive result which is proven exactly as Theorem~\ref{th:cluster character equals minor}.
-\begin{theorem}
-In $\cA_{Qdp} \cong \kk[\widetilde{LSL}_n^{c,c^{-1}}]$ the homogeneous element $x_{\Qrep_\lambda}$ is the restriction of the level zero minor $\Delta_{\bfg(\Qrep_\lambda)}$. 
+\begin{theorem}\label{thm:homogeneous}
+In $\cA_{\Qdp} \cong \kk[\widetilde{LSL}_n^{c,c^{-1}}]$ the homogeneous element $x_{\Qrep_\lambda}$ is the restriction of the level zero minor $\Delta_{\bfg(\Qrep_\lambda)}$. 
 %  Let $D$ be any indecomposable representation $Q$ with dimension vector $\delta=\sum\limits_{i\in Q_0}\alpha_i$ and all maps isomorphisms.  Under the identification $\kk[G^{c,c^{-1}}] \cong A_Q$ we have
 %  \[x_D = \Delta_{\omega_S}\]
 %  for $S=[i_1,o_1-1] \cup [i_2,o_2-1] \cup \cdots \cup [i_m,o_m-1]$, where $i_1<o_1<\cdots<i_m<o_m<i_1$ denote the sinks and sources of $Q$ in the cyclic ordering of vertices.
 \end{theorem}
 \begin{proof}
-Similarly to Lemma \ref{lem:regulargvectors}, we can rewrite $\omega_\delta$ as $\sum_{i \in S} \omega_{i+1} - \omega_i$, where
+Similarly to Lemma \ref{lem:regulargvectors}, we have $\bfg(M_\lambda) = \omega_S$, where
 \[
-S=[i_1,o_1-1] \cup [i_2,o_2-1] \cup \cdots \cup [i_m,o_m-1].
+S=[i_1,o_1-1] \cup [i_2,o_2-1] \cup \cdots \cup [i_m,o_m-1] \subset \ZZ_n.
 \]
 The proof now proceeds exactly like that of Theorem~\ref{th:cluster character equals minor}, and we omit the details. 
 %$S=[i_1,o_1-1] \cup [i_2,o_2-1] \cup \cdots \cup [i_m,o_m-1]$, where $i_1<o_1<\cdots<i_m<o_m<i_1$
@@ -2300,6 +2300,9 @@ The proof now proceeds exactly like that of Theorem~\ref{th:cluster character eq
 
 %This suggests the study of minors whose weights are $g$-vectors of other representations in the tubes.  It turns out that these other minors do not belong to the generic basis as they do not satisfy the relations of \cite[Lemma 5.2]{Dup12}.
 
+\begin{remark}
+Theorem \ref{thm:homogeneous} has an analogue for non-affine Kac-Moody groups of rank two, at least formally. Let $Q$ be the $n$-Kronecker quiver: it has two vertices, and $n$ arrows from vertex 1 to vertex 2. 
+\end{remark}
 
 \section{Conventions}
 
