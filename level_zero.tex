@@ -97,6 +97,7 @@ urlcolor=blue]{hyperref}
 \newcommand{\Bpr}{\widetilde{B}_{pr}}
 \newcommand{\Bdp}{\widetilde{B}_{dp}}
 \newcommand{\Qdp}{Q_{dp}}
+\newcommand{\Qrep}{M}
 
 \makeatletter
 \newcommand{\@doublebullet}{
@@ -1690,24 +1691,24 @@ In this section we prove that the identification $\cA_{\Bdp} \cong \kk[G^{c,c^{-
 \subsection{Affine Quiver Representations}\label{sec:rigidregular}
 Let $Q$ be an acyclic orientation of an $n$-cycle, and label the vertices of $Q$ by $\ZZ_n$ so that neighboring vertices have cyclically adjacent labels. %The regular representations of $Q$ (or of any acyclic orientation of a simply-laced affine Dynkin diagram) admit a concrete description in terms of the Euler-Ringel form:
 %\begin{proposition} (\cite{ASS06}) 
-%A finite-dimensional representation $V$ of $Q$ is regular if and only if $\langle\delta,V\rangle=0$.
+%A finite-dimensional representation $\Qrep$ of $Q$ is regular if and only if $\langle\delta,\Qrep\rangle=0$.
 %\end{proposition}
 %To prove Proposition~\ref{prop:level zero} we will further restrict $Q$ to be of affine type $\tilde{A}_{n-1}$, that is $Q$ is an acyclic orientation of a cycle.  
 %In this case we identify the vertices of $Q$ with $\ZZ_n$, the integers modulo $n$, so that neighboring vertices have consecutive labels.
-%Our main interest will be in rigid representations, i.e. $V\in\rep_\kk(Q)$ such that $\Ext^1(V,V)=0$.  
-We have the following explicit classification of the indecomposable regular representations $V$ which are rigid (i.e. $\Ext^1(V,V)=0$). For $k,\ell\in\ZZ_n$ we write $[k,\ell]:=\{k,k+1,\ldots,\ell\}$ and let $V_{[k,\ell]}$ be the representation with 
+%Our main interest will be in rigid representations, i.e. $\Qrep\in\rep_\kk(Q)$ such that $\Ext^1(\Qrep,\Qrep)=0$.  
+We have the following explicit classification of the indecomposable regular representations $\Qrep$ which are rigid (i.e. $\Ext^1(\Qrep,\Qrep)=0$). For $k,\ell\in\ZZ_n$ we write $[k,\ell]:=\{k,k+1,\ldots,\ell\}$ and let $\Qrep_{[k,\ell]}$ be the representation with 
 \[
-V_i \cong \begin{cases} \kk & i \in [k,\ell] \\ 0 & \text{otherwise,} \end{cases}
+\Qrep_i \cong \begin{cases} \kk & i \in [k,\ell] \\ 0 & \text{otherwise,} \end{cases}
 \]
 and all arrows acting by invertible maps except the arrow between $k$ and $k-1$ and the arrow between $\ell$ and $\ell + 1$. 
 
 %a one-dimensional vector spaces at each of the vertices in $[k,\ell]$ and identity maps between neighboring vector spaces.
-%In particular, we aim to give a concrete characterization of all rigid indecomposable representations $V$ which are regular.
+%In particular, we aim to give a concrete characterization of all rigid indecomposable representations $\Qrep$ which are regular.
 %The following characterization of rigid indecomposable regular representations appears to be new and may be of independent interest.  
 \begin{proposition}
-If $[k,\ell] \subsetneq \ZZ_n$ is a proper subset containing the same number of sinks and sources of $Q$, then $V_{[k,\ell]}$ is an indecomposable rigid regular representation of $Q$. Every such representation is isomorphic to one of this form. 
-%  Let $V$ be a rigid indecomposable regular representation of an acyclic quiver $Q$ of affine type ${A}^{(1)}_{n-1}$.  
-%  There are $k,\ell\in Q_0$ with $[k,\ell]\subsetneq\ZZ_n$ containing the same number of sinks and sources of $Q$ so that $V\cong V_{[k,\ell]}$.
+If $[k,\ell] \subsetneq \ZZ_n$ is a proper subset containing the same number of sinks and sources of $Q$, then $\Qrep_{[k,\ell]}$ is an indecomposable rigid regular representation of $Q$. Every such representation is isomorphic to one of this form. 
+%  Let $\Qrep$ be a rigid indecomposable regular representation of an acyclic quiver $Q$ of affine type ${A}^{(1)}_{n-1}$.  
+%  There are $k,\ell\in Q_0$ with $[k,\ell]\subsetneq\ZZ_n$ containing the same number of sinks and sources of $Q$ so that $\Qrep\cong \Qrep_{[k,\ell]}$.
 %  Moreover, every rigid indecomposable regular representation arises in this way. 
 \end{proposition}
 \begin{proof}\mbox{}
@@ -1725,40 +1726,40 @@ Any invertible representation of the Jordan quiver has nontrivial self-extension
 Now consider the category $\cC^p$ of nilpotent representations of an oriented $p$-cycle.  
   Write $\tilde\cC$ for the category of finite-dimensional representations of the equi-oriented $A_{\infty}$ quiver (i.e. its vertices are labeled by $\ZZ$, and for all $i \in \ZZ$ there is an arrow from $i$ to $i+1$). %\sayHW{Either I am misinterpreting your quiver or I don't understand the role of one of the coordinates: it seems like the argument works with $\tilde\cC$ being representations of the equi-oriented $A_\infty$-quiver} \sayDR{You are exactly right, we only need vertices indexed by $\ZZ$, that is what I meant by bi-infinite (as in infinite in both directions)}
   For any choice of base point, there is an essentially surjective exact functor $\pi:\tilde\cC\to\cC^p$ given by ``wrapping around'' the $p$-cycle (nilpotency guarantees the essential surjectivity).  
-  Now consider an indecomposable object $V$ of $\cC^p$ which is sincere (i.e. $V_i \neq 0$ for every vertex $i$).
-  Given any lift $\tilde V\in\tilde\cC$ of $V$, let $\tilde V'$ be the lift of $V$ obtained by shifting $\tilde V$ to the right by $p$ vertices.  
-  Since $V$ was sincere, $\tilde\cC$ contains a nontrivial extension of $\tilde V$ by $\tilde V'$. Since $\pi$ is exact, the image of this extension is a nontrivial self-extension of $V$ in $\cC^p$. %in particular $\Ext^1(V,V)\ne 0$ since $\pi$ is exact. 
+  Now consider an indecomposable object $\Qrep$ of $\cC^p$ which is sincere (i.e. $\Qrep_i \neq 0$ for every vertex $i$).
+  Given any lift $\tilde \Qrep\in\tilde\cC$ of $\Qrep$, let $\tilde \Qrep'$ be the lift of $\Qrep$ obtained by shifting $\tilde \Qrep$ to the right by $p$ vertices.  
+  Since $\Qrep$ was sincere, $\tilde\cC$ contains a nontrivial extension of $\tilde \Qrep$ by $\tilde \Qrep'$. Since $\pi$ is exact, the image of this extension is a nontrivial self-extension of $\Qrep$ in $\cC^p$. %in particular $\Ext^1(\Qrep,\Qrep)\ne 0$ since $\pi$ is exact. 
 As all counterclockwise arrows act by invertible linear maps on any $Q$-representation in $\cR_{nil}^p$, the equivalence $\cC^p \cong \cR_{nil}^p$ takes sincere representations to sincere representations. In particular, we conclude that no indecomposable sincere representation in $\cR_{nil}^p$ is rigid, and likewise for $\cR_{nil}^q$ by the same argument. %\sayDR{I switched inv's to nil's here, Harold please check that I am correct.}
 %  For $r=p$ ($r=q$ is handled similarly), the representations of $Q$ in this component have isomorphisms at each of the $q$ counterclockwise arrows\sayDR{It feels a little funny to think that the zero map between zero vector spaces is an isomorphism but it's true.} and are sincere as representations of the $r$-cycle if and only if they are sincere as representations of $Q$.
 
 From the discussion so far we see that any indecomposable rigid regular representation of $Q$ is non-sincere and in either $\cR_{nil}^p$ or $\cR_{nil}^q$.  Any proper subquiver $Q'$ of $Q$ defines an exact inclusion $\rep_\kk(Q') \into \rep_\kk(Q)$. 
-Any non-sincere representation of $Q$ is the image of a representation of a proper subquiver, which without loss of generality we may take to be of type $A_m$ for some $m < n$. Thus any indecomposable rigid regular representation of $Q$ is the image of an indecomposable representation of such a subquiver -- in particular, it is isomorphic to $V_{[k,\ell]}$ for a proper subset $[k,\ell]\subsetneq\ZZ_n$.  
+Any non-sincere representation of $Q$ is the image of a representation of a proper subquiver, which without loss of generality we may take to be of type $A_m$ for some $m < n$. Thus any indecomposable rigid regular representation of $Q$ is the image of an indecomposable representation of such a subquiver -- in particular, it is isomorphic to $\Qrep_{[k,\ell]}$ for a proper subset $[k,\ell]\subsetneq\ZZ_n$.  
 
-It remains to derive the condition on sinks and sources in $[k,\ell]$. We identify the Grothendieck group of $\rep_\kk(Q)$ with the root lattice $\cQ$ of type $A_{n-1}^{(1)}$, and write $\delta\in\cQ$ for the minimal positive imaginary root. Recall that $V \in \rep_\kk(Q)$ is regular if and only if the Euler-Ringel pairing $\langle\delta,V\rangle$ vanishes \cite[Sec. 7]{CrBo92}.
+It remains to derive the condition on sinks and sources in $[k,\ell]$. We identify the Grothendieck group of $\rep_\kk(Q)$ with the root lattice $\cQ$ of type $A_{n-1}^{(1)}$, and write $\delta\in\cQ$ for the minimal positive imaginary root. Recall that $\Qrep \in \rep_\kk(Q)$ is regular if and only if the Euler-Ringel pairing $\langle\delta,\Qrep\rangle$ vanishes \cite[Sec. 7]{CrBo92}.
 Writing $I \subset \ZZ_n$ (resp. $O \subset \ZZ_n$) for the subset of sinks (resp. sources) in $Q$, we have  
-  \[\langle\delta,V\rangle=\sum_{j\in Q_0}\dim V_j-\sum_{a\in Q_1}\dim V_{t(a)}=\sum_{o\in O}\dim V_o-\sum_{i\in I}\dim V_i.\]
-Thus $V$ is regular if and only if $\sum\limits_{o\in O}\dim V_o=\sum\limits_{i\in I}\dim V_i$.  In particular, this holds for $V = V_{[k,\ell]}$ exactly when the number of sinks in $[k,\ell]$ is equal to the number of sources in $[k,\ell]$. 
+  \[\langle\delta,\Qrep\rangle=\sum_{j\in Q_0}\dim \Qrep_j-\sum_{a\in Q_1}\dim \Qrep_{t(a)}=\sum_{o\in O}\dim \Qrep_o-\sum_{i\in I}\dim \Qrep_i.\]
+Thus $\Qrep$ is regular if and only if $\sum\limits_{o\in O}\dim \Qrep_o=\sum\limits_{i\in I}\dim \Qrep_i$.  In particular, this holds for $\Qrep = \Qrep_{[k,\ell]}$ exactly when the number of sinks in $[k,\ell]$ is equal to the number of sources in $[k,\ell]$. 
 \end{proof}
 
 With this classification in hand, we now describe the cluster characters of the rigid regular representations of $Q$ combinatorially in terms of target-closed subsets. Given $[k,\ell]\subsetneq\ZZ_n$, we say a subset $E$ of $[k,\ell]$ is \newword{target-closed} if whenever $a$ is an arrow of $Q$ with $s(a) \in E$ and $t(a) \in [k,\ell]$, then in fact $t(a) \in E$. We let $\cE_{[k,\ell]}$ denote the collection of target-closed subsets of $[k,\ell]$, and otherwise follow the notation of Section \ref{sec:quiverbackground}.\sayHW{Make sure the convention of notating generators of the $\bfg$-vector lattice as $\omega_i$ is introduced there}
 
-%To conclude, we aim to compute the cluster characters \eqref{eq:cc formula} of the regular representations $V_{[k,\ell]}$ in preparation for comparing with certain minors on $G^{c,c^{-1}}$.  For this we need an explicit description of their coindices and their submodules.  
+%To conclude, we aim to compute the cluster characters \eqref{eq:cc formula} of the regular representations $\Qrep_{[k,\ell]}$ in preparation for comparing with certain minors on $G^{c,c^{-1}}$.  For this we need an explicit description of their coindices and their submodules.  
 
 \begin{proposition}\label{prop:regular coindices}
-Let $[k,\ell] \subsetneq \ZZ_n$ be a proper subset containing the same number of sinks and sources of $Q$, so $V_{[k,\ell]}$ is rigid and regular. If $i_1 < \cdots < i_m$ (resp. $o_1 < \cdots < o_m$) are the sinks (resp. sources) of $Q$ contained in $[k,\ell]$ (ordered by the restriction of the cyclic order on $\ZZ_n$ to a linear order on $[k,\ell]$), then 
+Let $[k,\ell] \subsetneq \ZZ_n$ be a proper subset containing the same number of sinks and sources of $Q$, so $\Qrep_{[k,\ell]}$ is rigid and regular. If $i_1 < \cdots < i_m$ (resp. $o_1 < \cdots < o_m$) are the sinks (resp. sources) of $Q$ contained in $[k,\ell]$ (ordered by the restriction of the cyclic order on $\ZZ_n$ to a linear order on $[k,\ell]$), then 
 \[
-\bfg(V_{[k,\ell]}) = \begin{cases} \omega_{k-1}-\omega_\ell+\sum_{j=1}^m (\omega_{o_j}-\omega_{i_j}) & \text{$i_1<o_1$ in $[k,\ell]$}\\ \omega_{\ell+1}-\omega_k+\sum_{j=1}^m (\omega_{o_j}-\omega_{i_j}) & \text{$o_1 < i_1$ in $[k,\ell]$,}\end{cases}
+\bfg(\Qrep_{[k,\ell]}) = \begin{cases} \omega_{k-1}-\omega_\ell+\sum_{j=1}^m (\omega_{o_j}-\omega_{i_j}) & \text{$i_1<o_1$ in $[k,\ell]$}\\ \omega_{\ell+1}-\omega_k+\sum_{j=1}^m (\omega_{o_j}-\omega_{i_j}) & \text{$o_1 < i_1$ in $[k,\ell]$,}\end{cases}
 \]
-and the cluster character of $V_{[k,\ell]}$ is 
+and the cluster character of $\Qrep_{[k,\ell]}$ is 
 \begin{equation}\label{eq:regular cluster characters}
-x_{V_{[k,\ell]}} = x^{\bfg(V_{[k,\ell]})} \sum_{E \in \cE_{[k,\ell]}} \prod_{j \in E} \hat{y}_j.
+x_{\Qrep_{[k,\ell]}} = x^{\bfg(\Qrep_{[k,\ell]})} \sum_{E \in \cE_{[k,\ell]}} \prod_{j \in E} \hat{y}_j.
 \end{equation}
 %  Consider $[k,\ell]\subsetneq\ZZ_n$ containing sinks $i_1 < \cdots < i_m$ and sources $o_1 < \cdots < o_m$.
 %  Let 
-%  \[0\to V_{[k,\ell]} \to \bigoplus I_j^{a_j} \to \bigoplus I_j^{b_j}\to 0\]
-%  be the minimal injective resolution of $V_{[k,\ell]}$.
-%  Then the $g$-vector $g_{[k,\ell]}$ of $V_{[k,\ell]}$ is given by
-%  \[g_{[k,\ell]}=-\coind(V_{[k,\ell]})=\sum_j(b_j-a_j)\omega_j=\sum_{j\in S_{[k,\ell]}} \omega_{j+1} - \omega_j,\]
+%  \[0\to \Qrep_{[k,\ell]} \to \bigoplus I_j^{a_j} \to \bigoplus I_j^{b_j}\to 0\]
+%  be the minimal injective resolution of $\Qrep_{[k,\ell]}$.
+%  Then the $g$-vector $g_{[k,\ell]}$ of $\Qrep_{[k,\ell]}$ is given by
+%  \[g_{[k,\ell]}=-\coind(\Qrep_{[k,\ell]})=\sum_j(b_j-a_j)\omega_j=\sum_{j\in S_{[k,\ell]}} \omega_{j+1} - \omega_j,\]
 %  where $S_{[k,\ell]}\subset\ZZ_n$ is determined as follows:
 %  \begin{itemize}
 %    \item if the first sink in $[k,\ell]$ comes before the first source (i.e. $i_1 < o_1$ in $[k,\ell]$), then 
@@ -1768,30 +1769,30 @@ x_{V_{[k,\ell]}} = x^{\bfg(V_{[k,\ell]})} \sum_{E \in \cE_{[k,\ell]}} \prod_{j \
 %  \end{itemize}
 \end{proposition}
 \begin{proof}
-  If $i_1 < o_1$ in $[k,\ell]$, then it is straightforward to see that the minimal injective resolution of $V_{[k,\ell]}$ is of the form
-  \[0\to V_{[k,\ell]} \to I_{i_1} \oplus \cdots \oplus I_{i_m}\oplus I_\ell \to I_{k-1} \oplus I_{o_1} \oplus \cdots \oplus I_{o_m},\] 
-from which the given formula for $\bfg(V_{[k,\ell]})$ follows. The $o_1 < i_1$ case is similar. The description of submodules of $V_{[k,\ell]}$ in terms of target-closed subsets of $[k,\ell]$ is an instance of a more general description in terms of the coefficient quiver of a representation [Cer, Rin ??]; in our case the coefficient quiver of $V_{[k,\ell]}$ is just the full subquiver of $Q$ with vertex set $[k,\ell]$. 
+  If $i_1 < o_1$ in $[k,\ell]$, then it is straightforward to see that the minimal injective resolution of $\Qrep_{[k,\ell]}$ is of the form
+  \[0\to \Qrep_{[k,\ell]} \to I_{i_1} \oplus \cdots \oplus I_{i_m}\oplus I_\ell \to I_{k-1} \oplus I_{o_1} \oplus \cdots \oplus I_{o_m},\] 
+from which the given formula for $\bfg(\Qrep_{[k,\ell]})$ follows. The $o_1 < i_1$ case is similar. The description of submodules of $\Qrep_{[k,\ell]}$ in terms of target-closed subsets of $[k,\ell]$ is an instance of a more general description in terms of the coefficient quiver of a representation [Cer, Rin ??]; in our case the coefficient quiver of $\Qrep_{[k,\ell]}$ is just the full subquiver of $Q$ with vertex set $[k,\ell]$. 
 %  The case $o_1<i_1$ is handled similarly using the minimal injective resolution
-%  \[0\to V_{[k,\ell]} \to I_k\oplus I_{i_1} \oplus \cdots \oplus I_{i_m} \to I_{o_1} \oplus \cdots \oplus I_{o_m}\oplus I_{\ell+1}.\]
+%  \[0\to \Qrep_{[k,\ell]} \to I_k\oplus I_{i_1} \oplus \cdots \oplus I_{i_m} \to I_{o_1} \oplus \cdots \oplus I_{o_m}\oplus I_{\ell+1}.\]
 \end{proof}
 
 %Given a connected interval of vertices $[k,\ell]\subsetneq\ZZ_n$, write $Q_{[k,\ell]}$ for the full connected subquiver of $Q$ having vertex set $[k,\ell]$.  Note that $Q_{[k,\ell]}$ is a quiver of Dynkin type $A$ and so the vertex set $[k,\ell]$ can be considered as a poset with Hasse quiver $Q_{[k,\ell]}$.  The following result is well-known.\sayHW{Define successor-closed. Maybe say target-closed? Successor could be conflated with ``successor in the cyclic ordering''}\sayDR{Is it enough to be explicit about how to consider $Q_{[k,\ell]}$ as a poset?}
 %\begin{lemma}
-%Subrepresentations of $V_{[k,\ell]}$ are naturally in bijection with successor-closed subsets $E\subset[k,\ell]$, where $E$ records the dimension vector of the subrepresentation.
+%Subrepresentations of $\Qrep_{[k,\ell]}$ are naturally in bijection with successor-closed subsets $E\subset[k,\ell]$, where $E$ records the dimension vector of the subrepresentation.
 %\end{lemma}
 
-%Let $\cE_{[k,\ell]}$ denote the collection of successor-closed subsets $E \subset [k,\ell]$.  Then the cluster character of $V_{[k,\ell]}$ is given by
+%Let $\cE_{[k,\ell]}$ denote the collection of successor-closed subsets $E \subset [k,\ell]$.  Then the cluster character of $\Qrep_{[k,\ell]}$ is given by
 %\begin{equation}\label{eq:regular cluster characters}
-%x_{V_{[k,\ell]}} = x^{g_{[k,\ell]}} \sum_{E \in \cE_{[k,\ell]}} \prod_{j \in E} \hat{y}_j,
+%x_{\Qrep_{[k,\ell]}} = x^{g_{[k,\ell]}} \sum_{E \in \cE_{[k,\ell]}} \prod_{j \in E} \hat{y}_j,
 %\end{equation}
 %where $\hat y_j=\prod_{i=1}^m x_i^{b_{ij}}$.
 
 In Section \ref{sec:networks} it will be useful to rewrite regular $\bfg$-vectors using the following Lemma, whose proof is an elementary computation.
 
 \begin{lemma}\label{lem:regulargvectors}
-If $V_{[k,\ell]}$ is rigid and regular, we can write its $\bfg$-vector as
+If $\Qrep_{[k,\ell]}$ is rigid and regular, we can write its $\bfg$-vector as
 \[
-\bfg(V_{[k,\ell]})=\sum_{j\in S_{[k,\ell]}} \omega_{j+1} - \omega_j,
+\bfg(\Qrep_{[k,\ell]})=\sum_{j\in S_{[k,\ell]}} \omega_{j+1} - \omega_j,
 \]
 where 
 \[
@@ -1800,7 +1801,7 @@ S_{[k,\ell]} = \begin{cases} [\ell,k-2] \cup [i_1, o_1 -1] \cup \cdots \cup [i_m
 \end{lemma}
 %\begin{proof}
 %But notice that in the sum $\sum\limits_{j\in S_{[k,\ell]}} (\omega_{j+1} - \omega_j)$, the terms coming from each connected interval of $S_{[k,\ell]}$ telescope to give
-%  \[\sum_{j\in S_{[k,\ell]}} \omega_{j+1} - \omega_j=\omega_{k-1}-\omega_\ell+\sum_{r=1}^m (\omega_{o_r}-\omega_{i_r})=-\coind(V_{[k,\ell]}).\]
+%  \[\sum_{j\in S_{[k,\ell]}} \omega_{j+1} - \omega_j=\omega_{k-1}-\omega_\ell+\sum_{r=1}^m (\omega_{o_r}-\omega_{i_r})=-\coind(\Qrep_{[k,\ell]}).\]
 %\end{proof}
 
 
@@ -2113,21 +2114,22 @@ by evaluating them on a generic $g \in \widetilde{LSL}_n^{c,c^{-1}}$ factored as
 x_i = h_i,\quad\quad \hat{y}_i = t_it_{\ol{i}}h_{i-1}^{-1}h_i^2h_{i+1}^{-1},
 \end{equation}
 the latter following by reindexing the results of Lemma \ref{lemma:coefficients_values} with the present conventions, then plugging them into the definition of $\hat{y}_i$.\sayDR{The issue I have is that in Lemma 3.6 $j<i$ does not refer to the cyclic ordering of vertices as we are using here but rather the sink adapted ordering of vertices, i.e. $j$ is closer to the nearest downstream sink than $i$}\sayHW{Ah good point -- good enough? I am happy to have this sentence transposed to, say, paragraph 5 of the proof of the Thm, if you think it's better to have it enclosed in a proof environment.} %\sayHW{Maybe this formula should come with a citation to the relevant lemma in section 3.2} 
-Recall also the subset $S_{[k,\ell]} \subset \ZZ_n$ that we used in Lemma \ref{lem:regulargvectors} to describe the $\bfg$-vector of the regular representation $V_{[k,\ell]}$.
 
 \begin{theorem}\label{th:cluster character equals minor}
-Let $V_{[k,\ell]}$ be a rigid regular representation of $Q$. Then the isomorphism $\cA_{\Qdp} \cong \kk[\widetilde{LSL}_n^{c,c^{-1}}]$ of Theorem \ref{thm:coordring} identifies the regular cluster variable $x_{V_{[k,\ell]}}$ with the restriction of the level zero minor $\Delta_{\omega_{S_{[k,\ell]}}}$. 
+Let $\Qrep_{[k,\ell]}$ be a rigid regular representation of $Q$. Then in $\cA_{\Qdp} \cong \kk[\widetilde{LSL}_n^{c,c^{-1}}]$ the regular cluster variable $x_{\Qrep_{[k,\ell]}}$ is the restriction of the level zero minor $\Delta_{\bfg(\Qrep_{[k,\ell]})}$. 
+%Then the isomorphism $\cA_{\Qdp} \cong \kk[\widetilde{LSL}_n^{c,c^{-1}}]$ of Theorem \ref{thm:coordring} identifies the regular cluster variable $x_{\Qrep_{[k,\ell]}}$ with the restriction of the level zero minor $\Delta_{\omega_{S_{[k,\ell]}}}$. 
 \end{theorem}
 \begin{proof}
+Recall from Lemma \ref{lem:regulargvectors} the subset $S_{[k,\ell]} \subset \ZZ_n$ such that $\bfg(\Qrep_{[k,\ell]}) = \omega_{S_{[k,\ell]}}$. 
 Let $\cP_{[k,\ell]}$ denote the set of pairwise disjoint collections of paths in $\cN^{c,c^{-1}}$ with $\partial_{in}P = \partial_{out}P = S_{[k,\ell]}$. 
-%Our goal is to identify this with the evaluation $x_{V_{[k,\ell]}}(g)$ of the cluster character from \eqref{eq:regular cluster characters}, where the functions $x_i,\hat y_j\in\kk[G^{c,c^{-1}}]$ are determined by the initial cluster \eqref{eq:initialcluster}.\sayDR{Say this better, maybe compute $x_i(g)$ and $\hat y_j(g)$ here?  I just realized an abuse of notation by writing $x_i$ in both sections 2.2 and 2.3.}
+%Our goal is to identify this with the evaluation $x_{\Qrep_{[k,\ell]}}(g)$ of the cluster character from \eqref{eq:regular cluster characters}, where the functions $x_i,\hat y_j\in\kk[G^{c,c^{-1}}]$ are determined by the initial cluster \eqref{eq:initialcluster}.\sayDR{Say this better, maybe compute $x_i(g)$ and $\hat y_j(g)$ here?  I just realized an abuse of notation by writing $x_i$ in both sections 2.2 and 2.3.}
 %As in Lemma \ref{lem:phi}, we define the bridge set $\beta(P) \subset \ZZ_n$ by letting $j \in \beta(P)$ if and only if a path in $P$ traverses the unique edge of weight $t_j$. 
 We claim that for $P \in \cP_{[k,\ell]}$: 
 \begin{enumerate}
 \item the bridge set $\beta(P)$ is a target-closed subset of $[k,\ell]$, 
 \item we have
 \[
-wt(P) = x^{\bfg(V_{[k,\ell]})} \prod_{j \in \beta(P)} \hat{y}_j,
+wt(P) = x^{\bfg(\Qrep_{[k,\ell]})} \prod_{j \in \beta(P)} \hat{y}_j,
 \]
 \item 
 the assignment $P \mapsto \beta(P)$ defines a bijection between $\cP_{[k,\ell]}$ and the set $\cE_{[k,\ell]}$ of target-closed subsets of $[k,\ell]$.
@@ -2161,7 +2163,7 @@ Write $P_0\in\cP_{[k,\ell]}$ for the trivial collection of pairwise disjoint pat
 %Let $\bfe_0=\boldsymbol{0}\in\ZZ_{\ge0}^n$ and n
 Note that 
 \[
-wt(P_0)=\prod_{i \in S_{[k,\ell]}}h_{i+1} h_i^{-1}=x^{\bfg(V_{[k,\ell]})}.
+wt(P_0)=\prod_{i \in S_{[k,\ell]}}h_{i+1} h_i^{-1}=x^{\bfg(\Qrep_{[k,\ell]})}.
 %h_{k-1}h_\ell^{-1}\prod_{r=1}^m (h_{o_r}h_{i_r}^{-1})=x^{g_{[k,\ell]}}.
 \]  
 We will show how to inductively modify $P_0$ to obtain a unique collection $P\in\cP_{[k,\ell]}$ with $\beta(P)=E$, keeping track of how the weight of the collection changes along the way. 
@@ -2169,7 +2171,7 @@ We will show how to inductively modify $P_0$ to obtain a unique collection $P\in
 %Note that since each $P\in\cP_{[k,\ell]}$ has the same starting and ending set of vertices $S_{[k,\ell]}$, it suffices to only describe the upward steps along bridges labeled $t_j$ for $j\in[1,n]$ since the downward steps along bridges labeled $t_j$ for $j\in[-n,-1]$ will be mirror to these upward steps.  
 That is, for $1\le r\le m+1$ we build from $P_{r-1}$ a new collection $P_r \in \cP_{[k,\ell]}$ such that
 \[
-wt(P_r) = x^{\bfg(V_{[k,\ell]})} \prod_{j \in E \cap [k,i_r]} \hat{y}_j.
+wt(P_r) = x^{\bfg(\Qrep_{[k,\ell]})} \prod_{j \in E \cap [k,i_r]} \hat{y}_j.
 \]
 We keep the convention that $i_0=k$ and $i_{m+1}=o_{m+1}=\ell+1$, and define $P_r$ in two steps:
 \begin{enumerate}
@@ -2183,7 +2185,7 @@ wt(P'_r)=wt(P_{r-1})\cdot h_{i_{r-1}-1}^{-1}h_{i_{r-1}}h_{o'_r}h_{o'_r+1}^{-1}\p
 \]
 In either case, using our inductive assumption on $wt(P_{r-1})$ and the fact that $E$ is target-closed we have 
 \[
-wt(P'_r) = x^{\bfg(V_{[k,\ell]})} \prod_{j \in E \cap [k,o_{r}-1]} \hat{y}_j
+wt(P'_r) = x^{\bfg(\Qrep_{[k,\ell]})} \prod_{j \in E \cap [k,o_{r}-1]} \hat{y}_j
 \]
 %Let $o'_r\in[i_{r-1},o_r-1]$ be maximum so that $[i_{r-1},o'_r]\subset E$.  
 %If no such $o'_r$ exists (i.e. $i_{r-1}\notin E$) let $P'_r=P_{r-1}$.  
@@ -2201,7 +2203,7 @@ If $P_r \neq P'_r$, we have
 \[wt(P_r)=wt(P'_r)\cdot h_{o''_r-1}^{-1}h_{o''_r}h_{i_r}h_{i_r+1}^{-1}\prod_{j\in[o''_r,i_r]}(t_jt_{\ol{j}})=wt(P'_r)\prod_{j \in [o''_r,i_r]} \hat{y}_j.\] 
 In either case, again by induction and the fact that $E$ is target-closed we have
 \[
-wt(P_r) = x^{\bfg(V_{[k,\ell]})} \prod_{j \in E \cap [k,i_r]} \hat{y}_j.
+wt(P_r) = x^{\bfg(\Qrep_{[k,\ell]})} \prod_{j \in E \cap [k,i_r]} \hat{y}_j.
 \]
 %  Set $\bfe_r=\bfe'_r+\sum\limits_{j\in[o''_r,i_r]}\alpha_j$.
 %  In the latter case, the weight of $P'_r$ transforms as follows: 
@@ -2219,7 +2221,7 @@ We anticipate that the realization of regular cluster variables as level zero mi
 This is suggested, for example, by the following fact about $\bfg$-vectors in affine types:
 
 \begin{proposition}
-Let $B$ be an acyclic skew-symmetrizable matrix whose Cartan companion $A$ is of affine type. Let $x_{i;t} \in \cA_B$ be any non-initial cluster variable, $\bfg_{i;t}$ its $\bfg$-vector, and $\lambda_{i;t} \in P$ the associated weight. Then the level of $V(\lambda_{i;t})$ is greater than, equal to, or less than zero exactly when $x_{i;t}$ is preprojective, regular, or preinjective, respectively.
+Let $B$ be an acyclic skew-symmetrizable matrix whose Cartan companion $A$ is of affine type. Let $x_{i;t} \in \cA_B$ be any non-initial cluster variable and $\bfg_{i;t} \in P$ its $\bfg$-vector. Then the level of $V(\bfg_{i;t})$ is greater than, equal to, or less than zero exactly when $x_{i;t}$ is preprojective, regular, or preinjective, respectively.
 \end{proposition}
 \begin{proof}
 The claim about preprojective and preinjective cluster variables follows from Theorem \ref{thm:vars_and_rels_in_bipartite_belt}. The claim about regular cluster variables corresponding to weights of level zero follows from [RS].\sayHW{Salvatore: this is a result of you and Nathan, right?}
@@ -2228,7 +2230,7 @@ The claim about preprojective and preinjective cluster variables follows from Th
 With the preceding proposition in hand we pose the following specific form of Conjecture \ref{conj:mainconjecture} in affine type:
 
 \begin{conjecture}\label{conj:affine}
-Let $B$ be an acyclic skew-symmetrizable matrix whose Cartan companion $A$ is of affine type. Let $x_{i;t} \in \cA_{\Bdp}$ be any regular cluster variable and $\lambda_{i;t} \in P$ its $\bfg$-vector interpreted as a weight. Then the isomorphism $\cA_{\Bdp} \cong \kk[G^{c,c^{-1}}]$ identifies $x_{i;t}$ with the level zero minor $\Delta_{\lambda_{i;t}}$.
+Let $B$ be an acyclic skew-symmetrizable matrix whose Cartan companion $A$ is of affine type. Let $x_{i;t} \in \cA_{\Bdp}$ be any regular cluster variable and $\bfg_{i;t} \in P$ its $\bfg$-vector. Then in $\cA_{\Bdp} \cong \kk[G^{c,c^{-1}}]$, $x_{i;t}$ is the restriction of the level zero minor $\Delta_{\bfg_{i;t}}$.
 \end{conjecture}
 
 While the combinatorics we used to prove Conjecture \ref{conj:affine} in type $A_n^{(1)}$ is not available in general, in some types it is possible to compute the relevant minors by hand. In the simplest cases this can be done using only the characters of these representations (e.g. when they are spaces of Laurent polynomials valued in a representation without weight spaces of dimension greater than one), and the results are consistent with Conjecture \ref{conj:affine}:
@@ -2272,15 +2274,15 @@ with $\bfg$-vector is $\omega_3 - \omega_2$.
 \subsection{The Homogeneous Element}\sayHW{In the process of trying to flesh out this section more, I'm a bit ambivalent about some of the notation I introduced, e.g. using $\lambda$ as a parameter for the tubes when we often use it as a weight.}
 We conclude with an extension of Theorem~\ref{th:cluster character equals minor} motivated by the theory of canonical bases. Cluster monomials form a partial basis of a cluster algebra, and there are various meaningful (and in general different) ways of completing them to a full basis [references]. One approach in line with the considerations of this paper is to form a basis consisting of cluster characters of potentially non-rigid representations. By taking the cluster character of a generic representation with each possible $\bfg$-vector, one obtains the generic basis of \cite{Dup12} (which directly generalizes the dual semicanonical basis of Lusztig).
 
-When $Q$ is an acyclic orientation of an $n$-cycle as in Section \ref{sec:rigidregular}, the simplest example of a non-rigid representation is the representation $V_\lambda$ at the base of a homogeneous tube $\mathcal{T}_\lambda$, $\lambda \in \kk^*$. That is, $V_\lambda$ consists of a one-dimensional vector space at each vertiex of $Q$, with arrows acting by isomorphisms such that the monodromy around $Q$ is equal to $\lambda$. The dimension vector of $V_\lambda$ is the minimal imaginary root $\delta$, and if $i_1<\cdots<i_m$ and $o_1<\cdots < o_m$ denote the sinks and sources of $Q$, its $\bfg$-vector is 
+When $Q$ is an acyclic orientation of an $n$-cycle as in Section \ref{sec:rigidregular}, the simplest example of a non-rigid representation is the representation $\Qrep_\lambda$ at the base of a homogeneous tube $\mathcal{T}_\lambda$, $\lambda \in \kk^*$. That is, $\Qrep_\lambda$ consists of a one-dimensional vector space at each vertiex of $Q$, with arrows acting by isomorphisms such that the monodromy around $Q$ is equal to $\lambda$. The dimension vector of $\Qrep_\lambda$ is the minimal imaginary root $\delta$, and if $i_1<\cdots<i_m$ and $o_1<\cdots < o_m$ denote the sinks and sources of $Q$, its $\bfg$-vector is 
 \[
-\bfg(V_\lambda) = \omega_\delta := \sum_{j=1}^m \omega_{o_j} - \omega_{i_j}.
+\bfg(\Qrep_\lambda) = \sum_{j=1}^m \omega_{o_j} - \omega_{i_j}.
 \]
-The cluster character of $V_\lambda$ is independent of $\lambda$, and we refer to the resulting element of the generic basis as the homogeneous element.
+The cluster character of $\Qrep_\lambda$ is independent of $\lambda$, and we refer to the resulting element of the generic basis as the homogeneous element.
 
 %We conclude with a final suggestive result which is proven exactly as Theorem~\ref{th:cluster character equals minor}.
 \begin{theorem}
-The isomorphism $\cA_{Qdp} \cong \kk[\widetilde{LSL}_n^{c,c^{-1}}]$ identifies the homogeneous element $x_{V_\lambda}$ with the level zero minor $\Delta_{\omega_\delta}$. 
+In $\cA_{Qdp} \cong \kk[\widetilde{LSL}_n^{c,c^{-1}}]$ the homogeneous element $x_{\Qrep_\lambda}$ is the restriction of the level zero minor $\Delta_{\bfg(\Qrep_\lambda)}$. 
 %  Let $D$ be any indecomposable representation $Q$ with dimension vector $\delta=\sum\limits_{i\in Q_0}\alpha_i$ and all maps isomorphisms.  Under the identification $\kk[G^{c,c^{-1}}] \cong A_Q$ we have
 %  \[x_D = \Delta_{\omega_S}\]
 %  for $S=[i_1,o_1-1] \cup [i_2,o_2-1] \cup \cdots \cup [i_m,o_m-1]$, where $i_1<o_1<\cdots<i_m<o_m<i_1$ denote the sinks and sources of $Q$ in the cyclic ordering of vertices.
