@@ -52,7 +52,7 @@ urlcolor=blue]{hyperref}
 \newcommand{\PP}{\mathbb{P}}
 \newcommand{\TT}{\mathbb{T}}
 \newcommand{\ZZ}{\mathbb{Z}}
-\newcommand{\kk}{\Bbbk}%\mathbbm{k}}
+\newcommand{\kk}{\Bbbk}
 
 \newcommand{\bfb}{\mathbf{b}}
 \newcommand{\bfc}{\mathbf{c}}
@@ -159,7 +159,7 @@ The cluster algebra of any acyclic quiver is the coordinate ring of a subvariety
 
 %in this algebra label representations of the quiver, 
 
-%identified with the coordinate ring of a double Bruhat cell in the corresponing Kac-Moody group -- the quiver is an orientation of its Dynkin diagram, hence encodes a Coxeter element used to specify the cell. Cluster variables in this coordinate ring correspond to representations of the quiver. We show that cluster variables corresponding to preprojective representations 
+%identified with the coordinate ring of a double Bruhat cell in the corresponding Kac-Moody group -- the quiver is an orientation of its Dynkin diagram, hence encodes a Coxeter element used to specify the cell. Cluster variables in this coordinate ring correspond to representations of the quiver. We show that cluster variables corresponding to preprojective representations 
 \end{abstract}
 
 \maketitle
@@ -430,7 +430,7 @@ The definition of the cluster character involves the \newword{coindex} $\coind(M
 \]
 is an injective resolution of $M$, then $\coind(M)$ is the element of $\ZZ^n$ whose $j$-th component is $a_j - b_j$. Below we write $x^{-\coind(M)}$ for the monomial $\prod x_j^{b_j - a_j}$. 
 
-Given a dimension vector $e \in \NN^n$, the \newword{quiver Grassmannian} $\Gr_eM$ is the variety of $e$-dimensional submodules of $M$. We write $\chi(\Gr_eM)$ for its Euler characteristic (formally, in \'Etale cohomology with compact supports), and write $\hat{y}^e$ for the monomial $\prod_j \hat{y}_j^{e_j}$, where $e_j$ is the $j$-th component of $e \in \NN^n$ and we write $\hat{y}_j$ for the monomial $\prod\limits_{i=1}^m x_i^{b_{ij}}$.
+Given a dimension vector $e \in \NN^n$, the \newword{quiver Grassmannian} $\Gr_eM$ is the variety of $e$-dimensional submodules of $M$. We write $\chi(\Gr_eM)$ for its Euler characteristic (formally, in \'etale cohomology with compact supports), and write $\hat{y}^e$ for the monomial $\prod_j \hat{y}_j^{e_j}$, where $e_j$ is the $j$-th component of $e \in \NN^n$ and we write $\hat{y}_j$ for the monomial $\prod\limits_{i=1}^m x_i^{b_{ij}}$.
 
 \begin{definition}
 The cluster character of a representation $M$ of $Q$ is
@@ -601,7 +601,7 @@ When $\widehat{G}$ is of affine type, the representations $V(\lambda)$ with $\la
 
 A crucial feature of generalized minors is the following generalized determinantal identity:
 
-\begin{proposition}[FZ, Wil13]
+\begin{proposition}\cite{FZ99,Wil13}
   \label{prop:fundid}
   Suppose $u,v \in W$ and $1 \leq i \leq n$ are such that $\ell(u)<\ell(us_i)$ and $\ell(v)<\ell(vs_i)$. 
   Then 
@@ -2273,7 +2273,7 @@ with $\bfg$-vector is $\omega_3 - \omega_2$.
 \subsection{The Homogeneous Element}\sayHW{In the process of trying to flesh out this section more, I'm a bit ambivalent about some of the notation I introduced, e.g. using $\lambda$ as a parameter for the tubes when we often use it as a weight.}
 We conclude with an extension of Theorem~\ref{th:cluster character equals minor} motivated by the theory of canonical bases. Cluster monomials form a partial basis of a cluster algebra, and there are various meaningful (and in general different) ways of completing them to a full basis [references]. One approach in line with the considerations of this paper is to form a basis consisting of cluster characters of potentially non-rigid representations. By taking the cluster character of a generic representation with each possible $\bfg$-vector, one obtains the generic basis of \cite{Dup12} (which directly generalizes the dual semicanonical basis of Lusztig).
 
-When $Q$ is an acyclic orientation of an $n$-cycle as in Section \ref{sec:rigidregular}, the simplest example of a non-rigid representation is the representation $\Qrep_\lambda$ at the base of a homogeneous tube $\mathcal{T}_\lambda$, $\lambda \in \kk^*$. That is, $\Qrep_\lambda$ consists of a one-dimensional vector space at each vertiex of $Q$, with arrows acting by isomorphisms such that the monodromy around $Q$ is equal to $\lambda$. The dimension vector of $\Qrep_\lambda$ is the minimal imaginary root $\delta$, and if $i_1<\cdots<i_m$ and $o_1<\cdots < o_m$ denote the sinks and sources of $Q$, its $\bfg$-vector is 
+When $Q$ is an acyclic orientation of an $n$-cycle as in Section \ref{sec:rigidregular}, the simplest example of a non-rigid representation is the representation $\Qrep_\lambda$ at the base of a homogeneous tube $\mathcal{T}_\lambda$, $\lambda \in \kk^*$. That is, $\Qrep_\lambda$ consists of a one-dimensional vector space at each vertex of $Q$, with arrows acting by isomorphisms such that the monodromy around $Q$ is equal to $\lambda$. The dimension vector of $\Qrep_\lambda$ is the minimal imaginary root $\delta$, and if $i_1<\cdots<i_m$ and $o_1<\cdots < o_m$ denote the sinks and sources of $Q$, its $\bfg$-vector is 
 \[
 \bfg(\Qrep_\lambda) = \sum_{j=1}^m \omega_{o_j} - \omega_{i_j}.
 \]
