@@ -1,5 +1,5 @@
 \documentclass[12pt]{amsart}
-\usepackage{mathtools,amsmath,amsthm,amssymb,amsbsy,amstext,amsopn}
+\usepackage{mathtools,amsmath,amsthm,amssymb,amsbsy,amstext,amsopn,enumerate}
 \usepackage{xcolor}
 \usepackage{graphicx}
 \usepackage{microtype}
@@ -2120,7 +2120,7 @@ Let $\cP_{[k,\ell]}$ denote the set of pairwise disjoint collections of paths in
 %Our goal is to identify this with the evaluation $x_{\Qrep_{[k,\ell]}}(g)$ of the cluster character from \eqref{eq:regular cluster characters}, where the functions $x_i,\hat y_j\in\kk[G^{c,c^{-1}}]$ are determined by the initial cluster \eqref{eq:initialcluster}.\sayDR{Say this better, maybe compute $x_i(g)$ and $\hat y_j(g)$ here?  I just realized an abuse of notation by writing $x_i$ in both sections 2.2 and 2.3.}
 %As in Lemma \ref{lem:phi}, we define the bridge set $\beta(P) \subset \ZZ_n$ by letting $j \in \beta(P)$ if and only if a path in $P$ traverses the unique edge of weight $t_j$. 
 We claim that for $P \in \cP_{[k,\ell]}$: 
-\begin{enumerate}
+\begin{enumerate}[\quad\upshape (a)]
 \item the bridge set $\beta(P)$ is a target-closed subset of $[k,\ell]$, 
 \item we have
 \[
@@ -2151,7 +2151,7 @@ Noting that $[\ell^+,k^-]\cap\partial_{in}P=\emptyset$ and then arguing as above
 
 Write $i_0=k$ and $i_{m+1}=o_{m+1}=\ell+1$.  For $1\le r\le m+1$ and $j\in[i_{r-1},o_r-1]\subset\partial_{in}P$, we have $j+1\to j$ in $Q$ and part (1) of Lemma~\ref{lem:phi} says $j+1\in\beta(P)$ implies $j\in\beta(P)$.  
 For $1\le r\le m$ and $j\in[o_r,i_r-1]$, we have $j\notin\partial_{in}P$ and $j\to j+1$ in $Q$ so that part (2) of Lemma~\ref{lem:phi} says $j\in\beta(P)$ implies $j+1\in\beta(P)$.  
-Putting these observations together, we conclude that $\beta(P)\subset[k,\ell]$ is target-closed.
+Putting these observations together, we conclude that $\beta(P)\subset[k,\ell]$ is target-closed and (a) is established.
 
 Now suppose $E\in\cE_{[k,\ell]}$ is a target-closed subset of $[k,\ell]$.  
 Write $P_0\in\cP_{[k,\ell]}$ for the trivial collection of pairwise disjoint paths in which the path beginning on level $j\in S_{[k,\ell]}=\partial_{in}P_0$ stays on level $j$ without traversing any bridges. 
@@ -2161,7 +2161,7 @@ Note that
 wt(P_0)=\prod_{i \in S_{[k,\ell]}}h_{i+1} h_i^{-1}=x^{\bfg(\Qrep_{[k,\ell]})}.
 %h_{k-1}h_\ell^{-1}\prod_{r=1}^m (h_{o_r}h_{i_r}^{-1})=x^{g_{[k,\ell]}}.
 \]  
-We will show how to inductively modify $P_0$ to obtain a unique collection $P\in\cP_{[k,\ell]}$ with $\beta(P)=E$, keeping track of how the weight of the collection changes along the way. 
+We will show how to inductively modify $P_0$ to obtain a unique collection $\pi(E)\in\cP_{[k,\ell]}$ with $\beta(\pi(E))=E$, keeping track of how the weight of the collection changes along the way. 
 %along the way we also compute $wt(P)$ for these collections and show coincidence with $x^{g_{[k,\ell]}}(g)\hat y^\bfe(g)$ for $\bfe=\sum\limits_{j\in E}\alpha_j\in\cQ$.  
 %Note that since each $P\in\cP_{[k,\ell]}$ has the same starting and ending set of vertices $S_{[k,\ell]}$, it suffices to only describe the upward steps along bridges labeled $t_j$ for $j\in[1,n]$ since the downward steps along bridges labeled $t_j$ for $j\in[-n,-1]$ will be mirror to these upward steps.  
 That is, for $1\le r\le m+1$ we build from $P_{r-1}$ a new collection $P_r \in \cP_{[k,\ell]}$ such that
@@ -2204,9 +2204,9 @@ wt(P_r) = x^{\bfg(\Qrep_{[k,\ell]})} \prod_{j \in E \cap [k,i_r]} \hat{y}_j.
 %  In the latter case, the weight of $P'_r$ transforms as follows: 
 %  \[wt(P_r)=wt(P'_r)\cdot h_{o''_r-1}^{-1}h_{o''_r}h_{i_r}h_{i_r+1}^{-1}\prod_{j\in[o''_r,i_r]}(t_jt_{-j})=x^{g_{[k,\ell]}}(g)\hat y^{\bfe_r}(g).\]
 \end{enumerate}
-By induction, $P=P_{m+1} \in \cP_{[k,\ell]}$ has $\beta(P)=E$ and 
-\[wt(P)=x^{g_{[k,\ell]}}(g)\prod_{j\in E}\hat y_j(g),\]
-completing the proof.\sayHW{Probably should followup on the uniqueness aspect of finding $P$ with $\beta(P) = E$.}
+By induction, $\pi(E)=P_{m+1} \in \cP_{[k,\ell]}$ has $\beta(\pi(E))=E$ and 
+\[wt(\pi(E))=x^{\bfg(M_{[k,\ell]})}\prod_{j\in E}\hat y_j,\]
+as desired in (b).  Noting that $\pi(\beta(P))=P$ for any $P\in\cP_{[k,\ell]}$ shows (c) and completes the proof.\sayHW{Probably should followup on the uniqueness aspect of finding $P$ with $\beta(P) = E$.}\sayDR{We could probably say more details if needed, but how is this?}
 \end{proof}
 
 
