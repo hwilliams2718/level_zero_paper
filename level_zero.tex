@@ -618,16 +618,16 @@ While the above identity on $G$ is the one we use directly, we note that it rest
 
 \subsection{Acyclic cluster algebras from double Bruhat cells}
 
-The data of an $n\times n$ acyclic skew-symmetrizable matrix $B$ is equivalent to the data of a symmetrizable Cartan matrix $A$ (the \newword{Cartan companion} of $B$) together with a Coxeter element $c$ of its Weyl group.
+The data of an $n\times n$ acyclic skew-symmetrizable matrix $B$ is equivalent to the data of a symmetrizable Cartan matrix $A$ (the \newword{Cartan companion} of $B$) together with a reduced word $(\sigma_1,\ldots,\sigma_n)$ for a Coxeter element $c$ of its Weyl group.
 The Cartan matrix is obtained from $B$ by making all its entries negative without changing their absolute values, then setting each diagonal entry equal to two; see Figure \ref{fig:matrices}.
-Recall that, since $B$ is acyclic, there is a permutation $\sigma \in S_n$ such that $b_{\sigma_i \sigma_j} \geq 0$ when $\sigma_i < \sigma_j$, and we take $c$ to be $s_{\sigma_1} \cdots s_{\sigma_n}$\sayDR{Fix this definition} (choosing a different permutation with the above property defines the same Coxeter element via a different reduced word).
+The reduced word $(\sigma_1,\ldots,\sigma_n)$ for $c$ is equivalent to a permutation $\sigma \in S_n$ which satisfies the following property: $b_{\sigma_i \sigma_j} \geq 0$ when $\sigma_i < \sigma_j$, such a permutation exists since $B$ is acyclic (choosing a different permutation with the above property defines the same Coxeter element via a different reduced word).
 Conversely, any acyclic skew-symmetrizable matrix can be obtained from a Cartan matrix and a Coxeter element $c$ by assigning signs to the off-diagonal entries according to $c$.
 
 We can realize the cluster algebra associated to the acyclic matrix $B$ geometrically in terms of the Kac-Moody group $G$ associated to $A$. More precisely, through the group we naturally find the algebra associated to the exchange matrix
 \[
 \Bdp := \begin{bmatrix} B \\ Id_n \\ Id_n \end{bmatrix},
 \]
-which we say has \newword{doubled principal coefficients}. When working with the cluster algebra $\cA_{\Bdp}$ we will denote the frozen variables $x_{i+n}$ and $x_{i+2n}$ for $1 \leq i \leq n$ by $z_i$ and $z_{ol{i}}$, respectively
+which we say has \newword{doubled principal coefficients}. When working with the cluster algebra $\cA_{\Bdp}$ we will denote the frozen variables $x_{i+n}$ and $x_{i+2n}$ for $1 \leq i \leq n$ by $z_i$ and $z_{\ol{i}}$, respectively
 
 %The goal of this section is to realize geometrically the ``doubled principal coefficients'' cluster algebra $\cA_{\widetilde B_{\doublebullet}}$, given by the $3n\times n$ extensions $\widetilde B_{\doublebullet}$ of $B$ by two identity matrices, in terms of the derived Kac-Moody group $G$ associated to $A$. 
 %\saySS{Giovanni suggested to use two bullets one on top of the other for doubled principal coefficients. The standard notation for principal coefficients is a single bullet so it sounded like a good idea to stack two bullets.}
@@ -639,6 +639,10 @@ G = \bigsqcup_{u,v \in W} G^{u,v},\quad G^{u,v} : = B_+ u B_+ \cap B_- v B_-
 \]
 of $G$, where $B_{\pm}$ are the standard opposite Borel subgroups of $G$. 
 Each $G^{u,v}$ is a smooth affine variety of dimension $n + \ell(u) + \ell(v)$, where $\ell(u)$, $\ell(v)$ are the lengths of $u$ and $v$ \cite{FZ99,Wil13}. 
+\begin{remark}
+Each $G^{u,v}$ is the intersection of $G \subset \widehat{G}$ with the double Bruhat cell $\widehat{G}^{u,v}$ of $\widehat{G}$. 
+The coordinate ring of the latter is also an upper cluster algebra whose initial exchange matrix has the same principal part, but with $\corank(A)$ additional frozen variables: $G^{u,v}$ is the locus where these are equal to one.
+\end{remark}
 The coordinate ring of $G^{u,v}$ is an upper cluster algebra, and a finite subset of its clusters are in correspondence with shuffles of reduced words for $u$ and $v$ \cite{BFZ05,Wil13}. 
 
 \begin{theorem}
@@ -664,13 +668,9 @@ The coordinate ring of $G^{u,v}$ is an upper cluster algebra, and a finite subse
   Indeed, since the variables $z_j$ are obtained from the minors $\Delta^{\omega_j}_{ c\omega_j}$ by an invertible monomial transformation (and the variables $z_{\ol{j}}$ are obtained similarly from the minors $\Delta^{c \omega_j}_{\omega_j}$), we can use separation of additions to rescale all the cluster variables in $\kk[G^{c,c^{-1}}]$ and establish the desired isomorphism (Cf. \cite[Proposition 4.5]{YZ08}).
   \saySS{The proof of this theorem should now be correct but I am quite unhappy because it is vague and it uses some results without recalling all the required details. Can you improve what I did in any way?}
 \end{proof}
-
 \begin{remark}
-Each $G^{u,v}$ is the intersection of $G \subset \widehat{G}$ with the double Bruhat cell $\widehat{G}^{u,v}$ of $\widehat{G}$. 
-The coordianate ring of the latter is also an upper cluster algebra whose initial exchange matrix has the same principal part but $\corank(A)$ additional frozen variables: $G^{u,v}$ is the locus where these are equal to one. 
-
-In the other direction one could consider the $2n$-dimensional subvariety $L^{c,c^{-1}} \subset G^{c,c^{-1}}$ where $z_{\ol{1}},\dotsc,z_{\ol{n}}$ are equal to one; this is the reduced double Bruhat cell studied in \cite{YZ08}. 
-In particular, $\kk[L^{c,c^{-1}}]$ is the cluster algebra with principal coefficients associated to $B$, and our results immediately translate to statements in the principal coefficients case by specializing $z_{\ol{1}},\dotsc,z_{\ol{n}}$ to one. 
+  One could consider the $2n$-dimensional subvariety $L^{c,c^{-1}} \subset G^{c,c^{-1}}$ where $z_{\ol{1}},\dotsc,z_{\ol{n}}$ are equal to one; this is the reduced double Bruhat cell studied in \cite{YZ08}. 
+  In particular, $\kk[L^{c,c^{-1}}]$ is the cluster algebra with principal coefficients associated to $B$, and our results immediately translate to statements in the principal coefficients case by specializing $z_{\ol{1}},\dotsc,z_{\ol{n}}$ to one. 
 %While this has a prominent role from the cluster algebra point of view, we prefer to work with doubled principal coefficients not to break the symmetry in the definition of the variety at hand.
 %All our results restrict to the principal coefficients case by specializing $z_{-1},\dotsc,z_{-n}$ to one.
 \end{remark}
