@@ -145,11 +145,11 @@ urlcolor=blue]{hyperref}
 \email{hwilliams@math.utexas.edu}
 
 \begin{abstract}
-The cluster algebra of any acyclic quiver is the coordinate ring of a subvariety in a corresponding Kac-Moody group -- the quiver is an orientation of its Dynkin diagram, defining a Coxeter element and thereby a double Bruhat cell. We interpret cluster variables in this realization in terms of the representation theory of the group and relate this to their interpretation as generating functions associated to quiver representations(**). We show that cluster variables of preprojective quiver representations are realized by generalized minors of highest-weight group representations (generalizing results of Yang-Zelevinsky in finite type), and that cluster variables of preinjective quiver representations are realized by generalized minors of lowest-weight group representations. In type $A_n^{\!(1)}$ and several other affine types, we show that cluster variables of regular quiver representations are realized by generalized minors of group representations that are neither highest- nor lowest-weight; we conjecture this holds more generally.
+The cluster algebra of any acyclic quiver is the coordinate ring of a subvariety in a corresponding Kac-Moody group -- the quiver is an orientation of its Dynkin diagram, defining a Coxeter element and thereby a double Bruhat cell. We interpret cluster variables in this realization in terms of the representation theory of the group and relate this to their interpretation as generating functions associated to quiver representations(**). We show that cluster variables of preprojective quiver representations are realized by generalized minors of highest-weight group representations (generalizing results of Yang-Zelevinsky in finite type), and that cluster variables of postinjective quiver representations are realized by generalized minors of lowest-weight group representations. In type $A_n^{\!(1)}$ and several other affine types, we show that cluster variables of regular quiver representations are realized by generalized minors of group representations that are neither highest- nor lowest-weight; we conjecture this holds more generally.
 
-%to their interpretation in terms of quiver representations. We show that the cluster variables associated to preprojective quiver representations are realized as generalized minors of highest weight representations (generalizing results of Yang-Zelevinsky in finite type), those of preinjective representations are generalized minors of lowest weight representations, and in type $A_n^{1}$
+%to their interpretation in terms of quiver representations. We show that the cluster variables associated to preprojective quiver representations are realized as generalized minors of highest weight representations (generalizing results of Yang-Zelevinsky in finite type), those of postinjective representations are generalized minors of lowest weight representations, and in type $A_n^{1}$
 
-%The cluster algebra of any acyclic quiver is the coordinate ring of a subvariety in a corresponding Kac-Moody group -- the quiver is an orientation of its Dynkin diagram, defining a Coxeter element and thereby a double Bruhat cell. Cluster variables have an interpretation in terms of quiver representation theory: each is a generating function of framed Donaldson-Thomas invariants of a distinct indecomposable representation. We study the interpretation of these functions in terms of the representation theory of the group. We show that cluster variables of preprojective and preinjective quiver representations are generalized minors of highest- and lowest-weight representations, respectively, generalizing the results of Yang-Zelevinsky in finite type. We show that if the quiver is an acyclic orientation of an $n$-cycle -- so the groups is the centrally-extended loop group of $SL_n$ -- then moreover the regular cluster variables are generalized minors of level zero representations.
+%The cluster algebra of any acyclic quiver is the coordinate ring of a subvariety in a corresponding Kac-Moody group -- the quiver is an orientation of its Dynkin diagram, defining a Coxeter element and thereby a double Bruhat cell. Cluster variables have an interpretation in terms of quiver representation theory: each is a generating function of framed Donaldson-Thomas invariants of a distinct indecomposable representation. We study the interpretation of these functions in terms of the representation theory of the group. We show that cluster variables of preprojective and postinjective quiver representations are generalized minors of highest- and lowest-weight representations, respectively, generalizing the results of Yang-Zelevinsky in finite type. We show that if the quiver is an acyclic orientation of an $n$-cycle -- so the groups is the centrally-extended loop group of $SL_n$ -- then moreover the regular cluster variables are generalized minors of level zero representations.
 
 %An acyclic quiver defines a cluster algebra, and each cluster variable in this algebra encodes the submodule structure of a distinct indecomposable representations of the quiver. On the other hand, this algebra can be realized as the coordinate ring of a subvariety in a corresponding Kac-Moody group -- the quiver is an orientation of its Dynkin diagram, defining a Coxeter element and thereby a double Bruhat cell. This sets up an interplay between quiver representation theory and Lie theory: one asks for Lie-theoretic description of cluster variables, and how it relates to their interpretation in quiver representation theory. 
 
@@ -171,7 +171,7 @@ The cluster algebra of any acyclic quiver is the coordinate ring of a subvariety
 \section{Todo list}
 \begin{itemize}
   \item
-    Decide on preprojective/postinjective notation and apply changes through
+    Decide on preprojective/postinjective notation and apply changes through\sayDR{I made the change to post- throughout, please argue if you disagree}
   \item
     Fix the algebra statements: double principal vs double Euler
   \item
@@ -189,11 +189,11 @@ The cluster algebra of any acyclic quiver is the coordinate ring of a subvariety
 
 Given a finite quiver $Q$ without oriented cycles, there is an associated group $G$: the Kac-Moody group whose Dynkin diagram is the underlying unoriented graph of $Q$. The representation theory of $Q$ is connected to $G$ and its Lie algebra in a range of ways; for example, one has the classical result of \cite{BGP73} that if $Q$ is of ADE type, its indecomposable representations are classified by the positive roots of $G$. In this paper we explore a new relationship, suggested by the results of \cite{YZ08} in finite type. Broadly speaking, we will be interested in the interplay between the following two trichotomies in the representation theories of $G$ and $Q$.
 
-%The relationship is naturally stated in the language of cluster algebras, and takes the form on an interplay between two trichotomies in the representation theory of quivers and Kac-Moody groups: the classification of indecomposable $Q$-representations as preprojective, preinjective, or regular, and the classification of irreducible $G$-representations (say, in affine type) as positive-level, negative-level, or level zero.
+%The relationship is naturally stated in the language of cluster algebras, and takes the form on an interplay between two trichotomies in the representation theory of quivers and Kac-Moody groups: the classification of indecomposable $Q$-representations as preprojective, postinjective, or regular, and the classification of irreducible $G$-representations (say, in affine type) as positive-level, negative-level, or level zero.
 
 Recall that the representation theory of $G$ is largely centered around its (dual) categories of highest- and lowest-weight representations \cite{KP83,Kum02}. These coincide exactly when $G$ is a simple algebraic group, in which case they include all representations of $G$ with finite-dimensional weight spaces. In general, $G$ has many other such representations which are only well-understood when $G$ is of affine type \cite{Cha86}. In the affine case, an irreducible representation is highest-weight, lowest-weight, or neither if its level (the character by which $Z(G) \cong \CC^\times$ acts) is positive, negative, or zero respectively.
 
-On the other hand, the representation theory of $Q$ is organized by the Auslander-Reiten translation $\tau: \rep Q \to \rep Q$ \cite{ASS06}. An indecomposable representation $M$ is projective if and only if $\tau(M) = 0$, and is injective if and only if $M$ is not of the form $\tau(N)$ for some $N$. With this in mind, one says $M$ is preprojective if $\tau^k(M) = 0$ for some $k\gg 0$, preinjective if it is not of the form $\tau^k(N)$ for any $k\gg 0$, and regular otherwise. Preprojective and preinjective representations coincide exactly when $Q$ is of ADE type, in which case there are no regular representations.
+On the other hand, the representation theory of $Q$ is organized by the Auslander-Reiten translation $\tau: \rep Q \to \rep Q$ \cite{ASS06}. An indecomposable representation $M$ is projective if and only if $\tau(M) = 0$, and is injective if and only if $M$ is not of the form $\tau(N)$ for some $N$. With this in mind, one says $M$ is preprojective if $\tau^k(M) = 0$ for some $k\gg 0$, postinjective if it is of the form $\tau^k(I)$ for some injective $I$ and some $k\ge0$, and regular otherwise. Preprojective and postinjective representations coincide exactly when $Q$ is of ADE type, in which case there are no regular representations.
 
 %While the full representation theory of $G$ is in general not well-understood, it has a well-behaved category of highest weight representations. These share many properties of finite-dimensional representations of simple Lie groups, which they specialize to when $G$ is finite-dimensional. There is a dual subcategory of lowest-weight representations. These categories coincide if and only if $G$ is finite-dimensional, in which case they encompass all representations with finite-dimensional weight spaces. Aside from this case, a complete description of all such representations exists only when $Q$ is of affine type. In this case $G$ is the central $\CC^\times$-extension of a loop group, and irreducible representations are categorized by their level: the character by which the center acts. 
 
@@ -207,10 +207,10 @@ The varieties $G^{c,c^{-1}}$ generalize the space of tridiagonal matrices with d
 From the perspective of $Q$, $\cA_Q$ is a repository for information about the submodule structure in representations of $Q$. 
 After embedding $\cA_Q$ into the ring of Laurent polynomials in the initial cluster variables, the remaining cluster variables are in bijection with the rigid indecomposable representations of $Q$ \cite{CC,CK}. 
 This correspondence takes a rigid indecomposable representation to a generating function for the Euler characteristics of its varieties of submodules, the resulting expression is called the cluster character of the representation.
-With this in mind we refer to a (non-initial) cluster variable as preprojective, preinjective, or regular according to the classification of its associated representation. 
+With this in mind we refer to a (non-initial) cluster variable as preprojective, postinjective, or regular according to the classification of its associated representation. 
 Given the description of $\cA_Q$ as the coordinate ring of $G^{c,c^{-1}}$, we see in particular that representations of $Q$ naturally label functions on a subvariety of $G$.
 
-%. To $c$ we associate the double Bruhat cell $$G^{c,c^{-1}} := B_+ c B_+ \cap B_- c^{-1} B_- \subset G,$$ and $\cA_Q$ can be identified with the coordinate ring of $G^{c,c^{-1}}$ (for suitable coefficients). On the other hand, a cluster algebra is equipped with a set of distinguished elements, cluster variables, which can be completed to a basis of $\cA_Q$ in various interesting ways. The (non-initial) cluster variables in $\cA_Q$ are in bijection with the rigid indecomposable representations of $Q$: $\cA_Q$ is canonically embedded in a Laurent polynomial ring, and to a representation we assign a generating function of Euler characteristics of its varieties of subrepresentations; we refer to a cluster variable as preprojective, preinjective, or regular according to its associated representation. In summary, representations of $Q$ label functions on a subvariety of $G$.
+%. To $c$ we associate the double Bruhat cell $$G^{c,c^{-1}} := B_+ c B_+ \cap B_- c^{-1} B_- \subset G,$$ and $\cA_Q$ can be identified with the coordinate ring of $G^{c,c^{-1}}$ (for suitable coefficients). On the other hand, a cluster algebra is equipped with a set of distinguished elements, cluster variables, which can be completed to a basis of $\cA_Q$ in various interesting ways. The (non-initial) cluster variables in $\cA_Q$ are in bijection with the rigid indecomposable representations of $Q$: $\cA_Q$ is canonically embedded in a Laurent polynomial ring, and to a representation we assign a generating function of Euler characteristics of its varieties of subrepresentations; we refer to a cluster variable as preprojective, postinjective, or regular according to its associated representation. In summary, representations of $Q$ label functions on a subvariety of $G$.
 
 When $Q$ is of classical ADE type and $G$ a simple algebraic group, Yang and Zelevinsky \cite{YZ08} showed these functions have an interpretation in terms of the representation theory of $G$: they are restrictions of generalized minors, i.e certain functions on $G$ labeled by a group representation $V$ together with a choice of extremal one-dimensional weight space $V_\lambda$. 
 Their value on $g \in G$ is the ratio of any nonzero $v \in V_\lambda$ with the projection of $gv \in V$ to $V_\lambda$. 
@@ -219,7 +219,7 @@ Our main result is that cluster variables in $\cA_Q$ are also realized as genera
 \begin{theorem}\label{thm:maintheorem}
 Let $Q$ be a finite quiver without oriented cycles and $G^{c,c^{-1}} \subset G$ the associated Coxeter double Bruhat cell.
 \begin{enumerate}
-\item The preprojective and initial cluster variables in $\cA_Q \cong \CC[G^{c,c^{-1}}]$ are restrictions of generalized minors of highest-weight representations of $G$. The preinjective cluster variables in $\cA_Q$ are restrictions of generalized minors of lowest-weight representations of $G$.
+\item The preprojective and initial cluster variables in $\cA_Q \cong \CC[G^{c,c^{-1}}]$ are restrictions of generalized minors of highest-weight representations of $G$. The postinjective cluster variables in $\cA_Q$ are restrictions of generalized minors of lowest-weight representations of $G$.
 \item Suppose $Q$ is an acyclic orientation of an $n$-cycle, so that $G$ is the central extension of the loop group $LSL_{n}$. Then the regular cluster variables in $\cA_Q$ are restrictions of generalized minors of level zero representations of $G$.
 \end{enumerate}
 \end{theorem}
@@ -227,10 +227,10 @@ Let $Q$ be a finite quiver without oriented cycles and $G^{c,c^{-1}} \subset G$ 
 Though above we have taken $G$ to be symmetric for simplicity, part (1) also holds in the symmetrizable case upon replacing quiver-theoretic notions with their species-theoretic counterparts. 
 We emphasize that although the coordinate ring of any double Bruhat cell $G^{u,v}$ is an (upper) cluster algebra, its defining quiver is generally not an orientation of the Dynkin diagram of $G$, and one expects that most cluster variables are not restrictions of minors.
 
-While the proof of (1) is mostly a straightforward generalization of the finite-type case (though of course, the distinction between preprojective and preinjective disappears there), the proof of (2) requires different methods. 
+While the proof of (1) is mostly a straightforward generalization of the finite-type case (though of course, the distinction between preprojective and postinjective disappears there), the proof of (2) requires different methods. 
 \saySS{Actually our proof is much simpler than the finite type case and I think it does not work in finite type. The crucial fact is that we use the fact that $c^k$ is reduced for any $k$ to describe $\bfc$- and $\bfg$-vectors. Do we need to say this here (not in so many details)?}
-%The most interesting part of the Theorem is (2), in the sense that the proof of (1) is an immediate generalization of the finite-type case (though of course, the distinction between preprojective and preinjective disappears there). 
-The reason (1) is true is that the preprojective and preinjective cluster variables are determined by an explicit list of relations, and these are implied by certain generalized determinantal identities that hold globally on $G$. 
+%The most interesting part of the Theorem is (2), in the sense that the proof of (1) is an immediate generalization of the finite-type case (though of course, the distinction between preprojective and postinjective disappears there). 
+The reason (1) is true is that the preprojective and postinjective cluster variables are determined by an explicit list of relations, and these are implied by certain generalized determinantal identities that hold globally on $G$. 
 However, these identities depend crucially on the fact that all minors involved are semi-invariants of the standard Borel subgroups and their conjugates. 
 The minors arising from level zero representations do not have this property and so the relations that determine them cannot be deduced from such identities.
 
@@ -363,7 +363,7 @@ The terminology is justified by the skew-symmetric case: the data of a skew-symm
   \label{fig:matrices}
 \end{figure}  
 
-The cluster algebra associated to a $m\times n$ acyclic exchange matrix of rank $n$ is especially well-behaved: it is finitely generated as a $\kk$-algebra and coincides with its upper cluster algebra \cite{BFZ05}.
+The cluster algebra associated to an $m\times n$ acyclic exchange matrix of rank $n$ is especially well-behaved: it is finitely generated as a $\kk$-algebra and coincides with its upper cluster algebra \cite{BFZ05}.
 For such cluster algebras we will concern ourself with a specific sequence of nodes in $\TT$ and the cluster variables associated to them.
 
 Recall that $t_0$ is the root of $\TT$.  Fix an acyclic skew-symmetrizable matrix $B$ and the corresponding permutation $\sigma$ as above.
@@ -564,7 +564,7 @@ A weight $\lambda \in \widehat{P}$ is dominant if $(t^{\alpha_i^\vee})^\lambda$ 
 %Let $\widehat{P}^+=\{\lambda \in \widehat{P}: \lambda(\alpha_i^\vee)>0\} \subset \widehat{P}$ denote the cone of dominant (integral) weights.  
 To each $\lambda \in \widehat{P}^+$ is an associated irreducible highest-weight representation $V(\lambda)$ of $\widehat{G}$. 
 Similarly, for each $\lambda \in -\widehat{P}^+$ there is an irreducible lowest-weight representation $V(\lambda)$ of $\widehat{G}$.
-For any $w\in W$ and $\lambda\in\pm\widehat{P}^+$, the weight space $V(\lambda)_{w\lambda}$ is one-dimensional and thus we also write $V(w\lambda)$ for $V(\lambda)$.
+For any $w\in W$ and $\lambda\in\pm\widehat{P}^+$, the weight space $V(\lambda)_{w\lambda}$ is one-dimensional and thus we also write $V(w\lambda)$ for the representation $V(\lambda)$.
 The Tits cone $$X = \{w\lambda : w \in W, \lambda \in \widehat{P}^+\}$$ is the set of weights which can be obtained from a dominant weight by the action of the Weyl group. 
 Thus each weight $\lambda\in X \cup -X$ determines an irreducible (highest- or lowest-) weight representation $V(\lambda)$ of $\widehat{G}$ whose weight space $V(\lambda)_\lambda$ is one-dimensional.
 Note that highest- and lowest-weight representations are distinct classes unless $A$ is of finite-type.
@@ -846,7 +846,7 @@ Some similar computations are collected in Lemma \ref{lemma:coefficients_values}
 %\end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Preprojective and preinjective cluster variables as minors}
+\section{Preprojective and postinjective cluster variables as minors}
 In this section we prove that when $B$ is any acyclic skew-symmetrizable matrix, the identification $\cA_{\Bdp} \cong \kk[G^{c,c^{-1}}]$ of \Cref{thm:coordring} realizes preprojective and postinjective cluster variables as restrictions of some highest- and lowest-weight minors, respectively. 
 For our argument we will first deduce a parametrization of such cluster variables, together with a list of exchange relations they satisfy, from an explicit description of all the $\bfg$-vectors and $\bfc$-vectors in the acyclic belt.
 The identification with minors will then follow by comparing these relations with restrictions  to $G^{c,c^{-1}}$ of the generalized determinantal identities of \Cref{prop:fundid}.
@@ -1018,7 +1018,7 @@ With the preceding results in hand, we are ready to describe the cluster variabl
     \prod_{j<i} x_{-c^{-k}\omega_j}^{-a_{ji}}
     \prod_{j>i} x_{-c^{-k-1}\omega_j}^{-a_{ji}}
     +
-    \prod_{j=1}^n (z_j z_{\ol{j}})^{[c^{-k}\beta_i^-:\alpha_j]}\label{eq:preinjective}
+    \prod_{j=1}^n (z_j z_{\ol{j}})^{[c^{-k}\beta_i^-:\alpha_j]}\label{eq:postinjective}
     \\
     x_{\omega_i}x_{-\omega_i}
     &=
@@ -1530,7 +1530,7 @@ Since $\iota$ preserves $B_+$ and $B_-$ but takes any lift of $w \in W$ to a lif
 %\end{proof}
 
 \begin{theorem}\label{thm:mainirregular}
-The isomorphism $\cA_{\Bdp} \cong \kk[G^{c,c^{-1}}]$ of Theorem \ref{thm:coordring} identifies the preprojective cluster variable $x_{c^k\omega_i}$ with the restriction of the highest-weight minor $\Delta_{c^k\omega_i}$ and identifies the preinjective cluster variable $x_{-c^k \omega_i}$ with the restriction of the lowest-weight minor $\Delta_{-c^k \omega_i}$. 
+The isomorphism $\cA_{\Bdp} \cong \kk[G^{c,c^{-1}}]$ of Theorem \ref{thm:coordring} identifies the preprojective cluster variable $x_{c^k\omega_i}$ with the restriction of the highest-weight minor $\Delta_{c^k\omega_i}$ and identifies the postinjective cluster variable $x_{-c^k \omega_i}$ with the restriction of the lowest-weight minor $\Delta_{-c^k \omega_i}$. 
 \end{theorem}
 
 \begin{proof}
@@ -1585,7 +1585,7 @@ is satisfied on $G^{c^{-1},c}$. Given that $g \mapsto g^\iota$ exchanges $G^{c,c
 %      \big)^{a_{\ell j}}
 %    \right)^{[c^{-k}\beta_i^-:\alpha_j]}.
 \end{equation}
-In particular, the lowest-weight minors $\Delta_{-c^{-k}\omega_i}$ satisfy Equation \ref{eq:preinjective}.
+In particular, the lowest-weight minors $\Delta_{-c^{-k}\omega_i}$ satisfy Equation \ref{eq:postinjective}.
 
 To establish that the indicated minors satisfy Equation \ref{eq:plusminus} and thereby conclude the proof, we must show that
 %  Restricted to $G^{c,c^{-1}}$, for any $i\in[1,n]$, the product $\Delta_{\omega_i}\Delta_{-\omega_i}$ is equal to
@@ -2221,10 +2221,10 @@ We anticipate that the realization of regular cluster variables as level zero mi
 This is suggested, for example, by the following fact about $\bfg$-vectors in affine types:
 
 \begin{proposition}
-Let $B$ be an acyclic skew-symmetrizable matrix whose Cartan companion $A$ is of affine type. Let $x_{i;t} \in \cA_B$ be any non-initial cluster variable and $\bfg_{i;t} \in P$ its $\bfg$-vector. Then the level of $V(\bfg_{i;t})$ is greater than, equal to, or less than zero exactly when $x_{i;t}$ is preprojective, regular, or preinjective, respectively.
+Let $B$ be an acyclic skew-symmetrizable matrix whose Cartan companion $A$ is of affine type. Let $x_{i;t} \in \cA_B$ be any non-initial cluster variable and $\bfg_{i;t} \in P$ its $\bfg$-vector. Then the level of $V(\bfg_{i;t})$ is greater than, equal to, or less than zero exactly when $x_{i;t}$ is preprojective, regular, or postinjective, respectively.
 \end{proposition}
 \begin{proof}
-The claim about preprojective and preinjective cluster variables follows from Theorem \ref{thm:vars_and_rels_in_bipartite_belt}. The claim about regular cluster variables corresponding to weights of level zero follows from [RS].\sayHW{Salvatore: this is a result of you and Nathan, right?}
+The claim about preprojective and postinjective cluster variables follows from Theorem \ref{thm:vars_and_rels_in_bipartite_belt}. The claim about regular cluster variables corresponding to weights of level zero follows from [RS].\sayHW{Salvatore: this is a result of you and Nathan, right?}
 \end{proof}
 
 With the preceding proposition in hand we pose the following specific form of Conjecture \ref{conj:mainconjecture} in affine type:
