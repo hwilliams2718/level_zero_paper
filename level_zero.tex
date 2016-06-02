@@ -181,7 +181,7 @@ The cluster algebra of any acyclic quiver is the coordinate ring of a subvariety
 \item Check for $\backslash$newword's throughout.
 \item Finalize/polish figures in Section 4.2.
 \item Do a worked example in Section 4.2 of the main result.
-\item Change $LSL_n$ to $LSL_{n-1}$ and $A_n^{(1)}$ to $A_{n-1}^{(1)}$ throughout?
+\item Change $LSL_n$ to $LSL_{n-1}$ and $A_n^{(1)}$ to $A_{n-1}^{(1)}$ throughout?\sayDR{I made the change throughout, in some cases $A_n^{(1)}$ may suffice, please edit accordingly}
 \item Add a table of contents?
 \end{itemize}
 
@@ -221,7 +221,7 @@ Our main result is that cluster variables in $\cA_Q$ are also realized as genera
 Let $Q$ be a finite quiver without oriented cycles and $G^{c,c^{-1}} \subset G$ the associated Coxeter double Bruhat cell.
 \begin{enumerate}
 \item The preprojective and initial cluster variables in $\cA_Q \cong \CC[G^{c,c^{-1}}]$ are restrictions of generalized minors of highest-weight representations of $G$. The postinjective cluster variables in $\cA_Q$ are restrictions of generalized minors of lowest-weight representations of $G$.
-\item Suppose $Q$ is an acyclic orientation of an $n$-cycle, so that $G$ is the central extension of the loop group $LSL_{n}$. Then the regular cluster variables in $\cA_Q$ are restrictions of generalized minors of level zero representations of $G$.
+\item Suppose $Q$ is an acyclic orientation of an $n$-cycle, so that $G$ is the central extension of the loop group $LSL_{n-1}$. Then the regular cluster variables in $\cA_Q$ are restrictions of generalized minors of level zero representations of $G$.
 \end{enumerate}
 \end{theorem}
 
@@ -235,10 +235,13 @@ The reason (1) is true is that the preprojective and postinjective cluster varia
 However, these identities depend crucially on the fact that all minors involved are semi-invariants of the standard Borel subgroups and their conjugates. 
 The minors arising from level zero representations do not have this property and so the relations that determine them cannot be deduced from such identities.
 
-Instead, we study level zero minors on the loop group $LSL_n$ %\sayDR{Shouldn't this be $A_{n-1}^{(1)}$?} 
-by direct combinatorial means. The relevant representations are of the form $\big(\!\bigwedge^{\!k}\CC^n\big)[z^{\pm 1}]$ and thus inherit a natural basis from the standard basis of $\CC^n$. In particular, the restrictions to $G^{c,c^{-1}}$ of the level zero minors appearing in (2) can be computed as a weighted sum over collections of pairwise disjoint paths through a directed network on the cylinder, as in [FM,GSV ??]. When $Q$ is an acyclic orientation of an $n$-cycle, its regular representations likewise have a simple combinatorial description, and one can construct by hand a bijection between their subrepresentations and collections of paths in the relevant network.  
+Instead, we study level zero minors on the loop group $LSL_{n-1}$ by direct combinatorial means. 
+The relevant representations are of the form $\big(\!\bigwedge^{\!k}\CC^{n-1}\big)[z^{\pm 1}]$ and thus inherit a natural basis from the standard basis of $\CC^{n-1}$. 
+In particular, the restrictions to $G^{c,c^{-1}}$ of the level zero minors appearing in (2) can be computed as a weighted sum over collections of pairwise disjoint paths through a directed network on the cylinder, as in [FM,GSV ??]. 
+When $Q$ is an acyclic orientation of an $n$-cycle, its regular representations likewise have a simple combinatorial description, and one can construct by hand a bijection between their subrepresentations and collections of paths in the relevant network.  
 
-It would be interesting to find an interpretation of the resulting exchange relations\sayDR{Should we write as many of these as explicitly as we can in the hopes that someone may be able to explain to us how to understand them representation-theoretically?} involving level zero minors as restrictions of minor identities valid on the entire group $G$.  We believe that such identities hold more generally (beyond type $A_n^{\!(1)}$) and should ultimately lead to a proof of the following.\sayDR{This can probably be said more cleanly.  The first statement needs to be said, do we believe the second?}
+It would be interesting to find an interpretation of the resulting exchange relations\sayDR{Should we write as many of these as explicitly as we can in the hopes that someone may be able to explain to us how to understand them representation-theoretically?} involving level zero minors as restrictions of minor identities valid on the entire group $G$.  
+We believe that such identities hold more generally (beyond type $A_{n-1}^{\!(1)}$) and should ultimately lead to a proof of the following.\sayDR{This can probably be said more cleanly.  The first statement needs to be said, do we believe the second?}
 
 %\begin{theorem}\label{thm:maintheorem}
 %Let $G$ be an affine Lie group of type $A_n^{(1)}$, let $c$ be a Coxeter element of the affine Weyl group, and $Q_c$ the associated affine quiver.  The coordinate ring of $G^{c,c^{-1}}$ is an upper cluster algebras of type $Q_c$ and all mutable cluster variables are restrictions of principal minors for representations of $G$ with finite-dimensional weight spaces.  Those that are cluster characters of preprojective, regular, or postinjective representations of $Q_c$ are minors of positive level, level zero, and negative level $G$-representations, respectively.
@@ -249,9 +252,9 @@ Let $Q$ be a finite (valued) quiver without oriented cycles and $G^{c,c^{-1}} \s
 %The above theorem holds for arbitrary affine types.
 \end{conjecture}
 
-In addition to verifying the conjecture for all Coxeter elements when $G = LSL_n$, we check a finite list of other affine types, see Section \ref{sec:othertypes}. In any affine type, the regular cluster variables can be explicitly enumerated and computed. One can calculate that if they are restrictions of minors, they must come from an explicitly identifiable level zero representation. The types checked in Section \ref{sec:othertypes} are essentially the ones where these minors can be evaluated on $G^{c,c^{-1}}$ knowing only the character of this representation. In non-affine types, general weight representations of $G$ are not well-understood and the conjecture is much more speculative.
+In addition to verifying the conjecture for all Coxeter elements when $G = LSL_{n-1}$, we check a finite list of other affine types, see Section \ref{sec:othertypes}. In any affine type, the regular cluster variables can be explicitly enumerated and computed. One can calculate that if they are restrictions of minors, they must come from an explicitly identifiable level zero representation. The types checked in Section \ref{sec:othertypes} are essentially the ones where these minors can be evaluated on $G^{c,c^{-1}}$ knowing only the character of this representation. In non-affine types, general weight representations of $G$ are not well-understood and the conjecture is much more speculative.
 
-Finally, in type $A_n^{\!(1)}$ the following suggestive extension of Theorem \ref{thm:maintheorem} also holds. There is a one-parameter family of quiver representations whose dimension vector is the primitive imaginary root. The cluster character of a generic element is not a cluster variable, but is an element of the generic basis (and presumably of other standard bases as well). This element too is a level zero generalized minor; with this in mind it is natural to further ask which canonical basis elements other than cluster variables are generalized minors.
+Finally, in type $A_{n-1}^{\!(1)}$ the following suggestive extension of Theorem \ref{thm:maintheorem} also holds. There is a one-parameter family of quiver representations whose dimension vector is the primitive imaginary root. The cluster character of a generic element is not a cluster variable, but is an element of the generic basis (and presumably of other standard bases as well). This element too is a level zero generalized minor; with this in mind it is natural to further ask which canonical basis elements other than cluster variables are generalized minors.
 
 \textsc{Acknowledgments}  We would like to thank Giovanni Cerulli Irelli, Corrado de Concini, Misha Gekhtman and Vyjayanthi Chari for helpful discussions and comments. S.S. is supported by... H.W. is supported by...
 
@@ -1668,7 +1671,7 @@ and are non-zero elements of $\kk$ for generic values of the parameters $t_i$ an
 %\section{Level Zero Representations}
 \section{Regular cluster variables as minors}
 
-In this section we prove that the identification $\cA_{\Bdp} \cong \kk[G^{c,c^{-1}}]$ of \Cref{thm:coordring} realizes all regular cluster variables as restrictions of level zero minors in the case that the Cartan companion of $B$ is of type $A_n^{\!(1)}$. The proof exploits the fact that, when $G = LSL_n$, the level zero minors can be expressed combinatorially as weighted sums over collections of paths in a directed network on a cylinder. We show that the collections of paths relevant to a given minor are in bijection with submodules of a corresponding regular quiver representation, and from this that the network computation directly recovers the Caldero-Chapoton formula. A similar computation shows that the generic basis element associated to the base of any homogeneous tube in type $A_n^{\!(1)}$ is also a level zero minor. We expect that all regular cluster variables are minors of level zero representations for any affine type, and we verify this for the finite list of types where it can be checked using only the characters of those representations. 
+In this section we prove that the identification $\cA_{\Bdp} \cong \kk[G^{c,c^{-1}}]$ of \Cref{thm:coordring} realizes all regular cluster variables as restrictions of level zero minors in the case that the Cartan companion of $B$ is of type $A_{n-1}^{\!(1)}$. The proof exploits the fact that, when $G = LSL_{n-1}$, the level zero minors can be expressed combinatorially as weighted sums over collections of paths in a directed network on a cylinder. We show that the collections of paths relevant to a given minor are in bijection with submodules of a corresponding regular quiver representation, and from this that the network computation directly recovers the Caldero-Chapoton formula. A similar computation shows that the generic basis element associated to the base of any homogeneous tube in type $A_{n-1}^{\!(1)}$ is also a level zero minor. We expect that all regular cluster variables are minors of level zero representations for any affine type, and we verify this for the finite list of types where it can be checked using only the characters of those representations. 
 
 %\begin{proposition}\label{prop:level zero}\sayHW{This should be moved into section 4.2}
 %Let $G = \widehat{LSL_n}$ be the affine Kac-Moody group of type $A_{n-1}^{(1)}$, let $c$ be a Coxeter element of the affine Weyl group, and $Q_c$ the associated affine quiver.  All regular cluster variables in the coordinate ring of $G^{c,c^{-1}}$ are principal minors of level zero representations.  
@@ -1727,7 +1730,7 @@ As all counterclockwise arrows act by invertible linear maps on any $Q$-represen
 From the discussion so far we see that any indecomposable rigid regular representation of $Q$ is non-sincere and in either $\cR_{nil}^p$ or $\cR_{nil}^q$.  Any proper subquiver $Q'$ of $Q$ defines an exact inclusion $\rep_\kk(Q') \into \rep_\kk(Q)$. 
 Any non-sincere representation of $Q$ is the image of a representation of a proper subquiver, which without loss of generality we may take to be of type $A_m$ for some $m < n$. Thus any indecomposable rigid regular representation of $Q$ is the image of an indecomposable representation of such a subquiver -- in particular, it is isomorphic to $\Qrep_{[k,\ell]}$ for a proper subset $[k,\ell]\subsetneq\ZZ_n$.  
 
-It remains to derive the condition on sinks and sources in $[k,\ell]$. We identify the Grothendieck group of $\rep_\kk(Q)$ with the root lattice $\cQ$ of type $A_{n-1}^{(1)}$, and write $\delta\in\cQ$ for the minimal positive imaginary root. Recall that $\Qrep \in \rep_\kk(Q)$ is regular if and only if the Euler-Ringel pairing $\langle\delta,\Qrep\rangle$ vanishes \cite[Sec. 7]{CrBo92}.
+It remains to derive the condition on sinks and sources in $[k,\ell]$. We identify the Grothendieck group of $\rep_\kk(Q)$ with the root lattice $\cQ$ of type $A_{n-1}^{\!(1)}$, and write $\delta\in\cQ$ for the minimal positive imaginary root. Recall that $\Qrep \in \rep_\kk(Q)$ is regular if and only if the Euler-Ringel pairing $\langle\delta,\Qrep\rangle$ vanishes \cite[Sec. 7]{CrBo92}.
 Writing $I \subset \ZZ_n$ (resp. $O \subset \ZZ_n$) for the subset of sinks (resp. sources) in $Q$, we have  
   \[\langle\delta,\Qrep\rangle=\sum_{j\in Q_0}\dim \Qrep_j-\sum_{a\in Q_1}\dim \Qrep_{t(a)}=\sum_{o\in O}\dim \Qrep_o-\sum_{i\in I}\dim \Qrep_i.\]
 Thus $\Qrep$ is regular if and only if $\sum\limits_{o\in O}\dim \Qrep_o=\sum\limits_{i\in I}\dim \Qrep_i$.  In particular, this holds for $\Qrep = \Qrep_{[k,\ell]}$ exactly when the number of sinks in $[k,\ell]$ is equal to the number of sources in $[k,\ell]$. 
@@ -1810,7 +1813,7 @@ Recall that for any Kac-Moody group $G$, if $u=s_{i_1}\cdots s_{i_{\ell(u)}}$ an
 \begin{equation}\label{eq:uvfactorization}
 g = x_{\ol{i_1}}(t_{\ol{1}})\cdots x_{\ol{i_{\ell(u)}}}(t_{\ol{\ell(u)}})hx_{j_1}(t_{1}) \cdots x_{j_{\ell(v)}}(t_{\ell(v)})
 \end{equation}
-for some $h \in H$ and $t_i,t_{\ol{i}} \in \kk^\times$. When $G = \widetilde{LSL}_n$ is the central extension of $LSL_n$, these factorizations (and more general ones associated to shuffles of reduced words) admit a combinatorial description in terms of directed networks on a cylinder [GSV, FM ??]. This generalizes a similar relation between $SL_n$ and directed networks on a disk [FZ ??]. By a directed network on a surface we will mean an embedded directed graph whose edges are assigned weights in some fixed ring. As in Section \ref{sec:rigidregular} we fix a cyclic $\ZZ_n$-labeling of the vertices of the $A_{n-1}^{(1)}$ Dynkin diagram, chosen so that $0 \equiv n$ is the label of the affine root $\delta - \theta$. 
+for some $h \in H$ and $t_i,t_{\ol{i}} \in \kk^\times$. When $G = \widetilde{LSL}_{n-1}$ is the central extension of $LSL_{n-1}$, these factorizations (and more general ones associated to shuffles of reduced words) admit a combinatorial description in terms of directed networks on a cylinder [GSV, FM ??]. This generalizes a similar relation between $SL_n$ and directed networks on a disk [FZ ??]. By a directed network on a surface we will mean an embedded directed graph whose edges are assigned weights in some fixed ring. As in Section \ref{sec:rigidregular} we fix a cyclic $\ZZ_n$-labeling of the vertices of the $A_{n-1}^{\!(1)}$ Dynkin diagram, chosen so that $0 \equiv n$ is the label of the affine root $\delta - \theta$\sayDR{Is that choice actually important anywhere?}. 
 
 %Recall that a \newword{double reduced word} $\bfi$ for a pair $u, v \in W$ of $A^{(1)}_{n-1}$ Weyl group elements is a shuffle of a reduced word for $u$ and one for $v$. We write this as $\bfi = (i_1,\dotsc,i_m)$, where $i_j \in \{\pm 0,\dotsc, \pm n-1\}$ (here $0$ and $-0$ are treated as distinct formal indices)
 
@@ -1953,11 +1956,11 @@ for some $h \in H$ and $t_i,t_{\ol{i}} \in \kk^\times$. When $G = \widetilde{LSL
 
 
 \begin{definition}\label{def:network}
-Let $u$, $v$ be elements of the Weyl group of $\widetilde{LSL}_n$ together with a choice of reduced words $u=s_{i_1}\cdots s_{i_{\ell(u)}}$, $v=s_{j_1}\cdots s_{j_{\ell(v)}}$. We associate to this data a weighted directed network $\cN^{u,v}$ on a cylinder, by abuse omitting the choice of reduced words from the notation. The edge weights of the network will take values in the Laurent polynomial ring
+Let $u$, $v$ be elements of the Weyl group of $\widetilde{LSL}_{n-1}$ together with a choice of reduced words $u=s_{i_1}\cdots s_{i_{\ell(u)}}$, $v=s_{j_1}\cdots s_{j_{\ell(v)}}$. We associate to this data a weighted directed network $\cN^{u,v}$ on a cylinder, by abuse omitting the choice of reduced words from the notation. The edge weights of the network will take values in the Laurent polynomial ring
 \[
 \kk[t_{1}^{\pm1},\dotsc,t_{\ell(v)}^{\pm 1},h_1^{\pm 1},\dotsc,h_{n}^{\pm 1},t_{\ol{1}}^{\pm 1},\dotsc,t_{\ol{\ell(u)}}^{\pm 1}].
 \] 
-We declare one bundary component of the cylinder to be incoming and the other outgoing, and begin by associating a smaller cylindrical network to each factor in Equation \ref{eq:uvfactorization} (see Figure \ref{fig:networks on cylinders}). 
+We declare one boundary component of the cylinder to be incoming and the other outgoing, and begin by associating a smaller cylindrical network to each factor in Equation \ref{eq:uvfactorization} (see Figure \ref{fig:networks on cylinders}). 
 
 For $1 \leq i \leq n$, the networks associated to $x_i(t)$ and $x_{\ol{i}}(t)$ contain $n$ horizontal \newword{levels} running from the incoming boundary to the outgoing boundary. These are labeled by $\ZZ_n$ compatibly with their cyclic ordering and all have weight $1$. There is also a vertical \newword{bridge} having weight $t$ running between the $(i-1)^{st}$ level and the $i^{th}$ level; for $x_i(t)$ this bridge is oriented from the $(i-1)^{st}$ level to the $i^{th}$ level, while for $x_{\ol{i}}(t)$ this bridge is oriented from the $i^{th}$ level to the $(i-1)^{st}$.
 
@@ -2003,7 +2006,7 @@ The \newword{weight} of a path is the product of the weights of the edges it tra
 
 Given $S \subsetneq \ZZ_n$, let
 \[ \omega_S = \sum_{i \in S} \omega_{i+1} - \omega_i \in P^\circ \subset \widehat{P}.\] 
-Recall that $P^\circ$, the weight lattice of $SL_n$, is contained in the complement of both the Tits cone and its negative in $\widehat{P}$. The level zero representation $V(\omega_S)$ is $\big(\bigwedge^{|S|}\kk^n\big)[z^{\pm 1}]$ with its natural $\widetilde{LSL}_n$ action. Definition \ref{def:network} is motivated by the following observation:
+Recall that $P^\circ$, the weight lattice of $SL_n$, is contained in the complement of both the Tits cone and its negative in $\widehat{P}$. The level zero representation $V(\omega_S)$ is $\big(\bigwedge^{|S|}\kk^{n-1}\big)[z^{\pm 1}]$ with its natural $\widetilde{LSL}_{n-1}$ action. Definition \ref{def:network} is motivated by the following observation:
 
 \begin{proposition}\label{prop:minorsfrompaths}
   Suppose $g\in G^{u,v}$ factors as %in Equation \ref{eq:uvfactorization}, 
@@ -2021,7 +2024,9 @@ and let $h_i:= h^{\omega_i}$. Then \[ \Delta_{\omega_S}(g) = \sum_{P: S \to S} w
 %  By construction, each basic network $x_i(t_i)$ for $i\in[-n,-1]\cup[1,n]$ and $h_i$ for $i\in[1,n]$ encodes the action of the corresponding group element on the standard basis $\{ e_{j_1} \wedge \cdots \wedge e_{j_r} z^d\}$ of $\big(\!\bigwedge^{\!r}\CC^n\big)[z^{\pm 1}]$ labeled by pairs of an $r$-element subset of $\ZZ_n$ and an integer $d$.  Thus the network $\cN^{u,v}$ encodes the action of a generic element $g\in G^{c,c^{-1}}$ given by \eqref{eq:double Bruhat generic element} on this basis and the result then follows from the definition of $\Delta_{\omega_S}$.
 \end{proof}
 
-To use the above proposition effectively, we collect some elementary combinatorial observations about collections of pairwise disjoint paths $P$ in $\cN^{c,c^{-1}}$. Note that when $u$ and $v$ are Coxeter elements the choice of reduced word in Definition \ref{def:network} is immaterial: different reduced words differ by relations of the form $s_i s_j = s_j s_i$ for $A_{ij} = 0$, and these relations do not change the combinatorics of the network. Given a collection $P$ of disjoint paths, define its \newword{bridge set} $\beta(P)\subset\ZZ_n$ by letting $j\in\beta(P)$ if and only if a path in $P$ traverses the unique bridge of weight $t_j$.
+To use the above proposition effectively, we collect some elementary combinatorial observations about collections of pairwise disjoint paths $P$ in $\cN^{c,c^{-1}}$. 
+Note that when $u$ and $v$ are Coxeter elements the choice of reduced word in Definition \ref{def:network} is immaterial: different reduced words differ by relations of the form $s_i s_j = s_j s_i$ for $a_{ij} = 0$, and these relations do not change the combinatorics of the network. 
+Given a collection $P$ of disjoint paths, define its \newword{bridge set} $\beta(P)\subset\ZZ_n$ by letting $j\in\beta(P)$ if and only if a path in $P$ traverses the unique bridge of weight $t_j$.
 
 
 \begin{lemma}\label{lem:phi}
@@ -2097,18 +2102,18 @@ The local picture relating the network $\cN^{c,c^{-1}}$ to the orientation of th
 %  \end{enumerate}
 %\end{corollary}
 
-We now turn to the main result of the section.  We will freely use the isomorphism $\cA_{\Qdp} \cong \kk[\widetilde{LSL}_n^{c,c^{-1}}]$ to identify elements of $\cA_{\Qdp}$ with elements of 
+We now turn to the main result of the section.  We will freely use the isomorphism $\cA_{\Qdp} \cong \kk[\widetilde{LSL}_{n-1}^{c,c^{-1}}]$ to identify elements of $\cA_{\Qdp}$ with elements of 
 \[
 \kk[t_{1}^{\pm1},\dotsc,t_{n}^{\pm 1},h_1^{\pm 1},\dotsc,h_{n}^{\pm 1},t_{\ol{1}}^{\pm 1},\dotsc,t_{\ol{n}}^{\pm 1}]
 \]
-by evaluating them on a generic $g \in \widetilde{LSL}_n^{c,c^{-1}}$ factored as in Equation \ref{eq:uvfactorization} (and setting $h_i := h^{\omega_i}$). For example, we have 
+by evaluating them on a generic $g \in \widetilde{LSL}_{n-1}^{c,c^{-1}}$ factored as in Equation \ref{eq:uvfactorization} (and setting $h_i := h^{\omega_i}$). For example, we have 
 \begin{equation}\label{eq:typeAyhat}
 x_i = h_i,\quad\quad \hat{y}_i = t_it_{\ol{i}}h_{i-1}^{-1}h_i^2h_{i+1}^{-1},
 \end{equation}
 the latter following by reindexing the results of Lemma \ref{lemma:coefficients_values} with the present conventions, then plugging them into the definition of $\hat{y}_i$.\sayDR{The issue I have is that in Lemma 3.6 $j<i$ does not refer to the cyclic ordering of vertices as we are using here but rather the sink adapted ordering of vertices, i.e. $j$ is closer to the nearest downstream sink than $i$}\sayHW{Ah good point -- good enough? I am happy to have this sentence transposed to, say, paragraph 5 of the proof of the Thm, if you think it's better to have it enclosed in a proof environment.} %\sayHW{Maybe this formula should come with a citation to the relevant lemma in section 3.2} 
 
 \begin{theorem}\label{th:cluster character equals minor}
-Let $\Qrep_{[k,\ell]}$ be a rigid regular representation of $Q$. Then in $\cA_{\Qdp} \cong \kk[\widetilde{LSL}_n^{c,c^{-1}}]$ the regular cluster variable $x_{\Qrep_{[k,\ell]}}$ is the restriction of the level zero minor $\Delta_{\bfg(\Qrep_{[k,\ell]})}$. 
+Let $\Qrep_{[k,\ell]}$ be a rigid regular representation of $Q$. Then in $\cA_{\Qdp} \cong \kk[\widetilde{LSL}_{n-1}^{c,c^{-1}}]$ the regular cluster variable $x_{\Qrep_{[k,\ell]}}$ is the restriction of the level zero minor $\Delta_{\bfg(\Qrep_{[k,\ell]})}$. 
 %Then the isomorphism $\cA_{\Qdp} \cong \kk[\widetilde{LSL}_n^{c,c^{-1}}]$ of Theorem \ref{thm:coordring} identifies the regular cluster variable $x_{\Qrep_{[k,\ell]}}$ with the restriction of the level zero minor $\Delta_{\omega_{S_{[k,\ell]}}}$. 
 \end{theorem}
 \begin{proof}
@@ -2209,14 +2214,16 @@ completing the proof.\sayHW{Probably should followup on the uniqueness aspect of
 
 \subsection{Other affine types}\label{sec:othertypes}
 
-We anticipate that the realization of regular cluster variables as level zero minors is not specific to type $A_n^{(1)}$. %, though the explicit combinatorics used to prove Theorem \ref{th:cluster character equals minor} is. 
+We anticipate that the realization of regular cluster variables as level zero minors is not specific to type $A_{n-1}^{\!(1)}$. %, though the explicit combinatorics used to prove Theorem \ref{th:cluster character equals minor} is. 
 This is suggested, for example, by the following fact about $\bfg$-vectors in affine types:
 
 \begin{proposition}
-Let $B$ be an acyclic skew-symmetrizable matrix whose Cartan companion $A$ is of affine type. Let $x_{i;t} \in \cA_B$ be any non-initial cluster variable and $\bfg_{i;t} \in P$ its $\bfg$-vector. Then the level of $V(\bfg_{i;t})$ is greater than, equal to, or less than zero exactly when $x_{i;t}$ is preprojective, regular, or postinjective, respectively.
+Let $B$ be an acyclic skew-symmetrizable matrix whose Cartan companion $A$ is of affine type. 
+Let $x_{i;t} \in \cA_B$ be a non-initial cluster variable with $\bfg$-vecotr $\lambda_{i;t}\in P$. 
+Then the level of $V(\bfg_{i;t})$ is greater than, equal to, or less than zero exactly when $x_{i;t}$ is preprojective, regular, or postinjective, respectively.
 \end{proposition}
 \begin{proof}
-The claim about preprojective and postinjective cluster variables follows from Theorem \ref{thm:vars_and_rels_in_bipartite_belt}. The claim about regular cluster variables corresponding to weights of level zero follows from [RS].\sayHW{Salvatore: this is a result of you and Nathan, right?}
+The claim about preprojective and postinjective cluster variables follows from Theorem \ref{thm:vars_and_rels_in_bipartite_belt}. The claim about regular cluster variables corresponding to weights of level zero follows from [RS ??].\sayHW{Salvatore: this is a result of you and Nathan, right?}
 \end{proof}
 
 With the preceding proposition in hand we pose the following specific form of Conjecture \ref{conj:mainconjecture} in affine type:
@@ -2225,7 +2232,7 @@ With the preceding proposition in hand we pose the following specific form of Co
 Let $B$ be an acyclic skew-symmetrizable matrix whose Cartan companion $A$ is of affine type. Let $x_{i;t} \in \cA_{\Bdp}$ be any regular cluster variable and $\bfg_{i;t} \in P$ its $\bfg$-vector. Then in $\cA_{\Bdp} \cong \kk[G^{c,c^{-1}}]$, $x_{i;t}$ is the restriction of the level zero minor $\Delta_{\bfg_{i;t}}$.
 \end{conjecture}
 
-While the combinatorics we used to prove Conjecture \ref{conj:affine} in type $A_n^{(1)}$ is not available in general, in some types it is possible to compute the relevant minors by hand. In the simplest cases this can be done using only the characters of these representations (e.g. when they are spaces of Laurent polynomials valued in a representation without weight spaces of dimension greater than one), and the results are consistent with Conjecture \ref{conj:affine}:
+While the combinatorics we used to prove Conjecture \ref{conj:affine} in type $A_{n-1}^{\!(1)}$ is not available in general, in some types it is possible to compute the relevant minors by hand. In the simplest cases this can be done using only the characters of these representations (e.g. when they are spaces of Laurent polynomials valued in a representation without weight spaces of dimension greater than one), and the results are consistent with Conjecture \ref{conj:affine}:
 
 \begin{proposition}
 Conjecture \ref{conj:affine} holds when the Cartan companion of $B$ is of type $B_3^{(1)}$, $C_2^{(1)}$, $D_4^{(1)}$, $G_2^{(1)}$. 
@@ -2274,7 +2281,7 @@ The cluster character of $\Qrep_\lambda$ is independent of $\lambda$, and we ref
 
 %We conclude with a final suggestive result which is proven exactly as Theorem~\ref{th:cluster character equals minor}.
 \begin{theorem}\label{thm:homogeneous}
-In $\cA_{\Qdp} \cong \kk[\widetilde{LSL}_n^{c,c^{-1}}]$ the homogeneous element $x_{\Qrep_\lambda}$ is the restriction of the level zero minor $\Delta_{\bfg(\Qrep_\lambda)}$. 
+In $\cA_{\Qdp} \cong \kk[\widetilde{LSL}_{n-1}^{c,c^{-1}}]$ the homogeneous element $x_{\Qrep_\lambda}$ is the restriction of the level zero minor $\Delta_{\bfg(\Qrep_\lambda)}$. 
 %  Let $D$ be any indecomposable representation $Q$ with dimension vector $\delta=\sum\limits_{i\in Q_0}\alpha_i$ and all maps isomorphisms.  Under the identification $\kk[G^{c,c^{-1}}] \cong A_Q$ we have
 %  \[x_D = \Delta_{\omega_S}\]
 %  for $S=[i_1,o_1-1] \cup [i_2,o_2-1] \cup \cdots \cup [i_m,o_m-1]$, where $i_1<o_1<\cdots<i_m<o_m<i_1$ denote the sinks and sources of $Q$ in the cyclic ordering of vertices.
