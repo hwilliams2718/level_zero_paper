@@ -173,8 +173,6 @@ The cluster algebra of any acyclic quiver is the coordinate ring of a subvariety
   \item
     Decide on preprojective/postinjective notation and apply changes through\sayDR{I made the change to post- throughout, please argue if you disagree}
   \item
-    Fix the algebra statements: double principal vs double Euler
-  \item
     Mention cluster categories? 
 \item Write out homogeneous element computation.
 \item Write out section on other affine types.
@@ -521,8 +519,8 @@ For $t \in \kk^\times$ and $1 \leq i \leq n$ we adopt the notation
 \begin{gather}
 x_{i}(t):=\varphi_i\begin{pmatrix} 1 & t \\ 0 & 1\end{pmatrix} \quad  
 t^{\alpha_i^\vee}:=\varphi_i\begin{pmatrix}t & 0 \\ 0 & t^{-1}\end{pmatrix} \quad
-x_{\ol{i}}(t):=\varphi_i\begin{pmatrix} 1 & 0 \\ t & 1\end{pmatrix} \\
-\ol{s_{i}} := \varphi_i \begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix} \quad
+x_{\ol{\imath}}(t):=\varphi_i\begin{pmatrix} 1 & 0 \\ t & 1\end{pmatrix} \\
+\ol{s_{\imath}} := \varphi_i \begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix} \quad
 \dol{s_{i}} := \varphi_i \begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix},
 \end{gather}%\sayDR{Are the $\dol{s_{i}}$ needed?}\sayHW{Maybe not -- check during wrap-up}
 By extension for any $w$ in the Weyl group $W$ of $\widehat{G}$ we set \[\ol{w} := \ol{s_{i_1}}\cdots\ol{s_{i_k}}, \quad \quad \dol{w} := \dol{s_{i_1}}\cdots\dol{s_{i_k}},\] where $s_{i_1}\cdots s_{i_k}$ is any reduced word for $w$. 
@@ -629,7 +627,7 @@ We can realize the cluster algebra associated to the acyclic matrix $B$ geometri
 \[
 \Bdp := \begin{bmatrix} B \\ Id_n \\ Id_n \end{bmatrix},
 \]
-which we say has \newword{doubled principal coefficients}. When working with the cluster algebra $\cA_{\Bdp}$ we will denote the frozen variables $x_{i+n}$ and $x_{i+2n}$ for $1 \leq i \leq n$ by $z_i$ and $z_{\ol{i}}$, respectively
+which we say has \newword{doubled principal coefficients}. When working with the cluster algebra $\cA_{\Bdp}$ we will denote the frozen variables $x_{i+n}$ and $x_{i+2n}$ for $1 \leq i \leq n$ by $z_i$ and $z_{\ol{\imath}}$, respectively
 
 %The goal of this section is to realize geometrically the ``doubled principal coefficients'' cluster algebra $\cA_{\widetilde B_{\doublebullet}}$, given by the $3n\times n$ extensions $\widetilde B_{\doublebullet}$ of $B$ by two identity matrices, in terms of the derived Kac-Moody group $G$ associated to $A$. 
 %\saySS{Giovanni suggested to use two bullets one on top of the other for doubled principal coefficients. The standard notation for principal coefficients is a single bullet so it sounded like a good idea to stack two bullets.}
@@ -657,7 +655,7 @@ The coordinate ring of the latter is also an upper cluster algebra whose initial
     \quad 
     z_i = \Delta^{\omega_i}_{ c\omega_i} \prod_{j < i}(\Delta^{\omega_j}_{c \omega_j})^{a_{ji}},
     \quad 
-    z_{\ol{i}} = \Delta^{c \omega_i}_{\omega_i} \prod_{j < i}(\Delta^{c \omega_j}_{\omega_j})^{a_{ji}}.
+    z_{\ol{\imath}} = \Delta^{c \omega_i}_{\omega_i} \prod_{j < i}(\Delta^{c \omega_j}_{\omega_j})^{a_{ji}}.
   \end{equation}
 \end{theorem}
 \begin{proof}
@@ -667,7 +665,7 @@ The coordinate ring of the latter is also an upper cluster algebra whose initial
   This exchange matrix is acyclic by hypothesis and has full rank.  Thus, following \cite[Corollary 1.19]{BFZ05}, $\kk[G^{c,c^{-1}}]$ is a cluster algebra.
 
   The cluster structure we obtain in this way is not quite the one in the statement of the theorem; the two are nonetheless strictly related. 
-  Indeed, since the variables $z_i$ are obtained from the minors $\Delta^{\omega_j}_{ c\omega_j}$ by an invertible monomial transformation (and the variables $z_{\ol{i}}$ are obtained similarly from the minors $\Delta^{c \omega_j}_{\omega_j}$), we can use separation of additions to rescale all the cluster variables in $\kk[G^{c,c^{-1}}]$ and establish the desired isomorphism (Cf. \cite[Proposition 4.5]{YZ08}).
+  Indeed, since the variables $z_i$ are obtained from the minors $\Delta^{\omega_j}_{ c\omega_j}$ by an invertible monomial transformation (and the variables $z_{\ol{\imath}}$ are obtained similarly from the minors $\Delta^{c \omega_j}_{\omega_j}$), we can use separation of additions to rescale all the cluster variables in $\kk[G^{c,c^{-1}}]$ and establish the desired isomorphism (Cf. \cite[Proposition 4.5]{YZ08}).
   \saySS{The proof of this theorem should now be correct but I am quite unhappy because it is vague and it uses some results without recalling all the required details. Can you improve what I did in any way?}
 \end{proof}
 \begin{remark}
@@ -683,7 +681,7 @@ In computing various relations in $\kk[G^{c,c^{-1}}]$ we will make extensive use
   \label{eq:generic_element}
   g=x_{\ol{\sigma_1}}(t_{\ol{1}}) \cdots x_{\ol{\sigma_n}}(t_{\ol{n}}) h x_{\sigma_n}(t_n) \cdots x_{\sigma_1}(t_1)
 \end{equation}
-for some $h \in H$ and $t_i, t_{\ol{i}} \in \kk^\times$ \cite{FZ99,Wil13}. 
+for some $h \in H$ and $t_i, t_{\ol{\imath}} \in \kk^\times$ \cite{FZ99,Wil13}. 
 For example, with respect to such a factorization it is clear that we have $\Delta_\lambda(g) = h^\lambda$ for any dominant weight $\lambda \in \widehat{P}^+$.
 In particular, the initial mutable cluster variables of $\cA_{\Bdp}$ evaluate as $x_i(g)=h^{\omega_i}$.
 Some similar computations are collected in Lemma~\ref{lemma:coefficients_values}. 
@@ -1006,18 +1004,18 @@ With the preceding results in hand, we are ready to describe the cluster variabl
     \prod_{j<i} x_{c^{k+1}\omega_j}^{-a_{ji}}
     \prod_{j>i} x_{c^k\omega_j}^{-a_{ji}}
     +
-    \prod_{j=1}^n (z_j z_{\ol{j}})^{[c^k\beta_i^+:\alpha_j]}\label{eq:preprojective}
+    \prod_{j=1}^n (z_j z_{\ol{\jmath}})^{[c^k\beta_i^+:\alpha_j]}\label{eq:preprojective}
     \\
     x_{-c^{-k}\omega_i}x_{-c^{-k-1}\omega_i} 
     &= 
     \prod_{j<i} x_{-c^{-k}\omega_j}^{-a_{ji}}
     \prod_{j>i} x_{-c^{-k-1}\omega_j}^{-a_{ji}}
     +
-    \prod_{j=1}^n (z_j z_{\ol{j}})^{[c^{-k}\beta_i^-:\alpha_j]}\label{eq:postinjective}
+    \prod_{j=1}^n (z_j z_{\ol{\jmath}})^{[c^{-k}\beta_i^-:\alpha_j]}\label{eq:postinjective}
     \\
     x_{\omega_i}x_{-\omega_i}
     &=
-    z_iz_{\ol{i}}
+    z_iz_{\ol{\imath}}
     \prod_{j<i} x_{\omega_j}^{-a_{ji}}
     \prod_{j>i} x_{-\omega_j}^{-a_{ji}}
     +
@@ -1045,7 +1043,7 @@ The first lemma computes the evaluations of various minors of interest in terms 
 \]
 The roots to which we apply this notation are $\beta_i^+=s_1\cdots s_{i-1}\alpha_i$, $\beta_i^-=s_n\cdots s_{i+1}\alpha_i$, and their conjugates. We also recall that the initial cluster variables in $\kk[G^{c,c^{-1}}]$ are 
 \[
-x_i = \Delta_{\omega_i},\quad z_i = \Delta^{\omega_i}_{ c\omega_i} \prod_{j < i}(\Delta^{\omega_j}_{c \omega_j})^{a_{ji}},\quad z_{\ol{i}} = \Delta^{c \omega_i}_{\omega_i} \prod_{j < i}(\Delta^{c \omega_j}_{\omega_j})^{a_{ji}},
+x_i = \Delta_{\omega_i},\quad z_i = \Delta^{\omega_i}_{ c\omega_i} \prod_{j < i}(\Delta^{\omega_j}_{c \omega_j})^{a_{ji}},\quad z_{\ol{\imath}} = \Delta^{c \omega_i}_{\omega_i} \prod_{j < i}(\Delta^{c \omega_j}_{\omega_j})^{a_{ji}},
 \]
 for $1 \leq j \leq n$.
 
@@ -1057,16 +1055,16 @@ g = x_{\ol{1}}(t_{\ol{1}}) \cdots x_{\ol{n}}(t_{\ol{n}}) h x_n(t_n) \cdots x_1(t
 for $h \in H$ and $t_i \in \kk^\times$, then  \sayHW{Recheck the second line now that lowest-weight minors have the correct definition}
 \begin{gather}
     \Delta^{c^k\omega_j}_{c^{k+1}\omega_j}(g) = h^{c^k\omega_j}\prod_{i=1}^n t_{i}^{[c^k\beta_j^+:\alpha_i]},\quad
-    \Delta^{c^{k+1}\omega_j}_{c^k\omega_j}(g) = h^{c^k\omega_j}\prod_{i=1}^n t_{\ol{i}}^{[c^k\beta_j^+:\alpha_i]},\label{eq:positive_cminor_values}\\
+    \Delta^{c^{k+1}\omega_j}_{c^k\omega_j}(g) = h^{c^k\omega_j}\prod_{i=1}^n t_{\ol{\imath}}^{[c^k\beta_j^+:\alpha_i]},\label{eq:positive_cminor_values}\\
     \Delta^{-c^{-k-1}\omega_j}_{-c^{-k}\omega_j}(g) = h^{-c^{-k-1}\omega_j}\prod_{i=1}^n t_{i}^{[c^{-k}\beta_j^-:\alpha_i]}, \quad
-    \Delta^{-c^{-k}\omega_j}_{-c^{-k-1}\omega_j}(g) = h^{-c^{-k-1}\omega_j}\prod_{i=1}^n t_{\ol{i}}^{[c^{-k}\beta_j^-:\alpha_i]},\label{eq:negative_cminor_values}\\
+    \Delta^{-c^{-k}\omega_j}_{-c^{-k-1}\omega_j}(g) = h^{-c^{-k-1}\omega_j}\prod_{i=1}^n t_{\ol{\imath}}^{[c^{-k}\beta_j^-:\alpha_i]},\label{eq:negative_cminor_values}\\
     z_i(g)
     =
     t_i
     h^{\omega_i}\prod_{ j <i}h^{a_{ j  i}\omega_ j },\quad 
-    z_{\ol{i}}(g)
+    z_{\ol{\imath}}(g)
     =
-    t_{\ol{i}}
+    t_{\ol{\imath}}
     h^{\omega_i}\prod_{ j <i}h^{a_{ j  i}\omega_ j }.\label{eq:frozen_values}
 \end{gather}
 \end{lemma}
@@ -1124,7 +1122,7 @@ For $g \in G^{c,c^{-1}}$, $k \geq 0$, and $1 \leq i \leq n$ we have
     \prod_{j=1}^nz_j(g)^{[c^k\beta_i^+:\alpha_j]},\quad 
     \Delta_{c^k \omega_i}^{c^{k+1} \omega_i}(g)
     =
-    \prod_{j=1}^nz_{\ol{j}}(g)^{[c^k\beta_i^+:\alpha_j]}
+    \prod_{j=1}^nz_{\ol{\jmath}}(g)^{[c^k\beta_i^+:\alpha_j]}
 \end{equation*}
 
 %  \begin{eqnarray} 
@@ -1250,7 +1248,7 @@ For $g \in G^{c,c^{-1}}$ and $1 \leq j \leq n$ we have
   \begin{equation*}
 z_j(g) =\Delta_{-\omega_j}^{-c^{-1}\omega_j}(g)
     \prod_{\ell>j}\Big(\Delta_{-\omega_\ell}^{-c^{-1}\omega_\ell}(g)\Big)^{a_{\ell j}},\quad
-z_{\ol{j}}(g) = \Delta_{-c^{-1}\omega_j}^{-\omega_j}(g)
+z_{\ol{\jmath}}(g) = \Delta_{-c^{-1}\omega_j}^{-\omega_j}(g)
     \prod_{\ell>j}\Big(\Delta_{-c^{-1}\omega_\ell}^{-\omega_\ell}(g)\Big)^{a_{\ell j}}.
   \end{equation*}
 %  Restricted to $G^{c,c^{-1}}$ the following two identities hold:
@@ -1498,7 +1496,7 @@ In proving the following theorem we make use of the involutive anti-automorphism
   x_i(t)^\iota := x_i(t),
   \quad
   \quad
-  x_{\ol{i}}(t)^\iota := x_{\ol{i}}(t).
+  x_{\ol{\imath}}(t)^\iota := x_{\ol{\imath}}(t).
 \end{equation}
 
 Since $\iota$ preserves $B_+$ and $B_-$ but takes any lift of $w \in W$ to a lift of $w^{-1}$, it restricts to a biregular isomorphism between $G^{u,v}$ and $G^{u^{-1},v^{-1}}$. \saySS{Please check my math here: if an iso is defined on an open dense then it is birational, correct?}\sayHW{You are correct, but here is a better argument for what we want.} Since a generic element of $G$ factors as $n_- h n_+$, with $n_- \in N_-$, $h \in H$, $n_+ \in N_+$, we have $\Delta_{\omega_j}(g) = \Delta_{-\omega_j}(g^\iota)$ for all $g \in G$. 
@@ -1537,7 +1535,7 @@ If we apply Proposition~\ref{prop:fundid} with $u = v = c^k s_1 \cdots s_{i-1}$ 
     \prod_{j<i}\Delta_{c^{k+1}\omega_j}^{-a_{ji}}
     \prod_{j>i}\Delta_{c^k\omega_j}^{-a_{ji}}
     +
-    \prod_{j=1}^n(z_j z_{\ol{j}})^{[c^k\beta_i^+:\alpha_j]}
+    \prod_{j=1}^n(z_j z_{\ol{\jmath}})^{[c^k\beta_i^+:\alpha_j]}
 %\left( 
 %      \Delta^{c \omega_j}_{\omega_j}
 %      \Delta^{\omega_j}_{ c\omega_j} 
@@ -1570,7 +1568,7 @@ is satisfied on $G^{c^{-1},c}$. Given that $g \mapsto g^\iota$ exchanges $G^{c,c
     \prod_{j<i}\Delta_{-c^{-k}\omega_j}^{-a_{ji}}
     \prod_{j>i}\Delta_{-c^{-k-1}\omega_j}^{-a_{ji}}
     +
-    \prod_{j=1}^n (z_j z_{\ol{j}})^{[c^{-k}\beta_i^-:\alpha_j]}.
+    \prod_{j=1}^n (z_j z_{\ol{\jmath}})^{[c^{-k}\beta_i^-:\alpha_j]}.
 %\left( 
 %      \Delta^{c \omega_j}_{\omega_j}
 %      \Delta^{\omega_j}_{ c\omega_j} 
@@ -1586,7 +1584,7 @@ To establish that the indicated minors satisfy Equation~\ref{eq:plusminus} and t
 %  Restricted to $G^{c,c^{-1}}$, for any $i\in[1,n]$, the product $\Delta_{\omega_i}\Delta_{-\omega_i}$ is equal to
   \begin{equation*} 
 \Delta_{\omega_i}\Delta_{-\omega_i} =
-    z_i z_{\ol{i}}
+    z_i z_{\ol{\imath}}
     \prod_{j<i}\Delta_{\omega_j}^{-a_{ji}}
     \prod_{j>i}\Delta_{-\omega_j}^{-a_{ji}}
     +1
@@ -1597,7 +1595,7 @@ To establish that the indicated minors satisfy Equation~\ref{eq:plusminus} and t
     h^{\omega_i}\Delta_{-\omega_i}(g)
     &=
     t_i
-    t_{\ol{i}}
+    t_{\ol{\imath}}
     h^{2\omega_i}
     \prod_{j<i}h^{a_{j i}\omega_j}
     \prod_{j>i}\Delta_{-\omega_j}^{-a_{ji}}(g)
@@ -1605,7 +1603,7 @@ To establish that the indicated minors satisfy Equation~\ref{eq:plusminus} and t
     1
      = 
     t_i
-    t_{\ol{i}}
+    t_{\ol{\imath}}
     h^{\alpha_i}
     \prod_{j>i}\Big(h^{\omega_j}\Delta_{-\omega_j}(g)\Big)^{-a_{ji}}
     +
@@ -1615,7 +1613,7 @@ To establish that the indicated minors satisfy Equation~\ref{eq:plusminus} and t
   \begin{equation*}
     h^{\omega_i}\Delta_{\omega_i}(g^\iota) =
     t_i
-    t_{\ol{i}}
+    t_{\ol{\imath}}
     h^{\alpha_i}
     \prod_{j>i}\Big(h^{\omega_j}\Delta_{\omega_j}(g^\iota)\Big)^{-a_{ji}}
     +
@@ -1633,15 +1631,15 @@ To establish that the indicated minors satisfy Equation~\ref{eq:plusminus} and t
 %  \end{equation}
 %  and
   \begin{equation*}
-    x_i(t_i) h x_{\ol{i}}(t_{\ol{i}})
+    x_i(t_i) h x_{\ol{\imath}}(t_{\ol{\imath}})
     =
-    x_{\ol{i}}(t'_{\ol{i}})
+    x_{\ol{\imath}}(t'_{\ol{\imath}})
     h
-    (1+t_it_{\ol{i}}h^{-\alpha_i})^{\alpha_i^\vee}
+    (1+t_it_{\ol{\imath}}h^{-\alpha_i})^{\alpha_i^\vee}
     x_{i}(t'_i),
   \end{equation*}
-  for some $t'_i$, $t'_{\ol{i}} \in \kk^\times$ \cite[Proposition 7.2]{BZ01} (this imposes an irrelevant genericity condition on $t'_i$ and $t'_{\ol{i}}$).
-  Using this and the fact that $x_i(t_i)$ and $x_{\ol{j}}(t_{\ol{j}})$ commute for $i \neq j$, a straightforward computation yields
+  for some $t'_i$, $t'_{\ol{\imath}} \in \kk^\times$ \cite[Proposition 7.2]{BZ01} (this imposes an irrelevant genericity condition on $t'_i$ and $t'_{\ol{\imath}}$).
+  Using this and the fact that $x_i(t_i)$ and $x_{\ol{\jmath}}(t_{\ol{\jmath}})$ commute for $i \neq j$, a straightforward computation yields
   \[
     g^\iota 
     = 
@@ -1660,10 +1658,10 @@ To establish that the indicated minors satisfy Equation~\ref{eq:plusminus} and t
   \[
     v_i 
     = 
-    1 + t_i t_{\ol{i}} h^{\alpha_i}
+    1 + t_i t_{\ol{\imath}} h^{\alpha_i}
     \prod_{j > i} v_j^{-a_{j,i}},
   \]
-and are non-zero elements of $\kk$ for generic values of the parameters $t_i$ and $t_{\ol{i}}$. From this one observes that $h^{\omega_i}\Delta_{\omega_i}(g^\iota) = v_i$, and the desired identity follows.
+and are non-zero elements of $\kk$ for generic values of the parameters $t_i$ and $t_{\ol{\imath}}$. From this one observes that $h^{\omega_i}\Delta_{\omega_i}(g^\iota) = v_i$, and the desired identity follows.
 %The statement regarding preprojective cluster variables follows from comparing Equation \ref{eq:preprojective} with Proposition \ref{prop:projective_minors_identity}, using the substitutions given by Equation \ref{eq:initialcluster}.
 \end{proof}
 
@@ -1809,9 +1807,9 @@ Recall that for any Kac-Moody group $G$, if $u=s_{i_1}\cdots s_{i_{\ell(u)}}$ an
 %g = x_{\ol{i_1}}(t_{\ol{1}})\cdots x_{\ol{i_{\ell(u)}}}(t_{\ol{\ell{u}}})hx_{j_1}(t_{j_1}) \cdots x_{j_{\ell(v)}}(t_{\ell(v)})
 %\]
 \begin{equation}\label{eq:uvfactorization}
-g = x_{\ol{i_1}}(t_{\ol{1}})\cdots x_{\ol{i_{\ell(u)}}}(t_{\ol{\ell(u)}})hx_{j_1}(t_{1}) \cdots x_{j_{\ell(v)}}(t_{\ell(v)})
+g = x_{\ol{\imath_1}}(t_{\ol{1}})\cdots x_{\ol{\imath_{\ell(u)}}}(t_{\ol{\ell(u)}})hx_{j_1}(t_{1}) \cdots x_{j_{\ell(v)}}(t_{\ell(v)})
 \end{equation}
-for some $h \in H$ and $t_i,t_{\ol{i}} \in \kk^\times$. When $G = \widetilde{LSL}_{n-1}$ is the central extension of $LSL_{n-1}$, these factorizations (and more general ones associated to shuffles of reduced words) admit a combinatorial description in terms of directed networks on a cylinder [GSV, FM ??]. This generalizes a similar relation between $SL_n$ and directed networks on a disk [FZ ??]. By a directed network on a surface we will mean an embedded directed graph whose edges are assigned weights in some fixed ring. As in Section~\ref{sec:rigidregular} we fix a cyclic $\ZZ_n$-labelling of the vertices of the $A_{n-1}^{\!(1)}$ Dynkin diagram, chosen so that $0 \equiv n$ is the label of the affine root $\delta - \theta$\sayDR{Is that choice actually important anywhere?}. 
+for some $h \in H$ and $t_i,t_{\ol{\imath}} \in \kk^\times$. When $G = \widetilde{LSL}_{n-1}$ is the central extension of $LSL_{n-1}$, these factorizations (and more general ones associated to shuffles of reduced words) admit a combinatorial description in terms of directed networks on a cylinder [GSV, FM ??]. This generalizes a similar relation between $SL_n$ and directed networks on a disk [FZ ??]. By a directed network on a surface we will mean an embedded directed graph whose edges are assigned weights in some fixed ring. As in Section~\ref{sec:rigidregular} we fix a cyclic $\ZZ_n$-labelling of the vertices of the $A_{n-1}^{\!(1)}$ Dynkin diagram, chosen so that $0 \equiv n$ is the label of the affine root $\delta - \theta$\sayDR{Is that choice actually important anywhere?}. 
 
 %Recall that a \newword{double reduced word} $\bfi$ for a pair $u, v \in W$ of $A^{(1)}_{n-1}$ Weyl group elements is a shuffle of a reduced word for $u$ and one for $v$. We write this as $\bfi = (i_1,\dotsc,i_m)$, where $i_j \in \{\pm 0,\dotsc, \pm n-1\}$ (here $0$ and $-0$ are treated as distinct formal indices)
 
@@ -1821,7 +1819,7 @@ for some $h \in H$ and $t_i,t_{\ol{i}} \in \kk^\times$. When $G = \widetilde{LSL
 
 \begin{figure}\label{fig:network}
 \begin{tikzpicture}
-  \node[below] at (0,-2) {$x_{\ol{i}}(t_{\ol{i}})$};
+  \node[below] at (0,-2) {$x_{\ol{\imath}}(t_{\ol{\imath}})$};
   \draw (0.75,0) ellipse (0.5 and 2);
   %\draw (-1,0) ellipse (0.5 and 1);
   \draw (-0.75,2) arc (90:270:0.5 and 2);
@@ -1850,7 +1848,7 @@ for some $h \in H$ and $t_i,t_{\ol{i}} \in \kk^\times$. When $G = \widetilde{LSL
   \draw[doublearrow,draw] (0.255,0.2) -- (-1.245,0.2);
   \node[right] at (0.255,0.2) {$\scriptstyle i-1$};
   \draw[singlearrow,draw] (-0.495,0.2) arc (174.2:199:0.5 and 2);
-  \node at (-0.8,-0.225) {$\scriptstyle t_{\ol{i}}$};
+  \node at (-0.8,-0.225) {$\scriptstyle t_{\ol{\imath}}$};
   %\draw[-] (-1.18,1.05) -- (0.32,1.05);
   %\node[right] at (0.32,1.05) {$\scriptstyle i-1$};
   \draw[-] (1.015,1.7) -- (0.49,1.7);
@@ -1960,7 +1958,7 @@ Let $u$, $v$ be elements of the Weyl group of $\widetilde{LSL}_{n-1}$ together w
 \] 
 We declare one boundary component of the cylinder to be incoming and the other outgoing, and begin by associating a smaller cylindrical network to each factor in Equation~\ref{eq:uvfactorization} (see Figure~\ref{fig:networks on cylinders}). 
 
-For $1 \leq i \leq n$, the networks associated to $x_i(t)$ and $x_{\ol{i}}(t)$ contain $n$ horizontal \newword{levels} running from the incoming boundary to the outgoing boundary. These are labelled by $\ZZ_n$ compatibly with their cyclic ordering and all have weight $1$. There is also a vertical \newword{bridge} having weight $t$ running between the $(i-1)^{st}$ level and the $i^{th}$ level; for $x_i(t)$ this bridge is oriented from the $(i-1)^{st}$ level to the $i^{th}$ level, while for $x_{\ol{i}}(t)$ this bridge is oriented from the $i^{th}$ level to the $(i-1)^{st}$.
+For $1 \leq i \leq n$, the networks associated to $x_i(t)$ and $x_{\ol{\imath}}(t)$ contain $n$ horizontal \newword{levels} running from the incoming boundary to the outgoing boundary. These are labelled by $\ZZ_n$ compatibly with their cyclic ordering and all have weight $1$. There is also a vertical \newword{bridge} having weight $t$ running between the $(i-1)^{st}$ level and the $i^{th}$ level; for $x_i(t)$ this bridge is oriented from the $(i-1)^{st}$ level to the $i^{th}$ level, while for $x_{\ol{\imath}}(t)$ this bridge is oriented from the $i^{th}$ level to the $(i-1)^{st}$.
 
 %For $i\in[-n,-1]\cup[1,n]$ define a directed network on a cylinder (which we associate with $x_i(t_i)$) containing $n$ pairwise disjoint \emph{horizontal} edges of weight $1$ running from the right-hand boundary component to the left-hand boundary component, which are labelled by $\ZZ_n$ compatibly with their cyclic ordering, and a (\emph{vertical}) \emph{bridge} of weight $t_i$ joining the $(i-1)^{st}$\sayHW{wrong if $i < 0$?}\sayDR{Ugh, signs...I guess it should have an absolute value $|i|$ but this will be really ugly.} horizontal edge and the $i^{th}$ horizontal edge, which is oriented upward for $i>0$ and downward for $i<0$ (see Figure~\ref{fig:networks on cylinders}).  
 
@@ -2009,13 +2007,13 @@ Recall that $P^\circ$, the weight lattice of $SL_n$, is contained in the complem
 \begin{proposition}\label{prop:minorsfrompaths}
   Suppose $g\in G^{u,v}$ factors as %in Equation \ref{eq:uvfactorization}, 
 \[
-g = x_{\ol{i_1}}(t_{\ol{1}})\cdots x_{\ol{i_{\ell(u)}}}(t_{\ol{\ell(u)}})hx_{j_1}(t_{1}) \cdots x_{j_{\ell(v)}}(t_{\ell(v)})
+g = x_{\ol{\imath_1}}(t_{\ol{1}})\cdots x_{\ol{\imath_{\ell(u)}}}(t_{\ol{\ell(u)}})hx_{j_1}(t_{1}) \cdots x_{j_{\ell(v)}}(t_{\ell(v)})
 \]
 and let $h_i:= h^{\omega_i}$. Then \[ \Delta_{\omega_S}(g) = \sum_{P: S \to S} wt(P), \]
   where the sum is over collections $P$ of pairwise disjoint paths in $\cN^{u,v}$ with $\partial_{in}P = \partial_{out}P = S$.
 \end{proposition}
 \begin{proof}
-  The representation $\big(\bigwedge^{|S|}\kk^n\big)[z^{\pm 1}]$ has a natural basis $\{ e_{j_1} \wedge \cdots \wedge e_{j_{|S|}} z^d\}$ labelled by pairs of an $|S|$-element subset of $\ZZ_n$ and an integer $d$. The networks associated to $x_i(t)$, $x_{\ol{i}}(t)$, and $h$ directly encode the action of the corresponding group elements in this basis (see [GSV, FM ??] for related constructions). If $S = \{i_1,\dotsc,i_{|S|}\}$, then by a generalized Lindstr\"om-Gessel-Viennot argument the sum over collections of nonintersecting paths with $\partial_{in}P = \partial_{out}P = S$ computes the diagonal matrix coefficient by which $g$ rescales the basis element $e_{i_1} \wedge \cdots \wedge e_{i_{|S|}}$. Since this element has weight $\omega_S$, this matrix coefficient is $\Delta_{\omega_S}(g)$. 
+  The representation $\big(\bigwedge^{|S|}\kk^n\big)[z^{\pm 1}]$ has a natural basis $\{ e_{j_1} \wedge \cdots \wedge e_{j_{|S|}} z^d\}$ labelled by pairs of an $|S|$-element subset of $\ZZ_n$ and an integer $d$. The networks associated to $x_i(t)$, $x_{\ol{\imath}}(t)$, and $h$ directly encode the action of the corresponding group elements in this basis (see [GSV, FM ??] for related constructions). If $S = \{i_1,\dotsc,i_{|S|}\}$, then by a generalized Lindstr\"om-Gessel-Viennot argument the sum over collections of nonintersecting paths with $\partial_{in}P = \partial_{out}P = S$ computes the diagonal matrix coefficient by which $g$ rescales the basis element $e_{i_1} \wedge \cdots \wedge e_{i_{|S|}}$. Since this element has weight $\omega_S$, this matrix coefficient is $\Delta_{\omega_S}(g)$. 
 % (the exponent $d$ could be encoded more directly by pulling back $\cN^{u,v}$ to the universal cover of the cylinder -- this network would have infinitely many boundary vertices and basis elements are in bijection with certain $|S|$-element subsets of them
 %  Write $r=|S|$.  
 %  Inside the irreducible representation $\big(\!\bigwedge^{\!r}\CC^n\big)[z^{\pm 1}]$ of $G$, the vector $\bigwedge\limits_{i\in S} e_i$ (following Definition~\ref{def:minors} the choice of sign will be irrelevant) has weight $\omega_S$ and thus this representation identifies with $V(\omega_S)$.
@@ -2106,7 +2104,7 @@ We now turn to the main result of the section.  We will freely use the isomorphi
 \]
 by evaluating them on a generic $g \in \widetilde{LSL}_{n-1}^{c,c^{-1}}$ factored as in Equation~\ref{eq:uvfactorization} (and setting $h_i := h^{\omega_i}$). For example, we have 
 \begin{equation}\label{eq:typeAyhat}
-x_i = h_i,\quad\quad \hat{y}_i = t_it_{\ol{i}}h_{i-1}^{-1}h_i^2h_{i+1}^{-1},
+x_i = h_i,\quad\quad \hat{y}_i = t_it_{\ol{\imath}}h_{i-1}^{-1}h_i^2h_{i+1}^{-1},
 \end{equation}
 the latter following by reindexing vertices of $Q$ in the results of Lemma~\ref{lemma:coefficients_values} with the present conventions, then plugging them into the definition of $\hat{y}_i$.
 
@@ -2172,11 +2170,11 @@ We keep the convention that $i_0=k$ and $i_{m+1}=o_{m+1}=\ell+1$, and define $P_
 \begin{enumerate}
   \item First define an intermediate network $P'_r \in \cP_{[k,\ell]}$. If $i_{r-1} \notin E$, let $P'_r=P_{r-1}$. Otherwise let $o'_r$ be the largest index in $[i_{r-1},o_r-1]$ such that $[i_{r-1},o'_r]\subset E$. We obtain $P'_r$ from $P_{r-1}$ by, for each $j\in[i_{r-1},o'_r]$, diverting the path that stays on level $j$ 
 %\sayHW{This path is guaranteed to be straight in $P_{r-1}$, right? I.e. it crosses no bridges?}\sayDR{Yes, since it is just the initial horizontal path}
- so that it traverses the bridges of weights $t_j$ and $t_{\ol{j}}$. By inspection of Figure 4.3 and their counterparts with $t_{\ol{j}}$, the resulting collection $P'_r$ will remain pairwise disjoint.
+ so that it traverses the bridges of weights $t_j$ and $t_{\ol{\jmath}}$. By inspection of Figure 4.3 and their counterparts with $t_{\ol{\jmath}}$, the resulting collection $P'_r$ will remain pairwise disjoint.
 
 If $P'_r \neq P_{r-1}$, then using Equation~\ref{eq:typeAyhat} we have
 \[
-wt(P'_r)=wt(P_{r-1})\cdot h_{i_{r-1}-1}^{-1}h_{i_{r-1}}h_{o'_r}h_{o'_r+1}^{-1}\prod_{j\in[i_{r-1},o'_r]}(t_jt_{\ol{j}}) = wt(P_{r-1})\prod_{j \in [i_{r-1},o'_r]} \hat{y}_j.
+wt(P'_r)=wt(P_{r-1})\cdot h_{i_{r-1}-1}^{-1}h_{i_{r-1}}h_{o'_r}h_{o'_r+1}^{-1}\prod_{j\in[i_{r-1},o'_r]}(t_jt_{\ol{\jmath}}) = wt(P_{r-1})\prod_{j \in [i_{r-1},o'_r]} \hat{y}_j.
 \]
 In either case, using our inductive assumption on $wt(P_{r-1})$ and the fact that $E$ is target-closed we have 
 \[
@@ -2190,12 +2188,12 @@ wt(P'_r) = x^{\bfg(\Qrep_{[k,\ell]})} \prod_{j \in E \cap [k,o_{r}-1]} \hat{y}_j
 %  \[wt(P'_r)=wt(P_{r-1})\cdot h_{i_{r-1}-1}^{-1}h_{i_{r-1}}h_{o'_r}h_{o'_r+1}^{-1}\prod_{j\in[i_{r-1},o'_r]}(t_jt_{-j})=x^{g_{[k,\ell]}}(g)\hat y^{\bfe'_r}(g).\]
   \item If $i_r \notin E$, let $P_r = P'_r$. Otherwise let $o''_r$ be the smallest index in $[o_r,i_r]$ such that $[o''_r,i_r]\subset E$. 
 %If no such $o''_r$ exists (i.e. $i_r\notin E$) let $P_r=P'_r$. 
-We obtain $P_r$ from $P'_r$ by diverting the path that stays on level $i_r$ so that it traverses every bridge of weight $t_j$ and $t_{\ol{j}}$ for $j\in[o''_r,i_r]$. 
+We obtain $P_r$ from $P'_r$ by diverting the path that stays on level $i_r$ so that it traverses every bridge of weight $t_j$ and $t_{\ol{\jmath}}$ for $j\in[o''_r,i_r]$. 
 %  Otherwise, the path in $P'_r$ staying on level $i_r$ will now traverse every bridge $t_j$ for $j\in[o''_r,i_r]$ and 
-By inspection of Figure 4.3 and their counterparts with $t_{\ol{j}}$, the resulting collection $P_r$ will remain pairwise disjoint since $[o''_r,i_r]\cap\partial_{in}P'_r=\{i_r\}$ and when $o''_r=o_r$ (i.e. $o_r\in E$) we have $o_r-1\in\beta(P'_r)$.
+By inspection of Figure 4.3 and their counterparts with $t_{\ol{\jmath}}$, the resulting collection $P_r$ will remain pairwise disjoint since $[o''_r,i_r]\cap\partial_{in}P'_r=\{i_r\}$ and when $o''_r=o_r$ (i.e. $o_r\in E$) we have $o_r-1\in\beta(P'_r)$.
 
 If $P_r \neq P'_r$, we have 
-\[wt(P_r)=wt(P'_r)\cdot h_{o''_r-1}^{-1}h_{o''_r}h_{i_r}h_{i_r+1}^{-1}\prod_{j\in[o''_r,i_r]}(t_jt_{\ol{j}})=wt(P'_r)\prod_{j \in [o''_r,i_r]} \hat{y}_j.\] 
+\[wt(P_r)=wt(P'_r)\cdot h_{o''_r-1}^{-1}h_{o''_r}h_{i_r}h_{i_r+1}^{-1}\prod_{j\in[o''_r,i_r]}(t_jt_{\ol{\jmath}})=wt(P'_r)\prod_{j \in [o''_r,i_r]} \hat{y}_j.\] 
 In either case, again by induction and the fact that $E$ is target-closed we have
 \[
 wt(P_r) = x^{\bfg(\Qrep_{[k,\ell]})} \prod_{j \in E \cap [k,i_r]} \hat{y}_j.
