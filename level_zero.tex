@@ -326,8 +326,7 @@ The basic role of $\bfg$-vectors is that they provide natural labels of cluster 
 %\saySS{Citation Needed. This is Conjecture 7.10 (1) in CA4 and conjecture 1.5 in quiver with potentials (proved there for skew-symmetric); this also follows immediately from the fact that cluster variables are in the theta basis and theta basis elements are parametrized by g-vectors.}
 
 We say a skew-symmetrizable matrix is \newword{acyclic} if it can be conjugated by a permutation matrix so that the entries above the diagonal all become nonnegative.
-In other words, $B$ is acyclic if there is a permutation $\sigma \in S_n$ such that $b_{\sigma_i \sigma_j} \geq 0$ when $\sigma_i < \sigma_j$.
-\saySS{Should this be $i<j$?}
+In other words, $B$ is acyclic if there is a permutation $\sigma \in S_n$ such that $b_{\sigma_i \sigma_j} \geq 0$ when $i < j$.
 The permutation $\sigma$, when it exists, needs not be unique; nonetheless the choice of which permutation we use does not matter in the following so we fix one once and for all.
 %\saySS{This is redundant but we need the permutation to talk about the acyclic belt}
 The terminology is justified by the skew-symmetric case: the data of a skew-symmetric matrix $B$ is the same as that of a quiver $Q := Q_B$ with vertices indexed by the columns of $B$ and $[-B_{ij}]_+$ arrows to vertex $i$ from vertex $j$; the skew-symmetric matrix is acyclic exactly when this quiver has no oriented cycles. We call an exchange matrix \newword{acyclic} if its principal part is acyclic. 
@@ -620,7 +619,7 @@ While the above identity on $G$ is the one we use directly, we note that it rest
 
 The data of an $n\times n$ acyclic skew-symmetrizable matrix $B$ is equivalent to the data of a symmetrizable Cartan matrix $A$ (the \newword{Cartan companion} of $B$) together with a reduced word $(\sigma_1,\ldots,\sigma_n)$ for a Coxeter element $c$ of its Weyl group.
 The Cartan matrix is obtained from $B$ by making all its entries negative without changing their absolute values, then setting each diagonal entry equal to two; see Figure \ref{fig:matrices}.
-The reduced word $(\sigma_1,\ldots,\sigma_n)$ for $c$ is equivalent to a permutation $\sigma \in S_n$ which satisfies the following property: $b_{\sigma_i \sigma_j} \geq 0$ when $\sigma_i < \sigma_j$, such a permutation exists since $B$ is acyclic (choosing a different permutation with the above property defines the same Coxeter element via a different reduced word).
+The reduced word $(\sigma_1,\ldots,\sigma_n)$ for $c$ is equivalent to a permutation $\sigma \in S_n$ which satisfies the following property: $b_{\sigma_i \sigma_j} \geq 0$ when $i < j$, such a permutation exists since $B$ is acyclic (choosing a different permutation with the above property defines the same Coxeter element via a different reduced word).
 Conversely, any acyclic skew-symmetrizable matrix can be obtained from a Cartan matrix and a reduced word for a Coxeter element $c$ by assigning signs to the off-diagonal entries of $B$ according to the reduced word of $c$.
 
 We can realize the cluster algebra associated to the acyclic matrix $B$ geometrically in terms of the Kac-Moody group $G$ associated to $A$. More precisely, through the group we naturally find the algebra associated to the exchange matrix
@@ -679,7 +678,7 @@ The coordinate ring of the latter is also an upper cluster algebra whose initial
 In computing various relations in $\kk[G^{c,c^{-1}}]$ we will make extensive use of the fact that a generic element $g$ of $G^{c,c^{-1}}$ can be factored as
 \begin{equation}
   \label{eq:generic_element}
-  g=x_{\ol{1}}(t_{\ol{1}}) \cdots x_{\ol{n}}(t_{\ol{n}}) h x_n(t_n) \cdots x_1(t_1)
+  g=x_{\ol{\sigma_1}}(t_{\ol{1}}) \cdots x_{\ol{\sigma_n}}(t_{\ol{n}}) h x_{\sigma_n}(t_n) \cdots x_{\sigma_1}(t_1)
 \end{equation}
 for some $h \in H$ and $t_i, t_{\ol{i}} \in \kk^\times$ \cite{FZ99,Wil13}. 
 For example, with respect to such a factorization it is clear that we have $\Delta_\lambda(g) = h^\lambda$ for any dominant weight $\lambda \in \widehat{P}^+$.
