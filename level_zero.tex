@@ -2268,24 +2268,24 @@ with $\bfg$-vector is $\omega_3 - \omega_2$.
 
 \end{proof}
 
-\subsection{The Homogeneous Element}\sayHW{In the process of trying to flesh out this section more, I'm a bit ambivalent about some of the notation I introduced, e.g. using $\lambda$ as a parameter for the tubes when we often use it as a weight.}
+\subsection{The Homogeneous Element}\sayHW{In the process of trying to flesh out this section more, I'm a bit ambivalent about some of the notation I introduced, e.g. using $\lambda$ as a parameter for the tubes when we often use it as a weight.}\sayDR{I changed it to $\eta$ and made sure we never use this as a weight}
 We conclude with an extension of Theorem~\ref{th:cluster character equals minor} motivated by the theory of canonical bases. Cluster monomials form a partial basis of a cluster algebra, and there are various meaningful (and in general different) ways of completing them to a full basis [references]. One approach in line with the considerations of this paper is to form a basis consisting of cluster characters of potentially non-rigid representations. By taking the cluster character of a generic representation with each possible $\bfg$-vector, one obtains the generic basis of \cite{Dup12} (which directly generalizes the dual semicanonical basis of Lusztig).
 
-When $Q$ is an acyclic orientation of an $n$-cycle as in Section~\ref{sec:rigidregular}, the simplest example of a non-rigid representation is the representation $\Qrep_\lambda$ at the base of a homogeneous tube $\mathcal{T}_\lambda$, $\lambda \in \kk^*$. That is, $\Qrep_\lambda$ consists of a one-dimensional vector space at each vertex of $Q$, with arrows acting by isomorphisms such that the monodromy around $Q$ is equal to $\lambda$. The dimension vector of $\Qrep_\lambda$ is the minimal imaginary root $\delta$, and if $i_1<\cdots<i_m$ and $o_1<\cdots < o_m$ denote the sinks and sources of $Q$, its $\bfg$-vector is 
+When $Q$ is an acyclic orientation of an $n$-cycle as in Section~\ref{sec:rigidregular}, the simplest example of a non-rigid representation is the representation $\Qrep_\eta$ at the base of a homogeneous tube $\mathcal{T}_\eta$, $\eta \in \kk^*$. That is, $\Qrep_\eta$ consists of a one-dimensional vector space at each vertex of $Q$, with arrows acting by isomorphisms such that the monodromy around $Q$ is equal to $\eta$. The dimension vector of $\Qrep_\eta$ is the minimal imaginary root $\delta$, and if $i_1<\cdots<i_m$ and $o_1<\cdots < o_m$ denote the sinks and sources of $Q$, its $\bfg$-vector is 
 \[
-\bfg(\Qrep_\lambda) = \sum_{j=1}^m \omega_{o_j} - \omega_{i_j}.
+\bfg(\Qrep_\eta) = \sum_{j=1}^m \omega_{o_j} - \omega_{i_j}.
 \]
-The cluster character of $\Qrep_\lambda$ is independent of $\lambda$, and we refer to the resulting element of the generic basis as the homogeneous element.
+The cluster character of $\Qrep_\eta$ is independent of $\eta$, and we refer to the resulting element of the generic basis as the homogeneous element.
 
 %We conclude with a final suggestive result which is proven exactly as Theorem~\ref{th:cluster character equals minor}.
 \begin{theorem}\label{thm:homogeneous}
-In $\cA_{\Qdp} \cong \kk[\widetilde{LSL}_{n-1}^{c,c^{-1}}]$ the homogeneous element $x_{\Qrep_\lambda}$ is the restriction of the level zero minor $\Delta_{\bfg(\Qrep_\lambda)}$. 
+In $\cA_{\Qdp} \cong \kk[\widetilde{LSL}_{n-1}^{c,c^{-1}}]$ the homogeneous element $x_{\Qrep_\eta}$ is the restriction of the level zero minor $\Delta_{\bfg(\Qrep_\eta)}$. 
 %  Let $D$ be any indecomposable representation $Q$ with dimension vector $\delta=\sum\limits_{i\in Q_0}\alpha_i$ and all maps isomorphisms.  Under the identification $\kk[G^{c,c^{-1}}] \cong A_Q$ we have
 %  \[x_D = \Delta_{\omega_S}\]
 %  for $S=[i_1,o_1-1] \cup [i_2,o_2-1] \cup \cdots \cup [i_m,o_m-1]$, where $i_1<o_1<\cdots<i_m<o_m<i_1$ denote the sinks and sources of $Q$ in the cyclic ordering of vertices.
 \end{theorem}
 \begin{proof}
-Similarly to Lemma~\ref{lem:regulargvectors}, we have $\bfg(M_\lambda) = \omega_S$, where
+Similar to Lemma~\ref{lem:regulargvectors}, we have $\bfg(M_\eta) = \omega_S$, where
 \[
 S=[i_1,o_1-1] \cup [i_2,o_2-1] \cup \cdots \cup [i_m,o_m-1] \subset \ZZ_n.
 \]
