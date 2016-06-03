@@ -1986,12 +1986,12 @@ The network $\cN^{u,v}$ is now defined by gluing these constituent networks toge
 \begin{tikzpicture}
   % drawing parameters
   \pgfmathsetmacro{\ehgt}{2} % vertical radius of ellipse
-  \pgfmathsetmacro{\edpt}{0.6} % horisontal radius of ellipse
+  \pgfmathsetmacro{\edpt}{0.6} % horizontal radius of ellipse
   \pgfmathsetmacro{\ewdt}{0.9} % horizontal distance in between slices
   \pgfmathsetmacro{\fang}{150} % angle of topmost horizontal line
   \pgfmathsetmacro{\ang}{25} % angle in between horizontal lines
   \pgfmathsetmacro{\ask}{-7} % angle distance of labels
-  \pgfmathsetmacro{\hsk}{-0.2} %horisontal distance of labels
+  \pgfmathsetmacro{\hsk}{-0.2} %horizontal distance of labels
 
   % left side
   \draw ([shift={(90:{\edpt} and \ehgt)}]0,0) arc (90:270:{\edpt} and \ehgt);
@@ -2031,7 +2031,7 @@ The network $\cN^{u,v}$ is now defined by gluing these constituent networks toge
   \draw [singlearrowreversed,draw] ([shift={(\fang+\ang:{\edpt} and \ehgt)}]5*\ewdt,0) arc (\fang+\ang:\fang+2*\ang:{\edpt} and \ehgt);
   \node at ([shift={(\fang+1.5*\ang:{\edpt} and \ehgt)}]5*\ewdt+\hsk,0) {$\scriptstyle t_{3}$};
   
-  % sixt block
+  % sixth block
   \draw [singlearrowreversed,draw] ([shift={(90:{\edpt} and \ehgt)}]6*\ewdt,0) arc (90:\fang:{\edpt} and \ehgt);
   \draw [dashed] ([shift={(-90:{\edpt} and \ehgt)}]6*\ewdt,0) arc (-90:90:{\edpt} and \ehgt);
   \draw [singlearrowreversed,draw] ([shift={(\fang+2*\ang:{\edpt} and \ehgt)}]6*\ewdt,0) arc (\fang+2*\ang:270:{\edpt} and \ehgt);
