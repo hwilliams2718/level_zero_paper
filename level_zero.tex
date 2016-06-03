@@ -2052,7 +2052,7 @@ The network $\cN^{u,v}$ is now defined by gluing these constituent networks toge
   \node at (2.1,0.4) {$\scriptstyle h_3h_2^{-1}$};
   \node at (2.15,-0.5) {$\scriptstyle h_1h_3^{-1}$};
 \end{tikzpicture}
-\caption{The network $\cN^{c,c^{-1}}$ for $c = s_2 s_1 s_3$. It encode the factorization of a generic element of $\widetilde{LSL}_3^{c,c^{-1}}$ as $g = x_{\ol{2}}(t_{\ol{2}})x_{\ol{1}}(t_{\ol{1}})x_{\ol{3}}(t_{\ol{3}})hx_{3}(t_{3})x_{1}(t_{1})x_{2}(t_{2})$.}
+\caption{The network $\cN^{c,c^{-1}}$ for $c = s_2 s_1 s_3$. It encodes the factorization of a generic element of $\widetilde{LSL}_3^{c,c^{-1}}$ as $g = x_{\ol{2}}(t_{\ol{2}})x_{\ol{1}}(t_{\ol{1}})x_{\ol{3}}(t_{\ol{3}})hx_{3}(t_{3})x_{1}(t_{1})x_{2}(t_{2})$.}
 \label{fig:totalnetwork}
 \end{figure}
 
@@ -2081,7 +2081,7 @@ and let $h_i:= h^{\omega_i}$. Then \[ \Delta_{\omega_S}(g) = \sum_{P: S \to S} w
 %  By construction, each basic network $x_i(t_i)$ for $i\in[-n,-1]\cup[1,n]$ and $h_i$ for $i\in[1,n]$ encodes the action of the corresponding group element on the standard basis $\{ e_{j_1} \wedge \cdots \wedge e_{j_r} z^d\}$ of $\big(\!\bigwedge^{\!r}\CC^n\big)[z^{\pm 1}]$ labelled by pairs of an $r$-element subset of $\ZZ_n$ and an integer $d$.  Thus the network $\cN^{u,v}$ encodes the action of a generic element $g\in G^{c,c^{-1}}$ given by \eqref{eq:double Bruhat generic element} on this basis and the result then follows from the definition of $\Delta_{\omega_S}$.
 \end{proof}
 
-We now return to the specific case of $\widetilde{LSL}_n^{c,c^{-1}}$, where $c = s_{\sigma_1}\cdots s_{\sigma_{n}}$ is a fixed Coxeter element. From now on we reindex the factorization of Equation \ref{eq:uvfactorization} in a way tailored to this case:
+We now return to the specific case of $\widetilde{LSL}_{n-1}^{c,c^{-1}}$, where $c = s_{\sigma_1}\cdots s_{\sigma_{n}}$ is a fixed Coxeter element. From now on we reindex the factorization of Equation~\ref{eq:uvfactorization} in a way tailored to this case:
 \begin{equation}
 \label{eq:coxfactorization}
 g = x_{\ol{\sigma_1}}(t_{\ol{\sigma_1}}) \cdots x_{\ol{\sigma_n}}(t_{\ol{\sigma_n}})h x_{\sigma_n}(t_{\sigma_n}) \cdots x_{\sigma_1}(t_{\sigma_1}).
@@ -2373,7 +2373,7 @@ The proof now proceeds exactly like that of Theorem~\ref{th:cluster character eq
 %This suggests the study of minors whose weights are $g$-vectors of other representations in the tubes.  It turns out that these other minors do not belong to the generic basis as they do not satisfy the relations of \cite[Lemma 5.2]{Dup12}.
 
 \begin{remark}
-Theorem~\ref{thm:homogeneous} has an analogue for an arbitrary symmetric Kac-Moody group of rank two, at least formally. Let $Q$ be the $n$-Kronecker quiver: it has two vertices, and $n$ arrows from vertex 2 to vertex 1. Note that all non-initial cluster variables of $\cA_Q$ are either preprojective or preinjective. However, it contains a homogeneous element $x_M$, where $M$ is any representation where $M_1$ and $M_2$ are one-dimensional and at least one arrow acts by an isomorphism. Using the obvious injective resolution of $M$ and the fact that its only nontrivial submodule is $S_1$, we have
+Theorem~\ref{thm:homogeneous} has an analogue for an arbitrary symmetric Kac-Moody group of rank two, at least formally. Let $Q$ be the $n$-Kronecker quiver: it has two vertices, and $n$ arrows from vertex 2 to vertex 1. Note that all non-initial cluster variables of $\cA_Q$ are either preprojective or postinjective. However, it contains a homogeneous element $x_M$, where $M$ is any representation with $M_1$ and $M_2$ one-dimensional and at least one arrow acting by an isomorphism. Using the obvious injective resolution of $M$ and the fact that its only nontrivial proper submodule is $S_1$, we have
 \[
 x_M = x_1^{-1}x_2^{n-1}(1 + \hat{y}_1 + \hat{y}_1 \hat{y}_2).
 \]
