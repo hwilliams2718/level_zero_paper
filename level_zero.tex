@@ -1489,7 +1489,7 @@ Simplifying using the fact that $s_i\omega_j=\omega_j$ for $i\neq j$, then movin
 
 %\end{proof}
 
-In proving the following theorem we make use of the involutive anti-automorphism $g \mapsto g^\iota$ \saySS{For graphical reasons I switched $\ol{i}$ to $\ol{\imath}$ throughout. Do you think this can create confuson with $\iota$?} of $G$ defined by
+In proving the following theorem we make use of the involutive anti-automorphism $g \mapsto g^\iota$ \saySS{For graphical reasons I switched $\ol{i}$ to $\ol{\imath}$ throughout. Do you think this can create confuson with $\iota$?}\sayDR{I don't think there will be any issues} of $G$ defined by
 \begin{equation}
   h^\iota := h^{-1}\,\, (h\in H),
   \quad
@@ -2074,7 +2074,7 @@ and let $h_i:= h^{\omega_i}$. Then \[ \Delta_{\omega_S}(g) = \sum_{P: S \to S} w
   where the sum is over collections $P$ of pairwise disjoint paths in $\cN^{u,v}$ with $\partial_{in}P = \partial_{out}P = S$.
 \end{proposition}
 \begin{proof}
-  The representation $\big(\bigwedge^{|S|}\kk^n\big)[z^{\pm 1}]$ has a natural basis $\{ e_{j_1} \wedge \cdots \wedge e_{j_{|S|}} z^d\}$ labelled by pairs of an $|S|$-element subset of $\ZZ_n$ and an integer $d$. The networks associated to $x_i(t)$, $x_{\ol{\imath}}(t)$, and $h$ directly encode the action of the corresponding group elements in this basis (see [GSV, FM ??] for related constructions). If $S = \{i_1,\dotsc,i_{|S|}\}$, then by a generalized Lindstr\"om-Gessel-Viennot argument the sum over collections of nonintersecting paths with $\partial_{in}P = \partial_{out}P = S$ computes the diagonal matrix coefficient by which $g$ rescales the basis element $e_{i_1} \wedge \cdots \wedge e_{i_{|S|}}$. Since this element has weight $\omega_S$, this matrix coefficient is $\Delta_{\omega_S}(g)$. 
+  The representation $\big(\bigwedge^{|S|}\kk^{n-1}\big)[z^{\pm 1}]$ has a natural basis $\{ e_{j_1} \wedge \cdots \wedge e_{j_{|S|}} z^d\}$ labelled by pairs of an $|S|$-element subset of $\ZZ_n$ and an integer $d$. The networks associated to $x_i(t)$, $x_{\ol{\imath}}(t)$, and $h$ directly encode the action of the corresponding group elements in this basis (see [GSV, FM ??] for related constructions). If $S = \{i_1,\dotsc,i_{|S|}\}$, then by a generalized Lindstr\"om-Gessel-Viennot argument the sum over collections of nonintersecting paths with $\partial_{in}P = \partial_{out}P = S$ computes the diagonal matrix coefficient by which $g$ rescales the basis element $e_{i_1} \wedge \cdots \wedge e_{i_{|S|}}$. Since this element has weight $\omega_S$, this matrix coefficient is $\Delta_{\omega_S}(g)$. 
 % (the exponent $d$ could be encoded more directly by pulling back $\cN^{u,v}$ to the universal cover of the cylinder -- this network would have infinitely many boundary vertices and basis elements are in bijection with certain $|S|$-element subsets of them
 %  Write $r=|S|$.  
 %  Inside the irreducible representation $\big(\!\bigwedge^{\!r}\CC^n\big)[z^{\pm 1}]$ of $G$, the vector $\bigwedge\limits_{i\in S} e_i$ (following Definition~\ref{def:minors} the choice of sign will be irrelevant) has weight $\omega_S$ and thus this representation identifies with $V(\omega_S)$.
