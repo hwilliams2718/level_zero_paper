@@ -1820,7 +1820,7 @@ for some $h \in H$ and $t_i,t_{\ol{\imath}} \in \kk^\times$. When $G = \widetild
 
 \begin{figure}\label{fig:network}
 \begin{tikzpicture}
-  \node[below] at (0,-2) {$x_{\ol{\imath}}(t_{\ol{\imath}})$};
+  \node[below] at (0,-2) {$x_{\ol{\imath}}(t)$};
   \draw (0.75,0) ellipse (0.5 and 2);
   %\draw (-1,0) ellipse (0.5 and 1);
   \draw (-0.75,2) arc (90:270:0.5 and 2);
@@ -1834,7 +1834,7 @@ for some $h \in H$ and $t_i,t_{\ol{\imath}} \in \kk^\times$. When $G = \widetild
   \draw[-] (1.2,-0.85) -- (0.3,-0.85);
   \draw[dashed] (-0.3,-0.85) -- (0.3,-0.85);
   \draw[singlearrow] (1.2,-0.85) -- (-0.3,-0.85);
-  \node[right] at (1.2,-0.85) {$\scriptstyle 0$};
+  \node[right] at (1.2,-0.85) {$\scriptstyle n$};
   \draw[-] (1.015,-1.7) -- (0.49,-1.7);
   \draw[dashed] (-0.49,-1.7) -- (0.45,-1.7);
   \draw[singlearrow] (1.015,-1.7) -- (-0.49,-1.7);
@@ -1849,7 +1849,7 @@ for some $h \in H$ and $t_i,t_{\ol{\imath}} \in \kk^\times$. When $G = \widetild
   \draw[doublearrow,draw] (0.255,0.2) -- (-1.245,0.2);
   \node[right] at (0.255,0.2) {$\scriptstyle i-1$};
   \draw[singlearrow,draw] (-0.495,0.2) arc (174.2:199:0.5 and 2);
-  \node at (-0.8,-0.225) {$\scriptstyle t_{\ol{\imath}}$};
+  \node at (-0.8,-0.225) {$\scriptstyle t$};
   %\draw[-] (-1.18,1.05) -- (0.32,1.05);
   %\node[right] at (0.32,1.05) {$\scriptstyle i-1$};
   \draw[-] (1.015,1.7) -- (0.49,1.7);
@@ -1878,7 +1878,7 @@ for some $h \in H$ and $t_i,t_{\ol{\imath}} \in \kk^\times$. When $G = \widetild
   \draw[-] (1.2,-0.85) -- (0.3,-0.85);
   \draw[dashed] (-0.3,-0.85) -- (0.3,-0.85);
   \draw[singlearrow] (1.2,-0.85) -- (-0.3,-0.85);
-  \node[right] at (1.2,-0.85) {$\scriptstyle 0$};
+  \node[right] at (1.2,-0.85) {$\scriptstyle n$};
   \draw[-] (1.015,-1.7) -- (0.49,-1.7);
   \draw[dashed] (-0.49,-1.7) -- (0.45,-1.7);
   \draw[singlearrow] (1.015,-1.7) -- (-0.49,-1.7);
@@ -1909,7 +1909,7 @@ for some $h \in H$ and $t_i,t_{\ol{\imath}} \in \kk^\times$. When $G = \widetild
 \end{tikzpicture}
 \quad\quad
 \begin{tikzpicture}
-  \node[below] at (0,-2) {$x_i(t_i)$};
+  \node[below] at (0,-2) {$x_i(t)$};
   \draw (0.75,0) ellipse (0.5 and 2);
   %\draw (-1,0) ellipse (0.5 and 1);
   \draw (-0.75,2) arc (90:270:0.5 and 2);
@@ -1923,7 +1923,7 @@ for some $h \in H$ and $t_i,t_{\ol{\imath}} \in \kk^\times$. When $G = \widetild
   \draw[-] (1.2,-0.85) -- (0.3,-0.85);
   \draw[dashed] (-0.3,-0.85) -- (0.3,-0.85);
   \draw[singlearrow] (1.2,-0.85) -- (-0.3,-0.85);
-  \node[right] at (1.2,-0.85) {$\scriptstyle 0$};
+  \node[right] at (1.2,-0.85) {$\scriptstyle n$};
   \draw[-] (1.015,-1.7) -- (0.49,-1.7);
   \draw[dashed] (-0.49,-1.7) -- (0.45,-1.7);
   \draw[singlearrow] (1.015,-1.7) -- (-0.49,-1.7);
@@ -1932,7 +1932,7 @@ for some $h \in H$ and $t_i,t_{\ol{\imath}} \in \kk^\times$. When $G = \widetild
   \draw[doublearrow,draw] (0.275,-0.65) -- (-1.225,-0.65);
   \node[right] at (0.275,-0.65) {$\scriptstyle i$};
   \draw[singlearrow,draw] (-0.475,-0.65) arc (199:174.2:0.5 and 2);
-  \node at (-0.7,-0.225) {$\scriptstyle t_i$};
+  \node at (-0.7,-0.225) {$\scriptstyle t$};
   \draw[-] (-1.245,0.2) -- (0.255,0.2);
   \draw[doublearrow,draw] (0.255,0.2) -- (-1.245,0.2);
   \node[right] at (0.255,0.2) {$\scriptstyle i-1$};
@@ -2039,20 +2039,20 @@ The network $\cN^{u,v}$ is now defined by gluing these constituent networks toge
   %\draw[-] (1.2,0.85) -- (0.3,0.85);
   %\draw[dashed] (-0.3,0.85) -- (0.3,0.85);
   %\draw[singlearrow] (1.2,0.85) -- (-0.3,0.85);
-  \node[right] at (5.5,1) {$\scriptstyle 0$};
-  \node[right] at (5.4,0.2) {$\scriptstyle 1$};
-  \node[right] at (5.45,-0.7) {$\scriptstyle 2$};
-  \node at (-0.7,0.6) {$\scriptstyle t_{\ol{1}}$};
-  \node at (0.2,1.5) {$\scriptstyle t_{\ol{2}}$};
+  \node[right] at (5.5,1) {$\scriptstyle 1$};
+  \node[right] at (5.4,0.2) {$\scriptstyle 2$};
+  \node[right] at (5.45,-0.7) {$\scriptstyle 3$};
+  \node at (-0.7,0.6) {$\scriptstyle t_{\ol{2}}$};
+  \node at (0.2,1.5) {$\scriptstyle t_{\ol{1}}$};
   \node at (0.85,-0.25) {$\scriptstyle t_{\ol{3}}$};
   \node at (2.75,-0.25) {$\scriptstyle t_{3}$};
-  \node at (4.4,0.6) {$\scriptstyle t_{1}$};
-  \node at (3.7,1.5) {$\scriptstyle t_{2}$};
-  \node at (2.2,1.2) {$\scriptstyle h_1h_0^{-1}$};
-  \node at (2.1,0.4) {$\scriptstyle h_2h_1^{-1}$};
-  \node at (2.15,-0.5) {$\scriptstyle h_0h_2^{-1}$};
+  \node at (4.4,0.6) {$\scriptstyle t_{2}$};
+  \node at (3.7,1.5) {$\scriptstyle t_{1}$};
+  \node at (2.2,1.2) {$\scriptstyle h_2h_1^{-1}$};
+  \node at (2.1,0.4) {$\scriptstyle h_3h_2^{-1}$};
+  \node at (2.15,-0.5) {$\scriptstyle h_1h_3^{-1}$};
 \end{tikzpicture}
-\caption{The network $\cN^{c,c^{-1}}$ for $c = s_1 s_0 s_2$.}
+\caption{The network $\cN^{c,c^{-1}}$ for $c = s_2 s_1 s_3$. It encode the factorization of a generic element of $\widetilde{LSL}_3^{c,c^{-1}}$ as $g = x_{\ol{2}}(t_{\ol{2}})x_{\ol{1}}(t_{\ol{1}})x_{\ol{3}}(t_{\ol{3}})hx_{3}(t_{3})x_{1}(t_{1})x_{2}(t_{2})$.}
 \label{fig:totalnetwork}
 \end{figure}
 
@@ -2081,7 +2081,12 @@ and let $h_i:= h^{\omega_i}$. Then \[ \Delta_{\omega_S}(g) = \sum_{P: S \to S} w
 %  By construction, each basic network $x_i(t_i)$ for $i\in[-n,-1]\cup[1,n]$ and $h_i$ for $i\in[1,n]$ encodes the action of the corresponding group element on the standard basis $\{ e_{j_1} \wedge \cdots \wedge e_{j_r} z^d\}$ of $\big(\!\bigwedge^{\!r}\CC^n\big)[z^{\pm 1}]$ labelled by pairs of an $r$-element subset of $\ZZ_n$ and an integer $d$.  Thus the network $\cN^{u,v}$ encodes the action of a generic element $g\in G^{c,c^{-1}}$ given by \eqref{eq:double Bruhat generic element} on this basis and the result then follows from the definition of $\Delta_{\omega_S}$.
 \end{proof}
 
-To use the above proposition effectively, we collect some elementary combinatorial observations about collections of pairwise disjoint paths $P$ in $\cN^{c,c^{-1}}$. 
+We now return to the specific case of $\widetilde{LSL}_n^{c,c^{-1}}$, where $c = s_{\sigma_1}\cdots s_{\sigma_{n}}$ is a fixed Coxeter element. From now on we reindex the factorization of Equation \ref{eq:uvfactorization} in a way tailored to this case:
+\begin{equation}
+\label{eq:coxfactorization}
+g = x_{\ol{\sigma_1}}(t_{\ol{\sigma_1}}) \cdots x_{\ol{\sigma_n}}(t_{\ol{\sigma_n}})h x_{\sigma_n}(t_{\sigma_n}) \cdots x_{\sigma_1}(t_{\sigma_1}).
+\end{equation}
+To use the preceding proposition effectively, we collect some elementary combinatorial observations about collections of pairwise disjoint paths $P$ in $\cN^{c,c^{-1}}$. 
 Note that when $u$ and $v$ are Coxeter elements the choice of reduced word in Definition~\ref{def:network} is immaterial: different reduced words differ by relations of the form $s_i s_j = s_j s_i$ for $a_{ij} = 0$, and these relations do not change the combinatorics of the network. 
 Given a collection $P$ of disjoint paths, define its \newword{bridge set} $\beta(P)\subset\ZZ_n$ by letting $j\in\beta(P)$ if and only if a path in $P$ traverses the unique bridge of weight $t_j$.
 
@@ -2094,7 +2099,7 @@ Given a collection $P$ of disjoint paths, define its \newword{bridge set} $\beta
   \end{enumerate}
 \end{lemma}
 \begin{proof}
-If $c = s_{\sigma_0}\cdots s_{\sigma_{n-1}}$, then by our definitions $(\sigma_0,\ldots,\sigma_{n-1})$ is sink adapted for $Q$. The orientation of the arrow connecting vertices $j$ and $j+1$ is thus related to the local structure of the network $\cN^{c,c^{-1}}$ as in Figure~\ref{fig:quivernetwork}. The result follows immediately by comparing the statements against the picture.
+If $c = s_{\sigma_1}\cdots s_{\sigma_{n}}$, then by our definitions $(\sigma_1,\ldots,\sigma_{n})$ is sink adapted for $Q$. The orientation of the arrow connecting vertices $j$ and $j+1$ is thus related to the local structure of the network $\cN^{c,c^{-1}}$ as in Figure~\ref{fig:quivernetwork}. The result follows immediately by comparing the statements against the picture.
 \end{proof} 
 
 \begin{figure}
@@ -2163,7 +2168,7 @@ We now turn to the main result of the section.  We will freely use the isomorphi
 \[
 \kk[t_{1}^{\pm1},\dotsc,t_{n}^{\pm 1},h_1^{\pm 1},\dotsc,h_{n}^{\pm 1},t_{\ol{1}}^{\pm 1},\dotsc,t_{\ol{n}}^{\pm 1}]
 \]
-by evaluating them on a generic $g \in \widetilde{LSL}_{n-1}^{c,c^{-1}}$ factored as in Equation~\ref{eq:uvfactorization} (and setting $h_i := h^{\omega_i}$). For example, we have 
+by evaluating them on a generic $g \in \widetilde{LSL}_{n-1}^{c,c^{-1}}$ factored as in Equation~\ref{eq:coxfactorization} (and setting $h_i := h^{\omega_i}$). For example, we have 
 \begin{equation}\label{eq:typeAyhat}
 x_i = h_i,\quad\quad \hat{y}_i = t_it_{\ol{\imath}}h_{i-1}^{-1}h_i^2h_{i+1}^{-1},
 \end{equation}
@@ -2190,7 +2195,7 @@ the assignment $P \mapsto \beta(P)$ defines a bijection between $\cP_{[k,\ell]}$
 \end{enumerate}
 The main claim follows from these given Propositions~\ref{prop:regular coindices} and~\ref{prop:minorsfrompaths}.
 
-%By Proposition \ref{prop:minorsfrompaths}, given a generic $g \in \widetilde{LSL}_n^{c,c^{-1}}$ factored as in Equation \ref{eq:uvfactorization}, we have  
+%By Proposition \ref{prop:minorsfrompaths}, given a generic $g \in \widetilde{LSL}_n^{c,c^{-1}}$ factored as in Equation \ref{eq:coxfactorization}, we have  
 %\[
 %\Delta_{\omega_{S_{[k,\ell]}}}(g) = \sum_{P: S_{[k,\ell]} \to S_{[k,\ell]}} wt(P),
 %\]
@@ -2265,7 +2270,7 @@ wt(P_r) = x^{\bfg(\Qrep_{[k,\ell]})} \prod_{j \in E \cap [k,i_r]} \hat{y}_j.
 \end{enumerate}
 By induction, $\pi(E)=P_{m+1} \in \cP_{[k,\ell]}$ has $\beta(\pi(E))=E$ and 
 \[wt(\pi(E))=x^{\bfg(M_{[k,\ell]})}\prod_{j\in E}\hat y_j,\]
-as desired in (b).  Noting that $\pi(\beta(P))=P$ for any $P\in\cP_{[k,\ell]}$ shows (c) and completes the proof.\sayHW{Probably should followup on the uniqueness aspect of finding $P$ with $\beta(P) = E$.}\sayDR{We could probably say more details if needed, but how is this?}
+as desired in (b).  Finally, it is straightforward to see that if $\beta(P) = \beta(P')$ for some $P, P' \in \cP_{[k,\ell]}$, we must have $P = P'$. In particular $\pi(\beta(P))=P$ for any $P\in\cP_{[k,\ell]}$, which shows (c) and completes the proof.%\sayHW{Probably should followup on the uniqueness aspect of finding $P$ with $\beta(P) = E$.}\sayDR{We could probably say more details if needed, but how is this?}
 \end{proof}
 
 
@@ -2295,7 +2300,7 @@ While the combinatorics we used to prove Conjecture~\ref{conj:affine} in type $A
 Conjecture~\ref{conj:affine} holds when the Cartan companion of $B$ is of type $B_3^{(1)}$, $C_2^{(1)}$, $D_4^{(1)}$, $G_2^{(1)}$. 
 \end{proposition}
 \begin{proof}
-We illustrate the needed computation in the case of a sample regular cluster variable in type $B_{2}^{(1)}$. The full Proposition is an assertion about several dozen such computations, which can be efficiently checked by a computer. 
+We illustrate the needed computation in the case of a sample regular cluster variable in type $B_{2}^{(1)}$. The full Proposition amounts to an assertion about several dozen such calculations, which can be efficiently checked by a computer. 
 
 Consider the exchange matrix
 \[
@@ -2319,15 +2324,26 @@ This corresponds to the Coxeter element $s_1 s_2 s_3$, where the $B_2^{(1)}$ Dyn
 \draw[fill=black] (0 cm, 0 cm) circle (.25cm) node[below=4pt]{$1$};
 \end{tikzpicture}
 \]
-If we mutate at indices ***** we obtain the regular cluster variable
+If we mutate at indices 1, 3, and 2 in order we obtain the regular cluster variable
 \[
 x_\bfg =
 \]
-with $\bfg$-vector is $\omega_3 - \omega_2$. 
+with $\bfg$-vector is $\omega_2 - \omega_1$. 
 
+Let us evaluate the level zero minor $\Delta_{\omega_2 - \omega_1}$ on a generic element
+\[
+g = x_{\ol{1}}(t_{\ol{1}})x_{\ol{2}}(t_{\ol{2}})x_{\ol{3}}(t_{\ol{3}})hx_3(t_3)x_2(t_2)x_1(t_1) \in \widetilde{LSP}_4^{c,c^{-1}}.
+\]
+To do this fix a vector $v$ of weight $\omega_2 - \omega_1$  in $V(\omega_2 - \omega_1) \cong \kk^4[z^{\pm 1}]$. Note that $v$ is extremal in the sense that it is a highest- or lowest- weight vector for each (not necessarily simple) coroot subgroup of $\widetilde{LSP}_4$; the same property then holds automatically for each translate $\ol{w}v$ of $v$ by an element $w \in W$. 
+
+Write $e_i$ and $f_i$ for the standard generators of $\widetilde{L\mathfrak{sp}}_4$. Since $v$ sits in an $\alpha_1$-root string of length 2, we have
+\[
+x_1(t_1)v = v + te_1v. 
+\]
+Similarly, since $te_1v$ has weight $s_1(\omega_2 - \omega_1)$
 \end{proof}
 
-\subsection{The Homogeneous Element}\sayHW{In the process of trying to flesh out this section more, I'm a bit ambivalent about some of the notation I introduced, e.g. using $\lambda$ as a parameter for the tubes when we often use it as a weight.}\sayDR{I changed it to $\eta$ and made sure we never use this as a weight}
+\subsection{The Homogeneous Element}%\sayHW{In the process of trying to flesh out this section more, I'm a bit ambivalent about some of the notation I introduced, e.g. using $\lambda$ as a parameter for the tubes when we often use it as a weight.}\sayDR{I changed it to $\eta$ and made sure we never use this as a weight}
 We conclude with an extension of Theorem~\ref{th:cluster character equals minor} motivated by the theory of canonical bases. Cluster monomials form a partial basis of a cluster algebra, and there are various meaningful (and in general different) ways of completing them to a full basis [references]. One approach in line with the considerations of this paper is to form a basis consisting of cluster characters of potentially non-rigid representations. By taking the cluster character of a generic representation with each possible $\bfg$-vector, one obtains the generic basis of \cite{Dup12} (which directly generalizes the dual semicanonical basis of Lusztig).
 
 When $Q$ is an acyclic orientation of an $n$-cycle as in Section~\ref{sec:rigidregular}, the simplest example of a non-rigid representation is the representation $\Qrep_\eta$ at the base of a homogeneous tube $\mathcal{T}_\eta$, $\eta \in \kk^*$. That is, $\Qrep_\eta$ consists of a one-dimensional vector space at each vertex of $Q$, with arrows acting by isomorphisms such that the monodromy around $Q$ is equal to $\eta$. The dimension vector of $\Qrep_\eta$ is the minimal imaginary root $\delta$, and if $i_1<\cdots<i_m$ and $o_1<\cdots < o_m$ denote the sinks and sources of $Q$, its $\bfg$-vector is 
@@ -2357,7 +2373,16 @@ The proof now proceeds exactly like that of Theorem~\ref{th:cluster character eq
 %This suggests the study of minors whose weights are $g$-vectors of other representations in the tubes.  It turns out that these other minors do not belong to the generic basis as they do not satisfy the relations of \cite[Lemma 5.2]{Dup12}.
 
 \begin{remark}
-Theorem~\ref{thm:homogeneous} has an analogue for non-affine Kac-Moody groups of rank two, at least formally. Let $Q$ be the $n$-Kronecker quiver: it has two vertices, and $n$ arrows from vertex 1 to vertex 2. 
+Theorem~\ref{thm:homogeneous} has an analogue for an arbitrary symmetric Kac-Moody group of rank two, at least formally. Let $Q$ be the $n$-Kronecker quiver: it has two vertices, and $n$ arrows from vertex 2 to vertex 1. Note that all non-initial cluster variables of $\cA_Q$ are either preprojective or preinjective. However, it contains a homogeneous element $x_M$, where $M$ is any representation where $M_1$ and $M_2$ are one-dimensional and at least one arrow acts by an isomorphism. Using the obvious injective resolution of $M$ and the fact that its only nontrivial submodule is $S_1$, we have
+\[
+x_M = x_1^{-1}x_2^{n-1}(1 + \hat{y}_1 + \hat{y}_1 \hat{y}_2).
+\]
+
+On the other hand, we have $\cA_{\Qdp} \cong \kk[G^{c,c^{-1}}]$, where $G$ is the Kac-Moody group with Cartan matrix 
+\[
+A = \begin{bmatrix} 2 & -n \\ -n & 2 \end{bmatrix}
+\]
+and $c = s_1 s_2$. Let us formally compute the minor $\Delta_{\bfg(M)}$, where $\bfg(M) = (n-1) \omega_2 - \omega_1$. That is, we suppose there exists a representation $V(\omega_{\bfg(M)})$ of $G$ having a one-dimensional extremal weight space of weight $\bfg(M)$ (i.e. this weight space is either highest- or lowest-weight for both simple root subgroups of $G$).
 \end{remark}
 
 \section{Conventions}
