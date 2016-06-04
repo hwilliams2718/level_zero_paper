@@ -99,6 +99,7 @@ urlcolor=blue]{hyperref}
 \newcommand{\Bdp}{\widetilde{B}_{dp}}
 \newcommand{\Qdp}{Q_{dp}}
 \newcommand{\Qrep}{M}
+\newcommand{\lvar}{u}
 
 \makeatletter
 \newcommand{\@doublebullet}{
@@ -192,7 +193,7 @@ Given a finite quiver $Q$ without oriented cycles, there is an associated group 
 
 Recall that the representation theory of $G$ is largely centered around its (dual) categories of highest- and lowest-weight representations \cite{KP83,Kum02}. These coincide exactly when $G$ is a simple algebraic group, in which case they include all representations of $G$ with finite-dimensional weight spaces. In general, $G$ has many other such representations which are only well-understood when $G$ is of affine type \cite{Cha86}. In the affine case, an irreducible representation is highest-weight, lowest-weight, or neither if its level (the character by which $Z(G) \cong \CC^\times$ acts) is positive, negative, or zero respectively.
 
-On the other hand, the representation theory of $Q$ is organized by the Auslander-Reiten translation $\tau: \rep Q \to \rep Q$ \cite{ASS06}. An indecomposable representation $M$ is projective if and only if $\tau(M) = 0$, and is injective if and only if $M$ is not of the form $\tau(N)$ for any $N$. With this in mind, one says $M$ is preprojective if $\tau^k(M) = 0$ for some $k\gg 0$, postinjective if it is of the form $\tau^k(I)$ for some injective $I$ and some $k\ge0$, and regular otherwise. Preprojective and postinjective representations coincide exactly when $Q$ is of ADE type, in which case there are no regular representations.
+On the other hand, the representation theory of $Q$ is organized by the Auslander-Reiten translation $\tau: \rep Q \to \rep Q$ \cite{ASS06}. An indecomposable representation $M$ is projective if and only if $\tau(M) = 0$, and is injective if and only if $M$ is not of the form $\tau(N)$ for any $N$. With this in mind, one says $M$ is preprojective if $\tau^k(M) = 0$ for some $k\ge 0$, postinjective if it is of the form $\tau^k(I)$ for some injective $I$ and some $k\ge0$, and regular otherwise. Preprojective and postinjective representations coincide exactly when $Q$ is of ADE type, in which case there are no regular representations.
 
 %While the full representation theory of $G$ is in general not well-understood, it has a well-behaved category of highest weight representations. These share many properties of finite-dimensional representations of simple Lie groups, which they specialize to when $G$ is finite-dimensional. There is a dual subcategory of lowest-weight representations. These categories coincide if and only if $G$ is finite-dimensional, in which case they encompass all representations with finite-dimensional weight spaces. Aside from this case, a complete description of all such representations exists only when $Q$ is of affine type. In this case $G$ is the central $\CC^\times$-extension of a loop group, and irreducible representations are categorized by their level: the character by which the center acts. 
 
@@ -205,7 +206,7 @@ The varieties $G^{c,c^{-1}}$ generalize the space of tridiagonal matrices with d
 
 From the perspective of $Q$, $\cA_Q$ is a repository for information about the submodule structure in representations of $Q$. 
 After embedding $\cA_Q$ into the ring of Laurent polynomials in the initial cluster variables, the remaining cluster variables are in bijection with the rigid indecomposable representations of $Q$ \cite{CC,CK}. 
-This correspondence takes a rigid indecomposable representation to a generating function for the Euler characteristics of its varieties of submodules, the resulting expression is called the cluster character of the representation.
+This correspondence takes a rigid indecomposable representation $\Qrep$ to the generating function for the Euler characteristics of its varieties of submodules, the resulting expression is called the cluster character of the representation $\Qrep$.
 With this in mind we refer to a (non-initial) cluster variable as preprojective, postinjective, or regular according to the classification of its associated representation. 
 Given the description of $\cA_Q$ as the coordinate ring of $G^{c,c^{-1}}$, we see in particular that representations of $Q$ naturally label functions on a subvariety of $G$.
 
@@ -226,15 +227,14 @@ Let $Q$ be a finite quiver without oriented cycles and $G^{c,c^{-1}} \subset G$ 
 Though above we have taken $G$ to be symmetric for simplicity, part (1) also holds in the symmetrizable case upon replacing quiver-theoretic notions with their species-theoretic counterparts. 
 We emphasize that although the coordinate ring of any double Bruhat cell $G^{u,v}$ is an (upper) cluster algebra, its defining quiver is generally not an orientation of the Dynkin diagram of $G$, and one expects that most cluster variables are not restrictions of minors.
 
-While the proof of (1) is mostly a straightforward generalization of the finite-type case (though of course, the distinction between preprojective and postinjective disappears there), the proof of (2) requires different methods. 
-\saySS{Actually our proof is much simpler than the finite type case and I think it does not work in finite type. The crucial fact is that we use the fact that $c^k$ is reduced for any $k$ to describe $\bfc$- and $\bfg$-vectors. Do we need to say this here (not in so many details)?}
+While the proof of (1) is mostly a straightforward generalization of the finite-type case (the required combinatorial analysis is actually simplified by the fact that, ouside of finite-type, preprojectives and postinjectives remain distinct), the proof of (2) requires different methods. 
 %The most interesting part of the Theorem is (2), in the sense that the proof of (1) is an immediate generalization of the finite-type case (though of course, the distinction between preprojective and postinjective disappears there). 
 The reason (1) is true is that the preprojective and postinjective cluster variables are determined by an explicit list of relations, and these are implied by certain generalized determinantal identities that hold globally on $G$. 
 However, these identities depend crucially on the fact that all minors involved are semi-invariants of the standard Borel subgroups and their conjugates. 
 The minors arising from level zero representations do not have this property and so the relations that determine them cannot be deduced from such identities.
 
 Instead, we study level zero minors on the loop group $LSL_n$ by direct combinatorial means. 
-The relevant representations are of the form $\big(\!\bigwedge^{\!k}\CC^{n-1}\big)[z^{\pm 1}]$ and thus inherit a natural basis from the standard basis of $\CC^{n-1}$. 
+The relevant representations are of the form $\big(\!\bigwedge^{\!k}\CC^{n-1}\big)[\lvar^{\pm 1}]$ and thus inherit a natural basis from the standard basis of $\CC^{n-1}$. 
 In particular, the restrictions to $G^{c,c^{-1}}$ of the level zero minors appearing in (2) can be computed as a weighted sum over collections of pairwise disjoint paths through a directed network on the cylinder, as in [FM,GSV ??]. 
 When $Q$ is an acyclic orientation of an $n$-cycle, its regular representations likewise have a simple combinatorial description, and one can construct by hand a bijection between their subrepresentations and collections of paths in the relevant network.  
 
@@ -250,9 +250,9 @@ Let $Q$ be a finite (valued) quiver without oriented cycles and $G^{c,c^{-1}} \s
 %The above theorem holds for arbitrary affine types.
 \end{conjecture}
 
-In addition to verifying the conjecture for all Coxeter elements when $G = LSL_n$, we check a finite list of other affine types, see Section~\ref{sec:othertypes}. In any affine type, the regular cluster variables can be explicitly enumerated and computed. One can calculate that if they are restrictions of minors, they must come from an explicitly identifiable level zero representation. The types checked in Section~\ref{sec:othertypes} are essentially the ones where these minors can be evaluated on $G^{c,c^{-1}}$ knowing only the character of this representation. In non-affine types\sayDR{Is it common usage in Lie theory to call these wild?  That would prevent us from having to say ``non-finite'' or ``non-Dynkin'' here also}, general weight representations of $G$ are not well-understood and the conjecture is much more speculative.
+In addition to verifying the conjecture for all Coxeter elements when $G = LSL_n$, we check a finite list of other affine types, see Section~\ref{sec:othertypes}. In any affine type, the regular cluster variables can be explicitly enumerated and computed. One can calculate that if they are restrictions of minors, they must come from an explicitly identifiable level zero representation. The types checked in Section~\ref{sec:othertypes} are essentially the ones where these minors can be evaluated on $G^{c,c^{-1}}$ knowing only the character of this representation. Beyond finite and affine types, general weight representations of $G$ are not well-understood and the conjecture is much more speculative.
 
-Finally, in type $A_{n-1}^{\!(1)}$ the following suggestive extension of Theorem~\ref{thm:maintheorem} also holds. There is a one-parameter family of quiver representations whose dimension vector is the primitive imaginary root. The cluster character of a generic element is not a cluster variable, but is an element of the generic basis (and presumably of other standard bases as well). This element too is a level zero generalized minor; with this in mind it is natural to further ask which canonical basis elements other than cluster variables are generalized minors.
+Finally, in type $A_{n-1}^{\!(1)}$ the following suggestive extension of Theorem~\ref{thm:maintheorem} also holds. There is a one-parameter family of quiver representations whose dimension vector is the primitive imaginary root. The cluster character of a generic element of this family is not a cluster variable, but is an element of the generic basis (and presumably of other standard bases as well). This element too is a level zero generalized minor; with this in mind it is natural to further ask which canonical basis elements other than cluster variables are generalized minors.
 
 \textsc{Acknowledgments}  We would like to thank Giovanni Cerulli Irelli, Corrado de Concini, Misha Gekhtman and Vyjayanthi Chari for helpful discussions and comments. S.S. is supported by... H.W. is supported by...
 
