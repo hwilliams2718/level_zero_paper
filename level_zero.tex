@@ -1810,7 +1810,7 @@ Recall that for any Kac-Moody group $G$, if $u=s_{i_1}\cdots s_{i_{\ell(u)}}$ an
 \begin{equation}\label{eq:uvfactorization}
 g = x_{\ol{\imath_1}}(t_{\ol{1}})\cdots x_{\ol{\imath_{\ell(u)}}}(t_{\ol{\ell(u)}})hx_{j_1}(t_{1}) \cdots x_{j_{\ell(v)}}(t_{\ell(v)})
 \end{equation}
-for some $h \in H$ and $t_i,t_{\ol{\imath}} \in \kk^\times$. When $G = \widetilde{LSL}_{n-1}$ is the central extension of $LSL_{n-1}$, these factorizations (and more general ones associated to shuffles of reduced words) admit a combinatorial description in terms of directed networks on a cylinder [GSV, FM ??]. This generalizes a similar relation between $SL_n$ and directed networks on a disk [FZ ??]. By a directed network on a surface we will mean an embedded directed graph whose edges are assigned weights in some fixed ring. As in Section~\ref{sec:rigidregular} we fix a cyclic $\ZZ_n$-labelling of the vertices of the $A_{n-1}^{\!(1)}$ Dynkin diagram, chosen so that $0 \equiv n$ is the label of the affine root $\delta - \theta$\sayDR{Is that choice actually important anywhere?}. 
+for some $h \in H$ and $t_i,t_{\ol{\imath}} \in \kk^\times$. When $G = \widetilde{LSL}_{n-1}$ is the central extension of $LSL_{n-1}$, these factorizations (and more general ones associated to shuffles of reduced words) admit a combinatorial description in terms of directed networks on a cylinder [GSV, FM ??]. This generalizes a similar relation between $SL_n$ and directed networks on a disk [FZ ??]. By a directed network on a surface we will mean an embedded directed graph whose edges are assigned weights in some fixed ring. As in Section~\ref{sec:rigidregular} we fix a cyclic $\ZZ_n$-labelling of the vertices of the $A_{n-1}^{\!(1)}$ Dynkin diagram, chosen so that $0 \equiv n$ is the label of the affine root $\delta - \theta$. %\sayDR{Is that choice actually important anywhere?}. 
 
 %Recall that a \newword{double reduced word} $\bfi$ for a pair $u, v \in W$ of $A^{(1)}_{n-1}$ Weyl group elements is a shuffle of a reduced word for $u$ and one for $v$. We write this as $\bfi = (i_1,\dotsc,i_m)$, where $i_j \in \{\pm 0,\dotsc, \pm n-1\}$ (here $0$ and $-0$ are treated as distinct formal indices)
 
@@ -2325,7 +2325,7 @@ This corresponds to the Coxeter element $s_1 s_2 s_3$, where the $B_2^{(1)}$ Dyn
 \]
 If we mutate at indices 1, 3, and 2 in order we obtain the regular cluster variable
 \[
-x_{\omega_2 - \omega_1} = 
+x_2''' = \frac{x_1 x_2^2 z_1 z_2 z_3 z_{\ol{1}} z_{\ol{2}} z_{\ol{3}} + x_1 z_1 z_2 z_{\ol{1}} z_{\ol{2}} + x_2^2 x_3 +  x_3 z_1 z_{\ol{1}}}{x_1 x_2 x_3}
 \]
 with $\bfg$-vector is $\omega_2 - \omega_1$. 
 
@@ -2339,19 +2339,20 @@ Write $e_i$ and $f_i$ for the standard generators of $\widetilde{L\mathfrak{sp}}
 \[
 x_1(t_1)v = v + t_1e_1v. 
 \]
-Similarly, since $e_1v$ has weight $s_1(\omega_2 - \omega_1) = 2\omega_1 - \omega_2$, it sits in an $\alpha_2$-root string of length 2, and we have
+Similarly, since $e_1v$ has weight $s_1(\omega_2 - \omega_1) = \omega_1 - \omega_2$, it sits in an $\alpha_2$-root string of length 2, and we have
 \[
 x_2(t_2)x_1(t_1)v = v + t_1e_1v + t_1t_2e_2e_1v. 
 \]
-Finally, $e_2e_1v$ has weight $s_2s_1(\omega_2 - \omega_1) = \omega_2 - \omega_1 - \omega_3$, and we have
+Finally, $e_2e_1v$ has weight $s_2s_1(\omega_2 - \omega_1) = \omega_2 - \omega_3$, and we have
 \[
 x_2(t_2)x_1(t_1)v = v + t_1e_1v + t_1t_2e_2e_1v + t_1t_2t_3e_3e_2e_1v.
 \]
 
 Since we know the weights of each component of $x_2(t_2)x_1(t_1)v$, we can now compute that
 \[
-hx_2(t_2)x_1(t_1)v = h^{\omega_2-\omega_1}v + h^{2\omega_1 - \omega_2}t_1e_1v + h^{\omega_2-\omega_1-\omega_3}t_1t_2e_2e_1v + h^{\omega_3-\omega_1-\omega_2}t_1t_2t_3e_3e_2e_1v.
+hx_2(t_2)x_1(t_1)v = h^{\omega_2-\omega_1}v + h^{\omega_1 - \omega_2}t_1e_1v + h^{\omega_2-\omega_3}t_1t_2e_2e_1v + h^{\omega_3-\omega_2}t_1t_2t_3e_3e_2e_1v.
 \]
+To finish computing $\Delta_{\omega_2 - \omega_1}$ we note that
 \end{proof}
 
 \subsection{The Homogeneous Element}%\sayHW{In the process of trying to flesh out this section more, I'm a bit ambivalent about some of the notation I introduced, e.g. using $\lambda$ as a parameter for the tubes when we often use it as a weight.}\sayDR{I changed it to $\eta$ and made sure we never use this as a weight}
