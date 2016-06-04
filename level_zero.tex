@@ -2301,11 +2301,12 @@ Conjecture~\ref{conj:affine} holds when the Cartan companion of $B$ is of type $
 \begin{proof}
 We illustrate the needed computation in the case of a sample regular cluster variable in type $B_{2}^{(1)}$. The full Proposition amounts to an assertion about several dozen such calculations, which can be efficiently checked by a computer. 
 
-Consider the exchange matrix
+Consider the exchange matrix and Cartan companion
 \[
-B= \begin{bmatrix} 0 & 1 & 0 \\ -2 & 0 & 2 \\ 0 & -1 & 0  \end{bmatrix}.
+B= \begin{bmatrix} 0 & 1 & 0 \\ -2 & 0 & 2 \\ 0 & -1 & 0  \end{bmatrix}, \quad A = \begin{bmatrix} 2 & -1 & 0 \\ -2 & 2 & -2 \\ 0 & -1 & 2  \end{bmatrix}.
 \]
 This corresponds to the Coxeter element $s_1 s_2 s_3$, where the $B_2^{(1)}$ Dynkin diagram is labelled as
+\vspace{3mm}
 \[
  \begin{tikzpicture}[scale=0.5]
 \draw (0, 0.1 cm) -- +(2 cm,0);
@@ -2352,7 +2353,12 @@ Since we know the weights of each component of $x_2(t_2)x_1(t_1)v$, we can now c
 \[
 hx_2(t_2)x_1(t_1)v = h^{\omega_2-\omega_1}v + h^{\omega_1 - \omega_2}t_1e_1v + h^{\omega_2-\omega_3}t_1t_2e_2e_1v + h^{\omega_3-\omega_2}t_1t_2t_3e_3e_2e_1v.
 \]
-To finish computing $\Delta_{\omega_2 - \omega_1}$ we note that
+From here we can see that the component of $gv$ of weight $\omega_2 - \omega_1$ is
+\[
+(h^{\omega_2-\omega_1} + h^{\omega_1 - \omega_2}t_1t_{\ol{1}}e_1 + h^{\omega_2-\omega_3}t_1t_{\ol{1}}t_2t_{\ol{2}}e_2e_1 + h^{\omega_3-\omega_2}t_1t_{\ol{1}}t_2t_{\ol{2}}t_3t_{\ol{3}}e_3e_2e_1)v,
+\]
+and $\Delta_{\omega_2-\omega_1}$ is equal to the scalar by which $v$ has been multiplied in this equation. 
+But now using Equation \ref{eq:frozen_values} we can check that $\Delta_{\omega_2-\omega_1}$ is equal to the formula for $x_2'''$ evaluated on $g$.
 \end{proof}
 
 \subsection{The Homogeneous Element}%\sayHW{In the process of trying to flesh out this section more, I'm a bit ambivalent about some of the notation I introduced, e.g. using $\lambda$ as a parameter for the tubes when we often use it as a weight.}\sayDR{I changed it to $\eta$ and made sure we never use this as a weight}
