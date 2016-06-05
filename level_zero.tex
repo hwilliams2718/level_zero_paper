@@ -584,7 +584,7 @@ While the above identity on $G$ is the one we use directly, we note that it rest
 The data of an $n\times n$ acyclic skew-symmetrizable matrix $B$ is equivalent to the data of a symmetrizable Cartan matrix $A$ (the \newword{Cartan companion} of $B$) together with a Coxeter element $c$ of its Weyl group.
 The Cartan matrix is obtained from $B$ by making all its entries negative without changing their absolute values, then setting each diagonal entry equal to two; see Figure~\ref{fig:matrices}.
 A reduced word $s_{\sigma_1}\cdots s_{\sigma_n}$ for $c$ is obtained from a permutation $\sigma \in S_n$ which satisfies the following property: $b_{\sigma_i \sigma_j} \geq 0$ when $i < j$, such a permutation exists since $B$ is acyclic (choosing a different permutation with the above property defines the same Coxeter element via a different reduced word).
-Conversely, any acyclic skew-symmetrizable matrix can be obtained from a Cartan matrix and a Coxeter element $c$ by assigning signs to the off-diagonal entries of $B$ according to any reduced word of $c$.
+Conversely, an acyclic skew-symmetrizable matrix can be obtained from a Cartan matrix and a Coxeter element $c$ by designating signs for the off-diagonal entries of $B$ according to any reduced word of $c$.
 
 We can realize the cluster algebra associated to the acyclic matrix $B$ geometrically in terms of the Kac-Moody group $G$ associated to $A$.
 More precisely, through the group we naturally find the algebra associated to the exchange matrix
@@ -620,7 +620,7 @@ The coordinate ring of $G^{u,v}$ is an upper cluster algebra and a finite subset
   \end{equation}
 \end{theorem}
 \begin{proof}
-  Specializing \cite[Theorem 2.10]{BFZ05} and \cite[Theorem 4.9]{Wil13} to the case at hand we get that $\kk[G^{c,c^{-1}}]$ is the upper cluster algebra with initial cluster variables $\Delta_{\omega_i}$, frozen variables $\Delta_{c\omega_i}^{\omega_i}$ and $\Delta_{\omega_i}^{c\omega_i}$, and initial exchange matrix obtained by extending $B$ with two copies of the matrix $1-[B]_+$ (here we denote by $1$ the identity matrix and we apply $[\,\cdot\,]_+$ entrywise).
+  Specializing \cite[Theorem 2.10]{BFZ05} and \cite[Theorem 4.9]{Wil13} to the case at hand we get that $\kk[G^{c,c^{-1}}]$ is the upper cluster algebra with initial cluster variables $\Delta_{\omega_i}$, frozen variables $\Delta_{c\omega_i}^{\omega_i}$ and $\Delta_{\omega_i}^{c\omega_i}$, and initial exchange matrix obtained by extending $B$ with two copies of the matrix $1-[B]_+$ (here we denote by $1$\sayDR{Should we write it as $Id_n$ like we do above?} the identity matrix and we apply $[\,\cdot\,]_+$ entrywise).
   Note that \cite{BFZ05,Wil13} use transposed conventions on exchange matrices; here and everywere else in this paper we follow the convention of \cite{BFZ05}.
 
   This exchange matrix is acyclic by hypothesis and has full rank.
@@ -640,6 +640,7 @@ In computing various relations in $\kk[G^{c,c^{-1}}]$ we will make extensive use
   g=x_{\ol{\sigma_1}}(t_{\ol{1}}) \cdots x_{\ol{\sigma_n}}(t_{\ol{n}}) h x_{\sigma_n}(t_n) \cdots x_{\sigma_1}(t_1)
 \end{equation}
 \saySS{Should we state this for the generic double Bruhat cell since we use it later on in this fashion?}
+\sayDR{If we do, it should probably go before Remark 2.7}
 for some $h \in H$ and $t_i, t_{\ol{\imath}} \in \kk^\times$ \cite{FZ99,Wil13}.
 For example, with respect to such a factorization it is clear that we have $\Delta_\lambda(g) = h^\lambda$ for any dominant weight $\lambda \in \widehat{P}^+$.
 In particular, the initial mutable cluster variables of $\cA_{\Bdp}$ evaluate as $x_i(g)=h^{\omega_i}$.
