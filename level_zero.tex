@@ -336,7 +336,7 @@ The basic role of $\bfg$-vectors is that they provide natural labels of cluster 
 We say a skew-symmetrizable matrix is \newword{acyclic} if it can be conjugated by a permutation matrix so that the entries above the diagonal all become nonnegative.
 In other words, $B$ is acyclic if there is a permutation $\sigma \in S_n$ such that $b_{\sigma_i \sigma_j} \geq 0$ when $i < j$.
 The permutation $\sigma$, when it exists, need not be unique; nonetheless the choice of which permutation we use does not matter in the following so we fix one once and for all.
-This terminology is justified by the skew-symmetric case: the data of a skew-symmetric matrix $B$ is the same as that of a quiver $Q := Q_B$ with vertices indexed by the columns of $B$ and $[-B_{ij}]_+$ arrows from vertex $i$ to vertex $j$; the skew-symmetric matrix is acyclic exactly when this quiver has no oriented cycles.
+This terminology is justified by the skew-symmetric case: the data of a skew-symmetric matrix $B$ is the same as that of a quiver $Q := Q_B$ with vertices indexed by the columns of $B$ and $[-b_{ij}]_+$ arrows from vertex $i$ to vertex $j$; the skew-symmetric matrix is acyclic exactly when this quiver has no oriented cycles.
 We call an exchange matrix \newword{acyclic} if its principal part is acyclic.
 
 \begin{figure}%[h]
@@ -411,7 +411,7 @@ When $Q$ is an orientation of a simply-laced finite-type Dynkin diagram, $\rep_\
 Write $\kk Q$ for the \newword{path algebra} of $Q$, this is the $\kk$-vector space with basis given by paths (including the trivial paths) in $Q$.
 The vector space $\kk Q$ has a multiplication given by concatenation of paths and one may identify the module category of $\kk Q$ with $\rep_\kk(Q)$, however we will not use this here.
 The path algebra $\kk Q$ is naturally considered as a representation of $Q$ where the vector space at vertex $i$ is spanned by all paths in $Q$ ending at $i$ and the action of an arrow $a$ is by concatenation.
-The indecomposable \saySS{added "indecomposable"} \newword{projective} representations of $Q$ are exactly the indecomposable summands of $\kk Q$.
+The indecomposable \newword{projective} representations of $Q$ are exactly the indecomposable summands of $\kk Q$.
 
 Given a representation $M\in\rep_\kk(Q)$ and a projective presentation $0\to P_1\to P_0\to M\to 0$ (which may always be chosen to terminate after two terms since $\rep_\kk(Q)$ is hereditary), we define the \newword{Auslander-Reiten translate} $\tau(M)\in\rep_\kk(Q)$ via the short exact sequence
 \begin{equation}\label{eq:AR translation}
@@ -443,31 +443,30 @@ In particular, the Euler-Ringel form is completely determined by the pairings of
 If $Q$ is a finite quiver without oriented cycles, the non-initial cluster variables in $\cA_Q$ are in bijection with the rigid indecomposable representations of $Q$ \cite{CC,CK}.
 The bijection is given by associating to a representation $M$ a generating function encoding its submodule structure, referred to as its \newword{cluster character} or Caldero-Chapoton function.
 
-The definition of the cluster character involves the \newword{coindex} $\coind(M) \in \ZZ^n$, taken as an element of the weight lattice for the associated Cartan matrix (see Section~\ref{sec:group background}) \saySS{We probably do not need this remark here.}.
+The definition of the cluster character involves the \newword{$\bfg$-vector}, $\bfg(M)\in\ZZ^n$, taken as an element of the weight lattice for the associated Cartan matrix (see Section~\ref{sec:group background}) \saySS{We probably do not need this remark here.}\sayDR{I added it to take care of Harold's say before Prop 4.2, a remark to that effect should go somewhere}.
 If
 \[
   0 \to M \to \bigoplus I_j^{a_j} \to \bigoplus I_j^{b_j} \to 0
 \]
-is an injective resolution of $M$, then $\coind(M)$ is the element of $\ZZ^n$ whose $j$-th component is $a_j - b_j$.
-\saySS{Double notation! we use both $\coind(M)$ and $\bfg(M)$ for the same object. We should pick one. We should also say here that this is the $\bfg$-vector of $M$}.
-Below we write $x^{-\coind(M)}$ for the monomial $\prod x_j^{b_j - a_j}$.
+is an injective resolution of $M$, then $\bfg(M)$ is the element of $\ZZ^n$ whose $j$-th component is $b_j - a_j$.
+\saySS{Double notation! we use both $\coind(M)$ and $\bfg(M)$ for the same object. We should pick one. We should also say here that this is the $\bfg$-vector of $M$}\sayDR{Done, I chose $\bfg$-vector, any objections?}.
+Below we write $x^{\bfg(M)}$ for the monomial $\prod x_j^{b_j - a_j}$.
 
 Given a dimension vector $e \in \NN^n$, the \newword{quiver Grassmannian} $\Gr_eM$ is the variety of $e$-dimensional submodules of $M$.
 We write $\chi(\Gr_eM)$ for its Euler characteristic (formally, in \'etale cohomology with compact supports), and write $\hat{y}^e$ for the monomial $\prod_j \hat{y}_j^{e_j}$, where $e_j$ is the $j$-th component of $e \in \NN^n$ and we write $\hat{y}_j$ for the monomial $\prod\limits_{i=1}^m x_i^{b_{ij}}$.
 
-\begin{definition}
+\begin{definition}\sayDR{In order for this formula to technically be correct we need the coefficient part of the exchange matrix to have only positive entries, otherwise the separation of additions formula has to be used, fortunately we are in that positive case so it may be worth brushing this under the rug}
   The cluster character of a representation $M$ of $Q$ is
   \begin{equation}
     \label{eq:cc formula}
-    x_M := x^{-\coind(M)} \sum_{e \in \NN^n}\chi(\Gr_e M) \hat{y}^e \in \kk[x_1^{\pm 1},\dotsc,x_m^{\pm 1}].
+    x_M := x^{\bfg(M)} \sum_{e \in \NN^n}\chi(\Gr_e M) \hat{y}^e \in \kk[x_1^{\pm 1},\dotsc,x_m^{\pm 1}].
   \end{equation}
 \end{definition}
 
 Recall that a representation $M$ of $Q$ is \newword{rigid} if $\Ext^1(M,M) = 0$.
 
 \begin{theorem}\label{thm:CCbijection}\cite{CC,CK}
-  The assignment $M \mapsto x_M$ defines a bijection between the set of rigid indecomposable representations of $Q$ and the set of non-initial cluster variables in $\cA_Q$.
-  \saySS{this might be a good point to say that the coindex is the g-vector}
+  The assignment $M \mapsto x_M$ defines a bijection between the set of rigid indecomposable representations of $Q$ and the set of non-initial cluster variables in $\cA_Q$.  Moreover, the $\bfg$-vector of the variable $x_M$ is precisely $\bfg(M)$.
 \end{theorem}
 
 Thus we refer to non-initial cluster variables of $\cA_Q$ as preprojective, postinjective, or regular if they come from a quiver representation of the corresponding type.
