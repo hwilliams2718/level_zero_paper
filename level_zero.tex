@@ -331,12 +331,12 @@ Given the matrix of $\bfc$-vectors at a given $t\in\TT$, we may define the matri
 \end{equation}
 where $B^T$ is the transpose of $B$.
 Note that this is not the the standard definition, but the above characterization (due to \cite[Theorem 1.2]{NZ12} and the sign-coherence result of [DWZ, GHKK ??]) is what we will use in Section~\ref{sec:bipartite_belt}.
-The basic role of $\bfg$-vectors is that they provide natural labels of cluster variables: two cluster variables $x_{i;t}$ and $x_{j;t'}$ coincide in $\cA_{\widetilde B}$ if and only if $\lambda_{i;t}$ and $\lambda_{i;t'}$ coincide in $\ZZ^n$ [DWZ, GHKK ??].
+The basic role of $\bfg$-vectors is that they provide natural labels of cluster variables: two cluster variables $x_{i;t}$ and $x_{j;t'}$ coincide in $\cA_{\widetilde B}$ if and only if $\lambda_{i;t}$ and $\lambda_{j;t'}$ coincide in $\ZZ^n$ [DWZ, GHKK ??].
 
 We say a skew-symmetrizable matrix is \newword{acyclic} if it can be conjugated by a permutation matrix so that the entries above the diagonal all become nonnegative.
 In other words, $B$ is acyclic if there is a permutation $\sigma \in S_n$ such that $b_{\sigma_i \sigma_j} \geq 0$ when $i < j$.
-The permutation $\sigma$, when it exists, needs not be unique; nonetheless the choice of which permutation we use does not matter in the following so we fix one once and for all.
-The terminology is justified by the skew-symmetric case: the data of a skew-symmetric matrix $B$ is the same as that of a quiver $Q := Q_B$ with vertices indexed by the columns of $B$ and $[-B_{ij}]_+$ arrows to vertex $i$ from vertex $j$; the skew-symmetric matrix is acyclic exactly when this quiver has no oriented cycles.
+The permutation $\sigma$, when it exists, need not be unique; nonetheless the choice of which permutation we use does not matter in the following so we fix one once and for all.
+This terminology is justified by the skew-symmetric case: the data of a skew-symmetric matrix $B$ is the same as that of a quiver $Q := Q_B$ with vertices indexed by the columns of $B$ and $[-B_{ij}]_+$ arrows from vertex $i$ to vertex $j$; the skew-symmetric matrix is acyclic exactly when this quiver has no oriented cycles.
 We call an exchange matrix \newword{acyclic} if its principal part is acyclic.
 
 \begin{figure}%[h]
@@ -364,7 +364,7 @@ We call an exchange matrix \newword{acyclic} if its principal part is acyclic.
   \label{fig:matrices}
 \end{figure}  
 
-The cluster algebra associated to an $m\times n$ acyclic exchange matrix of rank $n$ is especially well-behaved: it is finitely generated as a $\kk$-algebra and coincides with its upper cluster algebra \cite{BFZ05}.
+The cluster algebra associated to an acyclic $m\times n$ exchange matrix of rank $n$ is especially well-behaved: it is finitely generated as a $\kk$-algebra and coincides with its upper cluster algebra \cite{BFZ05}.
 For such cluster algebras we will concern ourself with a specific sequence of nodes in $\TT$ and the cluster variables associated to them.
 
 Recall that $t_0$ is the root of $\TT$.
@@ -391,7 +391,7 @@ Write $t_\Zidx:\Zidx\in\ZZ$ for the nodes of $\TT$ lying along the unique path
   \label{eq:path}
 \end{equation}
 This, in general, is only a subpath in what is called the \newword{acyclic belt} (the subgraph of $\TT$ consisting of all the nodes whose attached exchange matrices are acyclic).
-Indeed it is straightforward to observe that all the matrices $B^{t_\Zidx}$ are acyclic, it is less obvious but ultimately true that if $B^t$ is acyclic for some $t\in\TT$ then all cluster variables $x_{i;t}$ are realized in the above path.
+Indeed, it is straightforward to observe that all the matrices $\widetilde B^{t_\Zidx}$ are acyclic.  It is less obvious but ultimately true that if $\widetilde B^t$ is acyclic for some $t\in\TT$ then all cluster variables $x_{i;t}$ are realized in the above path.
 \saySS{Citation needed.}
 \sayDR{The closest reference I know of is Cor. 4 in ``From Triangulated Categories to Cluster Algebras II'' by Caldero and Keller, though one has to look into the proof a little and note that the cluster variables in the acyclic belt sweep out the entire transjective component of the AR quiver for the cluster category.}
 We will refer to the non-initial cluster variables $x_{i;t_\Zidx}$ with $\Zidx>0$ (resp. $\Zidx<0$) as \newword{preprojective} (resp. \newword{postinjective}).
