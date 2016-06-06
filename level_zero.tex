@@ -1441,7 +1441,6 @@ As in Section~\ref{sec:rigidregular} we fix a cyclic $\ZZ_n$-labelling of the ve
 
 \begin{figure}
   \begin{tikzpicture}
-    \label{fig:totalnetwork}
     % drawing parameters
     \pgfmathsetmacro{\ehgt}{2} % vertical radius of ellipse
     \pgfmathsetmacro{\edpt}{0.6} % horizontal radius of ellipse
@@ -1510,6 +1509,7 @@ As in Section~\ref{sec:rigidregular} we fix a cyclic $\ZZ_n$-labelling of the ve
     \draw ([shift={(-90:{\edpt} and \ehgt)}]0,0) -- ([shift={(-90:{\edpt} and \ehgt)}]8*\ewdt,0);
   \end{tikzpicture}
   \caption{The network $\cN^{c,c^{-1}}$ for $c = s_2 s_1 s_3$. It encodes the factorization of a generic element of $\widetilde{LSL}_3^{c,c^{-1}}$ as $g = x_{\ol{2}}(t_{\ol{2}})x_{\ol{1}}(t_{\ol{1}})x_{\ol{3}}(t_{\ol{3}})hx_{3}(t_{3})x_{1}(t_{1})x_{2}(t_{2})$.}
+  \label{fig:totalnetwork}
 \end{figure}
 
 By a \newword{path} in $\cN^{u,v}$ we always mean a path which begins at an incoming boundary vertex, is directed compatibly with the edges of $\cN^{u,v}$, and ends at an outgoing boundary vertex.
@@ -1540,11 +1540,253 @@ Definition~\ref{def:network} is motivated by the following observation:
   where the sum is over collections $P$ of pairwise disjoint paths in $\cN^{u,v}$ with $\partial_{in}P = \partial_{out}P = S$.
 \end{proposition}
 \begin{proof}
-  The representation $\big(\bigwedge^{|S|}\kk^{n-1}\big)[z^{\pm 1}]$ has a natural basis $\{ e_{j_1} \wedge \cdots \wedge e_{j_{|S|}} z^d\}$ labelled by pairs of an $|S|$-element subset of $\ZZ_n$ and an integer $d$.
+  The representation $\big(\bigwedge^{|S|}\kk^{n-1}\big)[\loopvar^{\pm 1}]$ has a natural basis $\{ e_{j_1} \wedge \cdots \wedge e_{j_{|S|}} \loopvar^d\}$ labelled by pairs of an $|S|$-element subset of $\ZZ_n$ and an integer $d$.
   The networks associated to $x_i(t)$, $x_{\ol{\imath}}(t)$, and $h$ directly encode the action of the corresponding group elements in this basis (see [GSV, FM ??] for related constructions).
   If $S = \{i_1,\dotsc,i_{|S|}\}$, then by a generalized Lindstr\"om-Gessel-Viennot argument the sum over collections of nonintersecting paths with $\partial_{in}P = \partial_{out}P = S$ computes the diagonal matrix coefficient by which $g$ rescales the basis element $e_{i_1} \wedge \cdots \wedge e_{i_{|S|}}$.
   Since this element has weight $\omega_S$, this matrix coefficient is $\Delta_{\omega_S}(g)$.
 \end{proof}
+
+\begin{example}
+  We compute the value of the generalized minor $\Delta_{\omega_1-\omega_2}$ on the generic element $g$ represented by the network of \Cref{fig:totalnetwork}.
+  In this case $S=\{2,3\}$ and we get
+  \[
+    \delimitershortfall -1pt 
+    \begin{array}{ccccccc}
+      \Delta_{\omega_1-\omega_2}(g)
+      &
+      =
+      &
+      wt\left(
+        \begin{tikzpicture}[baseline={([yshift=-0.5ex]current bounding box.center)}]
+          % drawing parameters
+          \pgfmathsetmacro{\scaling}{0.3} % picture scaling factor
+          \pgfmathsetmacro{\pathwdt}{5*\scaling} % thickness of paths
+          \pgfmathsetmacro{\ehgt}{2*\scaling} % vertical radius of ellipse
+          \pgfmathsetmacro{\edpt}{0.6*\scaling} % horizontal radius of ellipse
+          \pgfmathsetmacro{\ewdt}{0.9*\scaling} % horizontal distance in between slices
+          \pgfmathsetmacro{\fang}{150} % angle of topmost horizontal line
+          \pgfmathsetmacro{\ang}{25} % angle in between horizontal lines
+          \pgfmathsetmacro{\ask}{-7} % angle distance of labels
+          \pgfmathsetmacro{\hsk}{-0.2*\scaling} %horizontal distance of labels
+        
+          % left side
+          \draw ([shift={(90:{\edpt} and \ehgt)}]0,0) arc (90:270:{\edpt} and \ehgt);
+          \draw [dashed] ([shift={(-90:{\edpt} and \ehgt)}]0,0) arc (-90:90:{\edpt} and \ehgt);
+        
+          % first block
+          \draw ([shift={(\fang:{\edpt} and \ehgt)}]\ewdt,0) arc (\fang:\fang+\ang:{\edpt} and \ehgt);
+          
+          % second block
+          \draw ([shift={(90:{\edpt} and \ehgt)}]2*\ewdt,0) arc (90:\fang:{\edpt} and \ehgt);
+          \draw [dashed] ([shift={(-90:{\edpt} and \ehgt)}]2*\ewdt,0) arc (-90:90:{\edpt} and \ehgt);
+          \draw ([shift={(\fang+2*\ang:{\edpt} and \ehgt)}]2*\ewdt,0) arc (\fang+2*\ang:270:{\edpt} and \ehgt);
+        
+          % third block
+          \draw ([shift={(\fang+\ang:{\edpt} and \ehgt)}]3*\ewdt,0) arc (\fang+\ang:\fang+2*\ang:{\edpt} and \ehgt);
+          
+          % fourth block
+          \draw ([shift={(\fang:{\edpt} and \ehgt)}]0,0) -- ([shift={(150:{\edpt} and \ehgt)}]8*\ewdt,0);
+          \draw ([shift={(\fang:{\edpt} and \ehgt)}]0,0) -- ([shift={(150:{\edpt} and \ehgt)}]\ewdt,0);
+          \draw ([shift={(\fang:{\edpt} and \ehgt)}]7*\ewdt,0) -- ([shift={(150:{\edpt} and \ehgt)}]8*\ewdt,0);
+        
+          \draw ([shift={(\fang+\ang:{\edpt} and \ehgt)}]0,0) -- ([shift={(\fang+\ang:{\edpt} and \ehgt)}]8*\ewdt,0);
+          \draw ([shift={(\fang+\ang:{\edpt} and \ehgt)}]0,0) -- ([shift={(\fang+\ang:{\edpt} and \ehgt)}]\ewdt,0);
+          \draw ([shift={(\fang+\ang:{\edpt} and \ehgt)}]7*\ewdt,0) -- ([shift={(\fang+\ang:{\edpt} and \ehgt)}]8*\ewdt,0);
+        
+          \draw ([shift={(\fang+2*\ang:{\edpt} and \ehgt)}]0,0) -- ([shift={(\fang+2*\ang:{\edpt} and \ehgt)}]8*\ewdt,0);
+          \draw ([shift={(\fang+2*\ang:{\edpt} and \ehgt)}]0,0) -- ([shift={(\fang+2*\ang:{\edpt} and \ehgt)}]\ewdt,0);
+          \draw ([shift={(\fang+2*\ang:{\edpt} and \ehgt)}]7*\ewdt,0) -- ([shift={(\fang+2*\ang:{\edpt} and \ehgt)}]8*\ewdt,0);
+        
+          % fifth block
+          \draw ([shift={(\fang+\ang:{\edpt} and \ehgt)}]5*\ewdt,0) arc (\fang+\ang:\fang+2*\ang:{\edpt} and \ehgt);
+          
+          % sixth block
+          \draw ([shift={(90:{\edpt} and \ehgt)}]6*\ewdt,0) arc (90:\fang:{\edpt} and \ehgt);
+          \draw [dashed] ([shift={(-90:{\edpt} and \ehgt)}]6*\ewdt,0) arc (-90:90:{\edpt} and \ehgt);
+          \draw ([shift={(\fang+2*\ang:{\edpt} and \ehgt)}]6*\ewdt,0) arc (\fang+2*\ang:270:{\edpt} and \ehgt);
+        
+          % seventh block
+          \draw ([shift={(\fang:{\edpt} and \ehgt)}]7*\ewdt,0) arc (\fang:\fang+\ang:{\edpt} and \ehgt);
+        
+          % right side
+          \draw (8*\ewdt,0) ellipse ({\edpt} and \ehgt);
+        
+          % top and bottom
+          \draw ([shift={(90:{\edpt} and \ehgt)}]0,0) -- ([shift={(90:{\edpt} and \ehgt)}]8*\ewdt,0);
+          \draw ([shift={(-90:{\edpt} and \ehgt)}]0,0) -- ([shift={(-90:{\edpt} and \ehgt)}]8*\ewdt,0);
+      
+          % paths
+          \draw [stealth-, line width=\pathwdt] ([shift={(\fang+\ang:{\edpt} and \ehgt)}]0,0) -- ([shift={(\fang+\ang:{\edpt} and \ehgt)}]8*\ewdt,0);
+          \draw [stealth-, line width=\pathwdt] ([shift={(\fang+2*\ang:{\edpt} and \ehgt)}]0,0) -- ([shift={(\fang+2*\ang:{\edpt} and \ehgt)}]8*\ewdt,0);
+      
+        \end{tikzpicture}
+      \right)
+      &
+      +
+      &
+      wt\left(
+        \begin{tikzpicture}[baseline={([yshift=-0.5ex]current bounding box.center)}]
+          % drawing parameters
+          \pgfmathsetmacro{\scaling}{0.3} % picture scaling factor
+          \pgfmathsetmacro{\pathwdt}{5*\scaling} % thickness of paths
+          \pgfmathsetmacro{\ehgt}{2*\scaling} % vertical radius of ellipse
+          \pgfmathsetmacro{\edpt}{0.6*\scaling} % horizontal radius of ellipse
+          \pgfmathsetmacro{\ewdt}{0.9*\scaling} % horizontal distance in between slices
+          \pgfmathsetmacro{\fang}{150} % angle of topmost horizontal line
+          \pgfmathsetmacro{\ang}{25} % angle in between horizontal lines
+          \pgfmathsetmacro{\ask}{-7} % angle distance of labels
+          \pgfmathsetmacro{\hsk}{-0.2*\scaling} %horizontal distance of labels
+        
+          % left side
+          \draw ([shift={(90:{\edpt} and \ehgt)}]0,0) arc (90:270:{\edpt} and \ehgt);
+          \draw [dashed] ([shift={(-90:{\edpt} and \ehgt)}]0,0) arc (-90:90:{\edpt} and \ehgt);
+        
+          % first block
+          \draw ([shift={(\fang:{\edpt} and \ehgt)}]\ewdt,0) arc (\fang:\fang+\ang:{\edpt} and \ehgt);
+          
+          % second block
+          \draw ([shift={(90:{\edpt} and \ehgt)}]2*\ewdt,0) arc (90:\fang:{\edpt} and \ehgt);
+          \draw [dashed] ([shift={(-90:{\edpt} and \ehgt)}]2*\ewdt,0) arc (-90:90:{\edpt} and \ehgt);
+          \draw ([shift={(\fang+2*\ang:{\edpt} and \ehgt)}]2*\ewdt,0) arc (\fang+2*\ang:270:{\edpt} and \ehgt);
+        
+          % third block
+          \draw ([shift={(\fang+\ang:{\edpt} and \ehgt)}]3*\ewdt,0) arc (\fang+\ang:\fang+2*\ang:{\edpt} and \ehgt);
+          
+          % fourth block
+          \draw ([shift={(\fang:{\edpt} and \ehgt)}]0,0) -- ([shift={(150:{\edpt} and \ehgt)}]8*\ewdt,0);
+          \draw ([shift={(\fang:{\edpt} and \ehgt)}]0,0) -- ([shift={(150:{\edpt} and \ehgt)}]\ewdt,0);
+          \draw ([shift={(\fang:{\edpt} and \ehgt)}]7*\ewdt,0) -- ([shift={(150:{\edpt} and \ehgt)}]8*\ewdt,0);
+        
+          \draw ([shift={(\fang+\ang:{\edpt} and \ehgt)}]0,0) -- ([shift={(\fang+\ang:{\edpt} and \ehgt)}]8*\ewdt,0);
+          \draw ([shift={(\fang+\ang:{\edpt} and \ehgt)}]0,0) -- ([shift={(\fang+\ang:{\edpt} and \ehgt)}]\ewdt,0);
+          \draw ([shift={(\fang+\ang:{\edpt} and \ehgt)}]7*\ewdt,0) -- ([shift={(\fang+\ang:{\edpt} and \ehgt)}]8*\ewdt,0);
+        
+          \draw ([shift={(\fang+2*\ang:{\edpt} and \ehgt)}]0,0) -- ([shift={(\fang+2*\ang:{\edpt} and \ehgt)}]8*\ewdt,0);
+          \draw ([shift={(\fang+2*\ang:{\edpt} and \ehgt)}]0,0) -- ([shift={(\fang+2*\ang:{\edpt} and \ehgt)}]\ewdt,0);
+          \draw ([shift={(\fang+2*\ang:{\edpt} and \ehgt)}]7*\ewdt,0) -- ([shift={(\fang+2*\ang:{\edpt} and \ehgt)}]8*\ewdt,0);
+        
+          % fifth block
+          \draw ([shift={(\fang+\ang:{\edpt} and \ehgt)}]5*\ewdt,0) arc (\fang+\ang:\fang+2*\ang:{\edpt} and \ehgt);
+          
+          % sixth block
+          \draw ([shift={(90:{\edpt} and \ehgt)}]6*\ewdt,0) arc (90:\fang:{\edpt} and \ehgt);
+          \draw [dashed] ([shift={(-90:{\edpt} and \ehgt)}]6*\ewdt,0) arc (-90:90:{\edpt} and \ehgt);
+          \draw ([shift={(\fang+2*\ang:{\edpt} and \ehgt)}]6*\ewdt,0) arc (\fang+2*\ang:270:{\edpt} and \ehgt);
+        
+          % seventh block
+          \draw ([shift={(\fang:{\edpt} and \ehgt)}]7*\ewdt,0) arc (\fang:\fang+\ang:{\edpt} and \ehgt);
+        
+          % right side
+          \draw (8*\ewdt,0) ellipse ({\edpt} and \ehgt);
+        
+          % top and bottom
+          \draw ([shift={(90:{\edpt} and \ehgt)}]0,0) -- ([shift={(90:{\edpt} and \ehgt)}]8*\ewdt,0);
+          \draw ([shift={(-90:{\edpt} and \ehgt)}]0,0) -- ([shift={(-90:{\edpt} and \ehgt)}]8*\ewdt,0);
+      
+          % paths
+          \draw [stealth-, line width=\pathwdt] ([shift={(\fang+\ang:{\edpt} and \ehgt)}]0,0) -- ([shift={(\fang+\ang:{\edpt} and \ehgt)}]\ewdt,0) arc (\fang+\ang:\fang:{\edpt} and \ehgt) -- ([shift={(\fang:{\edpt} and \ehgt)}]\ewdt,0) -- ([shift={(\fang:{\edpt} and \ehgt)}]7*\ewdt,0) arc (\fang:\fang+\ang:{\edpt} and \ehgt) -- ([shift={(\fang+\ang:{\edpt} and \ehgt)}]8*\ewdt,0);
+          \draw [stealth-, line width=\pathwdt] ([shift={(\fang+2*\ang:{\edpt} and \ehgt)}]0,0) -- ([shift={(\fang+2*\ang:{\edpt} and \ehgt)}]8*\ewdt,0);
+      
+        \end{tikzpicture}
+      \right)
+      &
+      +
+      &
+      wt\left(
+        \begin{tikzpicture}[baseline={([yshift=-0.5ex]current bounding box.center)}]
+          \label{fig:level_zero_example}
+          % drawing parameters
+          \pgfmathsetmacro{\scaling}{0.3} % picture scaling factor
+          \pgfmathsetmacro{\pathwdt}{5*\scaling} % thickness of paths
+          \pgfmathsetmacro{\ehgt}{2*\scaling} % vertical radius of ellipse
+          \pgfmathsetmacro{\edpt}{0.6*\scaling} % horizontal radius of ellipse
+          \pgfmathsetmacro{\ewdt}{0.9*\scaling} % horizontal distance in between slices
+          \pgfmathsetmacro{\fang}{150} % angle of topmost horizontal line
+          \pgfmathsetmacro{\ang}{25} % angle in between horizontal lines
+          \pgfmathsetmacro{\ask}{-7} % angle distance of labels
+          \pgfmathsetmacro{\hsk}{-0.2*\scaling} %horizontal distance of labels
+        
+          % left side
+          \draw ([shift={(90:{\edpt} and \ehgt)}]0,0) arc (90:270:{\edpt} and \ehgt);
+          \draw [dashed] ([shift={(-90:{\edpt} and \ehgt)}]0,0) arc (-90:90:{\edpt} and \ehgt);
+        
+          % first block
+          \draw ([shift={(\fang:{\edpt} and \ehgt)}]\ewdt,0) arc (\fang:\fang+\ang:{\edpt} and \ehgt);
+          
+          % second block
+          \draw ([shift={(90:{\edpt} and \ehgt)}]2*\ewdt,0) arc (90:\fang:{\edpt} and \ehgt);
+          \draw [dashed] ([shift={(-90:{\edpt} and \ehgt)}]2*\ewdt,0) arc (-90:90:{\edpt} and \ehgt);
+          \draw ([shift={(\fang+2*\ang:{\edpt} and \ehgt)}]2*\ewdt,0) arc (\fang+2*\ang:270:{\edpt} and \ehgt);
+        
+          % third block
+          \draw ([shift={(\fang+\ang:{\edpt} and \ehgt)}]3*\ewdt,0) arc (\fang+\ang:\fang+2*\ang:{\edpt} and \ehgt);
+          
+          % fourth block
+          \draw ([shift={(\fang:{\edpt} and \ehgt)}]0,0) -- ([shift={(150:{\edpt} and \ehgt)}]8*\ewdt,0);
+          \draw ([shift={(\fang:{\edpt} and \ehgt)}]0,0) -- ([shift={(150:{\edpt} and \ehgt)}]\ewdt,0);
+          \draw ([shift={(\fang:{\edpt} and \ehgt)}]7*\ewdt,0) -- ([shift={(150:{\edpt} and \ehgt)}]8*\ewdt,0);
+        
+          \draw ([shift={(\fang+\ang:{\edpt} and \ehgt)}]0,0) -- ([shift={(\fang+\ang:{\edpt} and \ehgt)}]8*\ewdt,0);
+          \draw ([shift={(\fang+\ang:{\edpt} and \ehgt)}]0,0) -- ([shift={(\fang+\ang:{\edpt} and \ehgt)}]\ewdt,0);
+          \draw ([shift={(\fang+\ang:{\edpt} and \ehgt)}]7*\ewdt,0) -- ([shift={(\fang+\ang:{\edpt} and \ehgt)}]8*\ewdt,0);
+        
+          \draw ([shift={(\fang+2*\ang:{\edpt} and \ehgt)}]0,0) -- ([shift={(\fang+2*\ang:{\edpt} and \ehgt)}]8*\ewdt,0);
+          \draw ([shift={(\fang+2*\ang:{\edpt} and \ehgt)}]0,0) -- ([shift={(\fang+2*\ang:{\edpt} and \ehgt)}]\ewdt,0);
+          \draw ([shift={(\fang+2*\ang:{\edpt} and \ehgt)}]7*\ewdt,0) -- ([shift={(\fang+2*\ang:{\edpt} and \ehgt)}]8*\ewdt,0);
+        
+          % fifth block
+          \draw ([shift={(\fang+\ang:{\edpt} and \ehgt)}]5*\ewdt,0) arc (\fang+\ang:\fang+2*\ang:{\edpt} and \ehgt);
+          
+          % sixth block
+          \draw ([shift={(90:{\edpt} and \ehgt)}]6*\ewdt,0) arc (90:\fang:{\edpt} and \ehgt);
+          \draw [dashed] ([shift={(-90:{\edpt} and \ehgt)}]6*\ewdt,0) arc (-90:90:{\edpt} and \ehgt);
+          \draw ([shift={(\fang+2*\ang:{\edpt} and \ehgt)}]6*\ewdt,0) arc (\fang+2*\ang:270:{\edpt} and \ehgt);
+        
+          % seventh block
+          \draw ([shift={(\fang:{\edpt} and \ehgt)}]7*\ewdt,0) arc (\fang:\fang+\ang:{\edpt} and \ehgt);
+        
+          % right side
+          \draw (8*\ewdt,0) ellipse ({\edpt} and \ehgt);
+        
+          % top and bottom
+          \draw ([shift={(90:{\edpt} and \ehgt)}]0,0) -- ([shift={(90:{\edpt} and \ehgt)}]8*\ewdt,0);
+          \draw ([shift={(-90:{\edpt} and \ehgt)}]0,0) -- ([shift={(-90:{\edpt} and \ehgt)}]8*\ewdt,0);
+      
+          % paths
+          \draw [stealth-, line width=\pathwdt] ([shift={(\fang+\ang:{\edpt} and \ehgt)}]0,0) -- ([shift={(\fang+\ang:{\edpt} and \ehgt)}]\ewdt,0) arc (\fang+\ang:\fang:{\edpt} and \ehgt) -- ([shift={(\fang:{\edpt} and \ehgt)}]\ewdt,0) -- ([shift={(\fang:{\edpt} and \ehgt)}]7*\ewdt,0) arc (\fang:\fang+\ang:{\edpt} and \ehgt) -- ([shift={(\fang+\ang:{\edpt} and \ehgt)}]8*\ewdt,0);
+          \draw [stealth-, line width=\pathwdt] ([shift={(\fang+2*\ang:{\edpt} and \ehgt)}]0,0) -- ([shift={(\fang+2*\ang:{\edpt} and \ehgt)}]3*\ewdt,0) arc (\fang+2*\ang:\fang+\ang:{\edpt} and \ehgt) -- ([shift={(\fang+\ang:{\edpt} and \ehgt)}]5*\ewdt,0) arc (\fang+\ang:\fang+2*\ang:{\edpt} and \ehgt) -- ([shift={(\fang+2*\ang:{\edpt} and \ehgt)}]8*\ewdt,0);
+      
+        \end{tikzpicture}
+      \right)
+      \\
+      \\
+      &
+      =
+      &
+      h_3h_2^{-1}
+      \cdot
+      h_1h_3^{-1}
+      &
+      +
+      &
+      t_{\ol{2}}h_2h_1^{-1}t_2
+      \cdot
+      h_1h_3^{-1}
+      &
+      +
+      &
+      t_{\ol{2}}h_2h_1^{-1}t_2
+      \cdot
+      t_{\ol{3}}h_3h_2^{-1}t_3
+      \\
+      \\
+      &
+      =
+      &
+      \multicolumn{5}{l}{h_1h_2^{-1} + t_{\ol{2}}t_2h_2h_3^{-1} + t_{\ol{2}}t_2t_{\ol{3}}t_3h_1^{-1}h_3}
+    \end{array}
+  \]
+\end{example}
 
 We now return to the specific case of $\widetilde{LSL}_n^{c,c^{-1}}$, where $c = s_{\sigma_1}\cdots s_{\sigma_{n}}$ is a fixed Coxeter element.
 From now on we reindex the factorization of Equation~\ref{eq:uvfactorization} in a way tailored to this case:
@@ -1808,9 +2050,9 @@ In the simplest cases this can be done using only the characters of these repres
 
   Let us evaluate the level zero minor $\Delta_{\omega_2 - \omega_1}$ on a generic element
   \[
-    g = x_{\ol{1}}(t_{\ol{1}})x_{\ol{2}}(t_{\ol{2}})x_{\ol{3}}(t_{\ol{3}})hx_3(t_3)x_2(t_2)x_1(t_1) \in \widetilde{LSp}_4^{c,c^{-1}}.
+    g = x_{\ol{1}}(t_{\ol{1}})x_{\ol{2}}(t_{\ol{2}})x_{\ol{3}}(t_{\ol{3}})hx_3(t_3)x_2(t_2)x_1(t_1) \in \widetilde{LSP}_4^{c,c^{-1}}.
   \]
-  To do this, fix a vector $v$ of weight $\omega_2 - \omega_1$  in $V(\omega_2 - \omega_1) \cong \kk^4[z^{\pm 1}]$.
+  To do this, fix a vector $v$ of weight $\omega_2 - \omega_1$  in $V(\omega_2 - \omega_1) \cong \kk^4[\loopvar^{\pm 1}]$.
   Note that $v$ is extremal in the sense that it is a highest- or lowest- weight vector for each (not necessarily simple) coroot subgroup of $\widetilde{LSP}_4$; the same property then holds automatically for any weight vector whose weight is a conjugate of $\omega_2 - \omega_1$.
 
   Write $e_i$ and $f_i$ for the standard generators of $\widetilde{L\mathfrak{sp}}_4$.
@@ -1835,8 +2077,8 @@ In the simplest cases this can be done using only the characters of these repres
   \[
     (h^{\omega_2-\omega_1} + h^{\omega_1 - \omega_2}t_1t_{\ol{1}}e_1 + h^{\omega_2-\omega_3}t_1t_{\ol{1}}t_2t_{\ol{2}}e_2e_1 + h^{\omega_3-\omega_2}t_1t_{\ol{1}}t_2t_{\ol{2}}t_3t_{\ol{3}}e_3e_2e_1)v,
   \]
-  and $\Delta_{\omega_2-\omega_1}$ is equal to the scalar by which $v$ has been multiplied in this equation.
-  But now using Equation \ref{eq:frozen_values} we can check that $\Delta_{\omega_2-\omega_1}$ is equal to the formula for $x_{\omega_2 - \omega_1}$ evaluated on $g$.
+  and $\Delta_{\omega_2-\omega_1}$ evaluated on $g$ is equal to the scalar by which $v$ has been multiplied in this equation.
+  But now using Equation \ref{eq:frozen_values} we can check that $\Delta_{\omega_2-\omega_1}$, evaluated on $g$, is equal to the formula for $x_{\omega_2 - \omega_1}$.
 \end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%
