@@ -330,8 +330,11 @@ Given the matrix of $\bfc$-vectors at a given $t\in\TT$, we may define the matri
   (G_t^B)^T = (C_t^{-B^T})^{-1},
 \end{equation}
 where $B^T$ is the transpose of $B$.
-Note that this is not the the standard definition, but the above characterization (due to \cite[Theorem 1.2]{NZ12} and the sign-coherence result of [DWZ, GHKK ??]) is what we will use in Section~\ref{sec:bipartite_belt}.
+Note that this is not the the standard definition, but the above characterization (due to \cite[Theorem 1.2]{NZ12} and the sign-coherence result of [DWZ, GHKK ??]) is what we will use in Section~\ref{sec:acyclic_belt}.
 The basic role of $\bfg$-vectors is that they provide natural labels of cluster variables: two cluster variables $x_{i;t}$ and $x_{j;t'}$ coincide in $\cA_{\widetilde B}$ if and only if $\lambda_{i;t}$ and $\lambda_{j;t'}$ coincide in $\ZZ^n$ [DWZ, GHKK ??].
+\begin{remark}
+  The duality between $\bfg$-vectors and $\bfc$-vectors is analogous to the duality between weights and roots.  A precise analogy will be drawn in Section~\ref{sec:acyclic_belt}.
+\end{remark}
 
 We say a skew-symmetrizable matrix is \newword{acyclic} if it can be conjugated by a permutation matrix so that the entries above the diagonal all become nonnegative.
 In other words, $B$ is acyclic if there is a permutation $\sigma \in S_n$ such that $b_{\sigma_i \sigma_j} \geq 0$ when $i < j$.
@@ -657,8 +660,8 @@ To simplify our notation in this section, we will assume that $\sigma$ is the id
 Moreover, since our claim is already established in \cite{YZ08} for the case of a simply-connected semisimple group,  we will also assume that the Cartan companion $A$ of $B$ is not of finite type.
 
 %%%%%%%%%%%%%%%
-\subsection{Cluster variables in the bipartite belt}
-\label{sec:bipartite_belt}
+\subsection{Cluster variables in the acyclic belt}
+\label{sec:acyclic_belt}
 
 In view of the assumptions made at the beginning of this section, the Coxeter element associated to $B$ is $c=s_1\cdots s_n$ and any prefix of the word $c^\infty$ is reduced (cf. \cite{Spe09}).
 Therefore the path \eqref{eq:path} in the acyclic belt becomes
@@ -1194,7 +1197,7 @@ and all arrows acting by invertible maps except the arrow between $k$ and $k-1$ 
 
   From the discussion so far we see that any indecomposable rigid regular representation of $Q$ is non-sincere and in either $\cR_{nil}^p$ or $\cR_{nil}^q$.
   Any proper subquiver $Q'$ of $Q$ defines an exact inclusion $\rep_\kk(Q') \into \rep_\kk(Q)$.
-  Any non-sincere representation of $Q$ is the image of a representation of a proper subquiver, which without loss of generality we may take to be of type $A_m$\saySS{any other option rather than $m$?} for some $m < n$.
+  Any non-sincere representation of $Q$ is the image of a representation of a proper subquiver, which without loss of generality we may take to be of type $A_m$\saySS{any other option rather than $m$?}\sayDR{how about $r$?} for some $m < n$.
   Thus any indecomposable rigid regular representation of $Q$ is the image of an indecomposable representation of such a subquiver -- in particular, it is isomorphic to $\Qrep_{[k,\ell]}$ for a proper subset $[k,\ell]\subsetneq\ZZ_n$.
 
   It remains to derive the condition on sinks and sources in $[k,\ell]$.
