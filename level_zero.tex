@@ -773,7 +773,6 @@ We begin our analysis with a computation of certain $\bfc$-vectors by interpreti
 \end{proof}
 
 In analogy to what we did for $\bfc$-vectors, we will interpret $\bfg$-vectors as coordinate vectors in the basis of fundamental weights for the root system of $A$, in this way the $i$-th $\bfg$-vector at $t_0$ is the fundamental weight $\omega_i$.
-In view of \Cref{eq:g-vectors_from_c-vectors} defining $\bfg$-vectors and recalling that weights are the dual basis to coroots, from \Cref{lemma:c-vectors} we immediately deduce the following.
 
 \begin{lemma}
   \label{lemma:g-vectors}
@@ -789,9 +788,16 @@ In view of \Cref{eq:g-vectors_from_c-vectors} defining $\bfg$-vectors and recall
       -c^{1+\left\lceil\frac{\Zidx+1}{n}\right\rceil}s_n\cdots s_{\mod{\Zidx+1}} \omega_i & \text{if $\Zidx <-n$.}\\
     \end{cases}
   \end{equation}
-\end{lemma}\sayDR{I feel like some extra details are needed here, there is a subtlety with transposes which I think we should address.  Here are my thoughts so far.}
+\end{lemma}
+\sayDR{I feel like some extra details are needed here, there is a subtlety with transposes which I think we should address.  Here are my thoughts so far.}
+\saySS{Here is my attempt at some details}
 \begin{proof}
-  If we take $\bfg$-vectors to live in the weight lattice, then \Cref{eq:g-vectors_from_c-vectors} says that the $\bfc$-vectors for the dual exchange matrix $-B^T$ identify with coroots (or better they identify with roots for the dual Cartan matrix $A^T$).  From this it is clear (by dualizing the argument) that the $\bfc$-vectors should live in the root lattice as Salvatore has been teaching us.  Now applying \Cref{lemma:c-vectors} for $-B^T$, we get \label{eq:c-vectors} holding with roots replaced by coroots and \Cref{lemma:g-vectors} then follows.\sayDR{This argument suggests to me some reorganization where we explain first why $\bfc$-vectors should live in the root lattice while this whole paper serves as the motivation to consider $\bfg$-vectors to live in the weight lattice.}
+  The result follows immediately from \Cref{lemma:c-vectors} leveraging the duality in beween coroot and weight lattices for $A$.
+  Indeed, \Cref{lemma:c-vectors} applied to $-B^T$ says that the $\bfc$-vectors for the dual cluster algebra are coroots of $A$; more precisely, at the node $t_\Zidx$, they are the coroots $\alpha_{i;t_\Zidx}^\vee$.
+  By \Cref{eq:g-vectors_from_c-vectors} the $\bfg$-vectors at $t_\Zidx$ are the basis of weights $\lambda_{i;t_\Zidx}$ dual to $\alpha_{i;t_\Zidx}^\vee$.
+  We can then conclude by observing that the duality map commutes with the action of the elements of the Weil group.
+  \sayDR{This argument suggests to me some reorganization where we explain first why $\bfc$-vectors should live in the root lattice while this whole paper serves as the motivation to consider $\bfg$-vectors to live in the weight lattice.}
+  \saySS{I am not sure we need to say more than this but feel free to edit as you like}
 \end{proof}
 
 With the preceding results in hand, we are ready to describe the cluster variables of $\cA_{\Bdp}$ attached to the acyclic belt.
@@ -1997,6 +2003,23 @@ This is suggested, for example, by the following fact about $\bfg$-vectors in af
   The claim about preprojective and postinjective cluster variables follows from Theorem~\ref{thm:vars_and_rels_in_bipartite_belt}. 
   The claim about regular cluster variables corresponding to weights of level zero follows from [RS ??].
   \sayHW{Salvatore: this is a result of you and Nathan, right?}
+  I checked with Nathan and I am not sure we can deduce the statement you want directly from what we are typing right now.
+  We plan to make write a follow up in which we address the topic of $\bfg$-vectors and that one will definitely contain such a statement. 
+  This is way down the pipe though. 
+  Is there anything else we can say here? 
+  In any case here is a sketch of an argument: 
+  \begin{itemize}
+    \item 
+      the map from non ititial g-vectors to non initial d-vectors is $c^{-1}-1$
+    \item
+      when $c$ acts on roots it has an eigenspace of eigenvalue 1 and dimension 2 but only one eigenvector: $\delta$, set $\gamma_c$ to be such that $c\gamma_c=\gamma_c+\delta$
+    \item
+      let $K$ be the bilinear form defined by the cartan matrix, then $K(\gamma_c,\beta) > 0$ iff $\beta$ is preprojective, $K(\gamma_c,\beta) < 0$ iff $\beta$ is postinjective, $K(\gamma_c,\beta) = 0$ iff $\beta$ is regular
+    \item
+      The complement of the Tits cone and its opposite is the hyperplane of all weights $v$ such that $\langle \delta, v\rangle=0$ 
+    \item
+      To show: under $c^{-1}-1$ the roots $\beta$ such that $K(\gamma_c,\beta)=0$ are precisely those coming from vectors $v$ such that $\langle \delta, v\rangle=0$.
+  \end{itemize}
 \end{proof}
 
 With the preceding proposition in hand we pose the following specific form of Conjecture~\ref{conj:mainconjecture} in affine type:
