@@ -279,13 +279,13 @@ For $m \geq n$, the \newword{principal part} of an $m \times n$ matrix is the su
 An \newword{exchange matrix} $\widetilde B$ is an $m\times n$ integer matrix whose principal part $B$ is skew-symmetrizable.
 We will refer to such a $\widetilde B$ as an \newword{extension} of $B$.
 
-Two $m\times n$ exchange matrices $\widetilde B=(b_{ij})$ and $\widetilde B'=(b'_{ij})$ are related by \newword{mutation} at $k \in \{1,\dotsc,n\}$ if their entries satisfy 
+Two $m\times n$ exchange matrices $\widetilde B=(b_{ij})$ and $\widetilde B'=(b'_{ij})$ are related by \newword{matrix mutation} at $k \in \{1,\dotsc,n\}$ if their entries satisfy 
 \begin{equation}\label{eq:matrix mutation}
   b'_{ij} = \begin{cases}
   -b_{ij} & i = k \text{ or } j = k\\
   b_{ij} + \sgn(b_{ik})[b_{ik}b_{kj}]_+ & \text{otherwise.}
   \end{cases}
-\end{equation}
+\end{equation}\sayDR{If we change the second line of \eqref{eq:matrix mutation} to $b_{ij}+[b_{ik}]_+b_{kj}+b_{ik}[-b_{kj}]_+$ we don't have to introduce the ``sign'' function which is only used here, is it worth it?}
 Here and elsewhere we write $[a]_+$ for $\max(a,0)$ and $\sgn(a) \in \{\pm 1,0\}$ for the sign of $a$ where $\sgn(a)=0$ if and only if $a=0$.
 Note that mutation is an involution and defines an equivalence relation on exchange matrices.
 
@@ -609,7 +609,7 @@ The coordinate ring of $G^{u,v}$ is an upper cluster algebra and a finite subset
 \begin{theorem}
   \label{thm:coordring}
   Let $B$ be an acyclic skew-symmetrizable matrix, $G$ the Kac-Moody group of its Cartan companion $A$, and $c$ the associated Coxeter element.
-  There is an isomorphism $\cA_{\Bdp} \cong \kk[G^{c,c^{-1}}]$ that identifies the initial cluster variables with restrictions of the following monomials in generalized minors
+  There is an isomorphism $\cA_{\Bdp} \cong \kk[G^{c,c^{-1}}]$ that identifies the initial cluster variables with restrictions of the following monomials in generalized minors:
   \begin{equation}
     \label{eq:initialcluster}
     x_i = \Delta_{\omega_i},
@@ -649,19 +649,19 @@ Some similar computations are collected in Lemma~\ref{lemma:coefficients_values}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Preprojective and postinjective cluster variables as minors}
 In this section we prove that when $B$ is any acyclic skew-symmetrizable matrix, the identification $\cA_{\Bdp} \cong \kk[G^{c,c^{-1}}]$ of \Cref{thm:coordring} realizes preprojective and postinjective cluster variables as restrictions of some highest- and lowest-weight minors, respectively.
-For our argument we will first deduce a parametrization of such cluster variables, together with a list of exchange relations they satisfy, from an explicit description of the $\bfg$-vectors and $\bfc$-vectors in the acyclic belt.
+For our argument we will first deduce a parametrization of such cluster variables, together with a list of exchange relations they satisfy, from an explicit description of the $\bfc$-vectors and $\bfg$-vectors in the acyclic belt.
 The identification with minors will then follow by comparing these relations with restrictions  to $G^{c,c^{-1}}$ of the generalized determinantal identities of \Cref{prop:fundid}.
 
-Recall from the definition of acyclic matrix that there exists $\sigma\in S_n$ such that $b_{\sigma_i,\sigma_j}\geq 0$ whenever $i<j$.
-To simplify our notation, in this section, we will assume that $\sigma$ is the identity permutation by relabelling rows and columns of $B$ as needed.
-Moreover, since our claim is already established in \cite{YZ08} for the simply-connected semisimple group case,  we will also assume that the Cartan companion $A$ of $B$ is not of finite type.
+Recall from the definition of an acyclic matrix that there exists $\sigma\in S_n$ such that $b_{\sigma_i,\sigma_j}\geq 0$ whenever $i<j$.
+To simplify our notation in this section, we will assume that $\sigma$ is the identity permutation by relabelling rows and columns of $B$ as needed.
+Moreover, since our claim is already established in \cite{YZ08} for the case of a simply-connected semisimple group,  we will also assume that the Cartan companion $A$ of $B$ is not of finite type.
 
 %%%%%%%%%%%%%%%
 \subsection{Cluster variables in the bipartite belt}
 \label{sec:bipartite_belt}
 
 In view of the assumptions made at the beginning of this section, the Coxeter element associated to $B$ is $c=s_1\cdots s_n$ and any prefix of the word $c^\infty$ is reduced (Cf. \cite{Spe09}).
-Therefore the path \eqref{eq:path} becomes
+Therefore the path \eqref{eq:path} in the acyclic belt becomes
 \begin{equation}
   \cdots
   \dashname{n}
@@ -682,11 +682,11 @@ Therefore the path \eqref{eq:path} becomes
   \cdots
 \end{equation}
 
-Following \cite{FZ02}, we denote by $\mod{\Zidx}$ the unique integer in $[1,n]$ congruent to $\Zidx$ modulo $n$.
+Following \cite{FZ02}, for $\ell\in\ZZ$ we denote by $\mod{\Zidx}$ the unique integer in $[1,n]$ congruent to $\Zidx$ modulo $n$.
 The edge immediately to the left of $t_\Zidx$ is then labelled by $\mod{\Zidx}$.
-Observe that the nodes of $\TT$ we are considering lie along a \emph{sink/source adapted sequence}.
-More precisely, the $\mod{\Zidx}$-th row of $B^{t_\Zidx}$ contains only non-positive entries and the $\mod{\Zidx+1}$-st row only non-negative entries.
-In particular, the mutation relations \eqref{eq:matrix mutation} imply that the off-diagonal entries of the exchange matrix $B^{t_\Zidx}$ are equal, in absolute value, to the entries of $A$.
+Observe that the nodes of $\TT$ we are considering lie along a \emph{sink/source adapted sequence}, i.e. every mutation occurs at a sink or source of the corresponding (valued) quiver $Q$.
+More precisely, the $\mod{\Zidx}$-th column of $B^{t_\Zidx}$ contains only non-negative entries and the $\mod{\Zidx+1}$-st column only non-positive entries\sayDR{I changed rows to columns since these are used in the mutations}.
+In particular, the matrix mutation \eqref{eq:matrix mutation} implies that the off-diagonal entries of the exchange matrix $B^{t_\Zidx}$ are equal, in absolute value, to the entries of $A$.
 
 We begin our analysis with a computation of $\bfc$-vectors by interpreting them as coordinate vectors in the basis of simple roots for the root system of the Cartan companion $A$ so that the $i$-th $\bfc$-vector at $t_0$ is $\alpha_i$.
 \begin{lemma}
