@@ -696,7 +696,7 @@ We begin our analysis with a computation of certain $\bfc$-vectors by interpreti
   \label{lemma:c-vectors}
   Let $\alpha_{i;t_\Zidx}$ be the $i$-th $\bfc$-vector at vertex $t_\Zidx$.
   Then
-  \begin{equation}
+  \begin{equation}\label{eq:c-vectors}
     \alpha_{i;t_\Zidx}
     =
     \begin{cases}
@@ -780,13 +780,16 @@ In view of \Cref{eq:g-vectors_from_c-vectors} defining $\bfg$-vectors and recall
     \lambda_{i;t_\Zidx}
     =
     \begin{cases}
-      c^{\left\lfloor\frac{\Zidx-1}{n}\right\rfloor}s_1\cdots s_{\mod{\Zidx}} \omega_i & \text{if $\Zidx>0$;}\\
-      \omega_i & \text{if $-n\leq \Zidx \leq 0$ and  $i\leq n+\Zidx$;} \\
-      -\omega_i & \text{if $-n\leq \Zidx \leq 0$ and $i>n+\Zidx$;} \\
+      c^{\left\lfloor\frac{\Zidx-1}{n}\right\rfloor}s_1\cdots s_{\mod{\Zidx}} \omega_i & \text{if $0<\Zidx$;}\\
+      \omega_i & \text{if $-n < \Zidx \leq 0$ and  $i\leq n+\Zidx$;} \\
+      -\omega_i & \text{if $-n\leq \Zidx < 0$ and $i>n+\Zidx$;} \\
       -c^{1+\left\lceil\frac{\Zidx+1}{n}\right\rceil}s_n\cdots s_{\mod{\Zidx+1}} \omega_i & \text{if $\Zidx <-n$.}\\
     \end{cases}
   \end{equation}
-\end{lemma}
+\end{lemma}\sayDR{I feel like some extra details are needed here, there is a subtlety with transposes which I think we should address.  Here are my thoughts so far.}
+\begin{proof}
+  If we take $\bfg$-vectors to live in the weight lattice, then \Cref{eq:g-vectors_from_c-vectors} says that the $\bfc$-vectors for the dual exchange matrix $-B^T$ identify with coroots (or better they identify with roots for the dual Cartan matrix $A^T$).  From this it is clear (by dualizing the argument) that the $\bfc$-vectors should live in the root lattice as Salvatore has been teaching us.  Now applying \Cref{lemma:c-vectors} for $-B^T$, we get \label{eq:c-vectors} holding with roots replaced by coroots and \Cref{lemma:g-vectors} then follows.\sayDR{This argument suggests to me some reorganization where we explain first why $\bfc$-vectors should live in the root lattice while this whole paper serves as the motivation to consider $\bfg$-vectors to live in the weight lattice.}
+\end{proof}
 
 With the preceding results in hand, we are ready to describe the cluster variables of $\cA_{\Bdp}$ attached to the acyclic belt.
 
