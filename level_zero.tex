@@ -627,7 +627,7 @@ The coordinate ring of $G^{u,v}$ is an upper cluster algebra and a finite subset
   Thus, following \cite[Corollary 1.19]{BFZ05}, $\kk[G^{c,c^{-1}}]$ is a cluster algebra.
 
   The cluster structure we obtain in this way is not quite the one in the statement of the theorem; the two are nonetheless strictly related.
-  Indeed, since the variables $\cvar_i$ are obtained from the minors $\Delta^{\omega_j}_{ c\omega_j}$ by an invertible monomial transformation (and the variables $\cvar_{\ol{\imath}}$ are obtained similarly from the minors $\Delta^{c \omega_j}_{\omega_j}$), we can use separation of additions to rescale all the cluster variables in $\kk[G^{c,c^{-1}}]$ and establish the desired isomorphism (Cf. \cite[Proposition 4.5]{YZ08}).
+  Indeed, since the variables $\cvar_i$ are obtained from the minors $\Delta^{\omega_j}_{ c\omega_j}$ by an invertible monomial transformation (and the variables $\cvar_{\ol{\imath}}$ are obtained similarly from the minors $\Delta^{c \omega_j}_{\omega_j}$), we can use separation of additions to rescale all the cluster variables in $\kk[G^{c,c^{-1}}]$ and establish the desired isomorphism (cf. \cite[Proposition 4.5]{YZ08}).
 \end{proof}
 \begin{remark}
   One could consider the $2n$-dimensional subvariety $L^{c,c^{-1}} \subset G^{c,c^{-1}}$ where $z_{\ol{1}},\dotsc,z_{\ol{n}}$ are equal to one; this is the reduced double Bruhat cell studied in \cite{YZ08}.
@@ -660,7 +660,7 @@ Moreover, since our claim is already established in \cite{YZ08} for the case of 
 \subsection{Cluster variables in the bipartite belt}
 \label{sec:bipartite_belt}
 
-In view of the assumptions made at the beginning of this section, the Coxeter element associated to $B$ is $c=s_1\cdots s_n$ and any prefix of the word $c^\infty$ is reduced (Cf. \cite{Spe09}).
+In view of the assumptions made at the beginning of this section, the Coxeter element associated to $B$ is $c=s_1\cdots s_n$ and any prefix of the word $c^\infty$ is reduced (cf. \cite{Spe09}).
 Therefore the path \eqref{eq:path} in the acyclic belt becomes
 \begin{equation}
   \cdots
@@ -684,11 +684,11 @@ Therefore the path \eqref{eq:path} in the acyclic belt becomes
 
 Following \cite{FZ02}, for $\ell\in\ZZ$ we denote by $\mod{\Zidx}$ the unique integer in $[1,n]$ congruent to $\Zidx$ modulo $n$.
 The edge immediately to the left of $t_\Zidx$ is then labelled by $\mod{\Zidx}$.
-Observe that the nodes of $\TT$ we are considering lie along a \emph{sink/source adapted sequence}, i.e. every mutation occurs at a sink or source of the corresponding (valued) quiver $Q$.
+Observe that the nodes of $\TT$ we are considering lie along a \emph{sink/source adapted sequence}, i.e. every mutation occurs at a sink or source of the corresponding (valued) quiver $Q_B$.
 More precisely, the $\mod{\Zidx}$-th column of $B^{t_\Zidx}$ contains only non-negative entries and the $\mod{\Zidx+1}$-st column only non-positive entries\sayDR{I changed rows to columns since these are used in the mutations}.
 In particular, the matrix mutation \eqref{eq:matrix mutation} implies that the off-diagonal entries of the exchange matrix $B^{t_\Zidx}$ are equal, in absolute value, to the entries of $A$.
 
-We begin our analysis with a computation of $\bfc$-vectors by interpreting them as coordinate vectors in the basis of simple roots for the root system of the Cartan companion $A$ so that the $i$-th $\bfc$-vector at $t_0$ is $\alpha_i$.
+We begin our analysis with a computation of certain $\bfc$-vectors by interpreting them as coordinate vectors in the basis of simple roots for the root system of the Cartan companion $A$.  Note that the $i$-th initial $\bfc$-vector at $t_0$ is the simple root $\alpha_i$.
 \begin{lemma}
   \label{lemma:c-vectors}
   Let $\alpha_{i;t_\Zidx}$ be the $i$-th $\bfc$-vector at vertex $t_\Zidx$.
@@ -698,13 +698,13 @@ We begin our analysis with a computation of $\bfc$-vectors by interpreting them 
     =
     \begin{cases}
       c^{\left\lfloor\frac{\Zidx-1}{n}\right\rfloor}s_1\cdots s_{\mod{\Zidx}} \alpha_i & \text{if $0<\Zidx$;}\\
-      \alpha_i & \text{if $-n\leq \Zidx \leq 0$ and  $i\leq n+\Zidx$;} \\
-      -\alpha_i & \text{if $-n\leq \Zidx \leq 0$ and $i > n+\Zidx$;} \\
+      \alpha_i & \text{if $-n < \Zidx \leq 0$ and  $i\leq n+\Zidx$;} \\
+      -\alpha_i & \text{if $-n\leq \Zidx < 0$ and $i > n+\Zidx$;} \\
       -c^{1+\left\lceil\frac{\Zidx+1}{n}\right\rceil}s_n\cdots s_{\mod{\Zidx+1}} \alpha_i & \text{if $\Zidx<-n$;}\\
     \end{cases}
   \end{equation}
   where, as usual, $\left\lfloor a \right\rfloor$ is the greatest integer smaller than or equal to $a$ while $\left\lceil a \right\rceil$ is the smallest integer greater than or equal to $a$.
-  Moreover, whenever $\Zidx > 0 $ or $\Zidx < -n$, the vector $\alpha_{\mod{\Zidx};t_\Zidx}$ is negative and the vector $\alpha_{\mod{\Zidx+1};t_\Zidx}$ is positive.
+  Moreover, whenever $0 < \Zidx$ or $\Zidx < -n$, the vector $\alpha_{\mod{\Zidx};t_\Zidx}$ is negative and the vector $\alpha_{\mod{\Zidx+1};t_\Zidx}$ is positive.
 \end{lemma}
 
 \begin{remark}
@@ -714,8 +714,8 @@ We begin our analysis with a computation of $\bfc$-vectors by interpreting them 
 
 \begin{proof}
   Let's begin by settling the claim about signs.
-  When $\Zidx>0$ the root $c^{\left\lfloor\frac{\Zidx-1}{n}\right\rfloor}s_1\cdots s_{\mod{\Zidx}} \alpha_{\mod{\Zidx+1}}$ is positive: being a prefix of $c^\infty$, the word  $c^{\left\lfloor\frac{\Zidx-1}{n}\right\rfloor}s_1\cdots s_{\mod{\Zidx}} s_{\mod{\Zidx+1}}$ is reduced (cf. \cite{Spe09}) and we can apply \cite[VI \S 1.6 Corollary 2 to Proposition 17]{Bou02}.
-  By the same principle the root $c^{\left\lfloor\frac{\Zidx-1}{n}\right\rfloor}s_1\cdots s_{\mod{\Zidx}} \alpha_{\mod{\Zidx}} = -c^{\left\lfloor\frac{\Zidx-1}{n}\right\rfloor}s_1\cdots s_{\mod{\Zidx-1}} \alpha_{\mod{\Zidx}}$ is negative because the word $c^{\left\lfloor\frac{\Zidx-1}{n}\right\rfloor}s_1\cdots s_{\mod{\Zidx}}$ is reduced.
+  When $\Zidx>0$ the root $c^{\left\lfloor\frac{\Zidx-1}{n}\right\rfloor}s_1\cdots s_{\mod{\Zidx}} \alpha_{\mod{\Zidx+1}}$ is positive: being a prefix of $c^\infty$, the word  $c^{\left\lfloor\frac{\Zidx-1}{n}\right\rfloor}s_1\cdots s_{\mod{\Zidx}} s_{\mod{\Zidx+1}}$ is reduced (cf. \cite{Spe09}) and we can apply \cite[VI \S 1.6 Corollary 2 to Proposition 17]{Bou02}\sayDR{This citation seems overly complicated}.
+  By the same principle, the root $c^{\left\lfloor\frac{\Zidx-1}{n}\right\rfloor}s_1\cdots s_{\mod{\Zidx}} \alpha_{\mod{\Zidx}} = -c^{\left\lfloor\frac{\Zidx-1}{n}\right\rfloor}s_1\cdots s_{\mod{\Zidx-1}} \alpha_{\mod{\Zidx}}$ is negative because the word $c^{\left\lfloor\frac{\Zidx-1}{n}\right\rfloor}s_1\cdots s_{\mod{\Zidx}}$ is reduced.
   Similarly, when $\Zidx<-n$ the root $-c^{1+\left\lceil\frac{\Zidx+1}{n}\right\rceil}s_n\cdots s_{\mod{\Zidx+1}} \alpha_{\mod{\Zidx+1}}$ is positive and the root $-c^{1+\left\lceil\frac{\Zidx+1}{n}\right\rceil}s_n\cdots s_{\mod{\Zidx+1}} \alpha_{\mod{\Zidx}}$ is negative.
   
   For the main claim there are three cases to consider.
@@ -747,7 +747,7 @@ We begin our analysis with a computation of $\bfc$-vectors by interpreting them 
     &=
     \alpha_{i;t_\Zidx} - \frac{2(\alpha_{\mod{\Zidx+1};t_\Zidx},\alpha_{i;t_\Zidx})}{(\alpha_{\mod{\Zidx+1};t_\Zidx},\alpha_{\mod{\Zidx+1};t_\Zidx})} \alpha_{\mod{\Zidx+1};t_\Zidx}\\
     &=
-    s_{\alpha_{\mod{\Zidx+1};t_\Zidx}}\big(\alpha_{i;t_\Zidx}\big)
+    s_{\alpha_{\mod{\Zidx+1};t_\Zidx}}\big(\alpha_{i;t_\Zidx}\big),
   \end{align*}
   where the second to last equality holds because the pairing $(\cdot,\cdot)$ is invariant under the action of the Weyl group.
   Using the inductive hypotheses we can then conclude
@@ -766,8 +766,8 @@ We begin our analysis with a computation of $\bfc$-vectors by interpreting them 
   The only minor change is that this time we leverage the fact that both the sign of $\alpha_{\mod{\Zidx};t_\Zidx}$ and the sign of the $\mod{\Zidx}$-th row of $B^{t_\Zidx}$ are negative.
 \end{proof}
 
-In analogy to what we did for $\bfc$-vectors, we will interpret $\bfg$-vectors as coordinate vectors in the basis of fundamental weights for the root system of $A$ so that the $i$-th $\bfg$-vector at $t_0$ is $\omega_i$.
-From \Cref{lemma:c-vectors}, in view of \Cref{eq:g-vectors_from_c-vectors} and recalling that weights are the dual basis to coroots, we immediately deduce the following.
+In analogy to what we did for $\bfc$-vectors, we will interpret $\bfg$-vectors as coordinate vectors in the basis of fundamental weights for the root system of $A$, in this way the $i$-th $\bfg$-vector at $t_0$ is the fundamental weight $\omega_i$.
+In view of \Cref{eq:g-vectors_from_c-vectors} defining $\bfg$-vectors and recalling that weights are the dual basis to coroots, from \Cref{lemma:c-vectors} we immediately deduce the following.
 
 \begin{lemma}
   \label{lemma:g-vectors}
@@ -798,7 +798,7 @@ With the preceding results in hand, we are ready to describe the cluster variabl
   \[
     \Pi_{\textit{inj}}:=\big\{-c^{-k}\omega_i: i \in [1,n], k\geq0 \big\}
   \]
-  respectively; we will therefore denote them by $x_{c^k\omega_i}$ and $x_{-c^{-k}\omega_i}$.
+  respectively; we will therefore denote these variables by $x_{c^k\omega_i}$ and $x_{-c^{-k}\omega_i}$.
 
   Together with the initial cluster variables, they satisfy the following exchange relations:
   \begin{align}
@@ -876,7 +876,7 @@ for $1 \leq j \leq n$.
 \end{lemma}
 
 \begin{proof}
-  The first four identities follow easily from considering root strings in $V(\omega_i)$ as in \cite[Proof of eq. 3.20]{YZ08}, and we omit an explicit discussion.
+  The first four identities follow easily from considering root strings in $V(\omega_j)$ as in \cite[Proof of eq. 3.20]{YZ08}, and we omit an explicit discussion.
   For example, if $v_{\omega_j}$ is a highest-weight vector of $V(\omega_j)$, then $\Delta^{c\omega_j}_{\omega_j}(g)$ measures the component of $gv_{\omega_j}$ in the weight space $V(\omega_j)_{c \omega_j}$; sequentially considering how each one-parameter subgroup in the factorization can affect this component leads to the given formula.
 
   We derive the first identity of Equation~\ref{eq:frozen_values}, the second being similar.
@@ -1003,7 +1003,9 @@ for $1 \leq j \leq n$.
   \begin{equation}
     s_j\omega_j
     =
-    -\omega_j-\sum_{\ell\neq j}a_{\ell j}\omega_\ell,
+    -\omega_j-\sum_{\ell\neq j}a_{\ell j}\omega_\ell
+    =
+    \omega_j-\alpha_j,
   \end{equation}
   which is the definition of $s_j\omega_j \in P$.
   Note that for this equality to hold when interpreted in $\widehat{P}$, additional terms in the kernel of $\widehat{P} \onto P$ must in general be added to the right-hand side.
@@ -1028,9 +1030,9 @@ Since a generic element of $G$ factors as $n_- h n_+$, with $n_- \in N_-$, $h \i
 \end{theorem}
 
 \begin{proof}
-  In \Cref{thm:vars_and_rels_in_bipartite_belt} we computed exchange relations that determine these cluster variables in terms of the initial ones, so it suffices to check that the indicated restrictions of minors satisfy the same relations.
+  In \Cref{thm:vars_and_rels_in_bipartite_belt} we computed exchange relations that determine these cluster variables in terms of the initial variables, so it suffices to check that the indicated restrictions of minors satisfy the same relations.
 
-  If we apply Proposition~\ref{prop:fundid} with $u = v = c^k s_1 \cdots s_{i-1}$ and make a substitution following Lemma~\ref{lemma:coefficient_identity_powers}, we find that 
+  If we apply Proposition~\ref{prop:fundid} with $u = v = c^k s_1 \cdots s_{i-1}$ and substitute using the equalities from Lemma~\ref{lemma:coefficient_identity_powers}, we find that 
   \begin{equation}
     \Delta_{c^k\omega_i}\Delta_{c^{k+1}\omega_i} 
     = 
