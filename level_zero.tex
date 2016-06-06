@@ -283,10 +283,12 @@ Two $m\times n$ exchange matrices $\widetilde B=(b_{ij})$ and $\widetilde B'=(b'
 \begin{equation}\label{eq:matrix mutation}
   b'_{ij} = \begin{cases}
   -b_{ij} & i = k \text{ or } j = k\\
-  b_{ij} + \sgn(b_{ik})[b_{ik}b_{kj}]_+ & \text{otherwise.}
+  b_{ij} + [b_{ik}]_+ [b_{kj}]_+ - [-b_{ik}]_+ [-b_{kj}]_+ & \text{otherwise.}
   \end{cases}
-\end{equation}\sayDR{If we change the second line of \eqref{eq:matrix mutation} to $b_{ij}+[b_{ik}]_+b_{kj}+b_{ik}[-b_{kj}]_+$ we don't have to introduce the ``sign'' function which is only used here, is it worth it?}
-Here and elsewhere we write $[a]_+$ for $\max(a,0)$ and $\sgn(a) \in \{\pm 1,0\}$ for the sign of $a$ where $\sgn(a)=0$ if and only if $a=0$.
+\end{equation}
+\sayDR{If we change the second line of \eqref{eq:matrix mutation} to $b_{ij}+[b_{ik}]_+b_{kj}+b_{ik}[-b_{kj}]_+$ we don't have to introduce the ``sign'' function which is only used here, is it worth it?}
+\saySS{Agreed but I used another formula that might be easyer to parse even though it is longer. Either one would do for me}
+Here and elsewhere we write $[a]_+$ for $\max(a,0)$.
 Note that mutation is an involution and defines an equivalence relation on exchange matrices.
 
 To define the cluster algebra $\cA_{\widetilde B}$ associated to an $m \times n$ exchange matrix $\widetilde B$, we begin with an infinite $n$-ary tree $\TT$ with edges labelled by $\{1,\dotsc,n\}$ so that the edges incident to any given vertex have distinct labels.
@@ -333,7 +335,8 @@ where $B^T$ is the transpose of $B$.
 Note that this is not the the standard definition, but the above characterization (due to \cite[Theorem 1.2]{NZ12} and the sign-coherence result of [DWZ, GHKK ??]) is what we will use in Section~\ref{sec:acyclic_belt}.
 The basic role of $\bfg$-vectors is that they provide natural labels of cluster variables: two cluster variables $x_{i;t}$ and $x_{j;t'}$ coincide in $\cA_{\widetilde B}$ if and only if $\lambda_{i;t}$ and $\lambda_{j;t'}$ coincide in $\ZZ^n$ [DWZ, GHKK ??].
 \begin{remark}
-  The duality between $\bfg$-vectors and $\bfc$-vectors is analogous to the duality between weights and roots.  A precise analogy will be drawn in Section~\ref{sec:acyclic_belt}.
+  The duality between $\bfg$-vectors and $\bfc$-vectors is analogous to the duality between weights and coroots.
+  A precise analogy will be drawn in Section~\ref{sec:acyclic_belt}.
 \end{remark}
 
 We say a skew-symmetrizable matrix is \newword{acyclic} if it can be conjugated by a permutation matrix so that the entries above the diagonal all become nonnegative.
@@ -526,7 +529,6 @@ A weight $\lambda \in \widehat{P}$ is dominant if $(t^{\alpha_i^\vee})^\lambda$ 
 To each $\lambda \in \widehat{P}^+$ is associated an irreducible highest-weight representation $V(\lambda)$ of $\widehat{G}$.
 Similarly, for each $\lambda \in -\widehat{P}^+$ there is an irreducible lowest-weight representation $V(\lambda)$ of $\widehat{G}$.
 For any $w\in W$ and $\lambda\in\pm\widehat{P}^+$, the weight space $V(\lambda)_{w\lambda}$ is one-dimensional and thus we also write $V(w\lambda)$ for the representation $V(\lambda)$.
-\saySS{Is it true that if $\lambda,\mu\in\hat{P}^+$ then $\nexists w \in W$ such that $w\lambda =\mu$? If not then we might have issues of well definition.}\sayDR{I believe that is true, here is a proof.  Suppose $\lambda$ is dominant and $\ell(w)>\ell(s_i w)$.  Then if $(w\lambda,\alpha_i^\vee)>0$ we have $(\lambda,w^{-1}\alpha_i^\vee)>0$ but $w^{-1}\alpha_i^\vee$ is a negative coroot, a contradiction since $\lambda$ is dominant.}
 The Tits cone $$X = \{w\lambda : w \in W, \lambda \in \widehat{P}^+\}$$ is the set of weights which can be obtained from a dominant weight by the action of the Weyl group.
 Thus each weight $\lambda\in X \cup -X$ determines an irreducible (highest- or lowest-) weight representation $V(\lambda)$ of $\widehat{G}$ whose weight space $V(\lambda)_\lambda$ is one-dimensional.
 Note that highest- and lowest-weight representations are distinct classes unless $A$ is of finite-type.
@@ -623,7 +625,7 @@ The coordinate ring of $G^{u,v}$ is an upper cluster algebra and a finite subset
   \end{equation}
 \end{theorem}
 \begin{proof}
-  Specializing \cite[Theorem 2.10]{BFZ05} and \cite[Theorem 4.9]{Wil13} to the case at hand we get that $\kk[G^{c,c^{-1}}]$ is the upper cluster algebra with initial cluster variables $\Delta_{\omega_i}$, frozen variables $\Delta_{c\omega_i}^{\omega_i}$ and $\Delta_{\omega_i}^{c\omega_i}$, and initial exchange matrix obtained by extending $B$ with two copies of the matrix $1-[B]_+$ (here we denote by $1$\sayDR{Should we write it as $Id_n$ like we do above?} the identity matrix and we apply $[\,\cdot\,]_+$ entrywise).
+  Specializing \cite[Theorem 2.10]{BFZ05} and \cite[Theorem 4.9]{Wil13} to the case at hand we get that $\kk[G^{c,c^{-1}}]$ is the upper cluster algebra with initial cluster variables $\Delta_{\omega_i}$, frozen variables $\Delta_{c\omega_i}^{\omega_i}$ and $\Delta_{\omega_i}^{c\omega_i}$, and initial exchange matrix obtained by extending $B$ with two copies of the matrix $Id_n-[B]_+$ (here we apply $[\,\cdot\,]_+$ entrywise).
   Note that \cite{BFZ05,Wil13} use transposed conventions on exchange matrices; here and everywere else in this paper we follow the convention of \cite{BFZ05}.
 
   This exchange matrix is acyclic by hypothesis and has full rank.
@@ -685,10 +687,10 @@ Therefore the path \eqref{eq:path} in the acyclic belt becomes
   \cdots
 \end{equation}
 
-Following \cite{FZ02}, for $\ell\in\ZZ$ we denote by $\mod{\Zidx}$ the unique integer in $[1,n]$ congruent to $\Zidx$ modulo $n$.
+Following \cite{FZ02}, for $\Zidx\in\ZZ$ we denote by $\mod{\Zidx}$ the unique integer in $[1,n]$ congruent to $\Zidx$ modulo $n$.
 The edge immediately to the left of $t_\Zidx$ is then labelled by $\mod{\Zidx}$.
 Observe that the nodes of $\TT$ we are considering lie along a \emph{sink/source adapted sequence}, i.e. every mutation occurs at a sink or source of the corresponding (valued) quiver $Q_B$.
-More precisely, the $\mod{\Zidx}$-th column of $B^{t_\Zidx}$ contains only non-negative entries and the $\mod{\Zidx+1}$-st column only non-positive entries\sayDR{I changed rows to columns since these are used in the mutations}.
+More precisely, the $\mod{\Zidx}$-th column of $B^{t_\Zidx}$ contains only non-negative entries and the $\mod{\Zidx+1}$-st column only non-positive entries.
 In particular, the matrix mutation \eqref{eq:matrix mutation} implies that the off-diagonal entries of the exchange matrix $B^{t_\Zidx}$ are equal, in absolute value, to the entries of $A$.
 
 We begin our analysis with a computation of certain $\bfc$-vectors by interpreting them as coordinate vectors in the basis of simple roots for the root system of the Cartan companion $A$.  Note that the $i$-th initial $\bfc$-vector at $t_0$ is the simple root $\alpha_i$.
@@ -717,7 +719,9 @@ We begin our analysis with a computation of certain $\bfc$-vectors by interpreti
 
 \begin{proof}
   Let's begin by settling the claim about signs.
-  When $\Zidx>0$ the root $c^{\left\lfloor\frac{\Zidx-1}{n}\right\rfloor}s_1\cdots s_{\mod{\Zidx}} \alpha_{\mod{\Zidx+1}}$ is positive: being a prefix of $c^\infty$, the word  $c^{\left\lfloor\frac{\Zidx-1}{n}\right\rfloor}s_1\cdots s_{\mod{\Zidx}} s_{\mod{\Zidx+1}}$ is reduced (cf. \cite{Spe09}) and we can apply \cite[VI \S 1.6 Corollary 2 to Proposition 17]{Bou02}\sayDR{This citation seems overly complicated}.
+  When $\Zidx>0$ the root $c^{\left\lfloor\frac{\Zidx-1}{n}\right\rfloor}s_1\cdots s_{\mod{\Zidx}} \alpha_{\mod{\Zidx+1}}$ is positive: being a prefix of $c^\infty$, the word  $c^{\left\lfloor\frac{\Zidx-1}{n}\right\rfloor}s_1\cdots s_{\mod{\Zidx}} s_{\mod{\Zidx+1}}$ is reduced (cf. \cite{Spe09}) and we can apply \cite[VI \S 1.6 Corollary 2 to Proposition 17]{Bou02}.
+  \sayDR{This citation seems overly complicated}
+  \saySS{Agreed, any idea on how to shorten it up?}
   By the same principle, the root $c^{\left\lfloor\frac{\Zidx-1}{n}\right\rfloor}s_1\cdots s_{\mod{\Zidx}} \alpha_{\mod{\Zidx}} = -c^{\left\lfloor\frac{\Zidx-1}{n}\right\rfloor}s_1\cdots s_{\mod{\Zidx-1}} \alpha_{\mod{\Zidx}}$ is negative because the word $c^{\left\lfloor\frac{\Zidx-1}{n}\right\rfloor}s_1\cdots s_{\mod{\Zidx}}$ is reduced.
   Similarly, when $\Zidx<-n$ the root $-c^{1+\left\lceil\frac{\Zidx+1}{n}\right\rceil}s_n\cdots s_{\mod{\Zidx+1}} \alpha_{\mod{\Zidx+1}}$ is positive and the root $-c^{1+\left\lceil\frac{\Zidx+1}{n}\right\rceil}s_n\cdots s_{\mod{\Zidx+1}} \alpha_{\mod{\Zidx}}$ is negative.
   
@@ -1197,7 +1201,7 @@ and all arrows acting by invertible maps except the arrow between $k$ and $k-1$ 
 
   From the discussion so far we see that any indecomposable rigid regular representation of $Q$ is non-sincere and in either $\cR_{nil}^p$ or $\cR_{nil}^q$.
   Any proper subquiver $Q'$ of $Q$ defines an exact inclusion $\rep_\kk(Q') \into \rep_\kk(Q)$.
-  Any non-sincere representation of $Q$ is the image of a representation of a proper subquiver, which without loss of generality we may take to be of type $A_m$\saySS{any other option rather than $m$?}\sayDR{how about $r$?} for some $m < n$.
+  Any non-sincere representation of $Q$ is the image of a representation of a proper subquiver, which without loss of generality we may take to be of type $A_r$ for some $r < n$.
   Thus any indecomposable rigid regular representation of $Q$ is the image of an indecomposable representation of such a subquiver -- in particular, it is isomorphic to $\Qrep_{[k,\ell]}$ for a proper subset $[k,\ell]\subsetneq\ZZ_n$.
 
   It remains to derive the condition on sinks and sources in $[k,\ell]$.
@@ -1985,7 +1989,7 @@ This is suggested, for example, by the following fact about $\bfg$-vectors in af
 \begin{proposition}
   Let $B$ be an acyclic skew-symmetrizable matrix whose Cartan companion $A$ is of affine type.
   Let $x_{i;t} \in \cA_B$ be a non-initial cluster variable with $\bfg$-vecotr $\lambda_{i;t}\in P$.
-  Then the level of $V(\bfg_{i;t})$ is greater than, equal to, or less than zero exactly when $x_{i;t}$ is preprojective, regular, or postinjective, respectively.
+  Then the level of $V(\lambda_{i;t})$ is greater than, equal to, or less than zero exactly when $x_{i;t}$ is preprojective, regular, or postinjective, respectively.
 \end{proposition}
 \begin{proof}
   The claim about preprojective and postinjective cluster variables follows from Theorem~\ref{thm:vars_and_rels_in_bipartite_belt}. 
@@ -1998,8 +2002,8 @@ With the preceding proposition in hand we pose the following specific form of Co
 \begin{conjecture}
   \label{conj:affine}
   Let $B$ be an acyclic skew-symmetrizable matrix whose Cartan companion $A$ is of affine type.
-  Let $x_{i;t} \in \cA_{\Bdp}$ be any regular cluster variable and $\bfg_{i;t} \in P$ its $\bfg$-vector.
-  Then in $\cA_{\Bdp} \cong \kk[G^{c,c^{-1}}]$, $x_{i;t}$ is the restriction of the level zero minor $\Delta_{\bfg_{i;t}}$.
+  Let $x_{i;t} \in \cA_{\Bdp}$ be any regular cluster variable and $\lambda_{i;t} \in P$ its $\bfg$-vector.
+  Then in $\cA_{\Bdp} \cong \kk[G^{c,c^{-1}}]$, $x_{i;t}$ is the restriction of the level zero minor $\Delta_{\lambda_{i;t}}$.
 \end{conjecture}
 
 While the combinatorics we used to prove Conjecture~\ref{conj:affine} in type $A_{n-1}^{\!(1)}$ is not available in general, in some types it is possible to compute the relevant minors by hand.
@@ -2055,10 +2059,10 @@ In the simplest cases this can be done using only the characters of these repres
 
   Let us evaluate the level zero minor $\Delta_{\omega_2 - \omega_1}$ on a generic element
   \[
-    g = x_{\ol{1}}(t_{\ol{1}})x_{\ol{2}}(t_{\ol{2}})x_{\ol{3}}(t_{\ol{3}})hx_3(t_3)x_2(t_2)x_1(t_1) \in \widetilde{LSP}_4^{c,c^{-1}}.
+    g = x_{\ol{1}}(t_{\ol{1}})x_{\ol{2}}(t_{\ol{2}})x_{\ol{3}}(t_{\ol{3}})hx_3(t_3)x_2(t_2)x_1(t_1) \in \widetilde{LSp}_4^{c,c^{-1}}.
   \]
   To do this, fix a vector $v$ of weight $\omega_2 - \omega_1$  in $V(\omega_2 - \omega_1) \cong \kk^4[\loopvar^{\pm 1}]$.
-  Note that $v$ is extremal in the sense that it is a highest- or lowest- weight vector for each (not necessarily simple) coroot subgroup of $\widetilde{LSP}_4$; the same property then holds automatically for any weight vector whose weight is a conjugate of $\omega_2 - \omega_1$.
+  Note that $v$ is extremal in the sense that it is a highest- or lowest- weight vector for each (not necessarily simple) coroot subgroup of $\widetilde{LSp}_4$; the same property then holds automatically for any weight vector whose weight is a conjugate of $\omega_2 - \omega_1$.
 
   Write $e_i$ and $f_i$ for the standard generators of $\widetilde{L\mathfrak{sp}}_4$.
   Since $v$ sits in an $\alpha_1$-root string of length 2, we have
