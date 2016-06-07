@@ -271,10 +271,11 @@ We show this element too is a level zero generalized minor; with this in mind it
 
 %%%%%%%%%%%%%%%%%%%%%%
 \textsc{Acknowledgments}
-We would like to thank Giovanni Cerulli Irelli, Vyjayanthi Chari, Corrado de Concini, Anna Felikson, Misha Gekhtman, and Pavel Tumarkin for helpful discussions and comments.
+We would like to thank Giovanni Cerulli Irelli, Vyjayanthi Chari, Alessandro D'Andrea, Corrado de Concini, Anna Felikson, Misha Gekhtman, Nathan Reading and Pavel Tumarkin for helpful discussions and comments.
+\saySS{@Harold did you ended up talking with Leclerc? Is there anyone else we talked with?}
 D.R. is supported by...\sayDR{My only outside support is an AMS Simons Travel grant, do you think I should include something about it?}\sayHW{If you used your travel grant for any part of our collaboration, then by all means acknowledge it (hell, even if you didn't I think there are only upsides to saying you did, i.e. to show off that you had the funding, or to cite if you need to write a report).}
-S.S. is supported by...
-H.W. is supported by by an NSF Postdoctoral Research Fellowship DMS-1502845.  
+S.S. is a Marie Curie fellow of the Istituto Nazionale di Alta Matematica.
+H.W. is supported by an NSF Postdoctoral Research Fellowship DMS-1502845.  
 
 %%%%%%%%%%%%%%%%%%%%%%
 \section{Background on clusters, quivers, and minors}
@@ -729,9 +730,6 @@ We begin our analysis with a computation of certain $\bfc$-vectors by interpreti
 \begin{proof}
   Let's begin by settling the claim about signs.
   When $\Zidx>0$ the root $c^{\left\lfloor\frac{\Zidx-1}{n}\right\rfloor}s_1\cdots s_{\mod{\Zidx}} \alpha_{\mod{\Zidx+1}}$ is positive: being a prefix of $c^\infty$, the word  $c^{\left\lfloor\frac{\Zidx-1}{n}\right\rfloor}s_1\cdots s_{\mod{\Zidx}} s_{\mod{\Zidx+1}}$ is reduced (cf. \cite{Spe09}) and we can apply \cite[VI \S 1.6, Corollary 2 of Proposition 17]{Bou02}.
-  \sayDR{This citation seems overly complicated}
-  \saySS{Agreed, any idea on how to shorten it up?}
-  \sayDR{Ugh, I see why it is written that way, Bourbaki has a terrible way of naming results for citation.  I changed ``to'' to ``of'' so it doesn't look like we are referring to a series of results but I have no better suggestions}
   By the same principle, the root $c^{\left\lfloor\frac{\Zidx-1}{n}\right\rfloor}s_1\cdots s_{\mod{\Zidx}} \alpha_{\mod{\Zidx}} = -c^{\left\lfloor\frac{\Zidx-1}{n}\right\rfloor}s_1\cdots s_{\mod{\Zidx-1}} \alpha_{\mod{\Zidx}}$ is negative because the word $c^{\left\lfloor\frac{\Zidx-1}{n}\right\rfloor}s_1\cdots s_{\mod{\Zidx}}$ is reduced.
   Similarly, when $\Zidx<-n$ the root $-c^{1+\left\lceil\frac{\Zidx+1}{n}\right\rceil}s_n\cdots s_{\mod{\Zidx+1}} \alpha_{\mod{\Zidx+1}}$ is positive and the root $-c^{1+\left\lceil\frac{\Zidx+1}{n}\right\rceil}s_n\cdots s_{\mod{\Zidx+1}} \alpha_{\mod{\Zidx}}$ is negative.
   
@@ -2012,25 +2010,7 @@ This is suggested, for example, by the following fact about $\bfg$-vectors in af
 \end{proposition}
 \begin{proof}
   The claim about preprojective and postinjective cluster variables follows from Theorem~\ref{thm:vars_and_rels_in_bipartite_belt}. 
-  The claim about regular cluster variables corresponding to weights of level zero follows from [RS ??].
-  \sayHW{Salvatore: this is a result of you and Nathan, right?}
-  I checked with Nathan and I am not sure we can deduce the statement you want directly from what we are typing right now.
-  We plan to make write a follow up in which we address the topic of $\bfg$-vectors and that one will definitely contain such a statement. 
-  This is way down the pipe though. 
-  Is there anything else we can say here? 
-  In any case here is a sketch of an argument: 
-  \begin{itemize}
-    \item 
-      the map from non ititial g-vectors to non initial d-vectors is $c^{-1}-1$
-    \item
-      when $c$ acts on roots it has an eigenspace of eigenvalue 1 and dimension 2 but only one eigenvector: $\delta$, set $\gamma_c$ to be such that $c\gamma_c=\gamma_c+\delta$
-    \item
-      let $K$ be the bilinear form defined by the cartan matrix, then $K(\gamma_c,\beta) > 0$ iff $\beta$ is preprojective, $K(\gamma_c,\beta) < 0$ iff $\beta$ is postinjective, $K(\gamma_c,\beta) = 0$ iff $\beta$ is regular
-    \item
-      The complement of the Tits cone and its opposite is the hyperplane of all weights $v$ such that $\langle \delta, v\rangle=0$ 
-    \item
-      To show: under $c^{-1}-1$ the roots $\beta$ such that $K(\gamma_c,\beta)=0$ are precisely those coming from vectors $v$ such that $\langle \delta, v\rangle=0$.
-  \end{itemize}
+  The claim about regular cluster variables corresponding to weights of level zero follows from the results in \cite{RS16} together with the characterization of the boundary of the Tits cone as the subspace of all weights that evaluate to 0 on immaginary roots.
 \end{proof}
 
 With the preceding proposition in hand we pose the following specific form of Conjecture~\ref{conj:mainconjecture} in affine type:
@@ -2172,74 +2152,6 @@ The cluster character of $\Qrep_\eta$ is independent of $\eta$, and we refer to 
   Let us formally compute the minor $\Delta_{\bfg(M)}$, where $\bfg(M) = (n-1) \omega_2 - \omega_1$.
   That is, we suppose there exists a representation $V(\bfg(M))$ of $G$ having a one-dimensional extremal weight space of weight $\bfg(M)$ (i.e. this weight space is either highest- or lowest-weight for both simple root subgroups of $G$).
 \end{remark}
-
-%%%%%%%%%%%%%%%%%%%%
-\section{Conventions --- TO BE REMOVED}
-
-\begin{itemize}
-
-  \item 
-    The Cartan matrix is $A=(a_{ij})$ and it's $n \times n$.
-
-  \item 
-    $I=[1,n]$ is the set of indices of the nodes of the Dynkin diagram. The labels are such that $c=s_1\dots s_n$.
-
-  \item 
-    $B_c$ is the matrix given by
-    \[
-      b_{ij} = \begin{cases}
-        -a_{ij} & i<j\\
-        a_{ij}  & i>j\\
-        0       & i=j
-      \end{cases}
-    \]
-    (negative below the diagonal)
-
-  \item
-    The Euler matrix $E_c$ is given by
-    \[
-      e_{ij} = \begin{cases}
-        0       & i<j\\
-        a_{ij}  & i>j\\
-        1       & i=j
-      \end{cases}
-    \]
-    (negative below the diagonal, 0 above)
-
-  \item
-    The initial $B$-matrix for $G^{c,c^{-1}}$ with double reduced word $\bar 1,\dots,\bar n,n\dots 1$ is
-    \[
-      \left[
-        \begin{array}{c}
-          B_c\\
-          E_{c^{-1}}\\
-          E_{c^{-1}}
-        \end{array}
-      \right]
-    \]
-  
-  \item 
-    The minor $\Delta_\omega^\delta$ is our notation for YZ's $\Delta_{\delta, \omega}$.
-  
-  \item 
-    $[\alpha:\alpha_j]$ notation defined immediately before \Cref{lem:minorsondbc}
-  
-  \item 
-    The transpose $g \mapsto g^T$ of YZ is defined in passing without notation in the proof of \Cref{lem:minorsondbc}.
-  
-  \item 
-    $L_{\omega_i}$ is the $i$-th fundamental representation in the proof of \Cref{lem:minorsondbc}.
-
-  \item 
-    Used the notation $h^\omega$ for $\omega$ a weight and $h \in H$ without explaining it in the proof of \Cref{lem:minorsondbc}.
-
-  \item 
-    We use $x_{-i}(t)$ rather than a barred version for negative 1-parameter subgroups in the proof of \Cref{lem:minorsondbc}.
-
-  \item 
-    The identity $\beta_j^+ + \sum_{i=1}^{j-1} a_{ij} \beta_i^+ = \alpha_j$ is used in the proof of \Cref{lem:minorsondbc} without comment.
-\end{itemize}
-
 
 % bibliography
 \bibliographystyle{amsalpha}
