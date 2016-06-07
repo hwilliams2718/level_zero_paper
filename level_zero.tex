@@ -210,7 +210,7 @@ This correspondence takes a rigid indecomposable representation $\Qrep$ to the g
 With this in mind we refer to a (non-initial) cluster variable as preprojective, postinjective, or regular according to the classification of its associated representation.
 Given the description of $\cA_Q$ as the coordinate ring of $G^{c,c^{-1}}$, we see in particular that representations of $Q$ naturally label functions on a subvariety of $G$.
 
-When $Q$ is of classical ADE type and $G$ a simple algebraic group, Yang and Zelevinsky \cite{YZ08} showed that these functions on $G^{c,c^{-1}}$ have an interpretation in terms of the representation theory of $G$: they are restrictions of generalized minors. These are functions $\Delta_{(V,\lambda)} \in \kk[G]$ labeled by a representation $V$ of $G$ together with a choice of extremal one-dimensional weight space $V_\lambda$.
+When $Q$ is of classical ADE type and $G$ a simple algebraic group, Yang and Zelevinsky \cite{YZ08} showed that these functions on $G^{c,c^{-1}}$ have an interpretation in terms of the representation theory of $G$: they are restrictions of generalized minors. These are functions $\Delta_{(V,\lambda)} \in \kk[G]$ labelled by a representation $V$ of $G$ together with a choice of extremal one-dimensional weight space $V_\lambda$.
 Their value on $g \in G$ is the ratio of any nonzero $v \in V_\lambda$ with the projection of $gv \in V$ to $V_\lambda$.
 Our main result is that cluster variables in $\cA_Q$ are also realized as generalized minors on $G^{c,c^{-1}}$ when $Q$ is not necessarily of finite type, and that moreover the resulting correspondence between quiver representations and group representations intertwines the triadic classifications described above.
 
@@ -239,10 +239,10 @@ The relevant representations are of the form $\big(\!\bigwedge^{\!k}\kk^n\big)[\
 These bases let us compute the restrictions to $G^{c,c^{-1}}$ of the level zero minors appearing in (2) as weighted sums over collections of pairwise disjoint paths through a directed network on the cylinder, following similar constructions in \cite{GSV12,FM14}.
 When $Q$ is an acyclic orientation of an $n$-cycle, its regular representations likewise have a simple combinatorial description, and one can construct by hand a bijection between their subrepresentations and collections of paths in the relevant network.
 
-A fundamental aspect of the correspondence of Theorem \ref{thm:maintheorem} is that the labeling of cluster variables by $\bfg$-vectors corresponds directly the labeling of minors by their associated weight $\lambda$. 
+A fundamental aspect of the correspondence of Theorem \ref{thm:maintheorem} is that the labeling of cluster variables by $\bfg$-vectors corresponds directly to the labeling of minors by their associated weight $\lambda$. 
 The $\bfg$-vector of a cluster variable is a particular element of $\ZZ^{|Q_0|}$, and distinct cluster variables have distinct $\bfg$-vectors. In terms of the quiver representation associated to a cluster variable, the $\bfg$-vector records the factors in a minimal injective copresentation. 
 For acyclic $Q$, we identify the $\bfg$-vector lattice $\ZZ^{|Q_0|}$ with the weight lattice of $G$ by taking the initial $\bfg$-vectors to the fundamental weights.
-We show this identifies the $\bfg$-vector of any cluster variable appearing in Theorem \ref{thm:maintheorem} with the weight of the associated minor. In particular, given a regular cluster variable the $\bfg$-vector/weight correspondence provides an ansatz for which minor to expect it coincides with; this ansatz is implicitly used in the proof of (2). 
+We show this identifies the $\bfg$-vector of any cluster variable appearing in Theorem \ref{thm:maintheorem} with the weight of the associated minor. In particular, given a regular cluster variable the $\bfg$-vector/weight correspondence provides an ansatz for which minor to expect that variable to coincide with; this ansatz is implicitly used in the proof of (2). 
 
 A deficiency of proving (2) by analyzing each regular cluster variable individually is that we do not know how to interpret the exchange relations relating them to the other cluster variables in terms of the representation theory of $LSL_n$. It would be desirable to find such an interpretation, which could also provide an avenue for approaching more general Kac-Moody groups:
 
@@ -259,7 +259,7 @@ In addition to verifying the conjecture for all Coxeter elements when $G$ is of 
 In any affine type, the regular cluster variables are finite in number and can be explicitly computed. By results of \cite{RS16}, their $\bfg$-vectors correspond to weights in the complement of the Tits cone and its negative. 
 In particular, it follows that if these cluster variables are restrictions of minors, they must come from an explicitly identifiable level zero representation. 
 The types checked in Section~\ref{sec:othertypes} are essentially the ones where these minors can be evaluated on $G^{c,c^{-1}}$ knowing only the character of this representation.
-Beyond finite and affine types, general weight representations of $G$ are not well-understood and the conjecture is much more speculative (but see Remark~\ref{rmk:nonaffinehomelt}).
+Beyond finite and affine types, general weight representations of $G$ are not well-understood and the conjecture is much more speculative (see Remark~\ref{rmk:nonaffinehomelt} for additional evidence).
 
 Finally, in type $A_{n}^{\!(1)}$ the following suggestive extension of Theorem~\ref{thm:maintheorem} also holds.
 There is a one-parameter family of quiver representations whose dimension vector is the primitive imaginary root.
@@ -269,7 +269,7 @@ This element too is a level zero generalized minor; with this in mind it is natu
 %%%%%%%%%%%%%%%%%%%%%%
 \textsc{Acknowledgments}
 We would like to thank Giovanni Cerulli Irelli, Vyjayanthi Chari, Corrado de Concini, Anna Felikson, Misha Gekhtman, and Pavel Tumarkin for helpful discussions and comments.
-D.R. is supported by...
+D.R. is supported by...\sayDR{My only outside support is an AMS Simons Travel grant, do you think I should include something about it?}
 S.S. is supported by...
 H.W. is supported by by an NSF Postdoctoral Research Fellowship DMS-1502845.  
 
@@ -293,8 +293,6 @@ Two $m\times n$ exchange matrices $\widetilde B=(b_{ij})$ and $\widetilde B'=(b'
   b_{ij} + [b_{ik}]_+ [b_{kj}]_+ - [-b_{ik}]_+ [-b_{kj}]_+ & \text{otherwise.}
   \end{cases}
 \end{equation}
-\sayDR{If we change the second line of \eqref{eq:matrix mutation} to $b_{ij}+[b_{ik}]_+b_{kj}+b_{ik}[-b_{kj}]_+$ we don't have to introduce the ``sign'' function which is only used here, is it worth it?}
-\saySS{Agreed but I used another formula that might be easyer to parse even though it is longer. Either one would do for me}
 Here and elsewhere we write $[a]_+$ for $\max(a,0)$.
 Note that mutation is an involution and defines an equivalence relation on exchange matrices.
 
@@ -2235,22 +2233,6 @@ The cluster character of $\Qrep_\eta$ is independent of $\eta$, and we refer to 
   \item 
     The identity $\beta_j^+ + \sum_{i=1}^{j-1} a_{ij} \beta_i^+ = \alpha_j$ is used in the proof of \Cref{lem:minorsondbc} without comment.
 \end{itemize}
-
-  \begin{lemma}\sayDR{This should be translated into our current notation and placed in an appropriate location.}\sayHW{The final sentence before the main theorem in Section 4.2 I think now accomplishes ass that is needed.}
-    Let $g$ be a generic element of $L^{c,c^{-1}}$.
-    \begin{enumerate}
-      \item $\Delta_{\omega_i}(g)=u_i^{-1}$
-      \item $\Delta_{c\omega_i}^{\omega_i}(g)=\begin{cases}u_i^{-1}\prod\limits_{j=i^-}^{i^+}t_j & \text{if $i$ is a sink in $Q$;}\\u_i^{-1}t_i & \text{if $i$ is a source in $Q$;}\\u_i^{-1}\prod\limits_{j=i}^{i^+}t_j & \text{if $i$ is neither a source nor a sink in $Q$ but $i^+$ is a source;}\\u_i^{-1}\prod\limits_{j=i^-}^it_j & \text{if $i$ is neither a source nor a sink in $Q$ but $i^-$ is a source.}\end{cases}$
-      \item For 
-      \begin{equation}
-        y_i=\begin{cases}\Delta_{c\omega_i}^{\omega_i} & \text{if $i$ is a sink in $Q$;}\\\Delta_{c\omega_i}^{\omega_i}\left(\Delta_{c\omega_{i_-}}^{\omega_{i_-}}\Delta_{c\omega_{i_+}}^{\omega_{i_+}}\right)^{-1} & \text{if $i$ is a source in $Q$;}\\\Delta_{c\omega_i}^{\omega_i}\left(\Delta_{c\omega_{i_+}}^{\omega_{i_+}}\right)^{-1} & \text{if $i$ is neither a source nor a sink in $Q$ but $i^+$ is a sink;}\\\Delta_{c\omega_i}^{\omega_i}\left(\Delta_{c\omega_{i_-}}^{\omega_{i_-}}\right)^{-1} & \text{if $i$ is neither a source nor a sink in $Q$ but $i^-$ is a sink.}\end{cases}
-      \end{equation}
-      we have
-      \begin{align}
-        y_i(g)&=\begin{cases}u_i^{-1}t_i & \text{if $i$ is a sink in $Q$;}\\u_{i_-}u_i^{-1}u_{i_+}t_i & \text{if $i$ is a source in $Q$;}\\u_i^{-1}u_{i_+}t_i & \text{if $i$ is neither a source nor a sink in $Q$ but $i^+$ is a sink;}\\u_{i_-}u_i^{-1}t_i & \text{if $i$ is neither a source nor a sink in $Q$ but $i^-$ is a sink.}\end{cases}
-      \end{align}
-    \end{enumerate}
-  \end{lemma}
 
 
 % bibliography
