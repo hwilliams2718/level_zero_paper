@@ -516,7 +516,7 @@ For $t \in \kk^\times$ and $1 \leq i \leq n$ we adopt the notation
 \end{gather}
 By extension for any $w$ in the Weyl group $W$ of $\widehat{G}$ we set \[\ol{w} := \ol{s_{i_1}}\cdots\ol{s_{i_k}}, \quad \quad \dol{w} := \dol{s_{i_1}}\cdots\dol{s_{i_k}},\] where $s_{i_1}\cdots s_{i_k}$ is any reduced word for $w$.
 We write $H$ for the ($n$-dimensional) Cartan subgroup of $G$, likewise $\widehat{H}$ is the Cartan subgroup of $\widehat{G}$ (it is isomorphic to $H \times (\kk^\times)^{\corank(A)}$).
-We let $\kk[\widehat{G}]$ denote the (complete\sayDR{this means functions on $\widehat G$ are formal power series right?  why is it necessary?} topological) algebra of regular functions on $\widehat{G}$.
+We let $\kk[\widehat{G}]$ denote the (complete\sayDR{this means functions on $\widehat G$ are formal power series right?  why is it necessary?}\sayHW{The most natural notion of ``coordinate ring of an ind-variety'' is the limit of the coordinate rings of its finite-dim'l pieces; this ring has a natural topology, and pointing it out here is really just a way of making sure ``we're all talking about the same ring''. B/c, e.g. Kac-Peterson also talk about ``strongly regular'' functions on $G$, which form a proper (noncomplete) subalgebra} topological) algebra of regular functions on $\widehat{G}$.
 
 We have weight lattices $\widehat{P} = \Hom(\widehat{H},\kk^\times)$ and $P = \Hom(H,\kk^\times)$, and write the value of $\lambda \in P$ on $h \in H$ as $h^\lambda$ (likewise for $\lambda \in \widehat{P}$ and $h \in \widehat{H}$).
 The fundamental weights $\omega_1,\dotsc,\omega_n \in P$ are defined by $(t^{\alpha_i^\vee})^{\omega_j} = t^{\delta_{ij}}$.
@@ -546,7 +546,7 @@ When $A$ is of (untwisted) affine type, identifying $G$ with a central extension
 Above this we have the splitting $\widehat{P} \cong P \oplus \ZZ \delta$, where $\delta$ is a character of the $\kk^\times$ acting by loop rotations.
 A weight $\lambda \in \widehat{P}$ is in the complement of $X \cup -X$ if and only if it lies in $P^\circ \oplus \ZZ \delta$.
 Following the above notation, for $\lambda^\circ\in P^\circ$ we have an irreducible $G^\circ$-representation $V(\lambda^\circ)$ whose highest weight is conjugate to $\lambda^\circ$ under the Weyl group of $G^\circ$.
-With this in hand we extend our association of an irreducible $\widehat{G}$-representation $V(\lambda)$ to all $\lambda \in \widehat{P}$: when $\lambda \in \widehat{P} \smallsetminus(X \cup -X)$ we set $V(\lambda) := V(\lambda^\circ)[\loopvar^{\pm 1}]$, \sayDR{Should we mention somewhere that all $\lambda^\circ+r\delta$ are in the same Weyl group orbit?} the space of algebraic loops in $V(\lambda^\circ)$, where $\lambda^\circ$ is the $P^\circ$-component of $\lambda$.
+With this in hand we extend our association of an irreducible $\widehat{G}$-representation $V(\lambda)$ to all $\lambda \in \widehat{P}$: when $\lambda \in \widehat{P} \smallsetminus(X \cup -X)$ we set $V(\lambda) := V(\lambda^\circ)[\loopvar^{\pm 1}]$, \sayDR{Should we mention somewhere that all $\lambda^\circ+r\delta$ are in the same Weyl group orbit?}\sayHW{I don't think so: it's clear that $\pm X$ are $W$-closed, hence so is their complement. Plus I don't think this fact is ver really directly called upon.} the space of algebraic loops in $V(\lambda^\circ)$, where $\lambda^\circ$ is the $P^\circ$-component of $\lambda$.
 
 The \newword{level} of an irreducible $\widehat{G}$-representation is the character by which $Z(G) = Z(\widehat{G}) \cong \kk^\times$ acts; the level of $V(\lambda)$ is positive if $\lambda \in X$, negative if $\lambda \in -X$, and zero if $\lambda \in \widehat{P} \smallsetminus(X \cup -X)$.
 
@@ -568,7 +568,7 @@ Similarly, $\Delta^{\lambda'}_{\lambda''}(g)$ is the matrix entry whose row corr
 While we have apparently given two definitions of $\Delta^{\lambda'}_{\lambda''}$ in finite type (depending on whether we regard $\lambda'$, $\lambda''$ as conjugate to a dominant or anti-dominant weight), the reader may check that these definitions agree in this case.
 
 \begin{remark}
-  When $\widehat{G}$ is of affine type\sayDR{Does it matter here twisted vs untwisted type?}, the representations $V(\lambda)$ with $\lambda \in \widehat{P}\smallsetminus(X \cup - X)$ are not the only irreducible level zero weight representations.
+  When $\widehat{G}$ is of (untwisted) affine type\sayDR{Does it matter here twisted vs untwisted type?}\sayHW{Thanks -- the discussion is morally accurate in the twisted case, but since we've only defined $V(\lambda)$ in the untwisted case the discussion is really making this assumption.}, the representations $V(\lambda)$ with $\lambda \in \widehat{P}\smallsetminus(X \cup - X)$ are not the only irreducible level zero weight representations.
   The set of all such representations is parametrized by pairs $(\{\lambda_1,\dotsc,\lambda_m\},\{a_1,\dotsc,a_m\})$ given by a tuple of dominant weights of $G^\circ$ and a tuple of elements of $\kk^\times$ \cite{CP86}.
   As a vector space the associated representation is the space of Laurent polynomials valued in the tensor product of the $V(\lambda_i^\circ)$, and the scalars $a_i$ rescale the action of $G^\circ$-valued loops on each factor.
 \end{remark}
