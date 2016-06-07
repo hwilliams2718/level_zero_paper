@@ -61,8 +61,8 @@ urlcolor=blue]{hyperref}
 \newcommand{\bfg}{\mathbf{g}}
 \newcommand{\bfi}{\mathbf{i}}
 
-\newcommand{\gv}{\mathbf{g}}
-\newcommand{\cv}{\mathbf{c}}
+\newcommand{\gv}{\lambda}
+\newcommand{\cv}{\alpha}
 
 \newcommand{\cE}{\mathcal{E}}
 \newcommand{\cF}{\mathcal{F}}
@@ -705,10 +705,10 @@ In particular, the matrix mutation \eqref{eq:matrix mutation} implies that the o
 We begin our analysis with a computation of certain $\bfc$-vectors by interpreting them as coordinate vectors in the basis of simple roots for the root system of the Cartan companion $A$.  Note that the $i$-th initial $\bfc$-vector at $t_0$ is the simple root $\alpha_i$.
 \begin{lemma}
   \label{lemma:c-vectors}
-  Let $\alpha_{i;t_\Zidx}$ be the $i$-th $\bfc$-vector at vertex $t_\Zidx$.
+  Let $\cv_{i;t_\Zidx}$ be the $i$-th $\bfc$-vector at vertex $t_\Zidx$.
   Then
   \begin{equation}\label{eq:c-vectors}
-    \alpha_{i;t_\Zidx}
+    \cv_{i;t_\Zidx}
     =
     \begin{cases}
       c^{\left\lfloor\frac{\Zidx-1}{n}\right\rfloor}s_1\cdots s_{\mod{\Zidx}} \alpha_i & \text{if $0<\Zidx$;}\\
@@ -718,7 +718,7 @@ We begin our analysis with a computation of certain $\bfc$-vectors by interpreti
     \end{cases}
   \end{equation}
   where, as usual, $\left\lfloor a \right\rfloor$ is the greatest integer smaller than or equal to $a$ while $\left\lceil a \right\rceil$ is the smallest integer greater than or equal to $a$.
-  Moreover, whenever $0 < \Zidx$ or $\Zidx < -n$, the vector $\alpha_{\mod{\Zidx};t_\Zidx}$ is negative and the vector $\alpha_{\mod{\Zidx+1};t_\Zidx}$ is positive.
+  Moreover, whenever $0 < \Zidx$ or $\Zidx < -n$, the vector $\cv_{\mod{\Zidx};t_\Zidx}$ is negative and the vector $\cv_{\mod{\Zidx+1};t_\Zidx}$ is positive.
 \end{lemma}
 
 \begin{remark}
@@ -740,38 +740,38 @@ We begin our analysis with a computation of certain $\bfc$-vectors by interpreti
   \noindent{\bf Case $-n \leq \Zidx \leq 0$.}
   We proceed by induction on $\Zidx$.
   For $\Zidx=0$ there is nothing to check.
-  By construction, while the sign of $\alpha_{\mod{\Zidx};t_\Zidx}$ is positive, the sign of the $\mod{\Zidx}$-th row of $B^{t_\Zidx}$ is negative.
+  By construction, while the sign of $\cv_{\mod{\Zidx};t_\Zidx}$ is positive, the sign of the $\mod{\Zidx}$-th row of $B^{t_\Zidx}$ is negative.
   The $\bfc$-vectors at $t_{\Zidx-1}$ are therefore given by:
   \begin{equation*}
-    \alpha_{i;t_{\Zidx-1}}
+    \cv_{i;t_{\Zidx-1}}
     =
     \begin{cases}
-      \alpha_{i;t_\Zidx} & \text{if $i\neq \mod{\Zidx}$}\\
-      -\alpha_{\mod{\Zidx};t_\Zidx} & \text{if $i = \mod{\Zidx}$}
+      \cv_{i;t_\Zidx} & \text{if $i\neq \mod{\Zidx}$}\\
+      -\cv_{\mod{\Zidx};t_\Zidx} & \text{if $i = \mod{\Zidx}$}
     \end{cases}
   \end{equation*}
   as desired.
 
   \noindent{\bf Case $\Zidx > 0$.}
   We again argue by induction on $\Zidx$ the base case still being $\Zidx=0$.
-  Since the sign of $\alpha_{\mod{\Zidx+1};t_\Zidx}$ and the sign of the $\mod{\Zidx+1}$-st row of $B^{t_\Zidx}$ are both positive, in view of \cite[Proposition 1.3]{NZ12}, the $\bfc$-vectors at $t_{\Zidx+1}$ are given by
+  Since the sign of $\cv_{\mod{\Zidx+1};t_\Zidx}$ and the sign of the $\mod{\Zidx+1}$-st row of $B^{t_\Zidx}$ are both positive, in view of \cite[Proposition 1.3]{NZ12}, the $\bfc$-vectors at $t_{\Zidx+1}$ are given by
   \begin{align*}
-    \alpha_{i;t_{\Zidx+1}} 
+    \cv_{i;t_{\Zidx+1}} 
     &= 
-    \alpha_{i;t_\Zidx} - a_{\mod{\Zidx+1},i} \alpha_{\mod{\Zidx+1};t_\Zidx}\\
+    \cv_{i;t_\Zidx} - a_{\mod{\Zidx+1},i} \cv_{\mod{\Zidx+1};t_\Zidx}\\
     &=
-    \alpha_{i;t_\Zidx} - \frac{2(\alpha_{\mod{\Zidx+1}},\alpha_i)}{(\alpha_{\mod{\Zidx+1}},\alpha_{\mod{\Zidx+1}})} \alpha_{\mod{\Zidx+1};t_\Zidx}\\
+    \cv_{i;t_\Zidx} - \frac{2(\alpha_{\mod{\Zidx+1}},\alpha_i)}{(\alpha_{\mod{\Zidx+1}},\alpha_{\mod{\Zidx+1}})} \cv_{\mod{\Zidx+1};t_\Zidx}\\
     &=
-    \alpha_{i;t_\Zidx} - \frac{2(\alpha_{\mod{\Zidx+1};t_\Zidx},\alpha_{i;t_\Zidx})}{(\alpha_{\mod{\Zidx+1};t_\Zidx},\alpha_{\mod{\Zidx+1};t_\Zidx})} \alpha_{\mod{\Zidx+1};t_\Zidx}\\
+    \cv_{i;t_\Zidx} - \frac{2(\cv_{\mod{\Zidx+1};t_\Zidx},\cv_{i;t_\Zidx})}{(\cv_{\mod{\Zidx+1};t_\Zidx},\cv_{\mod{\Zidx+1};t_\Zidx})} \cv_{\mod{\Zidx+1};t_\Zidx}\\
     &=
-    s_{\alpha_{\mod{\Zidx+1};t_\Zidx}}\big(\alpha_{i;t_\Zidx}\big),
+    s_{\cv_{\mod{\Zidx+1};t_\Zidx}}\big(\cv_{i;t_\Zidx}\big),
   \end{align*}
   where the second to last equality holds because the pairing $(\cdot,\cdot)$ is invariant under the action of the Weyl group.
   Using the inductive hypotheses we can then conclude
   \begin{align*}
-    \alpha_{i;t_{\Zidx+1}} 
+    \cv_{i;t_{\Zidx+1}} 
     &=
-    s_{\alpha_{\mod{\Zidx+1};t_\Zidx}}\big(\alpha_{i;t_\Zidx}\big)\\
+    s_{\cv_{\mod{\Zidx+1};t_\Zidx}}\big(\cv_{i;t_\Zidx}\big)\\
     &=
     \big(c^{\left\lfloor\frac{\Zidx-1}{n}\right\rfloor}s_1\cdots s_{\mod{\Zidx}}\big)s_{\mod{\Zidx+1}}\big(s_{\mod{\Zidx}}\cdots s_1 c^{-\left\lfloor\frac{\Zidx-1}{n}\right\rfloor}\big)\big(c^{\left\lfloor\frac{\Zidx-1}{n}\right\rfloor}s_1\cdots s_{\mod{\Zidx}}\alpha_i\big)\\
     &= 
@@ -780,7 +780,7 @@ We begin our analysis with a computation of certain $\bfc$-vectors by interpreti
 
   \noindent{\bf Case $\Zidx < -n$.}
   The argument is the same as the one used in the case $\Zidx>0$ with $\Zidx=-n$ as base for the induction.
-  The only minor change is that this time we leverage the fact that both the sign of $\alpha_{\mod{\Zidx};t_\Zidx}$ and the sign of the $\mod{\Zidx}$-th row of $B^{t_\Zidx}$ are negative.
+  The only minor change is that this time we leverage the fact that both the sign of $\cv_{\mod{\Zidx};t_\Zidx}$ and the sign of the $\mod{\Zidx}$-th row of $B^{t_\Zidx}$ are negative.
 \end{proof}
 
 In analogy to what we did for $\bfc$-vectors, we will interpret $\bfg$-vectors as coordinate vectors in the basis of fundamental weights for the root system of $A$, in this way the $i$-th $\bfg$-vector at $t_0$ is the fundamental weight $\omega_i$.
@@ -804,8 +804,8 @@ In analogy to what we did for $\bfc$-vectors, we will interpret $\bfg$-vectors a
 \saySS{Here is my attempt at some details}
 \begin{proof}
   The result follows immediately from \Cref{lemma:c-vectors} leveraging the duality in beween coroot and weight lattices for $A$.
-  Indeed, \Cref{lemma:c-vectors} applied to $-B^T$ says that the $\bfc$-vectors for the dual cluster algebra are coroots of $A$; more precisely, at the node $t_\Zidx$, they are the coroots $\alpha_{i;t_\Zidx}^\vee$.
-  By \Cref{eq:g-vectors_from_c-vectors} the $\bfg$-vectors at $t_\Zidx$ are the basis of weights $\lambda_{i;t_\Zidx}$ dual to $\alpha_{i;t_\Zidx}^\vee$.
+  Indeed, \Cref{lemma:c-vectors} applied to $-B^T$ says that the $\bfc$-vectors for the dual cluster algebra are coroots of $A$; more precisely, at the node $t_\Zidx$, they are the coroots $\cv_{i;t_\Zidx}^\vee$.
+  By \Cref{eq:g-vectors_from_c-vectors} the $\bfg$-vectors at $t_\Zidx$ are the basis of weights $\lambda_{i;t_\Zidx}$ dual to $\cv_{i;t_\Zidx}^\vee$.
   We can then conclude by observing that the duality map commutes with the action of the elements of the Weil group.
   \sayDR{This argument suggests to me some reorganization where we explain first why $\bfc$-vectors should live in the root lattice while this whole paper serves as the motivation to consider $\bfg$-vectors to live in the weight lattice.}
   \saySS{I am not sure we need to say more than this but feel free to edit as you like}
