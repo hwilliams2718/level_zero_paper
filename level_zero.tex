@@ -151,31 +151,31 @@ urlcolor=blue]{hyperref}
 %%%%%%%%%%%%%%%%%%%%%%
 \begin{abstract}
 The cluster algebra of any acyclic quiver is the coordinate ring of a subvariety in a corresponding Kac-Moody group -- the quiver is an orientation of its Dynkin diagram, defining a Coxeter element and thereby a double Bruhat cell.
-We interpret cluster variables in this realization in terms of the representation theory of the group and relate this to their interpretation as generating functions associated to quiver representations(**).
-We show that cluster variables of preprojective quiver representations are realized by generalized minors of highest-weight group representations (generalizing results of Yang-Zelevinsky in finite type), and that cluster variables of postinjective quiver representations are realized by generalized minors of lowest-weight group representations.
-In type $A_n^{\!(1)}$ and several other affine types, we show that cluster variables of regular quiver representations are realized by generalized minors of group representations that are neither highest- nor lowest-weight; we conjecture this holds more generally.
+We interpret cluster variables in this realization in terms of the representation theory of the group and relate this to their interpretation as generating functions associated to quiver representations.
+We show that cluster variables of preprojective (resp. postinjective) quiver representations are realized by generalized minors of highest-weight (resp. lowest-weight) group representations, generalizing results of Yang-Zelevinsky in finite type.
+In type $A_n^{\!(1)}$ and finitely many other affine types, we show that cluster variables of regular quiver representations are realized by generalized minors of group representations that are neither highest- nor lowest-weight; we conjecture this holds more generally.
 \end{abstract}
 
 \maketitle
 
-\sayDR{(**) We really only do this for regular representations.  Sorry for the funny placement, for some reason there is an error when including these comments in the abstract.}
+%\sayDR{(**) We really only do this for regular representations.  Sorry for the funny placement, for some reason there is an error when including these comments in the abstract.}
 
 %%%%%%%%%%%%%%%%%%%%%%
-\setcounter{section}{-1}
-\section{Todo list}
-\begin{itemize}
-  \item
-    Decide on preprojective/postinjective notation and apply changes through\sayDR{I made the change to post- throughout, please argue if you disagree}
-  \item
-    Mention cluster categories? 
-\item Write out homogeneous element computation.
-\item Write out section on other affine types.
-\item Check for $\backslash$newword's throughout.
-\item Finalize/polish figures in Section 4.2.
-\item Do a worked example in Section 4.2 of the main result.
-\item Add a table of contents?
-\item uniformize the indexing of $t_i$ in the variouse factorization of $g$
-\end{itemize}
+%\setcounter{section}{-1}
+%\section{Todo list}
+%\begin{itemize}
+%  \item
+%    Decide on preprojective/postinjective notation and apply changes through\sayDR{I made the change to post- throughout, please argue if you disagree}
+%  \item
+%    Mention cluster categories? 
+%\item Write out homogeneous element computation.
+%\item Write out section on other affine types.
+%\item Check for $\backslash$newword's throughout.
+%\item Finalize/polish figures in Section 4.2.
+%\item Do a worked example in Section 4.2 of the main result.
+%\item Add a table of contents?
+%\item uniformize the indexing of $t_i$ in the variouse factorization of $g$
+%\end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
@@ -187,7 +187,7 @@ Broadly speaking, we will be interested in the interplay between the following t
 
 Recall that the representation theory of $G$ is largely centered around its (dual) categories of highest- and lowest-weight representations \cite{KP83,Kum02}.
 These coincide exactly when $G$ is a simple algebraic group, in which case they include all representations of $G$ with finite-dimensional weight spaces.
-In general, $G$ has many other such representations which are only well-understood when $G$ is of affine type \cite{Cha86}.
+In general, $G$ has many other such representations, which are only well-understood when $G$ is of affine type \cite{Cha86}.
 In the affine case, an irreducible representation is highest-weight, lowest-weight, or neither if its level (the character by which $Z(G) \cong \CC^\times$ acts) is positive, negative, or zero respectively.
 
 On the other hand, the representation theory of $Q$ is organized by the Auslander-Reiten translation $\tau: \rep Q \to \rep Q$ \cite{ASS06}.
@@ -201,62 +201,69 @@ From the perspective of $G$, an orientation of its Dynkin diagram is equivalent 
 \[
   G^{c,c^{-1}} := B_+ c B_+ \cap B_- c^{-1} B_- \subset G,
 \]
-where $B_+$ and $B_-$ are the usual opposite Borel subgroups \cite{BFZ05,Wil13}.
+where $B_+$ and $B_-$ are opposite Borel subgroups \cite{BFZ05,Wil13}.
 The varieties $G^{c,c^{-1}}$ generalize the space of tridiagonal matrices with determinant equal to one, which they recover when $G=SL_n$ and $c$ is the standard Coxeter element.
 
-From the perspective of $Q$, $\cA_Q$ is a repository for information about the submodule structure in representations of $Q$.
+From the perspective of $Q$, $\cA_Q$ is a repository for information about the submodule structure of representations of $Q$.
 After embedding $\cA_Q$ into the ring of Laurent polynomials in the initial cluster variables, the remaining cluster variables are in bijection with the rigid indecomposable representations of $Q$ \cite{CC,CK}.
-This correspondence takes a rigid indecomposable representation $\Qrep$ to the generating function for the Euler characteristics of its varieties of submodules, the resulting expression is called the cluster character of the representation $\Qrep$.
+This correspondence takes a rigid indecomposable representation $\Qrep$ to the generating function of the Euler characteristics of its varieties of submodules; the resulting expression is called the cluster character of $\Qrep$.
 With this in mind we refer to a (non-initial) cluster variable as preprojective, postinjective, or regular according to the classification of its associated representation.
 Given the description of $\cA_Q$ as the coordinate ring of $G^{c,c^{-1}}$, we see in particular that representations of $Q$ naturally label functions on a subvariety of $G$.
 
-When $Q$ is of classical ADE type and $G$ a simple algebraic group, Yang and Zelevinsky \cite{YZ08} showed these functions have an interpretation in terms of the representation theory of $G$: they are restrictions of generalized minors, i.e certain functions on $G$ labelled by a group representation $V$ together with a choice of extremal one-dimensional weight space $V_\lambda$.
+When $Q$ is of classical ADE type and $G$ a simple algebraic group, Yang and Zelevinsky \cite{YZ08} showed that these functions on $G^{c,c^{-1}}$ have an interpretation in terms of the representation theory of $G$: they are restrictions of generalized minors. These are functions $\Delta_{(V,\lambda)} \in \kk[G]$ labeled by a representation $V$ of $G$ together with a choice of extremal one-dimensional weight space $V_\lambda$.
 Their value on $g \in G$ is the ratio of any nonzero $v \in V_\lambda$ with the projection of $gv \in V$ to $V_\lambda$.
-Our main result is that cluster variables in $\cA_Q$ are also realized as generalized minors on $G^{c,c^{-1}}$ when $Q$ is not necessarily finite type, and that moreover the resulting correspondence between quiver representations and group representations intertwines the triadic classifications described above.
+Our main result is that cluster variables in $\cA_Q$ are also realized as generalized minors on $G^{c,c^{-1}}$ when $Q$ is not necessarily of finite type, and that moreover the resulting correspondence between quiver representations and group representations intertwines the triadic classifications described above.
 
 \begin{theorem}\label{thm:maintheorem}
-  Let $Q$ be a finite quiver without oriented cycles and $G^{c,c^{-1}} \subset G$ the associated Coxeter double Bruhat cell.
+  Let $Q$ be a finite quiver without oriented cycles, $\cA_{\Qdp}$ the associated cluster algebra with doubled principal coefficients, and $G^{c,c^{-1}} \subset G$ the associated Coxeter double Bruhat cell.
   \begin{enumerate}
     \item 
-      The preprojective and initial cluster variables in $\cA_Q \cong \CC[G^{c,c^{-1}}]$ are restrictions of generalized minors of highest-weight representations of $G$.
+      The preprojective and initial cluster variables in $\cA_{\Qdp} \cong \kk[G^{c,c^{-1}}]$ are restrictions of generalized minors of highest-weight representations of $G$.
       The postinjective cluster variables in $\cA_Q$ are restrictions of generalized minors of lowest-weight representations of $G$.
     \item 
       Suppose $Q$ is an acyclic orientation of an $n$-cycle, so that $G$ is the central extension of the loop group $LSL_n$.
-      Then the regular cluster variables in $\cA_Q$ are restrictions of generalized minors of level zero representations of $G$.
+      Then the regular cluster variables in $\cA_{\Qdp}\cong \kk[G^{c,c^{-1}}]$ are restrictions of generalized minors of level zero representations of $G$.
   \end{enumerate}
 \end{theorem}
 
-Though above we have taken $G$ to be symmetric for simplicity, part (1) also holds in the symmetrizable case upon replacing quiver-theoretic notions with their species-theoretic counterparts.
-We emphasize that although the coordinate ring of any double Bruhat cell $G^{u,v}$ is an (upper) cluster algebra, its defining quiver is generally not an orientation of the Dynkin diagram of $G$ and one expects that most cluster variables are not restrictions of minors.
+Though above we have taken $G$ to be symmetric for simplicity, part (1) also holds in the symmetrizable case upon generalizing from representations of quivers to representations of valued quivers or species. 
+We emphasize that although the coordinate ring of any double Bruhat cell $G^{u,v}$ is an (upper) cluster algebra, its defining quiver is generally not an orientation of the Dynkin diagram of $G$. More to the point, in this generality one expects most cluster variables do not admit an elementary Lie-theoretic description, e.g. as restrictions of minors.
 
-While the proof of (1) is mostly a straightforward generalization of the finite-type case (the required combinatorial analysis is actually simplified by the fact that, outside of finite-type, preprojectives and postinjectives remain distinct), the proof of (2) requires different methods.
+While the proof of (1) is mostly a straightforward generalization of the finite-type case, the proof of (2) demands different methods.
 The reason (1) is true is that the preprojective and postinjective cluster variables are determined by an explicit list of relations, and these are implied by certain generalized determinantal identities that hold globally on $G$.
 However, these identities depend crucially on the fact that all minors involved are semi-invariants of the standard Borel subgroups and their conjugates.
 The minors arising from level zero representations do not have this property and so the relations that determine them cannot be deduced from such identities.
 
 Instead, we study level zero minors on the loop group $LSL_n$ by direct combinatorial means.
-The relevant representations are of the form $\big(\!\bigwedge^{\!k}\CC^n\big)[\loopvar^{\pm 1}]$ and thus inherit a natural basis from the standard basis of $\CC^n$.
-In particular, the restrictions to $G^{c,c^{-1}}$ of the level zero minors appearing in (2) can be computed as a weighted sum over collections of pairwise disjoint paths through a directed network on the cylinder, as in [FM,GSV ??].
+The relevant representations are of the form $\big(\!\bigwedge^{\!k}\kk^n\big)[\loopvar^{\pm 1}]$ and thus inherit natural bases from the standard basis of $\kk^n$.
+These bases let us compute the restrictions to $G^{c,c^{-1}}$ of the level zero minors appearing in (2) as weighted sums over collections of pairwise disjoint paths through a directed network on the cylinder, following similar constructions in \cite{GSV12,FM14}.
 When $Q$ is an acyclic orientation of an $n$-cycle, its regular representations likewise have a simple combinatorial description, and one can construct by hand a bijection between their subrepresentations and collections of paths in the relevant network.
 
-It would be interesting to find an interpretation of the resulting exchange relations\sayDR{Should we write as many of these as explicitly as we can in the hopes that someone may be able to explain to us how to understand them representation-theoretically?} involving level zero minors as restrictions of minor identities valid on the entire group $G$.
-We believe that such identities hold more generally (beyond type $A_{n-1}^{\!(1)}$) and should ultimately lead to a proof of the following.
-\sayDR{This can probably be said more cleanly. The first statement needs to be said, do we believe the second?}
+A fundamental aspect of the correspondence of Theorem \ref{thm:maintheorem} is that the labeling of cluster variables by $\bfg$-vectors corresponds directly the labeling of minors by their associated weight $\lambda$. 
+The $\bfg$-vector of a cluster variable is a particular element of $\ZZ^{|Q_0|}$, and distinct cluster variables have distinct $\bfg$-vectors. In terms of the quiver representation associated to a cluster variable, the $\bfg$-vector records the factors in a minimal injective copresentation. 
+For acyclic $Q$, we identify the $\bfg$-vector lattice $\ZZ^{|Q_0|}$ with the weight lattice of $G$ by taking the initial $\bfg$-vectors to the fundamental weights.
+We show this identifies the $\bfg$-vector of any cluster variable appearing in Theorem \ref{thm:maintheorem} with the weight of the associated minor. In particular, given a regular cluster variable the $\bfg$-vector/weight correspondence provides an ansatz for which minor to expect it coincides with; this ansatz is implicitly used in the proof of (2). 
+
+A deficiency of proving (2) by analyzing each regular cluster variable individually is that we do not know how to interpret the exchange relations relating them to the other cluster variables in terms of the representation theory of $LSL_n$. It would be desirable to find such an interpretation, which could also provide an avenue for approaching more general Kac-Moody groups:
+
+%It would be interesting to find an interpretation of the resulting exchange relations\sayDR{Should we write as many of these as explicitly as we can in the hopes that someone may be able to explain to us how to understand them representation-theoretically?} involving level zero minors as restrictions of minor identities valid on the entire group $G$.
+%We believe that such identities hold more generally (beyond type $A_{n-1}^{\!(1)}$) and should ultimately lead to a proof of the following.
+%\sayDR{This can probably be said more cleanly. The first statement needs to be said, do we believe the second?}
 
 \begin{conjecture}\label{conj:mainconjecture}
   Let $Q$ be a finite (valued) quiver without oriented cycles and $G^{c,c^{-1}} \subset G$ the associated Coxeter double Bruhat cell.
-  All regular cluster variables are generalized minors of representations that are neither highest- nor lowest-weight.
+  All regular cluster variables in  $\cA_{\Qdp} \cong \kk[G^{c,c^{-1}}]$ are generalized minors of representations that are neither highest- nor lowest-weight, and the weight of this minor is the $\bfg$-vector of the cluster variable.
 \end{conjecture}
 
-In addition to verifying the conjecture for all Coxeter elements when $G = LSL_n$, we check a finite list of other affine types, see Section~\ref{sec:othertypes}.
-In any affine type, the regular cluster variables can be explicitly enumerated and computed.
-One can calculate that if they are restrictions of minors, they must come from an explicitly identifiable level zero representation.
+In addition to verifying the conjecture for all Coxeter elements when $G$ is of type $A_n^{(1)}$, we check a finite list of other affine types, see Section~\ref{sec:othertypes}.
+In any affine type, the regular cluster variables are finite in number and can be explicitly computed. By results of \cite{RS16}, their $\bfg$-vectors correspond to weights in the complement of the Tits cone and its negative. 
+In particular, it follows that if these cluster variables are restrictions of minors, they must come from an explicitly identifiable level zero representation. 
 The types checked in Section~\ref{sec:othertypes} are essentially the ones where these minors can be evaluated on $G^{c,c^{-1}}$ knowing only the character of this representation.
-Beyond finite and affine types, general weight representations of $G$ are not well-understood and the conjecture is much more speculative.
+Beyond finite and affine types, general weight representations of $G$ are not well-understood and the conjecture is much more speculative (but see Remark~\ref{rmk:nonaffinehomelt}).
 
-Finally, in type $A_{n-1}^{\!(1)}$ the following suggestive extension of Theorem~\ref{thm:maintheorem} also holds.
+Finally, in type $A_{n}^{\!(1)}$ the following suggestive extension of Theorem~\ref{thm:maintheorem} also holds.
 There is a one-parameter family of quiver representations whose dimension vector is the primitive imaginary root.
-The cluster character of a generic element of this family is not a cluster variable, but is an element of the generic basis (and presumably of other standard bases as well).
+The cluster character of a generic element of this family is not a cluster variable, but is an element of the generic basis \cite{Dup12} (and presumably of other standard bases as well \cite{BZ14,GHKK14}).
 This element too is a level zero generalized minor; with this in mind it is natural to further ask which canonical basis elements other than cluster variables are generalized minors.
 
 %%%%%%%%%%%%%%%%%%%%%%
@@ -264,7 +271,7 @@ This element too is a level zero generalized minor; with this in mind it is natu
 We would like to thank Giovanni Cerulli Irelli, Vyjayanthi Chari, Corrado de Concini, Anna Felikson, Misha Gekhtman, and Pavel Tumarkin for helpful discussions and comments.
 D.R. is supported by...
 S.S. is supported by...
-H.W. is supported by...
+H.W. is supported by by an NSF Postdoctoral Research Fellowship DMS-1502845.  
 
 %%%%%%%%%%%%%%%%%%%%%%
 \section{Background on clusters, quivers, and minors}
@@ -2143,7 +2150,7 @@ The cluster character of $\Qrep_\eta$ is independent of $\eta$, and we refer to 
 \end{proof}
 
 
-\begin{remark}
+\begin{remark}\label{rmk:nonaffinehomelt}
   Theorem~\ref{thm:homogeneous} has an analogue for an arbitrary symmetric Kac-Moody group of rank two, at least formally.
   Let $Q$ be the $n$-Kronecker quiver: it has two vertices, and $n$ arrows from vertex 2 to vertex 1.
   Note that all non-initial cluster variables of $\cA_Q$ are either preprojective or postinjective.
