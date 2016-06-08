@@ -643,6 +643,17 @@ We recall the double Bruhat decomposition
 of $G$, where $B_{\pm}$ are the standard opposite Borel subgroups of $G$.
 Each $G^{u,v}$ is a smooth affine variety of dimension $n + \ell(u) + \ell(v)$, where $\ell(u)$, $\ell(v)$ are the lengths of $u$ and $v$ \cite{FZ99,Wil13}.
 The coordinate ring of $G^{u,v}$ is an upper cluster algebra and a finite subset of its clusters are in correspondence with shuffles of reduced words for $u$ and $v$ \cite{BFZ05,Wil13}.
+
+In computing various relations in $\kk[G^{u,v}]$ we will make extensive use of the fact that, if $u=s_{i_1}\cdots s_{i_{\ell(u)}}$ and $v=s_{j_1}\cdots s_{j_{\ell(v)}}$, then a generic $g \in G^{u,v}$ can be factored as
+\begin{equation}
+  \label{eq:uvfactorization}
+  g = x_{\ol{\imath_1}}(t_{\ol{1}})\cdots x_{\ol{\imath_{\ell(u)}}}(t_{\ol{\ell(u)}})hx_{j_1}(t_{1}) \cdots x_{j_{\ell(v)}}(t_{\ell(v)})
+\end{equation}
+for some $h \in H$ and $t_j, t_{\ol{\imath}} \in \kk^\times$ \cite{FZ99,Wil13}.
+For example, with respect to such a factorization it is clear that we have $\Delta_\lambda(g) = h^\lambda$ for any dominant weight $\lambda \in \widehat{P}^+$.
+In particular, the generalized minors $\Delta_{\omega_i}$ that will be play the role of initial (mutable) cluster variables evaluate to $h^{\omega_i}$.
+Some similar computations are collected in Lemma~\ref{lemma:coefficients_values}.
+
 \begin{remark}
   Each $G^{u,v}$ is the intersection of $G \subset \widehat{G}$ with the double Bruhat cell $\widehat{G}^{u,v}$ of $\widehat{G}$.
   The coordinate ring of the latter is also an upper cluster algebra whose initial exchange matrix has the same principal part, but with $\corank(A)$ additional frozen variables: $G^{u,v}$ is the locus where these are equal to one.
@@ -675,19 +686,6 @@ The coordinate ring of $G^{u,v}$ is an upper cluster algebra and a finite subset
   One could consider the $2n$-dimensional subvariety $L^{c,c^{-1}} \subset G^{c,c^{-1}}$ where $z_{\ol{1}},\dotsc,z_{\ol{n}}$ are equal to one; this is the reduced double Bruhat cell studied in \cite{YZ08}.
   In particular, $\kk[L^{c,c^{-1}}]$ is the cluster algebra with principal coefficients associated to $B$, and our results immediately translate to statements in the principal coefficients case by specializing $\cvar_{\ol{1}},\dotsc,\cvar_{\ol{n}}$ to one.
 \end{remark}
-
-In computing various relations in $\kk[G^{c,c^{-1}}]$ we will make extensive use of the fact that a generic element $g$ of $G^{c,c^{-1}}$ can be factored as
-\begin{equation}
-  \label{eq:generic_element}
-  g=x_{\ol{\sigma_1}}(t_{\ol{1}}) \cdots x_{\ol{\sigma_n}}(t_{\ol{n}}) h x_{\sigma_n}(t_n) \cdots x_{\sigma_1}(t_1)
-\end{equation}
-\saySS{Should we state this for the generic double Bruhat cell since we use it later on in this fashion?}
-\sayDR{If we do, it should probably go before Remark 2.7}
-\sayHW{I am open to this if you want to implement it, but it seems like more trouble than it's worth right now}
-for some $h \in H$ and $t_i, t_{\ol{\imath}} \in \kk^\times$ \cite{FZ99,Wil13}.
-For example, with respect to such a factorization it is clear that we have $\Delta_\lambda(g) = h^\lambda$ for any dominant weight $\lambda \in \widehat{P}^+$.
-In particular, the initial mutable cluster variables of $\cA_{\Bdp}$ evaluate as $x_i(g)=h^{\omega_i}$.
-Some similar computations are collected in Lemma~\ref{lemma:coefficients_values}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Preprojective and postinjective cluster variables as minors}\label{sec:preproj}
@@ -1330,12 +1328,7 @@ In Section~\ref{sec:networks} it will be useful to rewrite regular $\bfg$-vector
 
 %%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Networks}\label{sec:networks}
-Recall that for any Kac-Moody group $G$, if $u=s_{i_1}\cdots s_{i_{\ell(u)}}$ and $v=s_{j_1}\cdots s_{j_{\ell(v)}}$ are Weyl group elements with fixed reduced words, then a generic $g \in G^{u,v}$ can be factored as
-\begin{equation}
-  \label{eq:uvfactorization}
-  g = x_{\ol{\imath_1}}(t_{\ol{1}})\cdots x_{\ol{\imath_{\ell(u)}}}(t_{\ol{\ell(u)}})hx_{j_1}(t_{1}) \cdots x_{j_{\ell(v)}}(t_{\ell(v)})
-\end{equation}
-for some $h \in H$ and $t_i,t_{\ol{\imath}} \in \kk^\times$.
+Recall that the generic element $g$ of any double Bruhat cell $G^{u,v}$ can be factorized as in \Cref{eq:uvfactorization}.
 When $G = \widetilde{LSL}_n$ is the central extension of $LSL_n$, these factorizations (and more general ones associated to shuffles of reduced words) admit a combinatorial description in terms of directed networks on a cylinder \cite{GSV12,FM14}.
 This generalizes a similar relation between $SL_n$ and directed networks on a disk \cite{FZ99}.
 By a directed network on a surface we will mean an embedded directed graph whose edges are assigned weights in some fixed ring.
