@@ -154,8 +154,8 @@ urlcolor=blue]{hyperref}
 
 %%%%%%%%%%%%%%%%%%%%%%
 \begin{abstract}
-The cluster algebra of any acyclic quiver is the coordinate ring of a subvariety in a corresponding Kac-Moody group -- the quiver is an orientation of its Dynkin diagram, defining a Coxeter element and thereby a double Bruhat cell.
-We interpret cluster variables in this realization in terms of the representation theory of the group and relate this to their interpretation as generating functions associated to quiver representations.
+The cluster algebra of any acyclic quiver can be realized as the coordinate ring of a subvariety of a Kac-Moody group -- the quiver is an orientation of its Dynkin diagram, defining a Coxeter element and thereby a double Bruhat cell.
+We interpret cluster variables in this realization in terms of the representation theory of the group and relate this to their interpretation as generating functions associated to representations of the quiver.
 We show that cluster variables of preprojective (resp. postinjective) quiver representations are realized by generalized minors of highest-weight (resp. lowest-weight) group representations, generalizing results of Yang-Zelevinsky in finite type.
 In type $A_n^{\!(1)}$ and finitely many other affine types, we show that cluster variables of regular quiver representations are realized by generalized minors of group representations that are neither highest- nor lowest-weight; we conjecture this holds more generally.
 \end{abstract}
@@ -256,14 +256,14 @@ A deficiency of proving (2) by analyzing each regular cluster variable directly 
 
 \begin{conjecture}\label{conj:mainconjecture}
   Let $Q$ be a finite (valued) quiver without oriented cycles and $G^{c,c^{-1}} \subset G$ the associated Coxeter double Bruhat cell.
-  All regular cluster variables in  $\cA_{\Qdp} \cong \kk[G^{c,c^{-1}}]$ are generalized minors of representations that are neither highest- nor lowest-weight, and the weight of this minor is the $\bfg$-vector of the cluster variable.
+  Then all regular cluster variables in  $\cA_{\Qdp} \cong \kk[G^{c,c^{-1}}]$ are generalized minors of representations that are neither highest- nor lowest-weight, and the weight of this minor is the $\bfg$-vector of the cluster variable.
 \end{conjecture}
 
 In addition to verifying the conjecture for all Coxeter elements when $G$ is of type $A_n^{(1)}$, we check a finite list of other affine types, see Section~\ref{sec:othertypes}.
 In any affine type, the regular cluster variables are finite in number and can be explicitly computed. In forthcoming work of the first author it is shown that their $\bfg$-vectors correspond to weights in the complement of the Tits cone and its negative \cite{RS16}. 
 In particular, it follows that if these cluster variables are restrictions of minors, they must come from an explicitly identifiable level zero representation. 
 The types checked in Section~\ref{sec:othertypes} are essentially the ones where these minors can be evaluated on $G^{c,c^{-1}}$ knowing only the character of this representation.
-Beyond finite and affine types, general weight representations of $G$ are not well-understood and the conjecture is much more speculative (though we note the suggestive formal calculation of Remark 4.13). 
+Beyond finite and affine types, general weight representations of $G$ are not well-understood and the conjecture is much more speculative (though we note a suggestive formal calculation in Remark 4.13). 
 
 Finally, in type $A_{n}^{\!(1)}$ the following extension of Theorem~\ref{thm:maintheorem} also holds.
 There is a one-parameter family of quiver representations whose dimension vector is the primitive imaginary root.
@@ -479,7 +479,7 @@ As $Q$ is acyclic, it has an associated symmetric Cartan companion $A$ as discus
 \end{remark}
 
 Given a dimension vector $e = \sum_i e_i[S_i] \in \NN^n \subset \cQ$, the \newword{quiver Grassmannian} $\Gr_eM$ is the variety of $e$-dimensional submodules of $M$.
-We write $\chi(\Gr_eM)$ for its Euler characteristic (formally, in \'etale cohomology with compact supports). If $\widetilde{B}$ is exchange matrix associated to $\widetilde{Q}$ we write $\hat{y}_i$ for the monomial $\prod\limits_{i=1}^m x_i^{b_{ij}}$, and $\hat{y}^e$ for $\prod_{j=1}^n \hat{y}_j^{e_j}$.
+We write $\chi(\Gr_eM)$ for its Euler characteristic (formally, in \'etale cohomology with compact supports). If $\widetilde{B}$ is exchange matrix associated to $\widetilde{Q}$ we write $\hat{y}_j$ for the monomial $\prod\limits_{i=1}^m x_i^{b_{ij}}$, and $\hat{y}^e$ for $\prod_{j=1}^n \hat{y}_j^{e_j}$.
 
 \begin{definition}%\sayDR{In order for this formula to technically be correct we need the coefficient part of the exchange matrix to have only positive entries, otherwise the separation of additions formula has to be used, fortunately we are in that positive case so it may be worth brushing this under the rug}
   The (framed) cluster character of a representation $M$ of $Q$ is
@@ -679,13 +679,14 @@ Some similar computations are collected in Lemma~\ref{lemma:coefficients_values}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Preprojective and postinjective cluster variables as minors}\label{sec:preproj}
-In this section we prove that when $B$ is any acyclic skew-symmetrizable matrix, the identification $\cA_{\Bdp} \cong \kk[G^{c,c^{-1}}]$ of \Cref{thm:coordring} realizes preprojective and postinjective cluster variables as restrictions of some highest- and lowest-weight minors, respectively.
-For our argument we will first deduce a parametrization of such cluster variables, together with a list of exchange relations they satisfy, from an explicit description of the $\bfc$-vectors and $\bfg$-vectors in the acyclic belt.
-The identification with minors will then follow by comparing these relations with restrictions  to $G^{c,c^{-1}}$ of the generalized determinantal identities of \Cref{prop:fundid}.
+In this section we prove that when $B$ is any acyclic skew-symmetrizable matrix, the identification $\cA_{\Bdp} \cong \kk[G^{c,c^{-1}}]$ realizes preprojective and postinjective cluster variables as restrictions of highest- and lowest-weight minors, respectively. 
+We first compute in Section~\ref{sec:acyclic_belt} a list of exchange relations that determine these cluster variables. 
+The identification with minors then follows in Section~\ref{sec:hlwminors} by comparing these relations with restrictions  to $G^{c,c^{-1}}$ of the generalized determinantal identities of \Cref{prop:fundid}.
 
-Recall from the definition of an acyclic matrix that there exists $\sigma\in S_n$ such that $b_{\sigma_i,\sigma_j}\geq 0$ whenever $i<j$.
-To simplify our notation in this section, we will assume that $\sigma$ is the identity permutation by relabelling rows and columns of $B$ as needed.
-Moreover, since our claim is already established in \cite{YZ08} for the case of a simply-connected semisimple group,  we will also assume that the Cartan companion $A$ of $B$ is not of finite type.
+%For our argument we will first deduce a parametrization of such cluster variables, together with a list of exchange relations they satisfy, from an explicit description of the $\bfc$-vectors and $\bfg$-vectors in the acyclic belt.
+
+Recall that since $B$ is acyclic there exists a permutation $\sigma\in S_n$ such that $b_{\sigma_i,\sigma_j}\geq 0$ whenever $i<j$.
+To simplify our notation in this section, we will assume that $\sigma$ is the identity permutation (no generality is lost, since we can always relabel the rows and columns of $B$ to achieve this). Moreover, we specifically assume that the Cartan companion $A$ of $B$ is not of finite type, the main claims being already established in \cite{YZ08} for the case of a simply-connected semisimple group.
 
 %%%%%%%%%%%%%%%
 \subsection{Cluster variables in the acyclic belt}
@@ -877,7 +878,7 @@ With the preceding results in hand, we are ready to describe the cluster variabl
 \saySS{Somewhere we should make a trivial remark: if $n=2$ then preprojective and postinjective cluster variables are all the cluster variables}
 
 %%%%%%%%%%%%%%%%%%%
-\subsection{Highest- and lowest-weight minors}
+\subsection{Highest- and lowest-weight minors}\label{sec:hlwminors}
 
 Before proving the main result of the section, Theorem~\ref{thm:mainirregular}, we collect some lemmas concerning restrictions of minors to $G^{c,c^{-1}}$.
 All of the arguments involved are straightforward generalizations of those in \cite{YZ08} to the infinite-type case.
@@ -1190,8 +1191,8 @@ Since a generic element of $G$ factors as $n_- h n_+$, with $n_- \in N_-$, $h \i
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Regular cluster variables as minors}
 
-In this section we prove that the identification $\cA_{\Bdp} \cong \kk[G^{c,c^{-1}}]$ of \Cref{thm:coordring} realizes all regular cluster variables as restrictions of level zero minors in the case that the Cartan companion of $B$ is of type $A_{n-1}^{\!(1)}$.
-The proof exploits the fact that, when $G = LSL_n$, the level zero minors can be expressed combinatorially as weighted sums over collections of paths in a directed network on a cylinder.
+In this section we prove that the identification $\cA_{\Bdp} \cong \kk[G^{c,c^{-1}}]$ realizes all regular cluster variables as restrictions of level zero minors in the case that the Cartan companion of $B$ is of type $A_{n-1}^{\!(1)}$.
+The proof exploits the fact that, when $G$ is the central extension $\widetilde{LSL}_n$ of the loop group of $SL_n$, the level zero minors can be expressed combinatorially as weighted sums over collections of paths in a directed network on a cylinder.
 We show that the collections of paths relevant to a given minor are in bijection with submodules of a corresponding regular quiver representation, and from this that the network computation directly recovers the Caldero-Chapoton formula.
 A similar computation shows that the generic basis element associated to the base of any homogeneous tube in type $A_{n-1}^{\!(1)}$ is also a level zero minor.
 We expect that all regular cluster variables are minors of level zero representations for any affine type, and we verify this for the finite list of types where it can be checked using only the characters of those representations.
@@ -1255,8 +1256,8 @@ and all arrows acting by invertible maps except the arrow between $k$ and $k-1$ 
 With this classification in hand, we now describe the cluster characters of the rigid regular representations of $Q$ combinatorially in terms of target-closed subsets.
 Given $[k,\ell]\subsetneq\ZZ_n$, we say a subset $E$ of $[k,\ell]$ is \newword{target-closed} if whenever $a$ is an arrow of $Q$ with $s(a) \in E$ and $t(a) \in [k,\ell]$, then in fact $t(a) \in E$.
 We let $\cE_{[k,\ell]}$ denote the collection of target-closed subsets of $[k,\ell]$, and otherwise follow the notation of \Cref{sec:quiverbackground}.
-\sayHW{Make sure the convention of notating generators of the $\bfg$-vector lattice as $\omega_i$ is introduced there}
-\sayDR{I just gave a weak introduction of this sort in the definition of the coindex}
+%\sayHW{Make sure the convention of notating generators of the $\bfg$-vector lattice as $\omega_i$ is introduced there}
+%\sayDR{I just gave a weak introduction of this sort in the definition of the coindex}
 
 \begin{proposition}
   \label{prop:regular coindices}
@@ -2042,7 +2043,7 @@ While the combinatorics we used to prove Conjecture~\ref{conj:affine} in type $A
 In the simplest cases this can be done using only the characters of these representations (e.g. when they are spaces of Laurent polynomials valued in a representation without weight spaces of dimension greater than one), and the results are consistent with \Cref{conj:affine}:
 
 \begin{proposition}
-  \Cref{conj:affine} holds when the Cartan companion of $B$ is of type $B_3^{(1)}$, $C_2^{(1)}$, $D_4^{(1)}$, $G_2^{(1)}$.
+  \Cref{conj:affine} holds when the Cartan companion of $B$ is of type $B_3^{(1)}$, $C_2^{(1)}$, $D_4^{(1)}$, or $G_2^{(1)}$.
 \end{proposition}
 \begin{proof}
   We illustrate the needed computation in the case of a sample regular cluster variable in type $B_{2}^{(1)}$.
@@ -2114,7 +2115,7 @@ In the simplest cases this can be done using only the characters of these repres
   \[
     hx_3(t_3)x_2(t_2)x_1(t_1)v = h^{\omega_2-\omega_1}v + h^{\omega_1 - \omega_2}t_1e_1v + h^{\omega_2-\omega_3}t_1t_2e_2e_1v + h^{\omega_3-\omega_2}t_1t_2t_3e_3e_2e_1v.
   \]
-  From here we can see that the component of $gv$ of weight $\omega_2 - \omega_1$ is
+  From here we can see that the component of $gv$ of weight $\omega_2 - \omega_1$ is equal to $v$ rescaled by 
   \[
     (h^{\omega_2-\omega_1} + h^{\omega_1 - \omega_2}t_1t_{\ol{1}}e_1 + h^{\omega_2-\omega_3}t_1t_{\ol{1}}t_2t_{\ol{2}}e_2e_1 + h^{\omega_3-\omega_2}t_1t_{\ol{1}}t_2t_{\ol{2}}t_3t_{\ol{3}}e_3e_2e_1)v,
   \]
@@ -2165,8 +2166,34 @@ The cluster character of $\Qrep_\eta$ is independent of $\eta$, and we refer to 
     A = \begin{bmatrix} 2 & -n \\ -n & 2 \end{bmatrix}
   \]
   and $c = s_1 s_2$.
-  Let us formally compute the minor $\Delta_{\grep(\Qrep)}$, where $\grep(\Qrep) = (n-1) \omega_2 - \omega_1$.
-  That is, we suppose there exists a representation $V(\grep(\Qrep))$ of $G$ having a one-dimensional extremal weight space of weight $\grep(\Qrep)$ (i.e. this weight space is either highest- or lowest-weight for both simple root subgroups of $G$).
+  Let us formally compute the minor of weight $\grep(\Qrep) = (n-1) \omega_2 - \omega_1$, restricted to $G^{c,c^{-1}}$. 
+That is, we suppose there exists a representation $V$ of $G$ having a one-dimensional extremal weight space of weight $\grep(\Qrep)$ (i.e. this weight space is either highest- or lowest-weight for every coroot subgroups of $G$). The evaluation of $\Delta_{(V,\grep(M))}$ on a generic element
+\[
+g = x_{\ol{1}}(t_{\ol{1}}) x_{\ol{2}}(t_{\ol{2}})hx_2(t_2)x_1(t_1)
+\]
+can be computed as follows, without knowing any further information about $V$. 
+
+By hypothesis, any $v \in V_{\grep(\Qrep)}$ is a lowest-weight vector for the coroot subgroup $\varphi_1(SL_2) \subset G$. Denoting the positive Chevalley generators of the Lie algebra of $G$ by $e_1$, $e_2$, we thus have
+\[
+x_1(t_1)v = v + t_1e_1v.
+\]
+
+Since $v$ is extremal and $e_1v = \ol{s_1}v$ has weight $s_1((n-1) \omega_2 - \omega_1) = \omega_1 - \omega_2$, $e_1v$ is a lowest-weight vector for $\varphi(SL_2)$. As $v$ is highest-weight for $\varphi(SL_2)$, we have
+\[
+x_2(t_2)x_1(t_1)v = v + t_1e_1v + t_1t_2e_2e_1v.
+\]
+
+Inspecting the weights involved, we see that
+\[
+hx_2(t_2)x_1(t_1)v = h^{(n-1) \omega_2 - \omega_1}v + h^{\omega_1-\omega_2}t_1e_1v + h^{\omega_2 - (n-1)\omega_1}t_1t_2e_2e_1v.
+\]
+Reversing the above analysis we find that the component of $gv$ of weight $(n-1)\omega_2 - \omega_1$ is equal to $v$ times
+\[
+h^{(n-1) \omega_2 - \omega_1} + h^{\omega_1-\omega_2}t_1t_{\ol{1}} + h^{\omega_2 - (n-1)\omega_1}t_1t_{\ol{1}}t_2t_{\ol{2}}.
+\]
+By definition this is $\Delta_{(V,\grep(M))}$. On the other hand, using Lemma~\ref{lemma:coefficients_values} and the definition of $\hat{y}_1$, $\hat{y}_2$ one can check that it is the value of the homogeneous element $x_M$ on $g$. Thus we see that $x_M$ is equal to the restriction of $\Delta_{(V,\grep(M))}$. 
+
+Unfortunately, we do not know how to construct such a representation $V$ when $G$ is not of affine type.
 \end{remark}
 
 % bibliography
