@@ -61,9 +61,9 @@ urlcolor=blue]{hyperref}
 \newcommand{\bfg}{\mathbf{g}}
 \newcommand{\bfi}{\mathbf{i}}
 
-\newcommand{\grep}{\bfg}
-\newcommand{\gv}{\lambda}
-\newcommand{\cv}{\alpha}
+\newcommand{\gv}{\bfg}
+\newcommand{\cv}{\bfc}
+\newcommand{\grep}{\gv}
 
 \newcommand{\cE}{\mathcal{E}}
 \newcommand{\cF}{\mathcal{F}}
@@ -263,7 +263,7 @@ In addition to verifying the conjecture for all Coxeter elements when $G$ is of 
 In any affine type, the regular cluster variables are finite in number and can be explicitly computed. In forthcoming work of the first author it is shown that their $\bfg$-vectors correspond to weights in the complement of the Tits cone and its negative \cite{RS16}. 
 In particular, it follows that if these cluster variables are restrictions of minors, they must come from an explicitly identifiable level zero representation. 
 The types checked in Section~\ref{sec:othertypes} are essentially the ones where these minors can be evaluated on $G^{c,c^{-1}}$ knowing only the character of this representation.
-Beyond finite and affine types, general weight representations of $G$ are not well-understood and the conjecture is much more speculative (though we note a suggestive formal calculation in Remark 4.13). 
+Beyond finite and affine types, general weight representations of $G$ are not well-understood and the conjecture is much more speculative (though we note a suggestive formal calculation in Remark 4.13\sayDR{The element we construct always agrees with the corresponding greedy basis element and in all the examples I checked it also agrees with the triangular basis, I could probably prove it if needed for confidence in the claim.  Should we say something about this at the end of the next paragraph?}). 
 
 Finally, in type $A_{n}^{\!(1)}$ the following extension of Theorem~\ref{thm:maintheorem} also holds.
 There is a one-parameter family of quiver representations whose dimension vector is the primitive imaginary root.
@@ -274,7 +274,7 @@ We show this element too is a level zero generalized minor; with this in mind it
 \textsc{Acknowledgments}
 We would like to thank Giovanni Cerulli Irelli, Vyjayanthi Chari, Alessandro D'Andrea, Corrado de Concini, Anna Felikson, Misha Gekhtman, Nathan Reading and Pavel Tumarkin for helpful discussions and comments.
 \saySS{@Harold did you ended up talking with Leclerc? Is there anyone else we talked with?}
-D.R. is supported by...\sayDR{My only outside support is an AMS Simons Travel grant, do you think I should include something about it?}\sayHW{If you used your travel grant for any part of our collaboration, then by all means acknowledge it (hell, even if you didn't I think there are only upsides to saying you did, i.e. to show off that you had the funding, or to cite if you need to write a report).}
+D.R. is partially supported by an AMS-Simons Travel Grant.
 S.S. is a Marie Curie fellow of the Istituto Nazionale di Alta Matematica.
 H.W. is supported by an NSF Postdoctoral Research Fellowship DMS-1502845.  
 
@@ -286,7 +286,7 @@ We fix throughout an algebraically closed field $\kk$ of characteristic zero.
 
 %%%%%%%%%%%%%%%%%%%%%%
 \subsection{Cluster Algebras}\label{sec:clusteralgebras}
-An $n\times n$ matrix $B$\sayDR{At what point do we want to say we need an integer matrix?  Maybe when we introduce $\cA_{\tilde B}$?  Everything that comes before that doesn't really require it}\sayHW{I think it works as is: we *define* an exchange matrix to be integral} is said to be \newword{skew-symmetrizable} if it can be transformed to a skew-symmetric matrix through multiplication by a diagonal matrix.
+An $n\times n$ matrix $B$\sayDR{At what point do we want to say we need an integer matrix?  Maybe when we introduce $\cA_{\tilde B}$?  Everything that comes before that doesn't really require it}\sayHW{I think it works as is: we *define* an exchange matrix to be integral}\sayDR{Sorry, I read the definition several times and just skipped over the word ``integer''} is said to be \newword{skew-symmetrizable} if it can be transformed to a skew-symmetric matrix through multiplication by a diagonal matrix.
 For $m \geq n$, the \newword{principal part} of an $m \times n$ matrix is the submatrix formed by its first $n$ rows.
 An \newword{exchange matrix} $\widetilde B$ is an $m\times n$ integer matrix whose principal part $B$ is skew-symmetrizable.
 We will refer to such a $\widetilde B$ as an \newword{extension} of $B$.
@@ -343,7 +343,7 @@ Given the matrix of $\bfc$-vectors at a given $t\in\TT$, we may define the matri
 \end{equation}
 where $B^T$ is the transpose of $B$.
 Note that this is not the the standard definition, but the above characterization (due to \cite[Theorem 1.2]{NZ12} and the sign-coherence result of \cite{DWZ10,GHKK14}) is what we will use in Section~\ref{sec:acyclic_belt}.
-The basic role of $\bfg$-vectors is that they provide natural labels of cluster variables: if $\widetilde{B}$ is of full rank, then two cluster variables $x_{i;t}$ and $x_{j;t'}$ coincide in $\cA_{\widetilde B}$ if and only if $\gv_{i;t}$ and $\gv_{j;t'}$ coincide in $\ZZ^n$ \cite{DWZ10,GHKK14}.\sayHW{I request verification that this is the correct statement/attribution} 
+The basic role of $\bfg$-vectors is that they provide natural labels of cluster variables: if $\widetilde{B}$ is of full rank, then two cluster variables $x_{i;t}$ and $x_{j;t'}$ coincide in $\cA_{\widetilde B}$ if and only if $\gv_{i;t}$ and $\gv_{j;t'}$ coincide in $\ZZ^n$ \cite{DWZ10,GHKK14}.\sayHW{I request verification that this is the correct statement/attribution}\sayDR{Do we need that $\widetilde{B}$ is of full rank?  In [DWZ] the result is Lemma 9.2.}
 \begin{remark}
   The duality between $\bfg$-vectors and $\bfc$-vectors is analogous to the duality between weights and coroots.
   A precise analogy will be drawn in Section~\ref{sec:acyclic_belt}.
@@ -414,7 +414,7 @@ It is straightforward to check that this is a subpath in the \newword{acyclic be
 %\saySS{Citation needed.}
 %\sayDR{The closest reference I know of is Cor. 4 in ``From Triangulated Categories to Cluster Algebras II'' by Caldero and Keller, though one has to look into the proof a little and note that the cluster variables in the acyclic belt sweep out the entire transjective component of the AR quiver for the cluster category.}
 
-While the vertex $t_\ell$ associated to $\Zidx \in \ZZ$ depends in general on the choice of $\sigma$, the set $$\{x_{i;t_\Zidx}: i \in [1,n], \Zidx \in \ZZ\}$$ of cluster variables appearing along the above path does not. In fact, at least in the skew-symmetric case, this is equal to the set of all cluster variables $x_{i;t}$ for which $\widetilde{B}^t$ is acyclic \cite[Cor. 4]{CK06}. 
+While the vertex $t_\ell$ associated to $\Zidx \in \ZZ$ depends in general on the choice of $\sigma$, the set $$\{x_{i;t_\Zidx}: i \in [1,n], \Zidx \in \ZZ\}$$ of cluster variables appearing along the above path does not. In fact, this is equal to the set of all cluster variables $x_{i;t}$ for which $\widetilde{B}^t$ is acyclic \cite[Corollary 4]{CK06} (while the proof is only written for the skew-symmetric case, the same argument can be applied in the skew-symmetrizable case). 
 We will refer to the non-initial cluster variables $x_{i;t_\Zidx}$ with $\Zidx>0$ (resp. $\Zidx<0$) as \newword{preprojective} (resp. \newword{postinjective}); this terminology will be justified in the next section.
 
 %%%%%%%%%%%%%%%%%%%%%
@@ -449,7 +449,7 @@ When $Q$ is an orientation of a simply-laced finite-type Dynkin diagram, the inj
 We write $\cQ$ for the \newword{Grothendieck group} of $\rep_\kk(Q)$; it is the abelian group freely generated by the classes $[S_i]$ of the vertex-simple representations of $Q$. 
 For $M\in\rep_\kk(Q)$ we call $[M]\in\cQ$ its \newword{dimension vector}, as $[\Qrep] = \sum_i \dim(M_i)[S_i]$. 
 Since $\rep_\kk(Q)$ is hereditary, the \newword{Euler-Ringel form} \[\langle M,N\rangle:=\dim_\kk\Hom(M,N)-\dim_\kk\Ext^1(M,N)\] only depends on the dimension vectors of $M$ and $N$, hence defines a bilinear form on $\cQ$. 
-In particular, the it is completely determined by the pairings of vertex-simple representations:
+In particular, it is completely determined by the pairings of vertex-simple representations:
 \[
   \langle S_i,S_j\rangle=
   \begin{cases}
@@ -471,15 +471,15 @@ If
 \[
   0 \to \Qrep \to \bigoplus I_j^{a_j} \to \bigoplus I_j^{b_j} \to 0
 \]
-is an injective resolution of $M$, then $\grep(\Qrep)$ is the element of $\ZZ^n$ whose $j$-th component is $b_j - a_j$. This is often called the coindex of $M$, but the present terminology is justified by Theorem~\ref{thm:CCbijection}. 
+is an injective resolution of $M$, then $\grep(\Qrep)$ is the element of $\ZZ^n$ whose $j$-th component is $b_j - a_j$. The negative of $\grep(\Qrep)$ is often called the coindex of $M$, but the present terminology is justified by Theorem~\ref{thm:CCbijection}. 
 Below we write $x^{\grep(\Qrep)}$ for the monomial $\prod x_j^{b_j - a_j}$.
 
 \begin{remark}
-As $Q$ is acyclic, it has an associated symmetric Cartan companion $A$ as discussed in Section~\ref{sec:Coxeterdbc}. We will freely identify the $\bfg$-vector lattice $\ZZ^n$ with the weight lattice $P$ associated to $A$ by taking the $j$th standard basis vector to the fundamental weight $\omega_j$. Thus, for example, $\grep(\Qrep) = \sum (b_j - a_j)\omega_j$ in the above definition. 
+As $Q$ is acyclic, it has an associated symmetric Cartan companion $A$ as discussed in Section~\ref{sec:Coxeterdbc}. We will freely identify the $\bfg$-vector lattice $\ZZ^n$ with the weight lattice $P$ associated to $A$ by taking the $j$-th standard basis vector to the fundamental weight $\omega_j$. Thus, for example, $\grep(\Qrep) = \sum (b_j - a_j)\omega_j$ in the above definition. 
 \end{remark}
 
 Given a dimension vector $e = \sum_i e_i[S_i] \in \NN^n \subset \cQ$, the \newword{quiver Grassmannian} $\Gr_eM$ is the variety of $e$-dimensional submodules of $M$.
-We write $\chi(\Gr_eM)$ for its Euler characteristic (formally, in \'etale cohomology with compact supports). If $\widetilde{B}$ is exchange matrix associated to $\widetilde{Q}$ we write $\hat{y}_j$ for the monomial $\prod\limits_{i=1}^m x_i^{b_{ij}}$, and $\hat{y}^e$ for $\prod_{j=1}^n \hat{y}_j^{e_j}$.
+We write $\chi(\Gr_eM)$ for its Euler characteristic (formally, in \'etale cohomology with compact supports). If $\widetilde{B}$ is the exchange matrix associated to $\widetilde{Q}$ we write $\hat{y}_j$ for the monomial $\prod\limits_{i=1}^m x_i^{b_{ij}}$, and $\hat{y}^e$ for $\prod_{j=1}^n \hat{y}_j^{e_j}$.
 
 \begin{definition}%\sayDR{In order for this formula to technically be correct we need the coefficient part of the exchange matrix to have only positive entries, otherwise the separation of additions formula has to be used, fortunately we are in that positive case so it may be worth brushing this under the rug}
   The (framed) cluster character of a representation $M$ of $Q$ is
@@ -489,11 +489,11 @@ We write $\chi(\Gr_eM)$ for its Euler characteristic (formally, in \'etale cohom
   \end{equation}
 \end{definition}
 
-\begin{theorem}\label{thm:CCbijection}\cite{CC,CK,FZ07}
+\begin{theorem}\label{thm:CCbijection}\cite{CC,CK}
 Suppose that $\widetilde{Q}$ has no arrows whose source is a frozen vertex (equivalently, the non-principal part of $\widetilde{B}$ has only positive entries). Then the assignment $M \mapsto x_M$ defines a bijection between the set of rigid indecomposable representations of $Q$ and the set of non-initial cluster variables in $\cA_{\widetilde{Q}}$.  Moreover, the $\bfg$-vector of the cluster variable $x_M$ is equal to $\grep(M)$.
 \end{theorem}
 
-The positivity assumption on the non-principal part of $\widetilde{B}$ is only to keep the formulas from being more complicated than we need. More generally, cluster characters and cluster characters will be related by a monomial determined by the separation of additions result of \cite{FZ07}.\sayHW{This is the correct statement right?}
+The positivity assumption on the non-principal part of $\widetilde{B}$ is only to keep the formulas from being more complicated than we need. More generally, cluster characters and framed cluster characters will be related by a monomial determined by the separation of additions formula of \cite{FZ07}.
 
 With Theorem~\ref{thm:CCbijection} in hand we refer to non-initial cluster variables of $\cA_{\widetilde{Q}}$ as preprojective, postinjective, or regular if they come from a quiver representation of the corresponding type. This is compatible with the discussion of the acyclic belt in Section~\ref{sec:clusteralgebras}:
 
@@ -532,7 +532,7 @@ For $t \in \kk^\times$ and $1 \leq i \leq n$ we adopt the notation
 \end{gather}
 By extension for any $w$ in the Weyl group $W$ of $\widehat{G}$ we set \[\ol{w} := \ol{s_{i_1}}\cdots\ol{s_{i_k}}, \quad \quad \dol{w} := \dol{s_{i_1}}\cdots\dol{s_{i_k}},\] where $s_{i_1}\cdots s_{i_k}$ is any reduced word for $w$.
 We write $H$ for the ($n$-dimensional) Cartan subgroup of $G$, likewise $\widehat{H}$ is the Cartan subgroup of $\widehat{G}$ (it is isomorphic to $H \times (\kk^\times)^{\corank(A)}$).
-We let $\kk[\widehat{G}]$ denote the (complete\sayDR{this means functions on $\widehat G$ are formal power series right?  why is it necessary?}\sayHW{The most natural notion of ``coordinate ring of an ind-variety'' is the limit of the coordinate rings of its finite-dim'l pieces; this ring has a natural topology, and pointing it out here is really just a way of making sure ``we're all talking about the same ring''. B/c, e.g. Kac-Peterson also talk about ``strongly regular'' functions on $G$, which form a proper (noncomplete) subalgebra} topological) algebra of regular functions on $\widehat{G}$.
+We let $\kk[\widehat{G}]$ denote the (complete topological) algebra of regular functions on $\widehat{G}$.
 
 We have weight lattices $\widehat{P} = \Hom(\widehat{H},\kk^\times)$ and $P = \Hom(H,\kk^\times)$, and write the value of $\lambda \in P$ on $h \in H$ as $h^\lambda$ (likewise for $\lambda \in \widehat{P}$ and $h \in \widehat{H}$).
 The fundamental weights $\omega_1,\dotsc,\omega_n \in P$ are defined by $(t^{\alpha_i^\vee})^{\omega_j} = t^{\delta_{ij}}$.
@@ -562,7 +562,7 @@ When $A$ is of (untwisted) affine type, identifying $G$ with a central extension
 Above this we have the splitting $\widehat{P} \cong P \oplus \ZZ \delta$, where $\delta$ is a character of the $\kk^\times$ acting by loop rotations.
 A weight $\lambda \in \widehat{P}$ is in the complement of $X \cup -X$ if and only if it lies in $P^\circ \oplus \ZZ \delta$.
 Following the above notation, for $\lambda^\circ\in P^\circ$ we have an irreducible $G^\circ$-representation $V(\lambda^\circ)$ whose highest weight is conjugate to $\lambda^\circ$ under the Weyl group of $G^\circ$.
-With this in hand we extend our association of an irreducible $\widehat{G}$-representation $V(\lambda)$ to all $\lambda \in \widehat{P}$: when $\lambda \in \widehat{P} \smallsetminus(X \cup -X)$ we set $V(\lambda) := V(\lambda^\circ)[\loopvar^{\pm 1}]$, \sayDR{Should we mention somewhere that all $\lambda^\circ+r\delta$ are in the same Weyl group orbit?}\sayHW{I don't think so: it's clear that $\pm X$ are $W$-closed, hence so is their complement. Plus I don't think this fact is ver really directly called upon.} the space of algebraic loops in $V(\lambda^\circ)$, where $\lambda^\circ$ is the $P^\circ$-component of $\lambda$.
+With this in hand we extend our association of an irreducible $\widehat{G}$-representation $V(\lambda)$ to all $\lambda \in \widehat{P}$: when $\lambda \in \widehat{P} \smallsetminus(X \cup -X)$ we set $V(\lambda) := V(\lambda^\circ)[\loopvar^{\pm 1}]$, the space of algebraic loops in $V(\lambda^\circ)$, where $\lambda^\circ$ is the $P^\circ$-component of $\lambda$.
 
 The \newword{level} of an irreducible $\widehat{G}$-representation is the character by which $Z(G) = Z(\widehat{G}) \cong \kk^\times$ acts; the level of $V(\lambda)$ is positive if $\lambda \in X$, negative if $\lambda \in -X$, and zero if $\lambda \in \widehat{P} \smallsetminus(X \cup -X)$.
 
@@ -584,7 +584,7 @@ Similarly, $\Delta^{\lambda'}_{\lambda''}(g)$ is the matrix entry whose row corr
 While we have apparently given two definitions of $\Delta^{\lambda'}_{\lambda''}$ in finite type (depending on whether we regard $\lambda'$, $\lambda''$ as conjugate to a dominant or anti-dominant weight), the reader may check that these definitions agree in this case.
 
 \begin{remark}
-  When $\widehat{G}$ is of (untwisted) affine type\sayDR{Does it matter here twisted vs untwisted type?}\sayHW{Thanks -- the discussion is morally accurate in the twisted case, but since we've only defined $V(\lambda)$ in the untwisted case the discussion is really making this assumption.}, the representations $V(\lambda)$ with $\lambda \in \widehat{P}\smallsetminus(X \cup - X)$ are not the only irreducible level zero weight representations.
+  When $\widehat{G}$ is of (untwisted) affine type, the representations $V(\lambda)$ with $\lambda \in \widehat{P}\smallsetminus(X \cup - X)$ are not the only irreducible level zero weight representations.
   The set of all such representations is parametrized by pairs $(\{\lambda_1,\dotsc,\lambda_m\},\{a_1,\dotsc,a_m\})$ given by a tuple of dominant weights of $G^\circ$ and a tuple of elements of $\kk^\times$ \cite{CP86}.
   As a vector space the associated representation is the space of Laurent polynomials valued in the tensor product of the $V(\lambda_i^\circ)$, and the scalars $a_i$ rescale the action of $G^\circ$-valued loops on each factor.
 \end{remark}
@@ -1292,7 +1292,7 @@ We let $\cE_{[k,\ell]}$ denote the collection of target-closed subsets of $[k,\e
   \] 
   from which the given formula for $\grep(\Qrep_{[k,\ell]})$ follows.
   The $o_1 < i_1$ case is similar.
-  The description of submodules of $\Qrep_{[k,\ell]}$ in terms of target-closed subsets of $[k,\ell]$ is an instance of a more general description in terms of the coefficient quiver of a representation [Cer, Rin ??]; in our case the coefficient quiver of $\Qrep_{[k,\ell]}$ is just the full subquiver of $Q$ with vertex set $[k,\ell]$.
+  The description of submodules of $\Qrep_{[k,\ell]}$ in terms of target-closed subsets of $[k,\ell]$ is an instance of a more general description in terms of the coefficient quiver of a representation [Cer, Rin ??]\sayDR{references needed}; in our case the coefficient quiver of $\Qrep_{[k,\ell]}$ is just the full subquiver of $Q$ with vertex set $[k,\ell]$.
 \end{proof}
 
 In Section~\ref{sec:networks} it will be useful to rewrite regular $\bfg$-vectors using the following Lemma, whose proof is an elementary computation.
@@ -1321,8 +1321,8 @@ Recall that for any Kac-Moody group $G$, if $u=s_{i_1}\cdots s_{i_{\ell(u)}}$ an
   g = x_{\ol{\imath_1}}(t_{\ol{1}})\cdots x_{\ol{\imath_{\ell(u)}}}(t_{\ol{\ell(u)}})hx_{j_1}(t_{1}) \cdots x_{j_{\ell(v)}}(t_{\ell(v)})
 \end{equation}
 for some $h \in H$ and $t_i,t_{\ol{\imath}} \in \kk^\times$.
-When $G = \widetilde{LSL}_n$ is the central extension of $LSL_n$, these factorizations (and more general ones associated to shuffles of reduced words) admit a combinatorial description in terms of directed networks on a cylinder [GSV, FM ??].
-This generalizes a similar relation between $SL_n$ and directed networks on a disk [FZ ??].
+When $G = \widetilde{LSL}_n$ is the central extension of $LSL_n$, these factorizations (and more general ones associated to shuffles of reduced words) admit a combinatorial description in terms of directed networks on a cylinder \cite{GSV12,FM14}.
+This generalizes a similar relation between $SL_n$ and directed networks on a disk \cite{FZ99}.
 By a directed network on a surface we will mean an embedded directed graph whose edges are assigned weights in some fixed ring.
 As in Section~\ref{sec:rigidregular} we fix a cyclic $\ZZ_n$-labelling of the vertices of the $A_{n-1}^{\!(1)}$ Dynkin diagram, chosen so that $0 \equiv n$ is the label of the affine root $\delta - \theta$.
 
@@ -1584,7 +1584,7 @@ Definition~\ref{def:network} is motivated by the following observation:
 \end{proposition}
 \begin{proof}
   The representation $\big(\bigwedge^{|S|}\kk^{n-1}\big)[\loopvar^{\pm 1}]$ has a natural basis $\{ e_{j_1} \wedge \cdots \wedge e_{j_{|S|}} \loopvar^d\}$ labelled by pairs of an $|S|$-element subset of $\ZZ_n$ and an integer $d$.
-  The networks associated to $x_i(t)$, $x_{\ol{\imath}}(t)$, and $h$ directly encode the action of the corresponding group elements in this basis (see [GSV, FM ??] for related constructions).
+  The networks associated to $x_i(t)$, $x_{\ol{\imath}}(t)$, and $h$ directly encode the action of the corresponding group elements in this basis (see \cite{GSV12,FM14} for related constructions).
   If $S = \{i_1,\dotsc,i_{|S|}\}$, then by a generalized Lindstr\"om-Gessel-Viennot argument the sum over collections of nonintersecting paths with $\partial_{in}P = \partial_{out}P = S$ computes the diagonal matrix coefficient by which $g$ rescales the basis element $e_{i_1} \wedge \cdots \wedge e_{i_{|S|}}$.
   Since this element has weight $\omega_S$, this matrix coefficient is $\Delta_{\omega_S}(g)$.
 \end{proof}
@@ -1922,7 +1922,7 @@ the latter following by reindexing vertices of $Q$ in the results of Lemma~\ref{
 
 \begin{theorem}\label{th:cluster character equals minor}
   Let $\Qrep_{[k,\ell]}$ be a rigid regular representation of $Q$.
-  Then in $\cA_{\Qdp} \cong \kk[\widetilde{LSL}_n^{c,c^{-1}}]$ the regular cluster variable $x_{\Qrep_{[k,\ell]}}$ is the restriction of the level zero minor $\Delta_{\grep(\Qrep_{[k,\ell]})}$.
+  Then under $\cA_{\Qdp} \cong \kk[\widetilde{LSL}_n^{c,c^{-1}}]$, the regular cluster variable $x_{\Qrep_{[k,\ell]}}$ is the restriction of the level zero minor $\Delta_{\grep(\Qrep_{[k,\ell]})}$.
 \end{theorem}
 \begin{proof}
   Recall from Lemma~\ref{lem:regulargvectors} the subset $S_{[k,\ell]} \subset \ZZ_n$ such that $\grep(\Qrep_{[k,\ell]}) = \omega_{S_{[k,\ell]}}$.
@@ -2036,7 +2036,7 @@ With the preceding proposition in hand we pose the following specific form of Co
   \label{conj:affine}
   Let $B$ be an acyclic skew-symmetrizable matrix whose Cartan companion $A$ is of affine type.
   Let $x_{i;t} \in \cA_{\Bdp}$ be any regular cluster variable and $\gv_{i;t} \in P$ its $\bfg$-vector.
-  Then in $\cA_{\Bdp} \cong \kk[G^{c,c^{-1}}]$, $x_{i;t}$ is the restriction of the level zero minor $\Delta_{\gv_{i;t}}$.
+  Then under $\cA_{\Bdp} \cong \kk[G^{c,c^{-1}}]$, $x_{i;t}$ is the restriction of the level zero minor $\Delta_{\gv_{i;t}}$.
 \end{conjecture}
 
 While the combinatorics we used to prove Conjecture~\ref{conj:affine} in type $A_{n-1}^{\!(1)}$ is not available in general, in some types it is possible to compute the relevant minors by hand.
@@ -2193,7 +2193,7 @@ h^{(n-1) \omega_2 - \omega_1} + h^{\omega_1-\omega_2}t_1t_{\ol{1}} + h^{\omega_2
 \]
 By definition this is $\Delta_{(V,\grep(M))}$. On the other hand, using Lemma~\ref{lemma:coefficients_values} and the definition of $\hat{y}_1$, $\hat{y}_2$ one can check that it is the value of the homogeneous element $x_M$ on $g$. Thus we see that $x_M$ is equal to the restriction of $\Delta_{(V,\grep(M))}$. 
 
-Unfortunately, we do not know how to construct such a representation $V$ when $G$ is not of affine type.
+Unfortunately, when $G$ is not of affine type we do not know how to explicitly construct such a representation $V$.
 \end{remark}
 
 % bibliography
