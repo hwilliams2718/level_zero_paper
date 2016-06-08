@@ -61,6 +61,7 @@ urlcolor=blue]{hyperref}
 \newcommand{\bfg}{\mathbf{g}}
 \newcommand{\bfi}{\mathbf{i}}
 
+\newcommand{\grep}{\bfg}
 \newcommand{\gv}{\lambda}
 \newcommand{\cv}{\alpha}
 
@@ -259,7 +260,7 @@ A deficiency of proving (2) by analyzing each regular cluster variable directly 
 \end{conjecture}
 
 In addition to verifying the conjecture for all Coxeter elements when $G$ is of type $A_n^{(1)}$, we check a finite list of other affine types, see Section~\ref{sec:othertypes}.
-In any affine type, the regular cluster variables are finite in number and can be explicitly computed. By results of \cite{RS16}, their $\bfg$-vectors correspond to weights in the complement of the Tits cone and its negative. 
+In any affine type, the regular cluster variables are finite in number and can be explicitly computed. In forthcoming work of the first author it is shown that their $\bfg$-vectors correspond to weights in the complement of the Tits cone and its negative \cite{RS16}. 
 In particular, it follows that if these cluster variables are restrictions of minors, they must come from an explicitly identifiable level zero representation. 
 The types checked in Section~\ref{sec:othertypes} are essentially the ones where these minors can be evaluated on $G^{c,c^{-1}}$ knowing only the character of this representation.
 Beyond finite and affine types, general weight representations of $G$ are not well-understood and the conjecture is much more speculative (though we note the suggestive formal calculation of Remark 4.13). 
@@ -284,7 +285,7 @@ We collect here some needed material on cluster algebras and representation theo
 We fix throughout an algebraically closed field $\kk$ of characteristic zero.
 
 %%%%%%%%%%%%%%%%%%%%%%
-\subsection{Cluster Algebras}
+\subsection{Cluster Algebras}\label{sec:clusteralgebras}
 An $n\times n$ matrix $B$\sayDR{At what point do we want to say we need an integer matrix?  Maybe when we introduce $\cA_{\tilde B}$?  Everything that comes before that doesn't really require it}\sayHW{I think it works as is: we *define* an exchange matrix to be integral} is said to be \newword{skew-symmetrizable} if it can be transformed to a skew-symmetric matrix through multiplication by a diagonal matrix.
 For $m \geq n$, the \newword{principal part} of an $m \times n$ matrix is the submatrix formed by its first $n$ rows.
 An \newword{exchange matrix} $\widetilde B$ is an $m\times n$ integer matrix whose principal part $B$ is skew-symmetrizable.
@@ -353,6 +354,8 @@ In other words, $B$ is acyclic if there is a permutation $\sigma \in S_n$ such t
 This terminology is justified by the skew-symmetric case: the data of a skew-symmetric matrix $B$ is the same as that of a quiver $Q := Q_B$ with vertices indexed by the columns of $B$ and $[-b_{ij}]_+$ arrows from vertex $i$ to vertex $j$; the skew-symmetric matrix is acyclic exactly when this quiver has no oriented cycles.
 We call an exchange matrix acyclic if its principal part is acyclic.
 
+Given a quiver $Q$, we simply write $\cA_Q$ for the cluster algebra associated to its signed adjacency matrix $B$ as above. Similarly, the data of an extension $\widetilde{B}$ of $B$ is equivalent to the data of a \newword{framed quiver} $\widetilde{Q}$. This means a quiver obtained from $Q$ by adjoining $m -  n$ \newword{frozen vertices}. These have no arrows between them and the arrows connecting them to the orginal vertices are determined in the obvious way by the non-principal part of $\widetilde{B}$.
+
 \begin{figure}%[h]
   \centering
   \begin{tikzpicture}
@@ -417,80 +420,92 @@ We will refer to the non-initial cluster variables $x_{i;t_\Zidx}$ with $\Zidx>0
 %%%%%%%%%%%%%%%%%%%%%
 \subsection{Quiver representations and cluster characters}\label{sec:quiverbackground}
 A \newword{quiver} $Q=(Q_0,Q_1,s,t)$ with $n$ vertices consists of a set $Q_0=\{1,2,\ldots,n\}$ of vertices, a set $Q_1$ of arrows, and maps $s,t:Q_1\to Q_0$ giving the source and target of an arrow.
-A \newword{$\kk$-representation} $M=(M_i,M_a)$ of $Q$ consists of a $\kk$-vector space $M_i$ for each $i\in Q_0$ and a $\kk$-linear map $M_a:M_{s(a)}\to M_{t(a)}$ for each arrow $a\in Q_1$.
-A morphism of representation $\theta:M\to N$ consists of a collection of $\kk$-linear maps $\theta_i:M_i\to N_i$ so that $\theta_{t(a)}\circ M_a=N_a\circ \theta_{s(a)}$ for each arrow $a\in Q_1$.
-The space of all such homomorphisms will be denoted $\Hom_Q(M,N)$.
+A \newword{$\kk$-representation} $M=(M_i,M_a)$ of $Q$ consists of a $\kk$-vector space $M_i$ for each $i\in Q_0$ and a $\kk$-linear map $M_a:M_{s(a)}\to M_{t(a)}$ for each arrow $a\in Q_1$. We denote by $\rep_\kk(Q)$ the hereditary abelian category of finite-dimensional representations, and refer to \cite{ASS06} for a details on the material recalled below. 
 
-When the quiver $Q$ is \newword{acyclic} (i.e. has no oriented cycles), its category $\rep_\kk(Q)$ of finite-dimensional representations is particularly nice and thus we assume $Q$ is acyclic throughout.
-In this case, it is well-known that $\rep_\kk(Q)$ is a hereditary, abelian, length category with finitely many simple objects.
-When $Q$ is an orientation of a simply-laced finite-type Dynkin diagram, $\rep_\kk(Q)$ contains only finitely many indecomposable representations.
+We will only be interested in the case when $Q$ is \newword{acyclic} (i.e. has no oriented cycles or self-loops), hence we assume this throughout. This condition holds if and only if \newword{path algebra} $\kk Q$ (the $\kk$-vector space on the set of directed paths in $Q$) is finite-dimensional. As a $Q$-representation $\kk Q$ is the direct sum of the projective representations, so in particular these are also finite-dimensional (as are the injective representations).
 
-Write $\kk Q$ for the \newword{path algebra} of $Q$, this is the $\kk$-vector space with basis given by paths (including the trivial paths) in $Q$.
-The vector space $\kk Q$ has a multiplication given by concatenation of paths and one may identify the module category of $\kk Q$ with $\rep_\kk(Q)$, however we will not use this here.
-The path algebra $\kk Q$ is naturally considered as a representation of $Q$ where the vector space at vertex $i$ is spanned by all paths in $Q$ ending at $i$ and the action of an arrow $a$ is by concatenation.
-The indecomposable \newword{projective} representations of $Q$ are exactly the indecomposable summands of $\kk Q$.
+%A morphism of representation $\theta:M\to N$ consists of a collection of $\kk$-linear maps $\theta_i:M_i\to N_i$ so that $\theta_{t(a)}\circ M_a=N_a\circ \theta_{s(a)}$ for each arrow $a\in Q_1$.
+%The space of all such homomorphisms will be denoted $\Hom_Q(M,N)$.
 
-Given a representation $M\in\rep_\kk(Q)$ and a projective presentation $0\to P_1\to P_0\to M\to 0$ (which may always be chosen to terminate after two terms since $\rep_\kk(Q)$ is hereditary), we define the \newword{Auslander-Reiten translate} $\tau(M)\in\rep_\kk(Q)$ via the short exact sequence
+%When the quiver $Q$ is \newword{acyclic} (i.e. has no oriented cycles), its category $\rep_\kk(Q)$ of finite-dimensional representations is particularly nice and thus we assume $Q$ is acyclic throughout.
+%In this case, it is well-known that $\rep_\kk(Q)$ is a hereditary, abelian, length category with finitely many simple objects.
+%When $Q$ is an orientation of a simply-laced finite-type Dynkin diagram, $\rep_\kk(Q)$ contains only finitely many indecomposable representations.
+
+%Write $\kk Q$ for the \newword{path algebra} of $Q$, this is the $\kk$-vector space with basis given by paths (including the trivial paths) in $Q$.
+%The vector space $\kk Q$ has a multiplication given by concatenation of paths and one may identify the module category of $\kk Q$ with $\rep_\kk(Q)$, however we will not use this here.
+%The path algebra $\kk Q$ is naturally considered as a representation of $Q$ where the vector space at vertex $i$ is spanned by all paths in $Q$ ending at $i$ and the action of an arrow $a$ is by concatenation.
+%The indecomposable \newword{projective} representations of $Q$ are exactly the indecomposable summands of $\kk Q$.
+
+Given a representation $M\in\rep_\kk(Q)$ and a projective presentation $0\to P_1\to P_0\to M\to 0$ (which may be chosen to terminate after two terms since $\rep_\kk(Q)$ is hereditary), the \newword{Auslander-Reiten translate} $\tau(M)\in\rep_\kk(Q)$ is defined via the short exact sequence
 \begin{equation}\label{eq:AR translation}
   0\longrightarrow \tau(M)\longrightarrow D\Hom_Q(P_1,\kk Q)\longrightarrow D\Hom_Q(P_0,\kk Q)\longrightarrow 0,
 \end{equation}
 where $D=\Hom(-,\kk)$ is the standard $\kk$-linear duality functor.
 
-The AR translation $\tau$ strongly controls the representation theory of $Q$: a representation $P$ is projective if and only if $\tau(P)=0$ while a representation $I$ is injective if and only if it is not of the form $\tau(M)$ for any $M$.
+The AR translation $\tau$ plays a key role in the representation theory of $Q$: a representation $P$ is projective if and only if $\tau(P)=0$ while a representation $I$ is injective if and only if it is not of the form $\tau(M)$ for any $M$.
 Call a representation $M$ \newword{preprojective} if $\tau^k(M)$ is projective for some $k\ge0$, \newword{postinjective} if there is an injective representation $I$ so that $M=\tau^k(I)$ for some $k\ge0$, and \newword{regular} otherwise.
 When $Q$ is an orientation of a simply-laced finite-type Dynkin diagram, the injective representations are preprojective (hence projective representations are postinjective) and there are no regular representations.
 
-Write $\cQ$ for the \newword{Grothendieck group} of $\rep_\kk(Q)$ and note that $\cQ\simeq \ZZ^n$ is a free abelian group generated by the classes $[S_i]$ of the vertex-simple representations of $Q$.
-For $M\in\rep_\kk(Q)$ we thus call $[M]\in\cQ$ its \newword{dimension vector}.
-Since $\rep_\kk(Q)$ is hereditary, the \newword{Euler-Ringel form} \[\langle M,N\rangle:=\dim_\kk\Hom(M,N)-\dim_\kk\Ext^1(M,N)\] only depends on the dimension vectors of $M$ and $N$.
-In particular, the Euler-Ringel form is completely determined by the pairings of vertex-simple representations:
+We write $\cQ$ for the \newword{Grothendieck group} of $\rep_\kk(Q)$; it is the abelian group freely generated by the classes $[S_i]$ of the vertex-simple representations of $Q$. 
+For $M\in\rep_\kk(Q)$ we call $[M]\in\cQ$ its \newword{dimension vector}, as $[\Qrep] = \sum_i \dim(M_i)[S_i]$. 
+Since $\rep_\kk(Q)$ is hereditary, the \newword{Euler-Ringel form} \[\langle M,N\rangle:=\dim_\kk\Hom(M,N)-\dim_\kk\Ext^1(M,N)\] only depends on the dimension vectors of $M$ and $N$, hence defines a bilinear form on $\cQ$. 
+In particular, the it is completely determined by the pairings of vertex-simple representations:
 \[
   \langle S_i,S_j\rangle=
   \begin{cases}
     1 & \text{if $i=j$;}\\ 
-    -1 & \text{if $i\to j\in Q_1$;}\\ 
-    0 & \text{otherwise.}
+    -\#\{\text{arrows $i \to j$ in $Q_1$}\} & \text{if $i \neq j$.}
   \end{cases}
 \]
 
-\saySS{Say something to the effect that $Q$ comes from $B$. Otherwise define $\mathcal{A}_Q$ somewhere.}
-\saySS{I am confused here: do we allow coefficients in $\mathcal{A}_Q$? if so then we need to talk about quiver with frozen vertices, if not then we need to change the definition below and replace $m$ by $n$}
-\sayDR{We should definitely allow quivers with frozen vertices and make explicit that we only care about representations supported on the principal part of the ice quiver}
-\saySS{On a more thorough anaysis it appears that here we really want to have the quiver $Q$ to have only mutable nodes. Coefficients are taken care automagically by the definition of CC map we use (in particular the fact that we introduce $\hat{y}$'s). If we want to remove them then we need framed quivers. I would suggest to change the beginning of this paragraph to something like: "Let $B$ be any acyclic $n\times n$ matrix and let $Q$ be..."}
-If $Q$ is a finite quiver without oriented cycles, the non-initial cluster variables in $\cA_Q$ are in bijection with the rigid indecomposable representations of $Q$ \cite{CC,CK}.
-The bijection is given by associating to a representation $M$ a generating function encoding its submodule structure, referred to as its \newword{cluster character} or Caldero-Chapoton function.
+%\saySS{Say something to the effect that $Q$ comes from $B$. Otherwise define $\mathcal{A}_Q$ somewhere.}
+%\saySS{I am confused here: do we allow coefficients in $\mathcal{A}_Q$? if so then we need to talk about quiver with frozen vertices, if not then we need to change the definition below and replace $m$ by $n$}
+%\sayDR{We should definitely allow quivers with frozen vertices and make explicit that we only care about representations supported on the principal part of the ice quiver}
+%\saySS{On a more thorough anaysis it appears that here we really want to have the quiver $Q$ to have only mutable nodes. Coefficients are taken care automagically by the definition of CC map we use (in particular the fact that we introduce $\hat{y}$'s). If we want to remove them then we need framed quivers. I would suggest to change the beginning of this paragraph to something like: "Let $B$ be any acyclic $n\times n$ matrix and let $Q$ be..."}
+If $\widetilde{Q}$ is a framed quiver of an acyclic quiver $Q$, the non-initial cluster variables in $\cA_{\widetilde{Q}}$ are in bijection with the rigid indecomposable representations of $Q$. 
+Recall that a representation $M$ of $Q$ is \newword{rigid} if $\Ext^1(M,M) = 0$. 
+The bijection is given by associating to a representation $M$ a generating function encoding its submodule structure, referred to as its \newword{cluster character} or \newword{Caldero-Chapoton function}.
 
-The definition of the cluster character involves the \newword{$\bfg$-vector}, $\bfg(M)\in\ZZ^n$, taken as an element of the weight lattice for the associated Cartan matrix (see Section~\ref{sec:group background}) \saySS{We probably do not need this remark here.}\sayDR{I added it to take care of Harold's say before Prop 4.2, a remark to that effect should go somewhere}.
+The definition of the cluster character involves the \newword{$\bfg$-vector} $\grep(\Qrep)\in\ZZ^n$ of a representation $\Qrep$. %, taken as an element of the weight lattice for the associated Cartan matrix (see Section~\ref{sec:group background}) %\saySS{We probably do not need this remark here.}\sayDR{I added it to take care of Harold's say before Prop 4.2, a remark to that effect should go somewhere}.
 If
 \[
-  0 \to M \to \bigoplus I_j^{a_j} \to \bigoplus I_j^{b_j} \to 0
+  0 \to \Qrep \to \bigoplus I_j^{a_j} \to \bigoplus I_j^{b_j} \to 0
 \]
-is an injective resolution of $M$, then $\bfg(M)$ is the element of $\ZZ^n$ whose $j$-th component is $b_j - a_j$.
-Below we write $x^{\bfg(M)}$ for the monomial $\prod x_j^{b_j - a_j}$.
+is an injective resolution of $M$, then $\grep(\Qrep)$ is the element of $\ZZ^n$ whose $j$-th component is $b_j - a_j$. This is often called the coindex of $M$, but the present terminology is justified by Theorem~\ref{thm:CCbijection}. 
+Below we write $x^{\grep(\Qrep)}$ for the monomial $\prod x_j^{b_j - a_j}$.
 
-Given a dimension vector $e \in \NN^n$, the \newword{quiver Grassmannian} $\Gr_eM$ is the variety of $e$-dimensional submodules of $M$.
-We write $\chi(\Gr_eM)$ for its Euler characteristic (formally, in \'etale cohomology with compact supports), and write $\hat{y}^e$ for the monomial $\prod_j \hat{y}_j^{e_j}$, where $e_j$ is the $j$-th component of $e \in \NN^n$ and we write $\hat{y}_j$ for the monomial $\prod\limits_{i=1}^m x_i^{b_{ij}}$.
+\begin{remark}
+As $Q$ is acyclic, it has an associated symmetric Cartan companion $A$ as discussed in Section~\ref{sec:Coxeterdbc}. We will freely identify the $\bfg$-vector lattice $\ZZ^n$ with the weight lattice $P$ associated to $A$ by taking the $j$th standard basis vector to the fundamental weight $\omega_j$. Thus, for example, $\grep(\Qrep) = \sum (b_j - a_j)\omega_j$ in the above definition. 
+\end{remark}
 
-\begin{definition}\sayDR{In order for this formula to technically be correct we need the coefficient part of the exchange matrix to have only positive entries, otherwise the separation of additions formula has to be used, fortunately we are in that positive case so it may be worth brushing this under the rug}
-  The cluster character of a representation $M$ of $Q$ is
+Given a dimension vector $e = \sum_i e_i[S_i] \in \NN^n \subset \cQ$, the \newword{quiver Grassmannian} $\Gr_eM$ is the variety of $e$-dimensional submodules of $M$.
+We write $\chi(\Gr_eM)$ for its Euler characteristic (formally, in \'etale cohomology with compact supports). If $\widetilde{B}$ is exchange matrix associated to $\widetilde{Q}$ we write $\hat{y}_i$ for the monomial $\prod\limits_{i=1}^m x_i^{b_{ij}}$, and $\hat{y}^e$ for $\prod_{j=1}^n \hat{y}_j^{e_j}$.
+
+\begin{definition}%\sayDR{In order for this formula to technically be correct we need the coefficient part of the exchange matrix to have only positive entries, otherwise the separation of additions formula has to be used, fortunately we are in that positive case so it may be worth brushing this under the rug}
+  The (framed) cluster character of a representation $M$ of $Q$ is
   \begin{equation}
     \label{eq:cc formula}
-    x_M := x^{\bfg(M)} \sum_{e \in \NN^n}\chi(\Gr_e M) \hat{y}^e \in \kk[x_1^{\pm 1},\dotsc,x_m^{\pm 1}].
+    x_M := x^{\grep(M)} \sum_{e \in \NN^n}\chi(\Gr_e M) \hat{y}^e \in \kk[x_1^{\pm 1},\dotsc,x_m^{\pm 1}].
   \end{equation}
 \end{definition}
 
-Recall that a representation $M$ of $Q$ is \newword{rigid} if $\Ext^1(M,M) = 0$.
-
-\begin{theorem}\label{thm:CCbijection}\cite{CC,CK}
-  The assignment $M \mapsto x_M$ defines a bijection between the set of rigid indecomposable representations of $Q$ and the set of non-initial cluster variables in $\cA_Q$.  Moreover, the $\bfg$-vector of the variable $x_M$ is precisely $\bfg(M)$.
+\begin{theorem}\label{thm:CCbijection}\cite{CC,CK,FZ07}
+Suppose that $\widetilde{Q}$ has no arrows whose source is a frozen vertex (equivalently, the non-principal part of $\widetilde{B}$ has only positive entries). Then the assignment $M \mapsto x_M$ defines a bijection between the set of rigid indecomposable representations of $Q$ and the set of non-initial cluster variables in $\cA_{\widetilde{Q}}$.  Moreover, the $\bfg$-vector of the cluster variable $x_M$ is equal to $\grep(M)$.
 \end{theorem}
 
-Thus we refer to non-initial cluster variables of $\cA_Q$ as preprojective, postinjective, or regular if they come from a quiver representation of the corresponding type.
+The positivity assumption on the non-principal part of $\widetilde{B}$ is only to keep the formulas from being more complicated than we need. More generally, cluster characters and cluster characters will be related by a monomial determined by the separation of additions result of \cite{FZ07}.\sayHW{This is the correct statement right?}
 
-*****TO DO: Characterization of these via acyclic belt.
+With Theorem~\ref{thm:CCbijection} in hand we refer to non-initial cluster variables of $\cA_{\widetilde{Q}}$ as preprojective, postinjective, or regular if they come from a quiver representation of the corresponding type. This is compatible with the discussion of the acyclic belt in Section~\ref{sec:clusteralgebras}:
 
-Theorem~\ref{thm:CCbijection} generalizes to the case of skew-symmetrizable matrices by replacing quiver representations with representations of valued quivers or species.
-We refer to \cite{Ru15} for details, though we will not make direct use of this here.
+\begin{proposition}\label{prop:ccvsacyclicbelt}
+A rigid indecomposable representation $\Qrep$ is preprojective (resp. postinjective) if and only if the cluster variable $x_M$ is of the form $x_{i;t_\Zidx}$ for some $\Zidx > 0$ (resp. $\Zidx < 0$) in the notation of Equation~\ref{eq:path}.
+\end{proposition}
+\begin{proof}
+\end{proof}
+
+Theorem~\ref{thm:CCbijection} and Proposition~\ref{prop:ccvsacyclicbelt} generalize to the case of skew-symmetrizable matrices by replacing quiver representations with representations of valued quivers or species.
+We refer to \cite{Ru15} for relevant background, but omit a detailed discussion here. 
+As the characterization of preprojective and postinjective cluster variables in terms of the acyclic belt is what will be used in Section~\ref{sec:preproj}, we are content to take this as a definition in the skew-symmetrizable case. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Kac-Moody groups and generalized minors}\label{sec:group background}
@@ -594,7 +609,7 @@ A crucial feature of generalized minors is the following generalized determinant
 While the above identity on $G$ is the one we use directly, we note that it restricts from a similar one on $\widehat{G}$ that also involves the characters of $\widehat{G}/G$.
 
 %%%%%%%%%%%%%%%%%%
-\subsection{Acyclic cluster algebras from double Bruhat cells}
+\subsection{Acyclic cluster algebras from double Bruhat cells}\label{sec:Coxeterdbc}
 
 The data of an $n\times n$ acyclic skew-symmetrizable matrix $B$ is equivalent to the data of a symmetrizable Cartan matrix $A$ (the \newword{Cartan companion} of $B$) together with a Coxeter element $c$ of its Weyl group.
 The Cartan matrix is obtained from $B$ by making all its entries negative without changing their absolute values, then setting each diagonal entry equal to two; see Figure~\ref{fig:matrices}.
@@ -656,13 +671,14 @@ In computing various relations in $\kk[G^{c,c^{-1}}]$ we will make extensive use
 \end{equation}
 \saySS{Should we state this for the generic double Bruhat cell since we use it later on in this fashion?}
 \sayDR{If we do, it should probably go before Remark 2.7}
+\sayHW{I am open to this if you want to implement it, but it seems like more trouble than it's worth right now}
 for some $h \in H$ and $t_i, t_{\ol{\imath}} \in \kk^\times$ \cite{FZ99,Wil13}.
 For example, with respect to such a factorization it is clear that we have $\Delta_\lambda(g) = h^\lambda$ for any dominant weight $\lambda \in \widehat{P}^+$.
 In particular, the initial mutable cluster variables of $\cA_{\Bdp}$ evaluate as $x_i(g)=h^{\omega_i}$.
 Some similar computations are collected in Lemma~\ref{lemma:coefficients_values}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Preprojective and postinjective cluster variables as minors}
+\section{Preprojective and postinjective cluster variables as minors}\label{sec:preproj}
 In this section we prove that when $B$ is any acyclic skew-symmetrizable matrix, the identification $\cA_{\Bdp} \cong \kk[G^{c,c^{-1}}]$ of \Cref{thm:coordring} realizes preprojective and postinjective cluster variables as restrictions of some highest- and lowest-weight minors, respectively.
 For our argument we will first deduce a parametrization of such cluster variables, together with a list of exchange relations they satisfy, from an explicit description of the $\bfc$-vectors and $\bfg$-vectors in the acyclic belt.
 The identification with minors will then follow by comparing these relations with restrictions  to $G^{c,c^{-1}}$ of the generalized determinantal identities of \Cref{prop:fundid}.
@@ -785,10 +801,10 @@ In analogy to what we did for $\bfc$-vectors, we will interpret $\bfg$-vectors a
 
 \begin{lemma}
   \label{lemma:g-vectors}
-  Let $\lambda_{i;t_\Zidx}$ be the $i$-th $\bfg$-vector at $t_\Zidx$.
+  Let $\gv_{i;t_\Zidx}$ be the $i$-th $\bfg$-vector at $t_\Zidx$.
   Then
   \begin{equation}
-    \lambda_{i;t_\Zidx}
+    \gv_{i;t_\Zidx}
     =
     \begin{cases}
       c^{\left\lfloor\frac{\Zidx-1}{n}\right\rfloor}s_1\cdots s_{\mod{\Zidx}} \omega_i & \text{if $0<\Zidx$;}\\
@@ -803,7 +819,7 @@ In analogy to what we did for $\bfc$-vectors, we will interpret $\bfg$-vectors a
 \begin{proof}
   The result follows immediately from \Cref{lemma:c-vectors} leveraging the duality in beween coroot and weight lattices for $A$.
   Indeed, \Cref{lemma:c-vectors} applied to $-B^T$ says that the $\bfc$-vectors for the dual cluster algebra are coroots of $A$; more precisely, at the node $t_\Zidx$, they are the coroots $\cv_{i;t_\Zidx}^\vee$.
-  By \Cref{eq:g-vectors_from_c-vectors} the $\bfg$-vectors at $t_\Zidx$ are the basis of weights $\lambda_{i;t_\Zidx}$ dual to $\cv_{i;t_\Zidx}^\vee$.
+  By \Cref{eq:g-vectors_from_c-vectors} the $\bfg$-vectors at $t_\Zidx$ are the basis of weights $\gv_{i;t_\Zidx}$ dual to $\cv_{i;t_\Zidx}^\vee$.
   We can then conclude by observing that the duality map commutes with the action of the elements of the Weil group.
   \sayDR{This argument suggests to me some reorganization where we explain first why $\bfc$-vectors should live in the root lattice while this whole paper serves as the motivation to consider $\bfg$-vectors to live in the weight lattice.}
   \saySS{I am not sure we need to say more than this but feel free to edit as you like}
@@ -1247,7 +1263,7 @@ We let $\cE_{[k,\ell]}$ denote the collection of target-closed subsets of $[k,\e
   Let $[k,\ell] \subsetneq \ZZ_n$ be a proper subset containing the same number of sinks and sources of $Q$, so $\Qrep_{[k,\ell]}$ is rigid and regular.
   If $i_1 < \cdots < i_m$ (resp. $o_1 < \cdots < o_m$) are the sinks (resp. sources) of $Q$ contained in $[k,\ell]$ (ordered by the restriction of the cyclic order on $\ZZ_n$ to a linear order on $[k,\ell]$), then 
   \[
-    \bfg(\Qrep_{[k,\ell]}) 
+    \grep(\Qrep_{[k,\ell]}) 
     = 
     \begin{cases} 
       \omega_{k-1}-\omega_\ell+\sum_{j=1}^m (\omega_{o_j}-\omega_{i_j}) & \text{$i_1<o_1$ in $[k,\ell]$}\\ 
@@ -1259,7 +1275,7 @@ We let $\cE_{[k,\ell]}$ denote the collection of target-closed subsets of $[k,\e
     \label{eq:regular cluster characters}
     x_{\Qrep_{[k,\ell]}} 
     = 
-    x^{\bfg(\Qrep_{[k,\ell]})} \sum_{E \in \cE_{[k,\ell]}} \prod_{j \in E} \hat{y}_j.
+    x^{\grep(\Qrep_{[k,\ell]})} \sum_{E \in \cE_{[k,\ell]}} \prod_{j \in E} \hat{y}_j.
   \end{equation}
 \end{proposition}
 \begin{proof}
@@ -1273,7 +1289,7 @@ We let $\cE_{[k,\ell]}$ denote the collection of target-closed subsets of $[k,\e
     \to 
     I_{k-1} \oplus I_{o_1} \oplus \cdots \oplus I_{o_m},
   \] 
-  from which the given formula for $\bfg(\Qrep_{[k,\ell]})$ follows.
+  from which the given formula for $\grep(\Qrep_{[k,\ell]})$ follows.
   The $o_1 < i_1$ case is similar.
   The description of submodules of $\Qrep_{[k,\ell]}$ in terms of target-closed subsets of $[k,\ell]$ is an instance of a more general description in terms of the coefficient quiver of a representation [Cer, Rin ??]; in our case the coefficient quiver of $\Qrep_{[k,\ell]}$ is just the full subquiver of $Q$ with vertex set $[k,\ell]$.
 \end{proof}
@@ -1283,7 +1299,7 @@ In Section~\ref{sec:networks} it will be useful to rewrite regular $\bfg$-vector
 \begin{lemma}\label{lem:regulargvectors}
   If $\Qrep_{[k,\ell]}$ is rigid and regular, we can write its $\bfg$-vector as
   \[
-    \bfg(\Qrep_{[k,\ell]})=\sum_{j\in S_{[k,\ell]}} \omega_{j+1} - \omega_j,
+    \grep(\Qrep_{[k,\ell]})=\sum_{j\in S_{[k,\ell]}} \omega_{j+1} - \omega_j,
   \]
   where 
   \[
@@ -1905,10 +1921,10 @@ the latter following by reindexing vertices of $Q$ in the results of Lemma~\ref{
 
 \begin{theorem}\label{th:cluster character equals minor}
   Let $\Qrep_{[k,\ell]}$ be a rigid regular representation of $Q$.
-  Then in $\cA_{\Qdp} \cong \kk[\widetilde{LSL}_n^{c,c^{-1}}]$ the regular cluster variable $x_{\Qrep_{[k,\ell]}}$ is the restriction of the level zero minor $\Delta_{\bfg(\Qrep_{[k,\ell]})}$.
+  Then in $\cA_{\Qdp} \cong \kk[\widetilde{LSL}_n^{c,c^{-1}}]$ the regular cluster variable $x_{\Qrep_{[k,\ell]}}$ is the restriction of the level zero minor $\Delta_{\grep(\Qrep_{[k,\ell]})}$.
 \end{theorem}
 \begin{proof}
-  Recall from Lemma~\ref{lem:regulargvectors} the subset $S_{[k,\ell]} \subset \ZZ_n$ such that $\bfg(\Qrep_{[k,\ell]}) = \omega_{S_{[k,\ell]}}$.
+  Recall from Lemma~\ref{lem:regulargvectors} the subset $S_{[k,\ell]} \subset \ZZ_n$ such that $\grep(\Qrep_{[k,\ell]}) = \omega_{S_{[k,\ell]}}$.
   Let $\cP_{[k,\ell]}$ denote the set of pairwise disjoint collections of paths in $\cN^{c,c^{-1}}$ with $\partial_{in}P = \partial_{out}P = S_{[k,\ell]}$.
   We claim that for $P \in \cP_{[k,\ell]}$: 
   \begin{enumerate}[\quad\upshape (a)]
@@ -1917,7 +1933,7 @@ the latter following by reindexing vertices of $Q$ in the results of Lemma~\ref{
     \item 
       we have
       \[
-        wt(P) = x^{\bfg(\Qrep_{[k,\ell]})} \prod_{j \in \beta(P)} \hat{y}_j,
+        wt(P) = x^{\grep(\Qrep_{[k,\ell]})} \prod_{j \in \beta(P)} \hat{y}_j,
       \]
     \item 
       the assignment $P \mapsto \beta(P)$ defines a bijection between $\cP_{[k,\ell]}$ and the set $\cE_{[k,\ell]}$ of target-closed subsets of $[k,\ell]$.
@@ -1947,12 +1963,12 @@ the latter following by reindexing vertices of $Q$ in the results of Lemma~\ref{
   Write $P_0\in\cP_{[k,\ell]}$ for the trivial collection of pairwise disjoint paths in which the path beginning on level $j\in S_{[k,\ell]}=\partial_{in}P_0$ stays on level $j$ without traversing any bridges.
   Note that 
   \[
-    wt(P_0)=\prod_{i \in S_{[k,\ell]}}h_{i+1} h_i^{-1}=x^{\bfg(\Qrep_{[k,\ell]})}.
+    wt(P_0)=\prod_{i \in S_{[k,\ell]}}h_{i+1} h_i^{-1}=x^{\grep(\Qrep_{[k,\ell]})}.
   \]  
   We will show how to inductively modify $P_0$ to obtain a unique collection $\pi(E)\in\cP_{[k,\ell]}$ with $\beta(\pi(E))=E$, keeping track of how the weight of the collection changes along the way.
   That is, for $1\le r\le m+1$ we build from $P_{r-1}$ a new collection $P_r \in \cP_{[k,\ell]}$ such that
   \[
-    wt(P_r) = x^{\bfg(\Qrep_{[k,\ell]})} \prod_{j \in E \cap [k,i_r]} \hat{y}_j.
+    wt(P_r) = x^{\grep(\Qrep_{[k,\ell]})} \prod_{j \in E \cap [k,i_r]} \hat{y}_j.
   \]
   We keep the convention that $i_0=k$ and $i_{m+1}=o_{m+1}=\ell+1$, and define $P_r$ in two steps:
   \begin{enumerate}
@@ -1969,7 +1985,7 @@ the latter following by reindexing vertices of $Q$ in the results of Lemma~\ref{
       \]
       In either case, using our inductive assumption on $wt(P_{r-1})$ and the fact that $E$ is target-closed we have 
       \[
-        wt(P'_r) = x^{\bfg(\Qrep_{[k,\ell]})} \prod_{j \in E \cap [k,o_{r}-1]} \hat{y}_j
+        wt(P'_r) = x^{\grep(\Qrep_{[k,\ell]})} \prod_{j \in E \cap [k,o_{r}-1]} \hat{y}_j
       \]
 
     \item 
@@ -1984,12 +2000,12 @@ the latter following by reindexing vertices of $Q$ in the results of Lemma~\ref{
       \] 
       In either case, again by induction and the fact that $E$ is target-closed we have
       \[
-        wt(P_r) = x^{\bfg(\Qrep_{[k,\ell]})} \prod_{j \in E \cap [k,i_r]} \hat{y}_j.
+        wt(P_r) = x^{\grep(\Qrep_{[k,\ell]})} \prod_{j \in E \cap [k,i_r]} \hat{y}_j.
       \]
   \end{enumerate}
   By induction, $\pi(E)=P_{m+1} \in \cP_{[k,\ell]}$ has $\beta(\pi(E))=E$ and 
   \[
-    wt(\pi(E))=x^{\bfg(M_{[k,\ell]})}\prod_{j\in E}\hat y_j,
+    wt(\pi(E))=x^{\grep(\Qrep_{[k,\ell]})}\prod_{j\in E}\hat y_j,
   \]
   as desired in (b).
   Finally, it is straightforward to see that if $\beta(P) = \beta(P')$ for some $P, P' \in \cP_{[k,\ell]}$, we must have $P = P'$.
@@ -2005,8 +2021,8 @@ This is suggested, for example, by the following fact about $\bfg$-vectors in af
 
 \begin{proposition}
   Let $B$ be an acyclic skew-symmetrizable matrix whose Cartan companion $A$ is of affine type.
-  Let $x_{i;t} \in \cA_B$ be a non-initial cluster variable with $\bfg$-vecotr $\lambda_{i;t}\in P$.
-  Then the level of $V(\lambda_{i;t})$ is greater than, equal to, or less than zero exactly when $x_{i;t}$ is preprojective, regular, or postinjective, respectively.
+  Let $x_{i;t} \in \cA_B$ be a non-initial cluster variable with $\bfg$-vecotr $\gv_{i;t}\in P$.
+  Then the level of $V(\gv_{i;t})$ is greater than, equal to, or less than zero exactly when $x_{i;t}$ is preprojective, regular, or postinjective, respectively.
 \end{proposition}
 \begin{proof}
   The claim about preprojective and postinjective cluster variables follows from Theorem~\ref{thm:vars_and_rels_in_bipartite_belt}. 
@@ -2018,8 +2034,8 @@ With the preceding proposition in hand we pose the following specific form of Co
 \begin{conjecture}
   \label{conj:affine}
   Let $B$ be an acyclic skew-symmetrizable matrix whose Cartan companion $A$ is of affine type.
-  Let $x_{i;t} \in \cA_{\Bdp}$ be any regular cluster variable and $\lambda_{i;t} \in P$ its $\bfg$-vector.
-  Then in $\cA_{\Bdp} \cong \kk[G^{c,c^{-1}}]$, $x_{i;t}$ is the restriction of the level zero minor $\Delta_{\lambda_{i;t}}$.
+  Let $x_{i;t} \in \cA_{\Bdp}$ be any regular cluster variable and $\gv_{i;t} \in P$ its $\bfg$-vector.
+  Then in $\cA_{\Bdp} \cong \kk[G^{c,c^{-1}}]$, $x_{i;t}$ is the restriction of the level zero minor $\Delta_{\gv_{i;t}}$.
 \end{conjecture}
 
 While the combinatorics we used to prove Conjecture~\ref{conj:affine} in type $A_{n-1}^{\!(1)}$ is not available in general, in some types it is possible to compute the relevant minors by hand.
@@ -2117,16 +2133,16 @@ When $Q$ is an acyclic orientation of an $n$-cycle as in Section~\ref{sec:rigidr
 That is, $\Qrep_\eta$ consists of a one-dimensional vector space at each vertex of $Q$, with arrows acting by isomorphisms such that the monodromy around $Q$ is equal to $\eta$.
 The dimension vector of $\Qrep_\eta$ is the minimal imaginary root $\delta$, and if $i_1<\cdots<i_m$ and $o_1<\cdots < o_m$ denote the sinks and sources of $Q$, its $\bfg$-vector is 
 \[
-  \bfg(\Qrep_\eta) = \sum_{j=1}^m \omega_{o_j} - \omega_{i_j}.
+  \grep(\Qrep_\eta) = \sum_{j=1}^m \omega_{o_j} - \omega_{i_j}.
 \]
 The cluster character of $\Qrep_\eta$ is independent of $\eta$, and we refer to the resulting element of the generic basis as the homogeneous element.
 
 \begin{theorem}
   \label{thm:homogeneous}
-  In $\cA_{\Qdp} \cong \kk[\widetilde{LSL}_n^{c,c^{-1}}]$ the homogeneous element $x_{\Qrep_\eta}$ is the restriction of the level zero minor $\Delta_{\bfg(\Qrep_\eta)}$.
+  In $\cA_{\Qdp} \cong \kk[\widetilde{LSL}_n^{c,c^{-1}}]$ the homogeneous element $x_{\Qrep_\eta}$ is the restriction of the level zero minor $\Delta_{\grep(\Qrep_\eta)}$.
 \end{theorem}
 \begin{proof}
-  Similar to Lemma~\ref{lem:regulargvectors}, we have $\bfg(M_\eta) = \omega_S$, where
+  Similar to Lemma~\ref{lem:regulargvectors}, we have $\grep(\Qrep_\eta) = \omega_S$, where
   \[
     S=[i_1,o_1-1] \cup [i_2,o_2-1] \cup \cdots \cup [i_m,o_m-1] \subset \ZZ_n.
   \]
@@ -2149,8 +2165,8 @@ The cluster character of $\Qrep_\eta$ is independent of $\eta$, and we refer to 
     A = \begin{bmatrix} 2 & -n \\ -n & 2 \end{bmatrix}
   \]
   and $c = s_1 s_2$.
-  Let us formally compute the minor $\Delta_{\bfg(M)}$, where $\bfg(M) = (n-1) \omega_2 - \omega_1$.
-  That is, we suppose there exists a representation $V(\bfg(M))$ of $G$ having a one-dimensional extremal weight space of weight $\bfg(M)$ (i.e. this weight space is either highest- or lowest-weight for both simple root subgroups of $G$).
+  Let us formally compute the minor $\Delta_{\grep(\Qrep)}$, where $\grep(\Qrep) = (n-1) \omega_2 - \omega_1$.
+  That is, we suppose there exists a representation $V(\grep(\Qrep))$ of $G$ having a one-dimensional extremal weight space of weight $\grep(\Qrep)$ (i.e. this weight space is either highest- or lowest-weight for both simple root subgroups of $G$).
 \end{remark}
 
 % bibliography
