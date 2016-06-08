@@ -62,7 +62,7 @@ urlcolor=blue]{hyperref}
 \newcommand{\bfi}{\mathbf{i}}
 
 \newcommand{\grep}{\bfg}
-\newcommand{\gv}{\lambda}
+\newcommand{\gv}{\omega}
 \newcommand{\cv}{\alpha}
 
 \newcommand{\cE}{\mathcal{E}}
@@ -101,7 +101,7 @@ urlcolor=blue]{hyperref}
 \newcommand{\dol}[1]{\overline{\overline{#1}}}
 \newcommand{\Bpr}{\widetilde{B}_{pr}}
 \newcommand{\Bdp}{\widetilde{B}_{dp}}
-\newcommand{\Qdp}{Q_{dp}}
+\newcommand{\Qdp}{\widetilde{Q}_{dp}}
 \newcommand{\Qrep}{M}
 \newcommand{\loopvar}{u}
 \newcommand{\Zidx}{\ell}
@@ -243,7 +243,7 @@ The relevant representations are of the form $\big(\!\bigwedge^{\!k}\kk^n\big)[\
 These bases let us compute the restrictions to $G^{c,c^{-1}}$ of the level zero minors appearing in (2) as weighted sums over collections of pairwise disjoint paths through a directed network on the cylinder, following similar constructions in \cite{GSV12,FM14}.
 When $Q$ is an acyclic orientation of an $n$-cycle, its regular representations likewise have a simple combinatorial description, and one can construct by hand a bijection between their subrepresentations and collections of paths in the relevant network.
 
-A fundamental aspect of the correspondence of Theorem \ref{thm:maintheorem} is that the labeling of cluster variables by $\bfg$-vectors corresponds directly to the labeling of minors by their associated weight $\lambda$. 
+A fundamental aspect of Theorem \ref{thm:maintheorem} is that the labeling of cluster variables by $\bfg$-vectors corresponds directly to the labeling of minors by their associated weight $\lambda$. 
 The $\bfg$-vector of a cluster variable is a particular element of $\ZZ^{|Q_0|}$, and distinct cluster variables have distinct $\bfg$-vectors. In terms of the quiver representation associated to a cluster variable, the $\bfg$-vector records the factors in a minimal injective copresentation. 
 For acyclic $Q$, we identify the $\bfg$-vector lattice $\ZZ^{|Q_0|}$ with the weight lattice of $G$ by taking the initial $\bfg$-vectors to the fundamental weights.
 We show this identifies the $\bfg$-vector of any cluster variable appearing in Theorem \ref{thm:maintheorem} with the weight of the associated minor. In particular, given a regular cluster variable the $\bfg$-vector/weight correspondence provides an ansatz for which minor one should expect that variable to coincide with; this ansatz is implicitly used in the proof of (2). 
@@ -260,7 +260,8 @@ A deficiency of proving (2) by analyzing each regular cluster variable directly 
 \end{conjecture}
 
 In addition to verifying the conjecture for all Coxeter elements when $G$ is of type $A_n^{(1)}$, we check a finite list of other affine types, see Section~\ref{sec:othertypes}.
-In any affine type, the regular cluster variables are finite in number and can be explicitly computed. In forthcoming work of the first author it is shown that their $\bfg$-vectors correspond to weights in the complement of the Tits cone and its negative \cite{RS16}. 
+In any affine type, the regular cluster variables are finite in number and can be explicitly computed. 
+In forthcoming work of the second author compelling evidence is given that their $\bfg$-vectors correspond to weights in the complement of the Tits cone and its negative \cite{RS16}. 
 In particular, it follows that if these cluster variables are restrictions of minors, they must come from an explicitly identifiable level zero representation. 
 The types checked in Section~\ref{sec:othertypes} are essentially the ones where these minors can be evaluated on $G^{c,c^{-1}}$ knowing only the character of this representation.
 Beyond finite and affine types, general weight representations of $G$ are not well-understood and the conjecture is much more speculative (though we note a suggestive formal calculation in Remark 4.13). 
@@ -268,7 +269,7 @@ Beyond finite and affine types, general weight representations of $G$ are not we
 Finally, in type $A_{n}^{\!(1)}$ the following extension of Theorem~\ref{thm:maintheorem} also holds.
 There is a one-parameter family of quiver representations whose dimension vector is the primitive imaginary root.
 The cluster character of a generic element of this family is not a cluster variable, but is an element of the generic basis \cite{Dup12} (and at least for $n=1$ of other standard canonical bases as well \cite{BZ14,GHKK14}).
-We show this element too is a level zero generalized minor; with this in mind it is natural to further ask which canonical basis elements other than cluster variables are generalized minors.
+We show that this element too is a level zero generalized minor; with this in mind it is natural to further ask which canonical basis elements other than cluster variables are generalized minors.
 
 %%%%%%%%%%%%%%%%%%%%%%
 \textsc{Acknowledgments}
@@ -286,7 +287,7 @@ We fix throughout an algebraically closed field $\kk$ of characteristic zero.
 
 %%%%%%%%%%%%%%%%%%%%%%
 \subsection{Cluster Algebras}\label{sec:clusteralgebras}
-An $n\times n$ matrix $B$\sayDR{At what point do we want to say we need an integer matrix?  Maybe when we introduce $\cA_{\tilde B}$?  Everything that comes before that doesn't really require it}\sayHW{I think it works as is: we *define* an exchange matrix to be integral} is said to be \newword{skew-symmetrizable} if it can be transformed to a skew-symmetric matrix through multiplication by a diagonal matrix.
+An $n\times n$ matrix $B$ is said to be \newword{skew-symmetrizable} if it can be transformed to a skew-symmetric matrix through multiplication by a diagonal matrix.
 For $m \geq n$, the \newword{principal part} of an $m \times n$ matrix is the submatrix formed by its first $n$ rows.
 An \newword{exchange matrix} $\widetilde B$ is an $m\times n$ integer matrix whose principal part $B$ is skew-symmetrizable.
 We will refer to such a $\widetilde B$ as an \newword{extension} of $B$.
@@ -336,14 +337,16 @@ We write $C_t^B$ and $G_t^B$ for the matrices whose $i$-th columns are $\cv_{i;t
 To define these vectors, consider the exchange matrix $$\Bpr := \begin{bmatrix} B \\ Id_n \end{bmatrix},$$ which is said to have \newword{principal coefficients}.
 For $t\in\TT$, if $\Bpr^t$ is the exchange matrix obtained by iterated mutation from $\Bpr^{t_0}=\Bpr$, then $C_t^B$ is defined to be the bottom $n \times n$ submatrix of $\Bpr^t$.
 
-Given the matrix of $\bfc$-vectors at a given $t\in\TT$, we may define the matrix of $\bfg$-vectors at the same vertex $t$ by
+Given the matrix of $\bfc$-vectors at $t\in\TT$, we may define the matrix of $\bfg$-vectors at the same vertex $t$ by
 \begin{equation}
   \label{eq:g-vectors_from_c-vectors}
   (G_t^B)^T = (C_t^{-B^T})^{-1},
 \end{equation}
 where $B^T$ is the transpose of $B$.
-Note that this is not the the standard definition, but the above characterization (due to \cite[Theorem 1.2]{NZ12} and the sign-coherence result of \cite{DWZ10,GHKK14}) is what we will use in Section~\ref{sec:acyclic_belt}.
-The basic role of $\bfg$-vectors is that they provide natural labels of cluster variables: if $\widetilde{B}$ is of full rank, then two cluster variables $x_{i;t}$ and $x_{j;t'}$ coincide in $\cA_{\widetilde B}$ if and only if $\gv_{i;t}$ and $\gv_{j;t'}$ coincide in $\ZZ^n$ \cite{DWZ10,GHKK14}.\sayHW{I request verification that this is the correct statement/attribution} 
+Note that this is not the standard definition, but the above characterization (due to \cite[Theorem 1.2]{NZ12} and the sign-coherence result of \cite{DWZ10,GHKK14}) is what we will use in Section~\ref{sec:acyclic_belt}.
+The basic role of $\bfg$-vectors is that they provide natural labels of cluster variables: if $\widetilde{B}$ is of full rank, then two cluster variables $x_{i;t}$ and $x_{j;t'}$ coincide in $\cA_{\widetilde B}$ if and only if $\gv_{i;t}$ and $\gv_{j;t'}$ coincide in $\ZZ^n$ \cite{DWZ10,GHKK14}.
+\sayHW{I request verification that this is the correct statement/attribution} 
+\saySS{It may be shooting at a fly with a cannon but definitely the existence of basis indexed by g-vectors implies what we claim here. Right now I cant think of a better reference.}
 \begin{remark}
   The duality between $\bfg$-vectors and $\bfc$-vectors is analogous to the duality between weights and coroots.
   A precise analogy will be drawn in Section~\ref{sec:acyclic_belt}.
@@ -354,7 +357,10 @@ In other words, $B$ is acyclic if there is a permutation $\sigma \in S_n$ such t
 This terminology is justified by the skew-symmetric case: the data of a skew-symmetric matrix $B$ is the same as that of a quiver $Q := Q_B$ with vertices indexed by the columns of $B$ and $[-b_{ij}]_+$ arrows from vertex $i$ to vertex $j$; the skew-symmetric matrix is acyclic exactly when this quiver has no oriented cycles.
 We call an exchange matrix acyclic if its principal part is acyclic.
 
-Given a quiver $Q$, we simply write $\cA_Q$ for the cluster algebra associated to its signed adjacency matrix $B$ as above. Similarly, the data of an extension $\widetilde{B}$ of $B$ is equivalent to the data of a \newword{framed quiver} $\widetilde{Q}$. This means a quiver obtained from $Q$ by adjoining $m -  n$ \newword{frozen vertices}. These have no arrows between them and the arrows connecting them to the orginal vertices are determined in the obvious way by the non-principal part of $\widetilde{B}$.
+Similarly, the data of an extension $\widetilde{B}$ of a skew-symmetric $B$ is equivalent to the data of a \newword{framed quiver} $\widetilde{Q}$.
+This means a quiver obtained from $Q$ by adjoining $m -  n$ \newword{frozen vertices}.
+These have no arrows between them and the arrows connecting them to the orginal vertices are determined in the obvious way by the non-principal part of $\widetilde{B}$.
+Given a quiver $Q$, we simply write $\cA_Q$ for the cluster algebra associated to its signed adjacency matrix $B$ as above.
 
 \begin{figure}%[h]
   \centering
@@ -447,6 +453,7 @@ Call a representation $M$ \newword{preprojective} if $\tau^k(M)$ is projective f
 When $Q$ is an orientation of a simply-laced finite-type Dynkin diagram, the injective representations are preprojective (hence projective representations are postinjective) and there are no regular representations.
 
 We write $\cQ$ for the \newword{Grothendieck group} of $\rep_\kk(Q)$; it is the abelian group freely generated by the classes $[S_i]$ of the vertex-simple representations of $Q$. 
+\saySS{One minor point: do we need to identify the root lattice with the Grotendieck group? the reason why I am asking is that we already identify the space of c-vectors with roots and I would avoid the false connclusion that d-vectors and c-vectors coincide. At the moment we use this only in the proof of proposition 4.1} 
 For $M\in\rep_\kk(Q)$ we call $[M]\in\cQ$ its \newword{dimension vector}, as $[\Qrep] = \sum_i \dim(M_i)[S_i]$. 
 Since $\rep_\kk(Q)$ is hereditary, the \newword{Euler-Ringel form} \[\langle M,N\rangle:=\dim_\kk\Hom(M,N)-\dim_\kk\Ext^1(M,N)\] only depends on the dimension vectors of $M$ and $N$, hence defines a bilinear form on $\cQ$. 
 In particular, the it is completely determined by the pairings of vertex-simple representations:
@@ -475,7 +482,7 @@ is an injective resolution of $M$, then $\grep(\Qrep)$ is the element of $\ZZ^n$
 Below we write $x^{\grep(\Qrep)}$ for the monomial $\prod x_j^{b_j - a_j}$.
 
 \begin{remark}
-As $Q$ is acyclic, it has an associated symmetric Cartan companion $A$ as discussed in Section~\ref{sec:Coxeterdbc}. We will freely identify the $\bfg$-vector lattice $\ZZ^n$ with the weight lattice $P$ associated to $A$ by taking the $j$th standard basis vector to the fundamental weight $\omega_j$. Thus, for example, $\grep(\Qrep) = \sum (b_j - a_j)\omega_j$ in the above definition. 
+As $Q$ is acyclic, it has an associated symmetric Cartan companion $A$ as discussed in Section~\ref{sec:Coxeterdbc}. We will freely identify the $\bfg$-vector lattice $\ZZ^n$ with the weight lattice $P$ associated to $A$ by taking the $j$-th standard basis vector to the fundamental weight $\omega_j$. Thus, for example, $\grep(\Qrep) = \sum (b_j - a_j)\omega_j$ in the above definition. 
 \end{remark}
 
 Given a dimension vector $e = \sum_i e_i[S_i] \in \NN^n \subset \cQ$, the \newword{quiver Grassmannian} $\Gr_eM$ is the variety of $e$-dimensional submodules of $M$.
@@ -490,10 +497,12 @@ We write $\chi(\Gr_eM)$ for its Euler characteristic (formally, in \'etale cohom
 \end{definition}
 
 \begin{theorem}\label{thm:CCbijection}\cite{CC,CK,FZ07}
-Suppose that $\widetilde{Q}$ has no arrows whose source is a frozen vertex (equivalently, the non-principal part of $\widetilde{B}$ has only positive entries). Then the assignment $M \mapsto x_M$ defines a bijection between the set of rigid indecomposable representations of $Q$ and the set of non-initial cluster variables in $\cA_{\widetilde{Q}}$.  Moreover, the $\bfg$-vector of the cluster variable $x_M$ is equal to $\grep(M)$.
+Suppose that $\widetilde{Q}$ has no arrows whose source is a frozen vertex (equivalently, the non-principal part of $\widetilde{B}$ has only positive entries).
+Then the assignment $M \mapsto x_M$ defines a bijection between the set of rigid indecomposable representations of $Q$ and the set of non-initial cluster variables in $\cA_{\widetilde{Q}}$.
+Moreover, the $\bfg$-vector of the cluster variable $x_M$ is equal to $\grep(M)$.
 \end{theorem}
 
-The positivity assumption on the non-principal part of $\widetilde{B}$ is only to keep the formulas from being more complicated than we need. More generally, cluster characters and cluster characters will be related by a monomial determined by the separation of additions result of \cite{FZ07}.\sayHW{This is the correct statement right?}
+The positivity assumption on the non-principal part of $\widetilde{B}$ is only to keep the formulas from being more complicated than we need. More generally, cluster variables and cluster characters will be related by a monomial determined by the separation of additions result of \cite{FZ07}.\sayHW{This is the correct statement right?}
 
 With Theorem~\ref{thm:CCbijection} in hand we refer to non-initial cluster variables of $\cA_{\widetilde{Q}}$ as preprojective, postinjective, or regular if they come from a quiver representation of the corresponding type. This is compatible with the discussion of the acyclic belt in Section~\ref{sec:clusteralgebras}:
 
@@ -530,6 +539,7 @@ For $t \in \kk^\times$ and $1 \leq i \leq n$ we adopt the notation
   \quad
   \dol{s_{i}} := \varphi_i \begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix},
 \end{gather}
+\saySS{We never introduced the notation for coroots that we just used. Do we need to do something or do we think of it just as a symbol?}
 By extension for any $w$ in the Weyl group $W$ of $\widehat{G}$ we set \[\ol{w} := \ol{s_{i_1}}\cdots\ol{s_{i_k}}, \quad \quad \dol{w} := \dol{s_{i_1}}\cdots\dol{s_{i_k}},\] where $s_{i_1}\cdots s_{i_k}$ is any reduced word for $w$.
 We write $H$ for the ($n$-dimensional) Cartan subgroup of $G$, likewise $\widehat{H}$ is the Cartan subgroup of $\widehat{G}$ (it is isomorphic to $H \times (\kk^\times)^{\corank(A)}$).
 We let $\kk[\widehat{G}]$ denote the (complete\sayDR{this means functions on $\widehat G$ are formal power series right?  why is it necessary?}\sayHW{The most natural notion of ``coordinate ring of an ind-variety'' is the limit of the coordinate rings of its finite-dim'l pieces; this ring has a natural topology, and pointing it out here is really just a way of making sure ``we're all talking about the same ring''. B/c, e.g. Kac-Peterson also talk about ``strongly regular'' functions on $G$, which form a proper (noncomplete) subalgebra} topological) algebra of regular functions on $\widehat{G}$.
@@ -548,13 +558,13 @@ By a \newword{weight representation} $V$ of $\widehat{G}$ we will always mean an
 of finite-dimensional weight spaces under the action of $\widehat{H}$.
 Note that the weight spaces of $V$ as a $G$-representation are not necessarily finite-dimensional, as the weight decomposition of the $\widehat{H}$-action is finer than that of the $H$-action.
 
-A weight $\lambda \in \widehat{P}$ is dominant if $(t^{\alpha_i^\vee})^\lambda$ is a nonnegative power of $t$ for all $1 \leq i \leq n$, and we denote the set of dominant weights by $\widehat{P}^+$.
+A weight $\lambda \in \widehat{P}$ is \newword{dominant} if $(t^{\alpha_i^\vee})^\lambda$ is a nonnegative power of $t$ for all $1 \leq i \leq n$, and we denote the set of dominant weights by $\widehat{P}^+$.
 %The cone $\widehat{P}^+ \subset \widehat{P}$ of dominant weights consists of wei
 %Let $\widehat{P}^+=\{\lambda \in \widehat{P}: \lambda(\alpha_i^\vee)>0\} \subset \widehat{P}$ denote the cone of dominant (integral) weights.
 To each $\lambda \in \widehat{P}^+$ is associated an irreducible highest-weight representation $V(\lambda)$ of $\widehat{G}$.
 Similarly, for each $\lambda \in -\widehat{P}^+$ there is an irreducible lowest-weight representation $V(\lambda)$ of $\widehat{G}$.
 For any $w\in W$ and $\lambda\in\pm\widehat{P}^+$, the weight space $V(\lambda)_{w\lambda}$ is one-dimensional and thus we also write $V(w\lambda)$ for the representation $V(\lambda)$.
-The Tits cone $$X = \{w\lambda : w \in W, \lambda \in \widehat{P}^+\}$$ is the set of weights which can be obtained from a dominant weight by the action of the Weyl group.
+The \newword{Tits cone} $$X = \{w\lambda : w \in W, \lambda \in \widehat{P}^+\}$$ is the set of weights which can be obtained from a dominant weight by the action of the Weyl group.
 Thus each weight $\lambda\in X \cup -X$ determines an irreducible (highest- or lowest-) weight representation $V(\lambda)$ of $\widehat{G}$ whose weight space $V(\lambda)_\lambda$ is one-dimensional.
 Note that highest- and lowest-weight representations are distinct classes unless $A$ is of finite-type.
 
@@ -687,6 +697,7 @@ The identification with minors then follows in Section~\ref{sec:hlwminors} by co
 
 Recall that since $B$ is acyclic there exists a permutation $\sigma\in S_n$ such that $b_{\sigma_i,\sigma_j}\geq 0$ whenever $i<j$.
 To simplify our notation in this section, we will assume that $\sigma$ is the identity permutation (no generality is lost, since we can always relabel the rows and columns of $B$ to achieve this). Moreover, we specifically assume that the Cartan companion $A$ of $B$ is not of finite type, the main claims being already established in \cite{YZ08} for the case of a simply-connected semisimple group.
+Finally, without loss of generality, we will assume that $A$ is not block decomposable.
 
 %%%%%%%%%%%%%%%
 \subsection{Cluster variables in the acyclic belt}
@@ -830,7 +841,6 @@ With the preceding results in hand, we are ready to describe the cluster variabl
 
 \begin{theorem}
   \label{thm:vars_and_rels_in_bipartite_belt}
-  \saySS{This can be downgraded to a proposition if you prefer.}
   The preprojective and postinjective cluster variables of $\cA_{\Bdp}$ are parametrized by the sets of $\bfg$-vectors
   \[
     \Pi_{\textit{proj}}:=\big\{c^k\omega_i: i \in [1,n], k>0\big\}
@@ -899,7 +909,9 @@ for $1 \leq j \leq n$.
   \begin{equation}\label{eq:generic_factorization}
     g = x_{\ol{1}}(t_{\ol{1}}) \cdots x_{\ol{n}}(t_{\ol{n}}) h x_n(t_n) \cdots x_1(t_1)
   \end{equation}
-  for $h \in H$ and $t_i \in \kk^\times$, then  \sayHW{Recheck the second line now that lowest-weight minors have the correct definition}
+  for $h \in H$ and $t_i \in \kk^\times$, then  
+  \sayHW{Recheck the second line now that lowest-weight minors have the correct definition}
+  \saySS{I think it is correct, at least our code says so}
   \begin{gather}
     \Delta^{c^k\omega_j}_{c^{k+1}\omega_j}(g) = h^{c^k\omega_j}\prod_{i=1}^n t_{i}^{[c^k\beta_j^+:\alpha_i]},
     \quad
@@ -1217,14 +1229,15 @@ and all arrows acting by invertible maps except the arrow between $k$ and $k-1$ 
   Let $p$ and $q$ be the numbers of clockwise and counterclockwise arrows, respectively.
   Then we have a decomposition $$\cR \cong \cR_{nil}^p \oplus \cR_{nil}^q \oplus \cR_{inv},$$ where $\cR_{nil}^p$ (resp. $\cR_{nil}^q$) is equivalent to the category of nilpotent representations of an oriented $p$-cycle (resp. $q$-cycle), and $\cR_{inv}$ is equivalent to the category of invertible representations of the Jordan quiver (this is the quiver with a single vertex and a single arrow from that vertex to itself, and an invertible representation is one for which this arrow acts by an invertible linear map).
 
-  Any invertible representation of the Jordan quiver has nontrivial self-extensions: if $X$ is an invertible matrix defining such a representation, one such self-extension is defined by the block upper triangular matrix 
+  Any invertible representation of the Jordan quiver has nontrivial self-extensions: if $X$ is an invertible matrix defining such a representation $\Qrep$, then the block upper triangular matrix 
   \[
-    \begin{bmatrix} X & Id \\ 0 & X \end{bmatrix}.
+    \begin{bmatrix} X & Id \\ 0 & X \end{bmatrix}
   \]
+  defines a self-extension of $\Qrep$.
   In particular, $\cR_{inv}$ does not contain any rigid representations.
 
   Now consider the category $\cC^p$ of nilpotent representations of an oriented $p$-cycle.
-  Write $\tilde\cC$ for the category of finite-dimensional representations of the equi-oriented $A_{\infty}$ quiver (i.e. its vertices are labelled by $\ZZ$, and for all $i \in \ZZ$ there is an arrow from $i$ to $i+1$).
+  Write $\tilde\cC$ for the category of finite-dimensional representations of the equi-oriented $A_{\infty}$ quiver (i.e. the quiver with vertex set $\ZZ$, and having one arrow from $i$ to $i+1$ for all $i \in \ZZ$).
   For any choice of base point, there is an essentially surjective exact functor $\pi:\tilde\cC\to\cC^p$ given by ``wrapping around'' the $p$-cycle (nilpotency guarantees the essential surjectivity).
   Now consider an indecomposable object $\Qrep$ of $\cC^p$ which is sincere (i.e. $\Qrep_i \neq 0$ for every vertex $i$).
   Given any lift $\tilde \Qrep\in\tilde\cC$ of $\Qrep$, let $\tilde \Qrep'$ be the lift of $\Qrep$ obtained by shifting $\tilde \Qrep$ to the right by $p$ vertices.
@@ -1239,7 +1252,7 @@ and all arrows acting by invertible maps except the arrow between $k$ and $k-1$ 
   Thus any indecomposable rigid regular representation of $Q$ is the image of an indecomposable representation of such a subquiver -- in particular, it is isomorphic to $\Qrep_{[k,\ell]}$ for a proper subset $[k,\ell]\subsetneq\ZZ_n$.
 
   It remains to derive the condition on sinks and sources in $[k,\ell]$.
-  We identify the Grothendieck group of $\rep_\kk(Q)$ with the root lattice $\cQ$ of type $A_{n-1}^{\!(1)}$, and write $\delta\in\cQ$ for the minimal positive imaginary root.
+  We identify the Grothendieck group of $\rep_\kk(Q)$ with the root lattice $\cQ$ of type $A_{n-1}^{\!(1)}$, and write $\delta\in\cQ$ for the primitive positive imaginary root.
   Recall that $\Qrep \in \rep_\kk(Q)$ is regular if and only if the Euler-Ringel pairing $\langle\delta,\Qrep\rangle$ vanishes \cite[Sec. 7]{CrBo92}.
   Writing $I \subset \ZZ_n$ (resp. $O \subset \ZZ_n$) for the subset of sinks (resp. sources) in $Q$, we have  
   \[
@@ -1308,7 +1321,7 @@ In Section~\ref{sec:networks} it will be useful to rewrite regular $\bfg$-vector
     = 
     \begin{cases} 
       [\ell,k-2] \cup [i_1, o_1 -1] \cup \cdots \cup [i_m, o_m - 1] & \text{$i_1<o_1$ in $[k,\ell]$}\\ 
-      [i_1,o_2-1] \cup \cdots \cup [i_m,\ell] & \text{$o_1 < i_1$ in $[k,\ell]$.}
+      [k,o_1-1] \cup [i_1,o_2-1] \cup \cdots \cup [i_m,\ell] & \text{$o_1 < i_1$ in $[k,\ell]$.}
     \end{cases}
   \]
 \end{lemma}
@@ -1473,10 +1486,12 @@ As in Section~\ref{sec:rigidregular} we fix a cyclic $\ZZ_n$-labelling of the ve
   
   For $1 \leq i \leq n$, the networks associated to $x_i(t)$ and $x_{\ol{\imath}}(t)$ contain $n$ horizontal \newword{levels} running from the incoming boundary to the outgoing boundary.
   These are labelled by $\ZZ_n$ compatibly with their cyclic ordering and all have weight $1$.
-  There is also a vertical \newword{bridge} having weight $t$ running between the $(i-1)^{st}$ level and the $i^{th}$ level; for $x_i(t)$ this bridge is oriented from the $(i-1)^{st}$ level to the $i^{th}$ level, while for $x_{\ol{\imath}}(t)$ this bridge is oriented from the $i^{th}$ level to the $(i-1)^{st}$.
+  There is also a vertical \newword{bridge} having weight $t$ running between the $(i-1)$-st level and the $i$-th level; for $x_i(t)$ this bridge is oriented from the $(i-1)$-st level to the $i$-th level, while for $x_{\ol{\imath}}(t)$ this bridge is oriented from the $i$-th level to the $(i-1)$-st.
+  \saySS{Can you check these: it appears to me that figure 4.1 orients bridges in the opposite way}
+  \saySS{I changed $i^{th}$ to $i$-th to uniformize it with the rest but I kind of liked $i^{th}$ better.}
   
   The network associated to the Cartan factor $h$ again has $n$ horizontal levels running from the incoming boundary to the outgoing boundary and labelled by $\ZZ_n$.
-  The $i^{th}$ level is of weight $h_{i+1}h_{i}^{-1}$.
+  The $i$-th level is of weight $h_{i+1}h_{i}^{-1}$.
   
   The network $\cN^{u,v}$ is now defined by gluing these constituent networks together in the order they appear in Equation~\ref{eq:uvfactorization} (see Figure~\ref{fig:totalnetwork}).
   Given two adjacent factors, the incoming boundary of the left is glued to the outgoing boundary of the right so that the horizontal levels of each are aligned.
@@ -1566,7 +1581,7 @@ Given $S \subsetneq \ZZ_n$, let
   \sum_{i \in S} \omega_{i+1} - \omega_i \in P^\circ \subset \widehat{P}.
 \] 
 Recall that $P^\circ$, the weight lattice of $SL_n$, is contained in the complement of both the Tits cone and its negative in $\widehat{P}$.
-The level zero representation $V(\omega_S)$ is $\big(\bigwedge^{|S|}\kk^{n-1}\big)[z^{\pm 1}]$ with its natural $\widetilde{LSL}_n$ action.
+The level zero representation $V(\omega_S)$ is $\big(\bigwedge^{|S|}\kk^{n-1}\big)[\loopvar^{\pm 1}]$ with its natural $\widetilde{LSL}_n$ action.
 Definition~\ref{def:network} is motivated by the following observation:
 
 \begin{proposition}
@@ -1590,7 +1605,7 @@ Definition~\ref{def:network} is motivated by the following observation:
 \end{proof}
 
 \begin{example}
-  We compute the value of the generalized minor $\Delta_{\omega_1-\omega_2}$ on the generic element $g$ represented by the network of \Cref{fig:totalnetwork}.
+  We use \Cref{prop:minorsfrompaths} to compute the value of the generalized minor $\Delta_{\omega_1-\omega_2}$ on the generic element $g$ represented by the network of \Cref{fig:totalnetwork}.
   In this case $S=\{2,3\}$ and we get
   \[
     \delimitershortfall -1pt 
@@ -1978,7 +1993,7 @@ the latter following by reindexing vertices of $Q$ in the results of Lemma~\ref{
       If $i_{r-1} \notin E$, let $P'_r=P_{r-1}$.
       Otherwise let $o'_r$ be the largest index in $[i_{r-1},o_r-1]$ such that $[i_{r-1},o'_r]\subset E$.
       We obtain $P'_r$ from $P_{r-1}$ by, for each $j\in[i_{r-1},o'_r]$, diverting the path that stays on level $j$ so that it traverses the bridges of weights $t_j$ and $t_{\ol{\jmath}}$.
-      By inspection of Figure 4.3 and their counterparts with $t_{\ol{\jmath}}$, the resulting collection $P'_r$ will remain pairwise disjoint.
+      By inspection of \Cref{fig:quivernetwork}  and their counterparts with $t_{\ol{\jmath}}$, the resulting collection $P'_r$ will remain pairwise disjoint.
   
       If $P'_r \neq P_{r-1}$, then using Equation~\ref{eq:typeAyhat} we have
       \[
@@ -1993,7 +2008,7 @@ the latter following by reindexing vertices of $Q$ in the results of Lemma~\ref{
       If $i_r \notin E$, let $P_r = P'_r$.
       Otherwise let $o''_r$ be the smallest index in $[o_r,i_r]$ such that $[o''_r,i_r]\subset E$.
       We obtain $P_r$ from $P'_r$ by diverting the path that stays on level $i_r$ so that it traverses every bridge of weight $t_j$ and $t_{\ol{\jmath}}$ for $j\in[o''_r,i_r]$.
-      By inspection of Figure 4.3 and their counterparts with $t_{\ol{\jmath}}$, the resulting collection $P_r$ will remain pairwise disjoint since $[o''_r,i_r]\cap\partial_{in}P'_r=\{i_r\}$ and when $o''_r=o_r$ (i.e. $o_r\in E$) we have $o_r-1\in\beta(P'_r)$.
+      By inspection of \Cref{fig:quivernetwork} and their counterparts with $t_{\ol{\jmath}}$, the resulting collection $P_r$ will remain pairwise disjoint since $[o''_r,i_r]\cap\partial_{in}P'_r=\{i_r\}$ and when $o''_r=o_r$ (i.e. $o_r\in E$) we have $o_r-1\in\beta(P'_r)$.
   
       If $P_r \neq P'_r$, we have 
       \[
@@ -2018,19 +2033,9 @@ the latter following by reindexing vertices of $Q$ in the results of Lemma~\ref{
 \label{sec:othertypes}
 
 We anticipate that the realization of regular cluster variables as level zero minors is not specific to type $A_{n-1}^{\!(1)}$.
-This is suggested, for example, by the following fact about $\bfg$-vectors in affine types:
+Indeed, in affine types, the fact that their $\bfg$-vectors lies on the boundary of the Tits cone and its opposite is strongly suggested by both the combinatorial construction of affine generalized associahedra \cite{RS16} and by Cambrian frameworks \cite{RS15}.
 
-\begin{proposition}
-  Let $B$ be an acyclic skew-symmetrizable matrix whose Cartan companion $A$ is of affine type.
-  Let $x_{i;t} \in \cA_B$ be a non-initial cluster variable with $\bfg$-vecotr $\gv_{i;t}\in P$.
-  Then the level of $V(\gv_{i;t})$ is greater than, equal to, or less than zero exactly when $x_{i;t}$ is preprojective, regular, or postinjective, respectively.
-\end{proposition}
-\begin{proof}
-  The claim about preprojective and postinjective cluster variables follows from Theorem~\ref{thm:vars_and_rels_in_bipartite_belt}. 
-  The claim about regular cluster variables corresponding to weights of level zero follows from the results in \cite{RS16} together with the characterization of the boundary of the Tits cone as the subspace of all weights that evaluate to 0 on immaginary roots.
-\end{proof}
-
-With the preceding proposition in hand we pose the following specific form of Conjecture~\ref{conj:mainconjecture} in affine type:
+With these considerations in hand we pose the following specific form of Conjecture~\ref{conj:mainconjecture} in affine type:
 
 \begin{conjecture}
   \label{conj:affine}
@@ -2115,7 +2120,7 @@ In the simplest cases this can be done using only the characters of these repres
   \[
     hx_3(t_3)x_2(t_2)x_1(t_1)v = h^{\omega_2-\omega_1}v + h^{\omega_1 - \omega_2}t_1e_1v + h^{\omega_2-\omega_3}t_1t_2e_2e_1v + h^{\omega_3-\omega_2}t_1t_2t_3e_3e_2e_1v.
   \]
-  From here we can see that the component of $gv$ of weight $\omega_2 - \omega_1$ is equal to $v$ rescaled by 
+  From here we can see that the component of $gv$ of weight $\omega_2 - \omega_1$ is equal to 
   \[
     (h^{\omega_2-\omega_1} + h^{\omega_1 - \omega_2}t_1t_{\ol{1}}e_1 + h^{\omega_2-\omega_3}t_1t_{\ol{1}}t_2t_{\ol{2}}e_2e_1 + h^{\omega_3-\omega_2}t_1t_{\ol{1}}t_2t_{\ol{2}}t_3t_{\ol{3}}e_3e_2e_1)v,
   \]
@@ -2126,13 +2131,14 @@ In the simplest cases this can be done using only the characters of these repres
 %%%%%%%%%%%%%%%%%%%%%%
 \subsection{The Homogeneous Element}
 We conclude with an extension of Theorem~\ref{th:cluster character equals minor} motivated by the theory of canonical bases.
-Cluster monomials form a partial basis of a cluster algebra, and there are various meaningful (and in general different) ways of completing them to a full basis [references].
+Cluster monomials form a partial basis of a cluster algebra, and there are various meaningful (and in general different) ways of completing them to a full basis [references ??].
+\saySS{Add references}
 One approach in line with the considerations of this paper is to form a basis consisting of cluster characters of potentially non-rigid representations.
 By taking the cluster character of a generic representation with each possible $\bfg$-vector, one obtains the generic basis of \cite{Dup12} (which directly generalizes the dual semicanonical basis of Lusztig).
 
 When $Q$ is an acyclic orientation of an $n$-cycle as in Section~\ref{sec:rigidregular}, the simplest example of a non-rigid representation is the representation $\Qrep_\eta$ at the base of a homogeneous tube $\mathcal{T}_\eta$, $\eta \in \kk^*$.
 That is, $\Qrep_\eta$ consists of a one-dimensional vector space at each vertex of $Q$, with arrows acting by isomorphisms such that the monodromy around $Q$ is equal to $\eta$.
-The dimension vector of $\Qrep_\eta$ is the minimal imaginary root $\delta$, and if $i_1<\cdots<i_m$ and $o_1<\cdots < o_m$ denote the sinks and sources of $Q$, its $\bfg$-vector is 
+The dimension vector of $\Qrep_\eta$ is the primitive imaginary root $\delta$, and if $i_1<\cdots<i_m$ and $o_1<\cdots < o_m$ denote the sinks and sources of $Q$, its $\bfg$-vector is 
 \[
   \grep(\Qrep_\eta) = \sum_{j=1}^m \omega_{o_j} - \omega_{i_j}.
 \]
@@ -2153,20 +2159,20 @@ The cluster character of $\Qrep_\eta$ is independent of $\eta$, and we refer to 
 
 \begin{remark}\label{rmk:nonaffinehomelt}
   Theorem~\ref{thm:homogeneous} has an analogue for an arbitrary symmetric Kac-Moody group of rank two, at least formally.
-  Let $Q$ be the $n$-Kronecker quiver: it has two vertices, and $n$ arrows from vertex 2 to vertex 1.
-  Note that all non-initial cluster variables of $\cA_Q$ are either preprojective or postinjective.
+  Let $Q$ be the $r$-Kronecker quiver: it has two vertices, and $r$ arrows from vertex 2 to vertex 1.
+  Note that all non-initial cluster variables of $\cA_{\Qdp}$ are either preprojective or postinjective.
   However, it contains a homogeneous element $x_M$, where $M$ is any representation with $M_1$ and $M_2$ one-dimensional and at least one arrow acting by an isomorphism.
   Using the obvious injective resolution of $M$ and the fact that its only nontrivial proper submodule is $S_1$, we have
   \[
-    x_M = x_1^{-1}x_2^{n-1}(1 + \hat{y}_1 + \hat{y}_1 \hat{y}_2).
+    x_M = x_1^{-1}x_2^{r-1}(1 + \hat{y}_1 + \hat{y}_1 \hat{y}_2).
   \]
   
   On the other hand, we have $\cA_{\Qdp} \cong \kk[G^{c,c^{-1}}]$, where $G$ is the Kac-Moody group with Cartan matrix 
   \[
-    A = \begin{bmatrix} 2 & -n \\ -n & 2 \end{bmatrix}
+    A = \begin{bmatrix} 2 & -r \\ -r & 2 \end{bmatrix}
   \]
   and $c = s_1 s_2$.
-  Let us formally compute the minor of weight $\grep(\Qrep) = (n-1) \omega_2 - \omega_1$, restricted to $G^{c,c^{-1}}$. 
+  Let us formally compute the minor of weight $\grep(\Qrep) = (r-1) \omega_2 - \omega_1$, restricted to $G^{c,c^{-1}}$. 
 That is, we suppose there exists a representation $V$ of $G$ having a one-dimensional extremal weight space of weight $\grep(\Qrep)$ (i.e. this weight space is either highest- or lowest-weight for every coroot subgroups of $G$). The evaluation of $\Delta_{(V,\grep(M))}$ on a generic element
 \[
 g = x_{\ol{1}}(t_{\ol{1}}) x_{\ol{2}}(t_{\ol{2}})hx_2(t_2)x_1(t_1)
@@ -2178,18 +2184,18 @@ By hypothesis, any $v \in V_{\grep(\Qrep)}$ is a lowest-weight vector for the co
 x_1(t_1)v = v + t_1e_1v.
 \]
 
-Since $v$ is extremal and $e_1v = \ol{s_1}v$ has weight $s_1((n-1) \omega_2 - \omega_1) = \omega_1 - \omega_2$, $e_1v$ is a lowest-weight vector for $\varphi(SL_2)$. As $v$ is highest-weight for $\varphi(SL_2)$, we have
+Since $v$ is extremal and $e_1v = \ol{s_1}v$ has weight $s_1((r-1) \omega_2 - \omega_1) = \omega_1 - \omega_2$, $e_1v$ is a lowest-weight vector for $\varphi(SL_2)$. As $v$ is highest-weight for $\varphi(SL_2)$, we have
 \[
 x_2(t_2)x_1(t_1)v = v + t_1e_1v + t_1t_2e_2e_1v.
 \]
 
 Inspecting the weights involved, we see that
 \[
-hx_2(t_2)x_1(t_1)v = h^{(n-1) \omega_2 - \omega_1}v + h^{\omega_1-\omega_2}t_1e_1v + h^{\omega_2 - (n-1)\omega_1}t_1t_2e_2e_1v.
+hx_2(t_2)x_1(t_1)v = h^{(r-1) \omega_2 - \omega_1}v + h^{\omega_1-\omega_2}t_1e_1v + h^{\omega_2 - (r-1)\omega_1}t_1t_2e_2e_1v.
 \]
-Reversing the above analysis we find that the component of $gv$ of weight $(n-1)\omega_2 - \omega_1$ is equal to $v$ times
+Reversing the above analysis we find that the component of $gv$ of weight $(r-1)\omega_2 - \omega_1$ is equal to $v$ times
 \[
-h^{(n-1) \omega_2 - \omega_1} + h^{\omega_1-\omega_2}t_1t_{\ol{1}} + h^{\omega_2 - (n-1)\omega_1}t_1t_{\ol{1}}t_2t_{\ol{2}}.
+h^{(r-1) \omega_2 - \omega_1} + h^{\omega_1-\omega_2}t_1t_{\ol{1}} + h^{\omega_2 - (r-1)\omega_1}t_1t_{\ol{1}}t_2t_{\ol{2}}.
 \]
 By definition this is $\Delta_{(V,\grep(M))}$. On the other hand, using Lemma~\ref{lemma:coefficients_values} and the definition of $\hat{y}_1$, $\hat{y}_2$ one can check that it is the value of the homogeneous element $x_M$ on $g$. Thus we see that $x_M$ is equal to the restriction of $\Delta_{(V,\grep(M))}$. 
 
