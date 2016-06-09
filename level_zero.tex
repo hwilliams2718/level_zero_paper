@@ -464,7 +464,7 @@ While the vertex $t_\ell$ associated to $\Zidx \in \ZZ$ depends in general on th
   \{x_{i;t_\Zidx}: i \in [1,n], \Zidx \in \ZZ\}
 \end{equation}
 of cluster variables appearing along the above path does not. In fact, this is equal to the set of all cluster variables $x_{i;t}$ for which $\widetilde{B}^t$ is acyclic \cite[Corollary 4]{CK06} (while the proof is only written for the skew-symmetric case, the same argument can be applied in the skew-symmetrizable case).
-We will refer to the non-initial cluster variables $x_{i;t_\Zidx}$ with $\Zidx>0$ (resp. $\Zidx<0$) as \newword{preprojective} (resp. \newword{postinjective}), and to a cluster variable that does not appear along path \ref{eq:path} as \newword{regular}; this terminology is justified by Proposition~\ref{prop:ccvsacyclicbelt}. We note that when $n=2$ there are no regular cluster variables.
+We will refer to the non-initial cluster variables $x_{i;t_\Zidx}$ with $\Zidx>0$ (resp. $\Zidx<0$) as \newword{preprojective} (resp. \newword{postinjective}), and to a cluster variable that does not appear along the path \eqref{eq:path} as \newword{regular}; this terminology is justified by Proposition~\ref{prop:ccvsacyclicbelt}. We note that when $n=2$ there are no regular cluster variables.
 
 For each $t \in\TT$ and $1 \leq i \leq n$ there is an auxiliary pair of integer vectors depending only on the principal part $B$: the \newword{$\bfc$-vector} $\cv_{i;t} \in \ZZ^n$ and the \newword{$\bfg$-vector} $\gv_{i;t} \in \ZZ^n$ \cite{FZ07}.
 We write $C_t^B$ and $G_t^B$ for the matrices whose $i$-th columns are $\cv_{i;t}$ and $\gv_{i;t}$, respectively.
@@ -645,11 +645,11 @@ For example, with respect to such a factorization it is clear that we have $\Del
 In particular, the generalized minors $\Delta_{\omega_i}$ that will be playing the role of initial (mutable) cluster variables evaluate to $h^{\omega_i}$.
 Some similar computations are collected in Lemma~\ref{lemma:coefficients_values}.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%
 \section{Preprojective and postinjective cluster variables as minors}
 \label{sec:preproj}
-In this section we prove that when $B$ is any acyclic skew-symmetrizable matrix, the identification $\cA_{\Bdp} \cong \kk[G^{c,c^{-1}}]$ realizes preprojective and postinjective cluster variables as restrictions of highest- and lowest-weight minors, respectively. 
-We first compute in Section~\ref{sec:acyclic_belt} a list of exchange relations that determine these cluster variables. 
+In this section we prove that when $B$ is any acyclic skew-symmetrizable matrix, the identification $\cA_{\Bdp} \cong \kk[G^{c,c^{-1}}]$ realizes preprojective and postinjective cluster variables as restrictions of highest- and lowest-weight minors, respectively.
+We first compute in Section~\ref{sec:acyclic_belt} a list of exchange relations that determine these cluster variables.
 The identification with minors then follows in Section~\ref{sec:hlwminors} by comparing these relations with restrictions to $G^{c,c^{-1}}$ of the generalized determinantal identities of Proposition~\ref{prop:fundid}.
 
 Recall that since $B$ is acyclic there exists a permutation $\sigma\in S_n$ such that $b_{\sigma_i,\sigma_j}\geq 0$ whenever $i<j$.
@@ -885,11 +885,11 @@ for $1 \leq j \leq n$.
 \end{lemma}
 
 \begin{proof}
-  The first four identities follow easily from considering root strings in $V(\omega_j)$ as in \cite[Proof of equation 3.20]{YZ08}, and we omit an explicit discussion.
+  The first four identities follow easily from considering root strings in $V(\omega_j)$ as in \cite[Proof of Equation 3.20]{YZ08}, and we omit an explicit discussion.
   For example, if $v_{\omega_j}$ is a highest-weight vector of $V(\omega_j)$, then $\Delta^{c\omega_j}_{\omega_j}(g)$ measures the component of $gv_{\omega_j}$ in the weight space $V(\omega_j)_{c \omega_j}$; sequentially considering how each one-parameter subgroup in the factorization can affect this component leads to the given formula.
 
   We derive the first identity of Equation~\eqref{eq:frozen_values}, the second being similar.
-  Plugging Equation~\eqref{eq:positive_cminor_values} into the definition of $\cvar_i(g)$ we obtain 
+  Plugging Equation~\eqref{eq:positive_cminor_values} into the definition of $\cvar_i(g)$ we obtain
   \[
     \cvar_i(g)
     =
@@ -1003,7 +1003,7 @@ for $1 \leq j \leq n$.
     -c^{-1}\left(\omega_j + \sum_{\ell>j} a_{\ell j}\omega_\ell\right)
   \end{equation}
   of weights in $P$.
-  
+
   Multiplying both sides by $s_{j+1}\cdots s_n$ transforms Equation~\eqref{eq:c_inverse_equality} into
   \[
     s_{j+1}\cdots s_n\left(\omega_j + \sum_{\ell<j} a_{\ell j}\omega_\ell\right)
@@ -1055,9 +1055,9 @@ Since a generic element of $G$ factors as $n_- h n_+$, with $n_- \in N_-$, $h \i
   \end{equation}
   is satisfied on $G^{c,c^{-1}}$.
   Comparing with Equation~\eqref{eq:preprojective} establishes that $x_{c^k\omega_i} = \Delta_{c^k \omega_i}$.
-  
-  On the other hand, applying the above argument with $c^{-1}$ in place of $c$ shows that  
-  \begin{equation*} \Delta_{c^{-k}\omega_i} \Delta_{c^{-k-1}\omega_i} = 
+
+  On the other hand, applying the above argument with $c^{-1}$ in place of $c$ shows that
+  \begin{equation*} \Delta_{c^{-k}\omega_i} \Delta_{c^{-k-1}\omega_i} =
     \prod_{j<i}\Delta_{c^{-k}\omega_j}^{-a_{ji}}
     \prod_{j>i}\Delta_{c^{-k-1}\omega_j}^{-a_{ji}}
     +
@@ -1081,10 +1081,10 @@ Since a generic element of $G$ factors as $n_- h n_+$, with $n_- \in N_-$, $h \i
     \prod_{j=1}^n (z_j z_{\ol{\jmath}})^{[c^{-k}\beta_i^-:\alpha_j]}.
   \end{equation}
   In particular, the lowest-weight minors $\Delta_{-c^{-k}\omega_i}$ satisfy Equation~\eqref{eq:postinjective}.
-  
+
   To establish that the indicated minors satisfy Equation~\eqref{eq:plusminus} and thereby conclude the proof, we must show that
-  \begin{equation*} 
-    \Delta_{\omega_i}\Delta_{-\omega_i} 
+  \begin{equation*}
+    \Delta_{\omega_i}\Delta_{-\omega_i}
     =
     \cvar_i \cvar_{\ol{\imath}}
     \prod_{j<i}\Delta_{\omega_j}^{-a_{ji}}
@@ -1285,7 +1285,7 @@ In Section~\ref{sec:networks} it will be useful to rewrite regular $\bfg$-vector
   \]
 \end{lemma}
 
-%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%
 \subsection{Networks}
 \label{sec:networks}
 Recall that the generic element $g$ of any double Bruhat cell $G^{u,v}$ can be factorized as in Equation~\eqref{eq:uvfactorization}.
@@ -1436,16 +1436,16 @@ As in Section~\ref{sec:rigidregular} we fix a cyclic $\ZZ_n$-labelling of the ve
   The edge weights of the network will take values in the Laurent polynomial ring
   \[
     \kk[t_{1}^{\pm1},\dotsc,t_{\ell(v)}^{\pm 1},h_1^{\pm 1},\dotsc,h_{n}^{\pm 1},t_{\ol{1}}^{\pm 1},\dotsc,t_{\ol{\ell(u)}}^{\pm 1}].
-  \] 
+  \]
   We declare one boundary component of the cylinder to be incoming and the other outgoing, and begin by associating a smaller cylindrical network to each factor in Equation~\eqref{eq:uvfactorization} (see Figure~\ref{fig:networks on cylinders}).
-  
+
   For $1 \leq i \leq n$, the networks associated to $x_i(t)$ and $x_{\ol{\imath}}(t)$ contain $n$ horizontal \newword{levels} running from the incoming boundary to the outgoing boundary.
   These are labelled by $\ZZ_n$ compatibly with their cyclic ordering and all have weight $1$.
   There is also a vertical \newword{bridge} having weight $t$ running between the $(i-1)$-st level and the $i$-th level; for $x_i(t)$ this bridge is oriented from the $i$-th level to the $(i-1)$-st level, while for $x_{\ol{\imath}}(t)$ this bridge is oriented from the $(i-1)$-st level to the $i$-th.
 
   The network associated to the Cartan factor $h$ again has $n$ horizontal levels running from the incoming boundary to the outgoing boundary and labelled by $\ZZ_n$.
   The $i$-th level is of weight $h_{i+1}h_{i}^{-1}$.
-  
+
   The network $\cN^{u,v}$ is now defined by gluing these constituent networks together in the order they appear in Equation~\eqref{eq:uvfactorization} (see Figure~\ref{fig:totalnetwork}).
   Given two adjacent factors, the incoming boundary of the left is glued to the outgoing boundary of the right so that the horizontal levels of each are aligned.
 \end{definition}
@@ -1881,7 +1881,7 @@ We will freely use the isomorphism $\cA_{\Qdp} \cong \kk[\widetilde{LSL}_n^{c,c^
   \kk[t_{1}^{\pm1},\dotsc,t_{n}^{\pm 1},h_1^{\pm 1},\dotsc,h_{n}^{\pm 1},t_{\ol{1}}^{\pm 1},\dotsc,t_{\ol{n}}^{\pm 1}]
 \]
 by evaluating them on a generic $g \in \widetilde{LSL}_n^{c,c^{-1}}$ factored as in Equation~\eqref{eq:coxfactorization} (and setting $h_i := h^{\omega_i}$).
-For example, we have 
+For example, we have
 \begin{equation}
   \label{eq:typeAyhat}
   x_i = h_i,\quad\quad \hat{y}_i = t_it_{\ol{\imath}}h_{i-1}^{-1}h_i^2h_{i+1}^{-1},
@@ -1948,7 +1948,7 @@ the latter following by reindexing vertices of $Q$ in the results of Lemma~\ref{
       Otherwise let $o'_r$ be the largest index in $[i_{r-1},o_r-1]$ such that $[i_{r-1},o'_r]\subset E$.
       We obtain $P'_r$ from $P_{r-1}$ by, for each $j\in[i_{r-1},o'_r]$, diverting the path that stays on level $j$ so that it traverses the bridges of weights $t_j$ and $t_{\ol{\jmath}}$.
       By inspection of Figure~\ref{fig:quivernetwork} and their counterparts with $t_{\ol{\jmath}}$, the resulting collection $P'_r$ will remain pairwise disjoint.
-  
+
       If $P'_r \neq P_{r-1}$, then using Equation~\eqref{eq:typeAyhat} we have
       \[
         wt(P'_r)=wt(P_{r-1})\cdot h_{i_{r-1}-1}^{-1}h_{i_{r-1}}h_{o'_r}h_{o'_r+1}^{-1}\prod_{j\in[i_{r-1},o'_r]}(t_jt_{\ol{\jmath}}) = wt(P_{r-1})\prod_{j \in [i_{r-1},o'_r]} \hat{y}_j.
