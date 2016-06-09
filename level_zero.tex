@@ -502,7 +502,7 @@ The basic role of $\bfg$-vectors is that they provide natural labels of cluster 
 \begin{remark}\label{rem:cgrootsweights}
   As our notation is meant to suggest, when $B$ is acyclic and $A$ its Cartan companion we consistently identify the $\bfg$-vector lattice with the weight lattice $P$ of $A$ by taking the initial $\bfg$-vector $\gv_{i;t_0}$ to the fundamental weight $\omega_i$.
   Similarly we identify the $\bfc$-vector lattice with the root lattice $\cQ$ by taking the initial $\bfc$-vector $\cv_{i;t_0}$ to the simple root $\alpha_i$.
-  The duality between $\bfc$- and $\bfg$-vectors expressed in Equation~(\ref{eq:g-vectors_from_c-vectors}) should be interpreted as the duality between weights and coroots (i.e. roots of the Langlands dual).
+  The duality between $\bfc$- and $\bfg$-vectors expressed in Equation~\eqref{eq:g-vectors_from_c-vectors} should be interpreted as the duality between weights and coroots (i.e. roots of the Langlands dual).
 \end{remark}
 
 
@@ -576,10 +576,10 @@ More generally, cluster variables and cluster characters will be related by a mo
 With Theorem~\ref{thm:CCbijection} in hand we refer to non-initial cluster variables of $\cA_{\widetilde{Q}}$ as preprojective, postinjective, or regular if they come from a quiver representation of the corresponding type. This is compatible with the discussion of the acyclic belt in Section~\ref{sec:clusteralgebras}:
 
 \begin{proposition}\label{prop:ccvsacyclicbelt}
-A rigid indecomposable representation $\Qrep$ is preprojective (resp. postinjective) if and only if the cluster variable $x_M$ is of the form $x_{i;t_\Zidx}$ for some $\Zidx > 0$ (resp. $\Zidx < 0$) in the notation of Equation~(\ref{eq:cluster_variables_on_path}).
+A rigid indecomposable representation $\Qrep$ is preprojective (resp. postinjective) if and only if the cluster variable $x_M$ is of the form $x_{i;t_\Zidx}$ for some $\Zidx > 0$ (resp. $\Zidx < 0$) in the notation of Equation~\eqref{eq:cluster_variables_on_path}.
 \end{proposition}
 \begin{proof}
-  Recall that the mutation sequence in Equation~(\ref{eq:path}) defining the node $t_\Zidx$ for $\Zidx>0$ (resp. $\Zidx<0$) proceeds by mutating sinks (resp. sources) of $Q$.  
+  Recall that the mutation sequence in Equation~\eqref{eq:path} defining the node $t_\Zidx$ for $\Zidx>0$ (resp. $\Zidx<0$) proceeds by mutating sinks (resp. sources) of $Q$.  
   By \cite{DWZ10,Ru11}, the first mutation out of a given node always produces the cluster character of a vertex simple representation and mutations of the initial cluster at a sink/source acts on cluster characters via reflection functors acting on the representation.  
   Using this and the interpretation of the Auslander-Reiten translation in terms of reflection functors \cite{BB76}, it is easy to see that the variable $x_{i;t_n}$ (resp. $x_{i;t_{-n}}$) is given by the cluster character $x_{P_i}$ (resp. $x_{I_i}$) of the projective cover (resp. injective hull) of the vertex simple $S_i$.  Moreover, the same reasoning shows that the representations corresponding to variables $x_{\langle\Zidx\rangle;t_{\Zidx}}$ for $\Zidx>0$ (resp. $\Zidx<0$) sweep out all representations in the preprojective (resp. postinjective) component of the Auslander-Reiten quiver of $Q$.
 \end{proof}
@@ -654,7 +654,7 @@ Some similar computations are collected in Lemma~\ref{lemma:coefficients_values}
 \section{Preprojective and postinjective cluster variables as minors}\label{sec:preproj}
 In this section we prove that when $B$ is any acyclic skew-symmetrizable matrix, the identification $\cA_{\Bdp} \cong \kk[G^{c,c^{-1}}]$ realizes preprojective and postinjective cluster variables as restrictions of highest- and lowest-weight minors, respectively. 
 We first compute in Section~\ref{sec:acyclic_belt} a list of exchange relations that determine these cluster variables. 
-The identification with minors then follows in Section~\ref{sec:hlwminors} by comparing these relations with restrictions  to $G^{c,c^{-1}}$ of the generalized determinantal identities of Proposition~\ref{prop:fundid}.
+The identification with minors then follows in Section~\ref{sec:hlwminors} by comparing these relations with restrictions to $G^{c,c^{-1}}$ of the generalized determinantal identities of Proposition~\ref{prop:fundid}.
 
 Recall that since $B$ is acyclic there exists a permutation $\sigma\in S_n$ such that $b_{\sigma_i,\sigma_j}\geq 0$ whenever $i<j$.
 To simplify our notation in this section, we will assume that $\sigma$ is the identity permutation (no generality is lost, since we can always relabel the rows and columns of $B$ to achieve this). Moreover, we specifically assume that the Cartan companion $A$ of $B$ is not of finite type, the main claims being already established in \cite{YZ08} for the case of a semisimple algebraic group.
@@ -694,9 +694,9 @@ More precisely, the $\mod{\Zidx}$-th column of $B^{t_\Zidx}$ contains only non-n
 In particular, it follows from the definition of matrix mutation that the off-diagonal entries of the exchange matrix $B^{t_\Zidx}$ have the same absolute values as the corresponding entries of $A$.
 
 Recall that, by definition, $\bfc$-vectors encode the coefficient part of the exchange relations in a cluster algebra with principal coefficients while $\bfg$-vectors parametrize its cluster variables.
-Thus, to compute the exchange relations along the path (\ref{eq:simplepath}) in $\cA_{\Bdp} \cong \kk[G^{c,c^{-1}}]$, we will need to describe both.
+Thus, to compute the exchange relations along the path \eqref{eq:simplepath} in $\cA_{\Bdp} \cong \kk[G^{c,c^{-1}}]$, we will need to describe both.
 We begin by computing $\bfc$-vectors.
-We will then obtain the corresponding $\bfg$-vectors applying Equation~(\ref{eq:g-vectors_from_c-vectors}). Recall from Remark~\ref{rem:cgrootsweights} that we regard the $\bfc$-vectors $\cv_{i;t_\Zidx}$ as elements of the root lattice $\cQ$ and the $\bfg$-vectors $\gv_{i;\Zidx}$ as elements of the weight lattice $P$. Below we write  $\left\lfloor a \right\rfloor$ for the greatest integer less than or equal to $a$ and $\left\lceil a \right\rceil$ for the smallest integer greater than or equal to $a$.
+We will then obtain the corresponding $\bfg$-vectors applying Equation~\eqref{eq:g-vectors_from_c-vectors}. Recall from Remark~\ref{rem:cgrootsweights} that we regard the $\bfc$-vectors $\cv_{i;t_\Zidx}$ as elements of the root lattice $\cQ$ and the $\bfg$-vectors $\gv_{i;\Zidx}$ as elements of the weight lattice $P$. Below we write  $\left\lfloor a \right\rfloor$ for the greatest integer less than or equal to $a$ and $\left\lceil a \right\rceil$ for the smallest integer greater than or equal to $a$.
 
 \begin{lemma}
   \label{lemma:c-vectors}
@@ -795,13 +795,10 @@ and the $\bfg$-vectors of the postinjective cluster variables are
 \]
 \end{lemma}
 \begin{proof}
-\sayDR{I feel like some extra details are needed here, there is a subtlety with transposes which I think we should address.  Here are my thoughts so far.}
-\saySS{Here is my attempt at some details}The result follows immediately from Lemma~\ref{lemma:c-vectors} leveraging the duality in beween coroot and weight lattices for $A$.
+  The result follows immediately from Lemma~\ref{lemma:c-vectors} leveraging the duality in between coroot and weight lattices for $A$.
   Indeed, Lemma~\ref{lemma:c-vectors} applied to $-B^T$ says that the $\bfc$-vectors for the dual cluster algebra are coroots of $A$; more precisely, at the node $t_\Zidx$, they are the coroots $\cv_{i;t_\Zidx}^\vee$.
-  By Equation~(\ref{eq:g-vectors_from_c-vectors}) the $\bfg$-vectors at $t_\Zidx$ are the basis of weights $\gv_{i;t_\Zidx}$ dual to $\cv_{i;t_\Zidx}^\vee$.
+  By Equation~\eqref{eq:g-vectors_from_c-vectors} the $\bfg$-vectors at $t_\Zidx$ are the basis of weights $\gv_{i;t_\Zidx}$ dual to $\cv_{i;t_\Zidx}^\vee$.
   We can then conclude by observing that the duality map commutes with the action of the elements of the Weyl group.
-  \sayDR{This argument suggests to me some reorganization where we explain first why $\bfc$-vectors should live in the root lattice while this whole paper serves as the motivation to consider $\bfg$-vectors to live in the weight lattice.}
-  \saySS{I am not sure we need to say more than this but feel free to edit as you like}
 
   The final claim now follows immediately: it suffices to recall how simple reflections act on fundamental weights and to observe that, the type of the Cartan companion of $B$ being not finite, all prefixes of $c^\infty$ are reduced expressions so that all the elements of $\Pi_{\textit{proj}}$ and $\Pi_{\textit{inj}}$ are distinct.
 \end{proof}
@@ -890,8 +887,8 @@ for $1 \leq j \leq n$.
   The first four identities follow easily from considering root strings in $V(\omega_j)$ as in \cite[Proof of eq. 3.20]{YZ08}, and we omit an explicit discussion.
   For example, if $v_{\omega_j}$ is a highest-weight vector of $V(\omega_j)$, then $\Delta^{c\omega_j}_{\omega_j}(g)$ measures the component of $gv_{\omega_j}$ in the weight space $V(\omega_j)_{c \omega_j}$; sequentially considering how each one-parameter subgroup in the factorization can affect this component leads to the given formula.
 
-  We derive the first identity of Equation~(\ref{eq:frozen_values}), the second being similar.
-  Plugging Equation~(\ref{eq:positive_cminor_values}) into the definition of $\cvar_i(g)$ we obtain 
+  We derive the first identity of Equation~\eqref{eq:frozen_values}, the second being similar.
+  Plugging Equation~\eqref{eq:positive_cminor_values} into the definition of $\cvar_i(g)$ we obtain 
   \[
     \cvar_i(g)
     =
@@ -930,7 +927,7 @@ for $1 \leq j \leq n$.
 \end{lemma}
 \begin{proof}
   We derive the first identity, the second being obtained in a similar way.
-  It suffices to consider the case where $g$ factors as in Equation~(\ref{eq:generic_factorization}), since such elements are generic in $G^{c,c^{-1}}$.
+  It suffices to consider the case where $g$ factors as in Equation~\eqref{eq:generic_factorization}, since such elements are generic in $G^{c,c^{-1}}$.
   In the parameters of the factorization, Lemma~\ref{lemma:coefficients_values} lets us rewrite the desired identity as
   \[
     h^{c^k\omega_i}\prod_{j=1}^n t_{j}^{[c^k\beta_i^+:\alpha_j]} 
@@ -958,11 +955,11 @@ for $1 \leq j \leq n$.
     = 
     \sum_{j=1}^n [c^k\beta_i^+:\alpha_j] \Big(\beta_j^+ + \sum_{\ell<j} a_{\ell j}\beta_\ell^+\Big),
   \end{equation}
-  where the second equality follows from Equation~(\ref{eq:alpha_to_beta}).
+  where the second equality follows from Equation~\eqref{eq:alpha_to_beta}.
   Observe that the endomorphism $1-c$ of $\widehat{P}$, in addition to taking $\omega_i$ to $\beta_i^+$, factors through the natural projection $\widehat{P} \onto P$.
   Since the $\beta_i^+$ are linearly independent and generate the root lattice $\cQ$ (they are obtained from the $\alpha_i$ by a unitriangular transformation), $1-c$ restricts to an isomorphism of $P$ onto $\cQ$; with some abuse we denote its inverse as $(1-c)^{-1}: \cQ \to P$.
-  Since $1-c$ commutes with the action of $c^{k}$ so does $(1-c)^{-1}$, hence applying $(1-c)^{-1}$ to Equation~(\ref{eq:coxeter_identity_beta}) yields Equation~(\ref{eq:coxeter_identity_omega}).
-  Note that Equation~(\ref{eq:coxeter_identity_omega}) does not necessarily hold if interpreted in $\widehat{P}$, since in general a splitting $P \into \widehat{P}$ is not $W$-equivariant.
+  Since $1-c$ commutes with the action of $c^{k}$ so does $(1-c)^{-1}$, hence applying $(1-c)^{-1}$ to Equation~\eqref{eq:coxeter_identity_beta} yields Equation~\eqref{eq:coxeter_identity_omega}.
+  Note that Equation~\eqref{eq:coxeter_identity_omega} does not necessarily hold if interpreted in $\widehat{P}$, since in general a splitting $P \into \widehat{P}$ is not $W$-equivariant.
 \end{proof}
 
 \begin{lemma}
@@ -982,13 +979,13 @@ for $1 \leq j \leq n$.
 \end{lemma}
 \begin{proof}
   Again, we derive the first identity, the second being obtained in a similar fashion.
-  If $g$ is generic and factored as in Equation~(\ref{eq:generic_factorization}), then in terms of factorization parameters the desired identity is
+  If $g$ is generic and factored as in Equation~\eqref{eq:generic_factorization}, then in terms of factorization parameters the desired identity is
   \begin{equation}
     t_j  h^{\omega_j} \prod_{\ell<j}h^{a_{\ell j}\omega_\ell} 
     = 
     t_j  h^{-c^{-1}\omega_j} \prod_{\ell>j}h^{-a_{\ell j}c^{-1}\omega_\ell}.
   \end{equation}
-  In rewriting the left-hand side we have used Equation~(\ref{eq:frozen_values}), while rewriting the right-hand side uses a similar computation involving the identity
+  In rewriting the left-hand side we have used Equation~\eqref{eq:frozen_values}, while rewriting the right-hand side uses a similar computation involving the identity
   \[
     \beta_j^-+\sum_{\ell>j}a_{\ell j}\beta_\ell^-
     =
@@ -1004,7 +1001,7 @@ for $1 \leq j \leq n$.
   \end{equation}
   of weights in $P$.
   
-  Multiplying both sides by $s_{j+1}\cdots s_n$ transforms Equation~(\ref{eq:c_inverse_equality}) into
+  Multiplying both sides by $s_{j+1}\cdots s_n$ transforms Equation~\eqref{eq:c_inverse_equality} into
   \[
     s_{j+1}\cdots s_n\left(\omega_j + \sum_{\ell<j} a_{\ell j}\omega_\ell\right)
     =
@@ -1053,7 +1050,7 @@ Since a generic element of $G$ factors as $n_- h n_+$, with $n_- \in N_-$, $h \i
     \prod_{j=1}^n(z_j z_{\ol{\jmath}})^{[c^k\beta_i^+:\alpha_j]}
   \end{equation}
   is satisfied on $G^{c,c^{-1}}$.
-  Comparing with Equation~(\ref{eq:preprojective}) establishes that $x_{c^k\omega_i} = \Delta_{c^k \omega_i}$.
+  Comparing with Equation~\eqref{eq:preprojective} establishes that $x_{c^k\omega_i} = \Delta_{c^k \omega_i}$.
   
   On the other hand, applying the above argument with $c^{-1}$ in place of $c$ shows that  
   \begin{equation*} \Delta_{c^{-k}\omega_i} \Delta_{c^{-k-1}\omega_i} = 
@@ -1079,9 +1076,9 @@ Since a generic element of $G$ factors as $n_- h n_+$, with $n_- \in N_-$, $h \i
     +
     \prod_{j=1}^n (z_j z_{\ol{\jmath}})^{[c^{-k}\beta_i^-:\alpha_j]}.
   \end{equation}
-  In particular, the lowest-weight minors $\Delta_{-c^{-k}\omega_i}$ satisfy Equation~(\ref{eq:postinjective}).
+  In particular, the lowest-weight minors $\Delta_{-c^{-k}\omega_i}$ satisfy Equation~\eqref{eq:postinjective}.
   
-  To establish that the indicated minors satisfy Equation~(\ref{eq:plusminus}) and thereby conclude the proof, we must show that
+  To establish that the indicated minors satisfy Equation~\eqref{eq:plusminus} and thereby conclude the proof, we must show that
   \begin{equation*} 
     \Delta_{\omega_i}\Delta_{-\omega_i} 
     =
@@ -1092,7 +1089,7 @@ Since a generic element of $G$ factors as $n_- h n_+$, with $n_- \in N_-$, $h \i
     1
   \end{equation*}
   is satisfied on $G^{c,c^{-1}}$.
-  Evaluating both sides on a generic element factored as in Equation~(\ref{eq:generic_factorization}), we apply Lemma~\ref{lemma:coefficients_values} to obtain
+  Evaluating both sides on a generic element factored as in Equation~\eqref{eq:generic_factorization}, we apply Lemma~\ref{lemma:coefficients_values} to obtain
   \begin{align*}
     h^{\omega_i}\Delta_{-\omega_i}(g)
     &=
@@ -1284,7 +1281,7 @@ In Section~\ref{sec:networks} it will be useful to rewrite regular $\bfg$-vector
 
 %%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Networks}\label{sec:networks}
-Recall that the generic element $g$ of any double Bruhat cell $G^{u,v}$ can be factorized as in Equation~(\ref{eq:uvfactorization}).
+Recall that the generic element $g$ of any double Bruhat cell $G^{u,v}$ can be factorized as in Equation~\eqref{eq:uvfactorization}.
 When $G = \widetilde{LSL}_n$ is the central extension of $LSL_n$, these factorizations (and more general ones associated to shuffles of reduced words) admit a combinatorial description in terms of directed networks on a cylinder \cite{GSV12,FM14}.
 This generalizes a similar relation between $SL_n$ and directed networks on a disk \cite{FZ99}.
 By a directed network on a surface we will mean an embedded directed graph whose edges are assigned weights in some fixed ring.
@@ -1433,7 +1430,7 @@ As in Section~\ref{sec:rigidregular} we fix a cyclic $\ZZ_n$-labelling of the ve
   \[
     \kk[t_{1}^{\pm1},\dotsc,t_{\ell(v)}^{\pm 1},h_1^{\pm 1},\dotsc,h_{n}^{\pm 1},t_{\ol{1}}^{\pm 1},\dotsc,t_{\ol{\ell(u)}}^{\pm 1}].
   \] 
-  We declare one boundary component of the cylinder to be incoming and the other outgoing, and begin by associating a smaller cylindrical network to each factor in Equation~(\ref{eq:uvfactorization}) (see Figure~\ref{fig:networks on cylinders}).
+  We declare one boundary component of the cylinder to be incoming and the other outgoing, and begin by associating a smaller cylindrical network to each factor in Equation~\eqref{eq:uvfactorization} (see Figure~\ref{fig:networks on cylinders}).
   
   For $1 \leq i \leq n$, the networks associated to $x_i(t)$ and $x_{\ol{\imath}}(t)$ contain $n$ horizontal \newword{levels} running from the incoming boundary to the outgoing boundary.
   These are labelled by $\ZZ_n$ compatibly with their cyclic ordering and all have weight $1$.
@@ -1442,7 +1439,7 @@ As in Section~\ref{sec:rigidregular} we fix a cyclic $\ZZ_n$-labelling of the ve
   The network associated to the Cartan factor $h$ again has $n$ horizontal levels running from the incoming boundary to the outgoing boundary and labelled by $\ZZ_n$.
   The $i$-th level is of weight $h_{i+1}h_{i}^{-1}$.
   
-  The network $\cN^{u,v}$ is now defined by gluing these constituent networks together in the order they appear in Equation~(\ref{eq:uvfactorization}) (see Figure~\ref{fig:totalnetwork}).
+  The network $\cN^{u,v}$ is now defined by gluing these constituent networks together in the order they appear in Equation~\eqref{eq:uvfactorization} (see Figure~\ref{fig:totalnetwork}).
   Given two adjacent factors, the incoming boundary of the left is glued to the outgoing boundary of the right so that the horizontal levels of each are aligned.
 \end{definition}
 
@@ -1796,7 +1793,7 @@ Definition~\ref{def:network} is motivated by the following observation:
 \end{example}
 
 We now return to the specific case of $\widetilde{LSL}_n^{c,c^{-1}}$, where $c = s_{\sigma_1}\cdots s_{\sigma_{n}}$ is a fixed Coxeter element.
-From now on we reindex the factorization of Equation~(\ref{eq:uvfactorization}) in a way tailored to this case:
+From now on we reindex the factorization of Equation~\eqref{eq:uvfactorization} in a way tailored to this case:
 \begin{equation}
   g = x_{\ol{\sigma_1}}(t_{\ol{\sigma_1}}) \cdots x_{\ol{\sigma_n}}(t_{\ol{\sigma_n}})h x_{\sigma_n}(t_{\sigma_n}) \cdots x_{\sigma_1}(t_{\sigma_1}).
   \label{eq:coxfactorization}
@@ -1876,7 +1873,7 @@ We will freely use the isomorphism $\cA_{\Qdp} \cong \kk[\widetilde{LSL}_n^{c,c^
 \[
   \kk[t_{1}^{\pm1},\dotsc,t_{n}^{\pm 1},h_1^{\pm 1},\dotsc,h_{n}^{\pm 1},t_{\ol{1}}^{\pm 1},\dotsc,t_{\ol{n}}^{\pm 1}]
 \]
-by evaluating them on a generic $g \in \widetilde{LSL}_n^{c,c^{-1}}$ factored as in Equation~(\ref{eq:coxfactorization}) (and setting $h_i := h^{\omega_i}$).
+by evaluating them on a generic $g \in \widetilde{LSL}_n^{c,c^{-1}}$ factored as in Equation~\eqref{eq:coxfactorization} (and setting $h_i := h^{\omega_i}$).
 For example, we have 
 \begin{equation}
   \label{eq:typeAyhat}
@@ -1942,9 +1939,9 @@ the latter following by reindexing vertices of $Q$ in the results of Lemma~\ref{
       If $i_{r-1} \notin E$, let $P'_r=P_{r-1}$.
       Otherwise let $o'_r$ be the largest index in $[i_{r-1},o_r-1]$ such that $[i_{r-1},o'_r]\subset E$.
       We obtain $P'_r$ from $P_{r-1}$ by, for each $j\in[i_{r-1},o'_r]$, diverting the path that stays on level $j$ so that it traverses the bridges of weights $t_j$ and $t_{\ol{\jmath}}$.
-      By inspection of Figure~\ref{fig:quivernetwork}  and their counterparts with $t_{\ol{\jmath}}$, the resulting collection $P'_r$ will remain pairwise disjoint.
+      By inspection of Figure~\ref{fig:quivernetwork} and their counterparts with $t_{\ol{\jmath}}$, the resulting collection $P'_r$ will remain pairwise disjoint.
   
-      If $P'_r \neq P_{r-1}$, then using Equation~(\ref{eq:typeAyhat}) we have
+      If $P'_r \neq P_{r-1}$, then using Equation~\eqref{eq:typeAyhat} we have
       \[
         wt(P'_r)=wt(P_{r-1})\cdot h_{i_{r-1}-1}^{-1}h_{i_{r-1}}h_{o'_r}h_{o'_r+1}^{-1}\prod_{j\in[i_{r-1},o'_r]}(t_jt_{\ol{\jmath}}) = wt(P_{r-1})\prod_{j \in [i_{r-1},o'_r]} \hat{y}_j.
       \]
@@ -2073,7 +2070,7 @@ In the simplest cases this can be done using only the characters of these repres
   \[
     (h^{\omega_2-\omega_1} + h^{\omega_1 - \omega_2}t_1t_{\ol{1}} + h^{\omega_2-\omega_3}t_1t_{\ol{1}}t_2t_{\ol{2}} + h^{\omega_3-\omega_2}t_1t_{\ol{1}}t_2t_{\ol{2}}t_3t_{\ol{3}})v.
   \]
-  By definition, this is equal to $\Delta_{\omega_2-\omega_1}(g)v$. On the other hand, it is exactly what we obtain by using Equation \ref{eq:frozen_values} to rewrite the earlier expression for $x_{\omega_2 - \omega_1}$.
+  By definition, this is equal to $\Delta_{\omega_2-\omega_1}(g)v$. On the other hand, it is exactly what we obtain by using Equation~\eqref{eq:frozen_values} to rewrite the earlier expression for $x_{\omega_2 - \omega_1}$.
 \end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%
@@ -2081,7 +2078,7 @@ In the simplest cases this can be done using only the characters of these repres
 We conclude with an extension of Theorem~\ref{th:cluster character equals minor} motivated by the theory of canonical bases.
 Cluster monomials form a partial basis of a cluster algebra, and there are various meaningful (and in general different) ways of completing them to a full basis. 
 One approach in line with the considerations of this paper is to form a basis consisting of cluster characters of potentially non-rigid representations.
-By taking the cluster character of a generic representation with each possible $\bfg$-vector, one obtains the generic basis of \cite{Dup12} (which directly generalizes the dual semicanonical basis of Lusztig).
+By taking the cluster character of a generic representation with each possible $\bfg$-vector, one obtains the generic basis of \cite{Dup12} (which directly generalizes the dual semicanonical basis of Lusztig\sayDR{reference needed?}).
 
 When $Q$ is an acyclic orientation of an $n$-cycle as in Section~\ref{sec:rigidregular}, the simplest example of a non-rigid representation is the representation $\Qrep_\eta$ at the base of a homogeneous tube $\mathcal{T}_\eta$, $\eta \in \kk^*$.
 That is, $\Qrep_\eta$ consists of a one-dimensional vector space at each vertex of $Q$, with arrows acting by isomorphisms such that the monodromy around $Q$ is equal to $\eta$.
