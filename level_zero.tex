@@ -244,10 +244,10 @@ The relevant representations are of the form $\big(\!\bigwedge^{\!k}\kk^n\big)[\
 These bases let us compute the restrictions to $G^{c,c^{-1}}$ of the level zero minors appearing in (2) as weighted sums over collections of pairwise disjoint paths through a directed network on the cylinder, following similar constructions in \cite{GSV12,FM14}.
 When $Q$ is an acyclic orientation of an $n$-cycle, its regular representations likewise have a simple combinatorial description, and one can construct by hand a bijection between their subrepresentations and collections of paths in the relevant network.
 
-A fundamental aspect of Theorem \ref{thm:maintheorem} is that the labeling of cluster variables by $\bfg$-vectors corresponds directly to the labeling of minors by their associated weight $\lambda$. 
+A fundamental aspect of \Cref{thm:maintheorem} is that the labeling of cluster variables by $\bfg$-vectors corresponds directly to the labeling of minors by their associated weight $\lambda$. 
 The $\bfg$-vector of a cluster variable is a particular element of $\ZZ^{|Q_0|}$, and distinct cluster variables have distinct $\bfg$-vectors. In terms of the quiver representation associated to a cluster variable, the $\bfg$-vector records the factors in a minimal injective copresentation. 
 For acyclic $Q$, we identify the $\bfg$-vector lattice $\ZZ^{|Q_0|}$ with the weight lattice of $G$ by taking the initial $\bfg$-vectors to the fundamental weights.
-We show this identifies the $\bfg$-vector of any cluster variable appearing in Theorem \ref{thm:maintheorem} with the weight of the associated minor. In particular, given a regular cluster variable the $\bfg$-vector/weight correspondence provides an ansatz for which minor one should expect that variable to coincide with; this ansatz is implicitly used in the proof of (2). 
+We show this identifies the $\bfg$-vector of any cluster variable appearing in \Cref{thm:maintheorem} with the weight of the associated minor. In particular, given a regular cluster variable the $\bfg$-vector/weight correspondence provides an ansatz for which minor one should expect that variable to coincide with; this ansatz is implicitly used in the proof of (2). 
 
 A deficiency of proving (2) by analyzing each regular cluster variable directly is that we do not know how to interpret the exchange relations relating them to the other cluster variables in terms of the representation theory of $LSL_n$. It would be desirable to find such an interpretation, which could also provide an avenue for approaching more general Kac-Moody groups:
 
@@ -884,7 +884,11 @@ With the preceding results in hand, we are ready to describe the cluster variabl
 \begin{remark}
   As noted before, to obtain the exchange relations in the cluster algebra $\cA_{\Bpr}$ with principal coefficients it suffices to set the coefficients $\cvar_{\ol{1}},\dotsc,\cvar_{\ol{n}}$ to $1$ in the relations of \Cref{thm:vars_and_rels_in_bipartite_belt}.
 \end{remark}
-\saySS{Somewhere we should make a trivial remark: if $n=2$ then preprojective and postinjective cluster variables are all the cluster variables}
+
+\begin{remark}
+  Any $2 \times 2$ skew-symmetrizable matrix $B$ is necessaryly acyclic. 
+  In particular \Cref{thm:vars_and_rels_in_bipartite_belt} describes all the cluster variables of $\cA_{\Bdp}$ in this case.
+\end{remark}
 
 %%%%%%%%%%%%%%%%%%%
 \subsection{Highest- and lowest-weight minors}
@@ -2118,7 +2122,7 @@ In the simplest cases this can be done using only the characters of these repres
     (h^{\omega_2-\omega_1} + h^{\omega_1 - \omega_2}t_1t_{\ol{1}}e_1 + h^{\omega_2-\omega_3}t_1t_{\ol{1}}t_2t_{\ol{2}}e_2e_1 + h^{\omega_3-\omega_2}t_1t_{\ol{1}}t_2t_{\ol{2}}t_3t_{\ol{3}}e_3e_2e_1)v,
   \]
   and $\Delta_{\omega_2-\omega_1}$ evaluated on $g$ is equal to the scalar by which $v$ has been multiplied in this equation.
-  But now using Equation \ref{eq:frozen_values} we can check that $\Delta_{\omega_2-\omega_1}$, evaluated on $g$, is equal to the formula for $x_{\omega_2 - \omega_1}$.
+  But now using \Cref{eq:frozen_values} we can check that $\Delta_{\omega_2-\omega_1}$, evaluated on $g$, is equal to the formula for $x_{\omega_2 - \omega_1}$.
 \end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%
