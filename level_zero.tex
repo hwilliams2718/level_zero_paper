@@ -61,16 +61,10 @@ urlcolor=blue]{hyperref}
 \newcommand{\bfg}{\mathbf{g}}
 \newcommand{\bfi}{\mathbf{i}}
 
-<<<<<<< HEAD
 \newcommand{\cv}{\alpha}
 \newcommand{\gv}{\omega}
 \newcommand{\grep}{\gv}
-=======
-\newcommand{\gv}{\omega}
-\newcommand{\cv}{\alpha}
-\newcommand{\grep}{\omega}
 \newcommand{\KQ}{K_0(Q)}
->>>>>>> e7eb1114d4038d91ea6735b366cfcb4c1aacb79e
 
 \newcommand{\cE}{\mathcal{E}}
 \newcommand{\cF}{\mathcal{F}}
@@ -530,10 +524,10 @@ Given the matrix of $\bfc$-vectors at $t\in\TT$, we may define the matrix of $\b
 \end{equation}
 where $B^T$ is the transpose of $B$.
 Note that this is not the standard definition, but the above characterization (due to \cite[Theorem 1.2]{NZ12} and the sign-coherence result of \cite{DWZ10,GHKK14}) is what we will use in Section~\ref{sec:acyclic_belt}.
-The basic role of $\bfg$-vectors is that they provide natural labels of cluster variables: if $\widetilde{B}$ is of full rank, then two cluster variables $x_{i;t}$ and $x_{j;t'}$ coincide in $\cA_{\widetilde B}$ if and only if $\gv_{i;t}$ and $\gv_{j;t'}$ coincide in $\ZZ^n$ \cite{DWZ10,GHKK14}. 
-\saySS{It may be shooting at a fly with a cannon but definitely the existence of basis indexed by g-vectors implies what we claim here. Right now I cant think of a better reference.}
-\sayDR{Do we need that $\widetilde{B}$ is of full rank?  In [DWZ] the result is Lemma 9.2.}
+The basic role of $\bfg$-vectors is that they provide natural labels of cluster variables: if $\widetilde{B}$ is of full rank, then two cluster variables $x_{i;t}$ and $x_{j;t'}$ coincide in $\cA_{\widetilde B}$ if and only if $\gv_{i;t}$ and $\gv_{j;t'}$ coincide in $\ZZ^n$ \cite{DWZ10,GHKK14}.
+\sayDR{Do we need that $\widetilde{B}$ is of full rank?}
 \sayHW{Beats me -- if someone is sure it's unnecessary take it out, otherwise I'm happy to leave it as possibly unnecessary but harmless.}
+\sayDR{Here is an attempted proof that full rank isn't necessary: the $\bfg$-vectors certainly parametrize principal coefficient cluster variables and all others are obtained from these via separation of additions, this shows that $\gv_{i;t}=\gv_{j;t'}$ implies $x_{i;t}=x_{j;t'}$.  The other implication seems obvious but I can't seem to justify it without full rank, e.g. it follows from Thm. 7.7 of GSV's book, but I want it to follow from their Thm 7.1 and can't convince myself it works...maybe we do need full rank, any thoughts?}
  
 \begin{remark}\label{rem:cgrootsweights}
 As our notation is meant to suggest, when $B$ is acyclic and $A$ its Cartan companion we consistently identify the $\bfg$-vector lattice with the weight lattice $P$ of $A$ by taking the initial $\bfg$-vector $\gv_{i;t_0}$ to the fundamental weight $\omega_i$. Similarly we identify the $\bfc$-vector lattice with the root lattice $\cQ$ by taking the initial $\bfc$-vector $\cv_{i;t_0}$ to the simple root $\alpha_i$. The duality between $\bfc$- and $\bfg$-vectors expressed in
@@ -636,7 +630,7 @@ A rigid indecomposable representation $\Qrep$ is preprojective (resp. postinject
 \end{proof}
 
 Theorem~\ref{thm:CCbijection} and Proposition~\ref{prop:ccvsacyclicbelt} generalize to the case of skew-symmetrizable matrices by replacing quiver representations with representations of valued quivers or species.
-We refer to \cite{Ru15} for relevant background, but omit a detailed discussion here. 
+We refer to \cite{Ru11,Ru15} for relevant background, but omit a detailed discussion here. 
 As the characterization of preprojective and postinjective cluster variables in terms of the acyclic belt is what will be used in Section~\ref{sec:preproj}, we are content to take this as a definition in the skew-symmetrizable case. 
 
 %%%%%%%%%%%%%%%%%%
@@ -759,10 +753,9 @@ Recall that, by definition, $\bfg$-vectors encode terms in the exchange relation
       c^{\left\lfloor\frac{\Zidx-1}{n}\right\rfloor}s_1\cdots s_{\mod{\Zidx}} \alpha_i & \text{if $0<\Zidx$;}\\
       \alpha_i & \text{if $-n < \Zidx \leq 0$ and  $i\leq n+\Zidx$;} \\
       -\alpha_i & \text{if $-n\leq \Zidx < 0$ and $i > n+\Zidx$;} \\
-      -c^{1+\left\lceil\frac{\Zidx+1}{n}\right\rceil}s_n\cdots s_{\mod{\Zidx+1}} \alpha_i & \text{if $\Zidx<-n$;}\\
+      -c^{1+\left\lceil\frac{\Zidx+1}{n}\right\rceil}s_n\cdots s_{\mod{\Zidx+1}} \alpha_i & \text{if $\Zidx<-n$.}\\
     \end{cases}
   \end{equation}
-  where, as usual,
   Moreover, whenever $0 < \Zidx$ or $\Zidx < -n$, the vector $\cv_{\mod{\Zidx};t_\Zidx}$ is negative and the vector $\cv_{\mod{\Zidx+1};t_\Zidx}$ is positive.
 \end{lemma}
 
