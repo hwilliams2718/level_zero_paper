@@ -648,7 +648,9 @@ The coordinate ring of $G^{u,v}$ is an upper cluster algebra and a finite subset
   In particular, $\kk[L^{c,c^{-1}}]$ is the cluster algebra with principal coefficients associated to $B$, and our results immediately translate to statements in the principal coefficients case by specializing $\cvar_{\ol{1}},\dotsc,\cvar_{\ol{n}}$ to one.
 
 \begin{remark}
-There is another Lie-theoretic realization of $\cA_{\widetilde{B}}$ (for a certain extension of $B$) as the coordinate ring of $G^{e,c^2}$ \cite{GLS11}. We do not know whether our main results also hold in some form for this realization. 
+There is another Lie-theoretic realization of $\cA_{\widetilde{B}}$ (for a certain extension of $B$) as the coordinate ring of $G^{e,c^2}$ \cite{GLS11}.
+We do not know whether our main results describing cluster variables also hold in some form for this realization.
+
 \end{remark}
 
 In computing various relations in $\kk[G^{u,v}]$ we will make extensive use of the fact that, if $u=s_{i_1}\cdots s_{i_{\ell(u)}}$ and $v=s_{j_1}\cdots s_{j_{\ell(v)}}$, then a generic $g \in G^{u,v}$ can be factored as
@@ -855,8 +857,6 @@ We will use the shorthands $\beta_i^+:=s_1\cdots s_{i-1}\alpha_i$ and $\beta_i^-
 \end{theorem}
 \begin{proof}
   The relations are a direct consequence of Lemmas~\ref{lemma:c-vectors} and~\ref{lemma:g-vectors} once we observe that mutations happen along a sink/source adapted sequence so that the $\mod{\Zidx}$-th column of $B^{t_\Zidx}$ contains only non-negative entries and the $\mod{\Zidx+1}$-th column only non-positive entries.
-%  \sayHW{Am I crazy or should this be Lemma~\ref{lemma:g-vectors}? I mean, the whole point of computing g-vectors was that you need them to write down exchange relations, right?}
-%  \saySS{Not crazy but not entirely correct either. In any case the phrasing was wrong and I fixed it. The point is this: knowing g-vectors and exchange matrix (only the top part) is sufficient to produce exchange realtions in the coefficient free case. c-vectors give you the information you need to fill in coefficients.}
 \end{proof}
 \begin{remark}
   As noted before, to obtain the exchange relations in the cluster algebra $\cA_{\Bpr}$ with principal coefficients it suffices to set the coefficients $\cvar_{\ol{1}},\dotsc,\cvar_{\ol{n}}$ to $1$ in the relations of Theorem~\ref{thm:vars_and_rels_in_bipartite_belt}.
@@ -1204,7 +1204,7 @@ and all arrows acting by invertible maps except the arrow between $k$ and $k-1$ 
   Every such representation is isomorphic to one of this form.
 \end{proposition}
 \begin{proof}\mbox{}
-  We first recall the structure of the full subcategory $\cR\subset\rep_\kk(Q)$ of regular representations \cite[Ch. 12, Sec. 2]{ASS06}.
+  We first recall the structure of the full subcategory $\cR\subset\rep_\kk(Q)$ of regular representations \cite[Chapter 12, Section 2]{ASS06}.
   Say an arrow $a$ of $Q$ is \newword{clockwise} if $s(a) = t(a) - 1$ and \newword{counterclockwise} if $s(a) = t(a) + 1$.
   Let $p$ and $q$ be the numbers of clockwise and counterclockwise arrows, respectively.
   Then we have a decomposition $$\cR \cong \cR_{nil}^p \oplus \cR_{nil}^q \oplus \cR_{inv},$$ where $\cR_{nil}^p$ (resp. $\cR_{nil}^q$) is equivalent to the category of nilpotent representations of an oriented $p$-cycle (resp. $q$-cycle), and $\cR_{inv}$ is equivalent to the category of invertible representations of the Jordan quiver (this is the quiver with a single vertex and a single arrow from that vertex to itself, and an invertible representation is one for which this arrow acts by an invertible linear map).
