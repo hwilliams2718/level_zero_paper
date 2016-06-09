@@ -139,7 +139,6 @@ urlcolor=blue]{hyperref}
 
 \begin{document}
 \title{On Generalized Minors and Quiver Representations}
-%\title{Regular Representations of Affine Quivers and Level Zero Representations of Affine Lie Groups}
 
 \author[Rupel]{Dylan Rupel}
 \address[Dylan Rupel]{University of Notre Dame}
@@ -162,25 +161,6 @@ In type $A_n^{\!(1)}$ and finitely many other affine types, we show that cluster
 \end{abstract}
 
 \maketitle
-
-%\sayDR{(**) We really only do this for regular representations.  Sorry for the funny placement, for some reason there is an error when including these comments in the abstract.}
-
-%%%%%%%%%%%%%%%%%%%%%%
-%\setcounter{section}{-1}
-%\section{Todo list}
-%\begin{itemize}
-%  \item
-%    Decide on preprojective/postinjective notation and apply changes through\sayDR{I made the change to post- throughout, please argue if you disagree}
-%  \item
-%    Mention cluster categories? 
-%\item Write out homogeneous element computation.
-%\item Write out section on other affine types.
-%\item Check for $\backslash$newword's throughout.
-%\item Finalize/polish figures in Section 4.2.
-%\item Do a worked example in Section 4.2 of the main result.
-%\item Add a table of contents?
-%\item uniformize the indexing of $t_i$ in the variouse factorization of $g$
-%\end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
@@ -251,10 +231,6 @@ We show this identifies the $\bfg$-vector of any cluster variable appearing in \
 
 A deficiency of proving (2) by analyzing each regular cluster variable directly is that we do not know how to interpret the exchange relations relating them to the other cluster variables in terms of the representation theory of $LSL_n$. It would be desirable to find such an interpretation, which could also provide an avenue for approaching more general Kac-Moody groups:
 
-%It would be interesting to find an interpretation of the resulting exchange relations\sayDR{Should we write as many of these as explicitly as we can in the hopes that someone may be able to explain to us how to understand them representation-theoretically?} involving level zero minors as restrictions of minor identities valid on the entire group $G$.
-%We believe that such identities hold more generally (beyond type $A_{n-1}^{\!(1)}$) and should ultimately lead to a proof of the following.
-%\sayDR{This can probably be said more cleanly. The first statement needs to be said, do we believe the second?}
-
 \begin{conjecture}\label{conj:mainconjecture}
   Let $Q$ be a finite (valued) quiver without oriented cycles and $G^{c,c^{-1}} \subset G$ the associated Coxeter double Bruhat cell.
   Then all regular cluster variables in  $\cA_{\Qdp} \cong \kk[G^{c,c^{-1}}]$ are generalized minors of representations that are neither highest- nor lowest-weight, and the weight of this minor is the $\bfg$-vector of the cluster variable.
@@ -308,7 +284,6 @@ For $t \in \kk^\times$ and $1 \leq i \leq n$ we adopt the notation
   \quad
   \dol{s_{i}} := \varphi_i \begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix},
 \end{gather}
-\saySS{We never introduced the notation for coroots that we just used. Do we need to do something or do we think of it just as a symbol?}\sayHW{Yeah I think it is okay leaving it as a formal symbol -- this section is already overflowing with notation} 
 By extension for any $w$ in the Weyl group $W$ of $\widehat{G}$ we set \[\ol{w} := \ol{s_{i_1}}\cdots\ol{s_{i_k}}, \quad \quad \dol{w} := \dol{s_{i_1}}\cdots\dol{s_{i_k}},\] where $s_{i_1}\cdots s_{i_k}$ is any reduced word for $w$.
 We write $H$ for the ($n$-dimensional) Cartan subgroup of $G$, likewise $\widehat{H}$ is the Cartan subgroup of $\widehat{G}$ (it is isomorphic to $H \times (\kk^\times)^{\corank(A)}$).
 We let $\kk[\widehat{G}]$ denote the (complete topological) algebra of regular functions on $\widehat{G}$.
@@ -328,8 +303,6 @@ of finite-dimensional weight spaces under the action of $\widehat{H}$.
 Note that the weight spaces of $V$ as a $G$-representation are not necessarily finite-dimensional, as the weight decomposition of the $\widehat{H}$-action is finer than that of the $H$-action.
 
 A weight $\lambda \in \widehat{P}$ is \newword{dominant} if $(t^{\alpha_i^\vee})^\lambda$ is a nonnegative power of $t$ for all $1 \leq i \leq n$, and we denote the set of dominant weights by $\widehat{P}^+$.
-%The cone $\widehat{P}^+ \subset \widehat{P}$ of dominant weights consists of wei
-%Let $\widehat{P}^+=\{\lambda \in \widehat{P}: \lambda(\alpha_i^\vee)>0\} \subset \widehat{P}$ denote the cone of dominant (integral) weights.
 To each $\lambda \in \widehat{P}^+$ is associated an irreducible highest-weight representation $V(\lambda)$ of $\widehat{G}$.
 Similarly, for each $\lambda \in -\widehat{P}^+$ there is an irreducible lowest-weight representation $V(\lambda)$ of $\widehat{G}$.
 For any $w\in W$ and $\lambda\in\pm\widehat{P}^+$, the weight space $V(\lambda)_{w\lambda}$ is one-dimensional and thus we also write $V(w\lambda)$ for the representation $V(\lambda)$.
@@ -446,7 +419,7 @@ These have no arrows between them and the arrows connecting them to the orginal 
 Given a framed quiver $\widetilde{Q}$, we simply write $\cA_{\widetilde{Q}}$ for the cluster algebra associated to its signed adjacency matrix $\widetilde{B}$ as above.
 \end{remark}
 
-\begin{figure}%[h]
+\begin{figure}
   \centering
   \begin{tikzpicture}
     \node (l) [matrix] at (0,0) {
@@ -476,12 +449,7 @@ The Cartan matrix is obtained from $B$ by making all its entries negative withou
 The Coxeter element is $c = s_{\sigma_1}\cdots s_{\sigma_n}$, where $\sigma$ is any permutation with $b_{\sigma_i \sigma_j} \geq 0$ when $i < j$ as above (choosing a different permutation with this property defines the same Coxeter element via a different reduced word).
 Conversely, any acyclic skew-symmetrizable matrix can be obtained from a Cartan matrix and a Coxeter element $c$ by designating signs for the off-diagonal entries of $B$ according to any reduced word of $c$.
 
-%The cluster algebra associated to an acyclic exchange matrix $\widetilde{B}$ of full rank is especially well-behaved: it is finitely generated as a $\kk$-algebra and coincides with its upper cluster algebra \cite{BFZ05}.
-
 For acyclic cluster algebras we will be especially interested in the following specific sequence of vertices in $\TT$ and the cluster variables associated to them. Letting $t_0 \in \TT$ denote a fixed root vertex as before, we fix a permutation $\sigma$ as above and write $\{t_\Zidx\}_{\Zidx \in \ZZ} \subset \TT$ for the vertices along the unique path with edges labelled as follows:
-%Recall that $t_0$ is the root of $\TT$.
-%Fix an acyclic skew-symmetrizable matrix $B$ and the corresponding permutation $\sigma$ as above.
-%Write $t_\Zidx:\Zidx\in\ZZ$ for the nodes of $\TT$ lying along the unique path 
 \begin{equation}
   \cdots
   \dashname{\sigma_n}
@@ -503,10 +471,6 @@ For acyclic cluster algebras we will be especially interested in the following s
   \label{eq:path}
 \end{equation}
 It is straightforward to check that this is a subpath in the \newword{acyclic belt} of $\TT$, the full subgraph whose vertices are those $t \in \TT$ for which $\widetilde{B}^t$ is acyclic.
-%This, in general, is only a subpath in what is called the \newword{acyclic belt} (the subgraph of $\TT$ consisting of all the nodes whose attached exchange matrices are acyclic).
-%It is less obvious but ultimately true that if $\widetilde B^t$ is acyclic for some $t\in\TT$ then all cluster variables $x_{i;t}$ are realized in the above path.
-%\saySS{Citation needed.}
-%\sayDR{The closest reference I know of is Cor. 4 in ``From Triangulated Categories to Cluster Algebras II'' by Caldero and Keller, though one has to look into the proof a little and note that the cluster variables in the acyclic belt sweep out the entire transjective component of the AR quiver for the cluster category.}
 
 While the vertex $t_\ell$ associated to $\Zidx \in \ZZ$ depends in general on the choice of $\sigma$, the set $$\{x_{i;t_\Zidx}: i \in [1,n], \Zidx \in \ZZ\}$$ of cluster variables appearing along the above path does not. In fact, this is equal to the set of all cluster variables $x_{i;t}$ for which $\widetilde{B}^t$ is acyclic \cite[Corollary 4]{CK06} (while the proof is only written for the skew-symmetric case, the same argument can be applied in the skew-symmetrizable case). 
 We will refer to the non-initial cluster variables $x_{i;t_\Zidx}$ with $\Zidx>0$ (resp. $\Zidx<0$) as \newword{preprojective} (resp. \newword{postinjective}), and to a cluster variable that does not appear along path \ref{eq:path} as \newword{regular}; this terminology is justified by Proposition~\ref{prop:ccvsacyclicbelt}. We note that when $n=2$ there are no regular cluster variables. 
@@ -523,7 +487,8 @@ Given the matrix of $\bfc$-vectors at $t\in\TT$, we may define the matrix of $\b
 \end{equation}
 where $B^T$ is the transpose of $B$. 
 Note that this is not the standard definition, but the above characterization (due to \cite[Theorem 1.2]{NZ12} and the sign-coherence result of \cite{DWZ10,GHKK14}) is what we will use in Section~\ref{sec:acyclic_belt}.
-The basic role of $\bfg$-vectors is that they provide natural labels of cluster variables: if $\widetilde{B}$ is of full rank, then two cluster variables $x_{i;t}$ and $x_{j;t'}$ coincide in $\cA_{\widetilde B}$ if and only if $\gv_{i;t}$ and $\gv_{j;t'}$ coincide in $\ZZ^n$ \cite{DWZ10,GHKK14}.%\sayDR{Do we need that $\widetilde{B}$ is of full rank?}
+The basic role of $\bfg$-vectors is that they provide natural labels of cluster variables: if $\widetilde{B}$ is of full rank, then two cluster variables $x_{i;t}$ and $x_{j;t'}$ coincide in $\cA_{\widetilde B}$ if and only if $\gv_{i;t}$ and $\gv_{j;t'}$ coincide in $\ZZ^n$ \cite{DWZ10,GHKK14}.
+\sayDR{Do we need that $\widetilde{B}$ is of full rank?}
 \sayHW{Beats me -- if someone is sure it's unnecessary take it out, otherwise I'm happy to leave it as possibly unnecessary but harmless.}
 \sayDR{Here is an attempted proof that full rank isn't necessary: the $\bfg$-vectors certainly parametrize principal coefficient cluster variables and all others are obtained from these via separation of additions, this shows that $\gv_{i;t}=\gv_{j;t'}$ implies $x_{i;t}=x_{j;t'}$.  The other implication seems obvious but I can't seem to justify it without full rank, e.g. it follows from Thm. 7.7 of GSV's book, but I want it to follow from their Thm 7.1 and can't convince myself it works...maybe we do need full rank, any thoughts?}
 \sayHW{Yeah it's the other implication that isn't clear without full rank}
@@ -541,18 +506,6 @@ A \newword{quiver} $Q=(Q_0,Q_1,s,t)$ with $n$ vertices consists of a set $Q_0=\{
 A \newword{$\kk$-representation} $M=(M_i,M_a)$ of $Q$ consists of a $\kk$-vector space $M_i$ for each $i\in Q_0$ and a $\kk$-linear map $M_a:M_{s(a)}\to M_{t(a)}$ for each arrow $a\in Q_1$. We denote by $\rep_\kk(Q)$ the hereditary abelian category of finite-dimensional representations, and refer to \cite{ASS06} for a details on the material recalled below. 
 
 We will only be interested in the case when $Q$ is \newword{acyclic} (i.e. has no oriented cycles or self-loops), hence we assume this throughout. This condition holds if and only if \newword{path algebra} $\kk Q$ (the $\kk$-vector space on the set of directed paths in $Q$) is finite-dimensional. As a $Q$-representation $\kk Q$ is the direct sum of the projective representations, so in particular these are also finite-dimensional (as are the injective representations).
-
-%A morphism of representation $\theta:M\to N$ consists of a collection of $\kk$-linear maps $\theta_i:M_i\to N_i$ so that $\theta_{t(a)}\circ M_a=N_a\circ \theta_{s(a)}$ for each arrow $a\in Q_1$.
-%The space of all such homomorphisms will be denoted $\Hom_Q(M,N)$.
-
-%When the quiver $Q$ is \newword{acyclic} (i.e. has no oriented cycles), its category $\rep_\kk(Q)$ of finite-dimensional representations is particularly nice and thus we assume $Q$ is acyclic throughout.
-%In this case, it is well-known that $\rep_\kk(Q)$ is a hereditary, abelian, length category with finitely many simple objects.
-%When $Q$ is an orientation of a simply-laced finite-type Dynkin diagram, $\rep_\kk(Q)$ contains only finitely many indecomposable representations.
-
-%Write $\kk Q$ for the \newword{path algebra} of $Q$, this is the $\kk$-vector space with basis given by paths (including the trivial paths) in $Q$.
-%The vector space $\kk Q$ has a multiplication given by concatenation of paths and one may identify the module category of $\kk Q$ with $\rep_\kk(Q)$, however we will not use this here.
-%The path algebra $\kk Q$ is naturally considered as a representation of $Q$ where the vector space at vertex $i$ is spanned by all paths in $Q$ ending at $i$ and the action of an arrow $a$ is by concatenation.
-%The indecomposable \newword{projective} representations of $Q$ are exactly the indecomposable summands of $\kk Q$.
 
 Given a representation $M\in\rep_\kk(Q)$ and a projective presentation $0\to P_1\to P_0\to M\to 0$ (which may be chosen to terminate after two terms since $\rep_\kk(Q)$ is hereditary), the \newword{Auslander-Reiten translate} $\tau(M)\in\rep_\kk(Q)$ is defined via the short exact sequence
 \begin{equation}\label{eq:AR translation}
@@ -597,7 +550,7 @@ As $Q$ is acyclic, it has an associated symmetric Cartan companion $A$. As in Se
 Given a dimension vector $e = \sum_i e_i[S_i] \in \NN^n \subset \KQ$, the \newword{quiver Grassmannian} $\Gr_eM$ is the variety of $e$-dimensional submodules of $M$.
 We write $\chi(\Gr_eM)$ for its Euler characteristic (formally, in \'etale cohomology with compact supports). If $\widetilde{B}$ is the exchange matrix associated to $\widetilde{Q}$ we write $\hat{y}_j$ for the monomial $\prod\limits_{i=1}^m x_i^{b_{ij}}$, and $\hat{y}^e$ for $\prod_{j=1}^n \hat{y}_j^{e_j}$.
 
-\begin{definition}%\sayDR{In order for this formula to technically be correct we need the coefficient part of the exchange matrix to have only positive entries, otherwise the separation of additions formula has to be used, fortunately we are in that positive case so it may be worth brushing this under the rug}
+\begin{definition}
   Given a framed quiver $\widetilde{Q}$, the (framed) cluster character of a representation $M$ of $Q$ is
   \begin{equation}
     \label{eq:cc formula}
@@ -697,8 +650,6 @@ In this section we prove that when $B$ is any acyclic skew-symmetrizable matrix,
 We first compute in \Cref{sec:acyclic_belt} a list of exchange relations that determine these cluster variables. 
 The identification with minors then follows in \Cref{sec:hlwminors} by comparing these relations with restrictions  to $G^{c,c^{-1}}$ of the generalized determinantal identities of \Cref{prop:fundid}.
 
-%For our argument we will first deduce a parametrization of such cluster variables, together with a list of exchange relations they satisfy, from an explicit description of the $\bfc$-vectors and $\bfg$-vectors in the acyclic belt.
-
 Recall that since $B$ is acyclic there exists a permutation $\sigma\in S_n$ such that $b_{\sigma_i,\sigma_j}\geq 0$ whenever $i<j$.
 To simplify our notation in this section, we will assume that $\sigma$ is the identity permutation (no generality is lost, since we can always relabel the rows and columns of $B$ to achieve this). Moreover, we specifically assume that the Cartan companion $A$ of $B$ is not of finite type, the main claims being already established in \cite{YZ08} for the case of a semisimple algebraic group.
 Finally, without loss of generality, we will assume that $A$ is not block decomposable.
@@ -736,11 +687,7 @@ Observe that the nodes of $\TT$ we are considering lie along a \emph{sink/source
 More precisely, the $\mod{\Zidx}$-th column of $B^{t_\Zidx}$ contains only non-negative entries and the $\mod{\Zidx+1}$-st column only non-positive entries.
 In particular, it follows from the definition of matrix mutation that the off-diagonal entries of the exchange matrix $B^{t_\Zidx}$ have the same absolute values as the corresponding entries of $A$.
 
-%<<<<<<< HEAD
-%Recall that, by definition, $\bfg$-vectors encode terms in the exchange relations in a cluster algebra with principal coefficients. Thus to compute the exchange relations along the path \ref{eq:simplepath} in $\cA_{\Bdp} \cong \kk[G^{c,c^{-1}}]$, we will need to first know the $\bfg$-vectors along this path. To do this we compute the corresponding $\bfc$-vectors and then apply Equation~\ref{eq:g-vectors_from_c-vectors}. 
-%=======
 Recall that, by definition, $\bfc$-vectors encode the coefficient part of the exchange relations in a cluster algebra with principal coefficients while $\bfg$-vectors parametrize its cluster variables.
-\saySS{I rephrased this because it was slightly imprecise: the fact that $\bfg$-vector parametrize cluster variables is a (deep?) theorem. I also stressed the fact that we need both to describe exchange relations. Feel free to suppress this say at any time.}
 Thus, to compute the exchange relations along the path (\ref{eq:simplepath}) in $\cA_{\Bdp} \cong \kk[G^{c,c^{-1}}]$, we will need to describe both.
 We begin by computing $\bfc$-vectors.
 We will then obtain the corresponding $\bfg$-vectors applying \Cref{eq:g-vectors_from_c-vectors}. Recall from Remark~\ref{rem:cgrootsweights} that we regard the $\bfc$-vectors $\cv_{i;t_\Zidx}$ as elements of the root lattice $\cQ$ and the $\bfg$-vectors $\gv_{i;\Zidx}$ as elements of the weight lattice $P$. Below we write  $\left\lfloor a \right\rfloor$ for the greatest integer less than or equal to $a$ and $\left\lceil a \right\rceil$ for the smallest integer greater than or equal to $a$.
@@ -855,11 +802,9 @@ and the $\bfg$-vectors of the postinjective cluster variables are
 
 With the preceding results in hand, if $\omega \in P$ is either a fundamental weight, an element of $\Pi_{\textit{proj}}$, or an element of $\Pi_{\textit{inj}}$, we simply write $x_\omega$ for the cluster variable whose $\bfg$-vector is $\omega$.  We use the shorthands $\beta_i^+:=s_1\cdots s_{i-1}\alpha_i$ and $\beta_i^-:=s_n\cdots s_{i+1}\alpha_i$ and denote by $[\beta:\alpha_i]$ the $i$-th coefficient in the expansion of the root $\beta$ in the basis of simple roots.
 
-%we simply write $x_{c^k\omega_i}$ for the preprojective cluster variable with $\bfg$-vector $c^k\omega_i$, similarly $x_{-c^{-k}\omega_i}$ for the postinjective cluster variable with $\bfg$-vector $-c^{-k}\omega_i$. 
-
 \begin{theorem}
   \label{thm:vars_and_rels_in_bipartite_belt}
-The following exchange relations are satisfied in $\cA_{\Bdp}$:%  Together with the initial cluster variables, they satisfy the following exchange relations:
+The following exchange relations are satisfied in $\cA_{\Bdp}$:
   \begin{align}
     x_{c^k\omega_i}x_{c^{k+1}\omega_i} 
     &= 
@@ -887,7 +832,9 @@ The following exchange relations are satisfied in $\cA_{\Bdp}$:%  Together with 
 \end{theorem}
 \begin{proof}
 
-  The relations are a direct consequence of \Cref{lemma:c-vectors}\sayHW{Am I crazy or should this be \Cref{lemma:g-vectors}? I mean, the whole point of computing g-vectors was that you need them to write down exchange relations, right?} once we observe that mutations happen along a sink/source adapted sequence so that the $\mod{\Zidx}$-th column of $B^{t_\Zidx}$ contains only non-negative entries and the $\mod{\Zidx+1}$-th column only non-positive entries. 
+  The relations are a direct consequence of Lemmas~\ref{lemma:c-vectors} and~\ref{lemma:g-vectors} once we observe that mutations happen along a sink/source adapted sequence so that the $\mod{\Zidx}$-th column of $B^{t_\Zidx}$ contains only non-negative entries and the $\mod{\Zidx+1}$-th column only non-positive entries. 
+  \sayHW{Am I crazy or should this be \Cref{lemma:g-vectors}? I mean, the whole point of computing g-vectors was that you need them to write down exchange relations, right?}
+  \saySS{Not crazy but not entirely correct either. In any case the phrasing was wrong and I fixed it. The point is this: knowing g-vectors and exchange matrix (only the top part) is sufficient to produce exchange realtions in the coefficient free case. c-vectors give you the information you need to fill in coefficients.}
 \end{proof}
 \begin{remark}
   As noted before, to obtain the exchange relations in the cluster algebra $\cA_{\Bpr}$ with principal coefficients it suffices to set the coefficients $\cvar_{\ol{1}},\dotsc,\cvar_{\ol{n}}$ to $1$ in the relations of \Cref{thm:vars_and_rels_in_bipartite_belt}.
@@ -917,8 +864,6 @@ for $1 \leq j \leq n$.
     g = x_{\ol{1}}(t_{\ol{1}}) \cdots x_{\ol{n}}(t_{\ol{n}}) h x_n(t_n) \cdots x_1(t_1)
   \end{equation}
   for $h \in H$ and $t_i \in \kk^\times$, then  
-  %\sayHW{Recheck the second line now that lowest-weight minors have the correct definition}
-  %\saySS{I think it is correct, at least our code says so}
   \begin{gather}
     \Delta^{c^k\omega_j}_{c^{k+1}\omega_j}(g) = h^{c^k\omega_j}\prod_{i=1}^n t_{i}^{[c^k\beta_j^+:\alpha_i]},
     \quad
@@ -1276,8 +1221,6 @@ and all arrows acting by invertible maps except the arrow between $k$ and $k-1$ 
 With this classification in hand, we now describe the cluster characters of the rigid regular representations of $Q$ combinatorially in terms of target-closed subsets.
 Given $[k,\ell]\subsetneq\ZZ_n$, we say a subset $E$ of $[k,\ell]$ is \newword{target-closed} if whenever $a$ is an arrow of $Q$ with $s(a) \in E$ and $t(a) \in [k,\ell]$, then in fact $t(a) \in E$.
 We let $\cE_{[k,\ell]}$ denote the collection of target-closed subsets of $[k,\ell]$, and otherwise follow the notation of \Cref{sec:quiverbackground}.
-%\sayHW{Make sure the convention of notating generators of the $\bfg$-vector lattice as $\omega_i$ is introduced there}
-%\sayDR{I just gave a weak introduction of this sort in the definition of the coindex}
 
 \begin{proposition}
   \label{prop:regular coindices}
@@ -2125,9 +2068,6 @@ In the simplest cases this can be done using only the characters of these repres
     (h^{\omega_2-\omega_1} + h^{\omega_1 - \omega_2}t_1t_{\ol{1}} + h^{\omega_2-\omega_3}t_1t_{\ol{1}}t_2t_{\ol{2}} + h^{\omega_3-\omega_2}t_1t_{\ol{1}}t_2t_{\ol{2}}t_3t_{\ol{3}})v.
   \]
   By definition, this is equal to $\Delta_{\omega_2-\omega_1}(g)v$. On the other hand, it is exactly what we obtain by using Equation \ref{eq:frozen_values} to rewrite the earlier expression for $x_{\omega_2 - \omega_1}$.
-%  and $\Delta_{\omega_2-\omega_1}$ evaluated on $g$ is equal to the scalar by which $v$ has been multiplied in this equation.
-%  But now using \Cref{eq:frozen_values} we can check that $\Delta_{\omega_2-\omega_1}$, evaluated on $g$, is equal to the formula for $x_{\omega_2 - \omega_1}$.
-%>>>>>>> e4fa81d8745b66d20e827ca11fa2595c80e9bf65
 \end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%
