@@ -1,23 +1,18 @@
 \documentclass[12pt]{amsart}
-\usepackage{mathtools,amsmath,amsthm,amssymb,amsbsy,amstext,amsopn,enumerate}
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{amstext}
+\usepackage{amsopn}
+\usepackage{enumerate}
 \usepackage{xcolor}
 \usepackage{graphicx}
 \usepackage{microtype}
-%\usepackage[centering,margin=1.5in]{geometry}
 \usepackage[margin=1in,marginparwidth=0.8in, marginparsep=0.1in]{geometry}
 \renewcommand{\baselinestretch}{1.2} % changes page formatting
-%\usepackage[colorlinks,
-%            linkcolor=black!50!red,
-%            citecolor=blue,
-%            pdfpagemode=None]{hyperref}o
-\usepackage[pagebackref, bookmarks=true, bookmarksopen=true,%
-bookmarksdepth=3,bookmarksopenlevel=2,%
-colorlinks=true,%
-linkcolor=blue,%
-citecolor=blue,%
-filecolor=blue,%
-menucolor=blue,%
-urlcolor=blue]{hyperref}
+\usepackage[pagebackref, bookmarks=true, bookmarksopen=true, bookmarksdepth=3,bookmarksopenlevel=2, colorlinks=true, linkcolor=blue, citecolor=blue, filecolor=blue, menucolor=blue, urlcolor=blue]{hyperref}
 \usepackage{times} % changes font appearance
 \usepackage{stmaryrd}
 \usepackage{accents}
@@ -40,7 +35,7 @@ urlcolor=blue]{hyperref}
 % For setting off new terms
 \newcommand{\newword}[1]{\textbf{\emph{#1}}}
 
-% shorthands 
+% shorthands
 \newcommand{\cA}{\mathcal{A}}
 \newcommand{\cAb}{\mathcal{A}_\bullet}
 \newcommand{\cC}{\mathcal{C}}
@@ -92,9 +87,6 @@ urlcolor=blue]{hyperref}
 \DeclareMathOperator{\Hom}{Hom}
 \DeclareMathOperator{\coind}{coind}
 \DeclareMathOperator{\corank}{corank}
-%\DeclareMathOperator{\max}{max}
-
-\newcommand{\erase}[1]{{}}
 
 \newcommand{\wh}{\widehat}
 \newcommand{\ol}[1]{\overline{#1}}
@@ -107,21 +99,6 @@ urlcolor=blue]{hyperref}
 \newcommand{\Zidx}{\ell}
 \newcommand{\cvar}{z}
 
-\makeatletter
-\newcommand{\@doublebullet}{
-  \begin{tikzpicture}[baseline={(0,-0.8ex)}]
-    \fill (0,0.5ex) circle (.4ex);
-    \fill (0,-0.5ex) circle (.4ex);
-  \end{tikzpicture}
-}
-\newcommand{\doublebullet}{{\mathrel{\mathchoice
-  {\hbox{\fontsize{\tf@size}{\tf@size}\selectfont\@doublebullet}}
-  {\hbox{\fontsize{\tf@size}{\tf@size}\selectfont\@doublebullet}}
-  {\hbox{\fontsize{\sf@size}{\sf@size}\selectfont\@doublebullet}}
-  {\hbox{\fontsize{\ssf@size}{\ssf@size}\selectfont\@doublebullet}}
-}}}
-\makeatother
-
 % ambients and numbering
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{conjecture}[theorem]{Conjecture}
@@ -131,7 +108,7 @@ urlcolor=blue]{hyperref}
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{scholium}[theorem]{Scholium}
-\theoremstyle{remark} 
+\theoremstyle{remark}
 \newtheorem{remark}[theorem]{Remark}
 \numberwithin{equation}{section}
 \numberwithin{figure}{section}
@@ -151,17 +128,17 @@ urlcolor=blue]{hyperref}
 \address[Harold Williams]{University of Texas at Austin}
 \email{hwilliams@math.utexas.edu}
 
-%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%
 \begin{abstract}
-The cluster algebra of any acyclic quiver can be realized as the coordinate ring of a subvariety of a Kac-Moody group -- the quiver is an orientation of its Dynkin diagram, defining a Coxeter element and thereby a double Bruhat cell.
-We interpret cluster variables in this realization in terms of the representation theory of the group and relate this to their interpretation as generating functions associated to representations of the quiver.
-We show that cluster variables of preprojective (resp. postinjective) quiver representations are realized by generalized minors of highest-weight (resp. lowest-weight) group representations, generalizing results of Yang-Zelevinsky in finite type.
-In type $A_n^{\!(1)}$ and finitely many other affine types, we show that cluster variables of regular quiver representations are realized by generalized minors of group representations that are neither highest- nor lowest-weight; we conjecture this holds more generally.
+  The cluster algebra of any acyclic quiver can be realized as the coordinate ring of a subvariety of a Kac-Moody group -- the quiver is an orientation of its Dynkin diagram, defining a Coxeter element and thereby a double Bruhat cell.
+  We interpret cluster variables in this realization in terms of the representation theory of the group and relate this to their interpretation as generating functions associated to representations of the quiver.
+  We show that cluster variables of preprojective (resp. postinjective) quiver representations are realized by generalized minors of highest-weight (resp. lowest-weight) group representations, generalizing results of Yang-Zelevinsky in finite type.
+  In type $A_n^{\!(1)}$ and finitely many other affine types, we show that cluster variables of regular quiver representations are realized by generalized minors of group representations that are neither highest- nor lowest-weight; we conjecture this holds more generally.
 \end{abstract}
 
 \maketitle
 
-%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
 
 Given a finite quiver $Q$ without oriented cycles, there is an associated group $G$: the Kac-Moody group whose Dynkin diagram is the underlying unoriented graph of $Q$.
@@ -181,7 +158,7 @@ Preprojective and postinjective representations coincide exactly when $Q$ is of 
 
 We connect these two classifications by passing through the cluster algebra $\cA_Q$ \cite{FZ02}.
 This is an algebra equipped with a (partial) canonical basis whose elements are called cluster variables.
-From the perspective of $G$, an orientation of its Dynkin diagram is equivalent to a choice of Coxeter element $c$ in its Weyl group; the cluster algebra $\cA_Q$ (with suitable frozen variables) is the coordinate ring of the double Bruhat cell 
+From the perspective of $G$, an orientation of its Dynkin diagram is equivalent to a choice of Coxeter element $c$ in its Weyl group; the cluster algebra $\cA_Q$ (with suitable frozen variables) is the coordinate ring of the double Bruhat cell
 \[
   G^{c,c^{-1}} := B_+ c B_+ \cap B_- c^{-1} B_- \subset G,
 \]
@@ -198,19 +175,20 @@ When $Q$ is of classical ADE type and $G$ a simple algebraic group, Yang and Zel
 Their value on $g \in G$ is the ratio of any nonzero $v \in V_\lambda$ with the projection of $gv \in V$ to $V_\lambda$.
 Our main result is that cluster variables in $\cA_Q$ are also realized as generalized minors on $G^{c,c^{-1}}$ when $Q$ is not necessarily of finite type, and that moreover the resulting correspondence between quiver representations and group representations intertwines the triadic classifications described above.
 
-\begin{theorem}\label{thm:maintheorem}
+\begin{theorem}
+  \label{thm:maintheorem}
   Let $Q$ be a finite quiver without oriented cycles, $\cA_{\Qdp}$ the associated cluster algebra with doubled principal coefficients, and $G^{c,c^{-1}} \subset G$ the associated Coxeter double Bruhat cell.
   \begin{enumerate}
-    \item 
+    \item
       The preprojective and initial cluster variables in $\cA_{\Qdp} \cong \kk[G^{c,c^{-1}}]$ are restrictions of generalized minors of highest-weight representations of $G$.
       The postinjective cluster variables in $\cA_{\Qdp}$ are restrictions of generalized minors of lowest-weight representations of $G$.
-    \item 
+    \item
       Suppose $Q$ is an acyclic orientation of an $n$-cycle, so that $G$ is the central extension of the loop group $LSL_n$.
       Then the regular cluster variables in $\cA_{\Qdp}\cong \kk[G^{c,c^{-1}}]$ are restrictions of generalized minors of level zero representations of $G$.
   \end{enumerate}
 \end{theorem}
 
-Though above we have taken $G$ to be symmetric for simplicity, part (1) also holds in the symmetrizable case upon generalizing from representations of quivers to representations of valued quivers or species. 
+Though above we have taken $G$ to be symmetric for simplicity, part (1) also holds in the symmetrizable case upon generalizing from representations of quivers to representations of valued quivers or species.
 We emphasize that although the coordinate ring of any double Bruhat cell $G^{u,v}$ is an (upper) cluster algebra, its defining quiver is generally not an orientation of the Dynkin diagram of $G$. More to the point, in this generality one expects most cluster variables do not admit an elementary Lie-theoretic description, e.g. as restrictions of minors.
 
 While the proof of (1) is mostly a straightforward generalization of the finite-type case, the proof of (2) demands different methods.
@@ -223,22 +201,23 @@ The relevant representations are of the form $\big(\!\bigwedge^{\!k}\kk^n\big)[\
 These bases let us compute the restrictions to $G^{c,c^{-1}}$ of the level zero minors appearing in (2) as weighted sums over collections of pairwise disjoint paths through a directed network on the cylinder, following similar constructions in \cite{GSV12,FM14}.
 When $Q$ is an acyclic orientation of an $n$-cycle, its regular representations likewise have a simple combinatorial description, and one can construct by hand a bijection between their subrepresentations and collections of paths in the relevant network.
 
-A fundamental aspect of Theorem~\ref{thm:maintheorem} is that the labeling of cluster variables by $\bfg$-vectors corresponds directly to the labeling of minors by their associated weight $\lambda$. 
-The $\bfg$-vector of a cluster variable is a particular element of $\ZZ^{|Q_0|}$, and distinct cluster variables have distinct $\bfg$-vectors. In terms of the quiver representation associated to a cluster variable, the $\bfg$-vector records the factors in a minimal injective copresentation. 
+A fundamental aspect of Theorem~\ref{thm:maintheorem} is that the labeling of cluster variables by $\bfg$-vectors corresponds directly to the labeling of minors by their associated weight $\lambda$.
+The $\bfg$-vector of a cluster variable is a particular element of $\ZZ^{|Q_0|}$, and distinct cluster variables have distinct $\bfg$-vectors. In terms of the quiver representation associated to a cluster variable, the $\bfg$-vector records the factors in a minimal injective copresentation.
 For acyclic $Q$, we identify the $\bfg$-vector lattice $\ZZ^{|Q_0|}$ with the weight lattice of $G$ by taking the initial $\bfg$-vectors to the fundamental weights.
-We show this identifies the $\bfg$-vector of any cluster variable appearing in Theorem~\ref{thm:maintheorem} with the weight of the associated minor. In particular, given a regular cluster variable the $\bfg$-vector/weight correspondence provides an ansatz for which minor one should expect that variable to coincide with; this ansatz is implicitly used in the proof of (2). 
+We show this identifies the $\bfg$-vector of any cluster variable appearing in Theorem~\ref{thm:maintheorem} with the weight of the associated minor. In particular, given a regular cluster variable the $\bfg$-vector/weight correspondence provides an ansatz for which minor one should expect that variable to coincide with; this ansatz is implicitly used in the proof of (2).
 
 A deficiency of proving (2) by analyzing each regular cluster variable directly is that we do not know how to interpret the exchange relations relating them to the other cluster variables in terms of the representation theory of $LSL_n$. It would be desirable to find such an interpretation, which could also provide an avenue for approaching more general Kac-Moody groups:
 
-\begin{conjecture}\label{conj:mainconjecture}
+\begin{conjecture}
+\label{conj:mainconjecture}
   Let $Q$ be a finite (valued) quiver without oriented cycles and $G^{c,c^{-1}} \subset G$ the associated Coxeter double Bruhat cell.
   Then all regular cluster variables in  $\cA_{\Qdp} \cong \kk[G^{c,c^{-1}}]$ are generalized minors of representations that are neither highest- nor lowest-weight, and the weight of this minor is the $\bfg$-vector of the cluster variable.
 \end{conjecture}
 
 In addition to verifying the conjecture for all Coxeter elements when $G$ is of type $A_n^{(1)}$, we check a finite list of other affine types, see Section~\ref{sec:othertypes}.
-In any affine type, the regular cluster variables are finite in number and can be explicitly computed. 
-In forthcoming work of the second author compelling evidence is given that their $\bfg$-vectors correspond to weights in the complement of the Tits cone and its negative \cite{RS16}. 
-In particular, it follows that if these cluster variables are restrictions of minors, they must come from an explicitly identifiable level zero representation. 
+In any affine type, the regular cluster variables are finite in number and can be explicitly computed.
+In forthcoming work of the second author compelling evidence is given that their $\bfg$-vectors correspond to weights in the complement of the Tits cone and its negative \cite{RS16}.
+In particular, it follows that if these cluster variables are restrictions of minors, they must come from an explicitly identifiable level zero representation.
 The types checked in Section~\ref{sec:othertypes} are essentially the ones where these minors can be evaluated on $G^{c,c^{-1}}$ knowing only the character of this representation.
 Beyond finite and affine types, general weight representations of $G$ are not well-understood and the conjecture is much more speculative (though we note a suggestive formal calculation in Remark~\ref{rmk:nonaffinehomelt}.
 \sayDR{The element we construct always agrees with the corresponding greedy basis element and in all the examples I checked it also agrees with the triangular basis, I could probably prove it if needed for confidence in the claim).  Should we say something about this at the end of the next paragraph?}
@@ -249,21 +228,22 @@ There is a one-parameter family of quiver representations whose dimension vector
 The cluster character of a generic element of this family is not a cluster variable, but is an element of the generic basis \cite{Dup12} (and we expect of other standard canonical bases as well \cite{BZ14,GHKK14}).
 We show that this element too is a level zero generalized minor; with this in mind it is natural to further ask which canonical basis elements other than cluster variables are generalized minors.
 
-%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%
 \textsc{Acknowledgments}
-We would like to thank Giovanni Cerulli Irelli, Vyjayanthi Chari, Alessandro D'Andrea, Corrado de Concini, Anna Felikson, Misha Gekhtman, Bernard Leclerc, Nathan Reading and Pavel Tumarkin for helpful discussions and comments. 
+We would like to thank Giovanni Cerulli Irelli, Vyjayanthi Chari, Alessandro D'Andrea, Corrado de Concini, Anna Felikson, Misha Gekhtman, Bernard Leclerc, Nathan Reading and Pavel Tumarkin for helpful discussions and comments.
 D.R. is partially supported by an AMS-Simons Travel Grant.
 S.S. is a Marie Curie fellow of the Istituto Nazionale di Alta Matematica.
-H.W. is supported by an NSF Postdoctoral Research Fellowship DMS-1502845.  
+H.W. is supported by an NSF Postdoctoral Research Fellowship DMS-1502845.
 
-%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%
 \section{Background on clusters, quivers, and minors}
 
 We collect here some needed material on cluster algebras and representation theory, and lay out the notation we will use.
 We fix throughout an algebraically closed field $\kk$ of characteristic zero.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Kac-Moody groups and generalized minors}\label{sec:group background}
+%%%%%%%%%%%%%%%%%%%%
+\subsection{Kac-Moody groups and generalized minors}
+\label{sec:group background}
 
 For any symmetrizable Cartan matrix $A$ there is an associated Kac-Moody group $\widehat{G}:=\widehat{G}_A$.
 It has several variants, and we consider the minimal version studied in \cite{KP83} and \cite[Section 7.4]{Kum02}.
@@ -273,15 +253,15 @@ Starting from $G$, the larger group $\widehat{G}$ is obtained as a semidirect pr
 When $A$ is of finite type, $G \cong \widehat{G}$ is a simply-connected semisimple algebraic group.
 When $A$ is of (untwisted) affine type, $G$ can be identified with the universal central extension of the group $LG^\circ$ of algebraic loops (that is, regular maps from $\kk^\times$) into some simply-connected semisimple algebraic group $G^\circ$; in this case $\widehat{G}$ is obtained by adjoining a factor of $\kk^\times$ acting by loop rotations.
 
-For $t \in \kk^\times$ and $1 \leq i \leq n$ we adopt the notation 
+For $t \in \kk^\times$ and $1 \leq i \leq n$ we adopt the notation
 \begin{gather}
-  x_{i}(t):=\varphi_i\begin{pmatrix} 1 & t \\ 0 & 1\end{pmatrix} 
-  \quad  
+  x_{i}(t):=\varphi_i\begin{pmatrix} 1 & t \\ 0 & 1\end{pmatrix}
+  \quad
   t^{\alpha_i^\vee}:=\varphi_i\begin{pmatrix}t & 0 \\ 0 & t^{-1}\end{pmatrix}
   \quad
-  x_{\ol{\imath}}(t):=\varphi_i\begin{pmatrix} 1 & 0 \\ t & 1\end{pmatrix} 
+  x_{\ol{\imath}}(t):=\varphi_i\begin{pmatrix} 1 & 0 \\ t & 1\end{pmatrix}
   \\
-  \ol{s_{i}} := \varphi_i \begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix} 
+  \ol{s_{i}} := \varphi_i \begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix}
   \quad
   \dol{s_{i}} := \varphi_i \begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix},
 \end{gather}
@@ -322,7 +302,7 @@ The \newword{level} of an irreducible $\widehat{G}$-representation is the charac
 \begin{definition}
   \label{def:minors}
   Let $V$ be a weight representation of $\widehat{G}$ and $\lambda \in \widehat{P}$ a weight for which the weight space $V_\lambda$ is one-dimensional.
-  The principal generalized minor $\Delta_{(V,\lambda)} \in \kk[\widehat{G}]$ is the function 
+  The principal generalized minor $\Delta_{(V,\lambda)} \in \kk[\widehat{G}]$ is the function
   \[
     g \mapsto \pi_\lambda(gv_\lambda)/v_\lambda,
   \]
@@ -347,10 +327,10 @@ A crucial feature of generalized minors is the following generalized determinant
 \begin{proposition}\cite{FZ99,Wil13}
   \label{prop:fundid}
   Suppose $u,v \in W$ and $1 \leq i \leq n$ are such that $\ell(u)<\ell(us_i)$ and $\ell(v)<\ell(vs_i)$.
-  Then 
+  Then
   \begin{equation}
     \label{eq:fundid}
-    \Delta_{u\omega_i}^{v\omega_i} \Delta_{us_i\omega_i}^{vs_i\omega_i} 
+    \Delta_{u\omega_i}^{v\omega_i} \Delta_{us_i\omega_i}^{vs_i\omega_i}
     =
     \prod_{\stackrel{1\leq j \leq n}{j\neq i}}\left(\Delta_{u\omega_j}^{v\omega_j}\right)^{-a_{ji}}
     +
@@ -361,15 +341,17 @@ A crucial feature of generalized minors is the following generalized determinant
 
 While the above identity on $G$ is the one we use directly, we note that it restricts from a similar one on $\widehat{G}$ that also involves the characters of $\widehat{G}/G$.
 
-%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Cluster Algebras}\label{sec:clusteralgebras}
+%%%%%%%%%%%%%%%%%%%%
+\subsection{Cluster Algebras}
+\label{sec:clusteralgebras}
 An $n\times n$ matrix $B$ is said to be \newword{skew-symmetrizable} if it can be transformed to a skew-symmetric matrix through multiplication by a diagonal matrix.
 For $m \geq n$, the \newword{principal part} of an $m \times n$ matrix is the submatrix formed by its first $n$ rows.
 An \newword{exchange matrix} $\widetilde B$ is an $m\times n$ integer matrix whose principal part $B$ is skew-symmetrizable.
 We will refer to such a $\widetilde B$ as an \newword{extension} of $B$.
 
-Two $m\times n$ exchange matrices $\widetilde B=(b_{ij})$ and $\widetilde B'=(b'_{ij})$ are related by \newword{matrix mutation} at $k \in \{1,\dotsc,n\}$ if their entries satisfy 
-\begin{equation}\label{eq:matrix mutation}
+Two $m\times n$ exchange matrices $\widetilde B=(b_{ij})$ and $\widetilde B'=(b'_{ij})$ are related by \newword{matrix mutation} at $k \in \{1,\dotsc,n\}$ if their entries satisfy
+\begin{equation}
+\label{eq:matrix mutation}
   b'_{ij} = \begin{cases}
   -b_{ij} & i = k \text{ or } j = k\\
   b_{ij} + [b_{ik}]_+ [b_{kj}]_+ - [-b_{ik}]_+ [-b_{kj}]_+ & \text{otherwise.}
@@ -393,12 +375,12 @@ The \newword{cluster variables}
 \]
 are defined recursively as follows.
 The \newword{initial cluster variables} $x_{i;t_0}$ are taken to be the generators $x_i$.
-If $t,t' \in \TT$ are joined by an edge labelled $k$, then $x_{i;t} = x_{i;t'}$ for $i \neq k$ and $x_{k;t}$, $x_{k;t'}$ are related by the \newword{exchange relation} 
+If $t,t' \in \TT$ are joined by an edge labelled $k$, then $x_{i;t} = x_{i;t'}$ for $i \neq k$ and $x_{k;t}$, $x_{k;t'}$ are related by the \newword{exchange relation}
 \[
-  x_{k;t}x_{k;t'} 
-  = 
-  \prod_{b^t_{ik}>0}x_{i;t}^{b^t_{ik}} 
-  + 
+  x_{k;t}x_{k;t'}
+  =
+  \prod_{b^t_{ik}>0}x_{i;t}^{b^t_{ik}}
+  +
   \prod_{b^t_{ik}<0}x_{i;t}^{-b^t_{ik}}.
 \]
 The variables $x_{n+1;t},\dotsc, x_{m;t}$ do not depend on $t$ and hence are referred to as \newword{frozen variables}.
@@ -409,23 +391,23 @@ We also refer to variables $x_{i;t}$ for $i\in[1,n]$ as \newword{mutable}.
 \end{definition}
 
 We say a skew-symmetrizable matrix is \newword{acyclic} if it can be conjugated by a permutation matrix so that the entries above the diagonal all become nonnegative.
-In other words, $B$ is acyclic if there is a permutation $\sigma \in S_n$ such that $b_{\sigma_i \sigma_j} \geq 0$ when $i < j$. 
+In other words, $B$ is acyclic if there is a permutation $\sigma \in S_n$ such that $b_{\sigma_i \sigma_j} \geq 0$ when $i < j$.
 This terminology is justified by the skew-symmetric case: the data of a skew-symmetric matrix $B$ is the same as that of a quiver $Q := Q_B$ with vertices indexed by the columns of $B$ and $[-b_{ij}]_+$ arrows from vertex $i$ to vertex $j$; the skew-symmetric matrix is acyclic exactly when this quiver has no oriented cycles.
 We call an exchange matrix acyclic if its principal part is acyclic.
 
 \begin{remark}
-Just as a skew-symmetric matrix $B$ can be encoded as a quiver $Q$, an extension $\widetilde{B}$ of $B$ can be encoded as a \newword{framed quiver} $\widetilde{Q}$.
-This means a quiver obtained from $Q$ by adjoining $m -  n$ \newword{frozen vertices}.
-These have no arrows between them and the arrows connecting them to the orginal vertices are determined in the obvious way by the non-principal part of $\widetilde{B}$.
-Given a framed quiver $\widetilde{Q}$, we simply write $\cA_{\widetilde{Q}}$ for the cluster algebra associated to its signed adjacency matrix $\widetilde{B}$ as above.
+  Just as a skew-symmetric matrix $B$ can be encoded as a quiver $Q$, an extension $\widetilde{B}$ of $B$ can be encoded as a \newword{framed quiver} $\widetilde{Q}$.
+  This means a quiver obtained from $Q$ by adjoining $m -  n$ \newword{frozen vertices}.
+  These have no arrows between them and the arrows connecting them to the orginal vertices are determined in the obvious way by the non-principal part of $\widetilde{B}$.
+  Given a framed quiver $\widetilde{Q}$, we simply write $\cA_{\widetilde{Q}}$ for the cluster algebra associated to its signed adjacency matrix $\widetilde{B}$ as above.
 \end{remark}
 
 \begin{figure}
   \centering
   \begin{tikzpicture}
     \node (l) [matrix] at (0,0) {
-      \coordinate (a) at (0,0); 
-      \coordinate (b) at (2,0); 
+      \coordinate (a) at (0,0);
+      \coordinate (b) at (2,0);
       \coordinate (c) at (1,-1.3);
       \foreach \c in {a,b,c} {\fill (\c) circle (.06);}
       \foreach \c/\d in {b/a,b/c,c/a} {\draw[thick,-stealth',shorten <=2mm,shorten >=2mm] (\c) to (\d);}
@@ -443,14 +425,15 @@ Given a framed quiver $\widetilde{Q}$, we simply write $\cA_{\widetilde{Q}}$ for
     The vertex labels of $Q$ correspond to the row/column labels of $B$ and $A$, and the Coxeter element associated to $B$ (equivalently, to $Q$) is $c = s_1 s_3 s_2$.
   }
   \label{fig:matrices}
-\end{figure}  
+\end{figure}
 
-Yet another way of encoding an acyclic skew-symmetrizable matrix $B$ is a symmetrizable Cartan matrix $A$ (the \newword{Cartan companion} of $B$) together with a Coxeter element $c$ of its Weyl group. 
-The Cartan matrix is obtained from $B$ by making all its entries negative without changing their absolute values, then setting each diagonal entry equal to two; see Figure~\ref{fig:matrices}. 
+Yet another way of encoding an acyclic skew-symmetrizable matrix $B$ is a symmetrizable Cartan matrix $A$ (the \newword{Cartan companion} of $B$) together with a Coxeter element $c$ of its Weyl group.
+The Cartan matrix is obtained from $B$ by making all its entries negative without changing their absolute values, then setting each diagonal entry equal to two; see Figure~\ref{fig:matrices}.
 The Coxeter element is $c = s_{\sigma_1}\cdots s_{\sigma_n}$, where $\sigma$ is any permutation with $b_{\sigma_i \sigma_j} \geq 0$ when $i < j$ as above (choosing a different permutation with this property defines the same Coxeter element via a different reduced word).
 Conversely, any acyclic skew-symmetrizable matrix can be obtained from a Cartan matrix and a Coxeter element $c$ by designating signs for the off-diagonal entries of $B$ according to any reduced word of $c$.
 
-For acyclic cluster algebras we will be especially interested in the following specific sequence of vertices in $\TT$ and the cluster variables associated to them. Letting $t_0 \in \TT$ denote a fixed root vertex as before, we fix a permutation $\sigma$ as above and write $\{t_\Zidx\}_{\Zidx \in \ZZ} \subset \TT$ for the vertices along the unique path with edges labelled as follows:
+For acyclic cluster algebras we will be especially interested in the following specific sequence of vertices in $\TT$ and the cluster variables associated to them.
+Letting $t_0 \in \TT$ denote a fixed root vertex as before, we fix a permutation $\sigma$ as above and write $\{t_\Zidx\}_{\Zidx \in \ZZ} \subset \TT$ for the vertices along the unique path with edges labelled as follows:
 \begin{equation}
   \cdots
   \dashname{\sigma_n}
@@ -473,13 +456,13 @@ For acyclic cluster algebras we will be especially interested in the following s
 \end{equation}
 It is straightforward to check that this is a subpath in the \newword{acyclic belt} of $\TT$, the full subgraph whose vertices are those $t \in \TT$ for which $\widetilde{B}^t$ is acyclic.
 
-While the vertex $t_\ell$ associated to $\Zidx \in \ZZ$ depends in general on the choice of $\sigma$, the set 
+While the vertex $t_\ell$ associated to $\Zidx \in \ZZ$ depends in general on the choice of $\sigma$, the set
 \begin{equation}
   \label{eq:cluster_variables_on_path}
   \{x_{i;t_\Zidx}: i \in [1,n], \Zidx \in \ZZ\}
 \end{equation}
-of cluster variables appearing along the above path does not. In fact, this is equal to the set of all cluster variables $x_{i;t}$ for which $\widetilde{B}^t$ is acyclic \cite[Corollary 4]{CK06} (while the proof is only written for the skew-symmetric case, the same argument can be applied in the skew-symmetrizable case). 
-We will refer to the non-initial cluster variables $x_{i;t_\Zidx}$ with $\Zidx>0$ (resp. $\Zidx<0$) as \newword{preprojective} (resp. \newword{postinjective}), and to a cluster variable that does not appear along path \ref{eq:path} as \newword{regular}; this terminology is justified by Proposition~\ref{prop:ccvsacyclicbelt}. We note that when $n=2$ there are no regular cluster variables. 
+of cluster variables appearing along the above path does not. In fact, this is equal to the set of all cluster variables $x_{i;t}$ for which $\widetilde{B}^t$ is acyclic \cite[Corollary 4]{CK06} (while the proof is only written for the skew-symmetric case, the same argument can be applied in the skew-symmetrizable case).
+We will refer to the non-initial cluster variables $x_{i;t_\Zidx}$ with $\Zidx>0$ (resp. $\Zidx<0$) as \newword{preprojective} (resp. \newword{postinjective}), and to a cluster variable that does not appear along path \ref{eq:path} as \newword{regular}; this terminology is justified by Proposition~\ref{prop:ccvsacyclicbelt}. We note that when $n=2$ there are no regular cluster variables.
 
 For each $t \in\TT$ and $1 \leq i \leq n$ there is an auxiliary pair of integer vectors depending only on the principal part $B$: the \newword{$\bfc$-vector} $\cv_{i;t} \in \ZZ^n$ and the \newword{$\bfg$-vector} $\gv_{i;t} \in \ZZ^n$ \cite{FZ07}.
 We write $C_t^B$ and $G_t^B$ for the matrices whose $i$-th columns are $\cv_{i;t}$ and $\gv_{i;t}$, respectively.
@@ -491,30 +474,34 @@ Given the matrix of $\bfc$-vectors at $t\in\TT$, we may define the matrix of $\b
   \label{eq:g-vectors_from_c-vectors}
   (G_t^B)^T = (C_t^{-B^T})^{-1},
 \end{equation}
-where $B^T$ is the transpose of $B$. 
+where $B^T$ is the transpose of $B$.
 Note that this is not the standard definition, but the above characterization (due to \cite[Theorem 1.2]{NZ12} and the sign-coherence result of \cite{DWZ10,GHKK14}) is what we will use in Section~\ref{sec:acyclic_belt}.
 The basic role of $\bfg$-vectors is that they provide natural labels of cluster variables: if $\widetilde{B}$ is of full rank, then two cluster variables $x_{i;t}$ and $x_{j;t'}$ coincide in $\cA_{\widetilde B}$ if and only if $\gv_{i;t}$ and $\gv_{j;t'}$ coincide in $\ZZ^n$ \cite{DWZ10,GHKK14}.
 \sayDR{Do we need that $\widetilde{B}$ is of full rank?}
 \sayHW{Beats me -- if someone is sure it's unnecessary take it out, otherwise I'm happy to leave it as possibly unnecessary but harmless.}
 \sayDR{Here is an attempted proof that full rank isn't necessary: the $\bfg$-vectors certainly parametrize principal coefficient cluster variables and all others are obtained from these via separation of additions, this shows that $\gv_{i;t}=\gv_{j;t'}$ implies $x_{i;t}=x_{j;t'}$.  The other implication seems obvious but I can't seem to justify it without full rank, e.g. it follows from Thm. 7.7 of GSV's book, but I want it to follow from their Thm 7.1 and can't convince myself it works...maybe we do need full rank, any thoughts?}
 \sayHW{Yeah it's the other implication that isn't clear without full rank}
- 
-\begin{remark}\label{rem:cgrootsweights}
+
+\begin{remark}
+  \label{rem:cgrootsweights}
   As our notation is meant to suggest, when $B$ is acyclic and $A$ its Cartan companion we consistently identify the $\bfg$-vector lattice with the weight lattice $P$ of $A$ by taking the initial $\bfg$-vector $\gv_{i;t_0}$ to the fundamental weight $\omega_i$.
   Similarly we identify the $\bfc$-vector lattice with the root lattice $\cQ$ by taking the initial $\bfc$-vector $\cv_{i;t_0}$ to the simple root $\alpha_i$.
   The duality between $\bfc$- and $\bfg$-vectors expressed in Equation~\eqref{eq:g-vectors_from_c-vectors} should be interpreted as the duality between weights and coroots (i.e. roots of the Langlands dual).
 \end{remark}
 
 
-%%%%%%%%%%%%%%%%%%%%%
-\subsection{Quiver representations and cluster characters}\label{sec:quiverbackground}
+%%%%%%%%%%%%%%%%%%%%
+\subsection{Quiver representations and cluster characters}
+\label{sec:quiverbackground}
 A \newword{quiver} $Q=(Q_0,Q_1,s,t)$ with $n$ vertices consists of a set $Q_0=\{1,2,\ldots,n\}$ of vertices, a set $Q_1$ of arrows, and maps $s,t:Q_1\to Q_0$ giving the source and target of an arrow.
-A \newword{$\kk$-representation} $M=(M_i,M_a)$ of $Q$ consists of a $\kk$-vector space $M_i$ for each $i\in Q_0$ and a $\kk$-linear map $M_a:M_{s(a)}\to M_{t(a)}$ for each arrow $a\in Q_1$. We denote by $\rep_\kk(Q)$ the hereditary abelian category of finite-dimensional representations, and refer to \cite{ASS06} for a details on the material recalled below. 
+A \newword{$\kk$-representation} $M=(M_i,M_a)$ of $Q$ consists of a $\kk$-vector space $M_i$ for each $i\in Q_0$ and a $\kk$-linear map $M_a:M_{s(a)}\to M_{t(a)}$ for each arrow $a\in Q_1$. We denote by $\rep_\kk(Q)$ the hereditary abelian category of finite-dimensional representations, and refer to \cite{ASS06} for a details on the material recalled below.
 
-We will only be interested in the case when $Q$ is \newword{acyclic} (i.e. has no oriented cycles or self-loops), hence we assume this throughout. This condition holds if and only if \newword{path algebra} $\kk Q$ (the $\kk$-vector space on the set of directed paths in $Q$) is finite-dimensional. As a $Q$-representation $\kk Q$ is the direct sum of the projective representations, so in particular these are also finite-dimensional (as are the injective representations).
+We will only be interested in the case when $Q$ is \newword{acyclic} (i.e. has no oriented cycles or self-loops), hence we assume this throughout. This condition holds if and only if \newword{path algebra} $\kk Q$ (the $\kk$-vector space on the set of directed paths in $Q$) is finite-dimensional.
+As a $Q$-representation $\kk Q$ is the direct sum of the projective representations, so in particular these are also finite-dimensional (as are the injective representations).
 
 Given a representation $M\in\rep_\kk(Q)$ and a projective presentation $0\to P_1\to P_0\to M\to 0$ (which may be chosen to terminate after two terms since $\rep_\kk(Q)$ is hereditary), the \newword{Auslander-Reiten translate} $\tau(M)\in\rep_\kk(Q)$ is defined via the short exact sequence
-\begin{equation}\label{eq:AR translation}
+\begin{equation}
+  \label{eq:AR translation}
   0\longrightarrow \tau(M)\longrightarrow D\Hom_Q(P_1,\kk Q)\longrightarrow D\Hom_Q(P_0,\kk Q)\longrightarrow 0,
 \end{equation}
 where $D=\Hom(-,\kk)$ is the standard $\kk$-linear duality functor.
@@ -523,22 +510,20 @@ The AR translation $\tau$ plays a key role in the representation theory of $Q$: 
 Call a representation $M$ \newword{preprojective} if $\tau^k(M)$ is projective for some $k\ge0$, \newword{postinjective} if there is an injective representation $I$ so that $M=\tau^k(I)$ for some $k\ge0$, and \newword{regular} otherwise.
 When $Q$ is an orientation of a simply-laced finite-type Dynkin diagram, the injective representations are preprojective (hence projective representations are postinjective) and there are no regular representations.
 
-We write $\KQ$ for the \newword{Grothendieck group} of $\rep_\kk(Q)$; it is the abelian group freely generated by the classes $[S_i]$ of the vertex-simple representations of $Q$. 
-\saySS{One minor point: do we need to identify the root lattice with the Grotendieck group? the reason why I am asking is that we already identify the space of c-vectors with roots and I would avoid the false connclusion that d-vectors and c-vectors coincide. At the moment we use this only in the proof of proposition 4.1}
-\sayHW{I changed the macro and am happy with the result.} 
-For $M\in\rep_\kk(Q)$ we call $[M]\in\KQ$ its \newword{dimension vector}, as $[\Qrep] = \sum_i \dim(M_i)[S_i]$. 
-Since $\rep_\kk(Q)$ is hereditary, the \newword{Euler-Ringel form} \[\langle M,N\rangle:=\dim_\kk\Hom(M,N)-\dim_\kk\Ext^1(M,N)\] only depends on the dimension vectors of $M$ and $N$, hence defines a bilinear form on $\KQ$. 
+We write $\KQ$ for the \newword{Grothendieck group} of $\rep_\kk(Q)$; it is the abelian group freely generated by the classes $[S_i]$ of the vertex-simple representations of $Q$.
+For $M\in\rep_\kk(Q)$ we call $[M]\in\KQ$ its \newword{dimension vector}, as $[\Qrep] = \sum_i \dim(M_i)[S_i]$.
+Since $\rep_\kk(Q)$ is hereditary, the \newword{Euler-Ringel form} \[\langle M,N\rangle:=\dim_\kk\Hom(M,N)-\dim_\kk\Ext^1(M,N)\] only depends on the dimension vectors of $M$ and $N$, hence defines a bilinear form on $\KQ$.
 In particular, it is completely determined by the pairings of vertex-simple representations:
 \[
   \langle S_i,S_j\rangle=
   \begin{cases}
-    1 & \text{if $i=j$;}\\ 
+    1 & \text{if $i=j$;}\\
     -\#\{\text{arrows $i \to j$ in $Q_1$}\} & \text{if $i \neq j$.}
   \end{cases}
 \]
 
-If $\widetilde{Q}$ is a framed quiver of an acyclic quiver $Q$, the non-initial cluster variables in $\cA_{\widetilde{Q}}$ are in bijection with the rigid indecomposable representations of $Q$. 
-Recall that a representation $M$ of $Q$ is \newword{rigid} if $\Ext^1(M,M) = 0$. 
+If $\widetilde{Q}$ is a framed quiver of an acyclic quiver $Q$, the non-initial cluster variables in $\cA_{\widetilde{Q}}$ are in bijection with the rigid indecomposable representations of $Q$.
+Recall that a representation $M$ of $Q$ is \newword{rigid} if $\Ext^1(M,M) = 0$.
 The bijection is given by associating to a representation $M$ a generating function encoding its submodule structure, referred to as its \newword{cluster character} or \newword{Caldero-Chapoton function}.
 
 The definition of the cluster character involves the \newword{$\bfg$-vector} $\grep(\Qrep)\in\ZZ^n$ of a representation $\Qrep$.
@@ -546,11 +531,12 @@ If
 \[
   0 \to \Qrep \to \bigoplus I_j^{a_j} \to \bigoplus I_j^{b_j} \to 0
 \]
-is an injective resolution of $M$, then $\grep(\Qrep)$ is the element of $\ZZ^n$ whose $j$-th component is $b_j - a_j$. The negative of $\grep(\Qrep)$ is often called the coindex of $M$, but the present terminology is justified by Theorem~\ref{thm:CCbijection}. 
+is an injective resolution of $M$, then $\grep(\Qrep)$ is the element of $\ZZ^n$ whose $j$-th component is $b_j - a_j$. The negative of $\grep(\Qrep)$ is often called the coindex of $M$, but the present terminology is justified by Theorem~\ref{thm:CCbijection}.
 Below we write $x^{\grep(\Qrep)}$ for the monomial $\prod x_j^{b_j - a_j}$.
 
 \begin{remark}
-As $Q$ is acyclic, it has an associated symmetric Cartan companion $A$. As in Section~\ref{sec:clusteralgebras} we identify the $\bfg$-vector lattice $\ZZ^n$ with the weight lattice $P$ associated to $A$ by mapping the $j$-th standard basis vector to the fundamental weight $\omega_j$. Thus, for example, $\grep(\Qrep) = \sum (b_j - a_j)\omega_j$ in the above definition. 
+  As $Q$ is acyclic, it has an associated symmetric Cartan companion $A$.
+  As in Section~\ref{sec:clusteralgebras} we identify the $\bfg$-vector lattice $\ZZ^n$ with the weight lattice $P$ associated to $A$ by mapping the $j$-th standard basis vector to the fundamental weight $\omega_j$. Thus, for example, $\grep(\Qrep) = \sum (b_j - a_j)\omega_j$ in the above definition.
 \end{remark}
 
 Given a dimension vector $e = \sum_i e_i[S_i] \in \NN^n \subset \KQ$, the \newword{quiver Grassmannian} $\Gr_eM$ is the variety of $e$-dimensional submodules of $M$.
@@ -564,32 +550,45 @@ We write $\chi(\Gr_eM)$ for its Euler characteristic (formally, in \'etale cohom
   \end{equation}
 \end{definition}
 
-\begin{theorem}\label{thm:CCbijection}\cite{CC,CK}
-Suppose that $\widetilde{Q}$ has no arrows whose source is a frozen vertex (equivalently, the non-principal part of $\widetilde{B}$ has only positive entries).
-Then the assignment $M \mapsto x_M$ defines a bijection between the set of rigid indecomposable representations of $Q$ and the set of non-initial cluster variables in $\cA_{\widetilde{Q}}$.
-Moreover, the $\bfg$-vector of the cluster variable $x_M$ is equal to $\grep(M)$.
+\begin{theorem}
+  \label{thm:CCbijection}
+  \cite{CC,CK}
+  Suppose that $\widetilde{Q}$ has no arrows whose source is a frozen vertex (equivalently, the non-principal part of $\widetilde{B}$ has only positive entries).
+  Then the assignment $M \mapsto x_M$ defines a bijection between the set of rigid indecomposable representations of $Q$ and the set of non-initial cluster variables in $\cA_{\widetilde{Q}}$.
+  Moreover, the $\bfg$-vector of the cluster variable $x_M$ is equal to $\grep(M)$.
 \end{theorem}
 
-The positivity assumption on the non-principal part of $\widetilde{B}$ is only to keep the formulas from being more complicated than we need. 
+The positivity assumption on the non-principal part of $\widetilde{B}$ is only to keep the formulas from being more complicated than we need.
 More generally, cluster variables and cluster characters will be related by a monomial determined by the separation of additions formula of \cite{FZ07}.
 
 With Theorem~\ref{thm:CCbijection} in hand we refer to non-initial cluster variables of $\cA_{\widetilde{Q}}$ as preprojective, postinjective, or regular if they come from a quiver representation of the corresponding type. This is compatible with the discussion of the acyclic belt in Section~\ref{sec:clusteralgebras}:
 
+<<<<<<< HEAD
 \begin{proposition}\label{prop:ccvsacyclicbelt}
 A rigid indecomposable representation $\Qrep$ is preprojective (resp. postinjective) if and only if the cluster variable $x_M$ is of the form $x_{i;t_\Zidx}$ for some $\Zidx > 0$ (resp. $\Zidx < 0$) in the notation of Equation~\eqref{eq:cluster_variables_on_path}.
 \end{proposition}
 \begin{proof}
   Recall that the mutation sequence in Equation~\eqref{eq:path} defining the node $t_\Zidx$ for $\Zidx>0$ (resp. $\Zidx<0$) proceeds by mutating sinks (resp. sources) of $Q$.  
   By \cite{DWZ10,Ru11}, the first mutation out of a given node always produces the cluster character of a vertex simple representation and mutations of the initial cluster at a sink/source acts on cluster characters via reflection functors acting on the representation.  
+=======
+\begin{proposition}
+  \label{prop:ccvsacyclicbelt}
+  A rigid indecomposable representation $\Qrep$ is preprojective (resp. postinjective) if and only if the cluster variable $x_M$ is of the form $x_{i;t_\Zidx}$ for some $\Zidx > 0$ (resp. $\Zidx < 0$) in the notation of Equation~(\ref{eq:cluster_variables_on_path}).
+\end{proposition}
+\begin{proof}
+  Recall that the mutation sequence in Equation~(\ref{eq:path}) defining the node $t_\Zidx$ for $\Zidx>0$ (resp. $\Zidx<0$) proceeds by mutating sinks (resp. sources) of $Q$.
+  By \cite{DWZ10,Ru11}, the first mutation out of a given node always produces the cluster character of a vertex simple representation and mutations of the initial cluster at a sink/source acts on cluster characters via reflection functors acting on the representation.
+>>>>>>> f67d1162d32936b19a44d14a1a0a51c1bc9bd165
   Using this and the interpretation of the Auslander-Reiten translation in terms of reflection functors \cite{BB76}, it is easy to see that the variable $x_{i;t_n}$ (resp. $x_{i;t_{-n}}$) is given by the cluster character $x_{P_i}$ (resp. $x_{I_i}$) of the projective cover (resp. injective hull) of the vertex simple $S_i$.  Moreover, the same reasoning shows that the representations corresponding to variables $x_{\langle\Zidx\rangle;t_{\Zidx}}$ for $\Zidx>0$ (resp. $\Zidx<0$) sweep out all representations in the preprojective (resp. postinjective) component of the Auslander-Reiten quiver of $Q$.
 \end{proof}
 
 Theorem~\ref{thm:CCbijection} and Proposition~\ref{prop:ccvsacyclicbelt} generalize to the case of skew-symmetrizable matrices by replacing quiver representations with representations of valued quivers or species.
-We refer to \cite{Ru11,Ru15} for relevant background, but omit a detailed discussion here. 
-As the characterization of preprojective and postinjective cluster variables in terms of the acyclic belt is what will be used in Section~\ref{sec:preproj}, we are content to take this as a definition in the skew-symmetrizable case. 
+We refer to \cite{Ru11,Ru15} for relevant background, but omit a detailed discussion here.
+As the characterization of preprojective and postinjective cluster variables in terms of the acyclic belt is what will be used in Section~\ref{sec:preproj}, we are content to take this as a definition in the skew-symmetrizable case.
 
-%%%%%%%%%%%%%%%%%%
-\subsection{Acyclic cluster algebras from double Bruhat cells}\label{sec:Coxeterdbc}
+%%%%%%%%%%%%%%%%%%%%
+\subsection{Acyclic cluster algebras from double Bruhat cells}
+\label{sec:Coxeterdbc}
 
 We can realize the cluster algebra associated to the acyclic matrix $B$ geometrically in terms of the Kac-Moody group $G$ associated to its Cartan companion $A$.
 More precisely, through the group we naturally find the algebra associated to the exchange matrix
@@ -619,9 +618,9 @@ The coordinate ring of $G^{u,v}$ is an upper cluster algebra and a finite subset
   \begin{equation}
     \label{eq:initialcluster}
     x_i = \Delta_{\omega_i},
-    \quad 
+    \quad
     \cvar_i = \Delta^{\omega_i}_{ c\omega_i} \prod_{j < i}(\Delta^{\omega_j}_{c \omega_j})^{a_{ji}},
-    \quad 
+    \quad
     \cvar_{\ol{\imath}} = \Delta^{c \omega_i}_{\omega_i} \prod_{j < i}(\Delta^{c \omega_j}_{\omega_j})^{a_{ji}}.
   \end{equation}
 \end{theorem}
@@ -650,24 +649,34 @@ For example, with respect to such a factorization it is clear that we have $\Del
 In particular, the generalized minors $\Delta_{\omega_i}$ that will be playing the role of initial (mutable) cluster variables evaluate to $h^{\omega_i}$.
 Some similar computations are collected in Lemma~\ref{lemma:coefficients_values}.
 
+<<<<<<< HEAD
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Preprojective and postinjective cluster variables as minors}\label{sec:preproj}
 In this section we prove that when $B$ is any acyclic skew-symmetrizable matrix, the identification $\cA_{\Bdp} \cong \kk[G^{c,c^{-1}}]$ realizes preprojective and postinjective cluster variables as restrictions of highest- and lowest-weight minors, respectively. 
 We first compute in Section~\ref{sec:acyclic_belt} a list of exchange relations that determine these cluster variables. 
 The identification with minors then follows in Section~\ref{sec:hlwminors} by comparing these relations with restrictions to $G^{c,c^{-1}}$ of the generalized determinantal identities of Proposition~\ref{prop:fundid}.
+=======
+%%%%%%%%%%%%%%%%%%%%
+\section{Preprojective and postinjective cluster variables as minors}
+\label{sec:preproj}
+In this section we prove that when $B$ is any acyclic skew-symmetrizable matrix, the identification $\cA_{\Bdp} \cong \kk[G^{c,c^{-1}}]$ realizes preprojective and postinjective cluster variables as restrictions of highest- and lowest-weight minors, respectively.
+We first compute in Section~\ref{sec:acyclic_belt} a list of exchange relations that determine these cluster variables.
+The identification with minors then follows in Section~\ref{sec:hlwminors} by comparing these relations with restrictions  to $G^{c,c^{-1}}$ of the generalized determinantal identities of Proposition~\ref{prop:fundid}.
+>>>>>>> f67d1162d32936b19a44d14a1a0a51c1bc9bd165
 
 Recall that since $B$ is acyclic there exists a permutation $\sigma\in S_n$ such that $b_{\sigma_i,\sigma_j}\geq 0$ whenever $i<j$.
 To simplify our notation in this section, we will assume that $\sigma$ is the identity permutation (no generality is lost, since we can always relabel the rows and columns of $B$ to achieve this). Moreover, we specifically assume that the Cartan companion $A$ of $B$ is not of finite type, the main claims being already established in \cite{YZ08} for the case of a semisimple algebraic group.
 Finally, without loss of generality, we will assume that $A$ is not block decomposable.
 
-%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%
 \subsection{Cluster variables in the acyclic belt}
 \label{sec:acyclic_belt}
 
 In view of the assumptions made at the beginning of this section, the Coxeter element associated to $B$ is $c=s_1\cdots s_n$ and any finite prefix of the infinite word $c^\infty =  s_1 s_2 \cdots s_n s_1 \cdots$ is reduced (cf. \cite{Spe09}).
 We will denote the prefix of $c^\infty$ of length $\Zidx$ by $c^\infty_{\le\Zidx}$.
 Therefore the path (\ref{eq:path}) in the acyclic belt becomes
-\begin{equation}\label{eq:simplepath}
+\begin{equation}
+\label{eq:simplepath}
   \cdots
   \dashname{n}
   t_{-n}
@@ -702,7 +711,8 @@ We will then obtain the corresponding $\bfg$-vectors applying Equation~\eqref{eq
   \label{lemma:c-vectors}
   Let $\cv_{i;t_\Zidx}$ be the $i$-th $\bfc$-vector at vertex $t_\Zidx$.
   Then
-  \begin{equation}\label{eq:c-vectors}
+  \begin{equation}
+\label{eq:c-vectors}
     \cv_{i;t_\Zidx}
     =
     \begin{cases}
@@ -720,7 +730,7 @@ We will then obtain the corresponding $\bfg$-vectors applying Equation~\eqref{eq
   When $\Zidx>0$ the root $c^\infty_{\le\Zidx}\, \alpha_{\mod{\Zidx+1}}$ is positive: indeed the rightmost reflection in $c^\infty_{\le\Zidx}$ is $s_{\mod{\Zidx}}$ so that the word $c^\infty_{\le\Zidx}s_{\mod{\Zidx+1}}=c^\infty_{\le\Zidx+1}$ is reduced (cf. \cite{Spe09}) and we can apply \cite[VI \S 1.6, Corollary 2 of Proposition 17]{Bou02}.
   By the same principle, the root $c^\infty_{\le\Zidx}\, \alpha_{\mod{\Zidx}} = -c^\infty_{\le\Zidx-1}\, \alpha_{\mod{\Zidx}}$ is negative because the word $c^\infty_{\le\Zidx}$ is reduced.
   Similarly, when $\Zidx<-n$ the root $-c^{-\infty}_{\le-\Zidx-n}\, \alpha_{\mod{\Zidx+1}}$ is positive and the root $-c^{-\infty}_{\le-\Zidx-n}\, \alpha_{\mod{\Zidx}}$ is negative.
-  
+
   For the main claim there are three cases to consider.
 
   \noindent{\bf Case $-n \leq \Zidx \leq 0$.}
@@ -742,8 +752,8 @@ We will then obtain the corresponding $\bfg$-vectors applying Equation~\eqref{eq
   We again argue by induction on $\Zidx$ the base case still being $\Zidx=0$.
   Since the sign of $\cv_{\mod{\Zidx+1};t_\Zidx}$ and the sign of the $\mod{\Zidx+1}$-st row of $B^{t_\Zidx}$ are both positive, in view of \cite[Proposition 1.3]{NZ12}, the $\bfc$-vectors at $t_{\Zidx+1}$ are given by
   \begin{align*}
-    \cv_{i;t_{\Zidx+1}} 
-    &= 
+    \cv_{i;t_{\Zidx+1}}
+    &=
     \cv_{i;t_\Zidx} - a_{\mod{\Zidx+1},i} \cv_{\mod{\Zidx+1};t_\Zidx}\\
     &=
     \cv_{i;t_\Zidx} - \frac{2(\alpha_{\mod{\Zidx+1}},\alpha_i)}{(\alpha_{\mod{\Zidx+1}},\alpha_{\mod{\Zidx+1}})} \cv_{\mod{\Zidx+1};t_\Zidx}\\
@@ -755,12 +765,12 @@ We will then obtain the corresponding $\bfg$-vectors applying Equation~\eqref{eq
   where the second to last equality holds because the pairing $(\cdot,\cdot)$ is invariant under the action of the Weyl group.
   Using the inductive hypotheses we can then conclude
   \[
-    \cv_{i;t_{\Zidx+1}} 
+    \cv_{i;t_{\Zidx+1}}
     =
     s_{\cv_{\mod{\Zidx+1};t_\Zidx}}\, \cv_{i;t_\Zidx}
     =
     c^\infty_{\le\Zidx} s_{\mod{\Zidx+1}} \left(c^\infty_{\le\Zidx}\right)^{-1} c^\infty_{\le\Zidx}\, \alpha_i
-    = 
+    =
     c^\infty_{\le\Zidx+1}\, \alpha_i.
   \]
 
@@ -785,17 +795,21 @@ We can now deduce formulas for the $\bfg$-vectors we need from Lemma~\ref{lemma:
       -c^{-\infty}_{\le-\Zidx-n}\, \omega_i \qquad & \text{if $\Zidx <-n$.}\\
     \end{cases}
   \end{equation}
-In particular, the $\bfg$-vectors of the preprojective cluster variables are
+  In particular, the $\bfg$-vectors of the preprojective cluster variables are
   \[
     \Pi_{\textit{proj}}:=\big\{c^k\omega_i: i \in [1,n], k>0\big\},
   \]
-and the $\bfg$-vectors of the postinjective cluster variables are 
-\[
-\Pi_{\textit{inj}}:=\big\{-c^{-k}\omega_i: i \in [1,n], k\geq0 \big\}.
-\]
+  and the $\bfg$-vectors of the postinjective cluster variables are
+  \[
+  \Pi_{\textit{inj}}:=\big\{-c^{-k}\omega_i: i \in [1,n], k\geq0 \big\}.
+  \]
 \end{lemma}
 \begin{proof}
+<<<<<<< HEAD
   The result follows immediately from Lemma~\ref{lemma:c-vectors} leveraging the duality in between coroot and weight lattices for $A$.
+=======
+  The result follows immediately from Lemma~\ref{lemma:c-vectors} leveraging the duality in beween coroot and weight lattices for $A$.
+>>>>>>> f67d1162d32936b19a44d14a1a0a51c1bc9bd165
   Indeed, Lemma~\ref{lemma:c-vectors} applied to $-B^T$ says that the $\bfc$-vectors for the dual cluster algebra are coroots of $A$; more precisely, at the node $t_\Zidx$, they are the coroots $\cv_{i;t_\Zidx}^\vee$.
   By Equation~\eqref{eq:g-vectors_from_c-vectors} the $\bfg$-vectors at $t_\Zidx$ are the basis of weights $\gv_{i;t_\Zidx}$ dual to $\cv_{i;t_\Zidx}^\vee$.
   We can then conclude by observing that the duality map commutes with the action of the elements of the Weyl group.
@@ -807,21 +821,23 @@ With the preceding results in hand, if $\omega \in P$ is either a fundamental we
 
 \begin{theorem}
   \label{thm:vars_and_rels_in_bipartite_belt}
-The following exchange relations are satisfied in $\cA_{\Bdp}$:
+  The following exchange relations are satisfied in $\cA_{\Bdp}$:
   \begin{align}
-    x_{c^k\omega_i}x_{c^{k+1}\omega_i} 
-    &= 
+    x_{c^k\omega_i}x_{c^{k+1}\omega_i}
+    &=
     \prod_{j<i} x_{c^{k+1}\omega_j}^{-a_{ji}}
     \prod_{j>i} x_{c^k\omega_j}^{-a_{ji}}
     +
-    \prod_{j=1}^n (z_j z_{\ol{\jmath}})^{[c^k\beta_i^+:\alpha_j]}\label{eq:preprojective}
+    \prod_{j=1}^n (z_j z_{\ol{\jmath}})^{[c^k\beta_i^+:\alpha_j]}
+    \label{eq:preprojective}
     \\
-    x_{-c^{-k}\omega_i}x_{-c^{-k-1}\omega_i} 
-    &= 
+    x_{-c^{-k}\omega_i}x_{-c^{-k-1}\omega_i}
+    &=
     \prod_{j<i} x_{-c^{-k}\omega_j}^{-a_{ji}}
     \prod_{j>i} x_{-c^{-k-1}\omega_j}^{-a_{ji}}
     +
-    \prod_{j=1}^n (z_j z_{\ol{\jmath}})^{[c^{-k}\beta_i^-:\alpha_j]}\label{eq:postinjective}
+    \prod_{j=1}^n (z_j z_{\ol{\jmath}})^{[c^{-k}\beta_i^-:\alpha_j]}
+    \label{eq:postinjective}
     \\
     x_{\omega_i}x_{-\omega_i}
     &=
@@ -831,11 +847,10 @@ The following exchange relations are satisfied in $\cA_{\Bdp}$:
     +
     1\label{eq:plusminus}
   \end{align}
- These relations determine all preprojective and postinjective cluster variables in terms of the initial ones.
+  These relations determine all preprojective and postinjective cluster variables in terms of the initial ones.
 \end{theorem}
 \begin{proof}
-
-  The relations are a direct consequence of Lemmas~\ref{lemma:c-vectors} and~\ref{lemma:g-vectors} once we observe that mutations happen along a sink/source adapted sequence so that the $\mod{\Zidx}$-th column of $B^{t_\Zidx}$ contains only non-negative entries and the $\mod{\Zidx+1}$-th column only non-positive entries. 
+  The relations are a direct consequence of Lemmas~\ref{lemma:c-vectors} and~\ref{lemma:g-vectors} once we observe that mutations happen along a sink/source adapted sequence so that the $\mod{\Zidx}$-th column of $B^{t_\Zidx}$ contains only non-negative entries and the $\mod{\Zidx+1}$-th column only non-positive entries.
   \sayHW{Am I crazy or should this be Lemma~\ref{lemma:g-vectors}? I mean, the whole point of computing g-vectors was that you need them to write down exchange relations, right?}
   \saySS{Not crazy but not entirely correct either. In any case the phrasing was wrong and I fixed it. The point is this: knowing g-vectors and exchange matrix (only the top part) is sufficient to produce exchange realtions in the coefficient free case. c-vectors give you the information you need to fill in coefficients.}
 \end{proof}
@@ -843,7 +858,7 @@ The following exchange relations are satisfied in $\cA_{\Bdp}$:
   As noted before, to obtain the exchange relations in the cluster algebra $\cA_{\Bpr}$ with principal coefficients it suffices to set the coefficients $\cvar_{\ol{1}},\dotsc,\cvar_{\ol{n}}$ to $1$ in the relations of Theorem~\ref{thm:vars_and_rels_in_bipartite_belt}.
 \end{remark}
 
-%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%
 \subsection{Highest- and lowest-weight minors}
 \label{sec:hlwminors}
 
@@ -854,30 +869,32 @@ The first lemma computes the evaluations of various minors of interest in terms 
 Recall that the initial cluster variables in $\kk[G^{c,c^{-1}}]$ are restrictions of
 \[
   x_i = \Delta_{\omega_i},
-  \quad 
+  \quad
   \cvar_i = \Delta^{\omega_i}_{ c\omega_i} \prod_{j < i}(\Delta^{\omega_j}_{c \omega_j})^{a_{ji}},
-  \quad 
+  \quad
   \cvar_{\ol{\imath}} = \Delta^{c \omega_i}_{\omega_i} \prod_{j < i}(\Delta^{c \omega_j}_{\omega_j})^{a_{ji}},
 \]
 for $1 \leq j \leq n$.
 
-\begin{lemma}\label{lemma:coefficients_values}
+\begin{lemma}
+  \label{lemma:coefficients_values}
   If $g \in G^{c,c^{-1}}$ factors as
-  \begin{equation}\label{eq:generic_factorization}
+  \begin{equation}
+    \label{eq:generic_factorization}
     g = x_{\ol{1}}(t_{\ol{1}}) \cdots x_{\ol{n}}(t_{\ol{n}}) h x_n(t_n) \cdots x_1(t_1)
   \end{equation}
-  for $h \in H$ and $t_i \in \kk^\times$, then  
+  for $h \in H$ and $t_i \in \kk^\times$, then
   \begin{gather}
     \Delta^{c^k\omega_j}_{c^{k+1}\omega_j}(g) = h^{c^k\omega_j}\prod_{i=1}^n t_{i}^{[c^k\beta_j^+:\alpha_i]},
     \quad
     \Delta^{c^{k+1}\omega_j}_{c^k\omega_j}(g) = h^{c^k\omega_j}\prod_{i=1}^n t_{\ol{\imath}}^{[c^k\beta_j^+:\alpha_i]},
     \label{eq:positive_cminor_values}\\
-    \Delta^{-c^{-k-1}\omega_j}_{-c^{-k}\omega_j}(g) = h^{-c^{-k-1}\omega_j}\prod_{i=1}^n t_{i}^{[c^{-k}\beta_j^-:\alpha_i]}, 
+    \Delta^{-c^{-k-1}\omega_j}_{-c^{-k}\omega_j}(g) = h^{-c^{-k-1}\omega_j}\prod_{i=1}^n t_{i}^{[c^{-k}\beta_j^-:\alpha_i]},
     \quad
     \Delta^{-c^{-k}\omega_j}_{-c^{-k-1}\omega_j}(g) = h^{-c^{-k-1}\omega_j}\prod_{i=1}^n t_{\ol{\imath}}^{[c^{-k}\beta_j^-:\alpha_i]},
     \label{eq:negative_cminor_values}\\
     \cvar_i(g) = t_i h^{\omega_i}\prod_{ j <i}h^{a_{ j  i}\omega_ j },
-    \quad 
+    \quad
     \cvar_{\ol{\imath}}(g) = t_{\ol{\imath}} h^{\omega_i}\prod_{ j <i}h^{a_{ j  i}\omega_ j }.
     \label{eq:frozen_values}
   \end{gather}
@@ -887,8 +904,13 @@ for $1 \leq j \leq n$.
   The first four identities follow easily from considering root strings in $V(\omega_j)$ as in \cite[Proof of eq. 3.20]{YZ08}, and we omit an explicit discussion.
   For example, if $v_{\omega_j}$ is a highest-weight vector of $V(\omega_j)$, then $\Delta^{c\omega_j}_{\omega_j}(g)$ measures the component of $gv_{\omega_j}$ in the weight space $V(\omega_j)_{c \omega_j}$; sequentially considering how each one-parameter subgroup in the factorization can affect this component leads to the given formula.
 
+<<<<<<< HEAD
   We derive the first identity of Equation~\eqref{eq:frozen_values}, the second being similar.
   Plugging Equation~\eqref{eq:positive_cminor_values} into the definition of $\cvar_i(g)$ we obtain 
+=======
+  We derive the first identity of Equation~(\ref{eq:frozen_values}), the second being similar.
+  Plugging Equation~(\ref{eq:positive_cminor_values}) into the definition of $\cvar_i(g)$ we obtain
+>>>>>>> f67d1162d32936b19a44d14a1a0a51c1bc9bd165
   \[
     \cvar_i(g)
     =
@@ -904,8 +926,9 @@ for $1 \leq j \leq n$.
       0 & \text{ otherwise.}
     \end{cases}
   \]
-  This in turn follows from 
-  \begin{equation}\label{eq:alpha_to_beta}
+  This in turn follows from
+  \begin{equation}
+    \label{eq:alpha_to_beta}
     \beta_i^++\sum_{j<i}a_{ji}\beta_j^+ = s_1\cdots s_{i-1}\alpha_i + \sum_{j<i}s_1\cdots s_{j-1}(\alpha_i - s_j\alpha_i)
     =
     \alpha_i,
@@ -919,7 +942,7 @@ for $1 \leq j \leq n$.
   \begin{equation*}
     \Delta_{c^{k+1} \omega_i}^{c^k \omega_i}(g)
     =
-    \prod_{j=1}^nz_j(g)^{[c^k\beta_i^+:\alpha_j]},\quad 
+    \prod_{j=1}^nz_j(g)^{[c^k\beta_i^+:\alpha_j]},\quad
     \Delta_{c^k \omega_i}^{c^{k+1} \omega_i}(g)
     =
     \prod_{j=1}^nz_{\ol{\jmath}}(g)^{[c^k\beta_i^+:\alpha_j]}
@@ -930,13 +953,14 @@ for $1 \leq j \leq n$.
   It suffices to consider the case where $g$ factors as in Equation~\eqref{eq:generic_factorization}, since such elements are generic in $G^{c,c^{-1}}$.
   In the parameters of the factorization, Lemma~\ref{lemma:coefficients_values} lets us rewrite the desired identity as
   \[
-    h^{c^k\omega_i}\prod_{j=1}^n t_{j}^{[c^k\beta_i^+:\alpha_j]} 
-    = 
+    h^{c^k\omega_i}\prod_{j=1}^n t_{j}^{[c^k\beta_i^+:\alpha_j]}
+    =
     \prod_{j=1}^n\Big( t_j h^{\omega_j}\prod_{ \ell <j}h^{a_{\ell j}\omega_ \ell }\Big)^{[c^k\beta_i^+:\alpha_j]}.
   \]
   Establishing this is in turn equivalent to showing that in $P$ we have
-  \begin{equation}\label{eq:coxeter_identity_omega}
-    c^k\omega_i 
+  \begin{equation}
+    \label{eq:coxeter_identity_omega}
+    c^k\omega_i
     =
     \sum_{j=1}^n
     [c^k\beta_i^+:\alpha_j]
@@ -946,13 +970,13 @@ for $1 \leq j \leq n$.
     \Big).
   \end{equation}
 
-  On the other hand, we have 
+  On the other hand, we have
   \begin{equation}
     \label{eq:coxeter_identity_beta}
-    c^k\beta_i^+ 
-    = 
+    c^k\beta_i^+
+    =
     \sum_{j=1}^n [c^k\beta_i^+:\alpha_j] \alpha_j
-    = 
+    =
     \sum_{j=1}^n [c^k\beta_i^+:\alpha_j] \Big(\beta_j^+ + \sum_{\ell<j} a_{\ell j}\beta_\ell^+\Big),
   \end{equation}
   where the second equality follows from Equation~\eqref{eq:alpha_to_beta}.
@@ -966,13 +990,13 @@ for $1 \leq j \leq n$.
   \label{lemma:coefficients_identities}
   For $g \in G^{c,c^{-1}}$ and $1 \leq j \leq n$ we have
   \begin{equation*}
-    \cvar_j(g) 
+    \cvar_j(g)
     =
     \Delta_{-\omega_j}^{-c^{-1}\omega_j}(g)
     \prod_{\ell>j}\Big(\Delta_{-\omega_\ell}^{-c^{-1}\omega_\ell}(g)\Big)^{a_{\ell j}},
     \quad
-    \cvar_{\ol{\jmath}}(g) 
-    = 
+    \cvar_{\ol{\jmath}}(g)
+    =
     \Delta_{-c^{-1}\omega_j}^{-\omega_j}(g)
     \prod_{\ell>j}\Big(\Delta_{-c^{-1}\omega_\ell}^{-\omega_\ell}(g)\Big)^{a_{\ell j}}.
   \end{equation*}
@@ -981,8 +1005,8 @@ for $1 \leq j \leq n$.
   Again, we derive the first identity, the second being obtained in a similar fashion.
   If $g$ is generic and factored as in Equation~\eqref{eq:generic_factorization}, then in terms of factorization parameters the desired identity is
   \begin{equation}
-    t_j  h^{\omega_j} \prod_{\ell<j}h^{a_{\ell j}\omega_\ell} 
-    = 
+    t_j  h^{\omega_j} \prod_{\ell<j}h^{a_{\ell j}\omega_\ell}
+    =
     t_j  h^{-c^{-1}\omega_j} \prod_{\ell>j}h^{-a_{\ell j}c^{-1}\omega_\ell}.
   \end{equation}
   In rewriting the left-hand side we have used Equation~\eqref{eq:frozen_values}, while rewriting the right-hand side uses a similar computation involving the identity
@@ -1000,8 +1024,13 @@ for $1 \leq j \leq n$.
     -c^{-1}\left(\omega_j + \sum_{\ell>j} a_{\ell j}\omega_\ell\right)
   \end{equation}
   of weights in $P$.
+<<<<<<< HEAD
   
   Multiplying both sides by $s_{j+1}\cdots s_n$ transforms Equation~\eqref{eq:c_inverse_equality} into
+=======
+
+  Multiplying both sides by $s_{j+1}\cdots s_n$ transforms Equation~(\ref{eq:c_inverse_equality}) into
+>>>>>>> f67d1162d32936b19a44d14a1a0a51c1bc9bd165
   \[
     s_{j+1}\cdots s_n\left(\omega_j + \sum_{\ell<j} a_{\ell j}\omega_\ell\right)
     =
@@ -1033,35 +1062,43 @@ In proving the following theorem we make use of the involutive anti-automorphism
 Since $\iota$ preserves $B_+$ and $B_-$ but takes any lift of $w \in W$ to a lift of $w^{-1}$, it restricts to a biregular isomorphism between $G^{u,v}$ and $G^{u^{-1},v^{-1}}$.
 Since a generic element of $G$ factors as $n_- h n_+$, with $n_- \in N_-$, $h \in H$, $n_+ \in N_+$, we have $\Delta_{\omega_j}(g) = \Delta_{-\omega_j}(g^\iota)$ for all $g \in G$.
 
-\begin{theorem}\label{thm:mainirregular}
+\begin{theorem}
+  \label{thm:mainirregular}
   The isomorphism $\cA_{\Bdp} \cong \kk[G^{c,c^{-1}}]$ of Theorem~\ref{thm:coordring} identifies the preprojective cluster variable $x_{c^k\omega_i}$ with the restriction of the highest-weight minor $\Delta_{c^k\omega_i}$ and identifies the postinjective cluster variable $x_{-c^k \omega_i}$ with the restriction of the lowest-weight minor $\Delta_{-c^k \omega_i}$.
 \end{theorem}
 
 \begin{proof}
   In Theorem~\ref{thm:vars_and_rels_in_bipartite_belt} we computed exchange relations that determine these cluster variables in terms of the initial variables, so it suffices to check that the indicated restrictions of minors satisfy the same relations.
 
-  If we apply Proposition~\ref{prop:fundid} with $u = v = c^k s_1 \cdots s_{i-1}$ and substitute using the equalities from Lemma~\ref{lemma:coefficient_identity_powers}, we find that 
+  If we apply Proposition~\ref{prop:fundid} with $u = v = c^k s_1 \cdots s_{i-1}$ and substitute using the equalities from Lemma~\ref{lemma:coefficient_identity_powers}, we find that
   \begin{equation}
-    \Delta_{c^k\omega_i}\Delta_{c^{k+1}\omega_i} 
-    = 
+    \Delta_{c^k\omega_i}\Delta_{c^{k+1}\omega_i}
+    =
     \prod_{j<i}\Delta_{c^{k+1}\omega_j}^{-a_{ji}}
     \prod_{j>i}\Delta_{c^k\omega_j}^{-a_{ji}}
     +
     \prod_{j=1}^n(z_j z_{\ol{\jmath}})^{[c^k\beta_i^+:\alpha_j]}
   \end{equation}
   is satisfied on $G^{c,c^{-1}}$.
+<<<<<<< HEAD
   Comparing with Equation~\eqref{eq:preprojective} establishes that $x_{c^k\omega_i} = \Delta_{c^k \omega_i}$.
   
   On the other hand, applying the above argument with $c^{-1}$ in place of $c$ shows that  
   \begin{equation*} \Delta_{c^{-k}\omega_i} \Delta_{c^{-k-1}\omega_i} = 
+=======
+  Comparing with Equation~(\ref{eq:preprojective}) establishes that $x_{c^k\omega_i} = \Delta_{c^k \omega_i}$.
+
+  On the other hand, applying the above argument with $c^{-1}$ in place of $c$ shows that
+  \begin{equation*} \Delta_{c^{-k}\omega_i} \Delta_{c^{-k-1}\omega_i} =
+>>>>>>> f67d1162d32936b19a44d14a1a0a51c1bc9bd165
     \prod_{j<i}\Delta_{c^{-k}\omega_j}^{-a_{ji}}
     \prod_{j>i}\Delta_{c^{-k-1}\omega_j}^{-a_{ji}}
     +
-    \prod_{j=1}^n\left( 
+    \prod_{j=1}^n\left(
       \Delta^{c^{-1} \omega_j}_{\omega_j}
-      \Delta^{\omega_j}_{ c^{-1}\omega_j} 
+      \Delta^{\omega_j}_{ c^{-1}\omega_j}
       \prod_{\ell>j}\big(
-        \Delta^{c^{-1} \omega_\ell}_{\omega_\ell} 
+        \Delta^{c^{-1} \omega_\ell}_{\omega_\ell}
         \Delta^{\omega_\ell}_{c^{-1} \omega_\ell}
       \big)^{a_{\ell j}}
     \right)^{[c^{-k}\beta_i^-:\alpha_j]}
@@ -1076,11 +1113,19 @@ Since a generic element of $G$ factors as $n_- h n_+$, with $n_- \in N_-$, $h \i
     +
     \prod_{j=1}^n (z_j z_{\ol{\jmath}})^{[c^{-k}\beta_i^-:\alpha_j]}.
   \end{equation}
+<<<<<<< HEAD
   In particular, the lowest-weight minors $\Delta_{-c^{-k}\omega_i}$ satisfy Equation~\eqref{eq:postinjective}.
   
   To establish that the indicated minors satisfy Equation~\eqref{eq:plusminus} and thereby conclude the proof, we must show that
   \begin{equation*} 
     \Delta_{\omega_i}\Delta_{-\omega_i} 
+=======
+  In particular, the lowest-weight minors $\Delta_{-c^{-k}\omega_i}$ satisfy Equation~(\ref{eq:postinjective}).
+
+  To establish that the indicated minors satisfy Equation~(\ref{eq:plusminus}) and thereby conclude the proof, we must show that
+  \begin{equation*}
+    \Delta_{\omega_i}\Delta_{-\omega_i}
+>>>>>>> f67d1162d32936b19a44d14a1a0a51c1bc9bd165
     =
     \cvar_i \cvar_{\ol{\imath}}
     \prod_{j<i}\Delta_{\omega_j}^{-a_{ji}}
@@ -1100,7 +1145,7 @@ Since a generic element of $G$ factors as $n_- h n_+$, with $n_- \in N_-$, $h \i
     \prod_{j>i}\Delta_{-\omega_j}^{-a_{ji}}(g)
     +
     1
-    = 
+    =
     t_i
     t_{\ol{\imath}}
     h^{\alpha_i}
@@ -1108,7 +1153,7 @@ Since a generic element of $G$ factors as $n_- h n_+$, with $n_- \in N_-$, $h \i
     +
     1.
   \end{align*}
-  Applying $\iota$, this is equivalent to  
+  Applying $\iota$, this is equivalent to
   \begin{equation*}
     h^{\omega_i}\Delta_{\omega_i}(g^\iota) =
     t_i
@@ -1118,7 +1163,7 @@ Since a generic element of $G$ factors as $n_- h n_+$, with $n_- \in N_-$, $h \i
     +
     1
   \end{equation*}
-  
+
   To compute $\Delta_{\omega_i}(g^\iota)$ we need to straighten up the expression of $g^\iota$ using the fact that
   \begin{equation*}
     x_i(t_i) h x_{\ol{\imath}}(t_{\ol{\imath}})
@@ -1131,8 +1176,8 @@ Since a generic element of $G$ factors as $n_- h n_+$, with $n_- \in N_-$, $h \i
   for some $t'_i$, $t'_{\ol{\imath}} \in \kk^\times$ \cite[Proposition 7.2]{BZ01} (this imposes an irrelevant genericity condition on $t'_i$ and $t'_{\ol{\imath}}$).
   Using this and the fact that $x_i(t_i)$ and $x_{\ol{\jmath}}(t_{\ol{\jmath}})$ commute for $i \neq j$, a straightforward computation yields
   \[
-    g^\iota 
-    = 
+    g^\iota
+    =
     x_{\ol{n}}(t'_{\ol{n}})
     \cdots
     x_{\ol{1}}(t'_{\ol{1}})
@@ -1146,8 +1191,8 @@ Since a generic element of $G$ factors as $n_- h n_+$, with $n_- \in N_-$, $h \i
   \]
   Here the $v_i$ are defined by the recurrence relation
   \[
-    v_i 
-    = 
+    v_i
+    =
     1 + t_i t_{\ol{\imath}} h^{\alpha_i}
     \prod_{j > i} v_j^{-a_{j,i}},
   \]
@@ -1155,7 +1200,7 @@ Since a generic element of $G$ factors as $n_- h n_+$, with $n_- \in N_-$, $h \i
   From this one observes that $h^{\omega_i}\Delta_{\omega_i}(g^\iota) = v_i$, and the desired identity follows.
 \end{proof}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%
 \section{Regular cluster variables as minors}
 
 In this section we prove that the identification $\cA_{\Bdp} \cong \kk[G^{c,c^{-1}}]$ realizes all regular cluster variables as restrictions of level zero minors in the case that the Cartan companion of $B$ is of type $A_{n-1}^{\!(1)}$.
@@ -1164,11 +1209,12 @@ We show that the collections of paths relevant to a given minor are in bijection
 A similar computation shows that the generic basis element associated to the base of any homogeneous tube in type $A_{n-1}^{\!(1)}$ is also a level zero minor.
 We expect that all regular cluster variables are minors of level zero representations for any affine type, and we verify this for the finite list of types where it can be checked using only the characters of those representations.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Affine Quiver Representations}\label{sec:rigidregular}
+%%%%%%%%%%%%%%%%%%%%
+\subsection{Affine Quiver Representations}
+\label{sec:rigidregular}
 Let $Q$ be an acyclic orientation of an $n$-cycle, and label the vertices of $Q$ by $\ZZ_n$ so that neighboring vertices have cyclically adjacent labels.
 We have the following explicit classification of the indecomposable regular representations $\Qrep$ which are rigid (i.e. $\Ext^1(\Qrep,\Qrep)=0$).
-For $k,\ell\in\ZZ_n$ we write $[k,\ell]:=\{k,k+1,\ldots,\ell\}$ and let $\Qrep_{[k,\ell]}$ be the representation with 
+For $k,\ell\in\ZZ_n$ we write $[k,\ell]:=\{k,k+1,\ldots,\ell\}$ and let $\Qrep_{[k,\ell]}$ be the representation with
 \[
   \Qrep_i \cong \begin{cases} \kk & i \in [k,\ell] \\ 0 & \text{otherwise,} \end{cases}
 \]
@@ -1184,7 +1230,7 @@ and all arrows acting by invertible maps except the arrow between $k$ and $k-1$ 
   Let $p$ and $q$ be the numbers of clockwise and counterclockwise arrows, respectively.
   Then we have a decomposition $$\cR \cong \cR_{nil}^p \oplus \cR_{nil}^q \oplus \cR_{inv},$$ where $\cR_{nil}^p$ (resp. $\cR_{nil}^q$) is equivalent to the category of nilpotent representations of an oriented $p$-cycle (resp. $q$-cycle), and $\cR_{inv}$ is equivalent to the category of invertible representations of the Jordan quiver (this is the quiver with a single vertex and a single arrow from that vertex to itself, and an invertible representation is one for which this arrow acts by an invertible linear map).
 
-  Any invertible representation of the Jordan quiver has nontrivial self-extensions: if $X$ is an invertible matrix defining such a representation $\Qrep$, then the block upper triangular matrix 
+  Any invertible representation of the Jordan quiver has nontrivial self-extensions: if $X$ is an invertible matrix defining such a representation $\Qrep$, then the block upper triangular matrix
   \[
     \begin{bmatrix} X & Id \\ 0 & X \end{bmatrix}
   \]
@@ -1209,7 +1255,7 @@ and all arrows acting by invertible maps except the arrow between $k$ and $k-1$ 
   It remains to derive the condition on sinks and sources in $[k,\ell]$.
   We identify the Grothendieck group $\KQ$ with the root lattice $\cQ$ of type $A_{n-1}^{\!(1)}$, and write $\delta\in\cQ$ for the primitive positive imaginary root.
   Recall that $\Qrep \in \rep_\kk(Q)$ is regular if and only if the Euler-Ringel pairing $\langle\delta,\Qrep\rangle$ vanishes \cite[Section 7]{CrBo92}.
-  Writing $I \subset \ZZ_n$ (resp. $O \subset \ZZ_n$) for the subset of sinks (resp. sources) in $Q$, we have  
+  Writing $I \subset \ZZ_n$ (resp. $O \subset \ZZ_n$) for the subset of sinks (resp. sources) in $Q$, we have
   \[
     \langle\delta,\Qrep\rangle
     =
@@ -1228,20 +1274,20 @@ We let $\cE_{[k,\ell]}$ denote the collection of target-closed subsets of $[k,\e
 \begin{proposition}
   \label{prop:regular coindices}
   Let $[k,\ell] \subsetneq \ZZ_n$ be a proper subset containing the same number of sinks and sources of $Q$, so $\Qrep_{[k,\ell]}$ is rigid and regular.
-  If $i_1 < \cdots < i_m$ (resp. $o_1 < \cdots < o_m$) are the sinks (resp. sources) of $Q$ contained in $[k,\ell]$ (ordered by the restriction of the cyclic order on $\ZZ_n$ to a linear order on $[k,\ell]$), then 
+  If $i_1 < \cdots < i_m$ (resp. $o_1 < \cdots < o_m$) are the sinks (resp. sources) of $Q$ contained in $[k,\ell]$ (ordered by the restriction of the cyclic order on $\ZZ_n$ to a linear order on $[k,\ell]$), then
   \[
-    \grep(\Qrep_{[k,\ell]}) 
-    = 
-    \begin{cases} 
-      \omega_{k-1}-\omega_\ell+\sum_{j=1}^m (\omega_{o_j}-\omega_{i_j}) & \text{$i_1<o_1$ in $[k,\ell]$}\\ 
+    \grep(\Qrep_{[k,\ell]})
+    =
+    \begin{cases}
+      \omega_{k-1}-\omega_\ell+\sum_{j=1}^m (\omega_{o_j}-\omega_{i_j}) & \text{$i_1<o_1$ in $[k,\ell]$}\\
       \omega_{\ell+1}-\omega_k+\sum_{j=1}^m (\omega_{o_j}-\omega_{i_j}) & \text{$o_1 < i_1$ in $[k,\ell]$,}
     \end{cases}
   \]
-  and the cluster character of $\Qrep_{[k,\ell]}$ is 
+  and the cluster character of $\Qrep_{[k,\ell]}$ is
   \begin{equation}
     \label{eq:regular cluster characters}
-    x_{\Qrep_{[k,\ell]}} 
-    = 
+    x_{\Qrep_{[k,\ell]}}
+    =
     x^{\grep(\Qrep_{[k,\ell]})} \sum_{E \in \cE_{[k,\ell]}} \prod_{j \in E} \hat{y}_j.
   \end{equation}
 \end{proposition}
@@ -1249,13 +1295,13 @@ We let $\cE_{[k,\ell]}$ denote the collection of target-closed subsets of $[k,\e
   If $i_1 < o_1$ in $[k,\ell]$, then it is straightforward to see that the minimal injective resolution of $\Qrep_{[k,\ell]}$ is of the form
   \[
     0
-    \to 
-    \Qrep_{[k,\ell]} 
-    \to 
-    I_{i_1} \oplus \cdots \oplus I_{i_m}\oplus I_\ell 
-    \to 
+    \to
+    \Qrep_{[k,\ell]}
+    \to
+    I_{i_1} \oplus \cdots \oplus I_{i_m}\oplus I_\ell
+    \to
     I_{k-1} \oplus I_{o_1} \oplus \cdots \oplus I_{o_m},
-  \] 
+  \]
   from which the given formula for $\grep(\Qrep_{[k,\ell]})$ follows.
   The $o_1 < i_1$ case is similar.
   The description of submodules of $\Qrep_{[k,\ell]}$ in terms of target-closed subsets of $[k,\ell]$ is an instance of a more general description in terms of the coefficient quiver of a representation \cite{CI11,Rin98}; in our case the coefficient quiver of $\Qrep_{[k,\ell]}$ is just the full subquiver of $Q$ with vertex set $[k,\ell]$.
@@ -1263,25 +1309,33 @@ We let $\cE_{[k,\ell]}$ denote the collection of target-closed subsets of $[k,\e
 
 In Section~\ref{sec:networks} it will be useful to rewrite regular $\bfg$-vectors using the following Lemma, whose proof is an elementary computation.
 
-\begin{lemma}\label{lem:regulargvectors}
+\begin{lemma}
+  \label{lem:regulargvectors}
   If $\Qrep_{[k,\ell]}$ is rigid and regular, we can write its $\bfg$-vector as
   \[
     \grep(\Qrep_{[k,\ell]})=\sum_{j\in S_{[k,\ell]}} \omega_{j+1} - \omega_j,
   \]
-  where 
+  where
   \[
-    S_{[k,\ell]} 
-    = 
-    \begin{cases} 
-      [\ell,k-2] \cup [i_1, o_1 -1] \cup \cdots \cup [i_m, o_m - 1] & \text{$i_1<o_1$ in $[k,\ell]$}\\ 
+    S_{[k,\ell]}
+    =
+    \begin{cases}
+      [\ell,k-2] \cup [i_1, o_1 -1] \cup \cdots \cup [i_m, o_m - 1] & \text{$i_1<o_1$ in $[k,\ell]$}\\
       [k,o_1-1] \cup [i_1,o_2-1] \cup \cdots \cup [i_m,\ell] & \text{$o_1 < i_1$ in $[k,\ell]$.}
     \end{cases}
   \]
 \end{lemma}
 
+<<<<<<< HEAD
 %%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Networks}\label{sec:networks}
 Recall that the generic element $g$ of any double Bruhat cell $G^{u,v}$ can be factorized as in Equation~\eqref{eq:uvfactorization}.
+=======
+%%%%%%%%%%%%%%%%%%%%
+\subsection{Networks}
+\label{sec:networks}
+Recall that the generic element $g$ of any double Bruhat cell $G^{u,v}$ can be factorized as in Equation~(\ref{eq:uvfactorization}).
+>>>>>>> f67d1162d32936b19a44d14a1a0a51c1bc9bd165
 When $G = \widetilde{LSL}_n$ is the central extension of $LSL_n$, these factorizations (and more general ones associated to shuffles of reduced words) admit a combinatorial description in terms of directed networks on a cylinder \cite{GSV12,FM14}.
 This generalizes a similar relation between $SL_n$ and directed networks on a disk \cite{FZ99}.
 By a directed network on a surface we will mean an embedded directed graph whose edges are assigned weights in some fixed ring.
@@ -1429,17 +1483,28 @@ As in Section~\ref{sec:rigidregular} we fix a cyclic $\ZZ_n$-labelling of the ve
   The edge weights of the network will take values in the Laurent polynomial ring
   \[
     \kk[t_{1}^{\pm1},\dotsc,t_{\ell(v)}^{\pm 1},h_1^{\pm 1},\dotsc,h_{n}^{\pm 1},t_{\ol{1}}^{\pm 1},\dotsc,t_{\ol{\ell(u)}}^{\pm 1}].
+<<<<<<< HEAD
   \] 
   We declare one boundary component of the cylinder to be incoming and the other outgoing, and begin by associating a smaller cylindrical network to each factor in Equation~\eqref{eq:uvfactorization} (see Figure~\ref{fig:networks on cylinders}).
   
+=======
+  \]
+  We declare one boundary component of the cylinder to be incoming and the other outgoing, and begin by associating a smaller cylindrical network to each factor in Equation~(\ref{eq:uvfactorization}) (see Figure~\ref{fig:networks on cylinders}).
+
+>>>>>>> f67d1162d32936b19a44d14a1a0a51c1bc9bd165
   For $1 \leq i \leq n$, the networks associated to $x_i(t)$ and $x_{\ol{\imath}}(t)$ contain $n$ horizontal \newword{levels} running from the incoming boundary to the outgoing boundary.
   These are labelled by $\ZZ_n$ compatibly with their cyclic ordering and all have weight $1$.
   There is also a vertical \newword{bridge} having weight $t$ running between the $(i-1)$-st level and the $i$-th level; for $x_i(t)$ this bridge is oriented from the $i$-th level to the $(i-1)$-st level, while for $x_{\ol{\imath}}(t)$ this bridge is oriented from the $(i-1)$-st level to the $i$-th.
-  
+
   The network associated to the Cartan factor $h$ again has $n$ horizontal levels running from the incoming boundary to the outgoing boundary and labelled by $\ZZ_n$.
   The $i$-th level is of weight $h_{i+1}h_{i}^{-1}$.
+<<<<<<< HEAD
   
   The network $\cN^{u,v}$ is now defined by gluing these constituent networks together in the order they appear in Equation~\eqref{eq:uvfactorization} (see Figure~\ref{fig:totalnetwork}).
+=======
+
+  The network $\cN^{u,v}$ is now defined by gluing these constituent networks together in the order they appear in Equation~(\ref{eq:uvfactorization}) (see Figure~\ref{fig:totalnetwork}).
+>>>>>>> f67d1162d32936b19a44d14a1a0a51c1bc9bd165
   Given two adjacent factors, the incoming boundary of the left is glued to the outgoing boundary of the right so that the horizontal levels of each are aligned.
 \end{definition}
 
@@ -1453,61 +1518,61 @@ As in Section~\ref{sec:rigidregular} we fix a cyclic $\ZZ_n$-labelling of the ve
     \pgfmathsetmacro{\ang}{25} % angle in between horizontal lines
     \pgfmathsetmacro{\ask}{-7} % angle distance of labels
     \pgfmathsetmacro{\hsk}{-0.2} %horizontal distance of labels
-  
+
     % left side
     \draw ([shift={(90:{\edpt} and \ehgt)}]0,0) arc (90:270:{\edpt} and \ehgt);
     \draw [dashed] ([shift={(-90:{\edpt} and \ehgt)}]0,0) arc (-90:90:{\edpt} and \ehgt);
-  
+
     % first block
     \draw [singlearrow,draw] ([shift={(\fang:{\edpt} and \ehgt)}]\ewdt,0) arc (\fang:\fang+\ang:{\edpt} and \ehgt);
     \node at ([shift={(\fang+0.5*\ang:{\edpt} and \ehgt)}]\ewdt+\hsk,0) {$\scriptstyle t_{\ol{2}}$};
-    
+
     % second block
     \draw [singlearrow,draw] ([shift={(90:{\edpt} and \ehgt)}]2*\ewdt,0) arc (90:\fang:{\edpt} and \ehgt);
     \draw [dashed] ([shift={(-90:{\edpt} and \ehgt)}]2*\ewdt,0) arc (-90:90:{\edpt} and \ehgt);
     \draw [singlearrow,draw] ([shift={(\fang+2*\ang:{\edpt} and \ehgt)}]2*\ewdt,0) arc (\fang+2*\ang:270:{\edpt} and \ehgt);
     \node at ([shift={({0.6*(\fang-90)+90}:{\edpt} and \ehgt)}]2*\ewdt+\hsk,0) {$\scriptstyle t_{\ol{1}}$};
-  
+
     % third block
     \draw [singlearrow,draw] ([shift={(\fang+\ang:{\edpt} and \ehgt)}]3*\ewdt,0) arc (\fang+\ang:\fang+2*\ang:{\edpt} and \ehgt);
     \node at ([shift={(\fang+1.5*\ang:{\edpt} and \ehgt)}]3*\ewdt+\hsk,0) {$\scriptstyle t_{\ol{3}}$};
-    
+
     % fourth block
     \draw ([shift={(\fang:{\edpt} and \ehgt)}]0,0) -- ([shift={(150:{\edpt} and \ehgt)}]8*\ewdt,0);
     \draw [singlearrowreversed] ([shift={(\fang:{\edpt} and \ehgt)}]0,0) -- ([shift={(150:{\edpt} and \ehgt)}]\ewdt,0);
     \draw [singlearrowreversed] ([shift={(\fang:{\edpt} and \ehgt)}]7*\ewdt,0) -- ([shift={(150:{\edpt} and \ehgt)}]8*\ewdt,0);
     \node at ([shift={(\fang+\ask:{\edpt} and \ehgt)}]4*\ewdt,0) {$\scriptstyle h_2h_1^{-1}$};
-  
+
     \draw ([shift={(\fang+\ang:{\edpt} and \ehgt)}]0,0) -- ([shift={(\fang+\ang:{\edpt} and \ehgt)}]8*\ewdt,0);
     \draw [singlearrowreversed] ([shift={(\fang+\ang:{\edpt} and \ehgt)}]0,0) -- ([shift={(\fang+\ang:{\edpt} and \ehgt)}]\ewdt,0);
     \draw [singlearrowreversed] ([shift={(\fang+\ang:{\edpt} and \ehgt)}]7*\ewdt,0) -- ([shift={(\fang+\ang:{\edpt} and \ehgt)}]8*\ewdt,0);
     \node at ([shift={(\fang+\ask+\ang:{\edpt} and \ehgt)}]4*\ewdt,0) {$\scriptstyle h_3h_2^{-1}$};
-  
+
     \draw ([shift={(\fang+2*\ang:{\edpt} and \ehgt)}]0,0) -- ([shift={(\fang+2*\ang:{\edpt} and \ehgt)}]8*\ewdt,0);
     \draw [singlearrowreversed] ([shift={(\fang+2*\ang:{\edpt} and \ehgt)}]0,0) -- ([shift={(\fang+2*\ang:{\edpt} and \ehgt)}]\ewdt,0);
     \draw [singlearrowreversed] ([shift={(\fang+2*\ang:{\edpt} and \ehgt)}]7*\ewdt,0) -- ([shift={(\fang+2*\ang:{\edpt} and \ehgt)}]8*\ewdt,0);
     \node at ([shift={(\fang+\ask+2*\ang:{\edpt} and \ehgt)}]4*\ewdt,0) {$\scriptstyle h_1h_3^{-1}$};
-  
+
     % fifth block
     \draw [singlearrowreversed,draw] ([shift={(\fang+\ang:{\edpt} and \ehgt)}]5*\ewdt,0) arc (\fang+\ang:\fang+2*\ang:{\edpt} and \ehgt);
     \node at ([shift={(\fang+1.5*\ang:{\edpt} and \ehgt)}]5*\ewdt+\hsk,0) {$\scriptstyle t_{3}$};
-    
+
     % sixth block
     \draw [singlearrowreversed,draw] ([shift={(90:{\edpt} and \ehgt)}]6*\ewdt,0) arc (90:\fang:{\edpt} and \ehgt);
     \draw [dashed] ([shift={(-90:{\edpt} and \ehgt)}]6*\ewdt,0) arc (-90:90:{\edpt} and \ehgt);
     \draw [singlearrowreversed,draw] ([shift={(\fang+2*\ang:{\edpt} and \ehgt)}]6*\ewdt,0) arc (\fang+2*\ang:270:{\edpt} and \ehgt);
     \node at ([shift={({0.6*(\fang-90)+90}:{\edpt} and \ehgt)}]6*\ewdt+\hsk,0) {$\scriptstyle t_{1}$};
-  
+
     % seventh block
     \draw [singlearrowreversed,draw] ([shift={(\fang:{\edpt} and \ehgt)}]7*\ewdt,0) arc (\fang:\fang+\ang:{\edpt} and \ehgt);
     \node at ([shift={(\fang+0.5*\ang:{\edpt} and \ehgt)}]7*\ewdt+\hsk,0) {$\scriptstyle t_{2}$};
-  
+
     % right side
     \draw (8*\ewdt,0) ellipse ({\edpt} and \ehgt);
     \node at ([shift={(\fang:{\edpt} and \ehgt)}]8*\ewdt-\hsk,0) {$\scriptstyle 1$};
     \node at ([shift={(\fang+\ang:{\edpt} and \ehgt)}]8*\ewdt-\hsk,0) {$\scriptstyle 2$};
     \node at ([shift={(\fang+2*\ang:{\edpt} and \ehgt)}]8*\ewdt-\hsk,0) {$\scriptstyle 3$};
-  
+
     % top and bottom
     \draw ([shift={(90:{\edpt} and \ehgt)}]0,0) -- ([shift={(90:{\edpt} and \ehgt)}]8*\ewdt,0);
     \draw ([shift={(-90:{\edpt} and \ehgt)}]0,0) -- ([shift={(-90:{\edpt} and \ehgt)}]8*\ewdt,0);
@@ -1521,11 +1586,11 @@ If $P = \{P_i\}$ is a collection of paths, we write $\partial_{in}P \subset \ZZ_
 The \newword{weight} of a path is the product of the weights of the edges it traverses, and the weight $wt(P)$ of a collection of paths is the product of the weights of its constituent paths.
 
 Given $S \subsetneq \ZZ_n$, let
-\[ 
-  \omega_S 
-  = 
+\[
+  \omega_S
+  =
   \sum_{i \in S} \omega_{i+1} - \omega_i \in P^\circ \subset \widehat{P}.
-\] 
+\]
 Recall that $P^\circ$, the weight lattice of $SL_n$, is contained in the complement of both the Tits cone and its negative in $\widehat{P}$.
 The level zero representation $V(\omega_S)$ is $\big(\bigwedge^{|S|}\kk^{n-1}\big)[\loopvar^{\pm 1}]$ with its natural $\widetilde{LSL}_n$ action.
 Definition~\ref{def:network} is motivated by the following observation:
@@ -1537,9 +1602,9 @@ Definition~\ref{def:network} is motivated by the following observation:
   g = x_{\ol{\imath_1}}(t_{\ol{1}})\cdots x_{\ol{\imath_{\ell(u)}}}(t_{\ol{\ell(u)}})hx_{j_1}(t_{1}) \cdots x_{j_{\ell(v)}}(t_{\ell(v)})
   \]
   and let $h_i:= h^{\omega_i}$.
-  Then 
-  \[ 
-    \Delta_{\omega_S}(g) = \sum_{P: S \to S} wt(P), 
+  Then
+  \[
+    \Delta_{\omega_S}(g) = \sum_{P: S \to S} wt(P),
   \]
   where the sum is over collections $P$ of pairwise disjoint paths in $\cN^{u,v}$ with $\partial_{in}P = \partial_{out}P = S$.
 \end{proposition}
@@ -1554,7 +1619,7 @@ Definition~\ref{def:network} is motivated by the following observation:
   We use Proposition~\ref{prop:minorsfrompaths} to compute the value of the generalized minor $\Delta_{\omega_1-\omega_2}$ on the generic element $g$ represented by the network of Figure~\ref{fig:totalnetwork}.
   In this case $S=\{2,3\}$ and we get
   \[
-    \delimitershortfall -1pt 
+    \delimitershortfall -1pt
     \begin{array}{ccccccc}
       \Delta_{\omega_1-\omega_2}(g)
       &
@@ -1572,57 +1637,57 @@ Definition~\ref{def:network} is motivated by the following observation:
           \pgfmathsetmacro{\ang}{25} % angle in between horizontal lines
           \pgfmathsetmacro{\ask}{-7} % angle distance of labels
           \pgfmathsetmacro{\hsk}{-0.2*\scaling} %horizontal distance of labels
-        
+
           % left side
           \draw ([shift={(90:{\edpt} and \ehgt)}]0,0) arc (90:270:{\edpt} and \ehgt);
           \draw [dashed] ([shift={(-90:{\edpt} and \ehgt)}]0,0) arc (-90:90:{\edpt} and \ehgt);
-        
+
           % first block
           \draw ([shift={(\fang:{\edpt} and \ehgt)}]\ewdt,0) arc (\fang:\fang+\ang:{\edpt} and \ehgt);
-          
+
           % second block
           \draw ([shift={(90:{\edpt} and \ehgt)}]2*\ewdt,0) arc (90:\fang:{\edpt} and \ehgt);
           \draw [dashed] ([shift={(-90:{\edpt} and \ehgt)}]2*\ewdt,0) arc (-90:90:{\edpt} and \ehgt);
           \draw ([shift={(\fang+2*\ang:{\edpt} and \ehgt)}]2*\ewdt,0) arc (\fang+2*\ang:270:{\edpt} and \ehgt);
-        
+
           % third block
           \draw ([shift={(\fang+\ang:{\edpt} and \ehgt)}]3*\ewdt,0) arc (\fang+\ang:\fang+2*\ang:{\edpt} and \ehgt);
-          
+
           % fourth block
           \draw ([shift={(\fang:{\edpt} and \ehgt)}]0,0) -- ([shift={(150:{\edpt} and \ehgt)}]8*\ewdt,0);
           \draw ([shift={(\fang:{\edpt} and \ehgt)}]0,0) -- ([shift={(150:{\edpt} and \ehgt)}]\ewdt,0);
           \draw ([shift={(\fang:{\edpt} and \ehgt)}]7*\ewdt,0) -- ([shift={(150:{\edpt} and \ehgt)}]8*\ewdt,0);
-        
+
           \draw ([shift={(\fang+\ang:{\edpt} and \ehgt)}]0,0) -- ([shift={(\fang+\ang:{\edpt} and \ehgt)}]8*\ewdt,0);
           \draw ([shift={(\fang+\ang:{\edpt} and \ehgt)}]0,0) -- ([shift={(\fang+\ang:{\edpt} and \ehgt)}]\ewdt,0);
           \draw ([shift={(\fang+\ang:{\edpt} and \ehgt)}]7*\ewdt,0) -- ([shift={(\fang+\ang:{\edpt} and \ehgt)}]8*\ewdt,0);
-        
+
           \draw ([shift={(\fang+2*\ang:{\edpt} and \ehgt)}]0,0) -- ([shift={(\fang+2*\ang:{\edpt} and \ehgt)}]8*\ewdt,0);
           \draw ([shift={(\fang+2*\ang:{\edpt} and \ehgt)}]0,0) -- ([shift={(\fang+2*\ang:{\edpt} and \ehgt)}]\ewdt,0);
           \draw ([shift={(\fang+2*\ang:{\edpt} and \ehgt)}]7*\ewdt,0) -- ([shift={(\fang+2*\ang:{\edpt} and \ehgt)}]8*\ewdt,0);
-        
+
           % fifth block
           \draw ([shift={(\fang+\ang:{\edpt} and \ehgt)}]5*\ewdt,0) arc (\fang+\ang:\fang+2*\ang:{\edpt} and \ehgt);
-          
+
           % sixth block
           \draw ([shift={(90:{\edpt} and \ehgt)}]6*\ewdt,0) arc (90:\fang:{\edpt} and \ehgt);
           \draw [dashed] ([shift={(-90:{\edpt} and \ehgt)}]6*\ewdt,0) arc (-90:90:{\edpt} and \ehgt);
           \draw ([shift={(\fang+2*\ang:{\edpt} and \ehgt)}]6*\ewdt,0) arc (\fang+2*\ang:270:{\edpt} and \ehgt);
-        
+
           % seventh block
           \draw ([shift={(\fang:{\edpt} and \ehgt)}]7*\ewdt,0) arc (\fang:\fang+\ang:{\edpt} and \ehgt);
-        
+
           % right side
           \draw (8*\ewdt,0) ellipse ({\edpt} and \ehgt);
-        
+
           % top and bottom
           \draw ([shift={(90:{\edpt} and \ehgt)}]0,0) -- ([shift={(90:{\edpt} and \ehgt)}]8*\ewdt,0);
           \draw ([shift={(-90:{\edpt} and \ehgt)}]0,0) -- ([shift={(-90:{\edpt} and \ehgt)}]8*\ewdt,0);
-      
+
           % paths
           \draw [stealth-, line width=\pathwdt] ([shift={(\fang+\ang:{\edpt} and \ehgt)}]0,0) -- ([shift={(\fang+\ang:{\edpt} and \ehgt)}]8*\ewdt,0);
           \draw [stealth-, line width=\pathwdt] ([shift={(\fang+2*\ang:{\edpt} and \ehgt)}]0,0) -- ([shift={(\fang+2*\ang:{\edpt} and \ehgt)}]8*\ewdt,0);
-      
+
         \end{tikzpicture}
       \right)
       &
@@ -1640,57 +1705,57 @@ Definition~\ref{def:network} is motivated by the following observation:
           \pgfmathsetmacro{\ang}{25} % angle in between horizontal lines
           \pgfmathsetmacro{\ask}{-7} % angle distance of labels
           \pgfmathsetmacro{\hsk}{-0.2*\scaling} %horizontal distance of labels
-        
+
           % left side
           \draw ([shift={(90:{\edpt} and \ehgt)}]0,0) arc (90:270:{\edpt} and \ehgt);
           \draw [dashed] ([shift={(-90:{\edpt} and \ehgt)}]0,0) arc (-90:90:{\edpt} and \ehgt);
-        
+
           % first block
           \draw ([shift={(\fang:{\edpt} and \ehgt)}]\ewdt,0) arc (\fang:\fang+\ang:{\edpt} and \ehgt);
-          
+
           % second block
           \draw ([shift={(90:{\edpt} and \ehgt)}]2*\ewdt,0) arc (90:\fang:{\edpt} and \ehgt);
           \draw [dashed] ([shift={(-90:{\edpt} and \ehgt)}]2*\ewdt,0) arc (-90:90:{\edpt} and \ehgt);
           \draw ([shift={(\fang+2*\ang:{\edpt} and \ehgt)}]2*\ewdt,0) arc (\fang+2*\ang:270:{\edpt} and \ehgt);
-        
+
           % third block
           \draw ([shift={(\fang+\ang:{\edpt} and \ehgt)}]3*\ewdt,0) arc (\fang+\ang:\fang+2*\ang:{\edpt} and \ehgt);
-          
+
           % fourth block
           \draw ([shift={(\fang:{\edpt} and \ehgt)}]0,0) -- ([shift={(150:{\edpt} and \ehgt)}]8*\ewdt,0);
           \draw ([shift={(\fang:{\edpt} and \ehgt)}]0,0) -- ([shift={(150:{\edpt} and \ehgt)}]\ewdt,0);
           \draw ([shift={(\fang:{\edpt} and \ehgt)}]7*\ewdt,0) -- ([shift={(150:{\edpt} and \ehgt)}]8*\ewdt,0);
-        
+
           \draw ([shift={(\fang+\ang:{\edpt} and \ehgt)}]0,0) -- ([shift={(\fang+\ang:{\edpt} and \ehgt)}]8*\ewdt,0);
           \draw ([shift={(\fang+\ang:{\edpt} and \ehgt)}]0,0) -- ([shift={(\fang+\ang:{\edpt} and \ehgt)}]\ewdt,0);
           \draw ([shift={(\fang+\ang:{\edpt} and \ehgt)}]7*\ewdt,0) -- ([shift={(\fang+\ang:{\edpt} and \ehgt)}]8*\ewdt,0);
-        
+
           \draw ([shift={(\fang+2*\ang:{\edpt} and \ehgt)}]0,0) -- ([shift={(\fang+2*\ang:{\edpt} and \ehgt)}]8*\ewdt,0);
           \draw ([shift={(\fang+2*\ang:{\edpt} and \ehgt)}]0,0) -- ([shift={(\fang+2*\ang:{\edpt} and \ehgt)}]\ewdt,0);
           \draw ([shift={(\fang+2*\ang:{\edpt} and \ehgt)}]7*\ewdt,0) -- ([shift={(\fang+2*\ang:{\edpt} and \ehgt)}]8*\ewdt,0);
-        
+
           % fifth block
           \draw ([shift={(\fang+\ang:{\edpt} and \ehgt)}]5*\ewdt,0) arc (\fang+\ang:\fang+2*\ang:{\edpt} and \ehgt);
-          
+
           % sixth block
           \draw ([shift={(90:{\edpt} and \ehgt)}]6*\ewdt,0) arc (90:\fang:{\edpt} and \ehgt);
           \draw [dashed] ([shift={(-90:{\edpt} and \ehgt)}]6*\ewdt,0) arc (-90:90:{\edpt} and \ehgt);
           \draw ([shift={(\fang+2*\ang:{\edpt} and \ehgt)}]6*\ewdt,0) arc (\fang+2*\ang:270:{\edpt} and \ehgt);
-        
+
           % seventh block
           \draw ([shift={(\fang:{\edpt} and \ehgt)}]7*\ewdt,0) arc (\fang:\fang+\ang:{\edpt} and \ehgt);
-        
+
           % right side
           \draw (8*\ewdt,0) ellipse ({\edpt} and \ehgt);
-        
+
           % top and bottom
           \draw ([shift={(90:{\edpt} and \ehgt)}]0,0) -- ([shift={(90:{\edpt} and \ehgt)}]8*\ewdt,0);
           \draw ([shift={(-90:{\edpt} and \ehgt)}]0,0) -- ([shift={(-90:{\edpt} and \ehgt)}]8*\ewdt,0);
-      
+
           % paths
           \draw [stealth-, line width=\pathwdt] ([shift={(\fang+\ang:{\edpt} and \ehgt)}]0,0) -- ([shift={(\fang+\ang:{\edpt} and \ehgt)}]\ewdt,0) arc (\fang+\ang:\fang:{\edpt} and \ehgt) -- ([shift={(\fang:{\edpt} and \ehgt)}]\ewdt,0) -- ([shift={(\fang:{\edpt} and \ehgt)}]7*\ewdt,0) arc (\fang:\fang+\ang:{\edpt} and \ehgt) -- ([shift={(\fang+\ang:{\edpt} and \ehgt)}]8*\ewdt,0);
           \draw [stealth-, line width=\pathwdt] ([shift={(\fang+2*\ang:{\edpt} and \ehgt)}]0,0) -- ([shift={(\fang+2*\ang:{\edpt} and \ehgt)}]8*\ewdt,0);
-      
+
         \end{tikzpicture}
       \right)
       &
@@ -1709,57 +1774,57 @@ Definition~\ref{def:network} is motivated by the following observation:
           \pgfmathsetmacro{\ang}{25} % angle in between horizontal lines
           \pgfmathsetmacro{\ask}{-7} % angle distance of labels
           \pgfmathsetmacro{\hsk}{-0.2*\scaling} %horizontal distance of labels
-        
+
           % left side
           \draw ([shift={(90:{\edpt} and \ehgt)}]0,0) arc (90:270:{\edpt} and \ehgt);
           \draw [dashed] ([shift={(-90:{\edpt} and \ehgt)}]0,0) arc (-90:90:{\edpt} and \ehgt);
-        
+
           % first block
           \draw ([shift={(\fang:{\edpt} and \ehgt)}]\ewdt,0) arc (\fang:\fang+\ang:{\edpt} and \ehgt);
-          
+
           % second block
           \draw ([shift={(90:{\edpt} and \ehgt)}]2*\ewdt,0) arc (90:\fang:{\edpt} and \ehgt);
           \draw [dashed] ([shift={(-90:{\edpt} and \ehgt)}]2*\ewdt,0) arc (-90:90:{\edpt} and \ehgt);
           \draw ([shift={(\fang+2*\ang:{\edpt} and \ehgt)}]2*\ewdt,0) arc (\fang+2*\ang:270:{\edpt} and \ehgt);
-        
+
           % third block
           \draw ([shift={(\fang+\ang:{\edpt} and \ehgt)}]3*\ewdt,0) arc (\fang+\ang:\fang+2*\ang:{\edpt} and \ehgt);
-          
+
           % fourth block
           \draw ([shift={(\fang:{\edpt} and \ehgt)}]0,0) -- ([shift={(150:{\edpt} and \ehgt)}]8*\ewdt,0);
           \draw ([shift={(\fang:{\edpt} and \ehgt)}]0,0) -- ([shift={(150:{\edpt} and \ehgt)}]\ewdt,0);
           \draw ([shift={(\fang:{\edpt} and \ehgt)}]7*\ewdt,0) -- ([shift={(150:{\edpt} and \ehgt)}]8*\ewdt,0);
-        
+
           \draw ([shift={(\fang+\ang:{\edpt} and \ehgt)}]0,0) -- ([shift={(\fang+\ang:{\edpt} and \ehgt)}]8*\ewdt,0);
           \draw ([shift={(\fang+\ang:{\edpt} and \ehgt)}]0,0) -- ([shift={(\fang+\ang:{\edpt} and \ehgt)}]\ewdt,0);
           \draw ([shift={(\fang+\ang:{\edpt} and \ehgt)}]7*\ewdt,0) -- ([shift={(\fang+\ang:{\edpt} and \ehgt)}]8*\ewdt,0);
-        
+
           \draw ([shift={(\fang+2*\ang:{\edpt} and \ehgt)}]0,0) -- ([shift={(\fang+2*\ang:{\edpt} and \ehgt)}]8*\ewdt,0);
           \draw ([shift={(\fang+2*\ang:{\edpt} and \ehgt)}]0,0) -- ([shift={(\fang+2*\ang:{\edpt} and \ehgt)}]\ewdt,0);
           \draw ([shift={(\fang+2*\ang:{\edpt} and \ehgt)}]7*\ewdt,0) -- ([shift={(\fang+2*\ang:{\edpt} and \ehgt)}]8*\ewdt,0);
-        
+
           % fifth block
           \draw ([shift={(\fang+\ang:{\edpt} and \ehgt)}]5*\ewdt,0) arc (\fang+\ang:\fang+2*\ang:{\edpt} and \ehgt);
-          
+
           % sixth block
           \draw ([shift={(90:{\edpt} and \ehgt)}]6*\ewdt,0) arc (90:\fang:{\edpt} and \ehgt);
           \draw [dashed] ([shift={(-90:{\edpt} and \ehgt)}]6*\ewdt,0) arc (-90:90:{\edpt} and \ehgt);
           \draw ([shift={(\fang+2*\ang:{\edpt} and \ehgt)}]6*\ewdt,0) arc (\fang+2*\ang:270:{\edpt} and \ehgt);
-        
+
           % seventh block
           \draw ([shift={(\fang:{\edpt} and \ehgt)}]7*\ewdt,0) arc (\fang:\fang+\ang:{\edpt} and \ehgt);
-        
+
           % right side
           \draw (8*\ewdt,0) ellipse ({\edpt} and \ehgt);
-        
+
           % top and bottom
           \draw ([shift={(90:{\edpt} and \ehgt)}]0,0) -- ([shift={(90:{\edpt} and \ehgt)}]8*\ewdt,0);
           \draw ([shift={(-90:{\edpt} and \ehgt)}]0,0) -- ([shift={(-90:{\edpt} and \ehgt)}]8*\ewdt,0);
-      
+
           % paths
           \draw [stealth-, line width=\pathwdt] ([shift={(\fang+\ang:{\edpt} and \ehgt)}]0,0) -- ([shift={(\fang+\ang:{\edpt} and \ehgt)}]\ewdt,0) arc (\fang+\ang:\fang:{\edpt} and \ehgt) -- ([shift={(\fang:{\edpt} and \ehgt)}]\ewdt,0) -- ([shift={(\fang:{\edpt} and \ehgt)}]7*\ewdt,0) arc (\fang:\fang+\ang:{\edpt} and \ehgt) -- ([shift={(\fang+\ang:{\edpt} and \ehgt)}]8*\ewdt,0);
           \draw [stealth-, line width=\pathwdt] ([shift={(\fang+2*\ang:{\edpt} and \ehgt)}]0,0) -- ([shift={(\fang+2*\ang:{\edpt} and \ehgt)}]3*\ewdt,0) arc (\fang+2*\ang:\fang+\ang:{\edpt} and \ehgt) -- ([shift={(\fang+\ang:{\edpt} and \ehgt)}]5*\ewdt,0) arc (\fang+\ang:\fang+2*\ang:{\edpt} and \ehgt) -- ([shift={(\fang+2*\ang:{\edpt} and \ehgt)}]8*\ewdt,0);
-      
+
         \end{tikzpicture}
       \right)
       \\
@@ -1795,8 +1860,8 @@ Definition~\ref{def:network} is motivated by the following observation:
 We now return to the specific case of $\widetilde{LSL}_n^{c,c^{-1}}$, where $c = s_{\sigma_1}\cdots s_{\sigma_{n}}$ is a fixed Coxeter element.
 From now on we reindex the factorization of Equation~\eqref{eq:uvfactorization} in a way tailored to this case:
 \begin{equation}
-  g = x_{\ol{\sigma_1}}(t_{\ol{\sigma_1}}) \cdots x_{\ol{\sigma_n}}(t_{\ol{\sigma_n}})h x_{\sigma_n}(t_{\sigma_n}) \cdots x_{\sigma_1}(t_{\sigma_1}).
   \label{eq:coxfactorization}
+  g = x_{\ol{\sigma_1}}(t_{\ol{\sigma_1}}) \cdots x_{\ol{\sigma_n}}(t_{\ol{\sigma_n}})h x_{\sigma_n}(t_{\sigma_n}) \cdots x_{\sigma_1}(t_{\sigma_1}).
 \end{equation}
 To use the preceding proposition effectively, we collect some elementary combinatorial observations about collections of pairwise disjoint paths $P$ in $\cN^{c,c^{-1}}$.
 Note that when $u$ and $v$ are Coxeter elements the choice of reduced word in Definition~\ref{def:network} is immaterial: different reduced words differ by relations of the form $s_i s_j = s_j s_i$ for $a_{ij} = 0$, and these relations do not change the combinatorics of the network.
@@ -1814,7 +1879,7 @@ Given a collection $P$ of disjoint paths, define its \newword{bridge set} $\beta
   If $c = s_{\sigma_1}\cdots s_{\sigma_{n}}$, then by our definitions $(\sigma_1,\ldots,\sigma_{n})$ is sink adapted for $Q$.
   The orientation of the arrow connecting vertices $j$ and $j+1$ is thus related to the local structure of the network $\cN^{c,c^{-1}}$ as in Figure~\ref{fig:quivernetwork}.
   The result follows immediately by comparing the statements against the picture.
-\end{proof} 
+\end{proof}
 
 \begin{figure}
   \begin{center}
@@ -1867,66 +1932,72 @@ Given a collection $P$ of disjoint paths, define its \newword{bridge set} $\beta
   \caption{The local picture relating the network $\cN^{c,c^{-1}}$ to the orientation of the arrow of $Q$ connecting vertices $j$ and $j+1$, where we draw the vertices on top of the corresponding bridges in $\cN^{c,c^{-1}}$}
   \label{fig:quivernetwork}
 \end{figure}
-  
+
 We now turn to the main result of the section.
-We will freely use the isomorphism $\cA_{\Qdp} \cong \kk[\widetilde{LSL}_n^{c,c^{-1}}]$ to identify elements of $\cA_{\Qdp}$ with elements of 
+We will freely use the isomorphism $\cA_{\Qdp} \cong \kk[\widetilde{LSL}_n^{c,c^{-1}}]$ to identify elements of $\cA_{\Qdp}$ with elements of
 \[
   \kk[t_{1}^{\pm1},\dotsc,t_{n}^{\pm 1},h_1^{\pm 1},\dotsc,h_{n}^{\pm 1},t_{\ol{1}}^{\pm 1},\dotsc,t_{\ol{n}}^{\pm 1}]
 \]
+<<<<<<< HEAD
 by evaluating them on a generic $g \in \widetilde{LSL}_n^{c,c^{-1}}$ factored as in Equation~\eqref{eq:coxfactorization} (and setting $h_i := h^{\omega_i}$).
 For example, we have 
+=======
+by evaluating them on a generic $g \in \widetilde{LSL}_n^{c,c^{-1}}$ factored as in Equation~(\ref{eq:coxfactorization}) (and setting $h_i := h^{\omega_i}$).
+For example, we have
+>>>>>>> f67d1162d32936b19a44d14a1a0a51c1bc9bd165
 \begin{equation}
   \label{eq:typeAyhat}
   x_i = h_i,\quad\quad \hat{y}_i = t_it_{\ol{\imath}}h_{i-1}^{-1}h_i^2h_{i+1}^{-1},
 \end{equation}
 the latter following by reindexing vertices of $Q$ in the results of Lemma~\ref{lemma:coefficients_values} with the present conventions, then plugging them into the definition of $\hat{y}_i$.
 
-\begin{theorem}\label{th:cluster character equals minor}
+\begin{theorem}
+\label{th:cluster character equals minor}
   Let $\Qrep_{[k,\ell]}$ be a rigid regular representation of $Q$.
   Then under $\cA_{\Qdp} \cong \kk[\widetilde{LSL}_n^{c,c^{-1}}]$, the regular cluster variable $x_{\Qrep_{[k,\ell]}}$ is the restriction of the level zero minor $\Delta_{\grep(\Qrep_{[k,\ell]})}$.
 \end{theorem}
 \begin{proof}
   Recall from Lemma~\ref{lem:regulargvectors} the subset $S_{[k,\ell]} \subset \ZZ_n$ such that $\grep(\Qrep_{[k,\ell]}) = \omega_{S_{[k,\ell]}}$.
   Let $\cP_{[k,\ell]}$ denote the set of pairwise disjoint collections of paths in $\cN^{c,c^{-1}}$ with $\partial_{in}P = \partial_{out}P = S_{[k,\ell]}$.
-  We claim that for $P \in \cP_{[k,\ell]}$: 
+  We claim that for $P \in \cP_{[k,\ell]}$:
   \begin{enumerate}[\quad\upshape (a)]
-    \item 
-      the bridge set $\beta(P)$ is a target-closed subset of $[k,\ell]$, 
-    \item 
+    \item
+      the bridge set $\beta(P)$ is a target-closed subset of $[k,\ell]$,
+    \item
       we have
       \[
         wt(P) = x^{\grep(\Qrep_{[k,\ell]})} \prod_{j \in \beta(P)} \hat{y}_j,
       \]
-    \item 
+    \item
       the assignment $P \mapsto \beta(P)$ defines a bijection between $\cP_{[k,\ell]}$ and the set $\cE_{[k,\ell]}$ of target-closed subsets of $[k,\ell]$.
   \end{enumerate}
   The main claim follows from these given Propositions~\ref{prop:regular coindices} and~\ref{prop:minorsfrompaths}.
-  
+
   As in Proposition~\ref{prop:regular coindices}, we let $i_1 < \cdots < i_m$ and $o_1 < \cdots < o_m$ denote the labels of the sinks and sources of $Q$ contained in $[k,\ell]$.
   We consider the case where the first source in $[k,\ell]$ comes before the first sink (i.e. $o_1 < i_1$ in $[k,\ell]$), the opposite case following by a symmetric argument.
   Recall that in this case
   \[
     S_{[k,\ell]} = [k,o_1-1] \cup [i_1,o_2-1] \cup \cdots \cup [i_m,\ell].
   \]
-  
+
   Let $P \in \cP_{[k,\ell]}$.
   Since $o_1<i_1$, we have $j+1\to j$ in $Q$ for each $j\in[k^-,k-1]$, where $k^-$ is the nearest sink less that $k$ (i.e. none of $[k^-+1,k]$ is a sink).
   But $[k^-,k-1]\cap\partial_{in}P=\emptyset$ and thus part (2) of Lemma~\ref{lem:phi} implies $j\notin\beta(P)$ for any $j\in[k^-,k-1]$.
   Similarly, $o_m<i_m$ gives $j\to j-1$ in $Q$ for each $j\in[\ell+1,\ell^+]$, where $\ell^+$ is the nearest source after $\ell$.
   Applying part (2) of Lemma~\ref{lem:phi} inductively beginning with the source $j=\ell^+$, we see that $j\notin\beta(P)$ for any $j\in[\ell+1,\ell^+]$.
   Noting that $[\ell^+,k^-]\cap\partial_{in}P=\emptyset$ and then arguing as above we conclude that $\beta(P)\subset[k,\ell]$.
-  
+
   Write $i_0=k$ and $i_{m+1}=o_{m+1}=\ell+1$.
   For $1\le r\le m+1$ and $j\in[i_{r-1},o_r-1]\subset\partial_{in}P$, we have $j+1\to j$ in $Q$ and part (1) of Lemma~\ref{lem:phi} says $j+1\in\beta(P)$ implies $j\in\beta(P)$.
   For $1\le r\le m$ and $j\in[o_r,i_r-1]$, we have $j\notin\partial_{in}P$ and $j\to j+1$ in $Q$ so that part (2) of Lemma~\ref{lem:phi} says $j\in\beta(P)$ implies $j+1\in\beta(P)$.
   Putting these observations together, we conclude that $\beta(P)\subset[k,\ell]$ is target-closed and (a) is established.
-  
+
   Now suppose $E\in\cE_{[k,\ell]}$ is a target-closed subset of $[k,\ell]$.
   Write $P_0\in\cP_{[k,\ell]}$ for the trivial collection of pairwise disjoint paths in which the path beginning on level $j\in S_{[k,\ell]}=\partial_{in}P_0$ stays on level $j$ without traversing any bridges.
-  Note that 
+  Note that
   \[
     wt(P_0)=\prod_{i \in S_{[k,\ell]}}h_{i+1} h_i^{-1}=x^{\grep(\Qrep_{[k,\ell]})}.
-  \]  
+  \]
   We will show how to inductively modify $P_0$ to obtain a unique collection $\pi(E)\in\cP_{[k,\ell]}$ with $\beta(\pi(E))=E$, keeping track of how the weight of the collection changes along the way.
   That is, for $1\le r\le m+1$ we build from $P_{r-1}$ a new collection $P_r \in \cP_{[k,\ell]}$ such that
   \[
@@ -1934,38 +2005,44 @@ the latter following by reindexing vertices of $Q$ in the results of Lemma~\ref{
   \]
   We keep the convention that $i_0=k$ and $i_{m+1}=o_{m+1}=\ell+1$, and define $P_r$ in two steps:
   \begin{enumerate}
-    \item 
+    \item
       First define an intermediate network $P'_r \in \cP_{[k,\ell]}$.
       If $i_{r-1} \notin E$, let $P'_r=P_{r-1}$.
       Otherwise let $o'_r$ be the largest index in $[i_{r-1},o_r-1]$ such that $[i_{r-1},o'_r]\subset E$.
       We obtain $P'_r$ from $P_{r-1}$ by, for each $j\in[i_{r-1},o'_r]$, diverting the path that stays on level $j$ so that it traverses the bridges of weights $t_j$ and $t_{\ol{\jmath}}$.
+<<<<<<< HEAD
       By inspection of Figure~\ref{fig:quivernetwork} and their counterparts with $t_{\ol{\jmath}}$, the resulting collection $P'_r$ will remain pairwise disjoint.
   
       If $P'_r \neq P_{r-1}$, then using Equation~\eqref{eq:typeAyhat} we have
+=======
+      By inspection of Figure~\ref{fig:quivernetwork}  and their counterparts with $t_{\ol{\jmath}}$, the resulting collection $P'_r$ will remain pairwise disjoint.
+
+      If $P'_r \neq P_{r-1}$, then using Equation~(\ref{eq:typeAyhat}) we have
+>>>>>>> f67d1162d32936b19a44d14a1a0a51c1bc9bd165
       \[
         wt(P'_r)=wt(P_{r-1})\cdot h_{i_{r-1}-1}^{-1}h_{i_{r-1}}h_{o'_r}h_{o'_r+1}^{-1}\prod_{j\in[i_{r-1},o'_r]}(t_jt_{\ol{\jmath}}) = wt(P_{r-1})\prod_{j \in [i_{r-1},o'_r]} \hat{y}_j.
       \]
-      In either case, using our inductive assumption on $wt(P_{r-1})$ and the fact that $E$ is target-closed we have 
+      In either case, using our inductive assumption on $wt(P_{r-1})$ and the fact that $E$ is target-closed we have
       \[
         wt(P'_r) = x^{\grep(\Qrep_{[k,\ell]})} \prod_{j \in E \cap [k,o_{r}-1]} \hat{y}_j
       \]
 
-    \item 
+    \item
       If $i_r \notin E$, let $P_r = P'_r$.
       Otherwise let $o''_r$ be the smallest index in $[o_r,i_r]$ such that $[o''_r,i_r]\subset E$.
       We obtain $P_r$ from $P'_r$ by diverting the path that stays on level $i_r$ so that it traverses every bridge of weight $t_j$ and $t_{\ol{\jmath}}$ for $j\in[o''_r,i_r]$.
       By inspection of Figure~\ref{fig:quivernetwork} and their counterparts with $t_{\ol{\jmath}}$, the resulting collection $P_r$ will remain pairwise disjoint since $[o''_r,i_r]\cap\partial_{in}P'_r=\{i_r\}$ and when $o''_r=o_r$ (i.e. $o_r\in E$) we have $o_r-1\in\beta(P'_r)$.
-  
-      If $P_r \neq P'_r$, we have 
+
+      If $P_r \neq P'_r$, we have
       \[
         wt(P_r)=wt(P'_r)\cdot h_{o''_r-1}^{-1}h_{o''_r}h_{i_r}h_{i_r+1}^{-1}\prod_{j\in[o''_r,i_r]}(t_jt_{\ol{\jmath}})=wt(P'_r)\prod_{j \in [o''_r,i_r]} \hat{y}_j.
-      \] 
+      \]
       In either case, again by induction and the fact that $E$ is target-closed we have
       \[
         wt(P_r) = x^{\grep(\Qrep_{[k,\ell]})} \prod_{j \in E \cap [k,i_r]} \hat{y}_j.
       \]
   \end{enumerate}
-  By induction, $\pi(E)=P_{m+1} \in \cP_{[k,\ell]}$ has $\beta(\pi(E))=E$ and 
+  By induction, $\pi(E)=P_{m+1} \in \cP_{[k,\ell]}$ has $\beta(\pi(E))=E$ and
   \[
     wt(\pi(E))=x^{\grep(\Qrep_{[k,\ell]})}\prod_{j\in E}\hat y_j,
   \]
@@ -1974,7 +2051,7 @@ the latter following by reindexing vertices of $Q$ in the results of Lemma~\ref{
   In particular $\pi(\beta(P))=P$ for any $P\in\cP_{[k,\ell]}$, which shows (c) and completes the proof.
 \end{proof}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%
 \subsection{Other affine types}
 \label{sec:othertypes}
 
@@ -2002,18 +2079,18 @@ In the simplest cases this can be done using only the characters of these repres
 
   Consider the exchange matrix and Cartan companion
   \[
-    B = 
-    \begin{bmatrix} 
-      0 & 1 & 0 \\ 
-      -2 & 0 & 2 \\ 
-      0 & -1 & 0  
-    \end{bmatrix}, 
-    \quad 
-    A = 
-    \begin{bmatrix} 
-      2 & -1 & 0 \\ 
-      -2 & 2 & -2 \\ 
-      0 & -1 & 2  
+    B =
+    \begin{bmatrix}
+      0 & 1 & 0 \\
+      -2 & 0 & 2 \\
+      0 & -1 & 0
+    \end{bmatrix},
+    \quad
+    A =
+    \begin{bmatrix}
+      2 & -1 & 0 \\
+      -2 & 2 & -2 \\
+      0 & -1 & 2
     \end{bmatrix}.
   \]
   This corresponds to the Coxeter element $s_1 s_2 s_3$, where the $B_2^{(1)}$ Dynkin diagram is labelled as
@@ -2073,16 +2150,16 @@ In the simplest cases this can be done using only the characters of these repres
   By definition, this is equal to $\Delta_{\omega_2-\omega_1}(g)v$. On the other hand, it is exactly what we obtain by using Equation~\eqref{eq:frozen_values} to rewrite the earlier expression for $x_{\omega_2 - \omega_1}$.
 \end{proof}
 
-%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%
 \subsection{The Homogeneous Element}
 We conclude with an extension of Theorem~\ref{th:cluster character equals minor} motivated by the theory of canonical bases.
-Cluster monomials form a partial basis of a cluster algebra, and there are various meaningful (and in general different) ways of completing them to a full basis. 
+Cluster monomials form a partial basis of a cluster algebra, and there are various meaningful (and in general different) ways of completing them to a full basis.
 One approach in line with the considerations of this paper is to form a basis consisting of cluster characters of potentially non-rigid representations.
 By taking the cluster character of a generic representation with each possible $\bfg$-vector, one obtains the generic basis of \cite{Dup12} (which directly generalizes the dual semicanonical basis of Lusztig\sayDR{reference needed?}).
 
 When $Q$ is an acyclic orientation of an $n$-cycle as in Section~\ref{sec:rigidregular}, the simplest example of a non-rigid representation is the representation $\Qrep_\eta$ at the base of a homogeneous tube $\mathcal{T}_\eta$, $\eta \in \kk^*$.
 That is, $\Qrep_\eta$ consists of a one-dimensional vector space at each vertex of $Q$, with arrows acting by isomorphisms such that the monodromy around $Q$ is equal to $\eta$.
-The dimension vector of $\Qrep_\eta$ is the primitive imaginary root $\delta$, and if $i_1<\cdots<i_m$ and $o_1<\cdots < o_m$ denote the sinks and sources of $Q$, its $\bfg$-vector is 
+The dimension vector of $\Qrep_\eta$ is the primitive imaginary root $\delta$, and if $i_1<\cdots<i_m$ and $o_1<\cdots < o_m$ denote the sinks and sources of $Q$, its $\bfg$-vector is
 \[
   \grep(\Qrep_\eta) = \sum_{j=1}^m \omega_{o_j} - \omega_{i_j}.
 \]
@@ -2100,8 +2177,8 @@ The cluster character of $\Qrep_\eta$ is independent of $\eta$, and we refer to 
   The proof now proceeds exactly like that of Theorem~\ref{th:cluster character equals minor}, and we omit the details.
 \end{proof}
 
-
-\begin{remark}\label{rmk:nonaffinehomelt}
+\begin{remark}
+\label{rmk:nonaffinehomelt}
   Theorem~\ref{thm:homogeneous} has an analogue for an arbitrary symmetric Kac-Moody group of rank two, at least formally.
   Let $Q$ be the $r$-Kronecker quiver: it has two vertices, and $r$ arrows from vertex 2 to vertex 1.
   Note that all non-initial cluster variables of $\cA_{\Qdp}$ are either preprojective or postinjective.
@@ -2110,40 +2187,41 @@ The cluster character of $\Qrep_\eta$ is independent of $\eta$, and we refer to 
   \[
     x_M = x_1^{-1}x_2^{r-1}(1 + \hat{y}_1 + \hat{y}_1 \hat{y}_2).
   \]
-  
-  On the other hand, we have $\cA_{\Qdp} \cong \kk[G^{c,c^{-1}}]$, where $G$ is the Kac-Moody group with Cartan matrix 
+
+  On the other hand, we have $\cA_{\Qdp} \cong \kk[G^{c,c^{-1}}]$, where $G$ is the Kac-Moody group with Cartan matrix
   \[
     A = \begin{bmatrix} 2 & -r \\ -r & 2 \end{bmatrix}
   \]
   and $c = s_1 s_2$.
-  Let us formally compute the minor of weight $\grep(\Qrep) = (r-1) \omega_2 - \omega_1$, restricted to $G^{c,c^{-1}}$. 
-That is, we suppose there exists a representation $V$ of $G$ having a one-dimensional extremal weight space of weight $\grep(\Qrep)$ (i.e. this weight space is either highest- or lowest-weight for every coroot subgroups of $G$). The evaluation of $\Delta_{(V,\grep(M))}$ on a generic element
-\[
-g = x_{\ol{1}}(t_{\ol{1}}) x_{\ol{2}}(t_{\ol{2}})hx_2(t_2)x_1(t_1)
-\]
-can be computed as follows, without knowing any further information about $V$. 
+  Let us formally compute the minor of weight $\grep(\Qrep) = (r-1) \omega_2 - \omega_1$, restricted to $G^{c,c^{-1}}$.
+  That is, we suppose there exists a representation $V$ of $G$ having a one-dimensional extremal weight space of weight $\grep(\Qrep)$ (i.e. this weight space is either highest- or lowest-weight for every coroot subgroups of $G$). The evaluation of $\Delta_{(V,\grep(M))}$ on a generic element
+  \[
+    g = x_{\ol{1}}(t_{\ol{1}}) x_{\ol{2}}(t_{\ol{2}})hx_2(t_2)x_1(t_1)
+  \]
+  can be computed as follows, without knowing any further information about $V$.
 
-By hypothesis, any $v \in V_{\grep(\Qrep)}$ is a lowest-weight vector for the coroot subgroup $\varphi_1(SL_2) \subset G$. Denoting the positive Chevalley generators of the Lie algebra of $G$ by $e_1$, $e_2$, we thus have
-\[
-x_1(t_1)v = v + t_1e_1v.
-\]
+  By hypothesis, any $v \in V_{\grep(\Qrep)}$ is a lowest-weight vector for the coroot subgroup $\varphi_1(SL_2) \subset G$. Denoting the positive Chevalley generators of the Lie algebra of $G$ by $e_1$, $e_2$, we thus have
+  \[
+    x_1(t_1)v = v + t_1e_1v.
+  \]
 
-Since $v$ is extremal and $e_1v = \ol{s_1}v$ has weight $s_1((r-1) \omega_2 - \omega_1) = \omega_1 - \omega_2$, $e_1v$ is a lowest-weight vector for $\varphi(SL_2)$. As $v$ is highest-weight for $\varphi(SL_2)$, we have
-\[
-x_2(t_2)x_1(t_1)v = v + t_1e_1v + t_1t_2e_2e_1v.
-\]
+  Since $v$ is extremal and $e_1v = \ol{s_1}v$ has weight $s_1((r-1) \omega_2 - \omega_1) = \omega_1 - \omega_2$, $e_1v$ is a lowest-weight vector for $\varphi(SL_2)$.
+  As $v$ is highest-weight for $\varphi(SL_2)$, we have
+  \[
+    x_2(t_2)x_1(t_1)v = v + t_1e_1v + t_1t_2e_2e_1v.
+  \]
 
-Inspecting the weights involved, we see that
-\[
-hx_2(t_2)x_1(t_1)v = h^{(r-1) \omega_2 - \omega_1}v + h^{\omega_1-\omega_2}t_1e_1v + h^{\omega_2 - (r-1)\omega_1}t_1t_2e_2e_1v.
-\]
-Reversing the above analysis we find that the component of $gv$ of weight $(r-1)\omega_2 - \omega_1$ is
-\[
-(h^{(r-1) \omega_2 - \omega_1} + h^{\omega_1-\omega_2}t_1t_{\ol{1}} + h^{\omega_2 - (r-1)\omega_1}t_1t_{\ol{1}}t_2t_{\ol{2}})v.
-\]
-By definition this is $\Delta_{(V,\grep(M))}(g)v$. On the other hand, using Lemma~\ref{lemma:coefficients_values} and the definition of $\hat{y}_1$, $\hat{y}_2$ one can check that it is also equal to $x_M(g)$ on $g$, hence $x_M$ is equal to the restriction of $\Delta_{(V,\grep(M))}$. 
+  Inspecting the weights involved, we see that
+  \[
+    hx_2(t_2)x_1(t_1)v = h^{(r-1) \omega_2 - \omega_1}v + h^{\omega_1-\omega_2}t_1e_1v + h^{\omega_2 - (r-1)\omega_1}t_1t_2e_2e_1v.
+  \]
+  Reversing the above analysis we find that the component of $gv$ of weight $(r-1)\omega_2 - \omega_1$ is
+  \[
+    (h^{(r-1) \omega_2 - \omega_1} + h^{\omega_1-\omega_2}t_1t_{\ol{1}} + h^{\omega_2 - (r-1)\omega_1}t_1t_{\ol{1}}t_2t_{\ol{2}})v.
+  \]
+  By definition this is $\Delta_{(V,\grep(M))}(g)v$. On the other hand, using Lemma~\ref{lemma:coefficients_values} and the definition of $\hat{y}_1$, $\hat{y}_2$ one can check that it is also equal to $x_M(g)$ on $g$, hence $x_M$ is equal to the restriction of $\Delta_{(V,\grep(M))}$.
 
-Unfortunately, when $G$ is not of affine type we do not know how to explicitly construct such a representation $V$.
+  Unfortunately, when $G$ is not of affine type we do not know how to explicitly construct such a representation $V$.
 \end{remark}
 
 % bibliography
