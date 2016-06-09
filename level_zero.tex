@@ -228,6 +228,7 @@ Beyond finite and affine types, general weight representations of $G$ are not we
 \sayDR{The element we construct always agrees with the corresponding greedy basis element and in all the examples I checked it also agrees with the triangular basis, I could probably prove it if needed for confidence in the claim).  Should we say something about this at the end of the next paragraph?}
 \sayHW{Gotcha, I made the wording a bit more assertive in the next paragraph, but I think bringing up the remark again will have the effect of emphasizing it disproportionately.}
 \sayDR{if we switch the order of these paragraphs we can say the $(r-1)\omega_2-\omega_1$ minor is in these bases without putting too much emphasis on it}
+\sayHW{I think having the paragraph on ``evidence for conjecture 1.2'' come immediately after conjecture 1.2 will read more clearly, rather than having an intervening new thought RE canonical bases.}
 
 Finally, in type $A_{n}^{\!(1)}$ the following extension of Theorem~\ref{thm:maintheorem} also holds.
 There is a one-parameter family of quiver representations whose dimension vector is the primitive imaginary root.
@@ -571,6 +572,11 @@ If $\widetilde{B}$ is the exchange matrix associated to $\widetilde{Q}$ we write
 The positivity assumption on the non-principal part of $\widetilde{B}$ is only to keep the formulas from being more complicated than we need.
 More generally, cluster variables and cluster characters will be related by a monomial determined by the separation of additions formula of \cite{FZ07}.
 
+\begin{remark}
+  Theorem~\ref{thm:CCbijection} is simple instance of a number of closely related connections between cluster theory and the representation theory of algebras.
+  Other connections involve, for example, preprojective algebras \cite{GLS13}, quivers with potential \cite{DWZ10}, and the theory of cluster categories \cite{BMRRT06}.
+\end{remark}
+
 With Theorem~\ref{thm:CCbijection} in hand we refer to non-initial cluster variables of $\cA_{\widetilde{Q}}$ as preprojective, postinjective, or regular if they come from a quiver representation of the corresponding type.
 This is compatible with the discussion of the acyclic belt in Section~\ref{sec:clusteralgebras}:
 
@@ -637,9 +643,12 @@ The coordinate ring of $G^{u,v}$ is an upper cluster algebra and a finite subset
   The cluster structure we obtain in this way is not quite the one in the statement of the theorem; the two are nonetheless strictly related.
   Indeed, since the variables $\cvar_i$ are obtained from the minors $\Delta^{\omega_j}_{ c\omega_j}$ by an invertible monomial transformation (and the variables $\cvar_{\ol{\imath}}$ are obtained similarly from the minors $\Delta^{c \omega_j}_{\omega_j}$), we can use separation of additions to rescale all the cluster variables in $\kk[G^{c,c^{-1}}]$ and establish the desired isomorphism (cf. \cite[Proposition 4.5]{YZ08}).
 \end{proof}
-\begin{remark}
+
   One could consider the $2n$-dimensional subvariety $L^{c,c^{-1}} \subset G^{c,c^{-1}}$ where $z_{\ol{1}},\dotsc,z_{\ol{n}}$ are equal to one; this is the reduced double Bruhat cell studied in \cite{YZ08}.
   In particular, $\kk[L^{c,c^{-1}}]$ is the cluster algebra with principal coefficients associated to $B$, and our results immediately translate to statements in the principal coefficients case by specializing $\cvar_{\ol{1}},\dotsc,\cvar_{\ol{n}}$ to one.
+
+\begin{remark}
+There is another Lie-theoretic realization of $\cA_{\widetilde{B}}$ (for a certain extension of $B$) as the coordinate ring of $G^{e,c^2}$ \cite{GLS11}. We do not know whether our main results also hold in some form for this realization. 
 \end{remark}
 
 In computing various relations in $\kk[G^{u,v}]$ we will make extensive use of the fact that, if $u=s_{i_1}\cdots s_{i_{\ell(u)}}$ and $v=s_{j_1}\cdots s_{j_{\ell(v)}}$, then a generic $g \in G^{u,v}$ can be factored as
@@ -668,8 +677,8 @@ Finally, without loss of generality, we will assume that $A$ is not block decomp
 \subsection{Cluster variables in the acyclic belt}
 \label{sec:acyclic_belt}
 
-In view of the assumptions made at the beginning of this section, the Coxeter element associated to $B$ is $c=s_1\cdots s_n$ and any finite prefix of the infinite word $c^\infty =  s_1 s_2 \cdots s_n s_1 \cdots$ is reduced (cf. \cite{Spe09}).
-We will denote the prefix of $c^\infty$ of length $\Zidx$ by $c^\infty_{\le\Zidx}$.
+In view of the assumptions made at the beginning of this section, the Coxeter element associated to $B$ is $c=s_1\cdots s_n$ and any finite prefix of the infinite words $c^\infty =  s_1 \cdots s_n s_1 \cdots$ and $c^{-\infty} = s_n \cdots s_1 s_n \cdots$ is reduced (cf. \cite{Spe09}).
+We will denote the prefix of $c^\infty$ of length $\Zidx$ by $c^\infty_{\le\Zidx}$ (for example, $c^\infty_{\leq n}$ is just $c$ itself), similarly for $c^{-\infty}$.
 Therefore the path (\ref{eq:path}) in the acyclic belt becomes
 \begin{equation}
 \label{eq:simplepath}
@@ -846,8 +855,8 @@ We will use the shorthands $\beta_i^+:=s_1\cdots s_{i-1}\alpha_i$ and $\beta_i^-
 \end{theorem}
 \begin{proof}
   The relations are a direct consequence of Lemmas~\ref{lemma:c-vectors} and~\ref{lemma:g-vectors} once we observe that mutations happen along a sink/source adapted sequence so that the $\mod{\Zidx}$-th column of $B^{t_\Zidx}$ contains only non-negative entries and the $\mod{\Zidx+1}$-th column only non-positive entries.
-  \sayHW{Am I crazy or should this be Lemma~\ref{lemma:g-vectors}? I mean, the whole point of computing g-vectors was that you need them to write down exchange relations, right?}
-  \saySS{Not crazy but not entirely correct either. In any case the phrasing was wrong and I fixed it. The point is this: knowing g-vectors and exchange matrix (only the top part) is sufficient to produce exchange realtions in the coefficient free case. c-vectors give you the information you need to fill in coefficients.}
+%  \sayHW{Am I crazy or should this be Lemma~\ref{lemma:g-vectors}? I mean, the whole point of computing g-vectors was that you need them to write down exchange relations, right?}
+%  \saySS{Not crazy but not entirely correct either. In any case the phrasing was wrong and I fixed it. The point is this: knowing g-vectors and exchange matrix (only the top part) is sufficient to produce exchange realtions in the coefficient free case. c-vectors give you the information you need to fill in coefficients.}
 \end{proof}
 \begin{remark}
   As noted before, to obtain the exchange relations in the cluster algebra $\cA_{\Bpr}$ with principal coefficients it suffices to set the coefficients $\cvar_{\ol{1}},\dotsc,\cvar_{\ol{n}}$ to $1$ in the relations of Theorem~\ref{thm:vars_and_rels_in_bipartite_belt}.
