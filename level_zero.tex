@@ -307,7 +307,7 @@ When $A$ is of (untwisted) affine type, identifying $G$ with a central extension
 Above this we have the splitting $\widehat{P} \cong P \oplus \ZZ \delta$, where $\delta$ is a character of the $\kk^\times$ acting by loop rotations.
 A weight $\lambda \in \widehat{P}$ is in the complement of $X \cup -X$ if and only if it lies in $P^\circ \oplus \ZZ \delta$.
 Following the above notation, for $\lambda^\circ\in P^\circ$ we have an irreducible $G^\circ$-representation $V(\lambda^\circ)$ whose highest weight is conjugate to $\lambda^\circ$ under the Weyl group of $G^\circ$.
-With this in hand we extend our association of an irreducible $\widehat{G}$-representation $V(\lambda)$ to all $\lambda \in \widehat{P}$: when $\lambda \in \widehat{P} \smallsetminus(X \cup -X)$ we set $V(\lambda) := V(\lambda^\circ)[\loopvar^{\pm 1}]$, the space of algebraic loops in $V(\lambda^\circ)$, where $\lambda^\circ$ is the $P^\circ$-component of $\lambda$.
+With this in hand we extend our association of an irreducible $\widehat{G}$-representation $V(\lambda)$ to all $\lambda \in \widehat{P}$: when $\lambda=\lambda^\circ+r\delta\in \widehat{P} \smallsetminus(X \cup -X)$ we set $V(\lambda) := V(\lambda^\circ)[\loopvar^{\pm 1}]$, the space of algebraic loops in $V(\lambda^\circ)$.
 
 The \newword{level} of an irreducible $\widehat{G}$-representation is the character by which $Z(G) = Z(\widehat{G}) \cong \kk^\times$ acts; the level of $V(\lambda)$ is positive if $\lambda \in X$, negative if $\lambda \in -X$, and zero if $\lambda \in \widehat{P} \smallsetminus(X \cup -X)$.
 
@@ -318,15 +318,16 @@ The \newword{level} of an irreducible $\widehat{G}$-representation is the charac
   \[
     g \mapsto \pi_\lambda(gv_\lambda)/v_\lambda,
   \]
-  where $\pi_\lambda:V \onto V_\lambda$ is the projection whose kernel is the direct sum of the other weight spaces, and $v_\lambda \in V_\lambda$ is any nonzero vector.
+  where $\pi_\lambda:V \onto V_\lambda$ is the orthogonal projection and $v_\lambda \in V_\lambda$ is any nonzero vector.
+
   When $\lambda \in X \cup -X$, or when $\widehat{G}$ is of untwisted affine type and $\lambda$ is arbitrary, we simply write $\Delta_\lambda$ for $\Delta_{(V(\lambda),\lambda)}$.
-  When $\lambda \in \widehat{P}^+$, $\lambda' = u\lambda$, and $\lambda'' = v\lambda$, the generalized minor $\Delta^{\lambda'}_{\lambda''}$ is the function $g \mapsto \Delta_\lambda(\ol{u}^{-1}g\ol{v})$.
-  When $\lambda \in -\widehat{P}^+$, $\lambda' = u\lambda$, and $\lambda'' = v\lambda$, then $\Delta^{\lambda'}_{\lambda''}$ is the function $g \mapsto \Delta_\lambda(\dol{u}^{-1}g\dol{v})$.
+  When $\lambda \in \widehat{P}^+$ and $u,v\in W$, the generalized minor $\Delta^{u\lambda}_{v\lambda}$ is the function $g \mapsto \Delta_\lambda(\ol{u}^{-1}g\ol{v})$.
+  If $\lambda \in -\widehat{P}^+$ and $u,v\in W$, then $\Delta^{u\lambda}_{v\lambda}$ is the function $g \mapsto \Delta_\lambda(\dol{u}^{-1}g\dol{v})$.
 \end{definition}
 
 In other words, if we use a weight basis of $V$ to write the action of $g$ as a matrix, $\Delta_{(V,\lambda)}(g)$ is the diagonal entry corresponding to $V_\lambda$.
-Similarly, $\Delta^{\lambda'}_{\lambda''}(g)$ is the matrix entry whose row corresponds to $V_{\lambda''}$ and whose column corresponds to $V_{\lambda'}$ (up to an overall scalar fixed by the chosen representatives of $u$, $v \in G$).
-While we have apparently given two definitions of $\Delta^{\lambda'}_{\lambda''}$ in finite type (depending on whether we regard $\lambda'$, $\lambda''$ as conjugate to a dominant or anti-dominant weight), the reader may check that these definitions agree in this case.
+Similarly, $\Delta^{u\lambda}_{v\lambda}(g)$ is the matrix entry whose row corresponds to $V_{v\lambda}$ and whose column corresponds to $V_{u\lambda}$ (up to an overall scalar fixed by the chosen representatives of $u$, $v \in G$).
+While we have apparently given two definitions of $\Delta^{u\lambda}_{v\lambda}$ in finite type (depending on whether we regard $u\lambda$ and $v\lambda$ as conjugate to a dominant or anti-dominant weight), the reader may check that these definitions agree in this case.
 
 \begin{remark}
   When $\widehat{G}$ is of (untwisted) affine type, the representations $V(\lambda)$ with $\lambda \in \widehat{P}\smallsetminus(X \cup - X)$ are not the only irreducible level zero weight representations.
@@ -348,7 +349,7 @@ A crucial feature of generalized minors is the following generalized determinant
     +
     \Delta_{us_i\omega_i}^{v\omega_i} \Delta_{u\omega_i}^{vs_i\omega_i}
   \end{equation}
-  is satisfied on $G$.
+  is satisfied on $G$.\sayDR{The roles of $u$ and $v$ here are reversed from their roles above, it seems that we should be consistent.  I have no preference so I am leaving it as an open comment}
 \end{proposition}
 
 While the above identity on $G$ is the one we use directly, we note that it restricts from a similar one on $\widehat{G}$ that also involves the characters of $\widehat{G}/G$.
