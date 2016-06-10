@@ -27,70 +27,46 @@
   dots/.style={draw=none,postaction={decorate,decoration={markings,mark=at position 0.25 with {\draw[fill=black] (0,0) circle (0.75pt);},mark=at position 0.5 with {\draw[fill=black] (0,0) circle (0.75pt);},mark=at position 0.75 with {\draw[fill=black] (0,0) circle (0.75pt);}}}}
 }
 
-\usepackage[draft]{say}
-\newcommand{\sayHW}[1]{\say[HW]{\color{violet}{\bf HW:}\;#1}}
-\newcommand{\saySS}[1]{\say[SS]{\color{blue}{\bf SS:}\;#1}}
-\newcommand{\sayDR}[1]{\say[DR]{\color{red}{\bf DR:}\;#1}}
-
 % For setting off new terms
 \newcommand{\newword}[1]{\textbf{\emph{#1}}}
 
 % shorthands
-\newcommand{\cA}{\mathcal{A}}
-\newcommand{\cAb}{\mathcal{A}_\bullet}
-\newcommand{\cC}{\mathcal{C}}
-\newcommand{\cT}{\mathcal{T}}
-\newcommand{\RR}{\mathbb{R}}
-\newcommand{\CC}{\mathbb{C}}
-\newcommand{\NN}{\mathbb{N}}
-\newcommand{\PP}{\mathbb{P}}
-\newcommand{\TT}{\mathbb{T}}
-\newcommand{\ZZ}{\mathbb{Z}}
-\newcommand{\kk}{\Bbbk}
-\newcommand{\bfb}{\mathbf{b}}
+\DeclareMathOperator{\corank}{corank}
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Hom}{Hom}
+\newcommand{\Bdp}{\widetilde{B}_{dp}}
 \newcommand{\bfc}{\mathbf{c}}
-\newcommand{\bfe}{\mathbf{e}}
 \newcommand{\bfg}{\mathbf{g}}
-\newcommand{\bfi}{\mathbf{i}}
-\newcommand{\cv}{\alpha}
-\newcommand{\gv}{\omega}
-\newcommand{\grep}{\gv}
-\newcommand{\KQ}{K_0(Q)}
+\newcommand{\Bpr}{\widetilde{B}_{pr}}
+\newcommand{\cA}{\mathcal{A}}
+\newcommand{\cC}{\mathcal{C}}
 \newcommand{\cE}{\mathcal{E}}
 \newcommand{\cF}{\mathcal{F}}
-\newcommand{\cN}{\mathcal{N}} % symbol for network
+\newcommand{\cN}{\mathcal{N}}
 \newcommand{\cP}{\mathcal{P}}
 \newcommand{\cQ}{\mathcal{Q}}
 \newcommand{\cR}{\mathcal{R}}
-\newcommand{\Gr}{\mathrm{Gr}}
-\newcommand{\defect}{\operatorname{def}}
-\newcommand{\rep}{\operatorname{rep}}
-\newcommand{\sgn}{\operatorname{sgn}}
-\newcommand{\soc}{\operatorname{soc}}
-\newcommand{\supp}{\operatorname{supp}}
-\renewcommand{\top}{\operatorname{top}}
-\newcommand{\udim}{\underline{\operatorname{dim}}}
+\newcommand{\cv}{\alpha}
+\newcommand{\cvar}{z}
 \newcommand{\dashname}[1]{\stackrel{#1}{\begin{picture}(22,3)\put(0,2.5){\line(1,0){22}}\end{picture}}}
-\renewcommand{\vec}[1]{\accentset{\shortrightarrow}{#1}}
-\newcommand{\cev}[1]{\accentset{\shortleftarrow}{#1}}
-\renewcommand{\mod}[1]{\langle {#1} \rangle}
-\newcommand\onto{\twoheadrightarrow}
-\newcommand\into{\hookrightarrow}
-\DeclareMathOperator{\Ext}{Ext}
-\DeclareMathOperator{\End}{End}
-\DeclareMathOperator{\Hom}{Hom}
-\DeclareMathOperator{\coind}{coind}
-\DeclareMathOperator{\corank}{corank}
-\newcommand{\wh}{\widehat}
-\newcommand{\ol}[1]{\overline{#1}}
 \newcommand{\dol}[1]{\overline{\overline{#1}}}
-\newcommand{\Bpr}{\widetilde{B}_{pr}}
-\newcommand{\Bdp}{\widetilde{B}_{dp}}
+\newcommand{\grep}{\gv}
+\newcommand{\Gr}{\mathrm{Gr}}
+\newcommand{\gv}{\omega}
+\newcommand{\into}{\hookrightarrow}
+\newcommand{\kk}{\Bbbk}
+\newcommand{\KQ}{K_0(Q)}
+\newcommand{\loopvar}{z}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\ol}[1]{\overline{#1}}
+\newcommand{\onto}{\twoheadrightarrow}
 \newcommand{\Qdp}{\widetilde{Q}_{dp}}
 \newcommand{\Qrep}{M}
-\newcommand{\loopvar}{z}
+\newcommand{\rep}{\operatorname{rep}}
+\newcommand{\TT}{\mathbb{T}}
 \newcommand{\Zidx}{\ell}
-\newcommand{\cvar}{z}
+\newcommand{\ZZ}{\mathbb{Z}}
+\renewcommand{\mod}[1]{\langle {#1} \rangle}
 
 % ambients and numbering
 \newtheorem{theorem}{Theorem}[section]
@@ -99,7 +75,6 @@
 \newtheorem{definition}[theorem]{Definition}
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{proposition}[theorem]{Proposition}
-\newtheorem{scholium}[theorem]{Scholium}
 \theoremstyle{remark}
 \newtheorem{example}[theorem]{Example}
 \newtheorem{remark}[theorem]{Remark}
