@@ -1178,7 +1178,7 @@ For $k,\ell\in\ZZ_n$ we write $[k,\ell]:=\{k,k+1,\ldots,\ell\}$ and let $\Qrep_{
 \[
   \Qrep_i \cong \begin{cases} \kk & i \in [k,\ell] \\ 0 & \text{otherwise,} \end{cases}
 \]
-and all arrows acting by invertible maps except the arrow between $k$ and $k-1$ and the arrow between $\ell$ and $\ell + 1$.
+and all arrows acting by invertible maps except possibly the arrow between $k-1$ and $k$ and the arrow between $\ell$ and $\ell + 1$.
 
 \begin{proposition}
   If $[k,\ell] \subsetneq \ZZ_n$ is a proper subset containing the same number of sinks and sources of $Q$, then $\Qrep_{[k,\ell]}$ is an indecomposable rigid regular representation of $Q$.
@@ -1195,7 +1195,7 @@ and all arrows acting by invertible maps except the arrow between $k$ and $k-1$ 
     \begin{bmatrix} X & Id \\ 0 & X \end{bmatrix}
   \]
   defines a self-extension of $\Qrep$.
-  In particular, $\cR_{inv}$ does not contain any rigid representations.
+  In particular, $\cR_{inv}$ does not contain any nontrivial rigid representations.
 
   Now consider the category $\cC^p$ of nilpotent representations of an oriented $p$-cycle.
   Write $\tilde\cC$ for the category of finite-dimensional representations of the equi-oriented $A_{\infty}$ quiver (i.e. the quiver with vertex set $\ZZ$, and having one arrow from $i$ to $i+1$ for all $i \in \ZZ$).
@@ -1205,12 +1205,12 @@ and all arrows acting by invertible maps except the arrow between $k$ and $k-1$ 
   Since $\Qrep$ was sincere, $\tilde\cC$ contains a nontrivial extension of $\tilde \Qrep$ by $\tilde \Qrep'$.
   Since $\pi$ is exact, the image of this extension is a nontrivial self-extension of $\Qrep$ in $\cC^p$.
   As all counterclockwise arrows act by invertible linear maps on any $Q$-representation in $\cR_{nil}^p$, the equivalence $\cC^p \cong \cR_{nil}^p$ takes sincere representations to sincere representations.
-  In particular, we conclude that no indecomposable sincere representation in $\cR_{nil}^p$ is rigid, and likewise for $\cR_{nil}^q$ by the same argument.
+  In particular, we conclude that no sincere representation in $\cR_{nil}^p$ is rigid, and likewise for $\cR_{nil}^q$ by the same argument.
 
   From the discussion so far we see that any indecomposable rigid regular representation of $Q$ is non-sincere and in either $\cR_{nil}^p$ or $\cR_{nil}^q$.
   Any proper subquiver $Q'$ of $Q$ defines an exact inclusion $\rep_\kk(Q') \into \rep_\kk(Q)$.
-  Any non-sincere representation of $Q$ is the image of a representation of a proper subquiver, which without loss of generality we may take to be of type $A_r$ for some $r < n$.
-  Thus any indecomposable rigid regular representation of $Q$ is the image of an indecomposable representation of such a subquiver -- in particular, it is isomorphic to $\Qrep_{[k,\ell]}$ for a proper subset $[k,\ell]\subsetneq\ZZ_n$.
+  Any non-sincere representation of $Q$ is the image of a representation of a proper subquiver, which will necessarily be of type $A_r$ for some $r < n$.
+  Thus any indecomposable rigid regular representation of $Q$ is the image of an indecomposable representation of such a subquiver (these will all be rigid) -- in particular, it is isomorphic to $\Qrep_{[k,\ell]}$ for a proper subset $[k,\ell]\subsetneq\ZZ_n$.
 
   It remains to derive the condition on sinks and sources in $[k,\ell]$.
   We identify the Grothendieck group $\KQ$ with the root lattice $\cQ$ of type $A_{n-1}^{\!(1)}$, and write $\delta\in\cQ$ for the primitive positive imaginary root.
@@ -1243,7 +1243,7 @@ We let $\cE_{[k,\ell]}$ denote the collection of target-closed subsets of $[k,\e
       \omega_{\ell+1}-\omega_k+\sum_{j=1}^m (\omega_{o_j}-\omega_{i_j}) & \text{$o_1 < i_1$ in $[k,\ell]$,}
     \end{cases}
   \]
-  and the cluster character of $\Qrep_{[k,\ell]}$ is
+  and the (framed) cluster character of $\Qrep_{[k,\ell]}$ is
   \begin{equation}
     \label{eq:regular cluster characters}
     x_{\Qrep_{[k,\ell]}}
@@ -1267,7 +1267,7 @@ We let $\cE_{[k,\ell]}$ denote the collection of target-closed subsets of $[k,\e
   The description of submodules of $\Qrep_{[k,\ell]}$ in terms of target-closed subsets of $[k,\ell]$ is an instance of a more general description in terms of the coefficient quiver of a representation \cite{CI11,Rin98}; in our case the coefficient quiver of $\Qrep_{[k,\ell]}$ is just the full subquiver of $Q$ with vertex set $[k,\ell]$.
 \end{proof}
 
-In Section~\ref{sec:networks} it will be useful to rewrite regular $\bfg$-vectors using the following Lemma, whose proof is an elementary computation.
+In Section~\ref{sec:networks} it will be useful to rewrite regular $\bfg$-vectors using the following lemma, which follows from Proposition~\ref{prop:regular coindices} by telescoping the sum below.
 
 \begin{lemma}
   \label{lem:regulargvectors}
