@@ -832,7 +832,10 @@ As a corollary of the preceding result,  we obtain the $\bfg$-vectors along the 
 
 With the preceding results in hand we are now ready to give recursive formulas for preprojective and postinjective cluster variables.
 Recall that we denote by $x_\omega$ the cluster variable whose $\bfg$-vector is $\omega$.
-We will use the shorthands $\beta_i^+:=s_1\cdots s_{i-1}\alpha_i$ and $\beta_i^-:=s_n\cdots s_{i+1}\alpha_i$ and denote by $[\beta:\alpha_i]$ the $i$-th coefficient in the expansion of the root $\beta$ in the basis of simple roots.
+We will use the shorthands $\beta_i^+:=s_1\cdots s_{i-1}\alpha_i$ and $\beta_i^-:=s_n\cdots s_{i+1}\alpha_i$, and denote by $[\beta:\alpha_i]$ the $i^{th}$ coefficient in the expansion of a root $\beta$ in the basis of simple roots. That is, we have
+\[
+\beta = \sum_{i=1}^n [\beta:\alpha_i]\alpha_i
+\]
 
 \begin{theorem}
   \label{thm:vars_and_rels_in_bipartite_belt}
@@ -865,7 +868,7 @@ We will use the shorthands $\beta_i^+:=s_1\cdots s_{i-1}\alpha_i$ and $\beta_i^-
   These relations determine all preprojective and postinjective cluster variables in terms of the initial ones.
 \end{theorem}
 \begin{proof}
-  The relations are a direct consequence of Lemmas~\ref{lemma:c-vectors} and~\ref{lemma:g-vectors} once we observe that mutations happen along a sink/source adapted sequence so that the $\mod{\Zidx}$-th column of $B^{t_\Zidx}$ contains only non-negative entries and the $\mod{\Zidx+1}$-th column only non-positive entries.
+  The relations are a direct consequence of Lemmas~\ref{lemma:c-vectors} and~\ref{lemma:g-vectors} once we observe that mutations happen along a sink/source adapted sequence, so that the $\mod{\Zidx}$-th column of $B^{t_\Zidx}$ contains only non-negative entries and the $\mod{\Zidx+1}$-th column only non-positive entries.
 \end{proof}
 \begin{remark}
   As noted before, to obtain the exchange relations in the cluster algebra $\cA_{\Bpr}$ with principal coefficients it suffices to set the coefficients $\cvar_{\ol{1}},\dotsc,\cvar_{\ol{n}}$ to $1$ in the relations of Theorem~\ref{thm:vars_and_rels_in_bipartite_belt}.
@@ -887,7 +890,7 @@ Recall that the initial cluster variables in $\kk[G^{c,c^{-1}}]$ are restriction
   \quad
   \cvar_{\ol{\imath}} = \Delta^{c \omega_i}_{\omega_i} \prod_{j < i}(\Delta^{c \omega_j}_{\omega_j})^{a_{ji}},
 \]
-for $1 \leq j \leq n$.
+for $1 \leq j \leq n$. Recall also that we write $\beta_i^+:=s_1\cdots s_{i-1}\alpha_i$ and $\beta_i^-:=s_n\cdots s_{i+1}\alpha_i$, and denote by $[\beta:\alpha_i]$ the $i^{th}$ coefficient in the expansion of a root $\beta$ in the basis of simple roots.
 
 \begin{lemma}
   \label{lemma:coefficients_values}
