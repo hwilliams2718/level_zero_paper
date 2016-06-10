@@ -735,17 +735,14 @@ Recall from Remark~\ref{rem:cgrootsweights} that we regard the $\bfc$-vectors $\
       -c^{-\infty}_{\le-\Zidx-n}\, \alpha_i \qquad & \text{if $\Zidx<-n$.}\\
     \end{cases}
   \end{equation}
+  Moreover, whenever $0 < \Zidx$ or $\Zidx < -n$, the $\bfc$-vector $\cv_{\mod{\Zidx};t_\Zidx}$ is negative and the $\bfc$-vector $\cv_{\mod{\Zidx+1};t_\Zidx}$ is positive.
 \end{lemma}
 
 \begin{proof}
-  We first claim that for $\Zidx \geq 0$ the root $c^\infty_{\leq \Zidx} \alpha_{\mod{\Zidx+1}}$ is positive and the root $c^\infty_{\leq \Zidx} \alpha_{\mod{\Zidx}}$ is negative. To see the first, note that $c^\infty_{\leq \Zidx} s_{\mod{\Zidx+1}}$ is a reduced decomposition of $c^\infty_{\leq \Zidx+1}$. Then, following \cite[VI \S 1.6, Corollary 2 of Proposition 17]{Bou02}, the root $- c^\infty_{\leq \Zidx}\alpha_{\mod{\Zidx+1}} = c^\infty_{\leq \Zidx} s_{\mod{\Zidx+1}} \alpha_{\mod{\Zidx+1}}$ is negative since $-\alpha_{\mod{\Zidx+1}}=s_{\mod{\Zidx+1}} \alpha_{\mod{\Zidx+1}}$ is while $\alpha_{\mod{\Zidx+1}}$ is positive. By the same principle, the root $c^\infty_{\le\Zidx}\, \alpha_{\mod{\Zidx}} = -c^\infty_{\le \Zidx-1}\, \alpha_{\mod{\Zidx}}$ is negative since $c^\infty_{\le\Zidx} = c^\infty_{\le \Zidx-1}s_{\mod{\Zidx}}$ is reduced. 
-
-Similarly, one checks that for $\Zidx \leq -n$ the root $-c^{-\infty}_{\le-\Zidx-n}\, \alpha_{\mod{\Zidx+1}}$ is positive and the root $-c^{-\infty}_{\le-\Zidx-n}\, \alpha_{\mod{\Zidx}}$ is negative. Note that if the result has been established for some $\Zidx \geq 0$ of $\Zidx \leq -n$, then we have shown that $\cv_{\mod{\Zidx+1};t_\Zidx}$ is a positive root and $\cv_{\mod{\Zidx};t_\Zidx}$ is a negative root. 
-
-%the vector $\cv_{\mod{\Zidx};t_\Zidx}$ is negative and the vector $\cv_{\mod{\Zidx+1};t_\Zidx}$ is positive. 
-%  When $\Zidx>0$ the root $c^\infty_{\le\Zidx}\, \alpha_{\mod{\Zidx+1}}$ is positive: indeed the rightmost reflection in $c^\infty_{\le\Zidx}$ is $s_{\mod{\Zidx}}$ so that the word $c^\infty_{\le\Zidx}s_{\mod{\Zidx+1}}=c^\infty_{\le\Zidx+1}$ is reduced and we can apply \cite[VI \S 1.6, Corollary 2 of Proposition 17]{Bou02}.
-%  By the same principle, the root $c^\infty_{\le\Zidx}\, \alpha_{\mod{\Zidx}} = -c^\infty_{\le(\Zidx-1)}\, \alpha_{\mod{\Zidx}}$ is negative because the word $c^\infty_{\le\Zidx}$ is reduced.
-%  Similarly, when $\Zidx<-n$ the root $-c^{-\infty}_{\le-\Zidx-n}\, \alpha_{\mod{\Zidx+1}}$ is positive and the root $-c^{-\infty}_{\le-\Zidx-n}\, \alpha_{\mod{\Zidx}}$ is negative.
+  We claim that for $\Zidx \geq 0$ the root $c^\infty_{\leq \Zidx}\, \alpha_{\mod{\Zidx+1}}$ is positive and the root $c^\infty_{\leq \Zidx}\, \alpha_{\mod{\Zidx}}$ is negative.
+  To see the first, note that $c^\infty_{\leq \Zidx} s_{\mod{\Zidx+1}}$ is a reduced decomposition of $c^\infty_{\leq \Zidx+1}$ and apply \cite[VI \S 1.6, Corollary 2 of Proposition 17]{Bou02}.
+  For the second, write $c^\infty_{\leq \Zidx}\, \alpha_{\mod{\Zidx}} = c^\infty_{\leq \Zidx-1} s_{\mod{\Zidx}}\, \alpha_{\mod{\Zidx}} = -c^\infty_{\leq \Zidx-1}\, \alpha_{\mod{\Zidx}}$ and reason as before.
+  Similarly, one checks that for $\Zidx \leq -n$ the root $-c^{-\infty}_{\le-\Zidx-n}\, \alpha_{\mod{\Zidx+1}}$ is positive and the root $-c^{-\infty}_{\le-\Zidx-n}\, \alpha_{\mod{\Zidx}}$ is negative.
 
   For the main claim there are three cases to consider.
 
