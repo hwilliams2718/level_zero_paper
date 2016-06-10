@@ -735,17 +735,14 @@ Recall from Remark~\ref{rem:cgrootsweights} that we regard the $\bfc$-vectors $\
       -c^{-\infty}_{\le-\Zidx-n}\, \alpha_i \qquad & \text{if $\Zidx<-n$.}\\
     \end{cases}
   \end{equation}
+  Moreover, whenever $0 < \Zidx$ or $\Zidx < -n$, the $\bfc$-vector $\cv_{\mod{\Zidx};t_\Zidx}$ is negative and the $\bfc$-vector $\cv_{\mod{\Zidx+1};t_\Zidx}$ is positive.
 \end{lemma}
 
 \begin{proof}
-  We first claim that for $\Zidx \geq 0$ the root $c^\infty_{\leq \Zidx} \alpha_{\mod{\Zidx+1}}$ is positive and the root $c^\infty_{\leq \Zidx} \alpha_{\mod{\Zidx}}$ is negative. To see the first, note that $c^\infty_{\leq \Zidx} s_{\mod{\Zidx+1}}$ is a reduced decomposition of $c^\infty_{\leq \Zidx+1}$. Then, following \cite[VI \S 1.6, Corollary 2 of Proposition 17]{Bou02}, the root $- c^\infty_{\leq \Zidx}\alpha_{\mod{\Zidx+1}} = c^\infty_{\leq \Zidx} s_{\mod{\Zidx+1}} \alpha_{\mod{\Zidx+1}}$ is negative since $-\alpha_{\mod{\Zidx+1}}=s_{\mod{\Zidx+1}} \alpha_{\mod{\Zidx+1}}$ is while $\alpha_{\mod{\Zidx+1}}$ is positive. By the same principle, the root $c^\infty_{\le\Zidx}\, \alpha_{\mod{\Zidx}} = -c^\infty_{\le \Zidx-1}\, \alpha_{\mod{\Zidx}}$ is negative since $c^\infty_{\le\Zidx} = c^\infty_{\le \Zidx-1}s_{\mod{\Zidx}}$ is reduced. 
-
-Similarly, one checks that for $\Zidx \leq -n$ the root $-c^{-\infty}_{\le-\Zidx-n}\, \alpha_{\mod{\Zidx+1}}$ is positive and the root $-c^{-\infty}_{\le-\Zidx-n}\, \alpha_{\mod{\Zidx}}$ is negative. Note that if the result has been established for some $\Zidx \geq 0$ of $\Zidx \leq -n$, then we have shown that $\cv_{\mod{\Zidx+1};t_\Zidx}$ is a positive root and $\cv_{\mod{\Zidx};t_\Zidx}$ is a negative root. 
-
-%the vector $\cv_{\mod{\Zidx};t_\Zidx}$ is negative and the vector $\cv_{\mod{\Zidx+1};t_\Zidx}$ is positive. 
-%  When $\Zidx>0$ the root $c^\infty_{\le\Zidx}\, \alpha_{\mod{\Zidx+1}}$ is positive: indeed the rightmost reflection in $c^\infty_{\le\Zidx}$ is $s_{\mod{\Zidx}}$ so that the word $c^\infty_{\le\Zidx}s_{\mod{\Zidx+1}}=c^\infty_{\le\Zidx+1}$ is reduced and we can apply \cite[VI \S 1.6, Corollary 2 of Proposition 17]{Bou02}.
-%  By the same principle, the root $c^\infty_{\le\Zidx}\, \alpha_{\mod{\Zidx}} = -c^\infty_{\le(\Zidx-1)}\, \alpha_{\mod{\Zidx}}$ is negative because the word $c^\infty_{\le\Zidx}$ is reduced.
-%  Similarly, when $\Zidx<-n$ the root $-c^{-\infty}_{\le-\Zidx-n}\, \alpha_{\mod{\Zidx+1}}$ is positive and the root $-c^{-\infty}_{\le-\Zidx-n}\, \alpha_{\mod{\Zidx}}$ is negative.
+  We claim that for $\Zidx \geq 0$ the root $c^\infty_{\leq \Zidx}\, \alpha_{\mod{\Zidx+1}}$ is positive and the root $c^\infty_{\leq \Zidx}\, \alpha_{\mod{\Zidx}}$ is negative.
+  To see the first, note that $c^\infty_{\leq \Zidx} s_{\mod{\Zidx+1}}$ is a reduced decomposition of $c^\infty_{\leq \Zidx+1}$ and apply \cite[VI \S 1.6, Corollary 2 of Proposition 17]{Bou02}.
+  For the second, write $c^\infty_{\leq \Zidx}\, \alpha_{\mod{\Zidx}} = c^\infty_{\leq \Zidx-1} s_{\mod{\Zidx}}\, \alpha_{\mod{\Zidx}} = -c^\infty_{\leq \Zidx-1}\, \alpha_{\mod{\Zidx}}$ and reason as before.
+  Similarly, one checks that for $\Zidx \leq -n$ the root $-c^{-\infty}_{\le-\Zidx-n}\, \alpha_{\mod{\Zidx+1}}$ is positive and the root $-c^{-\infty}_{\le-\Zidx-n}\, \alpha_{\mod{\Zidx}}$ is negative.
 
   For the main claim there are three cases to consider.
 
@@ -823,7 +820,7 @@ As a corollary of the preceding result,  we obtain the $\bfg$-vectors along the 
 \begin{proof}
   The result follows from Lemma~\ref{lemma:c-vectors} by leveraging the duality between the coroot and weight lattices for $A$.
   Indeed, Lemma~\ref{lemma:c-vectors} applied to $-B^T$ says that the $\bfc$-vectors for the dual cluster algebra are coroots of $A$; more precisely, at the node $t_\Zidx$, they are the coroots $\cv_{i;t_\Zidx}^\vee$.
-  By Equation~\eqref{eq:g-vectors_from_c-vectors} the $\bfg$-vectors at $t_\Zidx$ are the basis of weights $\gv_{i;t_\Zidx}$ dual to $\cv_{i;t_\Zidx}^\vee$, hence the $\bfg$-vectors in Equation~\ref{eq:abeltgvectors} are dual to the $\bfc$-vectors (for $-B^T$) in Equation~\ref{eq:c-vectors}.
+  By Equation~\eqref{eq:g-vectors_from_c-vectors} the $\bfg$-vectors at $t_\Zidx$ are the basis of weights $\gv_{i;t_\Zidx}$ dual to $\cv_{i;t_\Zidx}^\vee$, hence the $\bfg$-vectors in Equation~\eqref{eq:abeltgvectors} are dual to the $\bfc$-vectors (for $-B^T$) in Equation~\eqref{eq:c-vectors}.
   %We can then conclude by observing that the duality map commutes with the action of the elements of the Weyl group.
 
   The final claim now follows immediately from the fact that $s_i \omega_j = \omega_j$ unless $i =j$: for example, if $\Zidx > 0$ and $k$ is the smallest integer such that $kn \geq \Zidx$, we have $c^\infty_{\leq \Zidx} \omega_i =  c^k\omega_i$ if $\mod{\Zidx} \geq i$ and $c^\infty_{\leq \Zidx} \omega_i = c^{k-1}\omega_i$ if $\mod{\Zidx} < i$. 
@@ -869,6 +866,7 @@ We will use the shorthands $\beta_i^+:=s_1\cdots s_{i-1}\alpha_i$ and $\beta_i^-
 \end{theorem}
 \begin{proof}
   The relations are a direct consequence of Lemmas~\ref{lemma:c-vectors} and~\ref{lemma:g-vectors} once we observe that mutations happen along a sink/source adapted sequence, so that the $\mod{\Zidx}$-th column of $B^{t_\Zidx}$ contains only non-negative entries and the $\mod{\Zidx+1}$-th column only non-positive entries.
+  The claim about the signs of the $\bfc$-vectors $\cv_{\mod{\Zidx};t_\Zidx}$ and $\cv_{\mod{\Zidx+1};t_\Zidx}$ in Lemma~\ref{lemma:c-vectors} pinpoints which monomials on the right hand sides of these exchange relations contain coefficients.
 \end{proof}
 \begin{remark}
   As noted before, to obtain the exchange relations in the cluster algebra $\cA_{\Bpr}$ with principal coefficients it suffices to set the coefficients $\cvar_{\ol{1}},\dotsc,\cvar_{\ol{n}}$ to $1$ in the relations of Theorem~\ref{thm:vars_and_rels_in_bipartite_belt}.
