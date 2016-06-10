@@ -1583,6 +1583,7 @@ Definition~\ref{def:network} is motivated by the following observation:
 \end{proof}
 
 \begin{example}
+  \label{ex:minor_computation}
   We use Proposition~\ref{prop:minorsfrompaths} to compute the value of the generalized minor $\Delta_{\omega_1-\omega_2}$ on the generic element $g$ represented by the network of Figure~\ref{fig:totalnetwork}.
   In this case $S=\{2,3\}$ and we get
   \[
@@ -2007,7 +2008,18 @@ the latter following by reindexing vertices of $Q$ in the results of Lemma~\ref{
   Finally, it is straightforward to see that if $\beta(P) = \beta(P')$ for some $P, P' \in \cP_{[k,\ell]}$, we must have $P = P'$.
   In particular $\pi(\beta(P))=P$ for any $P\in\cP_{[k,\ell]}$, which shows (c) and completes the proof.
 \end{proof}
-
+\begin{example}
+  We continue with Example~\ref{ex:minor_computation}.
+  We are in type $A_2^{(1)}$ with Coxeter element $c=s_2s_1s_3$.
+  The regular cluster variable with $\bfg$-vector $\omega_1-\omega_2$ is obtained from the initial cluster of $\cA_{\Bdp}$ mutating first in direction 3 then in direction 2.
+  We obtain
+  \[
+    x_{\omega_1-\omega_2} 
+    =
+    \frac{x_1 x_3 + \cvar_2 \cvar_{\ol{2}} + x_1 x_2 \cvar_2 \cvar_3 \cvar_{\ol{2}} \cvar_{\ol{3}}}{x_2 x_3}
+  \]
+  and substituting the values computed in Lemma~\ref{lemma:coefficients_values} we recover the generalized minor of Example~\ref{ex:minor_computation}.
+\end{example}
 %%%%%%%%%%%%%%%%%%%%
 \subsection{Other affine types}
 \label{sec:othertypes}
