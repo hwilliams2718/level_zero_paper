@@ -790,7 +790,7 @@ Recall that we regard $\bfg$-vectors as elements of the weight lattice $P$, the 
 \end{lemma}
 \begin{proof}
   The result follows from Lemma~\ref{lemma:c-vectors} by leveraging the duality between the coroot and weight lattices for $A$.
-  Indeed, Lemma~\ref{lemma:c-vectors} applied to $-B^T$ says that the $\bfc$-vectors for the dual cluster algebra are coroots of $A$; more precisely, at the node $t_\Zidx$, they are the coroots $\cv_{i;t_\Zidx}^\vee$.
+  Indeed, Lemma~\ref{lemma:c-vectors} applied to $-B^T$ can be interpreted as saying that the $\bfc$-vectors for the dual cluster algebra are coroots of $A$; more precisely, at the node $t_\Zidx$, they are the coroots $\cv_{i;t_\Zidx}^\vee$.
   By Equation~\eqref{eq:g-vectors_from_c-vectors} the $\bfg$-vectors at $t_\Zidx$ are the basis of weights $\gv_{i;t_\Zidx}$ dual to $\cv_{i;t_\Zidx}^\vee$, hence the $\bfg$-vectors in Equation~\eqref{eq:abeltgvectors} are dual to the $\bfc$-vectors (for $-B^T$) in Equation~\eqref{eq:c-vectors}.
 
   The final claim now follows immediately from the fact that $s_i \omega_j = \omega_j$ unless $i =j$: for example, if $\Zidx > 0$ and $k$ is the smallest integer such that $kn \geq \Zidx$, we have $c^\infty_{\leq \Zidx} \omega_i =  c^k\omega_i$ if $\mod{\Zidx} \geq i$ and $c^\infty_{\leq \Zidx} \omega_i = c^{k-1}\omega_i$ if $\mod{\Zidx} < i$.
@@ -1043,7 +1043,7 @@ Since a generic element of $G$ factors as $n_- h n_+$, with $n_- \in N_-$, $h \i
 \end{theorem}
 
 \begin{proof}
-  In Theorem~\ref{thm:vars_and_rels_in_bipartite_belt} we computed exchange relations that determine these cluster variables in terms of the initial variables, so it suffices to check that the indicated restrictions of minors satisfy the same relations.
+  In Theorem~\ref{thm:vars_and_rels_in_bipartite_belt} we explicitly computed exchange relations which allow one to compute these cluster variables by iterated mutation from the initial variables, so it suffices to check that the indicated restrictions of minors satisfy the same relations.
 
   If we apply Proposition~\ref{prop:fundid} with $u = v = c^k s_1 \cdots s_{i-1}$ and substitute using the equalities from Lemma~\ref{lemma:coefficient_identity_powers}, we find that
   \begin{equation}
@@ -1153,8 +1153,8 @@ Since a generic element of $G$ factors as $n_- h n_+$, with $n_- \in N_-$, $h \i
   \[
     v_i
     =
-    1 + t_i t_{\ol{\imath}} h^{\alpha_i}
-    \prod_{j > i} v_j^{-a_{j,i}},
+    t_i t_{\ol{\imath}} h^{\alpha_i}
+    \prod_{j > i} v_j^{-a_{j,i}}+1,
   \]
   and are non-zero elements of $\kk$ for generic values of the parameters $t_i$ and $t_{\ol{\imath}}$.
   From this one observes that $h^{\omega_i}\Delta_{\omega_i}(g^\iota) = v_i$, and the desired identity follows.
