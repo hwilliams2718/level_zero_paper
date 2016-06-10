@@ -520,7 +520,7 @@ Given a representation $M\in\rep_\kk(Q)$ and a projective presentation $0\to P_1
 \end{equation}
 where $D=\Hom(-,\kk)$ is the standard $\kk$-linear duality functor.
 
-The AR translation $\tau$ plays a key role in the representation theory of $Q$: a representation $P$ is projective if and only if $\tau(P)=0$ while a representation $I$ is injective if and only if it is not of the form $\tau(M)$ for any $M$.
+The \newword{AR translation} $\tau$ plays a key role in the representation theory of $Q$: a representation $P$ is projective if and only if $\tau(P)=0$ while a representation $I$ is injective if and only if it is not of the form $\tau(M)$ for any $M$.
 Call a representation $M$ \newword{preprojective} if $\tau^k(M)$ is projective for some $k\ge0$, \newword{postinjective} if there is an injective representation $I$ so that $M=\tau^k(I)$ for some $k\ge0$, and \newword{regular} otherwise.
 When $Q$ is an orientation of a simply-laced finite-type Dynkin diagram, the injective representations are preprojective (hence projective representations are postinjective) and there are no regular representations.
 
@@ -555,12 +555,12 @@ Below we write $x^{\grep(\Qrep)}$ for the monomial $\prod x_j^{b_j - a_j}$.
 Thus, for example, $\grep(\Qrep) = \sum (b_j - a_j)\omega_j$ in the above definition.
 \end{remark}
 
-Given a dimension vector $e = \sum_i e_i[S_i] \in \NN^n \subset \KQ$, the \newword{quiver Grassmannian} $\Gr_eM$ is the variety of $e$-dimensional submodules of $M$.
+Given a dimension vector $e = \sum_i e_i[S_i] \in \NN^n \subset \KQ$, the \newword{quiver Grassmannian} $\Gr_eM$ is the projective variety of $e$-dimensional submodules of $M$.
 We write $\chi(\Gr_eM)$ for its Euler characteristic (formally, in \'etale cohomology with compact supports).
-If $\widetilde{B}$ is the exchange matrix associated to $\widetilde{Q}$ we write $\hat{y}_j$ for the monomial $\prod\limits_{i=1}^m x_i^{b_{ij}}$, and $\hat{y}^e$ for $\prod_{j=1}^n \hat{y}_j^{e_j}$.
+If $\widetilde{B}=(b_{ij})$ is the exchange matrix associated to $\widetilde{Q}$ we write $\hat{y}_j$ for the monomial $\prod\limits_{i=1}^m x_i^{b_{ij}}$, and $\hat{y}^e$ for $\prod\limits_{j=1}^n \hat{y}_j^{e_j}$.
 
 \begin{definition}
-  Given a framed quiver $\widetilde{Q}$, the (framed) cluster character of a representation $M$ of $Q$ is
+  Let $\widetilde{Q}$ be a framed quiver and $M$ a representation of $Q$.  The (framed) cluster character of $M$ is
   \begin{equation}
     \label{eq:cc formula}
     x_M := x^{\grep(M)} \sum_{e \in \NN^n}\chi(\Gr_e M) \hat{y}^e \in \kk[x_1^{\pm 1},\dotsc,x_m^{\pm 1}].
@@ -579,7 +579,7 @@ The positivity assumption on the non-principal part of $\widetilde{B}$ is only t
 More generally, cluster variables and cluster characters will be related by a monomial determined by the separation of additions formula of \cite{FZ07}.
 
 \begin{remark}
-  Theorem~\ref{thm:CCbijection} is simple instance of a number of closely related connections between cluster theory and the representation theory of algebras.
+  Theorem~\ref{thm:CCbijection} is a simple instance of a number of closely related connections between cluster theory and the representation theory of algebras.
   Other connections involve, for example, preprojective algebras \cite{GLS13}, quivers with potential \cite{DWZ10}, and the theory of cluster categories \cite{BMRRT06}.
 \end{remark}
 
