@@ -151,8 +151,8 @@ Broadly speaking, we will be interested in the interplay between the following t
 
 Recall that the representation theory of $G$ is largely centered around its (dual) categories of highest- and lowest-weight representations \cite{Kac90,Kum02}.
 These coincide exactly when $G$ is a semisimple algebraic group, in which case they include all representations of $G$ with finite-dimensional weight spaces.
-In general, $G$ has many other such representations, which are only well-understood when $G$ is of affine type \cite{Cha86,CP86}.
-\sayDR{There is another Chari-Pressley reference in the bibliography file, was this intended to be referenced somewhere?}
+In general, $G$ has many other such representations, which are only well-understood when $G$ is of affine type \cite{Cha86,CP88}. 
+%\sayDR{There is another Chari-Pressley reference in the bibliography file, was this intended to be referenced somewhere?}
 In the affine case, an irreducible representation is highest-weight, lowest-weight, or neither if its level (the character by which $Z(G) \cong \kk^\times$ acts) is positive, negative, or zero respectively.
 
 On the other hand, the representation theory of $Q$ is organized by the Auslander-Reiten translation $\tau: \rep Q \to \rep Q$ \cite{ASS06}.
@@ -279,7 +279,8 @@ For $t \in \kk^\times$ and $1 \leq i \leq n$ we adopt the notation
 \end{gather}
 By extension, for any $w$ in the Weyl group $W$ of $\widehat{G}$ we set \[\ol{w} := \ol{s_{i_1}}\cdots\ol{s_{i_k}}, \quad \quad \dol{w} := \dol{s_{i_1}}\cdots\dol{s_{i_k}},\] where $s_{i_1}\cdots s_{i_k}$ is any reduced word for $w$.
 We write $H$ for the ($n$-dimensional) Cartan subgroup of $G$, likewise $\widehat{H}$ is the Cartan subgroup of $\widehat{G}$ (it is isomorphic to $H \times (\kk^\times)^{\corank(A)}$).
-We let $\kk[\widehat{G}]$ denote the (complete\sayDR{I am still questioning completeness, I see ``topological'' when Kumar introduces ind-varieties but not ``complete''} topological) algebra of regular functions on $\widehat{G}$.
+We let $\kk[\widehat{G}]$ denote the (complete %\sayDR{I am still questioning completeness, I see ``topological'' when Kumar introduces ind-varieties but not ``complete''} 
+topological) algebra of regular functions on $\widehat{G}$.
 
 We have weight lattices $\widehat{P} = \Hom(\widehat{H},\kk^\times)$ and $P = \Hom(H,\kk^\times)$, and write the value of $\lambda \in P$ on $h \in H$ as $h^\lambda$ (likewise for $\lambda \in \widehat{P}$ and $h \in \widehat{H}$).
 The fundamental weights $\omega_1,\dotsc,\omega_n \in P$ are defined by $(t^{\alpha_i^\vee})^{\omega_j} = t^{\delta_{ij}}$.
@@ -343,13 +344,13 @@ A crucial feature of generalized minors is the following generalized determinant
   Then
   \begin{equation}
     \label{eq:fundid}
-    \Delta_{u\omega_i}^{v\omega_i} \Delta_{us_i\omega_i}^{vs_i\omega_i}
+    \Delta_{v\omega_i}^{u\omega_i} \Delta_{vs_i\omega_i}^{us_i\omega_i}
     =
-    \prod_{\stackrel{1\leq j \leq n}{j\neq i}}\left(\Delta_{u\omega_j}^{v\omega_j}\right)^{-a_{ji}}
+    \prod_{\stackrel{1\leq j \leq n}{j\neq i}}\left(\Delta_{v\omega_j}^{u\omega_j}\right)^{-a_{ji}}
     +
-    \Delta_{us_i\omega_i}^{v\omega_i} \Delta_{u\omega_i}^{vs_i\omega_i}
+    \Delta_{vs_i\omega_i}^{u\omega_i} \Delta_{v\omega_i}^{us_i\omega_i}
   \end{equation}
-  is satisfied on $G$.\sayDR{The roles of $u$ and $v$ here are reversed from their roles above, it seems that we should be consistent.  I have no preference so I am leaving it as an open comment}
+  is satisfied on $G$.%\sayDR{The roles of $u$ and $v$ here are reversed from their roles above, it seems that we should be consistent.  I have no preference so I am leaving it as an open comment}
 \end{proposition}
 
 While the above identity on $G$ is the one we use directly, we note that it restricts from a similar one on $\widehat{G}$ that also involves the characters of $\widehat{G}/G$.
