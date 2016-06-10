@@ -40,7 +40,6 @@
 \newcommand{\cAb}{\mathcal{A}_\bullet}
 \newcommand{\cC}{\mathcal{C}}
 \newcommand{\cT}{\mathcal{T}}
-
 \newcommand{\RR}{\mathbb{R}}
 \newcommand{\CC}{\mathbb{C}}
 \newcommand{\NN}{\mathbb{N}}
@@ -48,27 +47,22 @@
 \newcommand{\TT}{\mathbb{T}}
 \newcommand{\ZZ}{\mathbb{Z}}
 \newcommand{\kk}{\Bbbk}
-
 \newcommand{\bfb}{\mathbf{b}}
 \newcommand{\bfc}{\mathbf{c}}
 \newcommand{\bfe}{\mathbf{e}}
 \newcommand{\bfg}{\mathbf{g}}
 \newcommand{\bfi}{\mathbf{i}}
-
 \newcommand{\cv}{\alpha}
 \newcommand{\gv}{\omega}
 \newcommand{\grep}{\gv}
 \newcommand{\KQ}{K_0(Q)}
-
 \newcommand{\cE}{\mathcal{E}}
 \newcommand{\cF}{\mathcal{F}}
 \newcommand{\cN}{\mathcal{N}} % symbol for network
 \newcommand{\cP}{\mathcal{P}}
 \newcommand{\cQ}{\mathcal{Q}}
 \newcommand{\cR}{\mathcal{R}}
-
 \newcommand{\Gr}{\mathrm{Gr}}
-
 \newcommand{\defect}{\operatorname{def}}
 \newcommand{\rep}{\operatorname{rep}}
 \newcommand{\sgn}{\operatorname{sgn}}
@@ -87,7 +81,6 @@
 \DeclareMathOperator{\Hom}{Hom}
 \DeclareMathOperator{\coind}{coind}
 \DeclareMathOperator{\corank}{corank}
-
 \newcommand{\wh}{\widehat}
 \newcommand{\ol}[1]{\overline{#1}}
 \newcommand{\dol}[1]{\overline{\overline{#1}}}
@@ -358,7 +351,7 @@ We will refer to such a $\widetilde B$ as an \newword{extension} of $B$.
 
 Two $m\times n$ exchange matrices $\widetilde B=(b_{ij})$ and $\widetilde B'=(b'_{ij})$ are related by \newword{matrix mutation} at $k \in \{1,\dotsc,n\}$ if their entries satisfy
 \begin{equation}
-\label{eq:matrix mutation}
+  \label{eq:matrix mutation}
   b'_{ij} = \begin{cases}
   -b_{ij} & i = k \text{ or } j = k\\
   b_{ij} + [b_{ik}]_+ [b_{kj}]_+ - [-b_{ik}]_+ [-b_{kj}]_+ & \text{otherwise.}
@@ -371,8 +364,10 @@ To define the cluster algebra $\cA_{\widetilde B}$ associated to an $m \times n$
 Fix a root vertex $t_0 \in\TT$.
 Assign an exchange matrix $\widetilde B^t=(b_{ij}^t)$ to each $t \in\TT$ so that:
 \begin{itemize}
-  \item $\widetilde B^{t_0} = \widetilde B$,
-  \item if $t, t' \in\TT$ are joined by an edge labelled $k$, then $\widetilde B^t$ and $\widetilde B^{t'}$ are related by mutation at $k$.
+  \item 
+    $\widetilde B^{t_0} = \widetilde B$,
+  \item 
+    if $t, t' \in\TT$ are joined by an edge labelled $k$, then $\widetilde B^t$ and $\widetilde B^{t'}$ are related by mutation at $k$.
 \end{itemize}
 
 Let $\cF$ denote the field of rational functions in formal variables $x_{1}\,\dotsc,x_{m}$ with coefficients in $\kk$.
@@ -550,7 +545,7 @@ Below we write $x^{\grep(\Qrep)}$ for the monomial $\prod x_j^{b_j - a_j}$.
 \begin{remark}
   As $Q$ is acyclic, it has an associated symmetric Cartan companion $A$.
   As in Section~\ref{sec:clusteralgebras} we identify the $\bfg$-vector lattice $\ZZ^n$ with the weight lattice $P$ associated to $A$ by mapping the $j$-th standard basis vector to the fundamental weight $\omega_j$.
-Thus, for example, $\grep(\Qrep) = \sum (b_j - a_j)\omega_j$ in the above definition.
+  Thus, for example, $\grep(\Qrep) = \sum (b_j - a_j)\omega_j$ in the above definition.
 \end{remark}
 
 Given a dimension vector $e = \sum_i e_i[S_i] \in \NN^n \subset \KQ$, the \newword{quiver Grassmannian} $\Gr_eM$ is the projective variety of $e$-dimensional submodules of $M$.
@@ -558,7 +553,8 @@ We write $\chi(\Gr_eM)$ for its Euler characteristic (formally, in \'etale cohom
 If $\widetilde{B}=(b_{ij})$ is the exchange matrix associated to $\widetilde{Q}$ we write $\hat{y}_j$ for the monomial $\prod\limits_{i=1}^m x_i^{b_{ij}}$, and $\hat{y}^e$ for $\prod\limits_{j=1}^n \hat{y}_j^{e_j}$.
 
 \begin{definition}
-  Let $\widetilde{Q}$ be a framed quiver and $M$ a representation of $Q$.  The (framed) cluster character of $M$ is
+  Let $\widetilde{Q}$ be a framed quiver and $M$ a representation of $Q$.
+  The (framed) cluster character of $M$ is
   \begin{equation}
     \label{eq:cc formula}
     x_M := x^{\grep(M)} \sum_{e \in \NN^n}\chi(\Gr_e M) \hat{y}^e \in \kk[x_1^{\pm 1},\dotsc,x_m^{\pm 1}].
@@ -713,7 +709,8 @@ Observe that the nodes of $\TT$ we are considering lie along a \emph{sink/source
 More precisely, the $\mod{\Zidx}$-th column of $B^{t_\Zidx}$ contains only non-negative entries and the $\mod{\Zidx+1}$-st column only non-positive entries.
 In particular, it follows from the definition of matrix mutation that the off-diagonal entries of the exchange matrix $B^{t_\Zidx}$ have the same absolute values as the corresponding entries of $A$.
 
-Recall that, by definition, $\bfc$-vectors encode the coefficient part of the exchange relations in a cluster algebra with principal coefficients, and by extension also for doubled principal coefficients. Thus to compute the exchange relations along the path \eqref{eq:simplepath} in $\cA_{\Bdp} \cong \kk[G^{c,c^{-1}}]$, we begin by computing these $\bfc$-vectors.
+Recall that, by definition, $\bfc$-vectors encode the coefficient part of the exchange relations in a cluster algebra with principal coefficients, and by extension also for doubled principal coefficients.
+Thus to compute the exchange relations along the path \eqref{eq:simplepath} in $\cA_{\Bdp} \cong \kk[G^{c,c^{-1}}]$, we begin by computing these $\bfc$-vectors.
 Recall from Remark~\ref{rem:cgrootsweights} that we regard the $\bfc$-vectors $\cv_{i;t_\Zidx}$ as elements of the root lattice $\cQ$, the initial $\bfc$-vectors $\cv_{i;t_0}$ being identified with the simple roots $\alpha_i$.
 
 \begin{lemma}
@@ -721,7 +718,7 @@ Recall from Remark~\ref{rem:cgrootsweights} that we regard the $\bfc$-vectors $\
   Let $\cv_{i;t_\Zidx}$ be the $i$-th $\bfc$-vector at vertex $t_\Zidx$.
   Then
   \begin{equation}
-\label{eq:c-vectors}
+    \label{eq:c-vectors}
     \cv_{i;t_\Zidx}
     =
     \begin{cases}
@@ -735,8 +732,11 @@ Recall from Remark~\ref{rem:cgrootsweights} that we regard the $\bfc$-vectors $\
 \end{lemma}
 
 \begin{proof}
-  We claim that for $\Zidx > 0$ the root $c^\infty_{\leq \Zidx}\, \alpha_{\mod{\Zidx+1}}$ is positive and the root $c^\infty_{\leq \Zidx}\, \alpha_{\mod{\Zidx}}$ is negative. Recall that for any reduced word $s_{i_1} \cdots s_{i_n}$, the root $s_{i_1} \cdots s_{i_{n-1}} \alpha_{i_n}$ is positive and the root $s_{i_1} \cdots s_{i_{n}} \alpha_{i_n}$ is negative \cite[VI \S 1.6, Corollary 2 of Proposition 17]{Bou02}. The positivity of $c^\infty_{\leq \Zidx}\, \alpha_{\mod{\Zidx+1}}$ then follows from the fact that  $c^\infty_{\leq \Zidx} s_{\mod{\Zidx+1}}$ is a reduced decomposition of $c^\infty_{\leq \Zidx+1}$, and the negativity of $c^\infty_{\leq \Zidx}\, \alpha_{\mod{\Zidx}}$ follows from the fact that $c^\infty_{\leq \Zidx-1}s_{\mod{\Zidx}}$ is a reduced decomposition of $c^\infty_{\leq \Zidx}$.
-  Similarly, one checks that for $\Zidx < -n$ the root $-c^{-\infty}_{\le-\Zidx-n}\, \alpha_{\mod{\Zidx+1}}$ is positive and the root $-c^{-\infty}_{\le-\Zidx-n}\, \alpha_{\mod{\Zidx}}$ is negative. The second claim in the Lemma will now follow once we prove the stated formulas for $\cv_{i;t_{\Zidx}}$.
+  We claim that for $\Zidx > 0$ the root $c^\infty_{\leq \Zidx}\, \alpha_{\mod{\Zidx+1}}$ is positive and the root $c^\infty_{\leq \Zidx}\, \alpha_{\mod{\Zidx}}$ is negative.
+  Recall that for any reduced word $s_{i_1} \cdots s_{i_n}$, the root $s_{i_1} \cdots s_{i_{n-1}} \alpha_{i_n}$ is positive and the root $s_{i_1} \cdots s_{i_{n}} \alpha_{i_n}$ is negative \cite[VI \S 1.6, Corollary 2 of Proposition 17]{Bou02}.
+  The positivity of $c^\infty_{\leq \Zidx}\, \alpha_{\mod{\Zidx+1}}$ then follows from the fact that  $c^\infty_{\leq \Zidx} s_{\mod{\Zidx+1}}$ is a reduced decomposition of $c^\infty_{\leq \Zidx+1}$, and the negativity of $c^\infty_{\leq \Zidx}\, \alpha_{\mod{\Zidx}}$ follows from the fact that $c^\infty_{\leq \Zidx-1}s_{\mod{\Zidx}}$ is a reduced decomposition of $c^\infty_{\leq \Zidx}$.
+  Similarly, one checks that for $\Zidx < -n$ the root $-c^{-\infty}_{\le-\Zidx-n}\, \alpha_{\mod{\Zidx+1}}$ is positive and the root $-c^{-\infty}_{\le-\Zidx-n}\, \alpha_{\mod{\Zidx}}$ is negative.
+  The second claim in the Lemma will now follow once we prove the stated formulas for $\cv_{i;t_{\Zidx}}$.
 
   For the main claim there are three cases to consider.
 
@@ -786,13 +786,15 @@ Recall from Remark~\ref{rem:cgrootsweights} that we regard the $\bfc$-vectors $\
   The only minor change is that this time we leverage the fact that both the sign of $\cv_{\mod{\Zidx};t_\Zidx}$ and the sign of the $\mod{\Zidx}$-th row of $B^{t_\Zidx}$ are negative.
 \end{proof}
 
-As a corollary of the preceding result,  we obtain the $\bfg$-vectors along the path \eqref{eq:simplepath} by applying Equation~\eqref{eq:g-vectors_from_c-vectors}. Recall that we regard $\bfg$-vectors as elements of the weight lattice $P$, the initial $\bfg$-vectors $\gv_{i;t_0}$ being identified with the fundamental weights $\omega_i$.
+As a corollary of the preceding result,  we obtain the $\bfg$-vectors along the path \eqref{eq:simplepath} by applying Equation~\eqref{eq:g-vectors_from_c-vectors}.
+Recall that we regard $\bfg$-vectors as elements of the weight lattice $P$, the initial $\bfg$-vectors $\gv_{i;t_0}$ being identified with the fundamental weights $\omega_i$.
 
 \begin{lemma}
   \label{lemma:g-vectors}
   Let $\gv_{i;t_\Zidx}$ be the $i$-th $\bfg$-vector at $t_\Zidx$.
   Then
-  \begin{equation}\label{eq:abeltgvectors}
+  \begin{equation}
+    \label{eq:abeltgvectors}
     \gv_{i;t_\Zidx}
     =
     \begin{cases}
@@ -821,9 +823,10 @@ As a corollary of the preceding result,  we obtain the $\bfg$-vectors along the 
 
 With the preceding results in hand we are now ready to give recursive formulas for preprojective and postinjective cluster variables.
 Recall that we denote by $x_\omega$ the cluster variable whose $\bfg$-vector is $\omega$.
-We will use the shorthands $\beta_i^+:=s_1\cdots s_{i-1}\alpha_i$ and $\beta_i^-:=s_n\cdots s_{i+1}\alpha_i$, and denote by $[\beta:\alpha_i]$ the $i^{th}$ coefficient in the expansion of a root $\beta$ in the basis of simple roots. That is, we have
+We will use the shorthands $\beta_i^+:=s_1\cdots s_{i-1}\alpha_i$ and $\beta_i^-:=s_n\cdots s_{i+1}\alpha_i$, and denote by $[\beta:\alpha_i]$ the $i^{th}$ coefficient in the expansion of a root $\beta$ in the basis of simple roots.
+That is, we have
 \[
-\beta = \sum_{i=1}^n [\beta:\alpha_i]\alpha_i
+  \beta = \sum_{i=1}^n [\beta:\alpha_i]\alpha_i
 \]
 
 \begin{theorem}
@@ -880,7 +883,8 @@ Recall that the initial cluster variables in $\kk[G^{c,c^{-1}}]$ are restriction
   \quad
   \cvar_{\ol{\imath}} = \Delta^{c \omega_i}_{\omega_i} \prod_{j < i}(\Delta^{c \omega_j}_{\omega_j})^{a_{ji}},
 \]
-for $1 \leq j \leq n$. Recall also that we write $\beta_i^+:=s_1\cdots s_{i-1}\alpha_i$ and $\beta_i^-:=s_n\cdots s_{i+1}\alpha_i$, and denote by $[\beta:\alpha_i]$ the $i^{th}$ coefficient in the expansion of a root $\beta$ in the basis of simple roots.
+for $1 \leq j \leq n$.
+Recall also that we write $\beta_i^+:=s_1\cdots s_{i-1}\alpha_i$ and $\beta_i^-:=s_n\cdots s_{i+1}\alpha_i$, and denote by $[\beta:\alpha_i]$ the $i^{th}$ coefficient in the expansion of a root $\beta$ in the basis of simple roots.
 
 \begin{lemma}
   \label{lemma:coefficients_values}
@@ -1541,7 +1545,10 @@ As in Section~\ref{sec:rigidregular} we fix a cyclic $\ZZ_n$-labelling of the ve
     \draw ([shift={(90:{\edpt} and \ehgt)}]0,0) -- ([shift={(90:{\edpt} and \ehgt)}]8*\ewdt,0);
     \draw ([shift={(-90:{\edpt} and \ehgt)}]0,0) -- ([shift={(-90:{\edpt} and \ehgt)}]8*\ewdt,0);
   \end{tikzpicture}
-  \caption{The network $\cN^{c,c^{-1}}$ for $c = s_2 s_1 s_3$. It encodes the factorization of a generic element of $\widetilde{LSL}_3^{c,c^{-1}}$ as $g = x_{\ol{2}}(t_{\ol{2}})x_{\ol{1}}(t_{\ol{1}})x_{\ol{3}}(t_{\ol{3}})hx_{3}(t_{3})x_{1}(t_{1})x_{2}(t_{2})$.}
+  \caption{
+    The network $\cN^{c,c^{-1}}$ for $c = s_2 s_1 s_3$.
+    It encodes the factorization of a generic element of $\widetilde{LSL}_3^{c,c^{-1}}$ as $g = x_{\ol{2}}(t_{\ol{2}})x_{\ol{1}}(t_{\ol{1}})x_{\ol{3}}(t_{\ol{3}})hx_{3}(t_{3})x_{1}(t_{1})x_{2}(t_{2})$.
+  }
   \label{fig:totalnetwork}
 \end{figure}
 
@@ -2030,9 +2037,11 @@ With these considerations in hand we pose the following specific form of Conject
   Then under $\cA_{\Bdp} \cong \kk[G^{c,c^{-1}}]$, the cluster variable $x_{i;t}$ is the restriction of the level zero minor $\Delta_{\gv_{i;t}}$.
 \end{conjecture}
 
-While the combinatorics we used to prove Conjecture~\ref{conj:affine} in type $A_{n-1}^{\!(1)}$ is not available in general, in some types it is possible to compute the relevant minors by hand using only the characters of the representations involved (e.g. when they are spaces of Laurent polynomials valued in a representation without weight spaces of dimension greater than one). The results are consistent with Conjecture~\ref{conj:affine}:
+While the combinatorics we used to prove Conjecture~\ref{conj:affine} in type $A_{n-1}^{\!(1)}$ is not available in general, in some types it is possible to compute the relevant minors by hand using only the characters of the representations involved (e.g. when they are spaces of Laurent polynomials valued in a representation without weight spaces of dimension greater than one).
+The results are consistent with Conjecture~\ref{conj:affine}:
 
-\begin{proposition}\label{prop:conjholds}
+\begin{proposition}
+  \label{prop:conjholds}
   Conjecture~\ref{conj:affine} holds when the Cartan companion of $B$ is of type $B_3^{(1)}$, $C_2^{(1)}$, $D_4^{(1)}$, or $G_2^{(1)}$.
 \end{proposition}
 \begin{proof}
