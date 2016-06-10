@@ -139,7 +139,6 @@
 \maketitle
 \tableofcontents
 \newpage
-%\vspace{2.8cm} %Adjust to iron out formatting issues with vertical whitespace
 
 %%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
@@ -151,8 +150,7 @@ Broadly speaking, we will be interested in the interplay between the following t
 
 Recall that the representation theory of $G$ is largely centered around its (dual) categories of highest- and lowest-weight representations \cite{Kac90,Kum02}.
 These coincide exactly when $G$ is a semisimple algebraic group, in which case they include all representations of $G$ with finite-dimensional weight spaces.
-In general, $G$ has many other such representations, which are only well-understood when $G$ is of affine type \cite{Cha86,CP88}. 
-%\sayDR{There is another Chari-Pressley reference in the bibliography file, was this intended to be referenced somewhere?}
+In general, $G$ has many other such representations, which are only well-understood when $G$ is of affine type \cite{Cha86,CP88}.
 In the affine case, an irreducible representation is highest-weight, lowest-weight, or neither if its level (the character by which $Z(G) \cong \kk^\times$ acts) is positive, negative, or zero respectively.
 
 On the other hand, the representation theory of $Q$ is organized by the Auslander-Reiten translation $\tau: \rep Q \to \rep Q$ \cite{ASS06}.
@@ -173,10 +171,11 @@ From the perspective of $Q$, $\cA_Q$ is a repository for information about the s
 After embedding $\cA_Q$ into the ring of Laurent polynomials in the initial cluster variables, the remaining cluster variables are in bijection with the rigid indecomposable representations of $Q$ \cite{CC06,CK06}.
 This correspondence takes a representation $\Qrep$ to a generating function of the Euler characteristics of its varieties of submodules; the resulting expression is called the cluster character of $\Qrep$.
 With this in mind we refer to a (non-initial) cluster variable as preprojective, postinjective, or regular according to the classification of its associated representation.
-In summary, given the description of $\cA_Q$ in terms of $G$, representations of $Q$ naturally label functions on the subvariety $G^{c,c^{-1}}$ of $G$. 
+In summary, given the description of $\cA_Q$ in terms of $G$, representations of $Q$ naturally label functions on the subvariety $G^{c,c^{-1}}$ of $G$.
 
 When $Q$ is of ADE type and $G$ a simple algebraic group, Yang and Zelevinsky \cite{YZ08} showed that these functions have an interpretation in terms of the representation theory of $G$: they are restrictions of generalized minors.
-These are functions $\Delta_{(V,\lambda)} \in \kk[G]$ labelled by a representation $V$ and a weight $\lambda$ for which the weight space $V_\lambda$ is one-dimensional.  The value of $\Delta_{(V,\lambda)}$ on $g \in G$ is the ratio of any nonzero $v \in V_\lambda$ with the projection of $gv \in V$ to $V_\lambda$.
+These are functions $\Delta_{(V,\lambda)} \in \kk[G]$ labelled by a representation $V$ and a weight $\lambda$ for which the weight space $V_\lambda$ is one-dimensional.
+The value of $\Delta_{(V,\lambda)}$ on $g \in G$ is the ratio of any nonzero $v \in V_\lambda$ with the projection of $gv \in V$ to $V_\lambda$.
 
 Our main result is that cluster variables are also realized as generalized minors on $G^{c,c^{-1}}$ when $Q$ is not necessarily of finite type, and that moreover the resulting correspondence between quiver representations and group representations intertwines the triadic classifications described above.
 
@@ -227,13 +226,8 @@ In addition to verifying the conjecture for all Coxeter elements when $G$ is of 
 In any affine type, the regular cluster variables are finite in number and can be explicitly computed.
 In forthcoming work of the second author compelling evidence is given that their $\bfg$-vectors correspond to weights in the complement of the Tits cone and its negative \cite{RS16}.
 In particular, it follows that if these cluster variables are restrictions of minors, they must come from explicitly identifiable level zero representations.
-The types checked in Section~\ref{sec:othertypes} are essentially the ones where knowing only the characters of these representations is sufficient to compute the relevant minors on $G^{c,c^{-1}}$ and compare them with the corresponding cluster variables. 
-%these minors can be evaluated on $G^{c,c^{-1}}$ knowing only the character of this representation.
+The types checked in Section~\ref{sec:othertypes} are essentially the ones where knowing only the characters of these representations is sufficient to compute the relevant minors on $G^{c,c^{-1}}$ and compare them with the corresponding cluster variables.
 Beyond finite and affine types, general weight representations of $G$ are not well-understood and the conjecture is much more speculative (though we note a suggestive formal calculation in Remark~\ref{rmk:nonaffinehomelt}).
-%\sayDR{The element we construct always agrees with the corresponding greedy basis element and in all the examples I checked it also agrees with the triangular basis, I could probably prove it if needed for confidence in the claim).  Should we say something about this at the end of the next paragraph?}
-%\sayHW{Gotcha, I made the wording a bit more assertive in the next paragraph, but I think bringing up the remark again will have the effect of emphasizing it disproportionately.}
-%\sayDR{if we switch the order of these paragraphs we can say the $(r-1)\omega_2-\omega_1$ minor is in these bases without putting too much emphasis on it}
-%\sayHW{I think having the paragraph on ``evidence for conjecture 1.2'' come immediately after conjecture 1.2 will read more clearly, rather than having an intervening new thought RE canonical bases.}
 
 Finally, in type $A_{n}^{\!(1)}$ we also prove the following extension of Theorem~\ref{thm:maintheorem}.
 There is a one-parameter family of quiver representations whose dimension vector is the primitive imaginary root.
@@ -279,8 +273,7 @@ For $t \in \kk^\times$ and $1 \leq i \leq n$ we adopt the notation
 \end{gather}
 By extension, for any $w$ in the Weyl group $W$ of $\widehat{G}$ we set \[\ol{w} := \ol{s_{i_1}}\cdots\ol{s_{i_k}}, \quad \quad \dol{w} := \dol{s_{i_1}}\cdots\dol{s_{i_k}},\] where $s_{i_1}\cdots s_{i_k}$ is any reduced word for $w$.
 We write $H$ for the ($n$-dimensional) Cartan subgroup of $G$, likewise $\widehat{H}$ is the Cartan subgroup of $\widehat{G}$ (it is isomorphic to $H \times (\kk^\times)^{\corank(A)}$).
-We let $\kk[\widehat{G}]$ denote the (complete %\sayDR{I am still questioning completeness, I see ``topological'' when Kumar introduces ind-varieties but not ``complete''} 
-topological) algebra of regular functions on $\widehat{G}$.
+We let $\kk[\widehat{G}]$ denote the (complete topological) algebra of regular functions on $\widehat{G}$.
 
 We have weight lattices $\widehat{P} = \Hom(\widehat{H},\kk^\times)$ and $P = \Hom(H,\kk^\times)$, and write the value of $\lambda \in P$ on $h \in H$ as $h^\lambda$ (likewise for $\lambda \in \widehat{P}$ and $h \in \widehat{H}$).
 The fundamental weights $\omega_1,\dotsc,\omega_n \in P$ are defined by $(t^{\alpha_i^\vee})^{\omega_j} = t^{\delta_{ij}}$.
@@ -350,7 +343,7 @@ A crucial feature of generalized minors is the following generalized determinant
     +
     \Delta_{vs_i\omega_i}^{u\omega_i} \Delta_{v\omega_i}^{us_i\omega_i}
   \end{equation}
-  is satisfied on $G$.%\sayDR{The roles of $u$ and $v$ here are reversed from their roles above, it seems that we should be consistent.  I have no preference so I am leaving it as an open comment}
+  is satisfied on $G$.
 \end{proposition}
 
 While the above identity on $G$ is the one we use directly, we note that it restricts from a similar one on $\widehat{G}$ that also involves the characters of $\widehat{G}/G$.
@@ -412,8 +405,7 @@ We call an exchange matrix acyclic if its principal part is acyclic.
 \begin{remark}
   Just as a skew-symmetric matrix $B$ can be encoded as a quiver $Q$, an extension $\widetilde{B}$ of $B$ can be encoded as a \newword{framed quiver} $\widetilde{Q}$.
   This means a quiver obtained from $Q$ by adjoining $m -  n$ \newword{frozen vertices}.
-  These have no arrows between them and the arrows connecting them to the original vertices are determined in the obvious way %\sayDR{There are two possibilities here so maybe ``obvious way'' isn't good wording: positive entries could result in no arrows or in arrows pointing towards frozen vertices.  I think the latter is correct but I couldn't find a particularly clean way of saying it} 
-by the non-principal part of $\widetilde{B}$.
+  These have no arrows between them and the arrows connecting them to the original vertices are determined in the obvious way by the non-principal part of $\widetilde{B}$.
   Given a framed quiver $\widetilde{Q}$, we simply write $\cA_{\widetilde{Q}}$ for the cluster algebra associated to its signed adjacency matrix $\widetilde{B}$ as above.
 \end{remark}
 
@@ -445,7 +437,7 @@ by the non-principal part of $\widetilde{B}$.
 Yet another way of encoding an acyclic skew-symmetrizable matrix $B$ is a symmetrizable Cartan matrix $A$ (the \newword{Cartan companion} of $B$) together with a Coxeter element $c$ of its Weyl group.
 The Cartan matrix is obtained from $B$ by making all its entries negative without changing their absolute values, then setting each diagonal entry equal to two; see Figure~\ref{fig:matrices}.
 The Coxeter element is $c = s_{\sigma_1}\cdots s_{\sigma_n}$, where $\sigma$ is any permutation with $b_{\sigma_i \sigma_j} \geq 0$ when $i < j$ as above (choosing a different permutation with this property defines the same Coxeter element via a different reduced word).
-Conversely, a Cartan matrix together with a reduced word for a Coxeter element $c$ determines a skew-symmetrizable matrix $B$ by designating signs for the off-diagonal entries according to the reduced word for $c$.
+Conversely, a Cartan matrix together with a Coxeter element $c$ determines a skew-symmetrizable matrix $B$ by designating signs for the off-diagonal entries according to any reduced word for $c$.
 
 For acyclic cluster algebras we will be especially interested in the following sequence of vertices in $\TT$ and the cluster variables associated to them.
 Letting $t_0 \in \TT$ denote a fixed root vertex as before, we fix a permutation $\sigma$ as above and write $\{t_\Zidx\}_{\Zidx \in \ZZ} \subset \TT$ for the vertices along the unique path with edges labelled as follows:
@@ -482,16 +474,20 @@ We will refer to the non-initial cluster variables $x_{i;t_\Zidx}$ with $\Zidx>0
 We note that when $n=2$ there are no regular cluster variables.
 
 For each $t \in\TT$ and $1 \leq i \leq n$ there is an auxiliary pair of integer vectors depending only on the principal part $B$: the \newword{$\bfc$-vector} $\cv_{i;t} \in \ZZ^n$ and the \newword{$\bfg$-vector} $\gv_{i;t} \in \ZZ^n$ \cite{FZ07}.
-We write $C_B^t$ and $G_B^t$ for the matrices whose $i$-th columns are $\cv_{i;t}$ and $\gv_{i;t}$, respectively.
-To define these vectors, consider the exchange matrix $$\Bpr := \begin{bmatrix} B \\ Id_n \end{bmatrix},$$ which is said to have \newword{principal coefficients}.
-For $t\in\TT$, if $\Bpr^t$ is the exchange matrix obtained by iterated mutation from $\Bpr^{t_0}=\Bpr$, then $C_B^t$ is defined to be the bottom $n \times n$ submatrix of $\Bpr^t$.
+We write $C^B_t$ and $G^B_t$ for the matrices whose $i$-th columns are $\cv_{i;t}$ and $\gv_{i;t}$, respectively.
+To define these vectors, consider the exchange matrix
+\[
+  \Bpr := \begin{bmatrix} B \\ Id_n \end{bmatrix},
+\]
+which is said to have \newword{principal coefficients}.
+For $t\in\TT$, if $\Bpr^t$ is the exchange matrix obtained by iterated mutation from $\Bpr^{t_0}=\Bpr$, then $C^B_t$ is defined to be the bottom $n \times n$ submatrix of $\Bpr^t$.
 
 Given the matrix of $\bfc$-vectors at $t\in\TT$, we may define the matrix of $\bfg$-vectors at the same vertex $t$ by
 \begin{equation}
   \label{eq:g-vectors_from_c-vectors}
-  (G_B^t)^T = (C^t_{-B^T})^{-1},
+  (G^B_t)^T = (C_t^{-B^T})^{-1},
 \end{equation}
-where $B^T$ is the transpose of $B$.
+where $X^T$ is the transpose of $X$.
 Note that this is not the standard definition, but the above characterization (due to \cite[Theorem 1.2]{NZ12} and the sign-coherence result of \cite{DWZ10,GHKK14}) is what we will use in Section~\ref{sec:acyclic_belt}.
 The basic role of $\bfg$-vectors is that they provide natural labels of cluster variables: if $\widetilde{B}$ is of full rank, then two cluster variables $x_{i;t}$ and $x_{j;t'}$ coincide in $\cA_{\widetilde B}$ if and only if $\gv_{i;t}$ and $\gv_{j;t'}$ coincide in $\ZZ^n$ \cite{DWZ10,GHKK14}.
 We will therefore often denote the cluster variable with $\bfg$-vector $\gv$ by $x_\gv$.
@@ -656,7 +652,7 @@ The coordinate ring of $G^{u,v}$ is an upper cluster algebra and a finite subset
   In particular, $\kk[L^{c,c^{-1}}]$ is the cluster algebra with principal coefficients associated to $B$, and our results immediately translate to statements in the principal coefficients case by specializing $\cvar_{\ol{1}},\dotsc,\cvar_{\ol{n}}$ to one.
 
 \begin{remark}
-There is another Lie-theoretic realization of $\cA_{\widetilde{B}}$ (for a certain extension of $B$) as the coordinate ring of $G^{e,c^2}$ \cite{GLS11}. %\sayDR{Their result is about $N\cap B_- c^2 B_-$, how does the intersection change if $N$ is replaced by $B_+$?}
+There is another Lie-theoretic realization of $\cA_{\widetilde{B}}$ (for a certain extension of $B$) as the coordinate ring of $G^{e,c^2}$ \cite{GLS11}.
 We do not know whether our main results describing cluster variables as minors also hold in some form for this realization.
 
 \end{remark}
@@ -675,7 +671,7 @@ Some similar computations are collected in Lemma~\ref{lemma:coefficients_values}
 \section{Preprojective and postinjective cluster variables as minors}
 \label{sec:preproj}
 In this section we prove that when $B$ is any acyclic skew-symmetrizable matrix, the identification $\cA_{\Bdp} \cong \kk[G^{c,c^{-1}}]$ realizes preprojective and postinjective cluster variables as restrictions of highest- and lowest-weight minors, respectively.
-We first compute in Section~\ref{sec:acyclic_belt} the $\bfc$-vectors and $\bfg$-vectors of these cluster variables as well as an explicit list of exchange relations they satisfy. 
+We first compute in Section~\ref{sec:acyclic_belt} the $\bfc$-vectors and $\bfg$-vectors appearing along the path \eqref{eq:path} as well as an explicit list of exchange relations that these cluster variables satisfy.
 The identification with minors then follows in Section~\ref{sec:hlwminors} by comparing these relations with restrictions to $G^{c,c^{-1}}$ of the generalized determinantal identities of Proposition~\ref{prop:fundid}.
 
 Recall that since $B$ is acyclic there exists a permutation $\sigma\in S_n$ such that $b_{\sigma_i,\sigma_j}\geq 0$ whenever $i<j$.
@@ -717,7 +713,7 @@ Observe that the nodes of $\TT$ we are considering lie along a \emph{sink/source
 More precisely, the $\mod{\Zidx}$-th column of $B^{t_\Zidx}$ contains only non-negative entries and the $\mod{\Zidx+1}$-st column only non-positive entries.
 In particular, it follows from the definition of matrix mutation that the off-diagonal entries of the exchange matrix $B^{t_\Zidx}$ have the same absolute values as the corresponding entries of $A$.
 
-Recall that, by definition, $\bfc$-vectors encode the coefficient part of the exchange relations in a cluster algebra with principal coefficients, and by extension also for doubled principal coefficients. Thus to compute the exchange relations along the path \eqref{eq:simplepath} in $\cA_{\Bdp} \cong \kk[G^{c,c^{-1}}]$, we begin by computing these $\bfc$-vectors. 
+Recall that, by definition, $\bfc$-vectors encode the coefficient part of the exchange relations in a cluster algebra with principal coefficients, and by extension also for doubled principal coefficients. Thus to compute the exchange relations along the path \eqref{eq:simplepath} in $\cA_{\Bdp} \cong \kk[G^{c,c^{-1}}]$, we begin by computing these $\bfc$-vectors.
 Recall from Remark~\ref{rem:cgrootsweights} that we regard the $\bfc$-vectors $\cv_{i;t_\Zidx}$ as elements of the root lattice $\cQ$, the initial $\bfc$-vectors $\cv_{i;t_0}$ being identified with the simple roots $\alpha_i$.
 
 \begin{lemma}
@@ -739,7 +735,7 @@ Recall from Remark~\ref{rem:cgrootsweights} that we regard the $\bfc$-vectors $\
 \end{lemma}
 
 \begin{proof}
-  We claim that for $\Zidx > 0$ the root $c^\infty_{\leq \Zidx}\, \alpha_{\mod{\Zidx+1}}$ is positive and the root $c^\infty_{\leq \Zidx}\, \alpha_{\mod{\Zidx}}$ is negative. Recall that for any reduced word $s_{i_1} \cdots s_{i_n}$, the root $s_{i_1} \cdots s_{i_{n-1}} \alpha_{i_n}$ is positive and the root $s_{i_1} \cdots s_{i_{n}} \alpha_{i_n}$ is negative \cite[VI \S 1.6, Corollary 2 of Proposition 17]{Bou02}. The positivity of $c^\infty_{\leq \Zidx}\, \alpha_{\mod{\Zidx+1}}$ then follows from the fact that  $c^\infty_{\leq \Zidx} s_{\mod{\Zidx+1}}$ is a reduced decomposition of $c^\infty_{\leq \Zidx+1}$, and the negativity of $c^\infty_{\leq \Zidx}\, \alpha_{\mod{\Zidx}}$ follows from the fact that $c^\infty_{\leq \Zidx-1}s_{\mod{\Zidx}}$ is a reduced decomposition of $c^\infty_{\leq \Zidx}$. 
+  We claim that for $\Zidx > 0$ the root $c^\infty_{\leq \Zidx}\, \alpha_{\mod{\Zidx+1}}$ is positive and the root $c^\infty_{\leq \Zidx}\, \alpha_{\mod{\Zidx}}$ is negative. Recall that for any reduced word $s_{i_1} \cdots s_{i_n}$, the root $s_{i_1} \cdots s_{i_{n-1}} \alpha_{i_n}$ is positive and the root $s_{i_1} \cdots s_{i_{n}} \alpha_{i_n}$ is negative \cite[VI \S 1.6, Corollary 2 of Proposition 17]{Bou02}. The positivity of $c^\infty_{\leq \Zidx}\, \alpha_{\mod{\Zidx+1}}$ then follows from the fact that  $c^\infty_{\leq \Zidx} s_{\mod{\Zidx+1}}$ is a reduced decomposition of $c^\infty_{\leq \Zidx+1}$, and the negativity of $c^\infty_{\leq \Zidx}\, \alpha_{\mod{\Zidx}}$ follows from the fact that $c^\infty_{\leq \Zidx-1}s_{\mod{\Zidx}}$ is a reduced decomposition of $c^\infty_{\leq \Zidx}$.
   Similarly, one checks that for $\Zidx < -n$ the root $-c^{-\infty}_{\le-\Zidx-n}\, \alpha_{\mod{\Zidx+1}}$ is positive and the root $-c^{-\infty}_{\le-\Zidx-n}\, \alpha_{\mod{\Zidx}}$ is negative. The second claim in the Lemma will now follow once we prove the stated formulas for $\cv_{i;t_{\Zidx}}$.
 
   For the main claim there are three cases to consider.
@@ -819,10 +815,8 @@ As a corollary of the preceding result,  we obtain the $\bfg$-vectors along the 
   The result follows from Lemma~\ref{lemma:c-vectors} by leveraging the duality between the coroot and weight lattices for $A$.
   Indeed, Lemma~\ref{lemma:c-vectors} applied to $-B^T$ says that the $\bfc$-vectors for the dual cluster algebra are coroots of $A$; more precisely, at the node $t_\Zidx$, they are the coroots $\cv_{i;t_\Zidx}^\vee$.
   By Equation~\eqref{eq:g-vectors_from_c-vectors} the $\bfg$-vectors at $t_\Zidx$ are the basis of weights $\gv_{i;t_\Zidx}$ dual to $\cv_{i;t_\Zidx}^\vee$, hence the $\bfg$-vectors in Equation~\eqref{eq:abeltgvectors} are dual to the $\bfc$-vectors (for $-B^T$) in Equation~\eqref{eq:c-vectors}.
-  %We can then conclude by observing that the duality map commutes with the action of the elements of the Weyl group.
 
-  The final claim now follows immediately from the fact that $s_i \omega_j = \omega_j$ unless $i =j$: for example, if $\Zidx > 0$ and $k$ is the smallest integer such that $kn \geq \Zidx$, we have $c^\infty_{\leq \Zidx} \omega_i =  c^k\omega_i$ if $\mod{\Zidx} \geq i$ and $c^\infty_{\leq \Zidx} \omega_i = c^{k-1}\omega_i$ if $\mod{\Zidx} < i$. 
-%, the type of the Cartan companion of $B$ being not finite, all prefixes of $c^\infty$ are reduced expressions so that all the elements of $\Pi_{\textit{proj}}$ and $\Pi_{\textit{inj}}$ are distinct.
+  The final claim now follows immediately from the fact that $s_i \omega_j = \omega_j$ unless $i =j$: for example, if $\Zidx > 0$ and $k$ is the smallest integer such that $kn \geq \Zidx$, we have $c^\infty_{\leq \Zidx} \omega_i =  c^k\omega_i$ if $\mod{\Zidx} \geq i$ and $c^\infty_{\leq \Zidx} \omega_i = c^{k-1}\omega_i$ if $\mod{\Zidx} < i$.
 \end{proof}
 
 With the preceding results in hand we are now ready to give recursive formulas for preprojective and postinjective cluster variables.
@@ -1228,7 +1222,7 @@ and all arrows acting by invertible maps except the arrow between $k$ and $k-1$ 
   Write $\tilde\cC$ for the category of finite-dimensional representations of the equi-oriented $A_{\infty}$ quiver (i.e. the quiver with vertex set $\ZZ$, and having one arrow from $i$ to $i+1$ for all $i \in \ZZ$).
   For any choice of base point, there is an essentially surjective exact functor $\pi:\tilde\cC\to\cC^p$ given by ``wrapping around'' the $p$-cycle (nilpotency guarantees the essential surjectivity).
   Now consider an indecomposable object $\Qrep$ of $\cC^p$ which is sincere (i.e. $\Qrep_i \neq 0$ for every vertex $i$).
-  Given any lift $\tilde \Qrep\in\tilde\cC$ of $\Qrep$, let $\tilde \Qrep'$ be the lift of $\Qrep$ obtained by shifting $\tilde \Qrep$ in the direction of the arrows by $p$ vertices. 
+  Given any lift $\tilde \Qrep\in\tilde\cC$ of $\Qrep$, let $\tilde \Qrep'$ be the lift of $\Qrep$ obtained by shifting $\tilde \Qrep$ in the direction of the arrows by $p$ vertices.
   Since $\Qrep$ was sincere, $\tilde\cC$ contains a nontrivial extension of $\tilde \Qrep$ by $\tilde \Qrep'$.
   Since $\pi$ is exact, the image of this extension is a nontrivial self-extension of $\Qrep$ in $\cC^p$.
   As all counterclockwise arrows act by invertible linear maps on any $Q$-representation in $\cR_{nil}^p$, the equivalence $\cC^p \cong \cR_{nil}^p$ takes sincere representations to sincere representations.
@@ -2013,9 +2007,9 @@ the latter following by reindexing vertices of $Q$ in the results of Lemma~\ref{
 \end{proof}
 \begin{example}
   We continue with Example~\ref{ex:minor_computation}, which is in type $A_2^{(1)}$ with Coxeter element $c=s_2s_1s_3$.
-  The regular cluster variable with $\bfg$-vector $\omega_1-\omega_2$ is obtained from the initial cluster of $\cA_{\Bdp}$ by mutating first in direction 3 then in direction 2, and the result is 
+  The regular cluster variable with $\bfg$-vector $\omega_1-\omega_2$ is obtained from the initial cluster of $\cA_{\Bdp}$ by mutating first in direction 3 then in direction 2, and the result is
   \[
-    x_{\omega_1-\omega_2} 
+    x_{\omega_1-\omega_2}
     =
     \frac{x_1 x_3 + \cvar_2 \cvar_{\ol{2}} + x_1 x_2 \cvar_2 \cvar_3 \cvar_{\ol{2}} \cvar_{\ol{3}}}{x_2 x_3}.
   \]
@@ -2026,7 +2020,7 @@ If we substitute the values computed in Lemma~\ref{lemma:coefficients_values} in
 \label{sec:othertypes}
 
 We anticipate that the realization of regular cluster variables as level zero minors is not specific to type $A_{n-1}^{\!(1)}$.
-Indeed, that regular $\bfg$-vectors in any affine type lie on the boundary of the Tits cone and its negative is strongly suggested by both the combinatorial construction of affine generalized associahedra \cite{RS16} and by Cambrian frameworks \cite{RS15}. 
+Indeed, that regular $\bfg$-vectors in any affine type lie on the boundary of the Tits cone and its negative is strongly suggested by both the combinatorial construction of affine generalized associahedra \cite{RS16} and by Cambrian frameworks \cite{RS15}.
 With these considerations in hand we pose the following specific form of Conjecture~\ref{conj:mainconjecture} in affine type:
 
 \begin{conjecture}
@@ -2152,7 +2146,7 @@ The cluster character of $\Qrep_\eta$ is independent of $\eta$, and we refer to 
   Let $Q$ be the $r$-Kronecker quiver: it has two vertices, and $r$ arrows from vertex 2 to vertex 1.
   Note that all non-initial cluster variables of $\cA_{\Qdp}$ are either preprojective or postinjective.
   However, it contains a homogeneous element $x_M$, where $M$ is any representation with $M_1$ and $M_2$ one-dimensional and at least one arrow acting by an isomorphism.
-  Using the obvious injective resolution of $M$ and the fact that its only nontrivial proper submodule is $S_1$, we see that 
+  Using the obvious injective resolution of $M$ and the fact that its only nontrivial proper submodule is $S_1$, we see that
   \[
     x_M = x_1^{-1}x_2^{r-1}(1 + \hat{y}_1 + \hat{y}_1 \hat{y}_2).
   \]
