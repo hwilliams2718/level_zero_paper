@@ -735,18 +735,16 @@ Recall from Remark~\ref{rem:cgrootsweights} that we regard the $\bfc$-vectors $\
       -c^{-\infty}_{\le-\Zidx-n}\, \alpha_i \qquad & \text{if $\Zidx<-n$.}\\
     \end{cases}
   \end{equation}
-  Moreover, whenever $\Zidx > 0$ or $\Zidx < -n$, the $\bfc$-vector $\cv_{\mod{\Zidx};t_\Zidx}$ is negative and the $\bfc$-vector $\cv_{\mod{\Zidx+1};t_\Zidx}$ is positive.
+  Moreover, whenever $\Zidx > 0$ or $\Zidx < -n$, the $\bfc$-vector $\cv_{\mod{\Zidx};t_\Zidx}$ is a negative root and the $\bfc$-vector $\cv_{\mod{\Zidx+1};t_\Zidx}$ is a positive root.
 \end{lemma}
 
 \begin{proof}
-  We claim that for $\Zidx > 0$ the root $c^\infty_{\leq \Zidx}\, \alpha_{\mod{\Zidx+1}}$ is positive and the root $c^\infty_{\leq \Zidx}\, \alpha_{\mod{\Zidx}}$ is negative.
-  To see the first, note that $c^\infty_{\leq \Zidx} s_{\mod{\Zidx+1}}$ is a reduced decomposition of $c^\infty_{\leq \Zidx+1}$ and apply \cite[VI \S 1.6, Corollary 2 of Proposition 17]{Bou02}.
-  For the second, write $c^\infty_{\leq \Zidx}\, \alpha_{\mod{\Zidx}} = c^\infty_{\leq \Zidx-1} s_{\mod{\Zidx}}\, \alpha_{\mod{\Zidx}} = -c^\infty_{\leq \Zidx-1}\, \alpha_{\mod{\Zidx}}$ and reason as before.
+  We claim that for $\Zidx > 0$ the root $c^\infty_{\leq \Zidx}\, \alpha_{\mod{\Zidx+1}}$ is positive and the root $c^\infty_{\leq \Zidx}\, \alpha_{\mod{\Zidx}}$ is negative. Recall that for any reduced word $s_{i_1} \cdots s_{i_n}$, the root $s_{i_1} \cdots s_{i_{n-1}} \alpha_{i_n}$ is positive and the root $s_{i_1} \cdots s_{i_{n}} \alpha_{i_n}$ is negative \cite[VI \S 1.6, Corollary 2 of Proposition 17]{Bou02}. The positivity of $c^\infty_{\leq \Zidx}\, \alpha_{\mod{\Zidx+1}}$ then follows from the fact that  $c^\infty_{\leq \Zidx} s_{\mod{\Zidx+1}}$ is a reduced decomposition of $c^\infty_{\leq \Zidx+1}$, and the negativity of $c^\infty_{\leq \Zidx}\, \alpha_{\mod{\Zidx}}$ follows from the fact that $c^\infty_{\leq \Zidx-1}s_{\mod{\Zidx}}$ is a reduced decomposition of $c^\infty_{\leq \Zidx}$. 
   Similarly, one checks that for $\Zidx < -n$ the root $-c^{-\infty}_{\le-\Zidx-n}\, \alpha_{\mod{\Zidx+1}}$ is positive and the root $-c^{-\infty}_{\le-\Zidx-n}\, \alpha_{\mod{\Zidx}}$ is negative. The second claim in the Lemma will now follow once we prove the stated formulas for $\cv_{i;t_{\Zidx}}$.
 
   For the main claim there are three cases to consider.
 
-  \noindent{\bf Case $-n \leq \Zidx \leq 0$.}
+  \noindent{\bf Case $-n \leq \Zidx \leq 0$:}
   We proceed by induction on $\Zidx$.
   For $\Zidx=0$ there is nothing to check.
   By construction, while the sign of $\cv_{\mod{\Zidx};t_\Zidx}$ is positive, the sign of the $\mod{\Zidx}$-th row of $B^{t_\Zidx}$ is negative.
@@ -761,7 +759,7 @@ Recall from Remark~\ref{rem:cgrootsweights} that we regard the $\bfc$-vectors $\
   \end{equation*}
   as desired.
 
-  \noindent{\bf Case $\Zidx > 0$.}
+  \noindent{\bf Case $\Zidx > 0$:}
   We again argue by induction on $\Zidx$ the base case still being $\Zidx=0$.
   Since the sign of $\cv_{\mod{\Zidx+1};t_\Zidx}$ and the sign of the $\mod{\Zidx+1}$-st row of $B^{t_\Zidx}$ are both positive, in view of \cite[Proposition 1.3]{NZ12}, the $\bfc$-vectors at $t_{\Zidx+1}$ are given by
   \begin{align*}
@@ -787,7 +785,7 @@ Recall from Remark~\ref{rem:cgrootsweights} that we regard the $\bfc$-vectors $\
     c^\infty_{\le\Zidx+1}\, \alpha_i.
   \]
 
-  \noindent{\bf Case $\Zidx < -n$.}
+  \noindent{\bf Case $\Zidx < -n$:}
   The argument is the same as the one used in the case $\Zidx>0$ with $\Zidx=-n$ as base for the induction.
   The only minor change is that this time we leverage the fact that both the sign of $\cv_{\mod{\Zidx};t_\Zidx}$ and the sign of the $\mod{\Zidx}$-th row of $B^{t_\Zidx}$ are negative.
 \end{proof}
