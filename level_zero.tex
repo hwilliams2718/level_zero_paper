@@ -104,11 +104,11 @@
 \newtheorem{conjecture}[theorem]{Conjecture}
 \newtheorem{corollary}[theorem]{Corollary}
 \newtheorem{definition}[theorem]{Definition}
-\newtheorem{example}[theorem]{Example}
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{scholium}[theorem]{Scholium}
 \theoremstyle{remark}
+\newtheorem{example}[theorem]{Example}
 \newtheorem{remark}[theorem]{Remark}
 \numberwithin{equation}{section}
 \numberwithin{figure}{section}
@@ -2016,37 +2016,33 @@ the latter following by reindexing vertices of $Q$ in the results of Lemma~\ref{
   In particular $\pi(\beta(P))=P$ for any $P\in\cP_{[k,\ell]}$, which shows (c) and completes the proof.
 \end{proof}
 \begin{example}
-  We continue with Example~\ref{ex:minor_computation}.
-  We are in type $A_2^{(1)}$ with Coxeter element $c=s_2s_1s_3$.
-  The regular cluster variable with $\bfg$-vector $\omega_1-\omega_2$ is obtained from the initial cluster of $\cA_{\Bdp}$ mutating first in direction 3 then in direction 2.
-  We obtain
+  We continue with Example~\ref{ex:minor_computation}, which is in type $A_2^{(1)}$ with Coxeter element $c=s_2s_1s_3$.
+  The regular cluster variable with $\bfg$-vector $\omega_1-\omega_2$ is obtained from the initial cluster of $\cA_{\Bdp}$ by mutating first in direction 3 then in direction 2, and the result is 
   \[
     x_{\omega_1-\omega_2} 
     =
-    \frac{x_1 x_3 + \cvar_2 \cvar_{\ol{2}} + x_1 x_2 \cvar_2 \cvar_3 \cvar_{\ol{2}} \cvar_{\ol{3}}}{x_2 x_3}
+    \frac{x_1 x_3 + \cvar_2 \cvar_{\ol{2}} + x_1 x_2 \cvar_2 \cvar_3 \cvar_{\ol{2}} \cvar_{\ol{3}}}{x_2 x_3}.
   \]
-  and substituting the values computed in Lemma~\ref{lemma:coefficients_values} we recover the generalized minor of Example~\ref{ex:minor_computation}.
+If we substitute the values computed in Lemma~\ref{lemma:coefficients_values} into this expression we recover the value of the generalized minor $\Delta_{\omega_1-\omega_2}$ on a generic element of $g$ as computed in Example~\ref{ex:minor_computation}.
 \end{example}
 %%%%%%%%%%%%%%%%%%%%
 \subsection{Level zero minors in other affine types}
 \label{sec:othertypes}
 
 We anticipate that the realization of regular cluster variables as level zero minors is not specific to type $A_{n-1}^{\!(1)}$.
-Indeed, in affine types, the fact that their $\bfg$-vectors lies on the boundary of the Tits cone and its negative is strongly suggested by both the combinatorial construction of affine generalized associahedra \cite{RS16} and by Cambrian frameworks \cite{RS15}.
-
+Indeed, that regular $\bfg$-vectors in any affine type lie on the boundary of the Tits cone and its negative is strongly suggested by both the combinatorial construction of affine generalized associahedra \cite{RS16} and by Cambrian frameworks \cite{RS15}. 
 With these considerations in hand we pose the following specific form of Conjecture~\ref{conj:mainconjecture} in affine type:
 
 \begin{conjecture}
   \label{conj:affine}
   Let $B$ be an acyclic skew-symmetrizable matrix whose Cartan companion $A$ is of affine type.
   Let $x_{i;t} \in \cA_{\Bdp}$ be any regular cluster variable and $\gv_{i;t} \in P$ its $\bfg$-vector.
-  Then under $\cA_{\Bdp} \cong \kk[G^{c,c^{-1}}]$, $x_{i;t}$ is the restriction of the level zero minor $\Delta_{\gv_{i;t}}$.
+  Then under $\cA_{\Bdp} \cong \kk[G^{c,c^{-1}}]$, the cluster variable $x_{i;t}$ is the restriction of the level zero minor $\Delta_{\gv_{i;t}}$.
 \end{conjecture}
 
-While the combinatorics we used to prove Conjecture~\ref{conj:affine} in type $A_{n-1}^{\!(1)}$ is not available in general, in some types it is possible to compute the relevant minors by hand.
-In the simplest cases this can be done using only the characters of these representations (e.g. when they are spaces of Laurent polynomials valued in a representation without weight spaces of dimension greater than one), and the results are consistent with Conjecture~\ref{conj:affine}:
+While the combinatorics we used to prove Conjecture~\ref{conj:affine} in type $A_{n-1}^{\!(1)}$ is not available in general, in some types it is possible to compute the relevant minors by hand using only the characters of the representations involved (e.g. when they are spaces of Laurent polynomials valued in a representation without weight spaces of dimension greater than one). The results are consistent with Conjecture~\ref{conj:affine}:
 
-\begin{proposition}
+\begin{proposition}\label{prop:conjholds}
   Conjecture~\ref{conj:affine} holds when the Cartan companion of $B$ is of type $B_3^{(1)}$, $C_2^{(1)}$, $D_4^{(1)}$, or $G_2^{(1)}$.
 \end{proposition}
 \begin{proof}
@@ -2099,9 +2095,9 @@ In the simplest cases this can be done using only the characters of these repres
     g = x_{\ol{1}}(t_{\ol{1}})x_{\ol{2}}(t_{\ol{2}})x_{\ol{3}}(t_{\ol{3}})hx_3(t_3)x_2(t_2)x_1(t_1) \in \widetilde{LSp}_4^{c,c^{-1}}.
   \]
   To do this, fix a vector $v$ of weight $\omega_2 - \omega_1$  in $V(\omega_2 - \omega_1) \cong \kk^4[\loopvar^{\pm 1}]$.
-  Note that $v$ is extremal in the sense that it is a highest- or lowest- weight vector for each (not necessarily simple) coroot subgroup of $\widetilde{LSp}_4$; the same property then holds automatically for any weight vector whose weight is a conjugate of $\omega_2 - \omega_1$.
+  Note that $v$ is extremal in the sense that it is a highest- or lowest- weight vector for each (not necessarily simple) coroot subgroup of $\widetilde{LSp}_4$; the same property then holds automatically for any vector whose weight is a conjugate of $\omega_2 - \omega_1$.
 
-  Write $e_i$ and $f_i$ for the standard generators of $\widetilde{L\mathfrak{sp}}_4$.
+  Write $e_i$ and $f_i$ for the standard Chevalley generators of $\widetilde{L\mathfrak{sp}}_4$.
   Since $v$ sits in an $\alpha_1$-root string of length 2, we have
   \[
     x_1(t_1)v = v + t_1e_1v.
@@ -2134,7 +2130,7 @@ Cluster monomials form a partial basis of a cluster algebra, and there are vario
 One approach in line with the considerations of this paper is to form a basis consisting of cluster characters of potentially non-rigid representations.
 By taking the cluster character of a generic representation with each possible $\bfg$-vector, one obtains the generic basis of \cite{Dup12} (which directly generalizes the dual semicanonical basis of Lusztig \cite{Lus00}).
 
-When $Q$ is an acyclic orientation of an $n$-cycle as in Section~\ref{sec:rigidregular}, the simplest example of a non-rigid representation is the representation $\Qrep_\eta$ at the base of a homogeneous tube $\mathcal{T}_\eta$, $\eta \in \kk^*$.
+When $Q$ is an acyclic orientation of an $n$-cycle as in Section~\ref{sec:rigidregular}, the simplest example of a non-rigid representation is the representation $\Qrep_\eta$ at the base of a homogeneous tube $\mathcal{T}_\eta$ for $\eta \in \kk^*$.
 That is, $\Qrep_\eta$ consists of a one-dimensional vector space at each vertex of $Q$, with arrows acting by isomorphisms such that the monodromy around $Q$ is equal to $\eta$.
 The dimension vector of $\Qrep_\eta$ is the primitive imaginary root $\delta$, and if $i_1<\cdots<i_m$ and $o_1<\cdots < o_m$ denote the sinks and sources of $Q$, its $\bfg$-vector is
 \[
@@ -2160,7 +2156,7 @@ The cluster character of $\Qrep_\eta$ is independent of $\eta$, and we refer to 
   Let $Q$ be the $r$-Kronecker quiver: it has two vertices, and $r$ arrows from vertex 2 to vertex 1.
   Note that all non-initial cluster variables of $\cA_{\Qdp}$ are either preprojective or postinjective.
   However, it contains a homogeneous element $x_M$, where $M$ is any representation with $M_1$ and $M_2$ one-dimensional and at least one arrow acting by an isomorphism.
-  Using the obvious injective resolution of $M$ and the fact that its only nontrivial proper submodule is $S_1$, we have
+  Using the obvious injective resolution of $M$ and the fact that its only nontrivial proper submodule is $S_1$, we see that 
   \[
     x_M = x_1^{-1}x_2^{r-1}(1 + \hat{y}_1 + \hat{y}_1 \hat{y}_2).
   \]
@@ -2172,24 +2168,22 @@ The cluster character of $\Qrep_\eta$ is independent of $\eta$, and we refer to 
   and $c = s_1 s_2$.
   Let us formally compute the minor of weight $\grep(\Qrep) = (r-1) \omega_2 - \omega_1$, restricted to $G^{c,c^{-1}}$.
   That is, we suppose there exists a representation $V$ of $G$ having a one-dimensional extremal weight space of weight $\grep(\Qrep)$ (i.e. this weight space is either highest- or lowest-weight for every coroot subgroups of $G$).
-  The evaluation of $\Delta_{(V,\grep(M))}$ on a generic element
+  The value of $\Delta_{(V,\,\grep(M))}$ on a generic element
   \[
     g = x_{\ol{1}}(t_{\ol{1}}) x_{\ol{2}}(t_{\ol{2}})hx_2(t_2)x_1(t_1)
   \]
-  can be computed as follows, without knowing any further information about $V$.
+  can be computed along the same lines as the proof of Proposition~\ref{prop:conjholds}, without knowing any further information about $V$.
 
   By hypothesis, any $v \in V_{\grep(\Qrep)}$ is a lowest-weight vector for the coroot subgroup $\varphi_1(SL_2) \subset G$.
   Denoting the positive Chevalley generators of the Lie algebra of $G$ by $e_1$, $e_2$, we thus have
   \[
     x_1(t_1)v = v + t_1e_1v.
   \]
-
   Since $v$ is extremal and $e_1v = \ol{s_1}v$ has weight $s_1((r-1) \omega_2 - \omega_1) = \omega_1 - \omega_2$, $e_1v$ is a lowest-weight vector for $\varphi_2(SL_2)$.
   As $v$ is highest-weight for $\varphi_2(SL_2)$, we have
   \[
     x_2(t_2)x_1(t_1)v = v + t_1e_1v + t_1t_2e_2e_1v.
   \]
-
   Inspecting the weights involved, we see that
   \[
     hx_2(t_2)x_1(t_1)v = h^{(r-1) \omega_2 - \omega_1}v + h^{\omega_1-\omega_2}t_1e_1v + h^{\omega_2 - (r-1)\omega_1}t_1t_2e_2e_1v.
@@ -2198,8 +2192,8 @@ The cluster character of $\Qrep_\eta$ is independent of $\eta$, and we refer to 
   \[
     (h^{(r-1) \omega_2 - \omega_1} + h^{\omega_1-\omega_2}t_1t_{\ol{1}} + h^{\omega_2 - (r-1)\omega_1}t_1t_{\ol{1}}t_2t_{\ol{2}})v.
   \]
-  By definition this is $\Delta_{(V,\grep(M))}(g)v$.
-  On the other hand, using Lemma~\ref{lemma:coefficients_values} and the definition of $\hat{y}_1$, $\hat{y}_2$ one can check that it is also equal to $x_M(g)$ on $g$, hence $x_M$ is equal to the restriction of $\Delta_{(V,\grep(M))}$.
+  By definition this is $\Delta_{(V,\,\grep(M))}(g)v$.
+  On the other hand, using Lemma~\ref{lemma:coefficients_values} and the definition of $\hat{y}_1$, $\hat{y}_2$ one can check that it is also equal to the value of $x_M$ on $g$, hence $x_M$ is equal to the restriction of $\Delta_{(V,\,\grep(M))}$.
 
   Unfortunately, when $G$ is not of affine type we do not know how to explicitly construct such a representation $V$.
 \end{remark}
