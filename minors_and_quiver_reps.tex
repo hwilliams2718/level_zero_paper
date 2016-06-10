@@ -175,8 +175,8 @@ These bases let us compute the restrictions to $G^{c,c^{-1}}$ of the level zero 
 When $Q$ is an acyclic orientation of an $n$-cycle, its regular representations likewise have a simple combinatorial description, and one can construct by hand a bijection between their subrepresentations and collections of paths in the relevant network.
 
 A fundamental aspect of Theorem~\ref{thm:maintheorem} is that the labeling of cluster variables by $\bfg$-vectors corresponds directly to the labeling of minors by their associated weight.
-The $\bfg$-vector of a cluster variable is an associated element of $\ZZ^{|Q_0|}$, and distinct cluster variables have distinct $\bfg$-vectors.
-In terms of the quiver representation associated to a cluster variable, the $\bfg$-vector records the terms in a minimal injective copresentation.
+The $\bfg$-vector of a cluster variable is an element of $\ZZ^{|Q_0|}$, and distinct cluster variables have distinct $\bfg$-vectors.
+In terms of the quiver representation associated to a cluster variable, the $\bfg$-vector records the modules appearing in a minimal injective copresentation.
 For acyclic $Q$, we identify the $\bfg$-vector lattice $\ZZ^{|Q_0|}$ with the weight lattice of $G$ by taking the initial $\bfg$-vectors to the fundamental weights.
 We show this identifies the $\bfg$-vector of any cluster variable appearing in Theorem~\ref{thm:maintheorem} with the weight of the associated minor (in finite type this is a result of \cite{YZ08}).
 In particular, given a regular cluster variable the $\bfg$-vector/weight correspondence provides an ansatz for which minor one should expect that variable to coincide with; this ansatz is implicitly used in the proof of (2).
@@ -475,7 +475,7 @@ We will therefore often denote the cluster variable with $\bfg$-vector $\gv$ by 
 \label{sec:quiverbackground}
 A \newword{quiver} $Q=(Q_0,Q_1,s,t)$ with $n$ vertices consists of a set $Q_0=\{1,2,\ldots,n\}$ of vertices, a set $Q_1$ of arrows, and maps $s,t:Q_1\to Q_0$ giving the source and target of an arrow.
 A \newword{$\kk$-representation} $M=(M_i,M_a)$ of $Q$ consists of a $\kk$-vector space $M_i$ for each $i\in Q_0$ and a $\kk$-linear map $M_a:M_{s(a)}\to M_{t(a)}$ for each arrow $a\in Q_1$.
-We denote by $\rep_\kk(Q)$ the hereditary abelian category of finite-dimensional representations, and refer to \cite{ASS06} for a details on the material recalled below.
+We denote by $\rep_\kk(Q)$ the hereditary abelian category of finite-dimensional representations, and refer to \cite{ASS06} for details on the material recalled below.
 
 We will only be interested in the case when $Q$ is \newword{acyclic} (i.e. has no oriented cycles or self-loops), hence we assume this throughout.
 This condition holds if and only if \newword{path algebra} $\kk Q$ (the $\kk$-vector space on the set of directed paths in $Q$) is finite-dimensional.
@@ -685,7 +685,7 @@ More precisely, the $\mod{\Zidx}$-th column of $B^{t_\Zidx}$ contains only non-n
 In particular, it follows from the definition of matrix mutation that the off-diagonal entries of the exchange matrix $B^{t_\Zidx}$ have the same absolute values as the corresponding entries of $A$.
 
 Recall that, by definition, $\bfc$-vectors encode the coefficient part of the exchange relations in a cluster algebra with principal coefficients, and by extension also for doubled principal coefficients.
-Thus to compute the exchange relations along the path \eqref{eq:simplepath} in $\cA_{\Bdp} \cong \kk[G^{c,c^{-1}}]$, we begin by computing these $\bfc$-vectors.
+Thus to compute the exchange relations along the path \eqref{eq:simplepath} in $\cA_{\Bdp} \cong \kk[G^{c,c^{-1}}]$, we begin by describing $\bfc$-vectors.
 Recall from Remark~\ref{rem:cgrootsweights} that we regard the $\bfc$-vectors $\cv_{i;t_\Zidx}$ as elements of the root lattice $\cQ$, the initial $\bfc$-vectors $\cv_{i;t_0}$ being identified with the simple roots $\alpha_i$.
 
 \begin{lemma}
@@ -1072,7 +1072,7 @@ Since a generic element of $G$ factors as $n_- h n_+$, with $n_- \in N_-$, $h \i
     \right)^{[c^{-k}\beta_i^-:\alpha_j]}
   \end{equation*}
   is satisfied on $G^{c^{-1},c}$.
-  Given that $g \mapsto g^\iota$ exchanges $G^{c,c^{-1}}$ with $G^{c^{-1},c}$ and that $\Delta_\lambda^\mu(g) = \Delta_\mu^\lambda(g^\iota)$, we obtain another identity on $G^{c,c^{-1}}$.
+  Given that $g \mapsto g^\iota$ exchanges $G^{c,c^{-1}}$ with $G^{c^{-1},c}$ and that $\Delta_\lambda^\mu(g) = \Delta_{-\mu}^{-\lambda}(g^\iota)$, we obtain another identity on $G^{c,c^{-1}}$.
   Using the substitution of Lemma~\ref{lemma:coefficients_identities}, this can be rewritten as
   \begin{equation}
   \Delta_{-c^{-k}\omega_i}\Delta_{-c^{-k-1}\omega_i} =
@@ -1121,7 +1121,7 @@ Since a generic element of $G$ factors as $n_- h n_+$, with $n_- \in N_-$, $h \i
     h^{\alpha_i}
     \prod_{j>i}\Big(h^{\omega_j}\Delta_{\omega_j}(g^\iota)\Big)^{-a_{ji}}
     +
-    1
+    1.
   \end{equation*}
 
   To compute $\Delta_{\omega_i}(g^\iota)$ we need to straighten up the expression of $g^\iota$ using the fact that
@@ -2020,7 +2020,7 @@ The results are consistent with Conjecture~\ref{conj:affine}:
   Conjecture~\ref{conj:affine} holds when the Cartan companion of $B$ is of type $B_3^{(1)}$, $C_2^{(1)}$, $D_4^{(1)}$, or $G_2^{(1)}$.
 \end{proposition}
 \begin{proof}
-  We illustrate the needed computation in the case of a sample regular cluster variable in type $B_{2}^{(1)}$.
+  We illustrate the needed computation in the case of a sample regular cluster variable in type $C_{2}^{(1)}$.
   The full Proposition amounts to an assertion about several dozen such calculations, which can be efficiently checked by a computer.
 
   Consider the exchange matrix and Cartan companion
@@ -2039,7 +2039,7 @@ The results are consistent with Conjecture~\ref{conj:affine}:
       0 & -1 & 2
     \end{bmatrix}.
   \]
-  This corresponds to the Coxeter element $s_1 s_2 s_3$, where the $B_2^{(1)}$ Dynkin diagram is labelled as
+  This corresponds to the Coxeter element $s_1 s_2 s_3$, where the $C_2^{(1)}$ Dynkin diagram is labelled as
   \vspace{3mm}
   \[
     \begin{tikzpicture}[scale=0.5]
