@@ -418,10 +418,10 @@ We call an exchange matrix acyclic if its principal part is acyclic.
 \begin{figure}
   \centering
   \begin{tikzpicture}
-    \node (l) [matrix] at (0,0) {
-      \coordinate (a) at (0,0);
-      \coordinate (b) at (2,0);
-      \coordinate (c) at (1,-1.3);
+    \node (l) [matrix] at (9,0) {
+      \coordinate (a) at (9,0);
+      \coordinate (b) at (11,0);
+      \coordinate (c) at (10,-1.3);
       \foreach \c in {a,b,c} {\fill (\c) circle (.06);}
       \foreach \c/\d in {b/a,b/c,c/a} {\draw[thick,-stealth',shorten <=2mm,shorten >=2mm] (\c) to (\d);}
       \node (alabel) at ($(a)+(-.3,.1)$) {1};
@@ -429,9 +429,9 @@ We call an exchange matrix acyclic if its principal part is acyclic.
       \node (clabel) at ($(c)+(0,-.35)$) {3};
     \\
     };
-    \node (Q) at (-1.3,0) {$Q =$};
-    \node (m) at (4.5,0) {$B = \begin{bmatrix} 0 & 1 & 1 \\ -1 & 0 & -1 \\ -1 & 1 & 0 \end{bmatrix}$};
-    \node (r) at (9,0) {$A = \begin{bmatrix} 2 & -1 & -1 \\ -1 & 2 & -1 \\ -1 & -1 & 2 \end{bmatrix}$};
+    \node (Q) at (7.7,0) {$Q =$};
+    \node (m) at (0,0) {$B = \begin{bmatrix} 0 & 1 & 1 \\ -1 & 0 & -1 \\ -1 & 1 & 0 \end{bmatrix}$};
+    \node (r) at (4.5,0) {$A = \begin{bmatrix} 2 & -1 & -1 \\ -1 & 2 & -1 \\ -1 & -1 & 2 \end{bmatrix}$};
   \end{tikzpicture}
   \caption{
     An acyclic skew-symmetric matrix $B$, its Cartan companion $A$, and the corresponding quiver $Q$.
