@@ -375,7 +375,7 @@ We call an exchange matrix acyclic if its principal part is acyclic.
 \begin{remark}
   Just as a skew-symmetric matrix $B$ can be encoded as a quiver $Q$, an extension $\widetilde{B}$ of $B$ can be encoded as a \newword{framed quiver} $\widetilde{Q}$.
   This means a quiver obtained from $Q$ by adjoining $m -  n$ \newword{frozen vertices}.
-  These have no arrows between them and the arrows connecting them to the original vertices are determined in the obvious way by the non-principal part of $\widetilde{B}$.
+  These have no arrows between them and the arrows connecting them to the original vertices are determined in the evident way by the non-principal part of $\widetilde{B}$.
   Given a framed quiver $\widetilde{Q}$, we simply write $\cA_{\widetilde{Q}}$ for the cluster algebra associated to its signed adjacency matrix $\widetilde{B}$ as above.
 \end{remark}
 
@@ -457,7 +457,7 @@ Given the matrix of $\bfc$-vectors at $t\in\TT$, we may define the matrix of $\b
   \label{eq:g-vectors_from_c-vectors}
   (G^B_t)^T = (C_t^{-B^T})^{-1},
 \end{equation}
-where $X^T$ is the transpose of $X$.
+where $X^T$ denotes the transpose of a matrix $X$.
 Note that this is not the standard definition, but the above characterization (due to \cite[Theorem 1.2]{NZ12} and the sign-coherence result of \cite{DWZ10,GHKK14}) is what we will use in Section~\ref{sec:acyclic_belt}.
 The basic role of $\bfg$-vectors is that they provide natural labels of cluster variables: if $\widetilde{B}$ is of full rank, then two cluster variables $x_{i;t}$ and $x_{j;t'}$ coincide in $\cA_{\widetilde B}$ if and only if $\gv_{i;t}$ and $\gv_{j;t'}$ coincide in $\ZZ^n$ \cite{DWZ10,GHKK14}.
 We will therefore often denote the cluster variable with $\bfg$-vector $\gv$ by $x_\gv$.
@@ -798,7 +798,7 @@ Recall that we regard $\bfg$-vectors as elements of the weight lattice $P$, the 
 
 With the preceding results in hand we are now ready to give recursive formulas for preprojective and postinjective cluster variables.
 Recall that we denote by $x_\omega$ the cluster variable whose $\bfg$-vector is $\omega$.
-We will use the shorthands $\beta_i^+:=s_1\cdots s_{i-1}\alpha_i$ and $\beta_i^-:=s_n\cdots s_{i+1}\alpha_i$, and denote by $[\beta:\alpha_i]$ the $i^{th}$ coefficient in the expansion of a root $\beta$ in the basis of simple roots.
+We will use the shorthands $\beta_i^+:=s_1\cdots s_{i-1}\alpha_i$ and $\beta_i^-:=s_n\cdots s_{i+1}\alpha_i$, and denote by $[\beta:\alpha_i]$ the $i-th$ coefficient in the expansion of a root $\beta$ in the basis of simple roots.
 That is, we have
 \[
   \beta = \sum_{i=1}^n [\beta:\alpha_i]\alpha_i
@@ -836,7 +836,7 @@ That is, we have
 \end{theorem}
 \begin{proof}
   The relations are a direct consequence of Lemmas~\ref{lemma:c-vectors} and~\ref{lemma:g-vectors} once we observe that mutations happen along a sink/source adapted sequence, so that the $\mod{\Zidx}$-th column of $B^{t_\Zidx}$ contains only non-negative entries and the $\mod{\Zidx+1}$-th column only non-positive entries.
-  The claim about the signs of the $\bfc$-vectors $\cv_{\mod{\Zidx};t_\Zidx}$ and $\cv_{\mod{\Zidx+1};t_\Zidx}$ in Lemma~\ref{lemma:c-vectors} pinpoints which monomials on the right hand sides of these exchange relations contain coefficients.
+  The claim about the signs of the $\bfc$-vectors $\cv_{\mod{\Zidx};t_\Zidx}$ and $\cv_{\mod{\Zidx+1};t_\Zidx}$ in Lemma~\ref{lemma:c-vectors} pinpoints which monomial on the right hand side of each of these exchange relations contains coefficients.
 \end{proof}
 \begin{remark}
   As noted before, to obtain the exchange relations in the cluster algebra $\cA_{\Bpr}$ with principal coefficients it suffices to set the coefficients $\cvar_{\ol{1}},\dotsc,\cvar_{\ol{n}}$ to $1$ in the relations of Theorem~\ref{thm:vars_and_rels_in_bipartite_belt}.
@@ -859,7 +859,7 @@ Recall that the initial cluster variables in $\kk[G^{c,c^{-1}}]$ are restriction
   \cvar_{\ol{\imath}} = \Delta^{c \omega_i}_{\omega_i} \prod_{j < i}(\Delta^{c \omega_j}_{\omega_j})^{a_{ji}},
 \]
 for $1 \leq j \leq n$.
-Recall also that we write $\beta_i^+:=s_1\cdots s_{i-1}\alpha_i$ and $\beta_i^-:=s_n\cdots s_{i+1}\alpha_i$, and denote by $[\beta:\alpha_i]$ the $i^{th}$ coefficient in the expansion of a root $\beta$ in the basis of simple roots.
+Recall also that we write $\beta_i^+:=s_1\cdots s_{i-1}\alpha_i$ and $\beta_i^-:=s_n\cdots s_{i+1}\alpha_i$, and denote by $[\beta:\alpha_i]$ the $i-th$ coefficient in the expansion of a root $\beta$ in the basis of simple roots.
 
 \begin{lemma}
   \label{lemma:coefficients_values}
@@ -1988,7 +1988,7 @@ the latter following by reindexing vertices of $Q$ in the results of Lemma~\ref{
   In particular $\pi(\beta(P))=P$ for any $P\in\cP_{[k,\ell]}$, which shows (c) and completes the proof.
 \end{proof}
 \begin{example}
-  We continue with Example~\ref{ex:minor_computation}, which is in type $A_2^{(1)}$ with Coxeter element $c=s_2s_1s_3$.
+  We continue with Example~\ref{ex:minor_computation}, which concerns type $A_2^{(1)}$ with Coxeter element $c=s_2s_1s_3$.
   The regular cluster variable with $\bfg$-vector $\omega_1-\omega_2$ is obtained from the initial cluster of $\cA_{\Bdp}$ by mutating first in direction 3 then in direction 2, and the result is
   \[
     x_{\omega_1-\omega_2}
@@ -2012,7 +2012,7 @@ With these considerations in hand we pose the following specific form of Conject
   Then under $\cA_{\Bdp} \cong \kk[G^{c,c^{-1}}]$, the cluster variable $x_{i;t}$ is the restriction of the level zero minor $\Delta_{\gv_{i;t}}$.
 \end{conjecture}
 
-While the combinatorics we used to prove Conjecture~\ref{conj:affine} in type $A_{n-1}^{\!(1)}$ is not available in general, in some types it is possible to compute the relevant minors by hand using only the characters of the representations involved (e.g. when they are spaces of Laurent polynomials valued in a representation without weight spaces of dimension greater than one).
+While the combinatorics we used to prove Conjecture~\ref{conj:affine} in type $A_{n-1}^{\!(1)}$ is not available in general, in some types it is possible to compute the relevant minors by hand using only the characters of the representations involved (e.g. when they are spaces of Laurent polynomials valued in a representation all of whose weight spaces are of dimension one).
 The results are consistent with Conjecture~\ref{conj:affine}:
 
 \begin{proposition}
