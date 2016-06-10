@@ -801,7 +801,7 @@ As a corollary of the preceding result,  we obtain the $\bfg$-vectors along the 
   \label{lemma:g-vectors}
   Let $\gv_{i;t_\Zidx}$ be the $i$-th $\bfg$-vector at $t_\Zidx$.
   Then
-  \begin{equation}
+  \begin{equation}\label{eq:abeltgvectors}
     \gv_{i;t_\Zidx}
     =
     \begin{cases}
@@ -821,12 +821,13 @@ As a corollary of the preceding result,  we obtain the $\bfg$-vectors along the 
   \]
 \end{lemma}
 \begin{proof}
-  The result follows immediately from Lemma~\ref{lemma:c-vectors} leveraging the duality in between the coroot and weight lattices for $A$.
+  The result follows from Lemma~\ref{lemma:c-vectors} by leveraging the duality between the coroot and weight lattices for $A$.
   Indeed, Lemma~\ref{lemma:c-vectors} applied to $-B^T$ says that the $\bfc$-vectors for the dual cluster algebra are coroots of $A$; more precisely, at the node $t_\Zidx$, they are the coroots $\cv_{i;t_\Zidx}^\vee$.
-  By Equation~\eqref{eq:g-vectors_from_c-vectors} the $\bfg$-vectors at $t_\Zidx$ are the basis of weights $\gv_{i;t_\Zidx}$ dual to $\cv_{i;t_\Zidx}^\vee$.
-  We can then conclude by observing that the duality map commutes with the action of the elements of the Weyl group.
+  By Equation~\eqref{eq:g-vectors_from_c-vectors} the $\bfg$-vectors at $t_\Zidx$ are the basis of weights $\gv_{i;t_\Zidx}$ dual to $\cv_{i;t_\Zidx}^\vee$, hence the $\bfg$-vectors in Equation~\ref{eq:abeltgvectors} are dual to the $\bfc$-vectors (for $-B^T$) in Equation~\ref{eq:c-vectors}.
+  %We can then conclude by observing that the duality map commutes with the action of the elements of the Weyl group.
 
-  The final claim now follows immediately: it suffices to recall how simple reflections act on fundamental weights and to observe that, the type of the Cartan companion of $B$ being not finite, all prefixes of $c^\infty$ are reduced expressions so that all the elements of $\Pi_{\textit{proj}}$ and $\Pi_{\textit{inj}}$ are distinct.
+  The final claim now follows immediately from the fact that $s_i \omega_j = \omega_j$ unless $i =j$: for example, if $\Zidx > 0$ and $k$ is the smallest integer such that $kn \geq \Zidx$, we have $c^\infty_{\leq \Zidx} \omega_i =  c^k\omega_i$ if $\mod{\Zidx} \geq i$ and $c^\infty_{\leq \Zidx} \omega_i = c^{k-1}\omega_i$ if $\mod{\Zidx} < i$. 
+%, the type of the Cartan companion of $B$ being not finite, all prefixes of $c^\infty$ are reduced expressions so that all the elements of $\Pi_{\textit{proj}}$ and $\Pi_{\textit{inj}}$ are distinct.
 \end{proof}
 
 With the preceding results in hand we are now ready to give recursive formulas for preprojective and postinjective cluster variables.
