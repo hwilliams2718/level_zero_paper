@@ -229,7 +229,7 @@ In forthcoming work of the second author compelling evidence is given that their
 In particular, it follows that if these cluster variables are restrictions of minors, they must come from an explicitly identifiable level zero representation.
 The types checked in Section~\ref{sec:othertypes} are essentially the ones where just knowing the character of this representation is sufficient to the relevant minors on $G^{c,c^{-1}}$ and compare them with the corresponding cluster variables. 
 %these minors can be evaluated on $G^{c,c^{-1}}$ knowing only the character of this representation.
-Beyond finite and affine types, general weight representations of $G$ are not well-understood and the conjecture is much more speculative (though we note a suggestive formal calculation in Remark~\ref{rmk:nonaffinehomelt}.
+Beyond finite and affine types, general weight representations of $G$ are not well-understood and the conjecture is much more speculative (though we note a suggestive formal calculation in Remark~\ref{rmk:nonaffinehomelt}).
 %\sayDR{The element we construct always agrees with the corresponding greedy basis element and in all the examples I checked it also agrees with the triangular basis, I could probably prove it if needed for confidence in the claim).  Should we say something about this at the end of the next paragraph?}
 %\sayHW{Gotcha, I made the wording a bit more assertive in the next paragraph, but I think bringing up the remark again will have the effect of emphasizing it disproportionately.}
 %\sayDR{if we switch the order of these paragraphs we can say the $(r-1)\omega_2-\omega_1$ minor is in these bases without putting too much emphasis on it}
@@ -649,7 +649,7 @@ The coordinate ring of $G^{u,v}$ is an upper cluster algebra and a finite subset
   Indeed, since the variables $\cvar_i$ are obtained from the minors $\Delta^{\omega_j}_{ c\omega_j}$ by an invertible monomial transformation (and the variables $\cvar_{\ol{\imath}}$ are obtained similarly from the minors $\Delta^{c \omega_j}_{\omega_j}$), we can use separation of additions to rescale all the cluster variables in $\kk[G^{c,c^{-1}}]$ and establish the desired isomorphism (cf. \cite[Proposition 4.5]{YZ08}).
 \end{proof}
 
-  One could consider the $2n$-dimensional subvariety $L^{c,c^{-1}} \subset G^{c,c^{-1}}$ where $z_{\ol{1}},\dotsc,z_{\ol{n}}$ are equal to one; this is the reduced double Bruhat cell studied in \cite{YZ08}.
+  One can also consider the $2n$-dimensional subvariety $L^{c,c^{-1}} \subset G^{c,c^{-1}}$ where $z_{\ol{1}},\dotsc,z_{\ol{n}}$ are equal to one; this is the reduced double Bruhat cell studied in \cite{YZ08}.
   In particular, $\kk[L^{c,c^{-1}}]$ is the cluster algebra with principal coefficients associated to $B$, and our results immediately translate to statements in the principal coefficients case by specializing $\cvar_{\ol{1}},\dotsc,\cvar_{\ol{n}}$ to one.
 
 \begin{remark}
@@ -672,7 +672,7 @@ Some similar computations are collected in Lemma~\ref{lemma:coefficients_values}
 \section{Preprojective and postinjective cluster variables as minors}
 \label{sec:preproj}
 In this section we prove that when $B$ is any acyclic skew-symmetrizable matrix, the identification $\cA_{\Bdp} \cong \kk[G^{c,c^{-1}}]$ realizes preprojective and postinjective cluster variables as restrictions of highest- and lowest-weight minors, respectively.
-We first compute in Section~\ref{sec:acyclic_belt} a list of exchange relations that determine these cluster variables.
+We first compute in Section~\ref{sec:acyclic_belt} the $\bfg$-vectors of these cluster variables as well as an explicit list of exchange relations that determine them. 
 The identification with minors then follows in Section~\ref{sec:hlwminors} by comparing these relations with restrictions to $G^{c,c^{-1}}$ of the generalized determinantal identities of Proposition~\ref{prop:fundid}.
 
 Recall that since $B$ is acyclic there exists a permutation $\sigma\in S_n$ such that $b_{\sigma_i,\sigma_j}\geq 0$ whenever $i<j$.
@@ -684,8 +684,8 @@ Finally, without loss of generality, we will assume that $A$ is not block decomp
 \subsection{Cluster variables in the acyclic belt}
 \label{sec:acyclic_belt}
 
-In view of the assumptions made at the beginning of this section, the Coxeter element associated to $B$ is $c=s_1\cdots s_n$ and any finite prefix of the infinite words $c^\infty =  s_1 \cdots s_n s_1 \cdots$ and $c^{-\infty} = s_n \cdots s_1 s_n \cdots$ is reduced (cf. \cite{Spe09}).
-We will denote the prefix of $c^\infty$ of length $\Zidx$ by $c^\infty_{\le\Zidx}$ (for example, $c^\infty_{\leq n}$ is just $c$ itself), similarly for $c^{-\infty}$.
+In view of the assumptions made at the beginning of this section, the Coxeter element associated to $B$ is $c=s_1\cdots s_n$, and any finite prefix of the infinite words $c^\infty =  s_1 \cdots s_n s_1 \cdots$ and $c^{-\infty} = s_n \cdots s_1 s_n \cdots$ is reduced (cf. \cite{Spe09}).
+We will denote the prefix of $c^\infty$ of length $\Zidx$ by $c^\infty_{\le\Zidx}$ (so for example, $c^\infty_{\leq n}$ is just $c$ itself), similarly for $c^{-\infty}$.
 Therefore the path (\ref{eq:path}) in the acyclic belt becomes
 \begin{equation}
 \label{eq:simplepath}
@@ -708,17 +708,14 @@ Therefore the path (\ref{eq:path}) in the acyclic belt becomes
   \cdots
 \end{equation}
 
-Following \cite{FZ02}, for $\Zidx\in\ZZ$ we denote by $\mod{\Zidx}$ the unique integer in $[1,n]$ congruent to $\Zidx$ modulo $n$.
+For $\Zidx\in\ZZ$ we denote by $\mod{\Zidx}$ the unique integer in $[1,n]$ congruent to $\Zidx$ modulo $n$.
 The edge immediately to the left of $t_\Zidx$ is then labelled by $\mod{\Zidx}$.
-Observe that the nodes of $\TT$ we are considering lie along a \emph{sink/source adapted sequence}, i.e. every mutation occurs at a sink or source of the corresponding (valued) quiver $Q_B$.
+Observe that the nodes of $\TT$ we are considering lie along a \emph{sink/source adapted sequence}, i.e. every mutation occurs at a sink or source of the corresponding (valued) quiver $Q$.
 More precisely, the $\mod{\Zidx}$-th column of $B^{t_\Zidx}$ contains only non-negative entries and the $\mod{\Zidx+1}$-st column only non-positive entries.
 In particular, it follows from the definition of matrix mutation that the off-diagonal entries of the exchange matrix $B^{t_\Zidx}$ have the same absolute values as the corresponding entries of $A$.
 
-Recall that, by definition, $\bfc$-vectors encode the coefficient part of the exchange relations in a cluster algebra with principal coefficients while $\bfg$-vectors parametrize its cluster variables.
-Thus, to compute the exchange relations along the path \eqref{eq:simplepath} in $\cA_{\Bdp} \cong \kk[G^{c,c^{-1}}]$, we will need to describe both.
-We begin by computing $\bfc$-vectors.
-We will then obtain the corresponding $\bfg$-vectors applying Equation~\eqref{eq:g-vectors_from_c-vectors}.
-Recall from Remark~\ref{rem:cgrootsweights} that we regard the $\bfc$-vectors $\cv_{i;t_\Zidx}$ as elements of the root lattice $\cQ$ and the $\bfg$-vectors $\gv_{i;\Zidx}$ as elements of the weight lattice $P$.
+Recall that, by definition, $\bfc$-vectors encode the coefficient part of the exchange relations in a cluster algebra with principal coefficients, and by extension also for doubled principal coefficients. Thus to compute the exchange relations along the path \eqref{eq:simplepath} in $\cA_{\Bdp} \cong \kk[G^{c,c^{-1}}]$, we begin by computing these $\bfc$-vectors. 
+Recall from Remark~\ref{rem:cgrootsweights} that we regard the $\bfc$-vectors $\cv_{i;t_\Zidx}$ as elements of the root lattice $\cQ$, the initial $\bfc$-vectors $\cv_{i;t_0}$ being identified with the simple roots $\alpha_i$.
 
 \begin{lemma}
   \label{lemma:c-vectors}
@@ -729,20 +726,23 @@ Recall from Remark~\ref{rem:cgrootsweights} that we regard the $\bfc$-vectors $\
     \cv_{i;t_\Zidx}
     =
     \begin{cases}
-      c^\infty_{\le\Zidx}\, \alpha_i & \text{if $0<\Zidx$;}\\
+      c^\infty_{\le\Zidx}\, \alpha_i & \text{if $\Zidx>0$;}\\
       \alpha_i & \text{if $-n < \Zidx \leq 0$ and  $i\leq n+\Zidx$;} \\
       -\alpha_i & \text{if $-n\leq \Zidx < 0$ and $i > n+\Zidx$;} \\
-      -c^{-\infty}_{\le-\Zidx-n}\, \alpha_i \qquad & \text{if $\Zidx<-n$.}\\
+      -c^{-\infty}_{\le-(\Zidx+n)}\, \alpha_i \qquad & \text{if $\Zidx<-n$.}\\
     \end{cases}
   \end{equation}
-  Moreover, whenever $0 < \Zidx$ or $\Zidx < -n$, the vector $\cv_{\mod{\Zidx};t_\Zidx}$ is negative and the vector $\cv_{\mod{\Zidx+1};t_\Zidx}$ is positive.
 \end{lemma}
 
 \begin{proof}
-  Let's begin by settling the claim about signs.
-  When $\Zidx>0$ the root $c^\infty_{\le\Zidx}\, \alpha_{\mod{\Zidx+1}}$ is positive: indeed the rightmost reflection in $c^\infty_{\le\Zidx}$ is $s_{\mod{\Zidx}}$ so that the word $c^\infty_{\le\Zidx}s_{\mod{\Zidx+1}}=c^\infty_{\le\Zidx+1}$ is reduced (cf. \cite{Spe09}) and we can apply \cite[VI \S 1.6, Corollary 2 of Proposition 17]{Bou02}.
-  By the same principle, the root $c^\infty_{\le\Zidx}\, \alpha_{\mod{\Zidx}} = -c^\infty_{\le\Zidx-1}\, \alpha_{\mod{\Zidx}}$ is negative because the word $c^\infty_{\le\Zidx}$ is reduced.
-  Similarly, when $\Zidx<-n$ the root $-c^{-\infty}_{\le-\Zidx-n}\, \alpha_{\mod{\Zidx+1}}$ is positive and the root $-c^{-\infty}_{\le-\Zidx-n}\, \alpha_{\mod{\Zidx}}$ is negative.
+  We first claim that for $\Zidx \geq 0$ the root $c^\infty_{\leq \Zidx} \alpha_{\mod{\Zidx+1}}$ is positive and the root $c^\infty_{\leq \Zidx} \alpha_{\mod{\Zidx}}$ is negative. To see the first, note that $c^\infty_{\leq \Zidx} s_{\mod{\Zidx+1}}$ is a reduced decomposition of $c^\infty_{\leq (\Zidx+1)}$. Then, following \cite[VI \S 1.6, Corollary 2 of Proposition 17]{Bou02}, the root $- c^\infty_{\leq \Zidx}\alpha_{\mod{\Zidx+1}} = c^\infty_{\leq \Zidx} s_{\mod{\Zidx+1}} \alpha_{\mod{\Zidx+1}}$ is negative since $-\alpha_{\mod{\Zidx+1}}=s_{\mod{\Zidx+1}} \alpha_{\mod{\Zidx+1}}$ is while $\alpha_{\mod{\Zidx+1}}$ is positive. By the same principle, the root $c^\infty_{\le\Zidx}\, \alpha_{\mod{\Zidx}} = -c^\infty_{\le(\Zidx-1)}\, \alpha_{\mod{\Zidx}}$ is negative since $c^\infty_{\le\Zidx} = c^\infty_{\le(\Zidx-1)}s_{\mod{\Zidx}}$ is reduced. 
+
+Similarly, one checks that for $\Zidx \leq -n$ the root $-c^{-\infty}_{\le-\Zidx-n}\, \alpha_{\mod{\Zidx+1}}$ is positive and the root $-c^{-\infty}_{\le-\Zidx-n}\, \alpha_{\mod{\Zidx}}$ is negative. Note that if the result has been established for some $\Zidx \geq 0$ of $\Zidx \leq -n$, then we have shown that $\cv_{\mod{\Zidx+1};t_\Zidx}$ is a positive root and $\cv_{\mod{\Zidx};t_\Zidx}$ is a negative root. 
+
+%the vector $\cv_{\mod{\Zidx};t_\Zidx}$ is negative and the vector $\cv_{\mod{\Zidx+1};t_\Zidx}$ is positive. 
+%  When $\Zidx>0$ the root $c^\infty_{\le\Zidx}\, \alpha_{\mod{\Zidx+1}}$ is positive: indeed the rightmost reflection in $c^\infty_{\le\Zidx}$ is $s_{\mod{\Zidx}}$ so that the word $c^\infty_{\le\Zidx}s_{\mod{\Zidx+1}}=c^\infty_{\le\Zidx+1}$ is reduced and we can apply \cite[VI \S 1.6, Corollary 2 of Proposition 17]{Bou02}.
+%  By the same principle, the root $c^\infty_{\le\Zidx}\, \alpha_{\mod{\Zidx}} = -c^\infty_{\le(\Zidx-1)}\, \alpha_{\mod{\Zidx}}$ is negative because the word $c^\infty_{\le\Zidx}$ is reduced.
+%  Similarly, when $\Zidx<-n$ the root $-c^{-\infty}_{\le-\Zidx-n}\, \alpha_{\mod{\Zidx+1}}$ is positive and the root $-c^{-\infty}_{\le-\Zidx-n}\, \alpha_{\mod{\Zidx}}$ is negative.
 
   For the main claim there are three cases to consider.
 
@@ -792,7 +792,7 @@ Recall from Remark~\ref{rem:cgrootsweights} that we regard the $\bfc$-vectors $\
   The only minor change is that this time we leverage the fact that both the sign of $\cv_{\mod{\Zidx};t_\Zidx}$ and the sign of the $\mod{\Zidx}$-th row of $B^{t_\Zidx}$ are negative.
 \end{proof}
 
-We can now deduce formulas for the $\bfg$-vectors we need from Lemma~\ref{lemma:c-vectors}.
+As a corollary of the preceding result,  we otain the $\bfg$-vectors along the path \eqref{eq:simplepath} by applying Equation~\eqref{eq:g-vectors_from_c-vectors}. Recall that we regard $\bfg$-vectors as elements of the weight lattice $P$, the initial $\bfg$-vectors $\gv_{i;t_0}$ being identified with the fundamental weights $\omega_i$.
 
 \begin{lemma}
   \label{lemma:g-vectors}
