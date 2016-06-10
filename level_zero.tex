@@ -798,7 +798,7 @@ As a corollary of the preceding result,  we obtain the $\bfg$-vectors along the 
   \label{lemma:g-vectors}
   Let $\gv_{i;t_\Zidx}$ be the $i$-th $\bfg$-vector at $t_\Zidx$.
   Then
-  \begin{equation}
+  \begin{equation}\label{eq:abeltgvectors}
     \gv_{i;t_\Zidx}
     =
     \begin{cases}
@@ -818,17 +818,21 @@ As a corollary of the preceding result,  we obtain the $\bfg$-vectors along the 
   \]
 \end{lemma}
 \begin{proof}
-  The result follows immediately from Lemma~\ref{lemma:c-vectors} leveraging the duality in between the coroot and weight lattices for $A$.
+  The result follows from Lemma~\ref{lemma:c-vectors} by leveraging the duality between the coroot and weight lattices for $A$.
   Indeed, Lemma~\ref{lemma:c-vectors} applied to $-B^T$ says that the $\bfc$-vectors for the dual cluster algebra are coroots of $A$; more precisely, at the node $t_\Zidx$, they are the coroots $\cv_{i;t_\Zidx}^\vee$.
-  By Equation~\eqref{eq:g-vectors_from_c-vectors} the $\bfg$-vectors at $t_\Zidx$ are the basis of weights $\gv_{i;t_\Zidx}$ dual to $\cv_{i;t_\Zidx}^\vee$.
-  We can then conclude by observing that the duality map commutes with the action of the elements of the Weyl group.
+  By Equation~\eqref{eq:g-vectors_from_c-vectors} the $\bfg$-vectors at $t_\Zidx$ are the basis of weights $\gv_{i;t_\Zidx}$ dual to $\cv_{i;t_\Zidx}^\vee$, hence the $\bfg$-vectors in Equation~\ref{eq:abeltgvectors} are dual to the $\bfc$-vectors (for $-B^T$) in Equation~\ref{eq:c-vectors}.
+  %We can then conclude by observing that the duality map commutes with the action of the elements of the Weyl group.
 
-  The final claim now follows immediately: it suffices to recall how simple reflections act on fundamental weights and to observe that, the type of the Cartan companion of $B$ being not finite, all prefixes of $c^\infty$ are reduced expressions so that all the elements of $\Pi_{\textit{proj}}$ and $\Pi_{\textit{inj}}$ are distinct.
+  The final claim now follows immediately from the fact that $s_i \omega_j = \omega_j$ unless $i =j$: for example, if $\Zidx > 0$ and $k$ is the smallest integer such that $kn \geq \Zidx$, we have $c^\infty_{\leq \Zidx} \omega_i =  c^k\omega_i$ if $\mod{\Zidx} \geq i$ and $c^\infty_{\leq \Zidx} \omega_i = c^{k-1}\omega_i$ if $\mod{\Zidx} < i$. 
+%, the type of the Cartan companion of $B$ being not finite, all prefixes of $c^\infty$ are reduced expressions so that all the elements of $\Pi_{\textit{proj}}$ and $\Pi_{\textit{inj}}$ are distinct.
 \end{proof}
 
 With the preceding results in hand we are now ready to give recursive formulas for preprojective and postinjective cluster variables.
 Recall that we denote by $x_\omega$ the cluster variable whose $\bfg$-vector is $\omega$.
-We will use the shorthands $\beta_i^+:=s_1\cdots s_{i-1}\alpha_i$ and $\beta_i^-:=s_n\cdots s_{i+1}\alpha_i$ and denote by $[\beta:\alpha_i]$ the $i$-th coefficient in the expansion of the root $\beta$ in the basis of simple roots.
+We will use the shorthands $\beta_i^+:=s_1\cdots s_{i-1}\alpha_i$ and $\beta_i^-:=s_n\cdots s_{i+1}\alpha_i$, and denote by $[\beta:\alpha_i]$ the $i^{th}$ coefficient in the expansion of a root $\beta$ in the basis of simple roots. That is, we have
+\[
+\beta = \sum_{i=1}^n [\beta:\alpha_i]\alpha_i
+\]
 
 \begin{theorem}
   \label{thm:vars_and_rels_in_bipartite_belt}
@@ -861,7 +865,7 @@ We will use the shorthands $\beta_i^+:=s_1\cdots s_{i-1}\alpha_i$ and $\beta_i^-
   These relations determine all preprojective and postinjective cluster variables in terms of the initial ones.
 \end{theorem}
 \begin{proof}
-  The relations are a direct consequence of Lemmas~\ref{lemma:c-vectors} and~\ref{lemma:g-vectors} once we observe that mutations happen along a sink/source adapted sequence so that the $\mod{\Zidx}$-th column of $B^{t_\Zidx}$ contains only non-negative entries and the $\mod{\Zidx+1}$-th column only non-positive entries.
+  The relations are a direct consequence of Lemmas~\ref{lemma:c-vectors} and~\ref{lemma:g-vectors} once we observe that mutations happen along a sink/source adapted sequence, so that the $\mod{\Zidx}$-th column of $B^{t_\Zidx}$ contains only non-negative entries and the $\mod{\Zidx+1}$-th column only non-positive entries.
 \end{proof}
 \begin{remark}
   As noted before, to obtain the exchange relations in the cluster algebra $\cA_{\Bpr}$ with principal coefficients it suffices to set the coefficients $\cvar_{\ol{1}},\dotsc,\cvar_{\ol{n}}$ to $1$ in the relations of Theorem~\ref{thm:vars_and_rels_in_bipartite_belt}.
@@ -883,7 +887,7 @@ Recall that the initial cluster variables in $\kk[G^{c,c^{-1}}]$ are restriction
   \quad
   \cvar_{\ol{\imath}} = \Delta^{c \omega_i}_{\omega_i} \prod_{j < i}(\Delta^{c \omega_j}_{\omega_j})^{a_{ji}},
 \]
-for $1 \leq j \leq n$.
+for $1 \leq j \leq n$. Recall also that we write $\beta_i^+:=s_1\cdots s_{i-1}\alpha_i$ and $\beta_i^-:=s_n\cdots s_{i+1}\alpha_i$, and denote by $[\beta:\alpha_i]$ the $i^{th}$ coefficient in the expansion of a root $\beta$ in the basis of simple roots.
 
 \begin{lemma}
   \label{lemma:coefficients_values}
