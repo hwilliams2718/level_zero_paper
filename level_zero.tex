@@ -277,9 +277,9 @@ For $t \in \kk^\times$ and $1 \leq i \leq n$ we adopt the notation
   \quad
   \dol{s_{i}} := \varphi_i \begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix},
 \end{gather}
-By extension for any $w$ in the Weyl group $W$ of $\widehat{G}$ we set \[\ol{w} := \ol{s_{i_1}}\cdots\ol{s_{i_k}}, \quad \quad \dol{w} := \dol{s_{i_1}}\cdots\dol{s_{i_k}},\] where $s_{i_1}\cdots s_{i_k}$ is any reduced word for $w$.
+By extension, for any $w$ in the Weyl group $W$ of $\widehat{G}$ we set \[\ol{w} := \ol{s_{i_1}}\cdots\ol{s_{i_k}}, \quad \quad \dol{w} := \dol{s_{i_1}}\cdots\dol{s_{i_k}},\] where $s_{i_1}\cdots s_{i_k}$ is any reduced word for $w$.
 We write $H$ for the ($n$-dimensional) Cartan subgroup of $G$, likewise $\widehat{H}$ is the Cartan subgroup of $\widehat{G}$ (it is isomorphic to $H \times (\kk^\times)^{\corank(A)}$).
-We let $\kk[\widehat{G}]$ denote the (complete topological) algebra of regular functions on $\widehat{G}$.
+We let $\kk[\widehat{G}]$ denote the (complete\sayDR{I am still questioning completeness, I see ``topological'' when Kumar introduces ind-varieties but not ``complete''} topological) algebra of regular functions on $\widehat{G}$.
 
 We have weight lattices $\widehat{P} = \Hom(\widehat{H},\kk^\times)$ and $P = \Hom(H,\kk^\times)$, and write the value of $\lambda \in P$ on $h \in H$ as $h^\lambda$ (likewise for $\lambda \in \widehat{P}$ and $h \in \widehat{H}$).
 The fundamental weights $\omega_1,\dotsc,\omega_n \in P$ are defined by $(t^{\alpha_i^\vee})^{\omega_j} = t^{\delta_{ij}}$.
@@ -729,13 +729,13 @@ Recall from Remark~\ref{rem:cgrootsweights} that we regard the $\bfc$-vectors $\
       c^\infty_{\le\Zidx}\, \alpha_i & \text{if $\Zidx>0$;}\\
       \alpha_i & \text{if $-n < \Zidx \leq 0$ and  $i\leq n+\Zidx$;} \\
       -\alpha_i & \text{if $-n\leq \Zidx < 0$ and $i > n+\Zidx$;} \\
-      -c^{-\infty}_{\le-(\Zidx+n)}\, \alpha_i \qquad & \text{if $\Zidx<-n$.}\\
+      -c^{-\infty}_{\le-\Zidx-n}\, \alpha_i \qquad & \text{if $\Zidx<-n$.}\\
     \end{cases}
   \end{equation}
 \end{lemma}
 
 \begin{proof}
-  We first claim that for $\Zidx \geq 0$ the root $c^\infty_{\leq \Zidx} \alpha_{\mod{\Zidx+1}}$ is positive and the root $c^\infty_{\leq \Zidx} \alpha_{\mod{\Zidx}}$ is negative. To see the first, note that $c^\infty_{\leq \Zidx} s_{\mod{\Zidx+1}}$ is a reduced decomposition of $c^\infty_{\leq (\Zidx+1)}$. Then, following \cite[VI \S 1.6, Corollary 2 of Proposition 17]{Bou02}, the root $- c^\infty_{\leq \Zidx}\alpha_{\mod{\Zidx+1}} = c^\infty_{\leq \Zidx} s_{\mod{\Zidx+1}} \alpha_{\mod{\Zidx+1}}$ is negative since $-\alpha_{\mod{\Zidx+1}}=s_{\mod{\Zidx+1}} \alpha_{\mod{\Zidx+1}}$ is while $\alpha_{\mod{\Zidx+1}}$ is positive. By the same principle, the root $c^\infty_{\le\Zidx}\, \alpha_{\mod{\Zidx}} = -c^\infty_{\le(\Zidx-1)}\, \alpha_{\mod{\Zidx}}$ is negative since $c^\infty_{\le\Zidx} = c^\infty_{\le(\Zidx-1)}s_{\mod{\Zidx}}$ is reduced. 
+  We first claim that for $\Zidx \geq 0$ the root $c^\infty_{\leq \Zidx} \alpha_{\mod{\Zidx+1}}$ is positive and the root $c^\infty_{\leq \Zidx} \alpha_{\mod{\Zidx}}$ is negative. To see the first, note that $c^\infty_{\leq \Zidx} s_{\mod{\Zidx+1}}$ is a reduced decomposition of $c^\infty_{\leq \Zidx+1}$. Then, following \cite[VI \S 1.6, Corollary 2 of Proposition 17]{Bou02}, the root $- c^\infty_{\leq \Zidx}\alpha_{\mod{\Zidx+1}} = c^\infty_{\leq \Zidx} s_{\mod{\Zidx+1}} \alpha_{\mod{\Zidx+1}}$ is negative since $-\alpha_{\mod{\Zidx+1}}=s_{\mod{\Zidx+1}} \alpha_{\mod{\Zidx+1}}$ is while $\alpha_{\mod{\Zidx+1}}$ is positive. By the same principle, the root $c^\infty_{\le\Zidx}\, \alpha_{\mod{\Zidx}} = -c^\infty_{\le \Zidx-1}\, \alpha_{\mod{\Zidx}}$ is negative since $c^\infty_{\le\Zidx} = c^\infty_{\le \Zidx-1}s_{\mod{\Zidx}}$ is reduced. 
 
 Similarly, one checks that for $\Zidx \leq -n$ the root $-c^{-\infty}_{\le-\Zidx-n}\, \alpha_{\mod{\Zidx+1}}$ is positive and the root $-c^{-\infty}_{\le-\Zidx-n}\, \alpha_{\mod{\Zidx}}$ is negative. Note that if the result has been established for some $\Zidx \geq 0$ of $\Zidx \leq -n$, then we have shown that $\cv_{\mod{\Zidx+1};t_\Zidx}$ is a positive root and $\cv_{\mod{\Zidx};t_\Zidx}$ is a negative root. 
 
@@ -792,7 +792,7 @@ Similarly, one checks that for $\Zidx \leq -n$ the root $-c^{-\infty}_{\le-\Zidx
   The only minor change is that this time we leverage the fact that both the sign of $\cv_{\mod{\Zidx};t_\Zidx}$ and the sign of the $\mod{\Zidx}$-th row of $B^{t_\Zidx}$ are negative.
 \end{proof}
 
-As a corollary of the preceding result,  we otain the $\bfg$-vectors along the path \eqref{eq:simplepath} by applying Equation~\eqref{eq:g-vectors_from_c-vectors}. Recall that we regard $\bfg$-vectors as elements of the weight lattice $P$, the initial $\bfg$-vectors $\gv_{i;t_0}$ being identified with the fundamental weights $\omega_i$.
+As a corollary of the preceding result,  we obtain the $\bfg$-vectors along the path \eqref{eq:simplepath} by applying Equation~\eqref{eq:g-vectors_from_c-vectors}. Recall that we regard $\bfg$-vectors as elements of the weight lattice $P$, the initial $\bfg$-vectors $\gv_{i;t_0}$ being identified with the fundamental weights $\omega_i$.
 
 \begin{lemma}
   \label{lemma:g-vectors}
