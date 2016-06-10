@@ -800,7 +800,7 @@ Recall that we regard $\bfg$-vectors as elements of the weight lattice $P$, the 
 
 With the preceding results in hand we are now ready to give recursive formulas for preprojective and postinjective cluster variables.
 Recall that we denote by $x_\omega$ the cluster variable whose $\bfg$-vector is $\omega$.
-We will use the shorthands $\beta_i^+:=s_1\cdots s_{i-1}\alpha_i$ and $\beta_i^-:=s_n\cdots s_{i+1}\alpha_i$, and denote by $[\beta:\alpha_i]$ the $i-th$ coefficient in the expansion of a root $\beta$ in the basis of simple roots.
+We will use the shorthands $\beta_i^+:=s_1\cdots s_{i-1}\alpha_i$ and $\beta_i^-:=s_n\cdots s_{i+1}\alpha_i$, and denote by $[\beta:\alpha_i]$ the $i$-th coefficient in the expansion of a root $\beta$ in the basis of simple roots.
 That is, we have
 \[
   \beta = \sum_{i=1}^n [\beta:\alpha_i]\alpha_i
@@ -861,7 +861,7 @@ Recall that the initial cluster variables in $\kk[G^{c,c^{-1}}]$ are restriction
   \cvar_{\ol{\imath}} = \Delta^{c \omega_i}_{\omega_i} \prod_{j < i}(\Delta^{c \omega_j}_{\omega_j})^{a_{ji}},
 \]
 for $1 \leq j \leq n$.
-Recall also that we write $\beta_i^+:=s_1\cdots s_{i-1}\alpha_i$ and $\beta_i^-:=s_n\cdots s_{i+1}\alpha_i$, and denote by $[\beta:\alpha_i]$ the $i-th$ coefficient in the expansion of a root $\beta$ in the basis of simple roots.
+Recall also that we write $\beta_i^+:=s_1\cdots s_{i-1}\alpha_i$ and $\beta_i^-:=s_n\cdots s_{i+1}\alpha_i$, and denote by $[\beta:\alpha_i]$ the $i$-th coefficient in the expansion of a root $\beta$ in the basis of simple roots.
 
 \begin{lemma}
   \label{lemma:coefficients_values}
@@ -1295,7 +1295,7 @@ Recall that the generic element $g$ of any double Bruhat cell $G^{u,v}$ can be f
 When $G = \widetilde{LSL}_n$ is the central extension of $LSL_n$, these factorizations (and more general ones associated to shuffles of reduced words) admit a combinatorial description in terms of directed networks on a cylinder \cite{GSV12,FM14}.
 This generalizes a similar relation between $SL_n$ and directed networks on a disk \cite{FZ99}.
 By a directed network on a surface we will mean an embedded directed graph whose edges are assigned weights in some fixed ring.
-As in Section~\ref{sec:rigidregular} we fix a cyclic $\ZZ_n$-labelling of the vertices of the $A_{n-1}^{\!(1)}$ Dynkin diagram, chosen so that $0 \equiv n$ is the label of the affine root $\delta - \theta$.
+As in Section~\ref{sec:rigidregular} we fix a cyclic $\ZZ_n$-labeling of the vertices of the $A_{n-1}^{\!(1)}$ Dynkin diagram, chosen so that $0 \equiv n$ is the label of the affine root $\delta - \theta$.
 
 \begin{figure}
   \label{fig:network}
@@ -1447,10 +1447,10 @@ As in Section~\ref{sec:rigidregular} we fix a cyclic $\ZZ_n$-labelling of the ve
   There is also a vertical \newword{bridge} having weight $t$ running between the $(i-1)$-st level and the $i$-th level; for $x_i(t)$ this bridge is oriented from the $i$-th level to the $(i-1)$-st level, while for $x_{\ol{\imath}}(t)$ this bridge is oriented from the $(i-1)$-st level to the $i$-th.
 
   The network associated to the Cartan factor $h$ again has $n$ horizontal levels running from the incoming boundary to the outgoing boundary and labelled by $\ZZ_n$.
-  The $i$-th level is of weight $h_{i+1}h_{i}^{-1}$.
+  Here the $i$-th level is of weight $h_{i+1}h_{i}^{-1}$.
 
   The network $\cN^{u,v}$ is now defined by gluing these constituent networks together in the order they appear in Equation~\eqref{eq:uvfactorization} (see Figure~\ref{fig:totalnetwork}).
-  Given two adjacent factors, the incoming boundary of the left is glued to the outgoing boundary of the right so that the horizontal levels of each are aligned.
+  Given two adjacent factors, the incoming boundary of the left factor is glued to the outgoing boundary of the right factor so that the horizontal levels of each are aligned compatibly with their labeling by $\ZZ_n$.
 \end{definition}
 
 \begin{figure}
@@ -1540,7 +1540,7 @@ Given $S \subsetneq \ZZ_n$, let
   \sum_{i \in S} \omega_{i+1} - \omega_i \in P^\circ \subset \widehat{P}.
 \]
 Recall that $P^\circ$, the weight lattice of $SL_n$, is contained in the complement of both the Tits cone and its negative in $\widehat{P}$.
-The level zero representation $V(\omega_S)$ is $\big(\bigwedge^{|S|}\kk^{n-1}\big)[\loopvar^{\pm 1}]$ with its natural $\widetilde{LSL}_n$ action.
+The level zero representation $V(\omega_S)$ is $\big(\bigwedge^{|S|}\kk^n\big)[\loopvar^{\pm 1}]$ with its natural $\widetilde{LSL}_n$ action.
 Definition~\ref{def:network} is motivated by the following observation:
 
 \begin{proposition}
@@ -1557,7 +1557,7 @@ Definition~\ref{def:network} is motivated by the following observation:
   where the sum is over collections $P$ of pairwise disjoint paths in $\cN^{u,v}$ with $\partial_{in}P = \partial_{out}P = S$.
 \end{proposition}
 \begin{proof}
-  The representation $\big(\bigwedge^{|S|}\kk^{n-1}\big)[\loopvar^{\pm 1}]$ has a natural basis $\{ e_{j_1} \wedge \cdots \wedge e_{j_{|S|}} \loopvar^d\}$ labelled by pairs of an $|S|$-element subset of $\ZZ_n$ and an integer $d$.
+  The representation $\big(\bigwedge^{|S|}\kk^n\big)[\loopvar^{\pm 1}]$ has a natural basis $\{ e_{j_1} \wedge \cdots \wedge e_{j_{|S|}} \loopvar^d\}$ labelled by pairs of an $|S|$-element subset of $\ZZ_n$ and an integer $d$.
   The networks associated to $x_i(t)$, $x_{\ol{\imath}}(t)$, and $h$ directly encode the action of the corresponding group elements in this basis (see \cite{GSV12,FM14} for related constructions).
   If $S = \{i_1,\dotsc,i_{|S|}\}$, then by a generalized Lindstr\"om-Gessel-Viennot argument the sum over collections of nonintersecting paths with $\partial_{in}P = \partial_{out}P = S$ computes the diagonal matrix coefficient by which $g$ rescales the basis element $e_{i_1} \wedge \cdots \wedge e_{i_{|S|}}$.
   Since this element has weight $\omega_S$, this matrix coefficient is $\Delta_{\omega_S}(g)$.
