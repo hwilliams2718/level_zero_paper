@@ -1555,10 +1555,10 @@ Definition~\ref{def:network} is motivated by the following observation:
   where the sum is over collections $P$ of pairwise disjoint paths in $\cN^{u,v}$ with $\partial_{in}P = \partial_{out}P = S$.
 \end{proposition}
 \begin{proof}
-  The representation $\big(\bigwedge^{|S|}\kk^n\big)[\loopvar^{\pm 1}]$ has a natural basis $\{ e_{j_1} \wedge \cdots \wedge e_{j_{|S|}} \loopvar^d\}$ labelled by pairs of an $|S|$-element subset of $\ZZ_n$ and an integer $d$.
+  The representation $\big(\bigwedge^{|S|}\kk^n\big)[\loopvar^{\pm 1}]$ has a natural basis $\{ e_{k_1} \wedge \cdots \wedge e_{k_{|S|}} \loopvar^d\}$ labelled by pairs of an $|S|$-element subset of $\ZZ_n$ and an integer $d$.
   The networks associated to $x_i(t)$, $x_{\ol{\imath}}(t)$, and $h$ directly encode the action of the corresponding group elements in this basis (see \cite{GSV12,FM14} for related constructions).
-  If $S = \{i_1,\dotsc,i_{|S|}\}$, then by a generalized Lindstr\"om-Gessel-Viennot argument the sum over collections of nonintersecting paths with $\partial_{in}P = \partial_{out}P = S$ computes the diagonal matrix coefficient by which $g$ rescales the basis element $e_{i_1} \wedge \cdots \wedge e_{i_{|S|}}$.
-  Since this element has weight $\omega_S$, this matrix coefficient is $\Delta_{\omega_S}(g)$.
+  If $S = \{k_1,\dotsc,k_{|S|}\}$, then by a generalized Lindstr\"om-Gessel-Viennot argument, the sum over collections of nonintersecting paths with $\partial_{in}P = \partial_{out}P = S$ computes the diagonal matrix coefficient by which $g$ rescales the basis element $e_{k_1} \wedge \cdots \wedge e_{k_{|S|}}$.
+  Since this element has weight $\omega_S$, this matrix coefficient is precisely $\Delta_{\omega_S}(g)$.
 \end{proof}
 
 \begin{example}
@@ -1924,7 +1924,7 @@ the latter following by reindexing vertices of $Q$ in the results of Lemma~\ref{
   \]
 
   Let $P \in \cP_{[k,\ell]}$.
-  Since $o_1<i_1$, we have $j+1\to j$ in $Q$ for each $j\in[k^-,k-1]$, where $k^-$ is the nearest sink less that $k$ (i.e. none of $[k^-+1,k]$ is a sink).
+  Since $o_1<i_1$, we have $j+1\to j$ in $Q$ for each $j\in[k^-,k-1]$, where $k^-$ is the nearest sink less that $k$ (i.e. no element of $[k^-+1,k]$ is a sink).
   But $[k^-,k-1]\cap\partial_{in}P=\emptyset$ and thus part (2) of Lemma~\ref{lem:phi} implies $j\notin\beta(P)$ for any $j\in[k^-,k-1]$.
   Similarly, $o_m<i_m$ gives $j\to j-1$ in $Q$ for each $j\in[\ell+1,\ell^+]$, where $\ell^+$ is the nearest source after $\ell$.
   Applying part (2) of Lemma~\ref{lem:phi} inductively beginning with the source $j=\ell^+$, we see that $j\notin\beta(P)$ for any $j\in[\ell+1,\ell^+]$.
@@ -1961,7 +1961,7 @@ the latter following by reindexing vertices of $Q$ in the results of Lemma~\ref{
       \]
       In either case, using our inductive assumption on $wt(P_{r-1})$ and the fact that $E$ is target-closed we have
       \[
-        wt(P'_r) = x^{\grep(\Qrep_{[k,\ell]})} \prod_{j \in E \cap [k,o_{r}-1]} \hat{y}_j
+        wt(P'_r) = x^{\grep(\Qrep_{[k,\ell]})} \prod_{j \in E \cap [k,o_{r}-1]} \hat{y}_j.
       \]
 
     \item
@@ -1985,7 +1985,7 @@ the latter following by reindexing vertices of $Q$ in the results of Lemma~\ref{
   \]
   as desired in (b).
   Finally, it is straightforward to see that if $\beta(P) = \beta(P')$ for some $P, P' \in \cP_{[k,\ell]}$, we must have $P = P'$.
-  In particular $\pi(\beta(P))=P$ for any $P\in\cP_{[k,\ell]}$, which shows (c) and completes the proof.
+  In particular, $\pi(\beta(P))=P$ for any $P\in\cP_{[k,\ell]}$, which shows (c) and completes the proof.
 \end{proof}
 \begin{example}
   We continue with Example~\ref{ex:minor_computation}, which concerns type $A_2^{(1)}$ with Coxeter element $c=s_2s_1s_3$.
