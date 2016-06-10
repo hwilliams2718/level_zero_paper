@@ -411,7 +411,7 @@ We call an exchange matrix acyclic if its principal part is acyclic.
 \begin{remark}
   Just as a skew-symmetric matrix $B$ can be encoded as a quiver $Q$, an extension $\widetilde{B}$ of $B$ can be encoded as a \newword{framed quiver} $\widetilde{Q}$.
   This means a quiver obtained from $Q$ by adjoining $m -  n$ \newword{frozen vertices}.
-  These have no arrows between them and the arrows connecting them to the orginal vertices are determined in the obvious way by the non-principal part of $\widetilde{B}$.
+  These have no arrows between them and the arrows connecting them to the original vertices are determined in the obvious way\sayDR{There are two possibilities here so maybe ``obvious way'' isn't good wording: positive entries could result in no arrows or in arrows pointing towards frozen vertices.  I think the latter is correct but I couldn't find a particularly clean way of saying it} by the non-principal part of $\widetilde{B}$.
   Given a framed quiver $\widetilde{Q}$, we simply write $\cA_{\widetilde{Q}}$ for the cluster algebra associated to its signed adjacency matrix $\widetilde{B}$ as above.
 \end{remark}
 
@@ -443,7 +443,7 @@ We call an exchange matrix acyclic if its principal part is acyclic.
 Yet another way of encoding an acyclic skew-symmetrizable matrix $B$ is a symmetrizable Cartan matrix $A$ (the \newword{Cartan companion} of $B$) together with a Coxeter element $c$ of its Weyl group.
 The Cartan matrix is obtained from $B$ by making all its entries negative without changing their absolute values, then setting each diagonal entry equal to two; see Figure~\ref{fig:matrices}.
 The Coxeter element is $c = s_{\sigma_1}\cdots s_{\sigma_n}$, where $\sigma$ is any permutation with $b_{\sigma_i \sigma_j} \geq 0$ when $i < j$ as above (choosing a different permutation with this property defines the same Coxeter element via a different reduced word).
-Conversely, any acyclic skew-symmetrizable matrix can be obtained from a Cartan matrix and a Coxeter element $c$ by designating signs for the off-diagonal entries of $B$ according to any reduced word of $c$.
+Conversely, a Cartan matrix together with a reduced word for a Coxeter element $c$ determines a skew-symmetrizable matrix $B$ by designating signs for the off-diagonal entries according to the reduced word for $c$.
 
 For acyclic cluster algebras we will be especially interested in the following sequence of vertices in $\TT$ and the cluster variables associated to them.
 Letting $t_0 \in \TT$ denote a fixed root vertex as before, we fix a permutation $\sigma$ as above and write $\{t_\Zidx\}_{\Zidx \in \ZZ} \subset \TT$ for the vertices along the unique path with edges labelled as follows:
@@ -467,32 +467,32 @@ Letting $t_0 \in \TT$ denote a fixed root vertex as before, we fix a permutation
   \cdots
   \label{eq:path}
 \end{equation}
-It is straightforward to check that this is a subpath in the \newword{acyclic belt} of $\TT$, the full subgraph whose vertices are those $t \in \TT$ for which $\widetilde{B}^t$ is acyclic.
+It is straightforward to check that this is a subpath in the \newword{acyclic belt} of $\TT$, the full subgraph whose set of vertices consists of those $t \in \TT$ for which $\widetilde{B}^t$ is acyclic.
 
-While the vertex $t_\ell$ associated to $\Zidx \in \ZZ$ depends in general on the choice of $\sigma$, the set
+While the vertex $t_\ell$ associated to $\Zidx \in \ZZ$ in general depends on the choice of $\sigma$, the set
 \begin{equation}
   \label{eq:cluster_variables_on_path}
   \{x_{i;t_\Zidx}: i \in [1,n], \Zidx \in \ZZ\}
 \end{equation}
 of cluster variables appearing along the above path does not.
-In fact, this is equal to the set of all cluster variables $x_{i;t}$ for which $\widetilde{B}^t$ is acyclic \cite[Corollary 4]{CK06} (while the proof is only written for the skew-symmetric case, the same argument can be applied in the skew-symmetrizable case).
+In fact, \eqref{eq:cluster_variables_on_path} is equal to the set of all cluster variables $x_{i;t}$ for which $\widetilde{B}^t$ is acyclic \cite[Corollary 4]{CK06} (while the proof is only written for the skew-symmetric case, the same argument can be applied in the skew-symmetrizable case).
 We will refer to the non-initial cluster variables $x_{i;t_\Zidx}$ with $\Zidx>0$ (resp. $\Zidx<0$) as \newword{preprojective} (resp. \newword{postinjective}), and to a cluster variable that does not appear along the path \eqref{eq:path} as \newword{regular}; this terminology is justified by Proposition~\ref{prop:ccvsacyclicbelt}.
 We note that when $n=2$ there are no regular cluster variables.
 
 For each $t \in\TT$ and $1 \leq i \leq n$ there is an auxiliary pair of integer vectors depending only on the principal part $B$: the \newword{$\bfc$-vector} $\cv_{i;t} \in \ZZ^n$ and the \newword{$\bfg$-vector} $\gv_{i;t} \in \ZZ^n$ \cite{FZ07}.
-We write $C_t^B$ and $G_t^B$ for the matrices whose $i$-th columns are $\cv_{i;t}$ and $\gv_{i;t}$, respectively.
+We write $C_B^t$ and $G_B^t$ for the matrices whose $i$-th columns are $\cv_{i;t}$ and $\gv_{i;t}$, respectively.
 To define these vectors, consider the exchange matrix $$\Bpr := \begin{bmatrix} B \\ Id_n \end{bmatrix},$$ which is said to have \newword{principal coefficients}.
-For $t\in\TT$, if $\Bpr^t$ is the exchange matrix obtained by iterated mutation from $\Bpr^{t_0}=\Bpr$, then $C_t^B$ is defined to be the bottom $n \times n$ submatrix of $\Bpr^t$.
+For $t\in\TT$, if $\Bpr^t$ is the exchange matrix obtained by iterated mutation from $\Bpr^{t_0}=\Bpr$, then $C_B^t$ is defined to be the bottom $n \times n$ submatrix of $\Bpr^t$.
 
 Given the matrix of $\bfc$-vectors at $t\in\TT$, we may define the matrix of $\bfg$-vectors at the same vertex $t$ by
 \begin{equation}
   \label{eq:g-vectors_from_c-vectors}
-  (G_t^B)^T = (C_t^{-B^T})^{-1},
+  (G_B^t)^T = (C^t_{-B^T})^{-1},
 \end{equation}
 where $B^T$ is the transpose of $B$.
 Note that this is not the standard definition, but the above characterization (due to \cite[Theorem 1.2]{NZ12} and the sign-coherence result of \cite{DWZ10,GHKK14}) is what we will use in Section~\ref{sec:acyclic_belt}.
 The basic role of $\bfg$-vectors is that they provide natural labels of cluster variables: if $\widetilde{B}$ is of full rank, then two cluster variables $x_{i;t}$ and $x_{j;t'}$ coincide in $\cA_{\widetilde B}$ if and only if $\gv_{i;t}$ and $\gv_{j;t'}$ coincide in $\ZZ^n$ \cite{DWZ10,GHKK14}.
-We will therefore often denote the cluster variable whose $\bfg$-vector is $\gv$ by $x_\gv$.
+We will therefore often denote the cluster variable with $\bfg$-vector $\gv$ by $x_\gv$.
 
 \begin{remark}
   \label{rem:cgrootsweights}
