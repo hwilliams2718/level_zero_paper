@@ -389,19 +389,19 @@ We call an exchange matrix acyclic if its principal part is acyclic.
       \coordinate (b) at (11,0);
       \coordinate (c) at (10,-1.3);
       \foreach \c in {a,b,c} {\fill (\c) circle (.06);}
-      \foreach \c/\d in {b/a,b/c,c/a} {\draw[thick,-stealth',shorten <=2mm,shorten >=2mm] (\c) to (\d);}
+      \foreach \c/\d in {a/b,c/b,c/a} {\draw[thick,-stealth',shorten <=2mm,shorten >=2mm] (\c) to (\d);}
       \node (alabel) at ($(a)+(-.3,.1)$) {1};
       \node (blabel) at ($(b)+(.3,.1)$) {2};
       \node (clabel) at ($(c)+(0,-.35)$) {3};
     \\
     };
     \node (Q) at (7.7,0) {$Q =$};
-    \node (m) at (0,0) {$B = \begin{bmatrix} 0 & 1 & 1 \\ -1 & 0 & -1 \\ -1 & 1 & 0 \end{bmatrix}$};
+    \node (m) at (0,0) {$B = \begin{bmatrix} 0 & -1 & 1 \\ 1 & 0 & 1 \\ -1 & -1 & 0 \end{bmatrix}$};
     \node (r) at (4.5,0) {$A = \begin{bmatrix} 2 & -1 & -1 \\ -1 & 2 & -1 \\ -1 & -1 & 2 \end{bmatrix}$};
   \end{tikzpicture}
   \caption{
     An acyclic skew-symmetric matrix $B$, its Cartan companion $A$, and the corresponding quiver $Q$.
-    The vertex labels of $Q$ correspond to the row/column labels of $B$ and $A$, and the Coxeter element associated to $B$ (equivalently, to $Q$) is $c = s_1 s_3 s_2$.
+    The vertex labels of $Q$ correspond to the row/column labels of $B$ and $A$, and the Coxeter element associated to $B$ (equivalently, to $Q$) is $c = s_2 s_1 s_3$.
   }
   \label{fig:matrices}
 \end{figure}
