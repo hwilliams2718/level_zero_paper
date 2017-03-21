@@ -19,7 +19,7 @@
 %\usepackage[margin=1in,marginparwidth=0.8in, marginparsep=0.1in]{geometry}
 %\renewcommand{\baselinestretch}{1.2} % changes page formatting
 \usepackage[pagebackref, bookmarks=true, bookmarksopen=true, bookmarksdepth=3,bookmarksopenlevel=2, colorlinks=true, linkcolor=blue, citecolor=blue, filecolor=blue, menucolor=blue, urlcolor=blue]{hyperref}
-%\usepackage{times} % changes font appearance
+\usepackage{newtxtext} % changes font appearance, replaces times
 \usepackage{stmaryrd}
 \usepackage{accents}
 \usepackage{bbm}
@@ -132,21 +132,20 @@ and
 
 Given a finite quiver $Q$ without oriented cycles, there is an associated group $G$: the Kac-Moody group whose Dynkin diagram is the underlying unoriented graph of $Q$.
 The representation theory of $Q$ is connected to $G$ in a range of ways; for example, one has the classical result of \citep{BGP73} that if $Q$ is of ADE type, its indecomposable representations are classified by the positive roots of $G$.
-In this paper we explore a new relationship, suggested by the results of \citep{YZ08} in finite type.
-Broadly speaking, we will be interested in the interplay between the following two trichotomies in the representation theories of $G$ and $Q$.
+The connection which motivates the present work is grounded in the following trichotomies in the representation theories of $G$ and $Q$.
 
 Recall that the representation theory of $G$ is largely centered around its (dual) categories of highest- and lowest-weight representations \citep{Kac90,Kum02}.
-These coincide exactly when $G$ is a semisimple algebraic group, in which case they include all representations of $G$ with finite-dimensional weight spaces.
-In general, $G$ has many other such representations, which are only well-understood when $G$ is of affine type \citep{Cha86,CP88}.
-In the affine case, an irreducible representation is highest-weight, lowest-weight, or neither if its level (the character by which $Z(G) \cong \kk^\times$ acts) is positive, negative, or zero respectively.
+These coincide exactly when $G$ is a semisimple algebraic group, in which case they include all irreducible weight representations of $G$. 
+In general, $G$ has many other such representations \citep{Kas94}, which are only well-understood when $G$ is of affine type \citep{Cha86,CP88}.
+In the affine case, an irreducible representation is highest-weight, lowest-weight, or neither if its level (the character by which $Z(G) \cong \kk^\times$ acts) is positive, negative, or zero, respectively.
 
-On the other hand, the representation theory of $Q$ is organized by the Auslander-Reiten translation $\tau: \rep Q \to \rep Q$ \citep{ASS06}.
-An indecomposable representation $M$ is projective if and only if $\tau(M) = 0$, and is injective if and only if $M$ is not of the form $\tau(N)$ for any $N$.
-With this in mind, one says $M$ is preprojective if $\tau^k(M)$ is projective for some $k\ge 0$, postinjective if it is of the form $\tau^k(I)$ for some injective $I$ and some $k\ge0$, and regular otherwise.
-Preprojective and postinjective representations coincide exactly when $Q$ is of ADE type, in which case there are no regular representations.
+On the other hand, the representation theory of $Q$ is organized by the Auslander-Reiten translation $\tau: \rep Q \to \rep Q$ \citep{ASS06}. 
+A representation $M$ is said to be preprojective if $\tau^k(M)$ is projective for some $k\ge 0$, postinjective if it is of the form $\tau^k(I)$ for some injective $I$ and some $k\ge0$, and regular otherwise.
+Preprojective and postinjective representations coincide exactly when $Q$ is of ADE type, in which case there are no regular representations. When $Q$ does have regular representations, the tame-wild dichotomy implies that they are essentially unclassifiable unless $Q$ is of affine type, in which case they can be explicitly described.
 
-We connect these two classifications by passing through the cluster algebra $\cA_Q$ \citep{FZ02}.
-This is an algebra equipped with a (partial) canonical basis whose elements are called cluster variables.
+Our goal here is to propose and partially demonstrate a way in which the parallel nature of these classifications reflects finer structural relationships between individual representations of $Q$ and $G$. Specifically, we identify certain generating functions attached to representations of $Q$ with a priori unrelated functions attached to representations of $G$, in such a way that the resulting association between representations of $Q$ and $G$ intertwines the above classifications.
+
+This relationship is naturally couched in the language of cluster algebras, commutative rings equipped with a (partial) canonical basis whose elements are called cluster variables \citep{FZ02}.
 From the perspective of $G$, the orientation $Q$ of its Dynkin diagram is equivalent to a choice of Coxeter element $c$ in its Weyl group; the cluster algebra $\cA_Q$ (with suitable coefficients) is the coordinate ring of the double Bruhat cell
 \[
   G^{c,c^{-1}} := B_+ c B_+ \cap B_- c^{-1} B_- \subset G,
@@ -189,11 +188,11 @@ However, these identities depend crucially on the fact that all minors involved 
 The minors arising from level zero representations do not have this property and so the relations that determine them cannot be deduced from such identities.
 
 Instead, we study level zero minors on $\widetilde{LSL}_n$ by direct combinatorial means.
-The relevant representations are of the form $\big(\!\bigwedge^{\!k}\kk^n\big)[\loopvar^{\pm 1}]$ and thus inherit natural bases from the standard basis of $\kk^n$.
+We may take the relevant representations to be of the form $\big(\!\bigwedge^{\!k}\kk^n\big)[\loopvar^{\pm 1}]$, hence they inherit natural bases from the standard basis of $\kk^n$.
 These bases let us compute the restrictions to $G^{c,c^{-1}}$ of the level zero minors appearing in (2) as weighted sums over collections of pairwise disjoint paths through a directed network on the cylinder, following similar constructions in \citep{GSV12,FM14}.
 When $Q$ is an acyclic orientation of an $n$-cycle, its regular representations likewise have a simple combinatorial description, and one can construct by hand a bijection between their subrepresentations and collections of paths in the relevant network.
 
-A fundamental aspect of Theorem~\ref{thm:maintheorem} is that the labeling of cluster variables by $\bfg$-vectors corresponds directly to the labeling of minors by their associated weight.
+A fundamental aspect of Theorem~\ref{thm:maintheorem} is that the labeling of cluster variables by $\bfg$-vectors \citep{FZ07} corresponds directly to the labeling of minors by their associated weight.
 The $\bfg$-vector of a cluster variable is an element of $\ZZ^{|Q_0|}$, and distinct cluster variables have distinct $\bfg$-vectors.
 In terms of the quiver representation associated to a cluster variable, the $\bfg$-vector records the modules appearing in a minimal injective copresentation.
 For acyclic $Q$, we identify the $\bfg$-vector lattice $\ZZ^{|Q_0|}$ with the weight lattice of $G$ by taking the initial $\bfg$-vectors to the fundamental weights.
@@ -213,8 +212,8 @@ In addition to verifying the conjecture for all Coxeter elements when $G$ is of 
 In any affine type, the regular cluster variables are finite in number and can be explicitly computed.
 In forthcoming work of the second author compelling evidence is given that their $\bfg$-vectors correspond to weights in the complement of the Tits cone and its negative \citep{RS16}.
 In particular, it follows that if these cluster variables are restrictions of minors, they must come from explicitly identifiable level zero representations.
-The types checked in Section~\ref{sec:othertypes} are essentially the ones where knowing only the characters of these representations is sufficient to compute the relevant minors on $G^{c,c^{-1}}$ and compare them with the corresponding cluster variables.
-Beyond finite and affine types, general weight representations of $G$ are not well-understood and the conjecture is much more speculative (though we note a suggestive formal calculation in Remark~\ref{rmk:nonaffinehomelt}).
+The types checked in Section~\ref{sec:othertypes} are essentially the ones where the relevant minors on $G^{c,c^{-1}}$ can be computed directly from the characters of these representations and compared with the corresponding cluster variables. 
+Beyond finite and affine types, general weight representations of $G$ are not well-understood and the conjecture is much more speculative (though we verify a related result for all rank 2 Kac-Moody groups in Theorem~\ref{thm:homogeneous}).
 
 Finally, in type $A_{n}^{\!(1)}$ we also prove the following extension of Theorem~\ref{thm:maintheorem}.
 There is a one-parameter family of quiver representations whose dimension vector is the primitive imaginary root.
@@ -275,13 +274,14 @@ Similarly, for each $\lambda \in -\widehat{P}^+$ there is an irreducible lowest-
 For any $w\in W$ and $\lambda\in\pm\widehat{P}^+$, the weight space $V(\lambda)_{w\lambda}$ is one-dimensional and thus we also write $V(w\lambda)$ for the representation $V(\lambda)$.
 The \newword{Tits cone} $$X = \{w\lambda : w \in W, \lambda \in \widehat{P}^+\}$$ is the set of weights which can be obtained from a dominant weight by the action of the Weyl group.
 Thus each weight $\lambda\in X \cup -X$ determines an irreducible (highest- or lowest-) weight representation $V(\lambda)$ of $\widehat{G}$ whose weight space $V(\lambda)_\lambda$ is one-dimensional.
-Note that highest- and lowest-weight representations are distinct classes unless $A$ is of finite-type.
 
-When $A$ is of (untwisted) affine type, identifying $G$ with a central extension of $LG^\circ$ fixes a splitting $P \cong P^\circ \oplus \ZZ \kappa$, where $P^\circ$ is the weight lattice of the underlying semisimple group $G^\circ$ and $\kk \kappa = \Hom( Z(G),\kk^\times)$.
+More generally, when $\lambda$ is not necessarily in $X \cup -X$ we can consider representations $V$ of $\widehat{G}$ for which $\lambda$ is extremal; that is, $V_\lambda$ and all of its Weyl group conjugates are highest- or lowest-weight spaces for each coroot subgroup $\varphi_i(SL_2)$. For arbitrary $\lambda$ an example of such a representation is contructed in \citep{Kas94}, but only in affine types are a classification and explicit realization available \citep{Cha86,CP88}.
+
+Specifically, when $A$ is of (untwisted) affine type an identification of $G$ with a central extension of $LG^\circ$ fixes a splitting $P \cong P^\circ \oplus \ZZ \kappa$, where $P^\circ$ is the weight lattice of the underlying semisimple group $G^\circ$ and $\kk \kappa = \Hom( Z(G),\kk^\times)$.
 Above this we have the splitting $\widehat{P} \cong P \oplus \ZZ \delta$, where $\delta$ is a character of the $\kk^\times$ acting by loop rotations.
 A weight $\lambda \in \widehat{P}$ is in the complement of $X \cup -X$ if and only if it lies in $P^\circ \oplus \ZZ \delta$.
 Following the above notation, for $\lambda^\circ\in P^\circ$ we have an irreducible $G^\circ$-representation $V(\lambda^\circ)$ whose highest weight is conjugate to $\lambda^\circ$ under the Weyl group of $G^\circ$.
-With this in hand we extend our association of an irreducible $\widehat{G}$-representation $V(\lambda)$ to all $\lambda \in \widehat{P}$: when $\lambda=\lambda^\circ+r\delta\in \widehat{P} \smallsetminus(X \cup -X)$ we set $V(\lambda) := V(\lambda^\circ)[\loopvar^{\pm 1}]$, the space of algebraic loops in $V(\lambda^\circ)$.
+With this in mind when $G$ is affine and $\lambda=\lambda^\circ+r\delta\in \widehat{P} \smallsetminus(X \cup -X)$ we set $V(\lambda) := V(\lambda^\circ)[\loopvar^{\pm 1}]$, the space of algebraic loops in $V(\lambda^\circ)$.
 
 The \newword{level} of an irreducible $\widehat{G}$-representation is the character by which $Z(G) = Z(\widehat{G}) \cong \kk^\times$ acts; the level of $V(\lambda)$ is positive if $\lambda \in X$, negative if $\lambda \in -X$, and zero if $\lambda \in \widehat{P} \smallsetminus(X \cup -X)$.
 
@@ -2137,9 +2137,7 @@ The cluster character of $\Qrep_\eta$ is independent of $\eta$, and we refer to 
   The proof now proceeds exactly like that of Theorem~\ref{th:cluster character equals minor}, and we omit the details.
 \end{proof}
 
-\begin{remark}
-\label{rmk:nonaffinehomelt}
-  Theorem~\ref{thm:homogeneous} has an analogue for an arbitrary symmetric Kac-Moody group of rank two, at least formally.
+  Theorem~\ref{thm:homogeneous} has an analogue for an arbitrary symmetric Kac-Moody group of rank two.
   Let $Q$ be the $r$-Kronecker quiver: it has two vertices, and $r$ arrows from vertex 2 to vertex 1.
   Note that all non-initial cluster variables of $\cA_{\Qdp}$ are either preprojective or postinjective.
   However, it contains a homogeneous element $x_M$, where $M$ is any representation with $M_1$ and $M_2$ one-dimensional and at least one arrow acting by an isomorphism.
@@ -2149,19 +2147,23 @@ The cluster character of $\Qrep_\eta$ is independent of $\eta$, and we refer to 
   \]
   One may easily check that such an element is contained in the generic basis of \citep{Dup12}, in the triangular basis of \citep{BZ14}, and the greedy/theta basis of \citep{LLZ14,GHKK14,CGMMRSW15}.
 
-  On the other hand, we have $\cA_{\Qdp} \cong \kk[G^{c,c^{-1}}]$, where $G$ is the Kac-Moody group with Cartan matrix
+  We have $\cA_{\Qdp} \cong \kk[G^{c,c^{-1}}]$, where $G$ is the Kac-Moody group with Cartan matrix
   \[
     A = \begin{bmatrix} 2 & -r \\ -r & 2 \end{bmatrix}
   \]
   and $c = s_1 s_2$.
-  Let us formally compute the minor of weight $\grep(\Qrep) = (r-1) \omega_2 - \omega_1$, restricted to $G^{c,c^{-1}}$.
-  That is, we suppose there exists a representation $V$ of $G$ having a one-dimensional extremal weight space of weight $\grep(\Qrep)$ (i.e. this weight space is either highest- or lowest-weight for every coroot subgroups of $G$).
-  The value of $\Delta_{(V,\,\grep(M))}$ on a generic element
-  \[
-    g = x_{\ol{1}}(t_{\ol{1}}) x_{\ol{2}}(t_{\ol{2}})hx_2(t_2)x_1(t_1)
-  \]
-  can be computed along the same lines as the proof of Proposition~\ref{prop:conjholds}, without knowing any further information about $V$.
+  Recall that for any weight $\lambda$ of $G$, there is a nonempty set of isomorphism classes of irreducible $G$-representations for which $\lambda$ is extremal \citep{Kas94}.
 
+  \begin{theorem}
+  \label{thm:rank2homogeneous}
+  Let $V$ be a $G$-representation for which $\grep(\Qrep) = (r-1) \omega_2 - \omega_1$ is extremal. Then in $\cA_{\Qdp} \cong \kk[G^{c,c^{-1}}]$ the homogeneous element $x_{\Qrep}$ is the restriction of the  minor $\Delta_{(V,\,\grep(\Qrep))}$.
+  \end{theorem}
+
+  \begin{proof}
+  As usual, we factor a generic element of $G^{c,c^{-1}}$ as 
+  \[
+    g = x_{\ol{1}}(t_{\ol{1}}) x_{\ol{2}}(t_{\ol{2}})hx_2(t_2)x_1(t_1).
+  \]
   By hypothesis, any $v \in V_{\grep(\Qrep)}$ is a lowest-weight vector for the coroot subgroup $\varphi_1(SL_2) \subset G$.
   Denoting the positive Chevalley generators of the Lie algebra of $G$ by $e_1$, $e_2$, we thus have
   \[
@@ -2182,9 +2184,7 @@ The cluster character of $\Qrep_\eta$ is independent of $\eta$, and we refer to 
   \]
   By definition this is $\Delta_{(V,\,\grep(M))}(g)v$.
   On the other hand, using Lemma~\ref{lemma:coefficients_values} and the definition of $\hat{y}_1$, $\hat{y}_2$ one can check that it is also equal to the value of $x_M$ on $g$, hence $x_M$ is equal to the restriction of $\Delta_{(V,\,\grep(M))}$.
-
-  Unfortunately, when $G$ is not of affine type we do not know how to explicitly construct such a representation $V$.
-\end{remark}
+  \end{proof}
 
 \section*{Funding}
 D.R. is partially supported by an AMS-Simons Travel Grant.
