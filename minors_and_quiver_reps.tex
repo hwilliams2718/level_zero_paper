@@ -138,7 +138,7 @@ The varieties $G^{c,c^{-1}}$ generalize the space of tridiagonal matrices with d
 
 From the perspective of $Q$, $\cA_Q$ is a repository for information about the submodule structure of representations of $Q$.
 After embedding $\cA_Q$ into the ring of Laurent polynomials in the initial cluster variables, the remaining cluster variables are in bijection with the rigid indecomposable representations of $Q$ \cite{CC06,CK06}.
-This correspondence takes a representation $\Qrep$ to a generating function of the Euler characteristics of its varieties of submodules; the resulting expression is called the cluster character of $\Qrep$.
+This correspondence takes a representation $\Qrep$ to a generating function of the Euler characteristics of its varieties of submodules; the resulting expression is called the cluster character of $\Qrep$ \cite{Pal12}.
 With this in mind we refer to a (non-initial) cluster variable as preprojective, postinjective, or regular according to the classification of its associated representation.
 In summary, given the description of $\cA_Q$ in terms of $G$, representations of $Q$ naturally label functions on the subvariety $G^{c,c^{-1}}$ of $G$.
 
@@ -158,12 +158,18 @@ Our main result is that cluster variables are also realized as generalized minor
     \item
       Suppose $Q$ is an acyclic orientation of an $n$-cycle, so that $G$ is the universal central extension $\widetilde{LSL}_n$ of the loop group of $SL_n$.
       Then the regular cluster variables in $\cA_{\Qdp}\cong \kk[\widetilde{LSL}_n^{c,c^{-1}}]$ are restrictions of generalized minors of level zero representations.
-  \end{enumerate}
+      \end{enumerate}
+Moreover, in all cases the natural identification of the $\bfg$-vector lattice of $Q$ with the weight lattice of $G$ takes the $\bfg$-vector of a cluster variable to the weight of the corresponding minor.
 \end{theorem}
 
 Though above we have taken $G$ to be of symmetric type for simplicity, part (1) also holds in the symmetrizable case upon generalizing from representations of quivers to representations of valued quivers or species.
 We emphasize that although the coordinate ring of any double Bruhat cell $G^{u,v}$ is an (upper) cluster algebra, its defining quiver is generally not an orientation of the Dynkin diagram of $G$.
 More to the point, in this generality one expects that most cluster variables do not admit an elementary Lie-theoretic description, e.g. as restrictions of minors.
+
+The $\bfg$-vector of a cluster variable \cite{FZ07} is an element of $\ZZ^{|Q_0|}$, referred to as the $\bfg$-vector lattice in this context, which uniquely labels it among all cluster variables. 
+In terms of the quiver representation associated to a cluster variable, the $\bfg$-vector records the modules appearing in a minimal injective copresentation.
+For acyclic $Q$, we identify $\ZZ^{|Q_0|}$ with the weight lattice of $G$ by taking the initial $\bfg$-vectors to the fundamental weights.
+The last part of the Theorem then asserts that this identifies the $\bfg$-vector of any cluster variable with the weight of the associated minor (in finite type this is a result of \cite{YZ08}).
 
 While the proof of (1) is mostly a straightforward generalization of the finite-type case, the proof of (2) demands different methods.
 The reason (1) is true is that the preprojective and postinjective cluster variables are determined by an explicit list of relations, and these are implied by certain generalized determinantal identities that hold globally on $G$.
@@ -175,13 +181,6 @@ We may take the relevant representations to be of the form $\big(\!\bigwedge^{\!
 These bases let us compute the restrictions to $G^{c,c^{-1}}$ of the level zero minors appearing in (2) as weighted sums over collections of pairwise disjoint paths through a directed network on the cylinder, following similar constructions in \cite{GSV12,FM14}.
 When $Q$ is an acyclic orientation of an $n$-cycle, its regular representations likewise have a simple combinatorial description, and one can construct by hand a bijection between their subrepresentations and collections of paths in the relevant network.
 
-A fundamental aspect of Theorem~\ref{thm:maintheorem} is that the labeling of cluster variables by $\bfg$-vectors \cite{FZ07} corresponds directly to the labeling of minors by their associated weight.
-The $\bfg$-vector of a cluster variable is an element of $\ZZ^{|Q_0|}$, and distinct cluster variables have distinct $\bfg$-vectors.
-In terms of the quiver representation associated to a cluster variable, the $\bfg$-vector records the modules appearing in a minimal injective copresentation.
-For acyclic $Q$, we identify the $\bfg$-vector lattice $\ZZ^{|Q_0|}$ with the weight lattice of $G$ by taking the initial $\bfg$-vectors to the fundamental weights.
-We show this identifies the $\bfg$-vector of any cluster variable appearing in Theorem~\ref{thm:maintheorem} with the weight of the associated minor (in finite type this is a result of \cite{YZ08}).
-In particular, given a regular cluster variable the $\bfg$-vector/weight correspondence provides an ansatz for which minor one should expect that variable to coincide with; this ansatz is implicitly used in the proof of (2).
-
 A deficiency of proving (2) by analyzing each regular cluster variable directly is that we do not know how to interpret the exchange relations relating them to the other cluster variables in terms of the representation theory of $\widetilde{LSL}_n$.
 It would be desirable to find such an interpretation, which could also provide an avenue for approaching more general Kac-Moody groups:
 
@@ -192,8 +191,8 @@ It would be desirable to find such an interpretation, which could also provide a
 \end{conjecture}
 
 In addition to verifying the conjecture for all Coxeter elements when $G$ is of type $A_n^{(1)}$, we check a finite list of other affine types, see Section~\ref{sec:othertypes}.
-In any affine type, the regular cluster variables are finite in number and can be explicitly computed.
-In forthcoming work of the second author compelling evidence is given that their $\bfg$-vectors correspond to weights in the complement of the Tits cone and its negative \cite{RS16}.
+In any affine type, the regular cluster variables are finite in number and can be explicitly computed. 
+In work of the second author it is shown that their $\bfg$-vectors correspond to weights in the complement of the Tits cone and its negative \cite{RS16}.
 In particular, it follows that if these cluster variables are restrictions of minors, they must come from explicitly identifiable level zero representations.
 The types checked in Section~\ref{sec:othertypes} are essentially the ones where the relevant minors on $G^{c,c^{-1}}$ can be computed directly from the characters of these representations and compared with the corresponding cluster variables. 
 Beyond finite and affine types, general weight representations of $G$ are not well-understood and the conjecture is much more speculative (though we verify a related result for all rank 2 Kac-Moody groups in Theorem~\ref{thm:homogeneous}).
