@@ -1298,6 +1298,7 @@ By a directed network on a surface we will mean an embedded directed graph whose
 As in Section~\ref{sec:rigidregular} we fix a cyclic $\ZZ_n$-labeling of the vertices of the $A_{n-1}^{\!(1)}$ Dynkin diagram, chosen so that $0 \equiv n$ is the label of the affine root $\delta - \theta$.
 
 \begin{figure}
+	\centering
   \label{fig:network}
   \begin{tikzpicture}
     \node[below] at (0,-2) {$x_{\ol{\imath}}(t)$};
@@ -1454,6 +1455,7 @@ As in Section~\ref{sec:rigidregular} we fix a cyclic $\ZZ_n$-labeling of the ver
 \end{definition}
 
 \begin{figure}
+	\centering
   \begin{tikzpicture}
     % drawing parameters
     \pgfmathsetmacro{\ehgt}{2} % vertical radius of ellipse
@@ -1832,7 +1834,7 @@ Given a collection $P$ of disjoint paths, define its \newword{bridge set} $\beta
 \end{proof}
 
 \begin{figure}
-  \begin{center}
+	\centering
   \begin{tikzpicture}
     \node[below] at (0,-2) {$j+1\to j$};
     \draw[singlearrow,draw] (1.5,1) -- (0.5,1);
@@ -1878,7 +1880,6 @@ Given a collection $P$ of disjoint paths, define its \newword{bridge set} $\beta
     \draw (0.5,-0.5) circle (5pt);
     \draw[thick,->] (-0.38,0.38) -- (0.38,-0.38);
   \end{tikzpicture}
-  \end{center}
   \caption{The local picture relating the network $\cN^{c,c^{-1}}$ to the orientation of the arrow of $Q$ connecting vertices $j$ and $j+1$, where we draw the vertices on top of the corresponding bridges in $\cN^{c,c^{-1}}$}
   \label{fig:quivernetwork}
 \end{figure}
