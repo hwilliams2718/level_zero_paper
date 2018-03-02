@@ -140,13 +140,13 @@ In general, $G$ has many other such representations \citep{Kas94}, which are onl
 In the affine case, an irreducible representation is highest-weight, lowest-weight, or neither if its level (the character by which $Z(G) \cong \kk^\times$ acts) is positive, negative, or zero, respectively.
 
 On the other hand, the representation theory of $Q$ is organized by the Auslander-Reiten translation $\tau: \rep Q \to \rep Q$ \citep{ASS06}. 
-A representation $M$ is said to be preprojective if $\tau^k(M)$ is projective for some $k\ge 0$, postinjective if it is of the form $\tau^k(I)$ for some injective $I$ and some $k\ge0$, and regular otherwise.
+An indecomposable representation $M$ is said to be preprojective if $\tau^k(M)$ is projective for some $k\ge 0$, postinjective if it is of the form $\tau^k(I)$ for some injective $I$ and some $k\ge0$, and regular otherwise.
 Preprojective and postinjective representations coincide exactly when $Q$ is of ADE type, in which case there are no regular representations. When $Q$ does have regular representations, the tame-wild dichotomy implies that they are essentially unclassifiable unless $Q$ is of affine type, in which case they can be explicitly described.
 
 Our goal here is to propose and partially demonstrate a way in which the parallel nature of these classifications reflects finer structural relationships between individual representations of $Q$ and $G$. Specifically, we identify certain generating functions attached to representations of $Q$ with a priori unrelated functions attached to representations of $G$, in such a way that the resulting association between representations of $Q$ and $G$ intertwines the above classifications.
 
-This relationship is naturally couched in the language of cluster algebras, commutative rings equipped with a (partial) canonical basis whose elements are called cluster variables \citep{FZ02}.
-From the perspective of $G$, the orientation $Q$ of its Dynkin diagram is equivalent to a choice of Coxeter element $c$ in its Weyl group; the cluster algebra $\cA_Q$ (with suitable coefficients) is the coordinate ring of the double Bruhat cell
+This relationship is naturally couched in the language of cluster algebras, commutative rings equipped with a distinguished set of linearly independent elements calles cluster variables \citep{FZ02}.
+From the perspective of $G$, the orientation $Q$ of its Dynkin diagram is equivalent to a choice of Coxeter element $c$, a product of all the simple reflections in some order, in the associated Weyl group; the cluster algebra $\cA_Q$ (with suitable coefficients) is the coordinate ring of the double Bruhat cell
 \[
   G^{c,c^{-1}} := B_+ c B_+ \cap B_- c^{-1} B_- \subset G,
 \]
@@ -301,6 +301,14 @@ The \newword{level} of an irreducible $\widehat{G}$-representation is the charac
 In other words, if we use a weight basis of $V$ to write the action of $g$ as a matrix, $\Delta_{(V,\lambda)}(g)$ is the diagonal entry corresponding to $V_\lambda$.
 Similarly, $\Delta^{u\lambda}_{v\lambda}(g)$ is the matrix entry whose row corresponds to $V_{v\lambda}$ and whose column corresponds to $V_{u\lambda}$ (up to an overall scalar fixed by the chosen representatives of $u$, $v \in G$).
 While we have apparently given two definitions of $\Delta^{u\lambda}_{v\lambda}$ in finite type (depending on whether we regard $u\lambda$ and $v\lambda$ as conjugate to a dominant or anti-dominant weight), the reader may check that these definitions agree in this case.
+
+\begin{example}
+  To illustrate the previous definition and to justify the terminology consider the case $\widehat{G}=SL_{n+1}$.
+  The defining representation of $SL_{n+1}$ is the fundamental representation $V(\omega_1)$ and it decomposes into $n+1$ weight spaces~$V_{\lambda_i}$ for $\lambda_i:=-\omega_{i-1}+\omega_{i}$ (here we use the convention that $\omega_0=\omega_{n+1}=0$).
+  Then the value of the generalized minor $\Delta_{(V(\omega_1),\lambda_i)}$ on the matrix $g\in SL_{n+1}$ equals its $i$-th diagonal entry.
+
+  Similarly, since $V(\omega_k)=\bigwedge^kV(\omega_1)$, for any subset $I$ of $k$ elements in $[i,n+1]$ the value of the generalized minor~$\Delta_{(V(\omega_k),\sum_{i\in I}\lambda_i)}$ on $g$ is its $k\times k$ principal minor on the rows and colmns indexed by $I$.
+\end{example}
 
 \begin{remark}
   When $\widehat{G}$ is of (untwisted) affine type, the representations $V(\lambda)$ with $\lambda \in \widehat{P}\smallsetminus(X \cup - X)$ are not the only irreducible level zero weight representations.
@@ -499,9 +507,9 @@ Given a representation $M\in\rep_\kk(Q)$ and a projective presentation $0\to P_1
 \end{equation}
 where $D=\Hom(-,\kk)$ is the standard $\kk$-linear duality functor.
 
-The \newword{AR translation} $\tau$ plays a key role in the representation theory of $Q$: a representation $P$ is projective if and only if $\tau(P)=0$ while a representation $I$ is injective if and only if it is not of the form $\tau(M)$ for any $M$.
-Call a representation $M$ \newword{preprojective} if $\tau^k(M)$ is projective for some $k\ge0$, \newword{postinjective} if there is an injective representation $I$ so that $M=\tau^k(I)$ for some $k\ge0$, and \newword{regular} otherwise.
-When $Q$ is an orientation of a simply-laced finite-type Dynkin diagram, the injective representations are preprojective (hence projective representations are postinjective) and there are no regular representations.
+The \newword{AR translation} $\tau$ plays a key role in the representation theory of $Q$: an indecomposable representation $P$ is projective if and only if $\tau(P)=0$ while an indecomposable representation $I$ is injective if and only if it is not of the form $\tau(M)$ for any $M$.
+Call an indecomposable representation $M$ \newword{preprojective} if $\tau^k(M)$ is projective for some $k\ge0$, \newword{postinjective} if there is an injective representation $I$ so that $M=\tau^k(I)$ for some $k\ge0$, and \newword{regular} otherwise.
+When $Q$ is an orientation of a simply-laced finite-type Dynkin diagram, the indecomposable injective representations are preprojective (hence projective representations are postinjective) and there are no regular indecomposable representations.
 
 We write $\KQ$ for the \newword{Grothendieck group} of $\rep_\kk(Q)$; it is the abelian group freely generated by the classes $[S_i]$ of the vertex-simple representations of $Q$.
 For $M\in\rep_\kk(Q)$ we call $[M]\in\KQ$ its \newword{dimension vector}, as $[\Qrep] = \sum_i \dim(M_i)[S_i]$.
@@ -550,7 +558,7 @@ If $\widetilde{B}=(b_{ij})$ is the exchange matrix associated to $\widetilde{Q}$
 \begin{theorem}
   \label{thm:CCbijection}
   \citep{CC06,CK06}
-  Suppose that $\widetilde{Q}$ has no arrows whose source is a frozen vertex (equivalently, the non-principal part of $\widetilde{B}$ has only positive entries).
+  Suppose that $\widetilde{Q}$ has no arrows whose source is a frozen vertex (equivalently, the non-principal part of $\widetilde{B}$ has only non-negative entries).
   Then the assignment $M \mapsto x_M$ defines a bijection between the set of rigid indecomposable representations of $Q$ and the set of non-initial cluster variables in $\cA_{\widetilde{Q}}$.
   Moreover, the $\bfg$-vector of the cluster variable $x_M$ is equal to $\grep(M)$.
 \end{theorem}
