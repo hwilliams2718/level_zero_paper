@@ -162,6 +162,7 @@ In summary, given the description of $\cA_Q$ in terms of $G$, representations of
 When $Q$ is of ADE type and $G$ a simple algebraic group, Yang and Zelevinsky \citep{YZ08} showed that these functions have a natural interpretation in terms of the representation theory of $G$: they are restrictions of generalized minors of $G$ to $G^{c,c^{-1}}$.
 These are functions $\Delta_{(V,\lambda)} \in \kk[G]$ labelled by a representation $V$ and a weight $\lambda$ for which the weight space $V_\lambda$ is one-dimensional.
 The value of $\Delta_{(V,\lambda)}$ on $g \in G$ is the ratio of any nonzero $v \in V_\lambda$ with the projection of $gv \in V$ to $V_\lambda$.
+Generalized minors are known to play key roles in the theories of total positivity and canonical bases: they take positive values on the totally positive part of a simple algebraic group \cite{Lus94, BZ01} and include the most basic elements of the dual canonical or upper global bases of Lusztig and Kashiwara.
 
 Our main result is that cluster variables are also realized as generalized minors on $G^{c,c^{-1}}$ when $Q$ is not necessarily of finite type, and moreover that the resulting correspondence between quiver representations and group representations intertwines the triadic classifications described above.
 
@@ -1204,7 +1205,7 @@ and all arrows acting by invertible maps except possibly the arrow between $k-1$
   Every such representation is isomorphic to one of this form.
 \end{proposition}
 \begin{proof}\mbox{}
-  We first recall the structure of the full subcategory $\cR\subset\rep_\kk(Q)$ of regular representations \citep[Chapter 12, Section 2]{ASS06}.
+  We first recall the structure of the full subcategory $\cR\subset\rep_\kk(Q)$ of regular representations \citep[Chapter 12, Section 2]{SS07}.
   Say an arrow $a$ of $Q$ is \newword{clockwise} if $s(a) = t(a) - 1$ and \newword{counterclockwise} if $s(a) = t(a) + 1$.
   Let $p$ and $q$ be the numbers of clockwise and counterclockwise arrows, respectively.
   Then we have a decomposition $$\cR \cong \cR_{nil}^p \oplus \cR_{nil}^q \oplus \cR_{inv},$$ where $\cR_{nil}^p$ (resp. $\cR_{nil}^q$) is equivalent to the category of nilpotent representations of an oriented $p$-cycle (resp. $q$-cycle), and $\cR_{inv}$ is equivalent to the category of invertible representations of the Jordan quiver (this is the quiver with a single vertex and a single arrow from that vertex to itself, and an invertible representation is one for which this arrow acts by an invertible linear map).
@@ -2041,7 +2042,10 @@ The results are consistent with Conjecture~\ref{conj:affine}:
 \end{proposition}
 \begin{proof}
   We illustrate the needed computation in the case of a sample regular cluster variable in type $C_{2}^{(1)}$.
-  The full proposition amounts to an assertion about several dozen such calculations, which can be efficiently checked by a computer.
+  The full proposition amounts to an assertion about several dozen such calculations: in each type and for each Coxeter element there are finitely many regular cluster variables to consider.
+  Following the template below, these can efficiently be checked by computer.
+  The key point is that in these cases the representations are all minuscule or quasi-minuscule.
+  In particular, in each of them, all the extremal weight spaces are conjugate and no nontrivial information about the representation is required to carry out the calculation of the relevant minor.
 
   Consider the exchange matrix and Cartan companion
   \[
